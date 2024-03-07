@@ -1,5 +1,8 @@
 # tq - json 🔀 tessitura 
 
+![go workflow](https://github.com/skysyzygy/tq/actions/workflows/go.yml/badge.svg)
+
+
 Wrapper around the Tessitura API that reads JSON and outputs a series of API calls to Tessitura. Internally handles authentication, session creation and closure, and batch/concurrent processing so that endpoints can focus on the data and not the intricacies of the API. 
 
 tq is basically a high-level API for common tasks in Tessi...
