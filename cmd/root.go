@@ -29,24 +29,22 @@ import (
 	"github.com/spf13/viper"
 )
 
-var cfgFile, jsonFile string
-var verbose, dryRun bool
+var (
+	cfgFile, jsonFile string
+	verbose, dryRun   bool
+)
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "tq",
 	Short: "A toolkit for Tessitura",
-	Long: 
-`tq is a wrapper around the Tessitura API that reads JSON-
-formatted data and outputs a series of API calls to Tessitura. 
-It internally handles authentication, session creation and 
-closure, and batch/concurrent processing so that humans like 
-you can focus on the data and not the intricacies of the API.
+	Long: helpParagraph("tq is a wrapper around the Tessitura API that reads " +
+		"JSON-formatted data and outputs a series of API calls to Tessitura. " +
+		"It internally handles authentication, session creation and " +
+		"closure, and batch/concurrent processing so that humans like " +
+		"you can focus on the data and not the intricacies of the API.\n\n" +
+		"tq is basically a high-level 	API for common tasks in Tessi. "),
 
-tq is basically a high-level API for common tasks in Tessi.
-	
-Tlön, Uqbar, Orbis Tertius
-==========================`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
@@ -68,7 +66,7 @@ func init() {
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
 
-	rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "", "config file (default is $HOME/.tq.yaml)")
+	//rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "", "config file (default is $HOME/.tq.yaml)")
 	rootCmd.PersistentFlags().StringVarP(&jsonFile, "file", "f", "", "JSON file to read (default is to read from stdin)")
 
 	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "turns on additional diagnostic output")

@@ -1,6 +1,5 @@
 /*
 Copyright © 2024 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
@@ -12,22 +11,21 @@ import (
 
 // authenticateCmd represents the authenticate command
 var authenticateCmd = &cobra.Command{
-	Use:   "authenticate",
-	Aliases: []string{"a","au","aut","auth"},
-	Short: "Authenticate with the Tessitura API",
-	Long: `A longer description that spans multiple lines and likely contains examples
+	Use:     "authenticate",
+	Aliases: []string{"a", "au", "aut", "auth"},
+	Short:   "Authenticate with the Tessitura API",
+	Long: helpParagraph(`A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
 
 Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+to quickly create a Cobra application.`),
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("authenticate called")
 	},
 }
 
 func init() {
-	
 
 	rootCmd.AddCommand(authenticateCmd)
 
