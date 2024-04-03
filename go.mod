@@ -2,7 +2,7 @@ module github.com/ssyzygy/tq
 
 go 1.22.0
 
-replace bitbucket.org/TN_WebShare/gotess => ../gotess
+replace bitbucket.org/TN_WebShare/gotess => ./gotess
 
 require (
 	github.com/99designs/keyring v1.2.2
