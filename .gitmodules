@@ -1,0 +1,3 @@
+[submodule "gotess"]
+	path = gotess
+	url = git@bitbucket.org:TN_WebShare/gotess.git
