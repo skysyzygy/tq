@@ -25,6 +25,17 @@ jobs:
       with:
         go-version: '1.22'
 
+    - name: Setup GPG key
+      id: setup_gpg_key
+      uses:  iwishiwasaneagle/git-user-random-gpg@v1
+      with:
+        email: gituser@bam.org
+        name:  gituser
+    
+    - name: Setup pass keyring
+      run: pass init ${{ steps.setup_gpg_key.outputs.gpg_key_id }}
+      shell: bash
+
     - name: Build
       run: go build -v ./...
 
