@@ -7,6 +7,7 @@ import (
 
 	"bitbucket.org/TN_WebShare/gotess"
 	"github.com/99designs/keyring"
+	"github.com/stretchr/testify/assert"
 )
 
 // Setup the test environment by making a separate keystore for testing
@@ -21,181 +22,85 @@ func TestMain(m *testing.M) {
 }
 
 func TestAuth_AuthString(t *testing.T) {
-	tests := []struct {
-		name    string
-		a       Auth
-		want    string
-		wantErr bool
-	}{
-		{name: "generates string",
-			a:    Auth{"a", "b", "c", "d", nil},
-			want: "a:b:c:d"},
-		{name: "complains when there are ':' present in hostname",
-			a:       Auth{"a:", "b", "c", "d", nil},
-			wantErr: true},
-		{name: "complains when there are ':' present in username",
-			a:       Auth{"a", "b:", "c", "d", nil},
-			wantErr: true},
-		{name: "complains when there are ':' present in usergroup",
-			a:       Auth{"a", "b", "c:", "d", nil},
-			wantErr: true},
-		{name: "complains when there are ':' present in location",
-			a:       Auth{"a", "b", "c", "d:", nil},
-			wantErr: true},
-		{name: "doesn't care about password",
-			a:    Auth{"a", "b", "c", "d", []byte(":::::")},
-			want: "a:b:c:d"},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got, err := tt.a.AuthString()
-			if (err != nil) != tt.wantErr {
-				t.Errorf("Auth.AuthString() error = %v, wantErr %v", err, tt.wantErr)
-				return
-			}
-			if got != tt.want {
-				t.Errorf("Auth.AuthString() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	assert := assert.New(t)
+
+	v, err := Auth{"a", "b", "c", "d", nil}.AuthString()
+	assert.Equal(v, "a:b:c:d", "generates string")
+	assert.NoError(err)
+
+	v, err = Auth{"a:", "b", "c", "d", nil}.AuthString()
+	assert.Equal(v, "")
+	assert.Error(err, ":", "complains when there are ':' present in hostname")
+
+	v, err = Auth{"a", "b:", "c", "d", nil}.AuthString()
+	assert.Equal(v, "")
+	assert.Error(err, ":", "complains when there are ':' present in username")
+
+	v, err = Auth{"a", "b", "c:", "d", nil}.AuthString()
+	assert.Equal(v, "")
+	assert.Error(err, ":", "complains when there are ':' present in usergroup")
+
+	v, err = Auth{"a", "b", "c", "d:", nil}.AuthString()
+	assert.Equal(v, "")
+	assert.Error(err, ":", "complains when there are ':' present in location")
+
+	v, err = Auth{"a", "b", "c", "d", []byte(":)")}.AuthString()
+	assert.Equal(v, "a:b:c:d", "doesn't complain when there are ':' present in password")
+	assert.NoError(err)
+
 }
 
 func TestAuthFromString(t *testing.T) {
-	type args struct {
-		str string
-	}
-	tests := []struct {
-		name    string
-		args    args
-		want    Auth
-		wantErr bool
-	}{
-		{name: "parses string into Auth",
-			args: args{"a:b:c:d"},
-			want: Auth{"a", "b", "c", "d", nil}},
-		{name: "complains when there are too many parts in the string",
-			args:    args{"a:b:c:d:e"},
-			wantErr: true},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got, err := AuthFromString(tt.args.str)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("AuthFromString() error = %v, wantErr %v", err, tt.wantErr)
-				return
-			}
-			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("AuthFromString() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	assert := assert.New(t)
+
+	v, err := AuthFromString("a:b:c:d")
+	assert.Equal(v, Auth{"a", "b", "c", "d", nil}, "parses string into Auth")
+	assert.NoError(err)
+
+	v, err = AuthFromString("a:b:c:d:e")
+	assert.Equal(v, Auth{})
+	assert.Error(err, "four", "complains when there are too many parts in the string")
+
+	v, err = AuthFromString("a:b:c")
+	assert.Equal(v, Auth{})
+	assert.Error(err, "four", "complains when there are too few parts in the string")
+
 }
 
 func TestAuth_SaveAuth(t *testing.T) {
-	tests := []struct {
-		name    string
-		a       Auth
-		wantErr bool
-	}{
-		{name: "saves Auth to keystore",
-			a: Auth{"a", "b", "c", "d", []byte("e")}},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if err := tt.a.SaveAuth(); (err != nil) != tt.wantErr {
-				t.Errorf("Auth.SaveAuth() error = %v, wantErr %v", err, tt.wantErr)
-			}
-		})
-	}
+	assert := assert.New(t)
+
+	err := Auth{"a", "b", "c", "d", []byte("e")}.SaveAuth()
+	pass, _ := keys.Get("a:b:c:d")
+	assert.Equal(pass.Data, []byte("e"), "saves Auth password to keystore")
+	assert.NoError(err)
+
 }
 
 func TestAuth_LoadAuth(t *testing.T) {
 	a := Auth{"a", "b", "c", "d", nil}
-	tests := []struct {
-		name    string
-		wantErr bool
-		want    []byte
-	}{
-		{name: "loads Auth password from keystore",
-			want: []byte("e")},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			err := a.LoadAuth()
-			got := a.password
-			if (err != nil) != tt.wantErr {
-				t.Errorf("AuthFromString() error = %v, wantErr %v", err, tt.wantErr)
-				return
-			}
-			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("AuthFromString() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+
+	a.LoadAuth()
+	assert.Equal(t, a.password, []byte("e"), "loads Auth password from keystore")
 }
 
 func TestListAuths(t *testing.T) {
-	tests := []struct {
-		name    string
-		want    []Auth
-		wantErr bool
-	}{
-		{name: "lists all auths in keystore",
-			want: []Auth{{"a", "b", "c", "d", nil}}},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got, err := ListAuths()
-			if (err != nil) != tt.wantErr {
-				t.Errorf("ListAuths() error = %v, wantErr %v", err, tt.wantErr)
-				return
-			}
-			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("ListAuths() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	v, err := ListAuths()
+
+	assert.Equal(t, v, []Auth{{"a", "b", "c", "d", nil}}, "lists all auths in keystore")
+	assert.NoError(t, err)
+
 }
 
 func TestAuth_DeleteAuth(t *testing.T) {
-	tests := []struct {
-		name    string
-		a       Auth
-		wantErr bool
-	}{
-		{name: "deletes auth from keystore",
-			a: Auth{"a", "b", "c", "d", nil}},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if err := tt.a.DeleteAuth(); (err != nil) != tt.wantErr {
-				t.Errorf("Auth.DeleteAuth() error = %v, wantErr %v", err, tt.wantErr)
-			}
-		})
-	}
-}
+	k, _ := keys.Keys()
+	assert.Equal(t, len(k), 1, "there's a key in the keystore")
 
-func TestListAuths_after_delete(t *testing.T) {
-	tests := []struct {
-		name    string
-		want    []Auth
-		wantErr bool
-	}{
-		{name: "lists all auths in keystore",
-			want: []Auth{}},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got, err := ListAuths()
-			if (err != nil) != tt.wantErr {
-				t.Errorf("ListAuths() error = %v, wantErr %v", err, tt.wantErr)
-				return
-			}
-			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("ListAuths() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	err := Auth{"a", "b", "c", "d", nil}.DeleteAuth()
+
+	k, _ = keys.Keys()
+	assert.Equal(t, len(k), 0, "deletes auth from keystore")
+	assert.NoError(t, err)
 }
 
 func TestAuth_Login(t *testing.T) {
