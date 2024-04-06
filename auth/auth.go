@@ -7,6 +7,7 @@ import (
 
 	"bitbucket.org/TN_WebShare/gotess"
 	"github.com/99designs/keyring"
+	"github.com/davecgh/go-spew/spew"
 )
 
 // Simple structure to hold authentication information
@@ -34,18 +35,18 @@ func init() {
 
 // Build the authentication string used for storing the password in the keystore
 func (a Auth) AuthString() (string, error) {
-	if strings.Contains(a.hostname, ":") ||
-		strings.Contains(a.username, ":") ||
-		strings.Contains(a.usergroup, ":") ||
-		strings.Contains(a.location, ":") {
-		return "", errors.New("authentication info can't contain the ':' character")
+	if strings.Contains(a.hostname, "|") ||
+		strings.Contains(a.username, "|") ||
+		strings.Contains(a.usergroup, "|") ||
+		strings.Contains(a.location, "|") {
+		return "", errors.New("authentication info can't contain the '|' character")
 	}
-	return fmt.Sprintf("%v:%v:%v:%v", a.hostname, a.username, a.usergroup, a.location), nil
+	return fmt.Sprintf("%v|%v|%v|%v", a.hostname, a.username, a.usergroup, a.location), nil
 }
 
 // Parse an authentication string (i.e. from AuthString) into an Auth struct
 func AuthFromString(str string) (Auth, error) {
-	strs := strings.Split(str, ":")
+	strs := strings.Split(str, "|")
 	if len(strs) != 4 {
 		return Auth{}, errors.New("authentication string must have exactly four values")
 	}
@@ -93,15 +94,45 @@ func ListAuths() ([]Auth, error) {
 	return auths, err
 }
 
-// Log in to Tessitura with the given authentication and return a pointer to a client struct for use
-func (a Auth) Login() (*gotess.Client, error) {
+// Validate authentication with the Tessitura API server at a.hostname
+func (a Auth) Validate() (bool, error) {
 	client := gotess.NewClient(nil)
+	client.SetBaseURL(a.hostname)
+
+	passwordString := string(a.password)
+	req := gotess.AuthenticationRequest{
+		Application:     nil,
+		UserName:        &a.username,
+		UserGroup:       &a.usergroup,
+		MachineLocation: &a.location,
+		Password:        &passwordString,
+	}
+
+	response, err := client.Security.Authenticate.Authenticate(&req)
+
+	if err != nil {
+		errResponse, ok := err.(*gotess.ErrorResponse)
+		if !ok {
+			return false, errors.Join(fmt.Errorf("login failed with error"), err)
+		}
+		return false, fmt.Errorf("login failed with http status: %v\n and Tessi response: %v",
+			errResponse.Response.Status, spew.Sdump(errResponse.ErrorMessages))
+	} else if response != nil && response.IsAuthenticated != nil && *response.IsAuthenticated {
+		// Successful login!
+		return true, nil
+	}
+	// Should never get here but who knows?
+	return false, fmt.Errorf("login failed with Tessi response: %v", *response.Message)
+}
+
+// Log in a Tessitura gotess client with the given authentication info
+func (a Auth) Login(client *gotess.Client) error {
 	client.SetBaseURL(a.hostname)
 	client.SetCredentials(a.username, a.usergroup, a.location, string(a.password))
 
 	status, err := client.Diagnostics.GetStatus()
-	if err == nil && !*status.Success {
-		err = errors.New("login failed")
+	if err != nil || !*status.Success {
+		return errors.Join(fmt.Errorf("the Tessitura server %v appears to be unavailable", a.hostname), err)
 	}
-	return client, err
+	return nil
 }

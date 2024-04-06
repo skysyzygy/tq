@@ -1,8 +1,12 @@
 package auth
 
 import (
+	"encoding/json"
+	"io"
+	"net/http"
+	"net/http/httptest"
 	"os"
-	"reflect"
+	"strings"
 	"testing"
 
 	"bitbucket.org/TN_WebShare/gotess"
@@ -25,27 +29,27 @@ func TestAuth_AuthString(t *testing.T) {
 	assert := assert.New(t)
 
 	v, err := Auth{"a", "b", "c", "d", nil}.AuthString()
-	assert.Equal(v, "a:b:c:d", "generates string")
+	assert.Equal(v, "a|b|c|d", "generates string")
 	assert.NoError(err)
 
-	v, err = Auth{"a:", "b", "c", "d", nil}.AuthString()
+	v, err = Auth{"a|", "b", "c", "d", nil}.AuthString()
 	assert.Equal(v, "")
-	assert.Error(err, ":", "complains when there are ':' present in hostname")
+	assert.ErrorContains(err, "|", "complains when there are '|' present in hostname")
 
-	v, err = Auth{"a", "b:", "c", "d", nil}.AuthString()
+	v, err = Auth{"a", "b|", "c", "d", nil}.AuthString()
 	assert.Equal(v, "")
-	assert.Error(err, ":", "complains when there are ':' present in username")
+	assert.ErrorContains(err, "|", "complains when there are '|' present in username")
 
-	v, err = Auth{"a", "b", "c:", "d", nil}.AuthString()
+	v, err = Auth{"a", "b", "c|", "d", nil}.AuthString()
 	assert.Equal(v, "")
-	assert.Error(err, ":", "complains when there are ':' present in usergroup")
+	assert.ErrorContains(err, "|", "complains when there are '|' present in usergroup")
 
-	v, err = Auth{"a", "b", "c", "d:", nil}.AuthString()
+	v, err = Auth{"a", "b", "c", "d|", nil}.AuthString()
 	assert.Equal(v, "")
-	assert.Error(err, ":", "complains when there are ':' present in location")
+	assert.ErrorContains(err, "|", "complains when there are '|' present in location")
 
-	v, err = Auth{"a", "b", "c", "d", []byte(":)")}.AuthString()
-	assert.Equal(v, "a:b:c:d", "doesn't complain when there are ':' present in password")
+	v, err = Auth{"a", "b", "c", "d", []byte("|)")}.AuthString()
+	assert.Equal(v, "a|b|c|d", "doesn't complain when there are '|' present in password")
 	assert.NoError(err)
 
 }
@@ -53,15 +57,15 @@ func TestAuth_AuthString(t *testing.T) {
 func TestAuthFromString(t *testing.T) {
 	assert := assert.New(t)
 
-	v, err := AuthFromString("a:b:c:d")
+	v, err := AuthFromString("a|b|c|d")
 	assert.Equal(v, Auth{"a", "b", "c", "d", nil}, "parses string into Auth")
 	assert.NoError(err)
 
-	v, err = AuthFromString("a:b:c:d:e")
+	v, err = AuthFromString("a|b|c|d|e")
 	assert.Equal(v, Auth{})
 	assert.Error(err, "four", "complains when there are too many parts in the string")
 
-	v, err = AuthFromString("a:b:c")
+	v, err = AuthFromString("a|b|c")
 	assert.Equal(v, Auth{})
 	assert.Error(err, "four", "complains when there are too few parts in the string")
 
@@ -71,7 +75,7 @@ func TestAuth_SaveAuth(t *testing.T) {
 	assert := assert.New(t)
 
 	err := Auth{"a", "b", "c", "d", []byte("e")}.SaveAuth()
-	pass, _ := keys.Get("a:b:c:d")
+	pass, _ := keys.Get("a|b|c|d")
 	assert.Equal(pass.Data, []byte("e"), "saves Auth password to keystore")
 	assert.NoError(err)
 
@@ -103,25 +107,92 @@ func TestAuth_DeleteAuth(t *testing.T) {
 	assert.NoError(t, err)
 }
 
-func TestAuth_Login(t *testing.T) {
-	tests := []struct {
-		name    string
-		a       Auth
-		want    *gotess.Client
-		wantErr bool
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got, err := tt.a.Login()
-			if (err != nil) != tt.wantErr {
-				t.Errorf("Auth.Login() error = %v, wantErr %v", err, tt.wantErr)
-				return
-			}
-			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("Auth.Login() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+func TestAuth_Validate(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		req := gotess.AuthenticationRequest{}
+		var (
+			isAuthenticated bool
+			message         string
+		)
+
+		reqBody, _ := io.ReadAll(r.Body)
+		json.Unmarshal(reqBody, &req)
+
+		if r.RequestURI != "/Security/Authenticate/" {
+			w.WriteHeader(http.StatusNotFound)
+			return
+		}
+
+		if *req.UserName == "user" && *req.UserGroup == "group" &&
+			*req.Password == "password" && *req.MachineLocation == "location" {
+			isAuthenticated = true
+		} else {
+			isAuthenticated = false
+			message = "bad credentials"
+		}
+
+		res := gotess.AuthenticationResponse{}
+		res.IsAuthenticated = &isAuthenticated
+		res.Message = &message
+
+		resBody, _ := json.Marshal(res)
+		w.Write(resBody)
+	}))
+	defer server.Close()
+
+	v, err := Auth{hostname: "https://not-a-host.com",
+		username: "user", usergroup: "group", location: "location", password: []byte("password")}.Validate()
+	assert.False(t, v)
+	assert.ErrorContains(t, err, "no such host", "validation fails when server is unreachable and provides useful info")
+
+	v, err = Auth{hostname: server.URL + "/Not an endpoint/",
+		username: "user", usergroup: "group", location: "location", password: []byte("password")}.Validate()
+	assert.False(t, v)
+	assert.ErrorContains(t, err, "404 Not Found", "validation fails when endpoint is incorrect and provides useful info")
+
+	v, err = Auth{hostname: server.URL,
+		username: "user", usergroup: "group", location: "location", password: []byte("password")}.Validate()
+	assert.True(t, v, "validation works when credentials are correct")
+	assert.NoError(t, err)
+
+	v, err = Auth{hostname: server.URL,
+		username: "user", usergroup: "group", location: "location", password: []byte("wrongPass")}.Validate()
+	assert.False(t, v)
+	assert.ErrorContains(t, err, "bad credentials", "validation failes when credentials are incorrect")
+
 }
+
+func TestAuth_Validate_Integration(t *testing.T) {
+
+	keys, _ = keyring.Open(keyring.Config{
+		ServiceName: "tq_test_integration",
+	})
+
+	auths, _ := ListAuths()
+	a := auths[0]
+	a.LoadAuth()
+
+	a1 := a
+	a1.hostname = "https://not-a-server.bam.org/"
+	v, err := a1.Validate()
+	assert.False(t, v)
+	assert.ErrorContains(t, err, "no such host", "validation fails when server is unreachable and provides useful info")
+
+	a2 := a
+	a2.hostname = strings.ReplaceAll(a2.hostname, "/TessituraService", "")
+	v, err = a2.Validate()
+	assert.False(t, v)
+	assert.ErrorContains(t, err, "404 Not Found", "validation fails when endpoint is incorrect and provides useful info")
+
+	v, err = a.Validate()
+	assert.True(t, v, "validation works when credentials are correct")
+	assert.NoError(t, err)
+
+	a.password = []byte("wrong_password")
+	v, err = a.Validate()
+	assert.False(t, v)
+	assert.ErrorContains(t, err, "Invalid Credentials", "validation fails when credentials are incorrect")
+
+}
+
+// func TestAuth_Login(t *testing.M)
