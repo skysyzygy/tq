@@ -21,8 +21,77 @@ THE SOFTWARE.
 */
 package main
 
-import "github.com/ssyzygy/tq/cmd"
+import (
+	"errors"
+	"fmt"
+
+	"github.com/go-openapi/runtime"
+	"github.com/skysyzygy/tq/auth"
+	"github.com/skysyzygy/tq/client"
+)
+
+// import "github.com/skysyzygy/tq/cmd"
+
+// Global config options and structures for tq
+type tqConfig struct {
+	// the Tessitura API client
+	client.TessituraServiceWeb
+
+	// Basic auth for requests
+	basicAuth runtime.ClientAuthInfoWriter
+
+	// Bearer token for requests
+	tokenAuth runtime.ClientAuthInfoWriter
+
+	// some flags
+	verbose bool
+	dryRun  bool
+}
+
+// Log in the Tessitura client with the given authentication info and cache the login data
+func (tq *tqConfig) Login(a auth.Auth) error {
+
+	if validLogin, err := a.Validate(); err != nil || !validLogin {
+		return errors.Join(fmt.Errorf("invalid login"), err)
+	}
+	// Cache the login data
+	if basicAuth, err := a.BasicAuth(); err != nil {
+		return err
+	} else {
+		tq.basicAuth = basicAuth
+	}
+	return nil
+}
+
+// Getter function for tq -- handles calling gotess API methods, translating incoming requests to filtersets and parallelizing when necessary
+func (tq *tqConfig) Get(thing string, query map[string]any) (res any, err error) {
+	if tq.verbose {
+		fmt.Printf("running Get for %v", thing)
+	}
+	switch thing {
+	case "customers":
+
+	case "emails":
+
+	default:
+		return nil, fmt.Errorf("no `thing` specified, nothing to do")
+	}
+
+	if tq.verbose {
+		fields := make([]string, 0)
+		fmt.Printf("executing a query of %v using fields: %v", thing, fields)
+	}
+
+	if tq.dryRun {
+		return
+	}
+
+	return
+}
 
 func main() {
-	cmd.Execute()
+	// cmd.Execute()
+	tq := tqConfig{}
+	tq.Login(auth.Auth{})
+
 }
