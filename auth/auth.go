@@ -50,15 +50,16 @@ func (a Auth) AuthString() (string, error) {
 }
 
 // Build the authentication string used for basic http authentication
-func (a Auth) BasicAuth() (runtime.ClientAuthInfoWriter, error) {
+func (a Auth) BasicAuth() (func(*runtime.ClientOperation), error) {
 	if strings.Contains(a.username, ":") ||
 		strings.Contains(a.usergroup, ":") ||
 		strings.Contains(a.location, ":") {
 		return nil, errors.New("authentication info can't contain the ':' character for Basic auth")
 	}
 
-	return httptransport.BasicAuth(
-		fmt.Sprintf("%v:%v:%v", a.username, a.usergroup, a.location), string(a.password)), nil
+	return func(co *runtime.ClientOperation) {
+		co.AuthInfo = httptransport.BasicAuth(fmt.Sprintf("%v:%v:%v", a.username, a.usergroup, a.location), string(a.password))
+	}, nil
 }
 
 // Parse an authentication string (i.e. from AuthString) into an Auth struct

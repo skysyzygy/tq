@@ -24,10 +24,15 @@ package main
 import (
 	"errors"
 	"fmt"
+	"reflect"
+
+	"encoding/json"
 
 	"github.com/go-openapi/runtime"
+	"github.com/perimeterx/marshmallow"
 	"github.com/skysyzygy/tq/auth"
 	"github.com/skysyzygy/tq/client"
+	"github.com/skysyzygy/tq/client/g_e_t"
 )
 
 // import "github.com/skysyzygy/tq/cmd"
@@ -38,10 +43,10 @@ type tqConfig struct {
 	client.TessituraServiceWeb
 
 	// Basic auth for requests
-	basicAuth runtime.ClientAuthInfoWriter
+	basicAuth func(*runtime.ClientOperation)
 
-	// Bearer token for requests
-	tokenAuth runtime.ClientAuthInfoWriter
+	// Bearer token for requests - not yet implemented
+	// tokenAuth func(*runtime.ClientOperation)
 
 	// some flags
 	verbose bool
@@ -63,30 +68,74 @@ func (tq *tqConfig) Login(a auth.Auth) error {
 	return nil
 }
 
-// Getter function for tq -- handles calling gotess API methods, translating incoming requests to filtersets and parallelizing when necessary
-func (tq *tqConfig) Get(thing string, query map[string]any) (res any, err error) {
+// Getter function for tq -- simply dispatches to `doGet` based on the type of thing we are querying.
+func (tq tqConfig) Get(thing string, query []byte) (res []byte, err error) {
+
 	if tq.verbose {
 		fmt.Printf("running Get for %v", thing)
 	}
+
 	switch thing {
 	case "customers":
+		p := g_e_t.ConstituentsGetConstituentsParams{}
+		f := tq.TessituraServiceWeb.Get.ConstituentsGetConstituents
+		res, err = doGet(tq, p, f, query)
+		return
 
 	case "emails":
+		p := g_e_t.ElectronicAddressesGetAllParams{}
+		f := tq.TessituraServiceWeb.Get.ElectronicAddressesGetAll
+		res, err = doGet(tq, p, f, query)
+		return
+
+	case "addresses":
+		p := g_e_t.AddressesGetAllParams{}
+		f := tq.TessituraServiceWeb.Get.AddressesGetAll
+		res, err = doGet(tq, p, f, query)
+		return
 
 	default:
 		return nil, fmt.Errorf("no `thing` specified, nothing to do")
 	}
 
+}
+
+// Generic for getting things
+func doGet[P any, R any, F func(*P, ...g_e_t.ClientOption) (R, error)](
+	tq tqConfig, params P, function F, query []byte,
+) (res []byte, err error) {
+
+	// Try to unmarshal the query into the given parameter structure
+	rest, _err := marshmallow.Unmarshal(query, &params, marshmallow.WithExcludeKnownFieldsFromMap(true))
+	err = errors.Join(err, _err)
+
 	if tq.verbose {
-		fields := make([]string, 0)
-		fmt.Printf("executing a query of %v using fields: %v", thing, fields)
+		typ := reflect.TypeOf(params)
+		val := reflect.ValueOf(params)
+		fields := make([]string, typ.NumField())
+		usedFields := make([]string, 0, typ.NumField())
+		for i := range fields {
+			fields[i] = typ.Field(i).Name
+			// Get the fields actually assigned in the params struct
+			if val.Field(i).String() != "" {
+				usedFields[len(usedFields)] = typ.Field(i).Name
+			}
+		}
+		// Get the fields that marshmallow didn't map
+		restFields := reflect.ValueOf(rest).MapKeys()
+		fmt.Printf("executing a query using fields %v and ignoring fields %v", usedFields, restFields)
 	}
-
 	if tq.dryRun {
-		return
+		return nil, err
 	}
 
-	return
+	obj, _err := function(&params, tq.basicAuth)
+	err = errors.Join(err, _err)
+
+	res, _err = json.Marshal(obj)
+	err = errors.Join(err, _err)
+
+	return res, err
 }
 
 func main() {
