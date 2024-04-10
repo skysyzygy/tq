@@ -26,8 +26,8 @@ import (
 	"strings"
 
 	"github.com/99designs/keyring"
+	auth_textinput "github.com/skysyzygy/tq/cmd/auth/textinput"
 	"github.com/spf13/cobra"
-	auth_textinput "github.com/ssyzygy/tq/cmd/auth/textinput"
 )
 
 // addCmd represents the add command

@@ -26,8 +26,8 @@ import (
 
 	"github.com/99designs/keyring"
 	"github.com/charmbracelet/bubbles/table"
+	auth_table "github.com/skysyzygy/tq/cmd/auth/table"
 	"github.com/spf13/cobra"
-	auth_table "github.com/ssyzygy/tq/cmd/auth/table"
 )
 
 // listCmd represents the list command

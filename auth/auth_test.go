@@ -11,6 +11,7 @@ import (
 
 	"bitbucket.org/TN_WebShare/gotess"
 	"github.com/99designs/keyring"
+	"github.com/skysyzygy/tq/models"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -108,7 +109,7 @@ func TestAuth_DeleteAuth(t *testing.T) {
 }
 
 func TestAuth_Validate(t *testing.T) {
-	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		req := gotess.AuthenticationRequest{}
 		var (
 			isAuthenticated bool
@@ -118,9 +119,11 @@ func TestAuth_Validate(t *testing.T) {
 		reqBody, _ := io.ReadAll(r.Body)
 		json.Unmarshal(reqBody, &req)
 
-		if r.RequestURI != "/Security/Authenticate/" {
+		if r.RequestURI != "/Security/Authenticate" {
 			w.WriteHeader(http.StatusNotFound)
 			return
+		} else {
+			w.Header().Set("Content-Type", "application/json")
 		}
 
 		if *req.UserName == "user" && *req.UserGroup == "group" &&
@@ -131,31 +134,34 @@ func TestAuth_Validate(t *testing.T) {
 			message = "bad credentials"
 		}
 
-		res := gotess.AuthenticationResponse{}
-		res.IsAuthenticated = &isAuthenticated
-		res.Message = &message
+		res := models.AuthenticationResponse{
+			IsAuthenticated: isAuthenticated,
+			Message:         message,
+		}
 
-		resBody, _ := json.Marshal(res)
+		resBody, _ := json.Marshal(&res)
 		w.Write(resBody)
 	}))
 	defer server.Close()
 
-	v, err := Auth{hostname: "https://not-a-host.com",
+	url := strings.Replace(server.URL, "https://", "", 1)
+
+	v, err := Auth{hostname: "not-a-host.com",
 		username: "user", usergroup: "group", location: "location", password: []byte("password")}.Validate()
 	assert.False(t, v)
 	assert.ErrorContains(t, err, "no such host", "validation fails when server is unreachable and provides useful info")
 
-	v, err = Auth{hostname: server.URL + "/Not an endpoint/",
+	v, err = Auth{hostname: url + "/Not an endpoint/",
 		username: "user", usergroup: "group", location: "location", password: []byte("password")}.Validate()
 	assert.False(t, v)
 	assert.ErrorContains(t, err, "404 Not Found", "validation fails when endpoint is incorrect and provides useful info")
 
-	v, err = Auth{hostname: server.URL,
+	v, err = Auth{hostname: url,
 		username: "user", usergroup: "group", location: "location", password: []byte("password")}.Validate()
 	assert.True(t, v, "validation works when credentials are correct")
 	assert.NoError(t, err)
 
-	v, err = Auth{hostname: server.URL,
+	v, err = Auth{hostname: url,
 		username: "user", usergroup: "group", location: "location", password: []byte("wrongPass")}.Validate()
 	assert.False(t, v)
 	assert.ErrorContains(t, err, "bad credentials", "validation failes when credentials are incorrect")
@@ -173,7 +179,7 @@ func TestAuth_Validate_Integration(t *testing.T) {
 	a.LoadAuth()
 
 	a1 := a
-	a1.hostname = "https://not-a-server.bam.org/"
+	a1.hostname = "not-a-server.bam.org"
 	v, err := a1.Validate()
 	assert.False(t, v)
 	assert.ErrorContains(t, err, "no such host", "validation fails when server is unreachable and provides useful info")
@@ -191,8 +197,6 @@ func TestAuth_Validate_Integration(t *testing.T) {
 	a.password = []byte("wrong_password")
 	v, err = a.Validate()
 	assert.False(t, v)
-	assert.ErrorContains(t, err, "Invalid Credentials", "validation fails when credentials are incorrect")
+	assert.ErrorContains(t, err, "400 Bad Request", "validation fails when credentials are incorrect")
 
 }
-
-// func TestAuth_Login(t *testing.M)
