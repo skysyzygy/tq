@@ -24,15 +24,15 @@ package main
 import (
 	"errors"
 	"fmt"
+	"io"
+	"os"
 	"reflect"
 
 	"encoding/json"
 
 	"github.com/go-openapi/runtime"
-	"github.com/perimeterx/marshmallow"
 	"github.com/skysyzygy/tq/auth"
 	"github.com/skysyzygy/tq/client"
-	"github.com/skysyzygy/tq/client/g_e_t"
 )
 
 // import "github.com/skysyzygy/tq/cmd"
@@ -77,21 +77,18 @@ func (tq tqConfig) Get(thing string, query []byte) (res []byte, err error) {
 
 	switch thing {
 	case "customers":
-		p := g_e_t.ConstituentsGetConstituentsParams{}
 		f := tq.TessituraServiceWeb.Get.ConstituentsGetConstituents
-		res, err = doGet(tq, p, f, query)
+		res, err = DoOne(tq, f, query)
 		return
 
 	case "emails":
-		p := g_e_t.ElectronicAddressesGetAllParams{}
 		f := tq.TessituraServiceWeb.Get.ElectronicAddressesGetAll
-		res, err = doGet(tq, p, f, query)
+		res, err = DoOne(tq, f, query)
 		return
 
 	case "addresses":
-		p := g_e_t.AddressesGetAllParams{}
 		f := tq.TessituraServiceWeb.Get.AddressesGetAll
-		res, err = doGet(tq, p, f, query)
+		res, err = DoOne(tq, f, query)
 		return
 
 	default:
@@ -100,47 +97,80 @@ func (tq tqConfig) Get(thing string, query []byte) (res []byte, err error) {
 
 }
 
-// Generic for getting things
-func doGet[P any, R any, F func(*P, ...g_e_t.ClientOption) (R, error)](
-	tq tqConfig, params P, function F, query []byte,
-) (res []byte, err error) {
+// Generic for doing (one) thing (get/put/post)
+func DoOne[P any, R any, O any, F func(*P, ...O) (R, error)](
+	tq tqConfig, function F, query []byte,
+) ([]byte, error) {
 
-	// Try to unmarshal the query into the given parameter structure
-	rest, _err := marshmallow.Unmarshal(query, &params, marshmallow.WithExcludeKnownFieldsFromMap(true))
-	err = errors.Join(err, _err)
+	params := new(P)
+	remainder, err := unmarshallStructWithRemainder(query, params)
 
 	if tq.verbose {
-		typ := reflect.TypeOf(params)
-		val := reflect.ValueOf(params)
-		fields := make([]string, typ.NumField())
-		usedFields := make([]string, 0, typ.NumField())
-		for i := range fields {
-			fields[i] = typ.Field(i).Name
-			// Get the fields actually assigned in the params struct
-			if val.Field(i).String() != "" {
-				usedFields[len(usedFields)] = typ.Field(i).Name
-			}
-		}
-		// Get the fields that marshmallow didn't map
-		restFields := reflect.ValueOf(rest).MapKeys()
-		fmt.Printf("executing a query using fields %v and ignoring fields %v", usedFields, restFields)
+		unmarshallStructReport(params, remainder, os.Stdout)
 	}
-	if tq.dryRun {
+	if tq.dryRun || err != nil {
 		return nil, err
 	}
 
-	obj, _err := function(&params, tq.basicAuth)
-	err = errors.Join(err, _err)
+	// Call the function with basic authentication
+	obj, err := function(params, interface{}(tq.basicAuth).(O))
 
-	res, _err = json.Marshal(obj)
-	err = errors.Join(err, _err)
-
-	return res, err
+	// Marshall the json response
+	res, err := json.Marshal(obj)
+	if err != nil {
+		return nil, err
+	} else {
+		return res, nil
+	}
 }
 
 func main() {
 	// cmd.Execute()
-	tq := tqConfig{}
-	tq.Login(auth.Auth{})
 
+}
+
+// Unmarshall into a struct and return the remainder as a map
+// Errors if P is not a struct type
+func unmarshallStructWithRemainder[P any](query []byte, params *P) (res map[string]any, err error) {
+	if reflect.TypeOf(*params).Kind() != reflect.Struct {
+		return nil, fmt.Errorf("params must be struct, got %v", reflect.TypeOf(*params).Kind())
+	}
+
+	// Unmarshal the query into the given parameter structure
+	_err := json.Unmarshal(query, params)
+	err = errors.Join(err, _err)
+
+	// Get all the keys of the query for comparison
+	_err = json.Unmarshal(query, &res)
+	err = errors.Join(err, _err)
+
+	// Remove keys that are in the struct already
+	typ := reflect.TypeOf(*params)
+	for key := range res {
+		if _, ok := typ.FieldByName(key); ok {
+			delete(res, key)
+		}
+	}
+
+	return
+}
+
+// Print a message about the different keys in the struct `s` and map `m`
+func unmarshallStructReport(s any, m map[string]any, stdout io.WriteCloser) {
+	typ := reflect.TypeOf(s)
+	val := reflect.ValueOf(s)
+	if typ.Kind() == reflect.Pointer {
+		typ = typ.Elem()
+	}
+	usedFields := make([]string, 0, typ.NumField())
+	for i := 0; i < typ.NumField(); i++ {
+		// Get the fields actually assigned in the params struct
+		if !val.Field(i).IsZero() {
+			usedFields = append(usedFields, typ.Field(i).Name)
+		}
+	}
+	// Get the fields that marshmallow didn't map
+	mapFields := reflect.ValueOf(m).MapKeys()
+	fmt.Fprintf(stdout, "executing a query using fields %v and ignoring fields %v", usedFields, mapFields)
+	stdout.Close()
 }
