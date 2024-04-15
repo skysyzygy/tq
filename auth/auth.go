@@ -17,7 +17,7 @@ import (
 // Simple structure to hold authentication information
 type Auth struct {
 	// hostname and basepath without the leading https://
-	hostname  string
+	Hostname  string
 	username  string
 	usergroup string
 	location  string
@@ -39,31 +39,30 @@ func init() {
 }
 
 // Build the authentication string used for storing the password in the keystore
-func (a Auth) AuthString() (string, error) {
-	if strings.Contains(a.hostname, "|") ||
+func (a Auth) String() (string, error) {
+	if strings.Contains(a.Hostname, "|") ||
 		strings.Contains(a.username, "|") ||
 		strings.Contains(a.usergroup, "|") ||
 		strings.Contains(a.location, "|") {
 		return "", errors.New("authentication info can't contain the '|' character")
 	}
-	return fmt.Sprintf("%v|%v|%v|%v", a.hostname, a.username, a.usergroup, a.location), nil
+	return fmt.Sprintf("%v|%v|%v|%v", a.Hostname, a.username, a.usergroup, a.location), nil
 }
 
 // Build the authentication string used for basic http authentication
-func (a Auth) BasicAuth() (func(*runtime.ClientOperation), error) {
+func (a Auth) BasicAuth() (runtime.ClientAuthInfoWriter, error) {
 	if strings.Contains(a.username, ":") ||
 		strings.Contains(a.usergroup, ":") ||
 		strings.Contains(a.location, ":") {
 		return nil, errors.New("authentication info can't contain the ':' character for Basic auth")
 	}
 
-	return func(co *runtime.ClientOperation) {
-		co.AuthInfo = httptransport.BasicAuth(fmt.Sprintf("%v:%v:%v", a.username, a.usergroup, a.location), string(a.password))
-	}, nil
+	return httptransport.BasicAuth(fmt.Sprintf("%v:%v:%v", a.username, a.usergroup, a.location), string(a.password)), nil
+
 }
 
 // Parse an authentication string (i.e. from AuthString) into an Auth struct
-func AuthFromString(str string) (Auth, error) {
+func FromString(str string) (Auth, error) {
 	strs := strings.Split(str, "|")
 	if len(strs) != 4 {
 		return Auth{}, errors.New("authentication string must have exactly four values")
@@ -71,9 +70,13 @@ func AuthFromString(str string) (Auth, error) {
 	return Auth{strs[0], strs[1], strs[2], strs[3], nil}, nil
 }
 
+func New(hostname string, username string, usergroup string, location string, password []byte) Auth {
+	return Auth{hostname, username, usergroup, location, password}
+}
+
 // Save the authentication data in the keystore
-func (a Auth) SaveAuth() error {
-	if authString, err := a.AuthString(); err != nil {
+func (a Auth) Save() error {
+	if authString, err := a.String(); err != nil {
 		return err
 	} else {
 		return keys.Set(keyring.Item{Key: authString, Data: a.password})
@@ -81,8 +84,8 @@ func (a Auth) SaveAuth() error {
 }
 
 // Load the password for the matching authentication in the keystore
-func (a *Auth) LoadAuth() error {
-	if authString, err := a.AuthString(); err != nil {
+func (a *Auth) Load() error {
+	if authString, err := a.String(); err != nil {
 		return err
 	} else {
 		pass, err := keys.Get(authString)
@@ -92,8 +95,8 @@ func (a *Auth) LoadAuth() error {
 }
 
 // Delete the matching authentication in the keystore
-func (a Auth) DeleteAuth() error {
-	if authString, err := a.AuthString(); err != nil {
+func (a Auth) Delete() error {
+	if authString, err := a.String(); err != nil {
 		return err
 	} else {
 		return keys.Remove(authString)
@@ -101,20 +104,20 @@ func (a Auth) DeleteAuth() error {
 }
 
 // List all authentication keys in the keystore
-func ListAuths() ([]Auth, error) {
+func List() ([]Auth, error) {
 	keys, err := keys.Keys()
 	auths := make([]Auth, len(keys))
 	for i, key := range keys {
 		var err2 error
-		auths[i], err2 = AuthFromString(key)
+		auths[i], err2 = FromString(key)
 		err = errors.Join(err, err2)
 	}
 	return auths, err
 }
 
-// Validate authentication with the Tessitura API server at a.hostname
+// Validate authentication with the Tessitura API server at a.Hostname
 func (a Auth) Validate() (bool, error) {
-	host := append(strings.SplitN(a.hostname, "/", 2), "")
+	host := append(strings.SplitN(a.Hostname, "/", 2), "")
 	ignoreCerts, _ := httptransport.TLSClient(httptransport.TLSClientOptions{
 		InsecureSkipVerify: true,
 	})
