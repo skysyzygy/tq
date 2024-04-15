@@ -133,7 +133,7 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (R, error)](
 		return nil, err
 	}
 
-	// Call the function with basic authentication
+	// Call the function
 	obj, err := function(params)
 
 	if err != nil {

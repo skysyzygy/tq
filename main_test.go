@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/base64"
 	"encoding/json"
 	"io"
 	"net/http"
@@ -97,15 +98,24 @@ func Test_Login(t *testing.T) {
 	assert.NotNil(t, tq.basicAuth)
 }
 
-// test that DoOne calls a swagger API function and returns a response
+// test that DoOne calls swagger API functions and returns a response
 func Test_DoOne(t *testing.T) {
 	oneConstituent := models.Constituent{
 		ID:        0,
 		FirstName: "Test",
 		LastName:  "User",
 	}
+	oneConstituentDetail := models.ConstituentDetail{
+		ID:        0,
+		FirstName: "Test",
+		LastName:  "User",
+	}
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		req := g_e_t.ConstituentsGetConstituentParams{}
+
+		// Check that the caller is authenticated
+		assert.Equal(t, "Basic "+base64.StdEncoding.EncodeToString([]byte(`user:::password`)),
+			r.Header.Values("Authorization")[0])
 
 		reqBody, _ := io.ReadAll(r.Body)
 		json.Unmarshal(reqBody, &req)
@@ -117,10 +127,20 @@ func Test_DoOne(t *testing.T) {
 	defer server.Close()
 	tq := new(tqConfig)
 	query := []byte(`{"Id": 0}`)
-	tq.Login(auth.New(strings.Replace(server.URL, "https://", "", 1), "user", "", "", nil))
+	tq.Login(auth.New(strings.Replace(server.URL, "https://", "", 1), "user", "", "", []byte("password")))
 
 	res, err := DoOne(*tq, tq.Get.ConstituentsGet, query)
 	expectedJSON, _ := json.Marshal(oneConstituent)
+	assert.Equal(t, expectedJSON, res)
+	assert.NoError(t, err)
+
+	res, err = DoOne(*tq, tq.Put.ConstituentsUpdate, query)
+	expectedJSON, _ = json.Marshal(oneConstituent)
+	assert.Equal(t, expectedJSON, res)
+	assert.NoError(t, err)
+
+	res, err = DoOne(*tq, tq.Post.ConstituentsCreateConstituent, query)
+	expectedJSON, _ = json.Marshal(oneConstituentDetail)
 	assert.Equal(t, expectedJSON, res)
 	assert.NoError(t, err)
 
