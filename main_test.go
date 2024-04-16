@@ -6,6 +6,7 @@ import (
 	"io"
 	"net/http"
 	"net/http/httptest"
+	"reflect"
 	"strings"
 	"testing"
 
@@ -83,11 +84,29 @@ func Test_structFields(t *testing.T) {
 	pp := struct{ A, B, C, empty *string }{&strings[0], &strings[1], &strings[2], nil}
 	ps := struct{ A, B, C, empty string }{strings[0], strings[1], strings[2], ""}
 	pi := struct{ A, B, C, empty int }{1, 2, 3, 0}
+	ppp := &pp
+	pps := &ps
+	ppi := &pi
 
 	assert.Equal(t, []string{"A", "B", "C"}, structFields(pp))
 	assert.Equal(t, []string{"A", "B", "C"}, structFields(ps))
 	assert.Equal(t, []string{"A", "B", "C"}, structFields(pi))
+	assert.Equal(t, []string{"A", "B", "C"}, structFields(ppp))
+	assert.Equal(t, []string{"A", "B", "C"}, structFields(pps))
+	assert.Equal(t, []string{"A", "B", "C"}, structFields(ppi))
 
+}
+
+// test that mapFields returns map keys
+func Test_mapFields(t *testing.T) {
+	m := map[string]any{"hi": []string{}, "i'm": 1, "a": false, "map": "!"}
+	keys := reflect.ValueOf(m).MapKeys()
+	keyString := make([]string, len(keys))
+	for i, key := range keys {
+		keyString[i] = key.String()
+	}
+	assert.ElementsMatch(t, []string{"hi", "i'm", "a", "map"}, mapFields(m))
+	assert.ElementsMatch(t, []string{"hi", "i'm", "a", "map"}, keyString)
 }
 
 // test that Login builds Tessitura API client and saves BasicAuth info for future use
@@ -144,4 +163,52 @@ func Test_DoOne(t *testing.T) {
 	assert.Equal(t, expectedJSON, res)
 	assert.NoError(t, err)
 
+}
+
+// Test that Do dispatches to DoOne singularly or in parallel depending on query
+// and returns valid JSON
+func Test_Do(t *testing.T) {
+	calls := 1
+	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		req := g_e_t.ConstituentsGetConstituentParams{}
+
+		// Check that the caller is authenticated
+		assert.Equal(t, "Basic "+base64.StdEncoding.EncodeToString([]byte(`user:::password`)),
+			r.Header.Values("Authorization")[0])
+
+		reqBody, _ := io.ReadAll(r.Body)
+		json.Unmarshal(reqBody, &req)
+
+		resBody, _ := json.Marshal(models.Constituent{
+			ID: int32(calls),
+		})
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(resBody)
+		calls++
+	}))
+	defer server.Close()
+	tq := new(tqConfig)
+	tq.Login(auth.New(strings.Replace(server.URL, "https://", "", 1), "user", "", "", []byte("password")))
+
+	query := []byte(`{"Id": 0}`)
+	constituent := new(models.Constituent)
+	res, err := Do(*tq, tq.Get.ConstituentsGet, query)
+	json.Unmarshal(res, constituent)
+	assert.Equal(t, int32(1), constituent.ID)
+	assert.NoError(t, err)
+
+	query = []byte(`[{"Id": 0},{"Id": 0},{"Id": 0}]`)
+	constituents := new([]models.Constituent)
+	res, err = Do(*tq, tq.Get.ConstituentsGet, query)
+	json.Unmarshal(res, constituents)
+	assert.Equal(t, 3, len(*constituents))
+	assert.NoError(t, err)
+
+	// Test that Do returns the last error
+	query = []byte(`[{"Id": 0},["Can't be unmarshaled"],{"Id": 0}]`)
+	constituents = new([]models.Constituent)
+	res, err = Do(*tq, tq.Get.ConstituentsGet, query)
+	json.Unmarshal(res, constituents)
+	assert.Equal(t, 3, len(*constituents))
+	assert.ErrorContains(t, err, "cannot unmarshal array")
 }

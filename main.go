@@ -25,7 +25,6 @@ import (
 	"errors"
 	"fmt"
 	"reflect"
-	"slices"
 	"strings"
 
 	"encoding/json"
@@ -50,7 +49,7 @@ type tqConfig struct {
 	// tokenAuth func(*runtime.ClientOperation)
 
 	// TODO: Logging to file/stdout
-	// og io.WriteCloser
+	// log io.WriteCloser
 
 	// some flags
 	verbose bool
@@ -82,7 +81,7 @@ func (tq *tqConfig) Login(a auth.Auth) error {
 // Returns the result, either a single json map if there is only one operation to do,
 // or an array of json maps if there are multiple operations.
 // Returns the last error
-func Do[P any, R any, O any, F func(*P, ...O) (R, error)](
+func Do[P any, R any, O any, F func(*P, ...O) (*R, error)](
 	tq tqConfig, function F, query []byte,
 ) ([]byte, error) {
 	queries := new([]json.RawMessage)
@@ -93,27 +92,31 @@ func Do[P any, R any, O any, F func(*P, ...O) (R, error)](
 	} else if err == nil {
 		// loop over queries and call DoOne for each
 		// TODO: Parallelize this!
-		out := []byte(`[`)
-		errs := make([]error, len(*queries))
-		var res []byte
+		out := make([]json.RawMessage, len(*queries))
+		errs := make([]error, 0, len(*queries))
 		for i, q := range *queries {
-			res, errs[i] = DoOne(tq, function, q)
-			out = slices.Concat(out, res)
+			out[i], err = DoOne(tq, function, q)
+			if err != nil {
+				errs = append(errs, err)
+			}
 		}
-		out = slices.Concat(out, []byte(`]`))
-		return out, errs[len(errs)]
+		res, _ := json.Marshal(out)
+		if len(errs) > 0 {
+			err = errs[len(errs)-1]
+		}
+		return res, err
 	}
-	return nil, err // json Unmarshall error
+	return nil, err // json.Unmarshal error
 }
 
 // Generic for doing operations (get/put/post), parallelizing calls to DoOne as needed
 // The type parameters allow it to work for any swagger-defined function.
 // It unmarshals `query` into the appropriate data structure for `function` and marshals
 // the result back to json.
-// If the initial unmarhshal fails, it tries again with a depth-first traversal of the
+// If the initial unmarshal fails, it tries again with a depth-first traversal of the
 // data structure, essentially trying to recast a flat query into the nested structure
 // required.
-func DoOne[P any, R any, O any, F func(*P, ...O) (R, error)](
+func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 	tq tqConfig, function F, query []byte,
 ) ([]byte, error) {
 
@@ -190,6 +193,13 @@ func unmarshallNestedStructWithRemainder(query []byte, params any) (res map[stri
 		return nil, fmt.Errorf("params must be pointer to struct, got pointer to %v", reflect.TypeOf(params).Elem().Kind())
 	}
 
+	// First unmarshal the given struct so that those fields get mapped if possible
+	res, err = unmarshallStructWithRemainder(query, params)
+	if err != nil {
+		return
+	}
+	query, _ = json.Marshal(res)
+
 	v := reflect.ValueOf(params).Elem()
 	for i := 0; i < v.NumField(); i++ {
 		if v.Field(i).Kind() == reflect.Struct && v.Field(i).IsZero() {
@@ -214,6 +224,7 @@ func structFields(s any) []string {
 	val := reflect.ValueOf(s)
 	if typ.Kind() == reflect.Pointer {
 		typ = typ.Elem()
+		val = val.Elem()
 	}
 	usedFields := make([]string, 0, typ.NumField())
 	for i := 0; i < typ.NumField(); i++ {
@@ -227,7 +238,7 @@ func structFields(s any) []string {
 
 // Return the field names from map `m`
 func mapFields(m map[string]any) []string {
-	fields := make([]string, len(m))
+	fields := make([]string, 0, len(m))
 	for field := range m {
 		fields = append(fields, field)
 	}
