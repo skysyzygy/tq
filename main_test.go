@@ -117,6 +117,27 @@ func Test_Login(t *testing.T) {
 	assert.NotNil(t, tq.basicAuth)
 }
 
+func testServer(t *testing.T) *httptest.Server {
+	return httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		req := g_e_t.ConstituentsGetConstituentParams{}
+
+		// Check that the caller is authenticated
+		assert.Equal(t, "Basic "+base64.StdEncoding.EncodeToString([]byte(`user:::password`)),
+			r.Header.Values("Authorization")[0])
+
+		reqBody, _ := io.ReadAll(r.Body)
+		json.Unmarshal(reqBody, &req)
+
+		resBody, _ := json.Marshal(models.Constituent{
+			ID:        0,
+			FirstName: "Test",
+			LastName:  "User",
+		})
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(resBody)
+	}))
+}
+
 // test that DoOne calls swagger API functions and returns a response
 func Test_DoOne(t *testing.T) {
 	oneConstituent := models.Constituent{
@@ -129,20 +150,7 @@ func Test_DoOne(t *testing.T) {
 		FirstName: "Test",
 		LastName:  "User",
 	}
-	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		req := g_e_t.ConstituentsGetConstituentParams{}
-
-		// Check that the caller is authenticated
-		assert.Equal(t, "Basic "+base64.StdEncoding.EncodeToString([]byte(`user:::password`)),
-			r.Header.Values("Authorization")[0])
-
-		reqBody, _ := io.ReadAll(r.Body)
-		json.Unmarshal(reqBody, &req)
-
-		resBody, _ := json.Marshal(oneConstituent)
-		w.Header().Set("Content-Type", "application/json")
-		w.Write(resBody)
-	}))
+	server := testServer(t)
 	defer server.Close()
 	tq := new(tqConfig)
 	query := []byte(`{"Id": 0}`)
@@ -168,24 +176,7 @@ func Test_DoOne(t *testing.T) {
 // Test that Do dispatches to DoOne singularly or in parallel depending on query
 // and returns valid JSON
 func Test_Do(t *testing.T) {
-	calls := 1
-	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		req := g_e_t.ConstituentsGetConstituentParams{}
-
-		// Check that the caller is authenticated
-		assert.Equal(t, "Basic "+base64.StdEncoding.EncodeToString([]byte(`user:::password`)),
-			r.Header.Values("Authorization")[0])
-
-		reqBody, _ := io.ReadAll(r.Body)
-		json.Unmarshal(reqBody, &req)
-
-		resBody, _ := json.Marshal(models.Constituent{
-			ID: int32(calls),
-		})
-		w.Header().Set("Content-Type", "application/json")
-		w.Write(resBody)
-		calls++
-	}))
+	server := testServer(t)
 	defer server.Close()
 	tq := new(tqConfig)
 	tq.Login(auth.New(strings.Replace(server.URL, "https://", "", 1), "user", "", "", []byte("password")))
@@ -194,7 +185,7 @@ func Test_Do(t *testing.T) {
 	constituent := new(models.Constituent)
 	res, err := Do(*tq, tq.Get.ConstituentsGet, query)
 	json.Unmarshal(res, constituent)
-	assert.Equal(t, int32(1), constituent.ID)
+	assert.Equal(t, int32(0), constituent.ID)
 	assert.NoError(t, err)
 
 	query = []byte(`[{"Id": 0},{"Id": 0},{"Id": 0}]`)
