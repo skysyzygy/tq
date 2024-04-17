@@ -6,6 +6,7 @@ import (
 	"io"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"reflect"
 	"strings"
 	"testing"
@@ -15,6 +16,44 @@ import (
 	"github.com/skysyzygy/tq/models"
 	"github.com/stretchr/testify/assert"
 )
+
+func Test_NewLogging(t *testing.T) {
+	r, w, _ := os.Pipe()
+	sr, sw, _ := os.Pipe()
+	defer w.Close()
+	defer sw.Close()
+
+	stdout = *sw
+	tq := New(w, false, false)
+
+	tq.log.Warn("Warn")
+	tq.log.Info("Info")
+
+	fileOutput := make([]byte, 1024)
+	consoleOutput := make([]byte, 1024)
+	r.Read(fileOutput)
+	sr.Read(consoleOutput)
+
+	// With standard logging the console only prints warnings/errors
+	assert.Contains(t, string(fileOutput), "Warn")
+	assert.Contains(t, string(consoleOutput), "Warn")
+	assert.NotContains(t, string(consoleOutput), "Info")
+
+	// With verbose logging the console also prints info
+	tq = New(w, true, false)
+
+	tq.log.Info("Info")
+	tq.log.Debug("Debug")
+
+	consoleOutput = make([]byte, 1024)
+	sr.Read(consoleOutput)
+
+	assert.Contains(t, string(consoleOutput), "Info")
+	assert.NotContains(t, string(consoleOutput), "Debug")
+
+	stdout = *os.Stdout
+
+}
 
 func Test_unmarshallStructWithRemainder(t *testing.T) {
 	type P struct{ A, B, C string }

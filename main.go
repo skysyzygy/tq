@@ -24,6 +24,8 @@ package main
 import (
 	"errors"
 	"fmt"
+	"log/slog"
+	"os"
 	"reflect"
 	"strings"
 
@@ -48,12 +50,27 @@ type tqConfig struct {
 	// TODO: Bearer token for requests
 	// tokenAuth func(*runtime.ClientOperation)
 
-	// TODO: Logging to file/stdout
-	// log io.WriteCloser
+	// Logger
+	log *slog.Logger
+	// progress chan
 
 	// some flags
 	verbose bool
 	dryRun  bool
+}
+
+func New(logFile *os.File, verbose bool, dryRun bool) *tqConfig {
+	logLevel := new(slog.LevelVar)
+	if verbose {
+		logLevel.Set(slog.LevelInfo)
+	} else {
+		logLevel.Set(slog.LevelWarn)
+	}
+	return &tqConfig{
+		log:     slog.New(NewLogHandler(logFile, logLevel)),
+		verbose: verbose,
+		dryRun:  dryRun,
+	}
 }
 
 // Log in the Tessitura client with the given authentication info and cache the login data
@@ -129,8 +146,8 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 	}
 
 	if tq.verbose {
-		structFields(*params)
-		mapFields(remainder)
+		tq.log.Info("structFields", "fields", fmt.Sprint(structFields(*params)))
+		tq.log.Info("mapFields", "fields", fmt.Sprint(mapFields(remainder)))
 	}
 	if tq.dryRun || err != nil {
 		return nil, err
