@@ -1,4 +1,4 @@
-package main
+package tq
 
 import (
 	"encoding/base64"
@@ -23,7 +23,7 @@ func Test_NewLogging(t *testing.T) {
 	defer w.Close()
 	defer sw.Close()
 
-	stdout = *sw
+	console = *sw
 	tq := New(w, false, false)
 
 	tq.log.Warn("Warn")
@@ -51,7 +51,7 @@ func Test_NewLogging(t *testing.T) {
 	assert.Contains(t, string(consoleOutput), "Info")
 	assert.NotContains(t, string(consoleOutput), "Debug")
 
-	stdout = *os.Stdout
+	console = *os.Stdout
 
 }
 
@@ -150,7 +150,7 @@ func Test_mapFields(t *testing.T) {
 
 // test that Login builds Tessitura API client and saves BasicAuth info for future use
 func Test_Login(t *testing.T) {
-	tq := new(tqConfig)
+	tq := New(nil, false, false)
 	tq.Login(auth.New("hostname", "user", "", "", nil))
 	assert.NotNil(t, tq.Get)
 	assert.NotNil(t, tq.basicAuth)
@@ -191,8 +191,8 @@ func Test_DoOne(t *testing.T) {
 	}
 	server := testServer(t)
 	defer server.Close()
-	tq := new(tqConfig)
-	query := []byte(`{"Id": 0}`)
+	tq := New(nil, false, false)
+	query := []byte(`{"ConstituentId": "0"}`)
 	tq.Login(auth.New(strings.Replace(server.URL, "https://", "", 1), "user", "", "", []byte("password")))
 
 	res, err := DoOne(*tq, tq.Get.ConstituentsGet, query)
@@ -205,9 +205,24 @@ func Test_DoOne(t *testing.T) {
 	assert.Equal(t, expectedJSON, res)
 	assert.NoError(t, err)
 
+	query = []byte(`{"Constituent": {"FirstName": "Test"}}`)
 	res, err = DoOne(*tq, tq.Post.ConstituentsCreateConstituent, query)
 	expectedJSON, _ = json.Marshal(oneConstituentDetail)
 	assert.Equal(t, expectedJSON, res)
+	assert.NoError(t, err)
+
+}
+
+// Test that DoOne does nothing when there's no data given
+func Test_DoOneNoop(t *testing.T) {
+	server := testServer(t)
+	defer server.Close()
+	tq := New(nil, false, false)
+	query := []byte(`{"Not a key": 0}`)
+	tq.Login(auth.New(strings.Replace(server.URL, "https://", "", 1), "user", "", "", []byte("password")))
+
+	res, err := DoOne(*tq, tq.Get.ConstituentsGet, query)
+	assert.Equal(t, []byte(nil), res)
 	assert.NoError(t, err)
 
 }
@@ -217,17 +232,17 @@ func Test_DoOne(t *testing.T) {
 func Test_Do(t *testing.T) {
 	server := testServer(t)
 	defer server.Close()
-	tq := new(tqConfig)
+	tq := New(nil, true, false)
 	tq.Login(auth.New(strings.Replace(server.URL, "https://", "", 1), "user", "", "", []byte("password")))
 
-	query := []byte(`{"Id": 0}`)
+	query := []byte(`{"ConstituentId": "0"}`)
 	constituent := new(models.Constituent)
 	res, err := Do(*tq, tq.Get.ConstituentsGet, query)
 	json.Unmarshal(res, constituent)
 	assert.Equal(t, int32(0), constituent.ID)
 	assert.NoError(t, err)
 
-	query = []byte(`[{"Id": 0},{"Id": 0},{"Id": 0}]`)
+	query = []byte(`[{"ConstituentId": "0"},{"ConstituentId": "0"},{"ConstituentId": "0"}]`)
 	constituents := new([]models.Constituent)
 	res, err = Do(*tq, tq.Get.ConstituentsGet, query)
 	json.Unmarshal(res, constituents)
@@ -235,7 +250,7 @@ func Test_Do(t *testing.T) {
 	assert.NoError(t, err)
 
 	// Test that Do returns the last error
-	query = []byte(`[{"Id": 0},["Can't be unmarshaled"],{"Id": 0}]`)
+	query = []byte(`[{"ConstituentId": "0"},["Can't be unmarshaled"],{"ConstituentId": "0"}]`)
 	constituents = new([]models.Constituent)
 	res, err = Do(*tq, tq.Get.ConstituentsGet, query)
 	json.Unmarshal(res, constituents)

@@ -1,4 +1,4 @@
-package main
+package tq
 
 import (
 	"io"
@@ -25,7 +25,7 @@ func init() {
 // Test logging to console and file severity levels and source for default setup
 func Test_LoggerDefault(t *testing.T) {
 	r, w, _ := os.Pipe()
-	stdout = *w // capture console output
+	console = *w // capture console output
 
 	log.Error("Error")
 	log.Warn("Warn")
@@ -54,7 +54,7 @@ func Test_LoggerDefault(t *testing.T) {
 // Test logging to console and file severity levels and source for errors-only setup
 func Test_LoggerErrors(t *testing.T) {
 	r, w, _ := os.Pipe()
-	stdout = *w
+	console = *w
 
 	level.Set(slog.LevelError)
 

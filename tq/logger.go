@@ -1,4 +1,4 @@
-package main
+package tq
 
 import (
 	"context"
@@ -13,11 +13,11 @@ type logHandler struct {
 	consoleLogger slog.Handler
 }
 
-var stdout os.File
+var console os.File
 
 func init() {
 	// For testing!
-	stdout = *os.Stdout
+	console = *os.Stderr
 }
 
 func NewLogHandler(fileWriter io.Writer, level *slog.LevelVar) *logHandler {
@@ -25,7 +25,7 @@ func NewLogHandler(fileWriter io.Writer, level *slog.LevelVar) *logHandler {
 		fileLogger: slog.NewTextHandler(fileWriter, &slog.HandlerOptions{
 			AddSource: true,
 		}),
-		consoleLogger: slog.NewTextHandler(&stdout, &slog.HandlerOptions{
+		consoleLogger: slog.NewTextHandler(&console, &slog.HandlerOptions{
 			Level: level,
 		}),
 	}
