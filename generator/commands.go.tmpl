@@ -1,0 +1,12 @@
+// Wraps the `Do` command with documentation for cobra
+func MakeCommandFor[P any, R any, O any, F func(*P, ...O) (*R, error)](
+	tq *tqConfig, function F) *cobra.Command {
+	short, long := Describe(function)
+	return &cobra.Command{
+		Short: short,
+		Long:  long,
+		Run: func(cmd *cobra.Command, args []string) {
+			Do(*tq, function, []byte(args[0]))
+		},
+	}
+}
