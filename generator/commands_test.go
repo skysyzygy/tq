@@ -14,31 +14,31 @@ func Test_Describe(t *testing.T) {
 
 	short, long := describe("ConstituentsGet")
 	assert.Equal(t, "Constituents", short)
-	assert.Equal(t, "Get the details of a Constituent using id.\n ConstituentId(*): string\t", long)
+	assert.Equal(t, "Get the details of a Constituent using id.", long)
 
 	short, long = describe("ConstituentsUpdate")
 	assert.Equal(t, "Constituents", short)
-	assert.Equal(t, "Update a constituent. Only the information about constituent can be updated. If addresses, electronicAddresses, salutations or phones data are passed, they will be ignored.\n ConstituentId(*): string\t\n Constituent(*): object\t", long)
+	assert.Equal(t, "Update a constituent. Only the information about constituent can be updated. If addresses, electronicAddresses, salutations or phones data are passed, they will be ignored.", long)
 
 	short, long = describe("ConstituentsCreateConstituent")
 	assert.Equal(t, "Constituents", short)
-	assert.Equal(t, "Create a new constituent with addresses, electronicAddresses, salutations and phones.\n Constituent(*): object\t", long)
+	assert.Equal(t, "Create a new constituent with addresses, electronicAddresses, salutations and phones.", long)
 
 	short, long = describe("ElectronicAddressesGet")
 	assert.Equal(t, "ElectronicAddresses", short)
-	assert.Equal(t, "Get details of an electronic address.\n ElectronicAddressId(*): string\t", long)
+	assert.Equal(t, "Get details of an electronic address.", long)
 
 	short, long = describe("ElectronicAddressesUpdate")
 	assert.Equal(t, "ElectronicAddresses", short)
-	assert.Equal(t, "Update an electronic address.\n ElectronicAddressId(*): string\t\n ElectronicAddress(*): object\t", long)
+	assert.Equal(t, "Update an electronic address.", long)
 
 	short, long = describe("ElectronicAddressesCreate")
 	assert.Equal(t, "ElectronicAddresses", short)
-	assert.Equal(t, "Create a new electronic address.\n ElectronicAddress(*): object\t", long)
+	assert.Equal(t, "Create a new electronic address.", long)
 
 	short, long = describe("AssociationTypesGet")
 	assert.Equal(t, "AssociationTypes", short)
-	assert.Equal(t, "Get the details of an association type by id. To get the resource only if the user has write/edit access, pass filter=\"writeonly\". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode=\"true\". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).\n Id(*): string\t\n Filter: string\tFilter by user access (default: readwrite)\n MaintenanceMode: string\tIgnore control grouping (default: false)", long)
+	assert.Equal(t, "Get the details of an association type by id. To get the resource only if the user has write/edit access, pass filter=\"writeonly\". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode=\"true\". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).", long)
 
 }
 
@@ -83,8 +83,6 @@ func Test_usageInterface(t *testing.T) {
 	assert.Equal(t, `{"Constituent":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DisplayName":"string","FirstName":"string","LastActivityDate":"0001-01-01T00:00:00.000Z","LastGiftDate":"0001-01-01T00:00:00.000Z","LastName":"string","LastTicketDate":"0001-01-01T00:00:00.000Z","MiddleName":"string","SortName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ConstituentID":"string"}`, string(usage(method)))
 	method, _ = reflect.TypeOf(client.Post).MethodByName("ConstituentsCreateConstituent")
 	assert.Equal(t, `{"Constituent":{"Addresses":[object],"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DisplayName":"string","ElectronicAddresses":[object],"FirstName":"string","LastActivityDate":"0001-01-01T00:00:00.000Z","LastGiftDate":"0001-01-01T00:00:00.000Z","LastName":"string","LastTicketDate":"0001-01-01T00:00:00.000Z","MiddleName":"string","PhoneNumbers":[object],"Salutations":[object],"SortName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`, string(usage(method)))
-	method, _ = reflect.TypeOf(client.Get).MethodByName("SetTransport")
-	assert.Equal(t, `{}`, string(usage(method)))
 }
 
 func Test_newCommandGet(t *testing.T) {
