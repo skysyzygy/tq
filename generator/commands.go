@@ -3,13 +3,24 @@ package main
 import (
 	"embed"
 	"encoding/json"
-	"fmt"
 	"reflect"
+	"regexp"
 	"slices"
 	"strings"
 
 	"github.com/go-openapi/spec"
 )
+
+type command struct {
+	Name    string
+	Verb    string
+	Thing   string
+	Variant string
+	Short   string
+	Long    string
+	Usage   string
+	Aliases []string
+}
 
 // embed the swagger spec
 //
@@ -29,10 +40,10 @@ func init() {
 }
 
 // Reads the Tessitura swagger spec and extracts documentation info
-func Describe(funcName string) (short string, long string) {
+func describe(funcName string) (thing string, long string) {
 
 	// now find the corresponding operation in the swagger spec!
-	for url, path := range swagger.Paths.Paths {
+	for _, path := range swagger.Paths.Paths {
 		for _, op := range []*spec.Operation{
 			path.Get, path.Put, path.Post, path.Delete, path.Head,
 		} {
@@ -42,27 +53,30 @@ func Describe(funcName string) (short string, long string) {
 			if op != nil && funcName ==
 				// the swagger doc has an extra "_" in the name
 				strings.ReplaceAll(op.ID, "_", "") {
-				url := strings.Split(url, "/")
-				short = url[1]
-				if len(url) > 2 {
-					short = url[2]
-				}
+				thing = regexp.MustCompile("_.+").ReplaceAllString(op.ID, "")
+				// url := strings.Split(url, "/")
+				// short = url[1]
+				// if len(url) > 2 {
+				// 	short = url[2]
+				// }
+				// if strings.Contains(short, "{") {
+				// 	short = regexp.MustCompile(op.ID+".+").ReplaceAllString(funcName, "")
+				// }
 				long = op.Summary
-				for _, param := range op.OperationProps.Parameters {
-					paramReq := ""
-					if param.Required {
-						paramReq = "(*)"
-					}
-					paramType := param.Type
-					if paramType == "" {
-						paramType = param.Schema.Type[0]
-					}
-					paramName := strings.ToUpper(string(param.Name[0])) +
-						param.Name[1:]
-					long += fmt.Sprintf("\n %v%v: %v\t%v", paramName, paramReq,
-						paramType, param.Description)
-				}
-
+				// for _, param := range op.OperationProps.Parameters {
+				// 	paramReq := ""
+				// 	if param.Required {
+				// 		paramReq = "(*)"
+				// 	}
+				// 	paramType := param.Type
+				// 	if paramType == "" {
+				// 		paramType = param.Schema.Type[0]
+				// 	}
+				// 	paramName := strings.ToUpper(string(param.Name[0])) +
+				// 		param.Name[1:]
+				// 	long += fmt.Sprintf("\n %v%v: %v\t%v", paramName, paramReq,
+				// 		paramType, param.Description)
+				// }
 				return
 			}
 		}
@@ -115,8 +129,12 @@ func instantiateStructType(t reflect.Type, depth int) any {
 	return v.Interface()
 }
 
-func usage(method reflect.Value) []byte {
-	params := reflect.ValueOf(instantiateStructType(method.Type().In(1), 1))
+func usage(method reflect.Method) []byte {
+	numIn := method.Type.NumIn()
+	if numIn < 2 {
+		return nil
+	}
+	params := reflect.ValueOf(instantiateStructType(method.Type.In(numIn-2), 1))
 	if params.Kind() == reflect.Pointer {
 		params = params.Elem()
 	}
@@ -139,28 +157,63 @@ func usage(method reflect.Value) []byte {
 		panic(err)
 	}
 	usage = []byte(strings.ReplaceAll(string(usage), "null", "[object]"))
+	if string(usage) == "{}" {
+		usage = nil
+	}
 	return usage
 }
 
-// Fills a command struct with info about a method
+// Fills a command struct with info about a method.
+// Verb == {"Get", "Update", "Create", "Delete"}
+// Thing, Long come from describe(method.Name)
+// method.Name = Thing + Verb + Variant (in any order)
+// Short is derived from Long by cutting at punctuation or newline.
+// Usage come sfrom usage(method.Name)
 func newCommand(method reflect.Method) command {
-	short, long := Describe(method.Name)
-	stopWords := []string{"Get", "Update", "Create", "Delete", short}
+	thing, long := describe(method.Name)
+	stopWords := []string{"Get", "Update", "Create", "Delete", thing}
 	variant := method.Name
 	verb := ""
 	for _, stopWord := range stopWords {
 		if strings.Contains(variant, stopWord) && verb == "" {
 			verb = stopWord
 		}
-		variant = strings.ReplaceAll(variant, stopWord, "")
+		variant = strings.Replace(variant, stopWord, "", 1)
 	}
+	short := regexp.MustCompile(`[\.,\n]`).Split(long, 2)[0]
 	return command{
-		verb:    verb,
-		thing:   short,
-		variant: variant,
-		long:    long,
-		usage:   string(usage(method.Func)),
-		aliases: []string{short},
+		Name:    method.Name,
+		Verb:    verb,
+		Thing:   thing,
+		Short:   short,
+		Variant: variant,
+		Long:    long,
+		Usage:   string(usage(method)),
+		Aliases: []string{short},
 	}
 
+}
+
+// Generate aliases for CamelCased name -- one letter per capital plus the whole command
+// both upper and lowercased... but not the same name back again
+func makeAliases(name string) []string {
+	substrings := map[string]bool{
+		name: true, strings.ToLower(name): true,
+	}
+	caps := ""
+	for i := 0; i < len(name); i++ {
+		if string(name[i]) == strings.ToUpper(string(name[i])) {
+			caps = caps + string(name[i])
+		}
+	}
+	if caps != "" {
+		substrings[caps] = true
+		substrings[strings.ToLower(caps)] = true
+	}
+	delete(substrings, name)
+	out := make([]string, 0, len(substrings))
+	for key, _ := range substrings {
+		out = append(out, key)
+	}
+	return out
 }

@@ -20,7 +20,7 @@ import (
 // import "github.com/skysyzygy/tq/cmd"
 
 // Global config options and structures for tq
-type tqConfig struct {
+type TqConfig struct {
 	// the Tessitura API client
 	*client.TessituraServiceWeb
 
@@ -38,22 +38,23 @@ type tqConfig struct {
 	dryRun  bool
 }
 
-func New(logFile *os.File, verbose bool, dryRun bool) *tqConfig {
+func New(logFile *os.File, verbose bool, dryRun bool) *TqConfig {
 	logLevel := new(slog.LevelVar)
 	if verbose {
 		logLevel.Set(slog.LevelInfo)
 	} else {
 		logLevel.Set(slog.LevelWarn)
 	}
-	return &tqConfig{
+	return &TqConfig{
 		log:     slog.New(NewLogHandler(logFile, logLevel)),
 		verbose: verbose,
 		dryRun:  dryRun,
 	}
+
 }
 
 // Log in the Tessitura client with the given authentication info and cache the login data
-func (tq *tqConfig) Login(a auth.Auth) error {
+func (tq *TqConfig) Login(a auth.Auth) error {
 
 	// Cache the login data
 	if basicAuth, err := a.BasicAuth(); err != nil {
@@ -79,7 +80,7 @@ func (tq *tqConfig) Login(a auth.Auth) error {
 // or an array of json maps if there are multiple operations.
 // Returns the last error
 func Do[P any, R any, O any, F func(*P, ...O) (*R, error)](
-	tq tqConfig, function F, query []byte,
+	tq TqConfig, function F, query []byte,
 ) ([]byte, error) {
 	tq.log.Info(fmt.Sprint("calling swagger function: ",
 		run.FuncForPC(reflect.ValueOf(function).Pointer()).Name()))
@@ -118,7 +119,7 @@ func Do[P any, R any, O any, F func(*P, ...O) (*R, error)](
 // data structure, essentially trying to recast a flat query into the nested structure
 // required.
 func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
-	tq tqConfig, function F, query []byte,
+	tq TqConfig, function F, query []byte,
 ) ([]byte, error) {
 
 	params := new(P)

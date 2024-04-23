@@ -25,6 +25,8 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/skysyzygy/tq/auth"
+	"github.com/skysyzygy/tq/tq"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -32,6 +34,7 @@ import (
 var (
 	cfgFile, jsonFile string
 	verbose, dryRun   bool
+	_tq               *tq.TqConfig
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -70,7 +73,7 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&jsonFile, "file", "f", "", "JSON file to read (default is to read from stdin)")
 
 	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "turns on additional diagnostic output")
-	rootCmd.PersistentFlags().BoolVarP(&dryRun, "dry-run", "n", false, "don't actually do anything, just show what would have happened")
+	rootCmd.PersistentFlags().BoolVarP(&dryRun, "dryrun", "n", false, "don't actually do anything, just show what would have happened")
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
@@ -99,4 +102,9 @@ func initConfig() {
 	if err := viper.ReadInConfig(); err == nil {
 		fmt.Fprintln(os.Stderr, "Using config file:", viper.ConfigFileUsed())
 	}
+}
+
+func tqInit(cmd *cobra.Command, args []string) {
+	_tq = tq.New(nil, verbose, dryRun)
+	_tq.Login(auth.New("", "", "", "", nil))
 }
