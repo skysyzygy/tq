@@ -8,21 +8,10 @@ import (
 )
 
 {{ $op := .op }}
-{{ $makeAliases := .makeAliases }}
+{{- $makeAliases := .makeAliases}}
 
-var {{ $op }}_cmd = &cobra.Command{
-	Use:   "{{ $op }}",
-	Aliases: []string{ {{ range call $makeAliases $op }} "{{ . }}", {{end}} },
-	{{ if eq $op "Get" }} Short: "Retrieve entities from Tessitura",
-	{{ else if eq $op "Put" }} Short: "Update entities in Tessitura",
-	{{ else if eq $op "Post" }} Short: "Create entities in Tessitura",
-	{{ else if eq $op "Delete" }} Short: "Delete entities from Tessitura",
-	{{ end }} 
-
-}
-
-{{ range $key, $commands := .commands }}
-{{ $command := index $commands 0 }}
+{{- range $key, $commands := .commands }}
+{{- $command := index $commands 0 }}
 var {{ print $op "_" $key "_cmd" }} = &cobra.Command{
 		Aliases: []string{ {{ range call $makeAliases $command.Thing }} "{{ . }}", {{end}} },
 		Use: `{{ print $key " " $command.Usage }}`,
@@ -30,32 +19,31 @@ var {{ print $op "_" $key "_cmd" }} = &cobra.Command{
 		Long:  `{{ $command.Long }}`,
 		PreRun: tqInit,
 		Run: func(cmd *cobra.Command, args []string) {
-		{{ if gt (len $commands) 1 }}
+		{{- if gt (len $commands) 1 }}
 				if false {
 				// no-op for easy looping =)
-			{{ range slice $commands 1 }}
+			{{- range slice $commands 1 }}
 				} else if test, _ := cmd.Flags().GetBool("{{ .Variant }}"); test {
 					tq.Do(*_tq, {{ print "_tq." $op "." .Name }} , []byte(args[0]))
-			{{ end }}
+			{{- end }}
 				} else {
 					tq.Do(*_tq, {{ print "_tq." $op "." $command.Name }} , []byte(args[0]))
 				}
-		{{ else }}
+		{{- else }}
 			tq.Do(*_tq, {{ print "_tq." $op "." $command.Name }} , []byte(args[0]))
-		{{ end }}
+		{{- end }}
 		},
 	}
 {{ end }}
 
 func init() {
-	rootCmd.AddCommand({{ $op }}_cmd)
-	{{ range $key, $commands := .commands }}
+	{{- range $key, $commands := .commands }}
 		{{ $op }}_cmd.AddCommand({{ print $op "_" $key "_cmd" }})
-		{{ if gt (len $commands) 1 }}
-			{{ range slice $commands 1 }} 
+		{{- if gt (len $commands) 1 }}
+			{{- range slice $commands 1 }} 
 				{{ print $op "_" $key "_cmd" }}.Flags().Bool("{{ .Variant }}", false, `{{ printf "%v\n%v" .Long .Usage}}`)
-			{{ end }} 
-		{{ end }}
+			{{- end }} 
+		{{- end }}
 	{{ end }}
 }
 
