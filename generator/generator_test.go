@@ -16,7 +16,6 @@ func Test_execTemplate(t *testing.T) {
 
 	err := os.WriteFile(inFile, []byte(template), 0)
 	assert.NoError(t, err)
-	defer os.Remove(inFile)
 
 	data := map[string]string{"world": "Yourself!"}
 	assert.NoFileExists(t, outFile)
@@ -32,7 +31,9 @@ func Test_execTemplate(t *testing.T) {
 
 	// Clean up
 	os.Remove(outFile)
+	os.Remove(inFile)
 	assert.NoFileExists(t, outFile)
+	assert.NoFileExists(t, inFile)
 }
 
 func Test_getDataForOperation(t *testing.T) {
