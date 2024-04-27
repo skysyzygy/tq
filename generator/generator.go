@@ -13,7 +13,11 @@ import (
 
 func main() {
 	for _, op := range []string{"Get", "Put", "Post"} {
-		if err := execTemplate("commands.go.tmpl", "../cmd/"+strings.ToLower(op)+".go", getDataForOperation(op)); err != nil {
+		data := getDataForOperation(op)
+		if err := execTemplate("commands.go.tmpl", "../cmd/"+strings.ToLower(op)+".go", data); err != nil {
+			panic(err)
+		}
+		if err := execTemplate("commands_test.go.tmpl", "../cmd/"+strings.ToLower(op)+"_test.go", data); err != nil {
 			panic(err)
 		}
 	}

@@ -9,6 +9,10 @@ import (
 )
 
 func Test_execTemplate(t *testing.T) {
+	template := "Hello {{ .world }}"
+	os.WriteFile("generator_test.tmpl", []byte(template), 0)
+	defer os.Remove("generator_test.tmpl")
+
 	data := map[string]string{"world": "Yourself!"}
 	filename := "execTemplate.txt"
 	assert.NoFileExists(t, filename)
