@@ -135,7 +135,7 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 		tq.Log.Info("mapFields", "fields", fmt.Sprint(mapFields(remainder)))
 	}
 	if len(structFields(*params)) == 0 {
-		err = fmt.Errorf("query could not be parsed")
+		err = errors.Join(err, fmt.Errorf("query could not be parsed"))
 	}
 	if tq.dryRun || err != nil {
 		return nil, err
