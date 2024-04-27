@@ -18,8 +18,9 @@ func Test_execTemplate(t *testing.T) {
 	assert.NoFileExists(t, filename)
 
 	// Execute the template
-	execTemplate("generator_test.tmpl", filename, data)
+	err := execTemplate("generator_test.tmpl", filename, data)
 	assert.FileExists(t, filename)
+	assert.NoError(t, err)
 
 	// Read the output
 	contents, _ := os.ReadFile(filename)
