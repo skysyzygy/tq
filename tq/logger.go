@@ -13,19 +13,12 @@ type logHandler struct {
 	consoleLogger slog.Handler
 }
 
-var console os.File
-
-func init() {
-	// For testing!
-	console = *os.Stderr
-}
-
 func NewLogHandler(fileWriter io.Writer, level *slog.LevelVar) *logHandler {
 	return &logHandler{
 		fileLogger: slog.NewTextHandler(fileWriter, &slog.HandlerOptions{
 			AddSource: true,
 		}),
-		consoleLogger: slog.NewTextHandler(&console, &slog.HandlerOptions{
+		consoleLogger: slog.NewTextHandler(os.Stderr, &slog.HandlerOptions{
 			Level: level,
 		}),
 	}
@@ -50,4 +43,33 @@ func (h *logHandler) WithGroup(name string) slog.Handler {
 	return &logHandler{
 		fileLogger:    h.fileLogger.WithGroup(name),
 		consoleLogger: h.consoleLogger.WithGroup(name)}
+}
+
+// Capture output for testing
+func CaptureOutput(f func()) ([]byte, []byte) {
+	pipeOut, stdOut, _ := os.Pipe()
+	pipeErr, stdErr, _ := os.Pipe()
+	os_Stdout := os.Stdout
+	os_Stderr := os.Stderr
+	defer func() {
+		os.Stdout = os_Stdout
+		os.Stderr = os_Stderr
+	}()
+	os.Stdout = stdOut
+	os.Stderr = stdErr
+
+	f()
+
+	stdOut.Close()
+	stdErr.Close()
+	out, e := io.ReadAll(pipeOut)
+	if e != nil {
+		panic(e)
+	}
+	err, e := io.ReadAll(pipeErr)
+	if e != nil {
+		panic(e)
+	}
+
+	return out, err
 }

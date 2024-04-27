@@ -31,7 +31,7 @@ type TqConfig struct {
 	// tokenAuth func(*runtime.ClientOperation)
 
 	// Logger
-	log *slog.Logger
+	Log *slog.Logger
 
 	// some flags
 	verbose bool
@@ -46,7 +46,7 @@ func New(logFile *os.File, verbose bool, dryRun bool) *TqConfig {
 		logLevel.Set(slog.LevelWarn)
 	}
 	return &TqConfig{
-		log:     slog.New(NewLogHandler(logFile, logLevel)),
+		Log:     slog.New(NewLogHandler(logFile, logLevel)),
 		verbose: verbose,
 		dryRun:  dryRun,
 	}
@@ -58,7 +58,7 @@ func (tq *TqConfig) Login(a auth.Auth) error {
 
 	// Cache the login data
 	if basicAuth, err := a.BasicAuth(); err != nil {
-		tq.log.Error(err.Error())
+		tq.Log.Error(err.Error())
 		return err
 	} else {
 		tq.basicAuth = basicAuth
@@ -82,16 +82,16 @@ func (tq *TqConfig) Login(a auth.Auth) error {
 func Do[P any, R any, O any, F func(*P, ...O) (*R, error)](
 	tq TqConfig, function F, query []byte,
 ) ([]byte, error) {
-	tq.log.Info(fmt.Sprint("calling swagger function: ",
+	tq.Log.Info(fmt.Sprint("calling swagger function: ",
 		run.FuncForPC(reflect.ValueOf(function).Pointer()).Name()))
 	queries := new([]json.RawMessage)
 	err := json.Unmarshal(query, queries)
 	if _, ok := err.(*json.UnmarshalTypeError); ok {
-		tq.log.Info("query is not an array, so calling API endpoint once")
+		tq.Log.Info("query is not an array, so calling API endpoint once")
 		// it's not an array... so just call DoOne
 		return DoOne(tq, function, query)
 	} else if err == nil {
-		tq.log.Info("query is an array, so calling API endpoint multiple times")
+		tq.Log.Info("query is an array, so calling API endpoint multiple times")
 		// loop over queries and call DoOne for each
 		// TODO: Parallelize this!
 		out := make([]json.RawMessage, len(*queries))
@@ -131,8 +131,8 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 	}
 
 	if tq.verbose {
-		tq.log.Info("structFields", "fields", fmt.Sprint(structFields(*params)))
-		tq.log.Info("mapFields", "fields", fmt.Sprint(mapFields(remainder)))
+		tq.Log.Info("structFields", "fields", fmt.Sprint(structFields(*params)))
+		tq.Log.Info("mapFields", "fields", fmt.Sprint(mapFields(remainder)))
 	}
 	if tq.dryRun || err != nil ||
 		len(structFields(*params)) == 0 {

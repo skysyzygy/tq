@@ -1,7 +1,7 @@
 package tq
 
 import (
-	"io"
+	"fmt"
 	"log/slog"
 	"os"
 	"testing"
@@ -19,21 +19,32 @@ func init() {
 	pipeR = r
 	pipeW = w
 	level = new(slog.LevelVar)
-	log = slog.New(NewLogHandler(w, level))
+}
+
+func Test_CaptureOutput(t *testing.T) {
+
+	out, err := CaptureOutput(func() { fmt.Fprint(os.Stdout, "Hello world!") })
+	assert.Empty(t, err)
+	assert.Equal(t, string(out), "Hello world!")
+
+	out, err = CaptureOutput(func() { fmt.Fprint(os.Stderr, "Oops!") })
+	assert.Empty(t, out)
+	assert.Contains(t, string(err), "Oops")
+
 }
 
 // Test logging to console and file severity levels and source for default setup
 func Test_LoggerDefault(t *testing.T) {
-	r, w, _ := os.Pipe()
-	console = *w // capture console output
 
-	log.Error("Error")
-	log.Warn("Warn")
-	log.Info("Info")
-	log.Debug("Debug")
+	_, consoleOutput := CaptureOutput(func() {
+		log = slog.New(NewLogHandler(pipeW, level))
 
-	w.Close()
-	consoleOutput, _ := io.ReadAll(r)
+		log.Error("Error")
+		log.Warn("Warn")
+		log.Info("Info")
+		log.Debug("Debug")
+	})
+
 	fileOutput := make([]byte, 1024)
 	pipeR.Read(fileOutput)
 
@@ -53,18 +64,17 @@ func Test_LoggerDefault(t *testing.T) {
 
 // Test logging to console and file severity levels and source for errors-only setup
 func Test_LoggerErrors(t *testing.T) {
-	r, w, _ := os.Pipe()
-	console = *w
-
 	level.Set(slog.LevelError)
 
-	log.Error("Error")
-	log.Warn("Warn")
-	log.Info("Info")
-	log.Debug("Debug")
+	_, consoleOutput := CaptureOutput(func() {
+		log = slog.New(NewLogHandler(pipeW, level))
 
-	w.Close()
-	consoleOutput, _ := io.ReadAll(r)
+		log.Error("Error")
+		log.Warn("Warn")
+		log.Info("Info")
+		log.Debug("Debug")
+	})
+
 	fileOutput := make([]byte, 1024)
 	pipeR.Read(fileOutput)
 
