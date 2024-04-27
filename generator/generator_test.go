@@ -14,7 +14,7 @@ func Test_execTemplate(t *testing.T) {
 	inFile := path.Join(os.TempDir(), "generator_test.tmpl")
 	outFile := path.Join(os.TempDir(), "execTemplate.txt")
 
-	err := os.WriteFile(inFile, []byte(template), 0)
+	err := os.WriteFile(inFile, []byte(template), 0644)
 	assert.NoError(t, err)
 
 	data := map[string]string{"world": "Yourself!"}
