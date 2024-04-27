@@ -216,7 +216,7 @@ func Test_DoOneNoop(t *testing.T) {
 
 	res, err := DoOne(*tq, tq.Get.ConstituentsGet, query)
 	assert.Equal(t, []byte(nil), res)
-	assert.NoError(t, err)
+	assert.ErrorContains(t, err, "query could not be parsed")
 
 }
 
