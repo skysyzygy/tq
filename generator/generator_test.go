@@ -14,15 +14,15 @@ func Test_execTemplate(t *testing.T) {
 	inFile := path.Join(os.TempDir(), "generator_test.tmpl")
 	outFile := path.Join(os.TempDir(), "execTemplate.txt")
 
-	os.WriteFile(inFile, []byte(template), 0)
+	err := os.WriteFile(inFile, []byte(template), 0)
+	assert.NoError(t, err)
 	defer os.Remove(inFile)
 
 	data := map[string]string{"world": "Yourself!"}
-
 	assert.NoFileExists(t, outFile)
 
 	// Execute the template
-	err := execTemplate(inFile, outFile, data)
+	err = execTemplate(inFile, outFile, data)
 	assert.FileExists(t, outFile)
 	assert.NoError(t, err)
 
