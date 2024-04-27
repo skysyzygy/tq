@@ -225,7 +225,7 @@ func Test_DoOneNoop(t *testing.T) {
 func Test_Do(t *testing.T) {
 	server := testServer(t)
 	defer server.Close()
-	tq := New(nil, true, false)
+	tq := New(nil, false, false)
 	tq.Login(auth.New(strings.Replace(server.URL, "https://", "", 1), "user", "", "", []byte("password")))
 
 	query := []byte(`{"ConstituentId": "0"}`)
