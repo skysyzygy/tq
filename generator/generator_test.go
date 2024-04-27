@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+	"path"
 	"strings"
 	"testing"
 
@@ -10,8 +11,8 @@ import (
 
 func Test_execTemplate(t *testing.T) {
 	template := "Hello {{ .world }}"
-	inFile := os.TempDir() + string(os.PathSeparator) + "generator_test.tmpl"
-	outFile := os.TempDir() + string(os.PathSeparator) + "execTemplate.txt"
+	inFile := path.Join(os.TempDir(), "generator_test.tmpl")
+	outFile := path.Join(os.TempDir(), "execTemplate.txt")
 
 	os.WriteFile(inFile, []byte(template), 0)
 	defer os.Remove(inFile)
