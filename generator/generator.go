@@ -30,7 +30,6 @@ func execTemplate(inFilename string, outFilename string, data any) error {
 		return err
 	}
 	outFile, err := os.Create(outFilename)
-
 	if err != nil {
 		return err
 	}

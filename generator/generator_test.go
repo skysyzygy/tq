@@ -10,25 +10,28 @@ import (
 
 func Test_execTemplate(t *testing.T) {
 	template := "Hello {{ .world }}"
-	os.WriteFile("generator_test.tmpl", []byte(template), 0)
-	defer os.Remove("generator_test.tmpl")
+	inFile := os.TempDir() + string(os.PathSeparator) + "generator_test.tmpl"
+	outFile := os.TempDir() + string(os.PathSeparator) + "execTemplate.txt"
+
+	os.WriteFile(inFile, []byte(template), 0)
+	defer os.Remove(inFile)
 
 	data := map[string]string{"world": "Yourself!"}
-	filename := "execTemplate.txt"
-	assert.NoFileExists(t, filename)
+
+	assert.NoFileExists(t, outFile)
 
 	// Execute the template
-	err := execTemplate("generator_test.tmpl", filename, data)
-	assert.FileExists(t, filename)
+	err := execTemplate(inFile, outFile, data)
+	assert.FileExists(t, outFile)
 	assert.NoError(t, err)
 
 	// Read the output
-	contents, _ := os.ReadFile(filename)
+	contents, _ := os.ReadFile(outFile)
 	assert.Equal(t, "Hello Yourself!", string(contents))
 
 	// Clean up
-	os.Remove(filename)
-	assert.NoFileExists(t, filename)
+	os.Remove(outFile)
+	assert.NoFileExists(t, outFile)
 }
 
 func Test_getDataForOperation(t *testing.T) {
