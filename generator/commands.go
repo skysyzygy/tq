@@ -12,13 +12,21 @@ import (
 )
 
 type command struct {
-	Name    string
-	Verb    string
-	Thing   string
+	// function name this command refers to
+	Name string
+	// verb, i.e. the http operation
+	Verb string
+	// the Tessi entity that is being invoked
+	Thing string
+	// an adverb used to separate functions for the same verb/thing
 	Variant string
-	Short   string
-	Long    string
-	Usage   string
+	// the first sentence or clause of the swagger documentation for this command
+	Short string
+	// the whole swagger documentation for this command
+	Long string
+	// a JSON string that defines how the data should be formatted
+	Usage string
+	// some other ways to call the command
 	Aliases []string
 }
 
@@ -129,6 +137,8 @@ func instantiateStructType(t reflect.Type, depth int) any {
 	return v.Interface()
 }
 
+// Generate usage for `method` by instantiating its first (non-receiver) argument
+// and marshaling it to a JSON byte string, removing go-swagger specific parts
 func usage(method reflect.Method) []byte {
 	numIn := method.Type.NumIn()
 	if numIn < 2 {
@@ -168,7 +178,7 @@ func usage(method reflect.Method) []byte {
 // Thing, Long come from describe(method.Name)
 // method.Name = Thing + Verb + Variant (in any order)
 // Short is derived from Long by cutting at punctuation or newline.
-// Usage come sfrom usage(method.Name)
+// Usage comes from usage(method.Name)
 func newCommand(method reflect.Method) command {
 	thing, long := describe(method.Name)
 	stopWords := []string{"Get", "Update", "Create", "Delete", thing}
@@ -212,7 +222,7 @@ func makeAliases(name string) []string {
 	}
 	delete(substrings, name)
 	out := make([]string, 0, len(substrings))
-	for key, _ := range substrings {
+	for key := range substrings {
 		out = append(out, key)
 	}
 	return out

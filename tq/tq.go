@@ -30,10 +30,11 @@ type TqConfig struct {
 	// TODO: Bearer token for requests
 	// tokenAuth func(*runtime.ClientOperation)
 
-	// Logger
+	// Logger, exported so that logging can happen from within the
+	// command scripts
 	Log *slog.Logger
 
-	// some flags
+	// some flags, set by New
 	verbose bool
 	dryRun  bool
 }
