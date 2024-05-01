@@ -32,9 +32,9 @@ import (
 )
 
 var (
-	cfgFile, jsonFile string
-	verbose, dryRun   bool
-	_tq               *tq.TqConfig
+	cfgFile, jsonFile, logFile string
+	verbose, dryRun            bool
+	_tq                        *tq.TqConfig
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -71,7 +71,7 @@ func init() {
 
 	//rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "", "config file (default is $HOME/.tq.yaml)")
 	rootCmd.PersistentFlags().StringVarP(&jsonFile, "file", "f", "", "JSON file to read (default is to read from stdin)")
-
+	rootCmd.PersistentFlags().StringVarP(&logFile, "log", "l", "", "log file to write to (default is no log)")
 	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "turns on additional diagnostic output")
 	rootCmd.PersistentFlags().BoolVarP(&dryRun, "dryrun", "n", false, "don't actually do anything, just show what would have happened")
 
@@ -104,7 +104,31 @@ func initConfig() {
 	}
 }
 
+// Initializes a tq instance with logger, verbosity, and dryness,
+// and logs it in using the default authentication method.
+// Defined here but shouldn't be called until the last minute in order to make sure
+// all flags are set and that we don't unnecessarily ping the server.
 func tqInit(cmd *cobra.Command, args []string) {
-	_tq = tq.New(nil, verbose, dryRun)
-	_tq.Login(auth.New("", "", "", "", nil))
+	var log *os.File
+	var err error
+	if logFile != "" {
+		// open log file for appending
+		log, err = os.OpenFile(logFile, os.O_APPEND&os.O_CREATE, 0644)
+		if err != nil {
+			fmt.Println("Couldn't open log file: ", logFile)
+			os.Exit(1)
+		}
+	}
+	_tq = tq.New(log, verbose, dryRun)
+	a, err := auth.FromString(viper.GetString("Login"))
+	if err != nil {
+		_tq.Log.Error("Bad login string in config file", "error", err.Error(), "login", a)
+		os.Exit(1)
+	}
+	a.Load()
+	if valid, err := a.Validate(); !valid || err != nil {
+		_tq.Log.Error("Invalid login", "error", err.Error(), "login", a)
+		os.Exit(1)
+	}
+	_tq.Login(a)
 }
