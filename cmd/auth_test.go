@@ -4,10 +4,23 @@ import (
 	"os"
 	"testing"
 
+	"github.com/skysyzygy/tq/auth"
+
 	"github.com/99designs/keyring"
 	"github.com/skysyzygy/tq/tq"
 	"github.com/stretchr/testify/assert"
 )
+
+// Setup the test environment by making a separate keystore for testing
+func TestMain(m *testing.M) {
+	// setup code
+	auth.Keys, _ = keyring.Open(keyring.Config{
+		ServiceName: "tq_test",
+	})
+	code := m.Run()
+	// teardown code
+	os.Exit(code)
+}
 
 // authenticateAddCmd adds an auth method
 func Test_authenticateAddCmd(t *testing.T) {
