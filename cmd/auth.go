@@ -19,14 +19,13 @@ var hostname, username, usergroup, location *string
 // authenticateCmd represents the authenticate command
 var authenticateCmd = &cobra.Command{
 	Use:     "authenticate",
-	Aliases: []string{"a", "au", "aut", "auth"},
+	Aliases: []string{"a", "auth"},
 	Short:   "Authenticate with the Tessitura API",
-	Long: `Manage authentication with various Tessitura API servers, 
-	usernames and usergroups.`,
+	Long:    `Manage authentication with various Tessitura API servers, usernames and usergroups.`,
 }
 
 var authenticateAddCmd = &cobra.Command{
-	Use:     "Add",
+	Use:     "add",
 	Aliases: []string{"a", "add"},
 	Short:   "Add an Tessitura API authentication method",
 	Run: func(cmd *cobra.Command, args []string) {
@@ -58,10 +57,9 @@ var authenticateAddCmd = &cobra.Command{
 }
 
 var authenticateListCmd = &cobra.Command{
-	Use:     "authenticate",
-	Aliases: []string{"a", "au", "aut", "auth"},
-	Short:   "Authenticate with the Tessitura API",
-	Long:    `List all saved Tessitura API authentication methods`,
+	Use:     "list",
+	Aliases: []string{"l", "ls"},
+	Short:   `List all saved Tessitura API authentication methods`,
 	Run: func(cmd *cobra.Command, args []string) {
 		if *hostname != "" ||
 			*username != "" ||
@@ -77,10 +75,9 @@ var authenticateListCmd = &cobra.Command{
 }
 
 var authenticateDeleteCmd = &cobra.Command{
-	Use:     "authenticate",
-	Aliases: []string{"a", "au", "aut", "auth"},
-	Short:   "Authenticate with the Tessitura API",
-	Long:    `Delete a Tessitura API authentication method`,
+	Use:     "delete",
+	Aliases: []string{"d", "del", "rm"},
+	Short:   `Delete a Tessitura API authentication method`,
 	Run: func(cmd *cobra.Command, args []string) {
 		a := auth.New(*hostname, *username, *usergroup, *location, nil)
 		a.Delete()
@@ -88,13 +85,12 @@ var authenticateDeleteCmd = &cobra.Command{
 }
 
 func init() {
-
 	rootCmd.AddCommand(authenticateCmd)
 
 	hostname = authenticateCmd.PersistentFlags().StringP("host", "H", "", "hostname and base path of the API server")
 	username = authenticateCmd.PersistentFlags().StringP("user", "u", "", "username to authenticate")
 	usergroup = authenticateCmd.PersistentFlags().StringP("group", "g", "", "group to authenticate with")
-	location = authenticateCmd.PersistentFlags().StringP("location", "l", "", "machine location to authenticate with")
+	location = authenticateCmd.PersistentFlags().StringP("location", "L", "", "machine location to authenticate with")
 
 	authenticateCmd.AddCommand(authenticateAddCmd, authenticateListCmd, authenticateDeleteCmd)
 }
