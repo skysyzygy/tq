@@ -38,14 +38,11 @@ func Test_authenticateAddCmd(t *testing.T) {
 
 	authenticateAddCmd.Run(authenticateAddCmd, nil)
 
-	keys, _ := keyring.Open(keyring.Config{
-		ServiceName: "tq",
-	})
-	ks, _ := keys.Keys()
-	assert.Len(t, ks, 1)
-	assert.Equal(t, "tessitura.api/basePath|user|group|location", ks[0])
+	keys, _ := auth.Keys.Keys()
+	assert.Len(t, keys, 1)
+	assert.Equal(t, "tessitura.api/basePath|user|group|location", keys[0])
 
-	pass, _ := keys.Get(ks[0])
+	pass, _ := auth.Keys.Get(keys[0])
 	assert.Equal(t, []byte("password"), pass.Data)
 }
 
