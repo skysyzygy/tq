@@ -19,15 +19,17 @@ var Get_AccountTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AccountTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AccountTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AccountTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AccountTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AccountTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AccountTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -45,13 +47,15 @@ var Get_Accounts_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AccountsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AccountsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AccountsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AccountsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -69,15 +73,17 @@ var Get_ActionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ActionTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ActionTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ActionTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ActionTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ActionTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ActionTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -95,13 +101,15 @@ var Get_Actions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ActionsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ActionsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ActionsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ActionsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -119,15 +127,17 @@ var Get_ActivityCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ActivityCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ActivityCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ActivityCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ActivityCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ActivityCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ActivityCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -137,7 +147,7 @@ var Get_ActivityCategories_cmd = &cobra.Command{
 	}
 
 var Get_ActivityTypes_cmd = &cobra.Command{
-		Aliases: []string{  "activitytypes",  "AT",  "at",  },
+		Aliases: []string{  "AT",  "at",  "activitytypes",  },
 		Use: `ActivityTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an activity type by id`,
 		Long:  `Get the details of an activity type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -145,15 +155,17 @@ var Get_ActivityTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ActivityTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ActivityTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ActivityTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ActivityTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ActivityTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ActivityTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -171,15 +183,17 @@ var Get_AddressTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AddressTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AddressTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AddressTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AddressTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AddressTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AddressTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -197,13 +211,15 @@ var Get_Addresses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AddressesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AddressesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AddressesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AddressesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -213,7 +229,7 @@ var Get_Addresses_cmd = &cobra.Command{
 	}
 
 var Get_AffiliationTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "at",  "affiliationtypes",  },
+		Aliases: []string{  "affiliationtypes",  "AT",  "at",  },
 		Use: `AffiliationTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an affiliation type by id`,
 		Long:  `Get the details of an affiliation type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -221,15 +237,17 @@ var Get_AffiliationTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AffiliationTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AffiliationTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AffiliationTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AffiliationTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AffiliationTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AffiliationTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -247,13 +265,15 @@ var Get_Affiliations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AffiliationsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AffiliationsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AffiliationsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AffiliationsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -263,7 +283,7 @@ var Get_Affiliations_cmd = &cobra.Command{
 	}
 
 var Get_AliasTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "at",  "aliastypes",  },
+		Aliases: []string{  "aliastypes",  "AT",  "at",  },
 		Use: `AliasTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an alias type by id`,
 		Long:  `Get the details of an alias type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -271,15 +291,17 @@ var Get_AliasTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AliasTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AliasTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AliasTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AliasTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AliasTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AliasTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -289,7 +311,7 @@ var Get_AliasTypes_cmd = &cobra.Command{
 	}
 
 var Get_Aliases_cmd = &cobra.Command{
-		Aliases: []string{  "aliases",  "A",  "a",  },
+		Aliases: []string{  "a",  "aliases",  "A",  },
 		Use: `Aliases {"AliasID":"string"}`,
 		Short: `Get details of an alias`,
 		Long:  `Get details of an alias.`,
@@ -297,13 +319,15 @@ var Get_Aliases_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AliasesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AliasesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AliasesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AliasesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -313,7 +337,7 @@ var Get_Aliases_cmd = &cobra.Command{
 	}
 
 var Get_AnalyticsCubes_cmd = &cobra.Command{
-		Aliases: []string{  "AC",  "ac",  "analyticscubes",  },
+		Aliases: []string{  "analyticscubes",  "AC",  "ac",  },
 		Use: `AnalyticsCubes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an analytics cube`,
 		Long:  `Get the details of an analytics cube.`,
@@ -321,13 +345,15 @@ var Get_AnalyticsCubes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AnalyticsCubesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AnalyticsCubesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AnalyticsCubesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AnalyticsCubesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -337,7 +363,7 @@ var Get_AnalyticsCubes_cmd = &cobra.Command{
 	}
 
 var Get_AnalyticsReports_cmd = &cobra.Command{
-		Aliases: []string{  "AR",  "ar",  "analyticsreports",  },
+		Aliases: []string{  "analyticsreports",  "AR",  "ar",  },
 		Use: `AnalyticsReports {"AnalyticsReportID":"string"}`,
 		Short: `Get a single SSRS Report for display in Analytics`,
 		Long:  `Get a single SSRS Report for display in Analytics.`,
@@ -345,13 +371,15 @@ var Get_AnalyticsReports_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AnalyticsReportsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AnalyticsReportsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AnalyticsReportsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AnalyticsReportsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -369,15 +397,17 @@ var Get_AppScreenTexts_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AppScreenTextsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AppScreenTextsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AppScreenTextsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AppScreenTextsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AppScreenTextsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AppScreenTextsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -395,15 +425,17 @@ var Get_AppealCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AppealCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AppealCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AppealCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AppealCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AppealCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AppealCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -413,7 +445,7 @@ var Get_AppealCategories_cmd = &cobra.Command{
 	}
 
 var Get_Appeals_cmd = &cobra.Command{
-		Aliases: []string{  "appeals",  "A",  "a",  },
+		Aliases: []string{  "a",  "appeals",  "A",  },
 		Use: `Appeals {"AppealID":"string"}`,
 		Short: `Get details of an Appeal`,
 		Long:  `Get details of an Appeal.`,
@@ -421,13 +453,15 @@ var Get_Appeals_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AppealsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AppealsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AppealsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AppealsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -445,6 +479,11 @@ var Get_ApplicationObjects_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.ApplicationObjectsGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -463,13 +502,15 @@ var Get_Artists_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ArtistsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ArtistsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ArtistsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ArtistsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -487,15 +528,17 @@ var Get_AssetTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AssetTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AssetTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AssetTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AssetTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AssetTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AssetTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -513,13 +556,15 @@ var Get_Assets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AssetsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AssetsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AssetsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AssetsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -529,7 +574,7 @@ var Get_Assets_cmd = &cobra.Command{
 	}
 
 var Get_AssociationTypes_cmd = &cobra.Command{
-		Aliases: []string{  "associationtypes",  "AT",  "at",  },
+		Aliases: []string{  "AT",  "at",  "associationtypes",  },
 		Use: `AssociationTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an association type by id`,
 		Long:  `Get the details of an association type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -537,15 +582,17 @@ var Get_AssociationTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AssociationTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AssociationTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AssociationTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AssociationTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AssociationTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AssociationTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -555,7 +602,7 @@ var Get_AssociationTypes_cmd = &cobra.Command{
 	}
 
 var Get_Associations_cmd = &cobra.Command{
-		Aliases: []string{  "a",  "associations",  "A",  },
+		Aliases: []string{  "associations",  "A",  "a",  },
 		Use: `Associations {"AssociationID":"string"}`,
 		Short: `Get details of an association`,
 		Long:  `Get details of an association.`,
@@ -563,13 +610,15 @@ var Get_Associations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AssociationsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AssociationsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AssociationsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AssociationsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -579,7 +628,7 @@ var Get_Associations_cmd = &cobra.Command{
 	}
 
 var Get_AttendanceHistory_cmd = &cobra.Command{
-		Aliases: []string{  "AH",  "ah",  "attendancehistory",  },
+		Aliases: []string{  "attendancehistory",  "AH",  "ah",  },
 		Use: `AttendanceHistory {"ConstituentID":"string","IncludeAffiliations":"string"}`,
 		Short: `Attendance History for a selected constituent optionally including primary affiliates`,
 		Long:  `Attendance History for a selected constituent optionally including primary affiliates.  Does not return history based on recipient for the selected constituent(s).`,
@@ -587,6 +636,11 @@ var Get_AttendanceHistory_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.AttendanceHistoryGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -605,13 +659,15 @@ var Get_Attributes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AttributesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AttributesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AttributesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AttributesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -629,15 +685,17 @@ var Get_AuditLogs_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AuditLogsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Details"); test {
-					out, err = tq.Do(*_tq, _tq.Get.AuditLogsGetDetails , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.AuditLogsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AuditLogsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Details"); test {
+				out, err = tq.Do(*_tq, _tq.Get.AuditLogsGetDetails , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.AuditLogsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -655,6 +713,11 @@ var Get_Authenticate_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.AuthenticateWindowsAuthentication , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -673,13 +736,15 @@ var Get_BatchMaintenance_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Active"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BatchMaintenanceActive , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.BatchMaintenanceGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Active"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BatchMaintenanceActive , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.BatchMaintenanceGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -689,7 +754,7 @@ var Get_BatchMaintenance_cmd = &cobra.Command{
 	}
 
 var Get_BatchTypeGroups_cmd = &cobra.Command{
-		Aliases: []string{  "batchtypegroups",  "BTG",  "btg",  },
+		Aliases: []string{  "btg",  "batchtypegroups",  "BTG",  },
 		Use: `BatchTypeGroups {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a batch type group by id`,
 		Long:  `Get the details of a batch type group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -697,15 +762,17 @@ var Get_BatchTypeGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BatchTypeGroupsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BatchTypeGroupsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.BatchTypeGroupsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BatchTypeGroupsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BatchTypeGroupsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.BatchTypeGroupsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -723,6 +790,11 @@ var Get_BatchTypeUserGroup_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.BatchTypeUserGroupGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -733,7 +805,7 @@ var Get_BatchTypeUserGroup_cmd = &cobra.Command{
 	}
 
 var Get_BatchTypes_cmd = &cobra.Command{
-		Aliases: []string{  "batchtypes",  "BT",  "bt",  },
+		Aliases: []string{  "BT",  "bt",  "batchtypes",  },
 		Use: `BatchTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a batch type by id`,
 		Long:  `Get the details of a batch type by id.`,
@@ -741,15 +813,17 @@ var Get_BatchTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BatchTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BatchTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.BatchTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BatchTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BatchTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.BatchTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -767,15 +841,17 @@ var Get_BillingSchedules_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BillingSchedulesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BillingSchedulesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.BillingSchedulesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BillingSchedulesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BillingSchedulesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.BillingSchedulesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -793,15 +869,17 @@ var Get_BillingTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BillingTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BillingTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.BillingTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BillingTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BillingTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.BillingTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -819,15 +897,17 @@ var Get_BookingCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BookingCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BookingCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.BookingCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BookingCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BookingCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.BookingCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -845,13 +925,15 @@ var Get_BookingTemplates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BookingTemplatesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.BookingTemplatesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BookingTemplatesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.BookingTemplatesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -869,19 +951,21 @@ var Get_Bookings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("AllDocumentSummaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BookingsGetAllDocumentSummaries , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AllDocuments"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BookingsGetAllDocuments , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Document"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BookingsGetDocument , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summary"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BookingsGetSummary , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.BookingsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("AllDocumentSummaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BookingsGetAllDocumentSummaries , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AllDocuments"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BookingsGetAllDocuments , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Document"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BookingsGetDocument , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summary"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BookingsGetSummary , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.BookingsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -899,17 +983,19 @@ var Get_BulkCopySets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BulkCopySetsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("DayForCopy"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BulkCopySetsGetDayForCopy , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BulkCopySetsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.BulkCopySetsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BulkCopySetsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("DayForCopy"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BulkCopySetsGetDayForCopy , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BulkCopySetsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.BulkCopySetsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -919,7 +1005,7 @@ var Get_BulkCopySets_cmd = &cobra.Command{
 	}
 
 var Get_BulkDailyCopyExclusions_cmd = &cobra.Command{
-		Aliases: []string{  "bulkdailycopyexclusions",  "BDCE",  "bdce",  },
+		Aliases: []string{  "BDCE",  "bdce",  "bulkdailycopyexclusions",  },
 		Use: `BulkDailyCopyExclusions {"BulkDailyCopyExclusionID":"string"}`,
 		Short: `Get a bulk daily copy exclusion by id`,
 		Long:  `Get a bulk daily copy exclusion by id.`,
@@ -927,13 +1013,15 @@ var Get_BulkDailyCopyExclusions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BulkDailyCopyExclusionsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.BulkDailyCopyExclusionsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BulkDailyCopyExclusionsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.BulkDailyCopyExclusionsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -951,15 +1039,17 @@ var Get_BusinessUnits_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BusinessUnitsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.BusinessUnitsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.BusinessUnitsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BusinessUnitsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.BusinessUnitsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.BusinessUnitsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -977,6 +1067,11 @@ var Get_Cache_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.CacheInit , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -995,13 +1090,15 @@ var Get_CampaignDesignations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CampaignDesignationsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.CampaignDesignationsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CampaignDesignationsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.CampaignDesignationsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1019,13 +1116,15 @@ var Get_CampaignFunds_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CampaignFundsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.CampaignFundsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CampaignFundsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.CampaignFundsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1043,13 +1142,15 @@ var Get_Campaigns_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CampaignsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.CampaignsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CampaignsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.CampaignsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1059,7 +1160,7 @@ var Get_Campaigns_cmd = &cobra.Command{
 	}
 
 var Get_CardReaderTypes_cmd = &cobra.Command{
-		Aliases: []string{  "cardreadertypes",  "CRT",  "crt",  },
+		Aliases: []string{  "crt",  "cardreadertypes",  "CRT",  },
 		Use: `CardReaderTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Card Reader Type by id`,
 		Long:  `Get the details of a Card Reader Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -1067,15 +1168,17 @@ var Get_CardReaderTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CardReaderTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CardReaderTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.CardReaderTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CardReaderTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CardReaderTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.CardReaderTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1085,7 +1188,7 @@ var Get_CardReaderTypes_cmd = &cobra.Command{
 	}
 
 var Get_Cart_cmd = &cobra.Command{
-		Aliases: []string{  "c",  "cart",  "C",  },
+		Aliases: []string{  "cart",  "C",  "c",  },
 		Use: `Cart {"MessageTypes":"string","SavedCart":"string","SessionKey":"string"}`,
 		Short: `Gets the cart details`,
 		Long:  `Gets the cart details`,
@@ -1093,19 +1196,21 @@ var Get_Cart_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("CartProperties"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CartGetCartProperties , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Messages"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CartGetMessages , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ReceiptString"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CartGetReceiptString , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summary"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CartGetSummary , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.CartGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("CartProperties"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CartGetCartProperties , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Messages"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CartGetMessages , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ReceiptString"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CartGetReceiptString , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summary"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CartGetSummary , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.CartGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1123,15 +1228,17 @@ var Get_Colors_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ColorsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ColorsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ColorsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ColorsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ColorsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ColorsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1149,15 +1256,17 @@ var Get_Composers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ComposersGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ComposersGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ComposersGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ComposersGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ComposersGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ComposersGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1167,7 +1276,7 @@ var Get_Composers_cmd = &cobra.Command{
 	}
 
 var Get_Constituencies_cmd = &cobra.Command{
-		Aliases: []string{  "c",  "constituencies",  "C",  },
+		Aliases: []string{  "constituencies",  "C",  "c",  },
 		Use: `Constituencies {"ConstituencyID":"string"}`,
 		Short: `Get details of constituency`,
 		Long:  `Get details of constituency.`,
@@ -1175,13 +1284,15 @@ var Get_Constituencies_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituenciesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituenciesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituenciesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituenciesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1199,15 +1310,17 @@ var Get_ConstituencyTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituencyTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituencyTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituencyTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituencyTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituencyTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituencyTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1225,6 +1338,11 @@ var Get_ConstituentContributions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.ConstituentContributionsGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1243,15 +1361,17 @@ var Get_ConstituentDocuments_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentDocumentsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AllSummary"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentDocumentsGetAllSummary , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentDocumentsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentDocumentsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AllSummary"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentDocumentsGetAllSummary , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentDocumentsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1261,7 +1381,7 @@ var Get_ConstituentDocuments_cmd = &cobra.Command{
 	}
 
 var Get_ConstituentGroups_cmd = &cobra.Command{
-		Aliases: []string{  "constituentgroups",  "CG",  "cg",  },
+		Aliases: []string{  "CG",  "cg",  "constituentgroups",  },
 		Use: `ConstituentGroups {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent group by id`,
 		Long:  `Get the details of a constituent group by id.`,
@@ -1269,15 +1389,17 @@ var Get_ConstituentGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentGroupsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentGroupsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentGroupsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentGroupsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentGroupsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentGroupsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1295,15 +1417,17 @@ var Get_ConstituentInactives_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentInactivesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentInactivesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentInactivesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentInactivesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentInactivesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentInactivesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1321,15 +1445,17 @@ var Get_ConstituentProtectionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentProtectionTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentProtectionTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentProtectionTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentProtectionTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentProtectionTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentProtectionTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1339,7 +1465,7 @@ var Get_ConstituentProtectionTypes_cmd = &cobra.Command{
 	}
 
 var Get_ConstituentTypeAffiliates_cmd = &cobra.Command{
-		Aliases: []string{  "cta",  "constituenttypeaffiliates",  "CTA",  },
+		Aliases: []string{  "CTA",  "cta",  "constituenttypeaffiliates",  },
 		Use: `ConstituentTypeAffiliates {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent type affiliate by id`,
 		Long:  `Get the details of a constituent type affiliate by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -1347,15 +1473,17 @@ var Get_ConstituentTypeAffiliates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentTypeAffiliatesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentTypeAffiliatesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentTypeAffiliatesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentTypeAffiliatesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentTypeAffiliatesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentTypeAffiliatesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1373,15 +1501,17 @@ var Get_ConstituentTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1399,29 +1529,31 @@ var Get_Constituents_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Constituent"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentsGetConstituent , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ConstituentDevelopmentInfo"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentsGetConstituentDevelopmentInfo , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ConstituentSnapshot"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentsGetConstituentSnapshot , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Constituents"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentsGetConstituents , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("DefaultHeader"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentsGetDefaultHeader , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("FlexHeader"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentsGetFlexHeader , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Header"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentsGetHeader , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("PrimaryHousehold"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentsGetPrimaryHousehold , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Search"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentsSearch , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ConstituentsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Constituent"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentsGetConstituent , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ConstituentDevelopmentInfo"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentsGetConstituentDevelopmentInfo , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ConstituentSnapshot"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentsGetConstituentSnapshot , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Constituents"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentsGetConstituents , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("DefaultHeader"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentsGetDefaultHeader , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("FlexHeader"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentsGetFlexHeader , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Header"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentsGetHeader , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("PrimaryHousehold"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentsGetPrimaryHousehold , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Search"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentsSearch , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ConstituentsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1439,15 +1571,17 @@ var Get_ContactPermissionCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPermissionCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPermissionCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPermissionCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPermissionCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPermissionCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPermissionCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1457,7 +1591,7 @@ var Get_ContactPermissionCategories_cmd = &cobra.Command{
 	}
 
 var Get_ContactPermissionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "contactpermissiontypes",  "CPT",  "cpt",  },
+		Aliases: []string{  "CPT",  "cpt",  "contactpermissiontypes",  },
 		Use: `ContactPermissionTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact permission type`,
 		Long:  `Get the details of a contact permission type. To get the resource only if the user has write/edit access, pass filter="writeonly".  To get the resource in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -1465,17 +1599,19 @@ var Get_ContactPermissionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPermissionTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ForProductionSeasons"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPermissionTypesGetForProductionSeasons , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPermissionTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPermissionTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPermissionTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ForProductionSeasons"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPermissionTypesGetForProductionSeasons , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPermissionTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPermissionTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1485,7 +1621,7 @@ var Get_ContactPermissionTypes_cmd = &cobra.Command{
 	}
 
 var Get_ContactPermissions_cmd = &cobra.Command{
-		Aliases: []string{  "CP",  "cp",  "contactpermissions",  },
+		Aliases: []string{  "contactpermissions",  "CP",  "cp",  },
 		Use: `ContactPermissions {"ContactPermissionID":"string"}`,
 		Short: `Get details of a contact permission`,
 		Long:  `Get details of a contact permission`,
@@ -1493,13 +1629,15 @@ var Get_ContactPermissions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPermissionsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPermissionsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPermissionsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPermissionsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1517,15 +1655,17 @@ var Get_ContactPointCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPointCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPointCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPointCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPointCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPointCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPointCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1543,15 +1683,17 @@ var Get_ContactPointCategoryPurposes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPointCategoryPurposesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPointCategoryPurposesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPointCategoryPurposesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPointCategoryPurposesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPointCategoryPurposesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPointCategoryPurposesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1569,15 +1711,17 @@ var Get_ContactPointPurposeCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposeCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposeCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposeCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposeCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposeCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposeCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1595,13 +1739,15 @@ var Get_ContactPointPurposeMaps_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposeMapsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposeMapsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposeMapsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposeMapsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1619,15 +1765,17 @@ var Get_ContactPointPurposes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1645,6 +1793,11 @@ var Get_ContactPoints_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.ContactPointsGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1663,15 +1816,17 @@ var Get_ContactTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContactTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContactTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ContactTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContactTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContactTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ContactTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1681,7 +1836,7 @@ var Get_ContactTypes_cmd = &cobra.Command{
 	}
 
 var Get_ContextInformation_cmd = &cobra.Command{
-		Aliases: []string{  "contextinformation",  "CI",  "ci",  },
+		Aliases: []string{  "CI",  "ci",  "contextinformation",  },
 		Use: `ContextInformation `,
 		Short: `Get a commonly used set of default values for the user and usergroup in the current security context`,
 		Long:  `Get a commonly used set of default values for the user and usergroup in the current security context.`,
@@ -1689,6 +1844,11 @@ var Get_ContextInformation_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.ContextInformationGet , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1707,15 +1867,17 @@ var Get_ContributionDesignations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContributionDesignationsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContributionDesignationsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ContributionDesignationsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContributionDesignationsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContributionDesignationsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ContributionDesignationsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1733,15 +1895,17 @@ var Get_ContributionImportSets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContributionImportSetsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ContributionImportSetsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ContributionImportSetsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContributionImportSetsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ContributionImportSetsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ContributionImportSetsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1759,15 +1923,17 @@ var Get_ControlGroupUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ControlGroupUserGroupsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ControlGroupUserGroupsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ControlGroupUserGroupsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ControlGroupUserGroupsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ControlGroupUserGroupsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ControlGroupUserGroupsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1777,7 +1943,7 @@ var Get_ControlGroupUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_ControlGroups_cmd = &cobra.Command{
-		Aliases: []string{  "controlgroups",  "CG",  "cg",  },
+		Aliases: []string{  "CG",  "cg",  "controlgroups",  },
 		Use: `ControlGroups {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a control group by id`,
 		Long:  `Get the details of a control group by id.`,
@@ -1785,15 +1951,17 @@ var Get_ControlGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ControlGroupsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ControlGroupsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ControlGroupsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ControlGroupsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ControlGroupsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ControlGroupsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1811,6 +1979,11 @@ var Get_CoreIdentity_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.CoreIdentityToken , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1821,7 +1994,7 @@ var Get_CoreIdentity_cmd = &cobra.Command{
 	}
 
 var Get_Countries_cmd = &cobra.Command{
-		Aliases: []string{  "countries",  "C",  "c",  },
+		Aliases: []string{  "C",  "c",  "countries",  },
 		Use: `Countries {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a country by id`,
 		Long:  `Get the details of a country by id.`,
@@ -1829,15 +2002,17 @@ var Get_Countries_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CountriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CountriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.CountriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CountriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CountriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.CountriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1847,7 +2022,7 @@ var Get_Countries_cmd = &cobra.Command{
 	}
 
 var Get_CrediteeTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CT",  "ct",  "crediteetypes",  },
+		Aliases: []string{  "crediteetypes",  "CT",  "ct",  },
 		Use: `CrediteeTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a crediteeType by id`,
 		Long:  `Get the details of a crediteeType by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -1855,15 +2030,17 @@ var Get_CrediteeTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CrediteeTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CrediteeTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.CrediteeTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CrediteeTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CrediteeTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.CrediteeTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1873,7 +2050,7 @@ var Get_CrediteeTypes_cmd = &cobra.Command{
 	}
 
 var Get_Credits_cmd = &cobra.Command{
-		Aliases: []string{  "c",  "credits",  "C",  },
+		Aliases: []string{  "credits",  "C",  "c",  },
 		Use: `Credits {"ProductionElementIds":"string"}`,
 		Short: `Returns all credits for the requested production element`,
 		Long:  `Returns all credits for the requested production element, and all credits from above it in the production hierarchy.`,
@@ -1881,6 +2058,11 @@ var Get_Credits_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.CreditsGetCredits , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1891,7 +2073,7 @@ var Get_Credits_cmd = &cobra.Command{
 	}
 
 var Get_CriterionOperators_cmd = &cobra.Command{
-		Aliases: []string{  "CO",  "co",  "criterionoperators",  },
+		Aliases: []string{  "criterionoperators",  "CO",  "co",  },
 		Use: `CriterionOperators {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a criterion operator by id`,
 		Long:  `Get the details of a criterion operator by id.`,
@@ -1899,15 +2081,17 @@ var Get_CriterionOperators_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CriterionOperatorsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CriterionOperatorsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.CriterionOperatorsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CriterionOperatorsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CriterionOperatorsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.CriterionOperatorsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1925,15 +2109,17 @@ var Get_CumulativeGivingReceipts_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CumulativeGivingReceiptsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ForSession"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CumulativeGivingReceiptsGetForSession , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.CumulativeGivingReceiptsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CumulativeGivingReceiptsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ForSession"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CumulativeGivingReceiptsGetForSession , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.CumulativeGivingReceiptsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1943,7 +2129,7 @@ var Get_CumulativeGivingReceipts_cmd = &cobra.Command{
 	}
 
 var Get_CurrencyTypes_cmd = &cobra.Command{
-		Aliases: []string{  "currencytypes",  "CT",  "ct",  },
+		Aliases: []string{  "CT",  "ct",  "currencytypes",  },
 		Use: `CurrencyTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a currency type by id`,
 		Long:  `Get the details of a currency type by id.`,
@@ -1951,15 +2137,17 @@ var Get_CurrencyTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CurrencyTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CurrencyTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.CurrencyTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CurrencyTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CurrencyTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.CurrencyTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1977,15 +2165,17 @@ var Get_Custom_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CustomGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Metadata"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CustomGetMetadata , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.CustomGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CustomGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Metadata"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CustomGetMetadata , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.CustomGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2003,15 +2193,17 @@ var Get_CustomDefaultCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CustomDefaultCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CustomDefaultCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.CustomDefaultCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CustomDefaultCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CustomDefaultCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.CustomDefaultCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2029,15 +2221,17 @@ var Get_CustomDefaults_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CustomDefaultsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.CustomDefaultsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.CustomDefaultsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CustomDefaultsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.CustomDefaultsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.CustomDefaultsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2055,15 +2249,17 @@ var Get_DeliveryMethods_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DeliveryMethodsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DeliveryMethodsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.DeliveryMethodsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DeliveryMethodsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DeliveryMethodsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.DeliveryMethodsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2073,7 +2269,7 @@ var Get_DeliveryMethods_cmd = &cobra.Command{
 	}
 
 var Get_DesignationCodes_cmd = &cobra.Command{
-		Aliases: []string{  "dc",  "designationcodes",  "DC",  },
+		Aliases: []string{  "designationcodes",  "DC",  "dc",  },
 		Use: `DesignationCodes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a designation code by id`,
 		Long:  `Get the details of a designation code by id.`,
@@ -2081,15 +2277,17 @@ var Get_DesignationCodes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DesignationCodesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DesignationCodesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.DesignationCodesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DesignationCodesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DesignationCodesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.DesignationCodesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2099,7 +2297,7 @@ var Get_DesignationCodes_cmd = &cobra.Command{
 	}
 
 var Get_Designs_cmd = &cobra.Command{
-		Aliases: []string{  "d",  "designs",  "D",  },
+		Aliases: []string{  "designs",  "D",  "d",  },
 		Use: `Designs {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a design by id`,
 		Long:  `Get the details of a design by id.`,
@@ -2107,15 +2305,17 @@ var Get_Designs_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DesignsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DesignsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.DesignsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DesignsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DesignsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.DesignsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2133,17 +2333,19 @@ var Get_Diagnostics_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("SeatServerStatus"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DiagnosticsGetSeatServerStatus , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Status"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DiagnosticsGetStatus , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("StatusReport"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DiagnosticsGetStatusReport , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.DiagnosticsEncryptionKeyCheck , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("SeatServerStatus"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DiagnosticsGetSeatServerStatus , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Status"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DiagnosticsGetStatus , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("StatusReport"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DiagnosticsGetStatusReport , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.DiagnosticsEncryptionKeyCheck , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2161,15 +2363,17 @@ var Get_DirectDebitAccountTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DirectDebitAccountTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DirectDebitAccountTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.DirectDebitAccountTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DirectDebitAccountTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DirectDebitAccountTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.DirectDebitAccountTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2187,15 +2391,17 @@ var Get_DiscountTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DiscountTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DiscountTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.DiscountTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DiscountTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DiscountTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.DiscountTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2205,7 +2411,7 @@ var Get_DiscountTypes_cmd = &cobra.Command{
 	}
 
 var Get_Divisions_cmd = &cobra.Command{
-		Aliases: []string{  "D",  "d",  "divisions",  },
+		Aliases: []string{  "divisions",  "D",  "d",  },
 		Use: `Divisions `,
 		Short: `Get the control group/division mappings for the specified division`,
 		Long:  `Get the control group/division mappings for the specified division.`,
@@ -2213,13 +2419,15 @@ var Get_Divisions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("ForDivision"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DivisionsGetForDivision , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.DivisionsGetAll , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("ForDivision"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DivisionsGetForDivision , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.DivisionsGetAll , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2229,7 +2437,7 @@ var Get_Divisions_cmd = &cobra.Command{
 	}
 
 var Get_DocumentCategories_cmd = &cobra.Command{
-		Aliases: []string{  "DC",  "dc",  "documentcategories",  },
+		Aliases: []string{  "documentcategories",  "DC",  "dc",  },
 		Use: `DocumentCategories {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a documentCategory by id`,
 		Long:  `Get the details of a documentCategory by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -2237,15 +2445,17 @@ var Get_DocumentCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DocumentCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DocumentCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.DocumentCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DocumentCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DocumentCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.DocumentCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2255,7 +2465,7 @@ var Get_DocumentCategories_cmd = &cobra.Command{
 	}
 
 var Get_Documents_cmd = &cobra.Command{
-		Aliases: []string{  "D",  "d",  "documents",  },
+		Aliases: []string{  "documents",  "D",  "d",  },
 		Use: `Documents {"DocumentID":"string"}`,
 		Short: `Get the details of a document`,
 		Long:  `Get the details of a document.`,
@@ -2263,17 +2473,19 @@ var Get_Documents_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DocumentsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AllSummary"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DocumentsGetAllSummary , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Settings"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DocumentsSettings , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.DocumentsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DocumentsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AllSummary"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DocumentsGetAllSummary , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Settings"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DocumentsSettings , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.DocumentsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2283,7 +2495,7 @@ var Get_Documents_cmd = &cobra.Command{
 	}
 
 var Get_DonationLevels_cmd = &cobra.Command{
-		Aliases: []string{  "DL",  "dl",  "donationlevels",  },
+		Aliases: []string{  "dl",  "donationlevels",  "DL",  },
 		Use: `DonationLevels {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a donation level by id`,
 		Long:  `Get the details of a donation level by id.`,
@@ -2291,15 +2503,17 @@ var Get_DonationLevels_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DonationLevelsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.DonationLevelsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.DonationLevelsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DonationLevelsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.DonationLevelsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.DonationLevelsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2317,19 +2531,21 @@ var Get_EMV_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("ConnectionStatus"); test {
-					out, err = tq.Do(*_tq, _tq.Get.EMVGetConnectionStatus , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ConnectionStatusHistory"); test {
-					out, err = tq.Do(*_tq, _tq.Get.EMVGetConnectionStatusHistory , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("IdleMessage"); test {
-					out, err = tq.Do(*_tq, _tq.Get.EMVGetIdleMessage , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Lane"); test {
-					out, err = tq.Do(*_tq, _tq.Get.EMVGetLane , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.EMVGetAllLanes , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("ConnectionStatus"); test {
+				out, err = tq.Do(*_tq, _tq.Get.EMVGetConnectionStatus , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ConnectionStatusHistory"); test {
+				out, err = tq.Do(*_tq, _tq.Get.EMVGetConnectionStatusHistory , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("IdleMessage"); test {
+				out, err = tq.Do(*_tq, _tq.Get.EMVGetIdleMessage , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Lane"); test {
+				out, err = tq.Do(*_tq, _tq.Get.EMVGetLane , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.EMVGetAllLanes , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2347,15 +2563,17 @@ var Get_ElectronicAddressTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ElectronicAddressTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ElectronicAddressTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ElectronicAddressTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ElectronicAddressTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ElectronicAddressTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ElectronicAddressTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2373,15 +2591,17 @@ var Get_ElectronicAddresses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ElectronicAddressesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("IsAttachedToLogin"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ElectronicAddressesIsAttachedToLogin , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ElectronicAddressesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ElectronicAddressesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("IsAttachedToLogin"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ElectronicAddressesIsAttachedToLogin , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ElectronicAddressesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2399,15 +2619,17 @@ var Get_EmailProfiles_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.EmailProfilesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.EmailProfilesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.EmailProfilesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.EmailProfilesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.EmailProfilesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.EmailProfilesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2425,15 +2647,17 @@ var Get_EmarketIndicators_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.EmarketIndicatorsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.EmarketIndicatorsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.EmarketIndicatorsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.EmarketIndicatorsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.EmarketIndicatorsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.EmarketIndicatorsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2443,7 +2667,7 @@ var Get_EmarketIndicators_cmd = &cobra.Command{
 	}
 
 var Get_Eras_cmd = &cobra.Command{
-		Aliases: []string{  "E",  "e",  "eras",  },
+		Aliases: []string{  "eras",  "E",  "e",  },
 		Use: `Eras {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an era by id`,
 		Long:  `Get the details of an era by id.`,
@@ -2451,15 +2675,17 @@ var Get_Eras_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ErasGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ErasGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ErasGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ErasGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ErasGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ErasGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2477,6 +2703,11 @@ var Get_EventControl_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.EventControlGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2495,17 +2726,19 @@ var Get_Facilities_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.FacilitiesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Screens"); test {
-					out, err = tq.Do(*_tq, _tq.Get.FacilitiesGetScreens , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.FacilitiesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.FacilitiesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.FacilitiesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Screens"); test {
+				out, err = tq.Do(*_tq, _tq.Get.FacilitiesGetScreens , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.FacilitiesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.FacilitiesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2523,15 +2756,17 @@ var Get_Fees_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.FeesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.FeesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.FeesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.FeesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.FeesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.FeesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2541,7 +2776,7 @@ var Get_Fees_cmd = &cobra.Command{
 	}
 
 var Get_FinanceContributions_cmd = &cobra.Command{
-		Aliases: []string{  "financecontributions",  "FC",  "fc",  },
+		Aliases: []string{  "fc",  "financecontributions",  "FC",  },
 		Use: `FinanceContributions {"ContributionID":"string"}`,
 		Short: `Get details of a contribution`,
 		Long:  `Get details of a contribution.`,
@@ -2549,13 +2784,15 @@ var Get_FinanceContributions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.FinanceContributionsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.FinanceContributionsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.FinanceContributionsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.FinanceContributionsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2573,15 +2810,17 @@ var Get_Formats_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.FormatsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.FormatsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.FormatsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.FormatsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.FormatsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.FormatsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2599,13 +2838,15 @@ var Get_Funds_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.FundsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.FundsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.FundsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.FundsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2623,15 +2864,17 @@ var Get_GLAccounts_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.GLAccountsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.GLAccountsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.GLAccountsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.GLAccountsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.GLAccountsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.GLAccountsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2641,7 +2884,7 @@ var Get_GLAccounts_cmd = &cobra.Command{
 	}
 
 var Get_Genders_cmd = &cobra.Command{
-		Aliases: []string{  "g",  "genders",  "G",  },
+		Aliases: []string{  "genders",  "G",  "g",  },
 		Use: `Genders {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gender by id`,
 		Long:  `Get the details of a gender by id.`,
@@ -2649,15 +2892,17 @@ var Get_Genders_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.GendersGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.GendersGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.GendersGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.GendersGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.GendersGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.GendersGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2675,15 +2920,17 @@ var Get_GiftAidContactMethods_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidContactMethodsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidContactMethodsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidContactMethodsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidContactMethodsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidContactMethodsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidContactMethodsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2693,7 +2940,7 @@ var Get_GiftAidContactMethods_cmd = &cobra.Command{
 	}
 
 var Get_GiftAidDeclarations_cmd = &cobra.Command{
-		Aliases: []string{  "gad",  "giftaiddeclarations",  "GAD",  },
+		Aliases: []string{  "giftaiddeclarations",  "GAD",  "gad",  },
 		Use: `GiftAidDeclarations {"GiftAidDeclarationID":"string"}`,
 		Short: `Gets a single Gift Aid Declaration`,
 		Long:  `Gets a single Gift Aid Declaration.`,
@@ -2701,13 +2948,15 @@ var Get_GiftAidDeclarations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidDeclarationsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidDeclarationsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidDeclarationsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidDeclarationsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2717,7 +2966,7 @@ var Get_GiftAidDeclarations_cmd = &cobra.Command{
 	}
 
 var Get_GiftAidDocumentStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "gads",  "giftaiddocumentstatuses",  "GADS",  },
+		Aliases: []string{  "giftaiddocumentstatuses",  "GADS",  "gads",  },
 		Use: `GiftAidDocumentStatuses {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid document status by id`,
 		Long:  `Get the details of a gift aid document status by id.`,
@@ -2725,15 +2974,17 @@ var Get_GiftAidDocumentStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidDocumentStatusesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidDocumentStatusesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidDocumentStatusesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidDocumentStatusesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidDocumentStatusesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidDocumentStatusesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2751,15 +3002,17 @@ var Get_GiftAidIneligibleReasons_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidIneligibleReasonsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidIneligibleReasonsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidIneligibleReasonsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidIneligibleReasonsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidIneligibleReasonsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidIneligibleReasonsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2769,7 +3022,7 @@ var Get_GiftAidIneligibleReasons_cmd = &cobra.Command{
 	}
 
 var Get_GiftAidRates_cmd = &cobra.Command{
-		Aliases: []string{  "giftaidrates",  "GAR",  "gar",  },
+		Aliases: []string{  "gar",  "giftaidrates",  "GAR",  },
 		Use: `GiftAidRates {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid rate by id`,
 		Long:  `Get the details of a gift aid rate by id.`,
@@ -2777,15 +3030,17 @@ var Get_GiftAidRates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidRatesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidRatesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidRatesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidRatesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidRatesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidRatesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2803,15 +3058,17 @@ var Get_GiftAidStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidStatusesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidStatusesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidStatusesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidStatusesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidStatusesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidStatusesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2829,15 +3086,17 @@ var Get_GiftAidTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.GiftAidTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.GiftAidTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2856,6 +3115,11 @@ The original amount, amount used and balance are all returned.  Amounts applied 
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.GiftCertificatesGet , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2874,15 +3138,17 @@ var Get_HoldCodeCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.HoldCodeCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.HoldCodeCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.HoldCodeCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.HoldCodeCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.HoldCodeCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.HoldCodeCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2892,7 +3158,7 @@ var Get_HoldCodeCategories_cmd = &cobra.Command{
 	}
 
 var Get_HoldCodeUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "HCUG",  "hcug",  "holdcodeusergroups",  },
+		Aliases: []string{  "hcug",  "holdcodeusergroups",  "HCUG",  },
 		Use: `HoldCodeUserGroups {"HoldCodeUserGroupID":"string"}`,
 		Short: `Get the details of a hold code/user group mapping by id`,
 		Long:  `Get the details of a hold code/user group mapping by id.`,
@@ -2900,17 +3166,19 @@ var Get_HoldCodeUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.HoldCodeUserGroupsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.HoldCodeUserGroupsGetSummaries , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summary"); test {
-					out, err = tq.Do(*_tq, _tq.Get.HoldCodeUserGroupsGetSummary , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.HoldCodeUserGroupsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.HoldCodeUserGroupsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.HoldCodeUserGroupsGetSummaries , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summary"); test {
+				out, err = tq.Do(*_tq, _tq.Get.HoldCodeUserGroupsGetSummary , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.HoldCodeUserGroupsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2928,13 +3196,15 @@ var Get_HoldCodes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.HoldCodesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.HoldCodesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.HoldCodesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.HoldCodesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2952,15 +3222,17 @@ var Get_InactiveReasons_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.InactiveReasonsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.InactiveReasonsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.InactiveReasonsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.InactiveReasonsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.InactiveReasonsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.InactiveReasonsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2970,7 +3242,7 @@ var Get_InactiveReasons_cmd = &cobra.Command{
 	}
 
 var Get_IntegrationDefaults_cmd = &cobra.Command{
-		Aliases: []string{  "integrationdefaults",  "ID",  "id",  },
+		Aliases: []string{  "ID",  "id",  "integrationdefaults",  },
 		Use: `IntegrationDefaults {"ID":"string"}`,
 		Short: `Get the details of an Integration Default by id`,
 		Long:  `Get the details of an Integration Default by id.`,
@@ -2978,15 +3250,17 @@ var Get_IntegrationDefaults_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.IntegrationDefaultsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.IntegrationDefaultsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.IntegrationDefaultsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.IntegrationDefaultsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.IntegrationDefaultsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.IntegrationDefaultsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2996,7 +3270,7 @@ var Get_IntegrationDefaults_cmd = &cobra.Command{
 	}
 
 var Get_Integrations_cmd = &cobra.Command{
-		Aliases: []string{  "I",  "i",  "integrations",  },
+		Aliases: []string{  "integrations",  "I",  "i",  },
 		Use: `Integrations {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an action type by id`,
 		Long:  `Get the details of an action type by id.`,
@@ -3004,15 +3278,17 @@ var Get_Integrations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.IntegrationsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.IntegrationsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.IntegrationsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.IntegrationsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.IntegrationsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.IntegrationsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3030,15 +3306,17 @@ var Get_InterestCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.InterestCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.InterestCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.InterestCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.InterestCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.InterestCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.InterestCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3048,7 +3326,7 @@ var Get_InterestCategories_cmd = &cobra.Command{
 	}
 
 var Get_InterestTypes_cmd = &cobra.Command{
-		Aliases: []string{  "interesttypes",  "IT",  "it",  },
+		Aliases: []string{  "it",  "interesttypes",  "IT",  },
 		Use: `InterestTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an interest type by id`,
 		Long:  `Get the details of an interest type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -3056,15 +3334,17 @@ var Get_InterestTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.InterestTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.InterestTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.InterestTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.InterestTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.InterestTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.InterestTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3082,13 +3362,15 @@ var Get_Interests_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.InterestsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.InterestsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.InterestsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.InterestsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3106,15 +3388,17 @@ var Get_Internal_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.InternalGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ConstituentMiniSnapshot"); test {
-					out, err = tq.Do(*_tq, _tq.Get.InternalGetConstituentMiniSnapshot , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.InternalGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.InternalGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ConstituentMiniSnapshot"); test {
+				out, err = tq.Do(*_tq, _tq.Get.InternalGetConstituentMiniSnapshot , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.InternalGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3132,13 +3416,15 @@ var Get_InventoryContactPermissionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.InventoryContactPermissionTypesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.InventoryContactPermissionTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.InventoryContactPermissionTypesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.InventoryContactPermissionTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3156,15 +3442,17 @@ var Get_InventoryWebContents_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.InventoryWebContentsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AllSummaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.InventoryWebContentsGetAllSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.InventoryWebContentsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.InventoryWebContentsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AllSummaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.InventoryWebContentsGetAllSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.InventoryWebContentsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3182,6 +3470,11 @@ var Get_InvoiceBilling_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.InvoiceBillingStatus , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3192,7 +3485,7 @@ var Get_InvoiceBilling_cmd = &cobra.Command{
 	}
 
 var Get_Issues_cmd = &cobra.Command{
-		Aliases: []string{  "issues",  "I",  "i",  },
+		Aliases: []string{  "I",  "i",  "issues",  },
 		Use: `Issues {"IssueID":"string"}`,
 		Short: `Get details of a customer issue`,
 		Long:  `Get details of a customer issue.`,
@@ -3200,13 +3493,15 @@ var Get_Issues_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.IssuesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.IssuesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.IssuesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.IssuesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3224,15 +3519,17 @@ var Get_KeywordCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.KeywordCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.KeywordCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.KeywordCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.KeywordCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.KeywordCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.KeywordCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3250,17 +3547,19 @@ var Get_Keywords_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.KeywordsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("DataFor"); test {
-					out, err = tq.Do(*_tq, _tq.Get.KeywordsGetDataFor , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.KeywordsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.KeywordsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.KeywordsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("DataFor"); test {
+				out, err = tq.Do(*_tq, _tq.Get.KeywordsGetDataFor , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.KeywordsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.KeywordsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3278,15 +3577,17 @@ var Get_Languages_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.LanguagesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.LanguagesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.LanguagesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.LanguagesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.LanguagesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.LanguagesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3296,7 +3597,7 @@ var Get_Languages_cmd = &cobra.Command{
 	}
 
 var Get_ListCategories_cmd = &cobra.Command{
-		Aliases: []string{  "lc",  "listcategories",  "LC",  },
+		Aliases: []string{  "LC",  "lc",  "listcategories",  },
 		Use: `ListCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a list category by id`,
 		Long:  `Get the details of a list category by id.`,
@@ -3304,15 +3605,17 @@ var Get_ListCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ListCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ListCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ListCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ListCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ListCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ListCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3322,7 +3625,7 @@ var Get_ListCategories_cmd = &cobra.Command{
 	}
 
 var Get_Lists_cmd = &cobra.Command{
-		Aliases: []string{  "lists",  "L",  "l",  },
+		Aliases: []string{  "l",  "lists",  "L",  },
 		Use: `Lists {"ListID":"string"}`,
 		Short: `Get a single List without contents`,
 		Long:  `Get a single List without contents.`,
@@ -3330,19 +3633,21 @@ var Get_Lists_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Contents"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ListsGetContents , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ContentsDetail"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ListsGetContentsDetail , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ListCriterionMatchReasons"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ListsGetListCriterionMatchReasons , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ListsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ListsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Contents"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ListsGetContents , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ContentsDetail"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ListsGetContentsDetail , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ListCriterionMatchReasons"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ListsGetListCriterionMatchReasons , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ListsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ListsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3360,15 +3665,17 @@ var Get_LoginTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.LoginTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.LoginTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.LoginTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.LoginTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.LoginTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.LoginTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3386,15 +3693,17 @@ var Get_MachineSettings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.MachineSettingsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.MachineSettingsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.MachineSettingsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.MachineSettingsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.MachineSettingsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.MachineSettingsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3412,15 +3721,17 @@ var Get_MailIndicators_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.MailIndicatorsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.MailIndicatorsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.MailIndicatorsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.MailIndicatorsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.MailIndicatorsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.MailIndicatorsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3438,15 +3749,17 @@ var Get_MediaTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.MediaTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.MediaTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.MediaTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.MediaTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.MediaTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.MediaTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3464,15 +3777,17 @@ var Get_MembershipLevelCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.MembershipLevelCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.MembershipLevelCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.MembershipLevelCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.MembershipLevelCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.MembershipLevelCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.MembershipLevelCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3491,15 +3806,17 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.MembershipLevelsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.MembershipLevelsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.MembershipLevelsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.MembershipLevelsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.MembershipLevelsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.MembershipLevelsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3509,7 +3826,7 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 	}
 
 var Get_MembershipOrganizations_cmd = &cobra.Command{
-		Aliases: []string{  "membershiporganizations",  "MO",  "mo",  },
+		Aliases: []string{  "mo",  "membershiporganizations",  "MO",  },
 		Use: `MembershipOrganizations {"ID":"string"}`,
 		Short: `Get a specific membership organization`,
 		Long:  `Get a specific membership organization.
@@ -3518,15 +3835,17 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.MembershipOrganizationsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.MembershipOrganizationsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.MembershipOrganizationsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.MembershipOrganizationsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.MembershipOrganizationsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.MembershipOrganizationsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3536,7 +3855,7 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 	}
 
 var Get_MembershipStandings_cmd = &cobra.Command{
-		Aliases: []string{  "membershipstandings",  "MS",  "ms",  },
+		Aliases: []string{  "ms",  "membershipstandings",  "MS",  },
 		Use: `MembershipStandings {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get a specific MembershipStanding by id`,
 		Long:  `Get a specific MembershipStanding by id.`,
@@ -3544,15 +3863,17 @@ var Get_MembershipStandings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.MembershipStandingsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.MembershipStandingsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.MembershipStandingsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.MembershipStandingsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.MembershipStandingsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.MembershipStandingsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3562,7 +3883,7 @@ var Get_MembershipStandings_cmd = &cobra.Command{
 	}
 
 var Get_Memberships_cmd = &cobra.Command{
-		Aliases: []string{  "M",  "m",  "memberships",  },
+		Aliases: []string{  "memberships",  "M",  "m",  },
 		Use: `Memberships {"ConstituentID":"string","IncludeAffiliations":"string","MembershipOrgIds":"string","OnlyShowCurrent":"string","OnlyShowDefault":"string"}`,
 		Short: `Returns membership details for a constituent`,
 		Long:  `Returns membership details for a constituent.
@@ -3571,6 +3892,11 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.MembershipsGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3589,6 +3915,11 @@ var Get_MerchantReferences_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.MerchantReferencesReference , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3607,6 +3938,11 @@ var Get_Merchants_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.MerchantsGetMerchants , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3625,13 +3961,15 @@ var Get_ModeOfSaleCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleCategoriesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleCategoriesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3649,13 +3987,15 @@ var Get_ModeOfSaleOffers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleOffersGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleOffersGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleOffersGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleOffersGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3673,13 +4013,15 @@ var Get_ModeOfSalePriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ModeOfSalePriceTypesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ModeOfSalePriceTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ModeOfSalePriceTypesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ModeOfSalePriceTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3697,13 +4039,15 @@ var Get_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleSurveyQuestionsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleSurveyQuestionsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleSurveyQuestionsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleSurveyQuestionsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3721,13 +4065,15 @@ var Get_ModeOfSaleUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleUserGroupsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleUserGroupsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleUserGroupsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleUserGroupsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3745,15 +4091,17 @@ var Get_ModesOfSale_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ModesOfSaleGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ModesOfSaleGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ModesOfSaleGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ModesOfSaleGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ModesOfSaleGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ModesOfSaleGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3771,15 +4119,17 @@ var Get_NScanAccessAreas_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.NScanAccessAreasGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.NScanAccessAreasGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.NScanAccessAreasGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.NScanAccessAreasGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.NScanAccessAreasGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.NScanAccessAreasGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3789,7 +4139,7 @@ var Get_NScanAccessAreas_cmd = &cobra.Command{
 	}
 
 var Get_NameStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "namestatuses",  "NS",  "ns",  },
+		Aliases: []string{  "ns",  "namestatuses",  "NS",  },
 		Use: `NameStatuses {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a name status by id`,
 		Long:  `Get the details of a name status by id.`,
@@ -3797,15 +4147,17 @@ var Get_NameStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.NameStatusesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.NameStatusesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.NameStatusesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.NameStatusesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.NameStatusesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.NameStatusesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3823,15 +4175,17 @@ var Get_ObjectPermissions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ObjectPermissionsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ObjectPermissionsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ObjectPermissionsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ObjectPermissionsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ObjectPermissionsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ObjectPermissionsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3849,13 +4203,15 @@ var Get_OrderBilling_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Status"); test {
-					out, err = tq.Do(*_tq, _tq.Get.OrderBillingStatus , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.OrderBillingReprint , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Status"); test {
+				out, err = tq.Do(*_tq, _tq.Get.OrderBillingStatus , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.OrderBillingReprint , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3873,15 +4229,17 @@ var Get_OrderCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.OrderCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.OrderCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.OrderCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.OrderCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.OrderCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.OrderCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3899,6 +4257,11 @@ var Get_Orders_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.OrdersGetProductsView , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3909,7 +4272,7 @@ var Get_Orders_cmd = &cobra.Command{
 	}
 
 var Get_Organizations_cmd = &cobra.Command{
-		Aliases: []string{  "O",  "o",  "organizations",  },
+		Aliases: []string{  "organizations",  "O",  "o",  },
 		Use: `Organizations {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an organization by ID`,
 		Long:  `Get the details of an organization by ID. To get the resource in maintenance mode (ignoring control groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -3917,15 +4280,17 @@ var Get_Organizations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.OrganizationsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.OrganizationsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.OrganizationsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.OrganizationsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.OrganizationsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.OrganizationsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3943,15 +4308,17 @@ var Get_OriginalSources_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.OriginalSourcesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.OriginalSourcesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.OriginalSourcesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.OriginalSourcesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.OriginalSourcesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.OriginalSourcesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3969,15 +4336,17 @@ var Get_Origins_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.OriginsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.OriginsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.OriginsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.OriginsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.OriginsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.OriginsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3995,13 +4364,15 @@ var Get_OutputSets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.OutputSetsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.OutputSetsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.OutputSetsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.OutputSetsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4019,6 +4390,11 @@ var Get_PackageHistory_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.PackageHistoryGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4037,13 +4413,15 @@ var Get_PackagePriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PackagePriceTypesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PackagePriceTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PackagePriceTypesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PackagePriceTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4061,15 +4439,17 @@ var Get_PackageTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PackageTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PackageTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PackageTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PackageTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PackageTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PackageTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4087,15 +4467,17 @@ var Get_PackageWebContents_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PackageWebContentsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AllSummaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PackageWebContentsGetAllSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PackageWebContentsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PackageWebContentsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AllSummaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PackageWebContentsGetAllSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PackageWebContentsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4113,27 +4495,29 @@ var Get_Packages_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PackagesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("PackageDetail"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PackagesGetPackageDetail , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("PerformanceGroupDetails"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PackagesGetPerformanceGroupDetails , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Prices"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PackagesGetPrices , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("SeatFees"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PackagesGetSeatFees , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("SeatSummaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PackagesGetSeatSummaries , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Seats"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PackagesGetSeats , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PackagesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PackagesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PackagesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("PackageDetail"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PackagesGetPackageDetail , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("PerformanceGroupDetails"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PackagesGetPerformanceGroupDetails , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Prices"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PackagesGetPrices , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("SeatFees"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PackagesGetSeatFees , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("SeatSummaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PackagesGetSeatSummaries , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Seats"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PackagesGetSeats , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PackagesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PackagesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4151,13 +4535,15 @@ var Get_PaymentGatewayActivities_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayActivitiesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayActivitiesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayActivitiesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayActivitiesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4167,7 +4553,7 @@ var Get_PaymentGatewayActivities_cmd = &cobra.Command{
 	}
 
 var Get_PaymentGatewayConfiguration_cmd = &cobra.Command{
-		Aliases: []string{  "pgc",  "paymentgatewayconfiguration",  "PGC",  },
+		Aliases: []string{  "paymentgatewayconfiguration",  "PGC",  "pgc",  },
 		Use: `PaymentGatewayConfiguration `,
 		Short: `Retrieve Payment Gateway Configuration`,
 		Long:  `Retrieve Payment Gateway Configuration`,
@@ -4175,6 +4561,11 @@ var Get_PaymentGatewayConfiguration_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayConfigurationGetConfiguration , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4185,7 +4576,7 @@ var Get_PaymentGatewayConfiguration_cmd = &cobra.Command{
 	}
 
 var Get_PaymentGatewayNotifications_cmd = &cobra.Command{
-		Aliases: []string{  "paymentgatewaynotifications",  "PGN",  "pgn",  },
+		Aliases: []string{  "PGN",  "pgn",  "paymentgatewaynotifications",  },
 		Use: `PaymentGatewayNotifications {"NotificationType":"string","Reference":"string"}`,
 		Short: `Get all notification events by reference`,
 		Long:  `Get all notification events by reference.`,
@@ -4193,17 +4584,19 @@ var Get_PaymentGatewayNotifications_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Check"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayNotificationsCheck , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Notification"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayNotificationsGetNotification , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("NotificationEvent"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayNotificationsGetNotificationEvent , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayNotificationsGetAllNotificationEvents , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Check"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayNotificationsCheck , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Notification"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayNotificationsGetNotification , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("NotificationEvent"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayNotificationsGetNotificationEvent , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayNotificationsGetAllNotificationEvents , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4221,15 +4614,17 @@ var Get_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayTransactionTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayTransactionTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayTransactionTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayTransactionTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayTransactionTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayTransactionTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4239,7 +4634,7 @@ var Get_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 	}
 
 var Get_PaymentHistory_cmd = &cobra.Command{
-		Aliases: []string{  "PH",  "ph",  "paymenthistory",  },
+		Aliases: []string{  "ph",  "paymenthistory",  "PH",  },
 		Use: `PaymentHistory {"ConstituentID":"string","EndDate":"string","IncludeAffiliates":"string","Page":"string","PageSize":"string","PaymentTypeID":"string","SortByDirection":"string","SortByField":"string","StartDate":"string","TransactionID":"string"}`,
 		Short: `Gets history information for payments by constituent`,
 		Long:  `Gets history information for payments by constituent.`,
@@ -4247,6 +4642,11 @@ var Get_PaymentHistory_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.PaymentHistoryGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4265,15 +4665,17 @@ var Get_PaymentMethodGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentMethodGroupsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentMethodGroupsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentMethodGroupsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentMethodGroupsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentMethodGroupsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentMethodGroupsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4291,13 +4693,15 @@ var Get_PaymentMethodUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentMethodUserGroupsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentMethodUserGroupsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentMethodUserGroupsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentMethodUserGroupsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4315,17 +4719,19 @@ var Get_PaymentMethods_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentMethodsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Check"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentMethodsCheck , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("TranslateMnemonic"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentMethodsTranslateMnemonic , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentMethodsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentMethodsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Check"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentMethodsCheck , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("TranslateMnemonic"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentMethodsTranslateMnemonic , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentMethodsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4335,7 +4741,7 @@ var Get_PaymentMethods_cmd = &cobra.Command{
 	}
 
 var Get_PaymentSignatures_cmd = &cobra.Command{
-		Aliases: []string{  "ps",  "paymentsignatures",  "PS",  },
+		Aliases: []string{  "PS",  "ps",  "paymentsignatures",  },
 		Use: `PaymentSignatures {"PaymentSignatureID":"string"}`,
 		Short: `Get details of a payment signature`,
 		Long:  `Get details of a payment signature.`,
@@ -4343,13 +4749,15 @@ var Get_PaymentSignatures_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentSignaturesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentSignaturesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentSignaturesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentSignaturesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4367,15 +4775,17 @@ var Get_PaymentTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4385,7 +4795,7 @@ var Get_PaymentTypes_cmd = &cobra.Command{
 	}
 
 var Get_Payments_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "payments",  },
+		Aliases: []string{  "payments",  "P",  "p",  },
 		Use: `Payments {"ID":"string"}`,
 		Short: `Get a single payment`,
 		Long:  `Get a single payment.`,
@@ -4393,17 +4803,19 @@ var Get_Payments_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AvailableForRefund"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentsAvailableForRefund , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("OnAccountBalances"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentsGetOnAccountBalances , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PaymentsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AvailableForRefund"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentsAvailableForRefund , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("OnAccountBalances"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentsGetOnAccountBalances , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PaymentsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4413,7 +4825,7 @@ var Get_Payments_cmd = &cobra.Command{
 	}
 
 var Get_PerformanceGroups_cmd = &cobra.Command{
-		Aliases: []string{  "pg",  "performancegroups",  "PG",  },
+		Aliases: []string{  "performancegroups",  "PG",  "pg",  },
 		Use: `PerformanceGroups {"ID":"string"}`,
 		Short: `Get details of a Performance Group`,
 		Long:  `Get details of a Performance Group.`,
@@ -4421,15 +4833,17 @@ var Get_PerformanceGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformanceGroupsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformanceGroupsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PerformanceGroupsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformanceGroupsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformanceGroupsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PerformanceGroupsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4439,7 +4853,7 @@ var Get_PerformanceGroups_cmd = &cobra.Command{
 	}
 
 var Get_PerformancePackageModeOfSales_cmd = &cobra.Command{
-		Aliases: []string{  "ppmos",  "performancepackagemodeofsales",  "PPMOS",  },
+		Aliases: []string{  "performancepackagemodeofsales",  "PPMOS",  "ppmos",  },
 		Use: `PerformancePackageModeOfSales {"PerformancePackageModeOfSaleID":"string"}`,
 		Short: `Get details of a performance package mode of sale`,
 		Long:  `Get details of a performance package mode of sale.`,
@@ -4447,13 +4861,15 @@ var Get_PerformancePackageModeOfSales_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancePackageModeOfSalesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancePackageModeOfSalesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancePackageModeOfSalesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancePackageModeOfSalesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4471,15 +4887,17 @@ var Get_PerformancePriceLayers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Counts"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancePriceLayersGetCounts , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("PriceCount"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancePriceLayersGetPriceCount , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancePriceLayersGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Counts"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancePriceLayersGetCounts , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("PriceCount"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancePriceLayersGetPriceCount , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancePriceLayersGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4497,13 +4915,15 @@ var Get_PerformancePriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancePriceTypesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancePriceTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancePriceTypesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancePriceTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4521,17 +4941,19 @@ var Get_PerformancePrices_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancePricesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AllWithEvents"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancePricesGetAllWithEvents , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Audit"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancePricesGetAudit , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancePricesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancePricesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AllWithEvents"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancePricesGetAllWithEvents , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Audit"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancePricesGetAudit , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancePricesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4549,15 +4971,17 @@ var Get_PerformanceStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformanceStatusesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformanceStatusesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PerformanceStatusesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformanceStatusesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformanceStatusesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PerformanceStatusesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4575,15 +4999,17 @@ var Get_PerformanceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformanceTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformanceTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PerformanceTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformanceTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformanceTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PerformanceTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4601,31 +5027,33 @@ var Get_Performances_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AuditEntries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancesGetAuditEntries , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("PerformanceZoneAvailabilities"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancesGetPerformanceZoneAvailabilities , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("PerformanceZoneAvailabilityWithConstituent"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancesGetPerformanceZoneAvailabilityWithConstituent , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Prices"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancesGetPrices , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("SeatFees"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancesGetSeatFees , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("SeatHoldDetails"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancesGetSeatHoldDetails , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("SeatSummaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancesGetSeatSummaries , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Seats"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancesGetSeats , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PerformancesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AuditEntries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancesGetAuditEntries , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("PerformanceZoneAvailabilities"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancesGetPerformanceZoneAvailabilities , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("PerformanceZoneAvailabilityWithConstituent"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancesGetPerformanceZoneAvailabilityWithConstituent , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Prices"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancesGetPrices , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("SeatFees"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancesGetSeatFees , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("SeatHoldDetails"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancesGetSeatHoldDetails , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("SeatSummaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancesGetSeatSummaries , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Seats"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancesGetSeats , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PerformancesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4643,13 +5071,15 @@ var Get_Philanthropy_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PhilanthropyGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PhilanthropyGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PhilanthropyGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PhilanthropyGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4659,7 +5089,7 @@ var Get_Philanthropy_cmd = &cobra.Command{
 	}
 
 var Get_PhilanthropyTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "pt",  "philanthropytypes",  },
+		Aliases: []string{  "philanthropytypes",  "PT",  "pt",  },
 		Use: `PhilanthropyTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of philosophy type by id`,
 		Long:  `Get the details of philosophy type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -4667,15 +5097,17 @@ var Get_PhilanthropyTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PhilanthropyTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PhilanthropyTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PhilanthropyTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PhilanthropyTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PhilanthropyTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PhilanthropyTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4693,15 +5125,17 @@ var Get_PhoneIndicators_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PhoneIndicatorsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PhoneIndicatorsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PhoneIndicatorsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PhoneIndicatorsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PhoneIndicatorsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PhoneIndicatorsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4711,7 +5145,7 @@ var Get_PhoneIndicators_cmd = &cobra.Command{
 	}
 
 var Get_PhoneTypes_cmd = &cobra.Command{
-		Aliases: []string{  "phonetypes",  "PT",  "pt",  },
+		Aliases: []string{  "pt",  "phonetypes",  "PT",  },
 		Use: `PhoneTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a phone type by id`,
 		Long:  `Get the details of a phone type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -4719,15 +5153,17 @@ var Get_PhoneTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PhoneTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PhoneTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PhoneTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PhoneTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PhoneTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PhoneTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4737,7 +5173,7 @@ var Get_PhoneTypes_cmd = &cobra.Command{
 	}
 
 var Get_Phones_cmd = &cobra.Command{
-		Aliases: []string{  "phones",  "P",  "p",  },
+		Aliases: []string{  "p",  "phones",  "P",  },
 		Use: `Phones {"PhoneID":"string"}`,
 		Short: `Get details of a phone`,
 		Long:  `Get details of a phone.`,
@@ -4745,13 +5181,15 @@ var Get_Phones_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PhonesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PhonesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PhonesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PhonesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4761,7 +5199,7 @@ var Get_Phones_cmd = &cobra.Command{
 	}
 
 var Get_PlanPriorities_cmd = &cobra.Command{
-		Aliases: []string{  "pp",  "planpriorities",  "PP",  },
+		Aliases: []string{  "planpriorities",  "PP",  "pp",  },
 		Use: `PlanPriorities {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan priority by id`,
 		Long:  `Get the details of a plan priority by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -4769,15 +5207,17 @@ var Get_PlanPriorities_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PlanPrioritiesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PlanPrioritiesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PlanPrioritiesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PlanPrioritiesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PlanPrioritiesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PlanPrioritiesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4795,15 +5235,17 @@ var Get_PlanSources_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PlanSourcesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PlanSourcesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PlanSourcesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PlanSourcesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PlanSourcesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PlanSourcesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4813,7 +5255,7 @@ var Get_PlanSources_cmd = &cobra.Command{
 	}
 
 var Get_PlanStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "planstatuses",  "PS",  "ps",  },
+		Aliases: []string{  "ps",  "planstatuses",  "PS",  },
 		Use: `PlanStatuses {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan status by id`,
 		Long:  `Get the details of a plan status by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -4821,15 +5263,17 @@ var Get_PlanStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PlanStatusesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PlanStatusesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PlanStatusesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PlanStatusesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PlanStatusesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PlanStatusesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4847,15 +5291,17 @@ var Get_PlanTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PlanTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PlanTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PlanTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PlanTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PlanTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PlanTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4873,13 +5319,15 @@ var Get_PlanWorkers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PlanWorkersGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PlanWorkersGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PlanWorkersGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PlanWorkersGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4889,7 +5337,7 @@ var Get_PlanWorkers_cmd = &cobra.Command{
 	}
 
 var Get_Plans_cmd = &cobra.Command{
-		Aliases: []string{  "plans",  "P",  "p",  },
+		Aliases: []string{  "P",  "p",  "plans",  },
 		Use: `Plans {"PlanID":"string"}`,
 		Short: `Get details of a plan`,
 		Long:  `Get details of a plan.`,
@@ -4897,13 +5345,15 @@ var Get_Plans_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PlansGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PlansGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PlansGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PlansGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4921,6 +5371,11 @@ var Get_PledgeBilling_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.PledgeBillingGetStatus , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4939,15 +5394,17 @@ var Get_PortfolioCustomElements_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PortfolioCustomElementsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PortfolioCustomElementsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PortfolioCustomElementsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PortfolioCustomElementsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PortfolioCustomElementsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PortfolioCustomElementsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4957,7 +5414,7 @@ var Get_PortfolioCustomElements_cmd = &cobra.Command{
 	}
 
 var Get_Portfolios_cmd = &cobra.Command{
-		Aliases: []string{  "portfolios",  "P",  "p",  },
+		Aliases: []string{  "p",  "portfolios",  "P",  },
 		Use: `Portfolios {"ConstituentID":"string","Page":"string","PageSize":"string","PlanCustomColumns":"string","PortfolioCustomColumns":"string","PrimaryOnly":"string","StatusIds":"string","WorkerRoleIds":"string"}`,
 		Short: `Get portfolio for a constituent`,
 		Long:  `Get portfolio for a constituent.`,
@@ -4965,13 +5422,15 @@ var Get_Portfolios_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("PortfolioEntry"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PortfoliosGetPortfolioEntry , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PortfoliosGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("PortfolioEntry"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PortfoliosGetPortfolioEntry , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PortfoliosGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4981,7 +5440,7 @@ var Get_Portfolios_cmd = &cobra.Command{
 	}
 
 var Get_Prefixes_cmd = &cobra.Command{
-		Aliases: []string{  "prefixes",  "P",  "p",  },
+		Aliases: []string{  "P",  "p",  "prefixes",  },
 		Use: `Prefixes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a prefix by id`,
 		Long:  `Get the details of a prefix by id.`,
@@ -4989,15 +5448,17 @@ var Get_Prefixes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PrefixesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PrefixesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PrefixesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PrefixesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PrefixesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PrefixesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5015,15 +5476,17 @@ var Get_Premieres_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PremieresGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PremieresGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PremieresGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PremieresGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PremieresGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PremieresGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5033,7 +5496,7 @@ var Get_Premieres_cmd = &cobra.Command{
 	}
 
 var Get_PriceCategories_cmd = &cobra.Command{
-		Aliases: []string{  "PC",  "pc",  "pricecategories",  },
+		Aliases: []string{  "pricecategories",  "PC",  "pc",  },
 		Use: `PriceCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a price category by id`,
 		Long:  `Get the details of a price category by id.`,
@@ -5041,15 +5504,17 @@ var Get_PriceCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PriceCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PriceCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5059,7 +5524,7 @@ var Get_PriceCategories_cmd = &cobra.Command{
 	}
 
 var Get_PriceEvents_cmd = &cobra.Command{
-		Aliases: []string{  "PE",  "pe",  "priceevents",  },
+		Aliases: []string{  "priceevents",  "PE",  "pe",  },
 		Use: `PriceEvents {"PriceEventID":"string"}`,
 		Short: `Get details of a price event`,
 		Long:  `Get details of a price event.`,
@@ -5067,15 +5532,17 @@ var Get_PriceEvents_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceEventsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Dates"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceEventsGetDates , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PriceEventsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceEventsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Dates"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceEventsGetDates , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PriceEventsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5093,15 +5560,17 @@ var Get_PriceLayerTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceLayerTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceLayerTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PriceLayerTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceLayerTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceLayerTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PriceLayerTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5111,7 +5580,7 @@ var Get_PriceLayerTypes_cmd = &cobra.Command{
 	}
 
 var Get_PriceTemplates_cmd = &cobra.Command{
-		Aliases: []string{  "pricetemplates",  "PT",  "pt",  },
+		Aliases: []string{  "PT",  "pt",  "pricetemplates",  },
 		Use: `PriceTemplates {"PriceTemplateID":"string"}`,
 		Short: `Get details of a price template`,
 		Long:  `Get details of a price template.`,
@@ -5119,15 +5588,17 @@ var Get_PriceTemplates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTemplatesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTemplatesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTemplatesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTemplatesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTemplatesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTemplatesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5145,15 +5616,17 @@ var Get_PriceTypeCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTypeCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTypeCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTypeCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTypeCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTypeCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTypeCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5171,15 +5644,17 @@ var Get_PriceTypeGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTypeGroupsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTypeGroupsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTypeGroupsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTypeGroupsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTypeGroupsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTypeGroupsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5189,7 +5664,7 @@ var Get_PriceTypeGroups_cmd = &cobra.Command{
 	}
 
 var Get_PriceTypeReasons_cmd = &cobra.Command{
-		Aliases: []string{  "pricetypereasons",  "PTR",  "ptr",  },
+		Aliases: []string{  "PTR",  "ptr",  "pricetypereasons",  },
 		Use: `PriceTypeReasons {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a price type reason by id`,
 		Long:  `Get the details of a price type reason by id.`,
@@ -5197,15 +5672,17 @@ var Get_PriceTypeReasons_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTypeReasonsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTypeReasonsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTypeReasonsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTypeReasonsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTypeReasonsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTypeReasonsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5215,7 +5692,7 @@ var Get_PriceTypeReasons_cmd = &cobra.Command{
 	}
 
 var Get_PriceTypeUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "ptug",  "pricetypeusergroups",  "PTUG",  },
+		Aliases: []string{  "pricetypeusergroups",  "PTUG",  "ptug",  },
 		Use: `PriceTypeUserGroups {"PriceTypeUserGroupID":"string"}`,
 		Short: `Get details of a price type/user group mapping by id`,
 		Long:  `Get details of a price type/user group mapping by id.`,
@@ -5223,13 +5700,15 @@ var Get_PriceTypeUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTypeUserGroupsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTypeUserGroupsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTypeUserGroupsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTypeUserGroupsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5239,7 +5718,7 @@ var Get_PriceTypeUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_PriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "pricetypes",  "PT",  "pt",  },
+		Aliases: []string{  "PT",  "pt",  "pricetypes",  },
 		Use: `PriceTypes {"PriceTypeID":"string"}`,
 		Short: `Get details of a price type`,
 		Long:  `Get details of a price type.`,
@@ -5247,21 +5726,23 @@ var Get_PriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Reasons"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTypesGetReasons , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTypesGetSummaries , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ValidPriceTypes"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTypesGetValidPriceTypes , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ValidZones"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTypesGetValidZones , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PriceTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Reasons"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTypesGetReasons , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTypesGetSummaries , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ValidPriceTypes"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTypesGetValidPriceTypes , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ValidZones"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTypesGetValidZones , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PriceTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5271,7 +5752,7 @@ var Get_PriceTypes_cmd = &cobra.Command{
 	}
 
 var Get_PricingRuleCategories_cmd = &cobra.Command{
-		Aliases: []string{  "pricingrulecategories",  "PRC",  "prc",  },
+		Aliases: []string{  "PRC",  "prc",  "pricingrulecategories",  },
 		Use: `PricingRuleCategories {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a pricing rule category by id`,
 		Long:  `Get the details of a pricing rule category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -5279,15 +5760,17 @@ var Get_PricingRuleCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PricingRuleCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PricingRuleCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PricingRuleCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PricingRuleCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PricingRuleCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PricingRuleCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5297,7 +5780,7 @@ var Get_PricingRuleCategories_cmd = &cobra.Command{
 	}
 
 var Get_PricingRuleMessageTypes_cmd = &cobra.Command{
-		Aliases: []string{  "prmt",  "pricingrulemessagetypes",  "PRMT",  },
+		Aliases: []string{  "pricingrulemessagetypes",  "PRMT",  "prmt",  },
 		Use: `PricingRuleMessageTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a pricing rule message type by id`,
 		Long:  `Get the details of a pricing rule message type by id.`,
@@ -5305,15 +5788,17 @@ var Get_PricingRuleMessageTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PricingRuleMessageTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PricingRuleMessageTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PricingRuleMessageTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PricingRuleMessageTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PricingRuleMessageTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PricingRuleMessageTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5331,15 +5816,17 @@ var Get_PricingRuleSets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PricingRuleSetsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PricingRuleSetsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PricingRuleSetsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PricingRuleSetsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PricingRuleSetsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PricingRuleSetsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5357,15 +5844,17 @@ var Get_PricingRuleTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PricingRuleTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PricingRuleTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PricingRuleTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PricingRuleTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PricingRuleTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PricingRuleTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5375,7 +5864,7 @@ var Get_PricingRuleTypes_cmd = &cobra.Command{
 	}
 
 var Get_PricingRules_cmd = &cobra.Command{
-		Aliases: []string{  "PR",  "pr",  "pricingrules",  },
+		Aliases: []string{  "pricingrules",  "PR",  "pr",  },
 		Use: `PricingRules {"PricingRuleID":"string"}`,
 		Short: `Get details of a pricing rule`,
 		Long:  `Get details of a pricing rule.`,
@@ -5383,15 +5872,17 @@ var Get_PricingRules_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PricingRulesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AllSummary"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PricingRulesGetAllSummary , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PricingRulesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PricingRulesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AllSummary"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PricingRulesGetAllSummary , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PricingRulesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5401,7 +5892,7 @@ var Get_PricingRules_cmd = &cobra.Command{
 	}
 
 var Get_Printers_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "printers",  },
+		Aliases: []string{  "printers",  "P",  "p",  },
 		Use: `Printers {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a printer by id`,
 		Long:  `Get the details of a printer by id.`,
@@ -5409,15 +5900,17 @@ var Get_Printers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PrintersGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PrintersGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PrintersGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PrintersGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PrintersGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PrintersGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5427,7 +5920,7 @@ var Get_Printers_cmd = &cobra.Command{
 	}
 
 var Get_ProductKeywords_cmd = &cobra.Command{
-		Aliases: []string{  "PK",  "pk",  "productkeywords",  },
+		Aliases: []string{  "productkeywords",  "PK",  "pk",  },
 		Use: `ProductKeywords {"KeywordIds":"string","PackageIds":"string","ProductionElementIds":"string","ShowAll":"string"}`,
 		Short: `Returns keywords for the requested production elements or packages`,
 		Long:  `Returns keywords for the requested production elements or packages.
@@ -5437,6 +5930,11 @@ For Production Elements: If the keyword is found, returns the keyword and the lo
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.ProductKeywordsGetKeywords , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -5455,15 +5953,17 @@ var Get_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ProductionSeasonMembershipOrganizationsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ProductionSeasonMembershipOrganizationsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ProductionSeasonMembershipOrganizationsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ProductionSeasonMembershipOrganizationsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ProductionSeasonMembershipOrganizationsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ProductionSeasonMembershipOrganizationsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5473,7 +5973,7 @@ var Get_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 	}
 
 var Get_ProductionSeasons_cmd = &cobra.Command{
-		Aliases: []string{  "productionseasons",  "PS",  "ps",  },
+		Aliases: []string{  "PS",  "ps",  "productionseasons",  },
 		Use: `ProductionSeasons {"ID":"string"}`,
 		Short: `Get details of a specific production season`,
 		Long:  `Get details of a specific production season.
@@ -5482,15 +5982,17 @@ Returns the full details for a single production season, including description a
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ProductionSeasonsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ProductionSeasonsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ProductionSeasonsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ProductionSeasonsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ProductionSeasonsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ProductionSeasonsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5500,7 +6002,7 @@ Returns the full details for a single production season, including description a
 	}
 
 var Get_Productions_cmd = &cobra.Command{
-		Aliases: []string{  "productions",  "P",  "p",  },
+		Aliases: []string{  "p",  "productions",  "P",  },
 		Use: `Productions {"ID":"string"}`,
 		Short: `Get details of a specific production`,
 		Long:  `Get details of a specific production.`,
@@ -5508,15 +6010,17 @@ var Get_Productions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ProductionsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ProductionsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ProductionsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ProductionsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ProductionsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ProductionsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5526,7 +6030,7 @@ var Get_Productions_cmd = &cobra.Command{
 	}
 
 var Get_ProgramListings_cmd = &cobra.Command{
-		Aliases: []string{  "pl",  "programlistings",  "PL",  },
+		Aliases: []string{  "programlistings",  "PL",  "pl",  },
 		Use: `ProgramListings {"ProgramListingID":"string"}`,
 		Short: `Get details of a program listing`,
 		Long:  `Get details of a program listing.`,
@@ -5534,13 +6038,15 @@ var Get_ProgramListings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ProgramListingsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ProgramListingsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ProgramListingsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ProgramListingsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5550,7 +6056,7 @@ var Get_ProgramListings_cmd = &cobra.Command{
 	}
 
 var Get_Programs_cmd = &cobra.Command{
-		Aliases: []string{  "programs",  "P",  "p",  },
+		Aliases: []string{  "P",  "p",  "programs",  },
 		Use: `Programs {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a program by id`,
 		Long:  `Get the details of a program by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -5558,15 +6064,17 @@ var Get_Programs_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ProgramsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ProgramsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ProgramsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ProgramsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ProgramsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ProgramsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5584,15 +6092,17 @@ var Get_Pronouns_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PronounsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.PronounsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.PronounsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PronounsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.PronounsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.PronounsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5610,15 +6120,17 @@ var Get_QualificationCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.QualificationCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.QualificationCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.QualificationCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.QualificationCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.QualificationCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.QualificationCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5628,7 +6140,7 @@ var Get_QualificationCategories_cmd = &cobra.Command{
 	}
 
 var Get_Qualifications_cmd = &cobra.Command{
-		Aliases: []string{  "qualifications",  "Q",  "q",  },
+		Aliases: []string{  "q",  "qualifications",  "Q",  },
 		Use: `Qualifications {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Qualification by id`,
 		Long:  `Get the details of a Qualification by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -5636,15 +6148,17 @@ var Get_Qualifications_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.QualificationsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.QualificationsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.QualificationsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.QualificationsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.QualificationsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.QualificationsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5662,17 +6176,19 @@ var Get_QueryElementFilters_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.QueryElementFiltersGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("DataFor"); test {
-					out, err = tq.Do(*_tq, _tq.Get.QueryElementFiltersGetDataFor , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.QueryElementFiltersGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.QueryElementFiltersGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.QueryElementFiltersGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("DataFor"); test {
+				out, err = tq.Do(*_tq, _tq.Get.QueryElementFiltersGetDataFor , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.QueryElementFiltersGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.QueryElementFiltersGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5690,13 +6206,15 @@ var Get_QueryElementGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.QueryElementGroupsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.QueryElementGroupsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.QueryElementGroupsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.QueryElementGroupsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5714,15 +6232,17 @@ var Get_QueryElements_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.QueryElementsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.QueryElementsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.QueryElementsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.QueryElementsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.QueryElementsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.QueryElementsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5740,15 +6260,17 @@ var Get_RankTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.RankTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.RankTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.RankTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.RankTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.RankTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.RankTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5758,7 +6280,7 @@ var Get_RankTypes_cmd = &cobra.Command{
 	}
 
 var Get_Rankings_cmd = &cobra.Command{
-		Aliases: []string{  "R",  "r",  "rankings",  },
+		Aliases: []string{  "rankings",  "R",  "r",  },
 		Use: `Rankings {"RankingID":"string"}`,
 		Short: `Get details of a ranking`,
 		Long:  `Get details of a ranking.`,
@@ -5766,13 +6288,15 @@ var Get_Rankings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.RankingsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.RankingsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.RankingsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.RankingsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5790,15 +6314,17 @@ var Get_ReceiptSettings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ReceiptSettingsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ReceiptSettingsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ReceiptSettingsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ReceiptSettingsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ReceiptSettingsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ReceiptSettingsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5808,7 +6334,7 @@ var Get_ReceiptSettings_cmd = &cobra.Command{
 	}
 
 var Get_ReferenceColumns_cmd = &cobra.Command{
-		Aliases: []string{  "rc",  "referencecolumns",  "RC",  },
+		Aliases: []string{  "RC",  "rc",  "referencecolumns",  },
 		Use: `ReferenceColumns {"MaintenanceMode":"string"}`,
 		Short: `Get all reference columns`,
 		Long:  `Get all reference columns. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`,
@@ -5816,13 +6342,15 @@ var Get_ReferenceColumns_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ReferenceColumnsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ReferenceColumnsGetAll , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ReferenceColumnsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ReferenceColumnsGetAll , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5840,15 +6368,17 @@ var Get_ReferenceTableUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ReferenceTableUserGroupsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ReferenceTableUserGroupsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ReferenceTableUserGroupsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ReferenceTableUserGroupsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ReferenceTableUserGroupsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ReferenceTableUserGroupsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5858,7 +6388,7 @@ var Get_ReferenceTableUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_ReferenceTables_cmd = &cobra.Command{
-		Aliases: []string{  "referencetables",  "RT",  "rt",  },
+		Aliases: []string{  "RT",  "rt",  "referencetables",  },
 		Use: `ReferenceTables {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get details for a reference table by Id`,
 		Long:  `Get details for a reference table by Id.`,
@@ -5866,15 +6396,17 @@ var Get_ReferenceTables_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ReferenceTablesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ReferenceTablesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ReferenceTablesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ReferenceTablesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ReferenceTablesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ReferenceTablesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5892,15 +6424,17 @@ var Get_RelationshipCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.RelationshipCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.RelationshipCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.RelationshipCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.RelationshipCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.RelationshipCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.RelationshipCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5918,6 +6452,11 @@ var Get_Relationships_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.RelationshipsGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -5936,17 +6475,19 @@ var Get_ReportRequests_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ReportRequestsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AllExpired"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ReportRequestsGetAllExpired , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Queued"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ReportRequestsGetQueued , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ReportRequestsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ReportRequestsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AllExpired"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ReportRequestsGetAllExpired , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Queued"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ReportRequestsGetQueued , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ReportRequestsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5964,13 +6505,15 @@ var Get_ReportSchedules_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ReportSchedulesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ReportSchedulesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ReportSchedulesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ReportSchedulesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -5988,15 +6531,17 @@ var Get_ReportUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ReportUserGroupsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ReportUserGroupsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ReportUserGroupsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ReportUserGroupsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ReportUserGroupsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ReportUserGroupsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6014,21 +6559,23 @@ var Get_Reports_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ReportsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("CustomData"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ReportsGetCustomData , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ReportCategories"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ReportsGetReportCategories , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ReportDefaults"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ReportsGetReportDefaults , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ReportParameters"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ReportsGetReportParameters , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ReportsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ReportsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("CustomData"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ReportsGetCustomData , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ReportCategories"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ReportsGetReportCategories , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ReportDefaults"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ReportsGetReportDefaults , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ReportParameters"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ReportsGetReportParameters , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ReportsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6046,13 +6593,15 @@ var Get_Research_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ResearchGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ResearchGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ResearchGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ResearchGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6070,15 +6619,17 @@ var Get_ResearchTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ResearchTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ResearchTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ResearchTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ResearchTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ResearchTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ResearchTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6096,15 +6647,17 @@ var Get_ResourceCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ResourceCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ResourceCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ResourceCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ResourceCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ResourceCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ResourceCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6114,7 +6667,7 @@ var Get_ResourceCategories_cmd = &cobra.Command{
 	}
 
 var Get_ResourceSchedules_cmd = &cobra.Command{
-		Aliases: []string{  "resourceschedules",  "RS",  "rs",  },
+		Aliases: []string{  "rs",  "resourceschedules",  "RS",  },
 		Use: `ResourceSchedules {"ResourceScheduleID":"string"}`,
 		Short: `Get a single resource schedule`,
 		Long:  `Get a single resource schedule.`,
@@ -6122,13 +6675,15 @@ var Get_ResourceSchedules_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ResourceSchedulesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ResourceSchedulesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ResourceSchedulesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ResourceSchedulesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6138,7 +6693,7 @@ var Get_ResourceSchedules_cmd = &cobra.Command{
 	}
 
 var Get_ResourceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "rt",  "resourcetypes",  "RT",  },
+		Aliases: []string{  "resourcetypes",  "RT",  "rt",  },
 		Use: `ResourceTypes {"ID":"string"}`,
 		Short: `Get all resource types`,
 		Long:  `Get all resource types.`,
@@ -6146,15 +6701,17 @@ var Get_ResourceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ResourceTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ResourceTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ResourceTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ResourceTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ResourceTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ResourceTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6172,19 +6729,21 @@ var Get_Resources_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ResourcesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Details"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ResourcesGetDetails , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("HasUsages"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ResourcesHasUsages , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ResourcesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ResourcesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ResourcesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Details"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ResourcesGetDetails , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("HasUsages"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ResourcesHasUsages , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ResourcesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ResourcesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6202,15 +6761,17 @@ var Get_SalesChannels_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SalesChannelsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SalesChannelsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SalesChannelsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SalesChannelsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SalesChannelsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SalesChannelsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6220,7 +6781,7 @@ var Get_SalesChannels_cmd = &cobra.Command{
 	}
 
 var Get_SalesLayoutButtonTypes_cmd = &cobra.Command{
-		Aliases: []string{  "SLBT",  "slbt",  "saleslayoutbuttontypes",  },
+		Aliases: []string{  "saleslayoutbuttontypes",  "SLBT",  "slbt",  },
 		Use: `SalesLayoutButtonTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a sales layout button type by id`,
 		Long:  `Get the details of a sales layout button type by id.`,
@@ -6228,15 +6789,17 @@ var Get_SalesLayoutButtonTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SalesLayoutButtonTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SalesLayoutButtonTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SalesLayoutButtonTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SalesLayoutButtonTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SalesLayoutButtonTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SalesLayoutButtonTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6246,7 +6809,7 @@ var Get_SalesLayoutButtonTypes_cmd = &cobra.Command{
 	}
 
 var Get_SalesLayouts_cmd = &cobra.Command{
-		Aliases: []string{  "sl",  "saleslayouts",  "SL",  },
+		Aliases: []string{  "saleslayouts",  "SL",  "sl",  },
 		Use: `SalesLayouts {"SalesLayoutID":"string"}`,
 		Short: `Get details of a sales layout setup`,
 		Long:  `Get details of a sales layout setup.`,
@@ -6254,15 +6817,17 @@ var Get_SalesLayouts_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("ForSale"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SalesLayoutsGetForSale , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SalesLayoutsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SalesLayoutsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("ForSale"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SalesLayoutsGetForSale , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SalesLayoutsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SalesLayoutsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6280,15 +6845,17 @@ var Get_SalutationTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SalutationTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SalutationTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SalutationTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SalutationTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SalutationTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SalutationTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6306,15 +6873,17 @@ var Get_Salutations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SalutationsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Generate"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SalutationsGenerate , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SalutationsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SalutationsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Generate"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SalutationsGenerate , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SalutationsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6324,7 +6893,7 @@ var Get_Salutations_cmd = &cobra.Command{
 	}
 
 var Get_SchedulePatternTypes_cmd = &cobra.Command{
-		Aliases: []string{  "schedulepatterntypes",  "SPT",  "spt",  },
+		Aliases: []string{  "spt",  "schedulepatterntypes",  "SPT",  },
 		Use: `SchedulePatternTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Schedule Pattern by id`,
 		Long:  `Get the details of a Schedule Pattern by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -6332,15 +6901,17 @@ var Get_SchedulePatternTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SchedulePatternTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SchedulePatternTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SchedulePatternTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SchedulePatternTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SchedulePatternTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SchedulePatternTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6358,15 +6929,17 @@ var Get_ScheduleTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ScheduleTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ScheduleTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ScheduleTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ScheduleTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ScheduleTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ScheduleTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6384,15 +6957,17 @@ var Get_SeasonTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SeasonTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SeasonTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SeasonTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SeasonTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SeasonTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SeasonTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6410,15 +6985,17 @@ var Get_Seasons_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SeasonsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SeasonsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SeasonsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SeasonsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SeasonsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SeasonsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6428,7 +7005,7 @@ var Get_Seasons_cmd = &cobra.Command{
 	}
 
 var Get_SeatCodes_cmd = &cobra.Command{
-		Aliases: []string{  "sc",  "seatcodes",  "SC",  },
+		Aliases: []string{  "seatcodes",  "SC",  "sc",  },
 		Use: `SeatCodes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a seat code by id`,
 		Long:  `Get the details of a seat code by id.`,
@@ -6436,15 +7013,17 @@ var Get_SeatCodes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SeatCodesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SeatCodesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SeatCodesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SeatCodesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SeatCodesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SeatCodesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6462,15 +7041,17 @@ var Get_SeatStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SeatStatusesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SeatStatusesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SeatStatusesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SeatStatusesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SeatStatusesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SeatStatusesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6480,7 +7061,7 @@ var Get_SeatStatuses_cmd = &cobra.Command{
 	}
 
 var Get_Sections_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "sections",  },
+		Aliases: []string{  "sections",  "S",  "s",  },
 		Use: `Sections {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a section by id`,
 		Long:  `Get the details of a section by id.`,
@@ -6488,15 +7069,17 @@ var Get_Sections_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SectionsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SectionsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SectionsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SectionsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SectionsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SectionsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6514,6 +7097,11 @@ var Get_SecurityBatchTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityBatchTypesGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -6532,6 +7120,11 @@ var Get_SecurityControlGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityControlGroupsGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -6542,7 +7135,7 @@ var Get_SecurityControlGroups_cmd = &cobra.Command{
 	}
 
 var Get_SecurityHoldCodes_cmd = &cobra.Command{
-		Aliases: []string{  "SHC",  "shc",  "securityholdcodes",  },
+		Aliases: []string{  "securityholdcodes",  "SHC",  "shc",  },
 		Use: `SecurityHoldCodes `,
 		Short: `Get all hold code/user group mappings valid for the context usergroup`,
 		Long:  `Get all hold code/user group mappings valid for the context usergroup.`,
@@ -6550,6 +7143,11 @@ var Get_SecurityHoldCodes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityHoldCodesGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -6560,7 +7158,7 @@ var Get_SecurityHoldCodes_cmd = &cobra.Command{
 	}
 
 var Get_SecurityModesOfSale_cmd = &cobra.Command{
-		Aliases: []string{  "securitymodesofsale",  "SMOS",  "smos",  },
+		Aliases: []string{  "SMOS",  "smos",  "securitymodesofsale",  },
 		Use: `SecurityModesOfSale `,
 		Short: `Get all mode of sale/user group mappings valid for the context usergroup`,
 		Long:  `Get all mode of sale/user group mappings valid for the context usergroup.`,
@@ -6568,6 +7166,11 @@ var Get_SecurityModesOfSale_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityModesOfSaleGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -6578,7 +7181,7 @@ var Get_SecurityModesOfSale_cmd = &cobra.Command{
 	}
 
 var Get_SecurityObjectPermissions_cmd = &cobra.Command{
-		Aliases: []string{  "securityobjectpermissions",  "SOP",  "sop",  },
+		Aliases: []string{  "SOP",  "sop",  "securityobjectpermissions",  },
 		Use: `SecurityObjectPermissions {"ConstituencyID":"string","ObjectIds":"string","Objectid":"string"}`,
 		Short: `Get all the object permissions valid for the context usergroup`,
 		Long:  `Get all the object permissions valid for the context usergroup. Optionally filter by constituency id and/or object id.`,
@@ -6586,6 +7189,11 @@ var Get_SecurityObjectPermissions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityObjectPermissionsGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -6596,7 +7204,7 @@ var Get_SecurityObjectPermissions_cmd = &cobra.Command{
 	}
 
 var Get_SecurityPaymentMethods_cmd = &cobra.Command{
-		Aliases: []string{  "securitypaymentmethods",  "SPM",  "spm",  },
+		Aliases: []string{  "SPM",  "spm",  "securitypaymentmethods",  },
 		Use: `SecurityPaymentMethods {"Amount":"string"}`,
 		Short: `Get all payment method/user group mappings valid for the context usergroup`,
 		Long:  `Get all payment method/user group mappings valid for the context usergroup.`,
@@ -6604,6 +7212,11 @@ var Get_SecurityPaymentMethods_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityPaymentMethodsGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -6614,7 +7227,7 @@ var Get_SecurityPaymentMethods_cmd = &cobra.Command{
 	}
 
 var Get_SecurityPriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "securitypricetypes",  "SPT",  "spt",  },
+		Aliases: []string{  "SPT",  "spt",  "securitypricetypes",  },
 		Use: `SecurityPriceTypes `,
 		Short: `Get all price type/user group mappings valid for the context usergroup`,
 		Long:  `Get all price type/user group mappings valid for the context usergroup.`,
@@ -6622,6 +7235,11 @@ var Get_SecurityPriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityPriceTypesGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -6632,7 +7250,7 @@ var Get_SecurityPriceTypes_cmd = &cobra.Command{
 	}
 
 var Get_SecurityReferenceTables_cmd = &cobra.Command{
-		Aliases: []string{  "SRT",  "srt",  "securityreferencetables",  },
+		Aliases: []string{  "securityreferencetables",  "SRT",  "srt",  },
 		Use: `SecurityReferenceTables `,
 		Short: `Get all the reference table/user group mappings valid for the context usergroup`,
 		Long:  `Get all the reference table/user group mappings valid for the context usergroup.`,
@@ -6640,6 +7258,11 @@ var Get_SecurityReferenceTables_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityReferenceTablesGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -6658,6 +7281,11 @@ var Get_SecurityReports_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityReportsGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -6676,6 +7304,11 @@ var Get_SecurityServiceResources_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityServiceResourcesGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -6694,15 +7327,17 @@ var Get_SecurityUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("DefaultUserGroup"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SecurityUserGroupsGetDefaultUserGroup , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ManagedGroups"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SecurityUserGroupsGetManagedGroups , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SecurityUserGroupsGetAll , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("DefaultUserGroup"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SecurityUserGroupsGetDefaultUserGroup , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ManagedGroups"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SecurityUserGroupsGetManagedGroups , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SecurityUserGroupsGetAll , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6720,15 +7355,17 @@ var Get_ServiceResourceUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ServiceResourceUserGroupsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ServiceResourceUserGroupsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ServiceResourceUserGroupsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ServiceResourceUserGroupsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ServiceResourceUserGroupsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ServiceResourceUserGroupsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6738,7 +7375,7 @@ var Get_ServiceResourceUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_ServiceResources_cmd = &cobra.Command{
-		Aliases: []string{  "sr",  "serviceresources",  "SR",  },
+		Aliases: []string{  "SR",  "sr",  "serviceresources",  },
 		Use: `ServiceResources {"MaintenanceMode":"string"}`,
 		Short: `Get all service resources`,
 		Long:  `Get all service resources. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`,
@@ -6746,13 +7383,15 @@ var Get_ServiceResources_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ServiceResourcesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ServiceResourcesGetAll , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ServiceResourcesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ServiceResourcesGetAll , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6771,25 +7410,27 @@ Includes counts of cart products, the login status, MOS and Source`,
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Default"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SessionGetDefault , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("DeliveryMethods"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SessionGetDeliveryMethods , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Expiration"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SessionGetExpiration , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("OnAccountBalances"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SessionGetOnAccountBalances , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("OrderSearch"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SessionOrderSearch , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Variable"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SessionGetVariable , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Variables"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SessionGetVariables , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SessionGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Default"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SessionGetDefault , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("DeliveryMethods"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SessionGetDeliveryMethods , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Expiration"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SessionGetExpiration , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("OnAccountBalances"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SessionGetOnAccountBalances , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("OrderSearch"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SessionOrderSearch , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Variable"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SessionGetVariable , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Variables"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SessionGetVariables , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SessionGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6807,15 +7448,17 @@ var Get_SourceGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SourceGroupsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SourceGroupsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SourceGroupsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SourceGroupsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SourceGroupsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SourceGroupsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6833,15 +7476,17 @@ var Get_Sources_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SourcesGetSummaries , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("WebExpiring"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SourcesGetWebExpiring , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SourcesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SourcesGetSummaries , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("WebExpiring"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SourcesGetWebExpiring , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SourcesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6859,13 +7504,15 @@ var Get_SpecialActivities_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SpecialActivitiesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SpecialActivitiesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SpecialActivitiesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SpecialActivitiesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6883,15 +7530,17 @@ var Get_SpecialActivityStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SpecialActivityStatusesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SpecialActivityStatusesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SpecialActivityStatusesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SpecialActivityStatusesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SpecialActivityStatusesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SpecialActivityStatusesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6909,15 +7558,17 @@ var Get_SpecialActivityTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SpecialActivityTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SpecialActivityTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SpecialActivityTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SpecialActivityTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SpecialActivityTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SpecialActivityTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6935,15 +7586,17 @@ var Get_States_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.StatesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.StatesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.StatesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.StatesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.StatesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.StatesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6961,15 +7614,17 @@ var Get_StepTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.StepTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.StepTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.StepTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.StepTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.StepTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.StepTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -6987,17 +7642,19 @@ var Get_Steps_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.StepsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AllDocumentSummaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.StepsGetAllDocumentSummaries , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AllDocuments"); test {
-					out, err = tq.Do(*_tq, _tq.Get.StepsGetAllDocuments , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.StepsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.StepsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AllDocumentSummaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.StepsGetAllDocumentSummaries , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AllDocuments"); test {
+				out, err = tq.Do(*_tq, _tq.Get.StepsGetAllDocuments , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.StepsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7007,7 +7664,7 @@ var Get_Steps_cmd = &cobra.Command{
 	}
 
 var Get_SubLineItemStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "slis",  "sublineitemstatuses",  "SLIS",  },
+		Aliases: []string{  "sublineitemstatuses",  "SLIS",  "slis",  },
 		Use: `SubLineItemStatuses {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a sub line item status by id`,
 		Long:  `Get the details of a sub line item status by id.`,
@@ -7015,15 +7672,17 @@ var Get_SubLineItemStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SubLineItemStatusesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SubLineItemStatusesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SubLineItemStatusesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SubLineItemStatusesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SubLineItemStatusesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SubLineItemStatusesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7041,6 +7700,11 @@ var Get_SubLineItems_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.SubLineItemsGetSubLineItemSummaries , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -7059,15 +7723,17 @@ var Get_Suffixes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SuffixesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SuffixesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SuffixesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SuffixesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SuffixesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SuffixesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7077,7 +7743,7 @@ var Get_Suffixes_cmd = &cobra.Command{
 	}
 
 var Get_SurveyQuestions_cmd = &cobra.Command{
-		Aliases: []string{  "sq",  "surveyquestions",  "SQ",  },
+		Aliases: []string{  "surveyquestions",  "SQ",  "sq",  },
 		Use: `SurveyQuestions {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a survey question by id`,
 		Long:  `Get the details of a survey question by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -7085,17 +7751,19 @@ var Get_SurveyQuestions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SurveyQuestionsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("DataFor"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SurveyQuestionsGetDataFor , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SurveyQuestionsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SurveyQuestionsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SurveyQuestionsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("DataFor"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SurveyQuestionsGetDataFor , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SurveyQuestionsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SurveyQuestionsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7105,7 +7773,7 @@ var Get_SurveyQuestions_cmd = &cobra.Command{
 	}
 
 var Get_SurveyResponses_cmd = &cobra.Command{
-		Aliases: []string{  "SR",  "sr",  "surveyresponses",  },
+		Aliases: []string{  "surveyresponses",  "SR",  "sr",  },
 		Use: `SurveyResponses {"SurveyResponseID":"string"}`,
 		Short: `Get details of a survey response`,
 		Long:  `Get details of a survey response.`,
@@ -7113,13 +7781,15 @@ var Get_SurveyResponses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SurveyResponsesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SurveyResponsesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SurveyResponsesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SurveyResponsesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7137,15 +7807,17 @@ var Get_SystemDefaults_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Default"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SystemDefaultsGetDefault , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.SystemDefaultsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.SystemDefaultsGetAll , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Default"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SystemDefaultsGetDefault , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.SystemDefaultsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.SystemDefaultsGetAll , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7155,7 +7827,7 @@ var Get_SystemDefaults_cmd = &cobra.Command{
 	}
 
 var Get_TemplateCategories_cmd = &cobra.Command{
-		Aliases: []string{  "TC",  "tc",  "templatecategories",  },
+		Aliases: []string{  "templatecategories",  "TC",  "tc",  },
 		Use: `TemplateCategories {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a template category by id`,
 		Long:  `Get the details of a template category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -7163,15 +7835,17 @@ var Get_TemplateCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.TemplateCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.TemplateCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.TemplateCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.TemplateCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.TemplateCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.TemplateCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7189,13 +7863,15 @@ var Get_TemplatePriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.TemplatePriceTypesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.TemplatePriceTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.TemplatePriceTypesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.TemplatePriceTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7205,7 +7881,7 @@ var Get_TemplatePriceTypes_cmd = &cobra.Command{
 	}
 
 var Get_TemplatePrices_cmd = &cobra.Command{
-		Aliases: []string{  "TP",  "tp",  "templateprices",  },
+		Aliases: []string{  "templateprices",  "TP",  "tp",  },
 		Use: `TemplatePrices {"TemplatePriceID":"string"}`,
 		Short: `Get details of a template price`,
 		Long:  `Get details of a template price.`,
@@ -7213,13 +7889,15 @@ var Get_TemplatePrices_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.TemplatePricesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.TemplatePricesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.TemplatePricesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.TemplatePricesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7237,15 +7915,17 @@ var Get_TemplateTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.TemplateTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.TemplateTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.TemplateTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.TemplateTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.TemplateTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.TemplateTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7263,15 +7943,17 @@ var Get_Templates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.TemplatesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.TemplatesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.TemplatesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.TemplatesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.TemplatesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.TemplatesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7289,15 +7971,17 @@ var Get_Theaters_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.TheatersGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.TheatersGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.TheatersGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.TheatersGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.TheatersGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.TheatersGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7315,6 +7999,11 @@ var Get_TicketHistory_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.TicketHistoryGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -7333,15 +8022,17 @@ var Get_TimeSlots_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.TimeSlotsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.TimeSlotsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.TimeSlotsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.TimeSlotsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.TimeSlotsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.TimeSlotsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7351,7 +8042,7 @@ var Get_TimeSlots_cmd = &cobra.Command{
 	}
 
 var Get_Titles_cmd = &cobra.Command{
-		Aliases: []string{  "t",  "titles",  "T",  },
+		Aliases: []string{  "titles",  "T",  "t",  },
 		Use: `Titles {"ID":"string"}`,
 		Short: `Get details of a specific title`,
 		Long:  `Get details of a specific title.`,
@@ -7359,15 +8050,17 @@ var Get_Titles_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.TitlesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.TitlesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.TitlesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.TitlesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.TitlesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.TitlesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7385,6 +8078,11 @@ var Get_TransactionHistory_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.TransactionHistoryGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -7403,15 +8101,17 @@ var Get_TriPOSCloudConfigurations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.TriPOSCloudConfigurationsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.TriPOSCloudConfigurationsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.TriPOSCloudConfigurationsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.TriPOSCloudConfigurationsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.TriPOSCloudConfigurationsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.TriPOSCloudConfigurationsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7429,15 +8129,17 @@ var Get_UpgradeCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.UpgradeCategoriesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.UpgradeCategoriesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.UpgradeCategoriesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.UpgradeCategoriesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.UpgradeCategoriesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.UpgradeCategoriesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7447,7 +8149,7 @@ var Get_UpgradeCategories_cmd = &cobra.Command{
 	}
 
 var Get_UpgradeLogs_cmd = &cobra.Command{
-		Aliases: []string{  "upgradelogs",  "UL",  "ul",  },
+		Aliases: []string{  "UL",  "ul",  "upgradelogs",  },
 		Use: `UpgradeLogs {"UpgradeLogID":"string"}`,
 		Short: `Returns an upgradeLog for the given id`,
 		Long:  `Returns an upgradeLog for the given id.`,
@@ -7455,13 +8157,15 @@ var Get_UpgradeLogs_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.UpgradeLogsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.UpgradeLogsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.UpgradeLogsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.UpgradeLogsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7479,15 +8183,17 @@ var Get_UserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.UserGroupsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.UserGroupsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.UserGroupsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.UserGroupsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.UserGroupsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.UserGroupsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7505,13 +8211,15 @@ var Get_UserPreferences_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.UserPreferencesGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.UserPreferencesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.UserPreferencesGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.UserPreferencesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7529,17 +8237,19 @@ var Get_Users_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("ActiveDirectoryUser"); test {
-					out, err = tq.Do(*_tq, _tq.Get.UsersGetActiveDirectoryUser , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("UserInformationForActiveDirectoryUser"); test {
-					out, err = tq.Do(*_tq, _tq.Get.UsersGetUserInformationForActiveDirectoryUser , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("UsersForUserGroup"); test {
-					out, err = tq.Do(*_tq, _tq.Get.UsersGetUsersForUserGroup , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.UsersGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("ActiveDirectoryUser"); test {
+				out, err = tq.Do(*_tq, _tq.Get.UsersGetActiveDirectoryUser , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("UserInformationForActiveDirectoryUser"); test {
+				out, err = tq.Do(*_tq, _tq.Get.UsersGetUserInformationForActiveDirectoryUser , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("UsersForUserGroup"); test {
+				out, err = tq.Do(*_tq, _tq.Get.UsersGetUsersForUserGroup , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.UsersGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7557,17 +8267,19 @@ var Get_WebContentTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.WebContentTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("DataFor"); test {
-					out, err = tq.Do(*_tq, _tq.Get.WebContentTypesGetDataFor , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.WebContentTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.WebContentTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.WebContentTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("DataFor"); test {
+				out, err = tq.Do(*_tq, _tq.Get.WebContentTypesGetDataFor , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.WebContentTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.WebContentTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7577,7 +8289,7 @@ var Get_WebContentTypes_cmd = &cobra.Command{
 	}
 
 var Get_WebContents_cmd = &cobra.Command{
-		Aliases: []string{  "webcontents",  "WC",  "wc",  },
+		Aliases: []string{  "wc",  "webcontents",  "WC",  },
 		Use: `WebContents {"ContentTypeIds":"string","PackageIds":"string","ProductionElementIds":"string","ShowAll":"string"}`,
 		Short: `Returns web content for the requested production elements or packages`,
 		Long:  `Returns web content for the requested production elements or packages.
@@ -7587,6 +8299,11 @@ If the content type is found, returns the content value at the lowest level at w
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Get.WebContentsGetWebContents , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -7597,7 +8314,7 @@ If the content type is found, returns the content value at the lowest level at w
 	}
 
 var Get_WebLogins_cmd = &cobra.Command{
-		Aliases: []string{  "wl",  "weblogins",  "WL",  },
+		Aliases: []string{  "weblogins",  "WL",  "wl",  },
 		Use: `WebLogins {"WebLoginID":"string"}`,
 		Short: `Get details of a weblogin`,
 		Long:  `Get details of a weblogin.`,
@@ -7605,17 +8322,19 @@ var Get_WebLogins_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.WebLoginsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("LoginCredentials"); test {
-					out, err = tq.Do(*_tq, _tq.Get.WebLoginsGetLoginCredentials , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Search"); test {
-					out, err = tq.Do(*_tq, _tq.Get.WebLoginsSearch , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.WebLoginsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.WebLoginsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("LoginCredentials"); test {
+				out, err = tq.Do(*_tq, _tq.Get.WebLoginsGetLoginCredentials , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Search"); test {
+				out, err = tq.Do(*_tq, _tq.Get.WebLoginsSearch , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.WebLoginsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7633,13 +8352,15 @@ var Get_WorkerQualifications_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.WorkerQualificationsGetAll , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.WorkerQualificationsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.WorkerQualificationsGetAll , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.WorkerQualificationsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7657,15 +8378,17 @@ var Get_WorkerRoles_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.WorkerRolesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.WorkerRolesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.WorkerRolesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.WorkerRolesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.WorkerRolesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.WorkerRolesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7683,15 +8406,17 @@ var Get_WorkerTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.WorkerTypesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.WorkerTypesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.WorkerTypesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.WorkerTypesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.WorkerTypesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.WorkerTypesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7709,15 +8434,17 @@ var Get_Workers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.WorkersGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.WorkersGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.WorkersGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.WorkersGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.WorkersGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.WorkersGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7727,7 +8454,7 @@ var Get_Workers_cmd = &cobra.Command{
 	}
 
 var Get_ZoneGroups_cmd = &cobra.Command{
-		Aliases: []string{  "zonegroups",  "ZG",  "zg",  },
+		Aliases: []string{  "ZG",  "zg",  "zonegroups",  },
 		Use: `ZoneGroups {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a zone group by id`,
 		Long:  `Get the details of a zone group by id.`,
@@ -7735,15 +8462,17 @@ var Get_ZoneGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ZoneGroupsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ZoneGroupsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ZoneGroupsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ZoneGroupsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ZoneGroupsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ZoneGroupsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7761,15 +8490,17 @@ var Get_ZoneMaps_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ZoneMapsGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ZoneMapsGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ZoneMapsGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ZoneMapsGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ZoneMapsGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ZoneMapsGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -7787,15 +8518,17 @@ var Get_Zones_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("All"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ZonesGetAll , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
-					out, err = tq.Do(*_tq, _tq.Get.ZonesGetSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Get.ZonesGet , []byte(args[0]))
-				}
+			if _tq.Get == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("All"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ZonesGetAll , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
+				out, err = tq.Do(*_tq, _tq.Get.ZonesGetSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Get.ZonesGet , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {

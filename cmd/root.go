@@ -112,20 +112,20 @@ func tqInit(cmd *cobra.Command, args []string) {
 		// open log file for appending
 		log, err = os.OpenFile(logFile, os.O_APPEND&os.O_CREATE, 0644)
 		if err != nil {
-			fmt.Println("Couldn't open log file: ", logFile)
-			os.Exit(1)
+			cmd.Println("Couldn't open log file: ", logFile)
+			return
 		}
 	}
 	_tq = tq.New(log, verbose, dryRun)
 	a, err := auth.FromString(viper.GetString("Login"))
 	if err != nil {
 		_tq.Log.Error("Bad login string in config file", "error", err.Error(), "login", a)
-		os.Exit(1)
+		return
 	}
 	a.Load()
 	if valid, err := a.Validate(); !valid || err != nil {
 		_tq.Log.Error("Invalid login", "error", err.Error(), "login", a)
-		os.Exit(1)
+		return
 	}
 	_tq.Login(a)
 }

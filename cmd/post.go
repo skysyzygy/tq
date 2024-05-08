@@ -19,6 +19,11 @@ var Post_AccountTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.AccountTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -29,7 +34,7 @@ var Post_AccountTypes_cmd = &cobra.Command{
 	}
 
 var Post_Accounts_cmd = &cobra.Command{
-		Aliases: []string{  "accounts",  "A",  "a",  },
+		Aliases: []string{  "a",  "accounts",  "A",  },
 		Use: `Accounts {"Request":{"AccountNumber":"string","Name":"string","TransactionOrigin":"string"}}`,
 		Short: `Create a credit card account`,
 		Long:  `Create a credit card account, storing the card number. Will create and store a token if tokenization is enabled.`,
@@ -37,17 +42,19 @@ var Post_Accounts_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("DirectDebitAccount"); test {
-					out, err = tq.Do(*_tq, _tq.Post.AccountsCreateDirectDebitAccount , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("SepaAccount"); test {
-					out, err = tq.Do(*_tq, _tq.Post.AccountsCreateSepaAccount , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("VantivEncryptedCardAccount"); test {
-					out, err = tq.Do(*_tq, _tq.Post.AccountsCreateVantivEncryptedCardAccount , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.AccountsCreateCardNumberAccount , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("DirectDebitAccount"); test {
+				out, err = tq.Do(*_tq, _tq.Post.AccountsCreateDirectDebitAccount , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("SepaAccount"); test {
+				out, err = tq.Do(*_tq, _tq.Post.AccountsCreateSepaAccount , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("VantivEncryptedCardAccount"); test {
+				out, err = tq.Do(*_tq, _tq.Post.AccountsCreateVantivEncryptedCardAccount , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.AccountsCreateCardNumberAccount , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -57,7 +64,7 @@ var Post_Accounts_cmd = &cobra.Command{
 	}
 
 var Post_ActionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "actiontypes",  "AT",  "at",  },
+		Aliases: []string{  "at",  "actiontypes",  "AT",  },
 		Use: `ActionTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new action type`,
 		Long:  `Create a new action type.`,
@@ -65,6 +72,11 @@ var Post_ActionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ActionTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -75,7 +87,7 @@ var Post_ActionTypes_cmd = &cobra.Command{
 	}
 
 var Post_Actions_cmd = &cobra.Command{
-		Aliases: []string{  "actions",  "A",  "a",  },
+		Aliases: []string{  "A",  "a",  "actions",  },
 		Use: `Actions {"IssueAction":{"ActionDate":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","LetterPrintedDate":"0001-01-01T00:00:00.000Z","Notes":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create an issue action for a Constituent`,
 		Long:  `Create an issue action for a Constituent`,
@@ -83,6 +95,11 @@ var Post_Actions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ActionsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -101,6 +118,11 @@ var Post_ActivityCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ActivityCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -111,7 +133,7 @@ var Post_ActivityCategories_cmd = &cobra.Command{
 	}
 
 var Post_ActivityTypes_cmd = &cobra.Command{
-		Aliases: []string{  "activitytypes",  "AT",  "at",  },
+		Aliases: []string{  "AT",  "at",  "activitytypes",  },
 		Use: `ActivityTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","PerfIndicator":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new activity type`,
 		Long:  `Create a new activity type.`,
@@ -119,6 +141,11 @@ var Post_ActivityTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ActivityTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -137,6 +164,11 @@ var Post_AddressTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.AddressTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -155,6 +187,11 @@ var Post_Addresses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.AddressesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -173,6 +210,11 @@ var Post_AffiliationInfo_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.AffiliationInfoPostAffiliation , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -191,6 +233,11 @@ var Post_AffiliationTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.AffiliationTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -201,7 +248,7 @@ var Post_AffiliationTypes_cmd = &cobra.Command{
 	}
 
 var Post_Affiliations_cmd = &cobra.Command{
-		Aliases: []string{  "affiliations",  "A",  "a",  },
+		Aliases: []string{  "A",  "a",  "affiliations",  },
 		Use: `Affiliations {"Affiliation":{"AffiliatedName":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDate":"0001-01-01T00:00:00.000Z","GroupConstituentName":"string","GroupConstituentSortName":"string","IndividualConstituentName":"string","IndividualConstituentSortName":"string","Note":"string","StartDate":"0001-01-01T00:00:00.000Z","Title":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new affiliation`,
 		Long:  `Create a new affiliation.`,
@@ -209,6 +256,11 @@ var Post_Affiliations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.AffiliationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -219,7 +271,7 @@ var Post_Affiliations_cmd = &cobra.Command{
 	}
 
 var Post_AliasTypes_cmd = &cobra.Command{
-		Aliases: []string{  "at",  "aliastypes",  "AT",  },
+		Aliases: []string{  "aliastypes",  "AT",  "at",  },
 		Use: `AliasTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new alias type`,
 		Long:  `Create a new alias type.`,
@@ -227,6 +279,11 @@ var Post_AliasTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.AliasTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -245,6 +302,11 @@ var Post_Aliases_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.AliasesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -255,7 +317,7 @@ var Post_Aliases_cmd = &cobra.Command{
 	}
 
 var Post_AnalyticsReports_cmd = &cobra.Command{
-		Aliases: []string{  "analyticsreports",  "AR",  "ar",  },
+		Aliases: []string{  "AR",  "ar",  "analyticsreports",  },
 		Use: `AnalyticsReports {"AnalyticsReport":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ReportPath":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create SSRS Reports for display in Analytics`,
 		Long:  `Create SSRS Reports for display in Analytics.`,
@@ -263,6 +325,11 @@ var Post_AnalyticsReports_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.AnalyticsReportsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -273,7 +340,7 @@ var Post_AnalyticsReports_cmd = &cobra.Command{
 	}
 
 var Post_AppealCategories_cmd = &cobra.Command{
-		Aliases: []string{  "appealcategories",  "AC",  "ac",  },
+		Aliases: []string{  "AC",  "ac",  "appealcategories",  },
 		Use: `AppealCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new appeal category`,
 		Long:  `Create a new appeal category.`,
@@ -281,6 +348,11 @@ var Post_AppealCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.AppealCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -291,7 +363,7 @@ var Post_AppealCategories_cmd = &cobra.Command{
 	}
 
 var Post_Artists_cmd = &cobra.Command{
-		Aliases: []string{  "artists",  "A",  "a",  },
+		Aliases: []string{  "A",  "a",  "artists",  },
 		Use: `Artists {"Artist":{"Bio":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","FirstName":"string","LastName":"string","MiddleName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new artist`,
 		Long:  `Create a new artist.`,
@@ -299,6 +371,11 @@ var Post_Artists_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ArtistsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -317,6 +394,11 @@ var Post_AssetTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.AssetTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -335,6 +417,11 @@ var Post_Assets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.AssetsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -345,7 +432,7 @@ var Post_Assets_cmd = &cobra.Command{
 	}
 
 var Post_AssociationTypes_cmd = &cobra.Command{
-		Aliases: []string{  "at",  "associationtypes",  "AT",  },
+		Aliases: []string{  "associationtypes",  "AT",  "at",  },
 		Use: `AssociationTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new association type`,
 		Long:  `Create a new association type.`,
@@ -353,6 +440,11 @@ var Post_AssociationTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.AssociationTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -363,7 +455,7 @@ var Post_AssociationTypes_cmd = &cobra.Command{
 	}
 
 var Post_Associations_cmd = &cobra.Command{
-		Aliases: []string{  "a",  "associations",  "A",  },
+		Aliases: []string{  "associations",  "A",  "a",  },
 		Use: `Associations {"Association":{"AssociatedName":"string","BirthDate":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDate":"0001-01-01T00:00:00.000Z","Note":"string","StartDate":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new association`,
 		Long:  `Create a new association.`,
@@ -371,6 +463,11 @@ var Post_Associations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.AssociationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -389,6 +486,11 @@ var Post_Attributes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.AttributesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -399,7 +501,7 @@ var Post_Attributes_cmd = &cobra.Command{
 	}
 
 var Post_Authenticate_cmd = &cobra.Command{
-		Aliases: []string{  "authenticate",  "A",  "a",  },
+		Aliases: []string{  "a",  "authenticate",  "A",  },
 		Use: `Authenticate {"AuthenticationRequest":{"Application":"string","MachineLocation":"string","Password":"string","UserGroup":"string","UserName":"string"}}`,
 		Short: `Authenticate the provided credentials`,
 		Long:  `Authenticate the provided credentials`,
@@ -407,19 +509,21 @@ var Post_Authenticate_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("AuthenticateWindows"); test {
-					out, err = tq.Do(*_tq, _tq.Post.AuthenticateAuthenticateWindows , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("GenerateToken"); test {
-					out, err = tq.Do(*_tq, _tq.Post.AuthenticateGenerateToken , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("GenerateTokenWindows"); test {
-					out, err = tq.Do(*_tq, _tq.Post.AuthenticateGenerateTokenWindows , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ValidateToken"); test {
-					out, err = tq.Do(*_tq, _tq.Post.AuthenticateValidateToken , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.AuthenticateAuthenticate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("AuthenticateWindows"); test {
+				out, err = tq.Do(*_tq, _tq.Post.AuthenticateAuthenticateWindows , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("GenerateToken"); test {
+				out, err = tq.Do(*_tq, _tq.Post.AuthenticateGenerateToken , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("GenerateTokenWindows"); test {
+				out, err = tq.Do(*_tq, _tq.Post.AuthenticateGenerateTokenWindows , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ValidateToken"); test {
+				out, err = tq.Do(*_tq, _tq.Post.AuthenticateValidateToken , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.AuthenticateAuthenticate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -437,21 +541,23 @@ var Post_Authorization_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Confirm"); test {
-					out, err = tq.Do(*_tq, _tq.Post.AuthorizationConfirm , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ConfirmPayByLink"); test {
-					out, err = tq.Do(*_tq, _tq.Post.AuthorizationConfirmPayByLink , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Finalize"); test {
-					out, err = tq.Do(*_tq, _tq.Post.AuthorizationFinalize , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Link"); test {
-					out, err = tq.Do(*_tq, _tq.Post.AuthorizationLink , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Reverse"); test {
-					out, err = tq.Do(*_tq, _tq.Post.AuthorizationReverse , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.AuthorizationAuthorize , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Confirm"); test {
+				out, err = tq.Do(*_tq, _tq.Post.AuthorizationConfirm , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ConfirmPayByLink"); test {
+				out, err = tq.Do(*_tq, _tq.Post.AuthorizationConfirmPayByLink , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Finalize"); test {
+				out, err = tq.Do(*_tq, _tq.Post.AuthorizationFinalize , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Link"); test {
+				out, err = tq.Do(*_tq, _tq.Post.AuthorizationLink , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Reverse"); test {
+				out, err = tq.Do(*_tq, _tq.Post.AuthorizationReverse , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.AuthorizationAuthorize , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -469,13 +575,15 @@ var Post_Batch_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Sample"); test {
-					out, err = tq.Do(*_tq, _tq.Post.BatchSample , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.BatchPost , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Sample"); test {
+				out, err = tq.Do(*_tq, _tq.Post.BatchSample , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.BatchPost , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -485,7 +593,7 @@ var Post_Batch_cmd = &cobra.Command{
 	}
 
 var Post_BatchMaintenance_cmd = &cobra.Command{
-		Aliases: []string{  "batchmaintenance",  "BM",  "bm",  },
+		Aliases: []string{  "BM",  "bm",  "batchmaintenance",  },
 		Use: `BatchMaintenance {"Batch":{"CloseDateTime":"0001-01-01T00:00:00.000Z","ClosedBy":"string","CntlIndicator":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Notes":"string","OpenLoc":"string","Owner":"string","PostedBy":"string","PostedDateTime":"0001-01-01T00:00:00.000Z","Status":"string","UniqueTag":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Batch`,
 		Long:  `Create a new Batch`,
@@ -493,6 +601,11 @@ var Post_BatchMaintenance_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.BatchMaintenanceCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -511,6 +624,11 @@ var Post_BatchTypeGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.BatchTypeGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -521,7 +639,7 @@ var Post_BatchTypeGroups_cmd = &cobra.Command{
 	}
 
 var Post_BatchTypes_cmd = &cobra.Command{
-		Aliases: []string{  "BT",  "bt",  "batchtypes",  },
+		Aliases: []string{  "bt",  "batchtypes",  "BT",  },
 		Use: `BatchTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new batch type`,
 		Long:  `Create a new batch type.`,
@@ -529,6 +647,11 @@ var Post_BatchTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.BatchTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -539,7 +662,7 @@ var Post_BatchTypes_cmd = &cobra.Command{
 	}
 
 var Post_BillingSchedules_cmd = &cobra.Command{
-		Aliases: []string{  "BS",  "bs",  "billingschedules",  },
+		Aliases: []string{  "billingschedules",  "BS",  "bs",  },
 		Use: `BillingSchedules {"Data":{"BillAmounts":"string","BillDates":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","LongDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Billing Schedule`,
 		Long:  `Create a new Billing Schedule.`,
@@ -547,6 +670,11 @@ var Post_BillingSchedules_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.BillingSchedulesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -565,6 +693,11 @@ var Post_BillingTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.BillingTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -583,6 +716,11 @@ var Post_BookingCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.BookingCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -593,7 +731,7 @@ var Post_BookingCategories_cmd = &cobra.Command{
 	}
 
 var Post_BookingTemplates_cmd = &cobra.Command{
-		Aliases: []string{  "bookingtemplates",  "BT",  "bt",  },
+		Aliases: []string{  "BT",  "bt",  "bookingtemplates",  },
 		Use: `BookingTemplates {"BookingTemplate":{"Assignments":[object],"ConfirmationText":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Notes":"string","OverrideTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Booking Template`,
 		Long:  `Create a new Booking Template`,
@@ -601,6 +739,11 @@ var Post_BookingTemplates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.BookingTemplatesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -611,7 +754,7 @@ var Post_BookingTemplates_cmd = &cobra.Command{
 	}
 
 var Post_Bookings_cmd = &cobra.Command{
-		Aliases: []string{  "bookings",  "B",  "b",  },
+		Aliases: []string{  "B",  "b",  "bookings",  },
 		Use: `Bookings {"Booking":{"Assignments":[object],"ConfirmationText":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Notes":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Booking`,
 		Long:  `Create a new Booking`,
@@ -619,15 +762,17 @@ var Post_Bookings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("AddDocument"); test {
-					out, err = tq.Do(*_tq, _tq.Post.BookingsAddDocument , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("FromTemplate"); test {
-					out, err = tq.Do(*_tq, _tq.Post.BookingsCreateFromTemplate , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.BookingsCreate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("AddDocument"); test {
+				out, err = tq.Do(*_tq, _tq.Post.BookingsAddDocument , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("FromTemplate"); test {
+				out, err = tq.Do(*_tq, _tq.Post.BookingsCreateFromTemplate , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.BookingsCreate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -645,17 +790,19 @@ var Post_BulkCopySets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("CopyDay"); test {
-					out, err = tq.Do(*_tq, _tq.Post.BulkCopySetsCopyDay , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("CopyEvent"); test {
-					out, err = tq.Do(*_tq, _tq.Post.BulkCopySetsCopyEvent , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ReplaceExclusions"); test {
-					out, err = tq.Do(*_tq, _tq.Post.BulkCopySetsReplaceExclusions , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.BulkCopySetsCreate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("CopyDay"); test {
+				out, err = tq.Do(*_tq, _tq.Post.BulkCopySetsCopyDay , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("CopyEvent"); test {
+				out, err = tq.Do(*_tq, _tq.Post.BulkCopySetsCopyEvent , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ReplaceExclusions"); test {
+				out, err = tq.Do(*_tq, _tq.Post.BulkCopySetsReplaceExclusions , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.BulkCopySetsCreate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -673,6 +820,11 @@ var Post_BulkDailyCopyExclusions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.BulkDailyCopyExclusionsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -683,7 +835,7 @@ var Post_BulkDailyCopyExclusions_cmd = &cobra.Command{
 	}
 
 var Post_BusinessUnits_cmd = &cobra.Command{
-		Aliases: []string{  "bu",  "businessunits",  "BU",  },
+		Aliases: []string{  "businessunits",  "BU",  "bu",  },
 		Use: `BusinessUnits {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new business unit`,
 		Long:  `Create a new business unit.`,
@@ -691,6 +843,11 @@ var Post_BusinessUnits_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.BusinessUnitsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -701,7 +858,7 @@ var Post_BusinessUnits_cmd = &cobra.Command{
 	}
 
 var Post_CampaignDesignations_cmd = &cobra.Command{
-		Aliases: []string{  "campaigndesignations",  "CD",  "cd",  },
+		Aliases: []string{  "CD",  "cd",  "campaigndesignations",  },
 		Use: `CampaignDesignations {"CampaignDesignation":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new association between a Designation and a Campaign`,
 		Long:  `Create a new association between a Designation and a Campaign.`,
@@ -709,6 +866,11 @@ var Post_CampaignDesignations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.CampaignDesignationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -727,6 +889,11 @@ var Post_CampaignFunds_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.CampaignFundsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -737,7 +904,7 @@ var Post_CampaignFunds_cmd = &cobra.Command{
 	}
 
 var Post_CardReaderTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CRT",  "crt",  "cardreadertypes",  },
+		Aliases: []string{  "cardreadertypes",  "CRT",  "crt",  },
 		Use: `CardReaderTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Card Reader Type`,
 		Long:  `Create a new Card Reader Type.`,
@@ -745,6 +912,11 @@ var Post_CardReaderTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.CardReaderTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -755,7 +927,7 @@ var Post_CardReaderTypes_cmd = &cobra.Command{
 	}
 
 var Post_Cart_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "cart",  },
+		Aliases: []string{  "cart",  "C",  "c",  },
 		Use: `Cart {"BookingRequest":{},"SessionKey":"string"}`,
 		Short: `Attach an existing booking to the cart`,
 		Long:  `Attach an existing booking to the cart.`,
@@ -763,71 +935,73 @@ var Post_Cart_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("AddContribution"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartAddContribution , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AddFee"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartAddUpdateFee , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AddGiftCertificate"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartAddGiftCertificate , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AddNFSPackagePerformanceItem"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartAddNFSPackagePerformanceItem , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AddOnAccount"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartAddOnAccount , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AddPackageItem"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartAddPackageItem , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AddPaymentPlan"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartAddPaymentPlan , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AddPaymentPlanBasedOnBillingSchedule"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartAddPaymentPlanBasedOnBillingSchedule , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AddPaymentPlanInstallments"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartAddPaymentPlanInstallments , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("AddSubPackageItem"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartAddSubPackageItem , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ApplyCashPayment"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartApplyCashPayment , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ApplyCheckPayment"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartApplyCheckPayment , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ApplyGiftCertificate"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartApplyGiftCertificate , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ApplyInvoicePayment"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartApplyInvoicePayment , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ApplyOnAccountPayment"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartApplyOnAccountPayment , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ApplyOtherPayment"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartApplyOtherPayment , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Authorize"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartAuthorize , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Checkout"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartCheckout , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("CheckoutWithCard"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartCheckoutWithCard , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("PreviewPaymentPlanBasedOnBillingSchedule"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartPreviewPaymentPlanBasedOnBillingSchedule , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Price"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartPrice , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("PrintEmail"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartPrintEmail , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("PrintPrintStrings"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartPrintPrintStrings , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("PrintTicketElements"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartPrintTicketElements , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ReserveTickets"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartReserveTickets , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ReserveTicketsForLineItem"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartReserveTicketsForLineItem , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ReturnTicket"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartReturnTicket , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ReturnTicketWithSeat"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartReturnTicketWithSeat , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Validate"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartValidate , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ValidateLimits"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CartValidateLimits , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.CartAddBooking , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("AddContribution"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartAddContribution , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AddFee"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartAddUpdateFee , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AddGiftCertificate"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartAddGiftCertificate , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AddNFSPackagePerformanceItem"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartAddNFSPackagePerformanceItem , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AddOnAccount"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartAddOnAccount , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AddPackageItem"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartAddPackageItem , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AddPaymentPlan"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartAddPaymentPlan , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AddPaymentPlanBasedOnBillingSchedule"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartAddPaymentPlanBasedOnBillingSchedule , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AddPaymentPlanInstallments"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartAddPaymentPlanInstallments , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("AddSubPackageItem"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartAddSubPackageItem , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ApplyCashPayment"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartApplyCashPayment , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ApplyCheckPayment"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartApplyCheckPayment , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ApplyGiftCertificate"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartApplyGiftCertificate , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ApplyInvoicePayment"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartApplyInvoicePayment , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ApplyOnAccountPayment"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartApplyOnAccountPayment , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ApplyOtherPayment"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartApplyOtherPayment , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Authorize"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartAuthorize , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Checkout"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartCheckout , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("CheckoutWithCard"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartCheckoutWithCard , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("PreviewPaymentPlanBasedOnBillingSchedule"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartPreviewPaymentPlanBasedOnBillingSchedule , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Price"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartPrice , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("PrintEmail"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartPrintEmail , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("PrintPrintStrings"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartPrintPrintStrings , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("PrintTicketElements"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartPrintTicketElements , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ReserveTickets"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartReserveTickets , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ReserveTicketsForLineItem"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartReserveTicketsForLineItem , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ReturnTicket"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartReturnTicket , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ReturnTicketWithSeat"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartReturnTicketWithSeat , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Validate"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartValidate , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ValidateLimits"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CartValidateLimits , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.CartAddBooking , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -845,6 +1019,11 @@ var Post_Colors_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ColorsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -855,7 +1034,7 @@ var Post_Colors_cmd = &cobra.Command{
 	}
 
 var Post_Composers_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "composers",  },
+		Aliases: []string{  "composers",  "C",  "c",  },
 		Use: `Composers {"Data":{"Bio":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","FirstName":"string","LastName":"string","MiddleName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new composer`,
 		Long:  `Create a new composer.`,
@@ -863,6 +1042,11 @@ var Post_Composers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ComposersCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -873,7 +1057,7 @@ var Post_Composers_cmd = &cobra.Command{
 	}
 
 var Post_Constituencies_cmd = &cobra.Command{
-		Aliases: []string{  "constituencies",  "C",  "c",  },
+		Aliases: []string{  "C",  "c",  "constituencies",  },
 		Use: `Constituencies {"Constituency":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDate":"0001-01-01T00:00:00.000Z","StartDate":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituency`,
 		Long:  `Create a new constituency.`,
@@ -881,6 +1065,11 @@ var Post_Constituencies_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituenciesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -899,6 +1088,11 @@ var Post_ConstituencyTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituencyTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -917,6 +1111,11 @@ var Post_ConstituentDocuments_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituentDocumentsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -935,6 +1134,11 @@ var Post_ConstituentGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituentGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -953,6 +1157,11 @@ var Post_ConstituentInactives_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituentInactivesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -971,6 +1180,11 @@ var Post_ConstituentProtectionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituentProtectionTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -981,7 +1195,7 @@ var Post_ConstituentProtectionTypes_cmd = &cobra.Command{
 	}
 
 var Post_ConstituentTypeAffiliates_cmd = &cobra.Command{
-		Aliases: []string{  "cta",  "constituenttypeaffiliates",  "CTA",  },
+		Aliases: []string{  "CTA",  "cta",  "constituenttypeaffiliates",  },
 		Use: `ConstituentTypeAffiliates {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituent type affiliate`,
 		Long:  `Create a new constituent type affiliate.`,
@@ -989,6 +1203,11 @@ var Post_ConstituentTypeAffiliates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituentTypeAffiliatesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -999,7 +1218,7 @@ var Post_ConstituentTypeAffiliates_cmd = &cobra.Command{
 	}
 
 var Post_ConstituentTypes_cmd = &cobra.Command{
-		Aliases: []string{  "ct",  "constituenttypes",  "CT",  },
+		Aliases: []string{  "constituenttypes",  "CT",  "ct",  },
 		Use: `ConstituentTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituent type`,
 		Long:  `Create a new constituent type.`,
@@ -1007,6 +1226,11 @@ var Post_ConstituentTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituentTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1025,27 +1249,29 @@ var Post_Constituents_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("ConstituentUsingSnapshot"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ConstituentsCreateConstituentUsingSnapshot , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ConvertGroupToIndividual"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ConstituentsConvertGroupToIndividual , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ConvertIndividualToHousehold"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ConstituentsConvertIndividualToHousehold , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ConvertIndividualToOrganization"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ConstituentsConvertIndividualToOrganization , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("SchedulePurge"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ConstituentsSchedulePurge , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("SearchByCardNumber"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ConstituentsSearchByCardNumber , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("SwapConstituentA1A2"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ConstituentsSwapConstituentA1A2 , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("UnschedulePurge"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ConstituentsUnschedulePurge , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.ConstituentsCreateConstituent , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("ConstituentUsingSnapshot"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ConstituentsCreateConstituentUsingSnapshot , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ConvertGroupToIndividual"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ConstituentsConvertGroupToIndividual , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ConvertIndividualToHousehold"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ConstituentsConvertIndividualToHousehold , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ConvertIndividualToOrganization"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ConstituentsConvertIndividualToOrganization , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("SchedulePurge"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ConstituentsSchedulePurge , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("SearchByCardNumber"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ConstituentsSearchByCardNumber , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("SwapConstituentA1A2"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ConstituentsSwapConstituentA1A2 , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("UnschedulePurge"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ConstituentsUnschedulePurge , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.ConstituentsCreateConstituent , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1063,6 +1289,11 @@ var Post_ContactPermissionCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPermissionCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1073,7 +1304,7 @@ var Post_ContactPermissionCategories_cmd = &cobra.Command{
 	}
 
 var Post_ContactPermissionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "cpt",  "contactpermissiontypes",  "CPT",  },
+		Aliases: []string{  "CPT",  "cpt",  "contactpermissiontypes",  },
 		Use: `ContactPermissionTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultValueForAdd":"string","Description":"string","ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact permission type`,
 		Long:  `Create a new contact permission type.`,
@@ -1081,6 +1312,11 @@ var Post_ContactPermissionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPermissionTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1099,13 +1335,15 @@ var Post_ContactPermissions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("ForTransaction"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ContactPermissionsForTransaction , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.ContactPermissionsCreate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("ForTransaction"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ContactPermissionsForTransaction , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.ContactPermissionsCreate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1115,7 +1353,7 @@ var Post_ContactPermissions_cmd = &cobra.Command{
 	}
 
 var Post_ContactPointCategories_cmd = &cobra.Command{
-		Aliases: []string{  "cpc",  "contactpointcategories",  "CPC",  },
+		Aliases: []string{  "CPC",  "cpc",  "contactpointcategories",  },
 		Use: `ContactPointCategories {"Data":{"ContactPointKey":"string","ContactPointTable":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact point category`,
 		Long:  `Create a new contact point category.`,
@@ -1123,6 +1361,11 @@ var Post_ContactPointCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPointCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1133,7 +1376,7 @@ var Post_ContactPointCategories_cmd = &cobra.Command{
 	}
 
 var Post_ContactPointCategoryPurposes_cmd = &cobra.Command{
-		Aliases: []string{  "cpcp",  "contactpointcategorypurposes",  "CPCP",  },
+		Aliases: []string{  "contactpointcategorypurposes",  "CPCP",  "cpcp",  },
 		Use: `ContactPointCategoryPurposes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact point category purpose`,
 		Long:  `Create a new contact point category purpose.`,
@@ -1141,6 +1384,11 @@ var Post_ContactPointCategoryPurposes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPointCategoryPurposesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1159,6 +1407,11 @@ var Post_ContactPointPurposeCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPointPurposeCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1169,7 +1422,7 @@ var Post_ContactPointPurposeCategories_cmd = &cobra.Command{
 	}
 
 var Post_ContactPointPurposeMaps_cmd = &cobra.Command{
-		Aliases: []string{  "contactpointpurposemaps",  "CPPM",  "cppm",  },
+		Aliases: []string{  "CPPM",  "cppm",  "contactpointpurposemaps",  },
 		Use: `ContactPointPurposeMaps {"ContactPointPurposeMap":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact point purpose`,
 		Long:  `Create a new contact point purpose.`,
@@ -1177,6 +1430,11 @@ var Post_ContactPointPurposeMaps_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPointPurposeMapsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1187,7 +1445,7 @@ var Post_ContactPointPurposeMaps_cmd = &cobra.Command{
 	}
 
 var Post_ContactPointPurposes_cmd = &cobra.Command{
-		Aliases: []string{  "CPP",  "cpp",  "contactpointpurposes",  },
+		Aliases: []string{  "cpp",  "contactpointpurposes",  "CPP",  },
 		Use: `ContactPointPurposes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact point purpose`,
 		Long:  `Create a new contact point purpose.`,
@@ -1195,6 +1453,11 @@ var Post_ContactPointPurposes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPointPurposesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1205,7 +1468,7 @@ var Post_ContactPointPurposes_cmd = &cobra.Command{
 	}
 
 var Post_ContactTypes_cmd = &cobra.Command{
-		Aliases: []string{  "ct",  "contacttypes",  "CT",  },
+		Aliases: []string{  "contacttypes",  "CT",  "ct",  },
 		Use: `ContactTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact type`,
 		Long:  `Create a new contact type.`,
@@ -1213,6 +1476,11 @@ var Post_ContactTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ContactTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1223,7 +1491,7 @@ var Post_ContactTypes_cmd = &cobra.Command{
 	}
 
 var Post_ContributionDesignations_cmd = &cobra.Command{
-		Aliases: []string{  "contributiondesignations",  "CD",  "cd",  },
+		Aliases: []string{  "CD",  "cd",  "contributiondesignations",  },
 		Use: `ContributionDesignations {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","LetterText":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contribution designation`,
 		Long:  `Create a new contribution designation.`,
@@ -1231,6 +1499,11 @@ var Post_ContributionDesignations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ContributionDesignationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1241,7 +1514,7 @@ var Post_ContributionDesignations_cmd = &cobra.Command{
 	}
 
 var Post_ContributionImportSets_cmd = &cobra.Command{
-		Aliases: []string{  "cis",  "contributionimportsets",  "CIS",  },
+		Aliases: []string{  "contributionimportsets",  "CIS",  "cis",  },
 		Use: `ContributionImportSets {"Data":{"ContributionDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultCountryCode":"string","Description":"string","FilePath":"string","FormatFile":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contributionImportSet`,
 		Long:  `Create a new contributionImportSet.`,
@@ -1249,6 +1522,11 @@ var Post_ContributionImportSets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ContributionImportSetsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1259,7 +1537,7 @@ var Post_ContributionImportSets_cmd = &cobra.Command{
 	}
 
 var Post_Contributions_cmd = &cobra.Command{
-		Aliases: []string{  "c",  "contributions",  "C",  },
+		Aliases: []string{  "contributions",  "C",  "c",  },
 		Use: `Contributions {"Contribution":{"BillingAccount":"string","Cancel":"string","ContributionDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Custom0":"string","Custom1":"string","Custom2":"string","Custom3":"string","Custom4":"string","Custom5":"string","Custom6":"string","Custom7":"string","Custom8":"string","Custom9":"string","KindGiftDescription":"string","KindGiftTransferDateTime":"0001-01-01T00:00:00.000Z","MatchIndicator":"string","Notes":"string","PaymentEndDateTime":"0001-01-01T00:00:00.000Z","PaymentStartDateTime":"0001-01-01T00:00:00.000Z","Solicitor":"string","Type":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `This resource is currently strictly for interceptor plugin use`,
 		Long:  `This resource is currently strictly for interceptor plugin use. This is called any time a new contribution is saved from the contribution editor in the client application. Only Id (ref_no) is provided in the request content.`,
@@ -1267,6 +1545,11 @@ var Post_Contributions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ContributionsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1285,6 +1568,11 @@ var Post_ControlGroupUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ControlGroupUserGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1303,6 +1591,11 @@ var Post_ControlGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ControlGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1313,7 +1606,7 @@ var Post_ControlGroups_cmd = &cobra.Command{
 	}
 
 var Post_CoreIdentity_cmd = &cobra.Command{
-		Aliases: []string{  "coreidentity",  "CI",  "ci",  },
+		Aliases: []string{  "ci",  "coreidentity",  "CI",  },
 		Use: `CoreIdentity {"CoreIdentitySignRequest":{"Body":"string","Headers":[object],"Method":"string","Path":"string","QueryParameters":[object]}}`,
 		Short: ``,
 		Long:  ``,
@@ -1321,6 +1614,11 @@ var Post_CoreIdentity_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.CoreIdentitySign , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1331,7 +1629,7 @@ var Post_CoreIdentity_cmd = &cobra.Command{
 	}
 
 var Post_Countries_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "countries",  },
+		Aliases: []string{  "countries",  "C",  "c",  },
 		Use: `Countries {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DecimalSeparator":"string","Description":"string","IsoAlpha2Code":"string","IsoAlpha3Code":"string","PhoneCode":"string","PhoneEditstring":"string","PhoneMask":"string","PhoneValidLengths":"string","ShortDesc":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseAvs":"string","UseStateField":"string","ZipEditstring":"string","ZipMask":"string","ZipValidLengths":"string"}}`,
 		Short: `Create a new country`,
 		Long:  `Create a new country.`,
@@ -1339,6 +1637,11 @@ var Post_Countries_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.CountriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1357,6 +1660,11 @@ var Post_CrediteeTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.CrediteeTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1375,6 +1683,11 @@ var Post_CurrencyTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.CurrencyTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1385,7 +1698,7 @@ var Post_CurrencyTypes_cmd = &cobra.Command{
 	}
 
 var Post_Custom_cmd = &cobra.Command{
-		Aliases: []string{  "custom",  "C",  "c",  },
+		Aliases: []string{  "c",  "custom",  "C",  },
 		Use: `Custom {"Request":"string","ResourceName":"string"}`,
 		Short: `Create an entry with the given data for the table as defined by the {resourceName} in TR_DATASERVICE_TABLES`,
 		Long:  `Create an entry with the given data for the table as defined by the {resourceName} in TR_DATASERVICE_TABLES.`,
@@ -1393,15 +1706,17 @@ var Post_Custom_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("ExecuteLocalProcedure"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CustomExecuteLocalProcedure , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ExecuteLocalProcedureWithMultipleResultSets"); test {
-					out, err = tq.Do(*_tq, _tq.Post.CustomExecuteLocalProcedureWithMultipleResultSets , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.CustomCreate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("ExecuteLocalProcedure"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CustomExecuteLocalProcedure , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ExecuteLocalProcedureWithMultipleResultSets"); test {
+				out, err = tq.Do(*_tq, _tq.Post.CustomExecuteLocalProcedureWithMultipleResultSets , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.CustomCreate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1411,7 +1726,7 @@ var Post_Custom_cmd = &cobra.Command{
 	}
 
 var Post_CustomDefaultCategories_cmd = &cobra.Command{
-		Aliases: []string{  "customdefaultcategories",  "CDC",  "cdc",  },
+		Aliases: []string{  "CDC",  "cdc",  "customdefaultcategories",  },
 		Use: `CustomDefaultCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new custom default category`,
 		Long:  `Create a new custom default category.`,
@@ -1419,6 +1734,11 @@ var Post_CustomDefaultCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.CustomDefaultCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1429,7 +1749,7 @@ var Post_CustomDefaultCategories_cmd = &cobra.Command{
 	}
 
 var Post_CustomDefaults_cmd = &cobra.Command{
-		Aliases: []string{  "customdefaults",  "CD",  "cd",  },
+		Aliases: []string{  "cd",  "customdefaults",  "CD",  },
 		Use: `CustomDefaults {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultValue":"string","Description":"string","FieldName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new custom default`,
 		Long:  `Create a new custom default.`,
@@ -1437,6 +1757,11 @@ var Post_CustomDefaults_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.CustomDefaultsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1447,7 +1772,7 @@ var Post_CustomDefaults_cmd = &cobra.Command{
 	}
 
 var Post_DeliveryMethods_cmd = &cobra.Command{
-		Aliases: []string{  "dm",  "deliverymethods",  "DM",  },
+		Aliases: []string{  "deliverymethods",  "DM",  "dm",  },
 		Use: `DeliveryMethods {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new delivery method`,
 		Long:  `Create a new delivery method.`,
@@ -1455,6 +1780,11 @@ var Post_DeliveryMethods_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.DeliveryMethodsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1473,6 +1803,11 @@ var Post_DesignationCodes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.DesignationCodesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1491,6 +1826,11 @@ var Post_Diagnostics_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.DiagnosticsCheck , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1509,6 +1849,11 @@ var Post_DirectDebitAccountTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.DirectDebitAccountTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1519,7 +1864,7 @@ var Post_DirectDebitAccountTypes_cmd = &cobra.Command{
 	}
 
 var Post_DiscountTypes_cmd = &cobra.Command{
-		Aliases: []string{  "discounttypes",  "DT",  "dt",  },
+		Aliases: []string{  "dt",  "discounttypes",  "DT",  },
 		Use: `DiscountTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new discount type`,
 		Long:  `Create a new discount type.`,
@@ -1527,6 +1872,11 @@ var Post_DiscountTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.DiscountTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1545,6 +1895,11 @@ var Post_DocumentCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.DocumentCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1563,6 +1918,11 @@ var Post_DonationLevels_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.DonationLevelsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1581,17 +1941,19 @@ var Post_EMV_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Lane"); test {
-					out, err = tq.Do(*_tq, _tq.Post.EMVCreateLane , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Signature"); test {
-					out, err = tq.Do(*_tq, _tq.Post.EMVSignature , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Token"); test {
-					out, err = tq.Do(*_tq, _tq.Post.EMVTokenCreate , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.EMVAuthorization , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Lane"); test {
+				out, err = tq.Do(*_tq, _tq.Post.EMVCreateLane , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Signature"); test {
+				out, err = tq.Do(*_tq, _tq.Post.EMVSignature , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Token"); test {
+				out, err = tq.Do(*_tq, _tq.Post.EMVTokenCreate , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.EMVAuthorization , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1601,7 +1963,7 @@ var Post_EMV_cmd = &cobra.Command{
 	}
 
 var Post_ElectronicAddressTypes_cmd = &cobra.Command{
-		Aliases: []string{  "electronicaddresstypes",  "EAT",  "eat",  },
+		Aliases: []string{  "EAT",  "eat",  "electronicaddresstypes",  },
 		Use: `ElectronicAddressTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new electronic address type`,
 		Long:  `Create a new electronic address type.`,
@@ -1609,6 +1971,11 @@ var Post_ElectronicAddressTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ElectronicAddressTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1619,7 +1986,7 @@ var Post_ElectronicAddressTypes_cmd = &cobra.Command{
 	}
 
 var Post_ElectronicAddresses_cmd = &cobra.Command{
-		Aliases: []string{  "EA",  "ea",  "electronicaddresses",  },
+		Aliases: []string{  "electronicaddresses",  "EA",  "ea",  },
 		Use: `ElectronicAddresses {"ElectronicAddress":{"Address":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDate":"0001-01-01T00:00:00.000Z","Months":"string","StartDate":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new electronic address`,
 		Long:  `Create a new electronic address.`,
@@ -1627,13 +1994,15 @@ var Post_ElectronicAddresses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Move"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ElectronicAddressesMove , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.ElectronicAddressesCreate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Move"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ElectronicAddressesMove , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.ElectronicAddressesCreate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1643,7 +2012,7 @@ var Post_ElectronicAddresses_cmd = &cobra.Command{
 	}
 
 var Post_EmailProfiles_cmd = &cobra.Command{
-		Aliases: []string{  "EP",  "ep",  "emailprofiles",  },
+		Aliases: []string{  "emailprofiles",  "EP",  "ep",  },
 		Use: `EmailProfiles {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EmailBcc":"string","EmailCc":"string","EmailDefaultSubject":"string","EmailFrom":"string","SMTPPassword":"string","SMTPServer":"string","SMTPUserName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new email profile`,
 		Long:  `Create a new email profile`,
@@ -1651,6 +2020,11 @@ var Post_EmailProfiles_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.EmailProfilesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1661,7 +2035,7 @@ var Post_EmailProfiles_cmd = &cobra.Command{
 	}
 
 var Post_EmailResponses_cmd = &cobra.Command{
-		Aliases: []string{  "emailresponses",  "ER",  "er",  },
+		Aliases: []string{  "ER",  "er",  "emailresponses",  },
 		Use: `EmailResponses {"Request":{"EventDateTime":"0001-01-01T00:00:00.000Z","EventName":"string"}}`,
 		Short: `Updates an appeal with customer data in response to an email event`,
 		Long:  `Updates an appeal with customer data in response to an email event. EventName should be one of open, click, hard-bounce, soft-bounce or opt-out.`,
@@ -1669,6 +2043,11 @@ var Post_EmailResponses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.EmailResponsesUpdateAppeal , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1679,7 +2058,7 @@ var Post_EmailResponses_cmd = &cobra.Command{
 	}
 
 var Post_Emails_cmd = &cobra.Command{
-		Aliases: []string{  "emails",  "E",  "e",  },
+		Aliases: []string{  "e",  "emails",  "E",  },
 		Use: `Emails {"Request":{"Attachments":[object],"DuplicateBodyAttachmentName":"string","EmbeddedImages":[object],"FromAddress":"string","HtmlBody":"string","PlainTextBody":"string","RecipientAddress":"string","Subject":"string"}}`,
 		Short: `Sends an email via SMTP`,
 		Long:  `Sends an email via SMTP`,
@@ -1687,19 +2066,21 @@ var Post_Emails_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("SendConstituentInfo"); test {
-					out, err = tq.Do(*_tq, _tq.Post.EmailsSendConstituentInfo , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("SendLoginCredentials"); test {
-					out, err = tq.Do(*_tq, _tq.Post.EmailsSendLoginCredentials , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("SendOrderConfirmation"); test {
-					out, err = tq.Do(*_tq, _tq.Post.EmailsSendOrderConfirmation , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("SendTickets"); test {
-					out, err = tq.Do(*_tq, _tq.Post.EmailsSendTickets , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.EmailsSend , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("SendConstituentInfo"); test {
+				out, err = tq.Do(*_tq, _tq.Post.EmailsSendConstituentInfo , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("SendLoginCredentials"); test {
+				out, err = tq.Do(*_tq, _tq.Post.EmailsSendLoginCredentials , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("SendOrderConfirmation"); test {
+				out, err = tq.Do(*_tq, _tq.Post.EmailsSendOrderConfirmation , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("SendTickets"); test {
+				out, err = tq.Do(*_tq, _tq.Post.EmailsSendTickets , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.EmailsSend , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1717,6 +2098,11 @@ var Post_EmarketIndicators_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.EmarketIndicatorsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1735,6 +2121,11 @@ var Post_Eras_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ErasCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1745,7 +2136,7 @@ var Post_Eras_cmd = &cobra.Command{
 	}
 
 var Post_Facilities_cmd = &cobra.Command{
-		Aliases: []string{  "facilities",  "F",  "f",  },
+		Aliases: []string{  "F",  "f",  "facilities",  },
 		Use: `Facilities {"Facility":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Facility`,
 		Long:  `Create a new Facility.`,
@@ -1753,6 +2144,11 @@ var Post_Facilities_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.FacilitiesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1763,7 +2159,7 @@ var Post_Facilities_cmd = &cobra.Command{
 	}
 
 var Post_Genders_cmd = &cobra.Command{
-		Aliases: []string{  "genders",  "G",  "g",  },
+		Aliases: []string{  "g",  "genders",  "G",  },
 		Use: `Genders {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gender`,
 		Long:  `Create a new gender.`,
@@ -1771,6 +2167,11 @@ var Post_Genders_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.GendersCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1789,6 +2190,11 @@ var Post_GiftAidContactMethods_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidContactMethodsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1807,6 +2213,11 @@ var Post_GiftAidDeclarations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidDeclarationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1817,7 +2228,7 @@ var Post_GiftAidDeclarations_cmd = &cobra.Command{
 	}
 
 var Post_GiftAidDocumentStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "giftaiddocumentstatuses",  "GADS",  "gads",  },
+		Aliases: []string{  "GADS",  "gads",  "giftaiddocumentstatuses",  },
 		Use: `GiftAidDocumentStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gift aid document status`,
 		Long:  `Create a new gift aid document status.`,
@@ -1825,6 +2236,11 @@ var Post_GiftAidDocumentStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidDocumentStatusesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1843,6 +2259,11 @@ var Post_GiftAidIneligibleReasons_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidIneligibleReasonsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1853,7 +2274,7 @@ var Post_GiftAidIneligibleReasons_cmd = &cobra.Command{
 	}
 
 var Post_GiftAidRates_cmd = &cobra.Command{
-		Aliases: []string{  "gar",  "giftaidrates",  "GAR",  },
+		Aliases: []string{  "giftaidrates",  "GAR",  "gar",  },
 		Use: `GiftAidRates {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gift aid rate`,
 		Long:  `Create a new gift aid rate.`,
@@ -1861,6 +2282,11 @@ var Post_GiftAidRates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidRatesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1871,7 +2297,7 @@ var Post_GiftAidRates_cmd = &cobra.Command{
 	}
 
 var Post_GiftAidStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "giftaidstatuses",  "GAS",  "gas",  },
+		Aliases: []string{  "gas",  "giftaidstatuses",  "GAS",  },
 		Use: `GiftAidStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gift aid status`,
 		Long:  `Create a new gift aid status.`,
@@ -1879,6 +2305,11 @@ var Post_GiftAidStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidStatusesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1889,7 +2320,7 @@ var Post_GiftAidStatuses_cmd = &cobra.Command{
 	}
 
 var Post_GiftAidTypes_cmd = &cobra.Command{
-		Aliases: []string{  "GAT",  "gat",  "giftaidtypes",  },
+		Aliases: []string{  "giftaidtypes",  "GAT",  "gat",  },
 		Use: `GiftAidTypes {"Data":{"CharityClaimsRef":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gift aid type`,
 		Long:  `Create a new gift aid type.`,
@@ -1897,6 +2328,11 @@ var Post_GiftAidTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1907,7 +2343,7 @@ var Post_GiftAidTypes_cmd = &cobra.Command{
 	}
 
 var Post_GiftCertificates_cmd = &cobra.Command{
-		Aliases: []string{  "gc",  "giftcertificates",  "GC",  },
+		Aliases: []string{  "giftcertificates",  "GC",  "gc",  },
 		Use: `GiftCertificates {"GiftCertificateRedemptionRequest":{"Number":"string"}}`,
 		Short: `Get transaction details for a gift certificate and lock it for redemption in a specific batch`,
 		Long:  `Get transaction details for a gift certificate and lock it for redemption in a specific batch.`,
@@ -1915,13 +2351,15 @@ var Post_GiftCertificates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Unlock"); test {
-					out, err = tq.Do(*_tq, _tq.Post.GiftCertificatesUnlock , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.GiftCertificatesTransactionDetailsForRedemption , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Unlock"); test {
+				out, err = tq.Do(*_tq, _tq.Post.GiftCertificatesUnlock , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.GiftCertificatesTransactionDetailsForRedemption , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -1931,7 +2369,7 @@ var Post_GiftCertificates_cmd = &cobra.Command{
 	}
 
 var Post_HoldCodeCategories_cmd = &cobra.Command{
-		Aliases: []string{  "hcc",  "holdcodecategories",  "HCC",  },
+		Aliases: []string{  "holdcodecategories",  "HCC",  "hcc",  },
 		Use: `HoldCodeCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Hold Code Category`,
 		Long:  `Create a new Hold Code Category.`,
@@ -1939,6 +2377,11 @@ var Post_HoldCodeCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.HoldCodeCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1957,6 +2400,11 @@ var Post_HoldCodeUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.HoldCodeUserGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1967,7 +2415,7 @@ var Post_HoldCodeUserGroups_cmd = &cobra.Command{
 	}
 
 var Post_HoldCodes_cmd = &cobra.Command{
-		Aliases: []string{  "holdcodes",  "HC",  "hc",  },
+		Aliases: []string{  "hc",  "holdcodes",  "HC",  },
 		Use: `HoldCodes {"HoldCode":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Legend":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a Hold Code`,
 		Long:  `Create a Hold Code.`,
@@ -1975,6 +2423,11 @@ var Post_HoldCodes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.HoldCodesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -1993,6 +2446,11 @@ var Post_InactiveReasons_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.InactiveReasonsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2011,6 +2469,11 @@ var Post_IntegrationDefaults_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.IntegrationDefaultsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2021,7 +2484,7 @@ var Post_IntegrationDefaults_cmd = &cobra.Command{
 	}
 
 var Post_Integrations_cmd = &cobra.Command{
-		Aliases: []string{  "integrations",  "I",  "i",  },
+		Aliases: []string{  "i",  "integrations",  "I",  },
 		Use: `Integrations {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new action type`,
 		Long:  `Create a new action type.`,
@@ -2029,6 +2492,11 @@ var Post_Integrations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.IntegrationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2047,6 +2515,11 @@ var Post_InterestCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.InterestCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2057,7 +2530,7 @@ var Post_InterestCategories_cmd = &cobra.Command{
 	}
 
 var Post_InterestTypes_cmd = &cobra.Command{
-		Aliases: []string{  "interesttypes",  "IT",  "it",  },
+		Aliases: []string{  "IT",  "it",  "interesttypes",  },
 		Use: `InterestTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UsedIn":"string"}}`,
 		Short: `Create a new interest type`,
 		Long:  `Create a new interest type.`,
@@ -2065,6 +2538,11 @@ var Post_InterestTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.InterestTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2075,7 +2553,7 @@ var Post_InterestTypes_cmd = &cobra.Command{
 	}
 
 var Post_Interests_cmd = &cobra.Command{
-		Aliases: []string{  "interests",  "I",  "i",  },
+		Aliases: []string{  "i",  "interests",  "I",  },
 		Use: `Interests {"Interest":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new interest associating an interest type to a constituent`,
 		Long:  `Create a new interest associating an interest type to a constituent.
@@ -2084,13 +2562,15 @@ For bulk interest edits, consider the CRM/Interests/CreateOrUpdate batching reso
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Or"); test {
-					out, err = tq.Do(*_tq, _tq.Post.InterestsCreateOrUpdate , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.InterestsCreate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Or"); test {
+				out, err = tq.Do(*_tq, _tq.Post.InterestsCreateOrUpdate , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.InterestsCreate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2108,6 +2588,11 @@ var Post_Internal_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.InternalCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2118,7 +2603,7 @@ var Post_Internal_cmd = &cobra.Command{
 	}
 
 var Post_InventoryContactPermissionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "inventorycontactpermissiontypes",  "ICPT",  "icpt",  },
+		Aliases: []string{  "icpt",  "inventorycontactpermissiontypes",  "ICPT",  },
 		Use: `InventoryContactPermissionTypes {"InventoryContactPermissionType":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create an inventoryContactPermissionType`,
 		Long:  `Create an inventoryContactPermissionType.`,
@@ -2126,6 +2611,11 @@ var Post_InventoryContactPermissionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.InventoryContactPermissionTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2144,6 +2634,11 @@ var Post_InventoryWebContents_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.InventoryWebContentsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2162,6 +2657,11 @@ var Post_InvoiceBilling_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.InvoiceBillingBillInvoices , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2172,7 +2672,7 @@ var Post_InvoiceBilling_cmd = &cobra.Command{
 	}
 
 var Post_Issues_cmd = &cobra.Command{
-		Aliases: []string{  "I",  "i",  "issues",  },
+		Aliases: []string{  "issues",  "I",  "i",  },
 		Use: `Issues {"Issue":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","IssueDate":"0001-01-01T00:00:00.000Z","Notes":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create an issue for a Constituent`,
 		Long:  `Create an issue for a Constituent`,
@@ -2180,6 +2680,11 @@ var Post_Issues_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.IssuesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2198,6 +2703,11 @@ var Post_KeywordCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.KeywordCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2208,7 +2718,7 @@ var Post_KeywordCategories_cmd = &cobra.Command{
 	}
 
 var Post_Keywords_cmd = &cobra.Command{
-		Aliases: []string{  "keywords",  "K",  "k",  },
+		Aliases: []string{  "K",  "k",  "keywords",  },
 		Use: `Keywords {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CustomDefaultValue":"string","DataType":"string","Description":"string","DetailColumn":"string","DetailTable":"string","EditMask":"string","ExtendedDescription":"string","FrequentUpdateDate":"0001-01-01T00:00:00.000Z","HelpText":"string","KeyColumn":"string","KeywordUse":"string","ParentKeyColumn":"string","ParentTable":"string","PrimaryGroupDefault":"string","ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new keyword`,
 		Long:  `Create a new keyword.`,
@@ -2216,6 +2726,11 @@ var Post_Keywords_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.KeywordsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2234,6 +2749,11 @@ var Post_Languages_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.LanguagesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2244,7 +2764,7 @@ var Post_Languages_cmd = &cobra.Command{
 	}
 
 var Post_ListCategories_cmd = &cobra.Command{
-		Aliases: []string{  "LC",  "lc",  "listcategories",  },
+		Aliases: []string{  "lc",  "listcategories",  "LC",  },
 		Use: `ListCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new list category`,
 		Long:  `Create a new list category.`,
@@ -2252,6 +2772,11 @@ var Post_ListCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ListCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2262,7 +2787,7 @@ var Post_ListCategories_cmd = &cobra.Command{
 	}
 
 var Post_Lists_cmd = &cobra.Command{
-		Aliases: []string{  "lists",  "L",  "l",  },
+		Aliases: []string{  "l",  "lists",  "L",  },
 		Use: `Lists {"List":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Criteria":[object],"Description":"string","EditMode":"string","LastUsedDateTime":"0001-01-01T00:00:00.000Z","ListSql":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a List`,
 		Long:  `Create a List.`,
@@ -2270,17 +2795,19 @@ var Post_Lists_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Generate"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ListsGenerate , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Results"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ListsResults , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Search"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ListsSearch , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.ListsCreate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Generate"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ListsGenerate , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Results"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ListsResults , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Search"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ListsSearch , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.ListsCreate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2298,6 +2825,11 @@ var Post_LoginTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.LoginTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2308,7 +2840,7 @@ var Post_LoginTypes_cmd = &cobra.Command{
 	}
 
 var Post_MachineSettings_cmd = &cobra.Command{
-		Aliases: []string{  "MS",  "ms",  "machinesettings",  },
+		Aliases: []string{  "machinesettings",  "MS",  "ms",  },
 		Use: `MachineSettings {"Data":{"CardReaderHost":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","MerchantId":"string","PXStation":"string","PXUserKey":"string","PXUserName":"string","TessituraPaymentsPosDevice":"string","TessituraPaymentsPosDeviceModel":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","WorkstationName":"string"}}`,
 		Short: `Create a new Machine Setting`,
 		Long:  `Create a new Machine Setting.`,
@@ -2316,6 +2848,11 @@ var Post_MachineSettings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.MachineSettingsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2334,6 +2871,11 @@ var Post_MailIndicators_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.MailIndicatorsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2352,6 +2894,11 @@ var Post_MediaTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.MediaTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2370,6 +2917,11 @@ var Post_MembershipLevelCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.MembershipLevelCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2389,6 +2941,11 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.MembershipsCalculate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2399,7 +2956,7 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 	}
 
 var Post_ModeOfSaleCategories_cmd = &cobra.Command{
-		Aliases: []string{  "modeofsalecategories",  "MOSC",  "mosc",  },
+		Aliases: []string{  "mosc",  "modeofsalecategories",  "MOSC",  },
 		Use: `ModeOfSaleCategories {"ModeOfSaleCategory":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new mode of sale category`,
 		Long:  `Create a new mode of sale category.`,
@@ -2407,6 +2964,11 @@ var Post_ModeOfSaleCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ModeOfSaleCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2417,7 +2979,7 @@ var Post_ModeOfSaleCategories_cmd = &cobra.Command{
 	}
 
 var Post_ModeOfSaleOffers_cmd = &cobra.Command{
-		Aliases: []string{  "MOSO",  "moso",  "modeofsaleoffers",  },
+		Aliases: []string{  "modeofsaleoffers",  "MOSO",  "moso",  },
 		Use: `ModeOfSaleOffers {"ModeOfSaleOffer":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z","Terms":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new mode of sale offer`,
 		Long:  `Create a new mode of sale offer.`,
@@ -2425,6 +2987,11 @@ var Post_ModeOfSaleOffers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ModeOfSaleOffersCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2443,6 +3010,11 @@ var Post_ModeOfSalePriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ModeOfSalePriceTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2453,7 +3025,7 @@ var Post_ModeOfSalePriceTypes_cmd = &cobra.Command{
 	}
 
 var Post_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
-		Aliases: []string{  "modeofsalesurveyquestions",  "MOSSQ",  "mossq",  },
+		Aliases: []string{  "MOSSQ",  "mossq",  "modeofsalesurveyquestions",  },
 		Use: `ModeOfSaleSurveyQuestions {"ModeOfSaleSurveyQuestion":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new mode of sale survey question`,
 		Long:  `Create a new mode of sale survey question.`,
@@ -2461,6 +3033,11 @@ var Post_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ModeOfSaleSurveyQuestionsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2479,6 +3056,11 @@ var Post_ModeOfSaleUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ModeOfSaleUserGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2497,6 +3079,11 @@ var Post_ModesOfSale_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ModesOfSaleCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2515,6 +3102,11 @@ var Post_NScanAccessAreas_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.NScanAccessAreasCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2533,6 +3125,11 @@ var Post_NameStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.NameStatusesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2551,6 +3148,11 @@ var Post_ObjectPermissions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ObjectPermissionsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2561,7 +3163,7 @@ var Post_ObjectPermissions_cmd = &cobra.Command{
 	}
 
 var Post_OrderBilling_cmd = &cobra.Command{
-		Aliases: []string{  "orderbilling",  "OB",  "ob",  },
+		Aliases: []string{  "OB",  "ob",  "orderbilling",  },
 		Use: `OrderBilling {"OrderBillingRequest":{"CutoffDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","ModesOfSale":"string","NewSourceDescription":"string","OrderEndDateTime":"0001-01-01T00:00:00.000Z","OrderStartDateTime":"0001-01-01T00:00:00.000Z","PerformanceEndDateTime":"0001-01-01T00:00:00.000Z","PerformanceStartDateTime":"0001-01-01T00:00:00.000Z","Seasons":"string","StartDateTime":"0001-01-01T00:00:00.000Z","UserId":"string"}}`,
 		Short: `Order billing`,
 		Long:  `Order billing`,
@@ -2569,6 +3171,11 @@ var Post_OrderBilling_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.OrderBillingBillOrders , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2579,7 +3186,7 @@ var Post_OrderBilling_cmd = &cobra.Command{
 	}
 
 var Post_OrderCategories_cmd = &cobra.Command{
-		Aliases: []string{  "oc",  "ordercategories",  "OC",  },
+		Aliases: []string{  "ordercategories",  "OC",  "oc",  },
 		Use: `OrderCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new order category`,
 		Long:  `Create a new order category.`,
@@ -2587,6 +3194,11 @@ var Post_OrderCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.OrderCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2597,7 +3209,7 @@ var Post_OrderCategories_cmd = &cobra.Command{
 	}
 
 var Post_Orders_cmd = &cobra.Command{
-		Aliases: []string{  "O",  "o",  "orders",  },
+		Aliases: []string{  "orders",  "O",  "o",  },
 		Use: `Orders {"Order":{"AppliedMessageRules":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Custom0":"string","Custom1":"string","Custom2":"string","Custom3":"string","Custom4":"string","Custom5":"string","Custom6":"string","Custom7":"string","Custom8":"string","Custom9":"string","DeliveryDate":"0001-01-01T00:00:00.000Z","HoldUntilDateTime":"0001-01-01T00:00:00.000Z","LineItems":[object],"Messages":[object],"Notes":"string","OrderDateTime":"0001-01-01T00:00:00.000Z","Solicitor":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","VirtualConstituencies":"string"}}`,
 		Short: `This resource is currently only for interceptor plugin use`,
 		Long:  `This resource is currently only for interceptor plugin use. This is called any time a new order is saved via the API or from the client application. Only OrderId is provided in the request content.
@@ -2607,17 +3219,19 @@ This resource will be invoked from a cart checkout.`,
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("OrdersForDelivery"); test {
-					out, err = tq.Do(*_tq, _tq.Post.OrdersGetOrdersForDelivery , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Price"); test {
-					out, err = tq.Do(*_tq, _tq.Post.OrdersPrice , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("PrintTicketElements"); test {
-					out, err = tq.Do(*_tq, _tq.Post.OrdersPrintTicketElements , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.OrdersCreate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("OrdersForDelivery"); test {
+				out, err = tq.Do(*_tq, _tq.Post.OrdersGetOrdersForDelivery , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Price"); test {
+				out, err = tq.Do(*_tq, _tq.Post.OrdersPrice , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("PrintTicketElements"); test {
+				out, err = tq.Do(*_tq, _tq.Post.OrdersPrintTicketElements , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.OrdersCreate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2627,7 +3241,7 @@ This resource will be invoked from a cart checkout.`,
 	}
 
 var Post_Organizations_cmd = &cobra.Command{
-		Aliases: []string{  "o",  "organizations",  "O",  },
+		Aliases: []string{  "organizations",  "O",  "o",  },
 		Use: `Organizations {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","LicenseeAccountCode":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new organization`,
 		Long:  `Create a new organization.`,
@@ -2635,6 +3249,11 @@ var Post_Organizations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.OrganizationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2645,7 +3264,7 @@ var Post_Organizations_cmd = &cobra.Command{
 	}
 
 var Post_OriginalSources_cmd = &cobra.Command{
-		Aliases: []string{  "OS",  "os",  "originalsources",  },
+		Aliases: []string{  "originalsources",  "OS",  "os",  },
 		Use: `OriginalSources {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new original source`,
 		Long:  `Create a new original source.`,
@@ -2653,6 +3272,11 @@ var Post_OriginalSources_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.OriginalSourcesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2663,7 +3287,7 @@ var Post_OriginalSources_cmd = &cobra.Command{
 	}
 
 var Post_Origins_cmd = &cobra.Command{
-		Aliases: []string{  "origins",  "O",  "o",  },
+		Aliases: []string{  "O",  "o",  "origins",  },
 		Use: `Origins {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new origin`,
 		Long:  `Create a new origin.`,
@@ -2671,6 +3295,11 @@ var Post_Origins_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.OriginsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2689,6 +3318,11 @@ var Post_OutputSets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.OutputSetsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2707,6 +3341,11 @@ var Post_PackagePriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PackagePriceTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2725,6 +3364,11 @@ var Post_PackageTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PackageTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2735,7 +3379,7 @@ var Post_PackageTypes_cmd = &cobra.Command{
 	}
 
 var Post_PackageWebContents_cmd = &cobra.Command{
-		Aliases: []string{  "packagewebcontents",  "PWC",  "pwc",  },
+		Aliases: []string{  "pwc",  "packagewebcontents",  "PWC",  },
 		Use: `PackageWebContents {"PackageWebContent":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Value":"string"}}`,
 		Short: `Create a packageWebContent`,
 		Long:  `Create a packageWebContent.`,
@@ -2743,6 +3387,11 @@ var Post_PackageWebContents_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PackageWebContentsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2753,7 +3402,7 @@ var Post_PackageWebContents_cmd = &cobra.Command{
 	}
 
 var Post_Packages_cmd = &cobra.Command{
-		Aliases: []string{  "packages",  "P",  "p",  },
+		Aliases: []string{  "p",  "packages",  "P",  },
 		Use: `Packages {"Request":{"ArtistIds":"string","FullTextSearch":"string","PackageEndDate":"0001-01-01T00:00:00.000Z","PackageFacilityIds":"string","PackageKeywordAndOr":"string","PackageKeywordIds":"string","PackageStartDate":"0001-01-01T00:00:00.000Z","PackageTypeIds":"string","PerformanceEndDate":"0001-01-01T00:00:00.000Z","PerformanceFacilityIds":"string","PerformanceKeywordAndOr":"string","PerformanceKeywordIds":"string","PerformanceStartDate":"0001-01-01T00:00:00.000Z","SeasonIds":"string"}}`,
 		Short: `Search for packages`,
 		Long:  `Search for packages`,
@@ -2761,6 +3410,11 @@ var Post_Packages_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PackagesSearch , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2771,7 +3425,7 @@ var Post_Packages_cmd = &cobra.Command{
 	}
 
 var Post_PaymentComponent_cmd = &cobra.Command{
-		Aliases: []string{  "paymentcomponent",  "PC",  "pc",  },
+		Aliases: []string{  "pc",  "paymentcomponent",  "PC",  },
 		Use: `PaymentComponent {"Request":{"CardBrandsToInclude":[object],"ComponentVersion":"string","MerchantId":"string"}}`,
 		Short: `This request is used to configure a transaction and retrieve the JavaScript location for implementing the Tessitura Merchant Services Payment Component`,
 		Long:  `This request is used to configure a transaction and retrieve the JavaScript location for implementing the Tessitura Merchant Services Payment Component. 
@@ -2780,6 +3434,11 @@ For complete documentation on how to implement the Payment Component, please vis
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentComponentGetPaymentComponent , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2798,13 +3457,15 @@ var Post_PaymentGatewayAccounts_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("StoreToken"); test {
-					out, err = tq.Do(*_tq, _tq.Post.PaymentGatewayAccountsStoreToken , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.PaymentGatewayAccountsCreateAccount , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("StoreToken"); test {
+				out, err = tq.Do(*_tq, _tq.Post.PaymentGatewayAccountsStoreToken , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.PaymentGatewayAccountsCreateAccount , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2814,7 +3475,7 @@ var Post_PaymentGatewayAccounts_cmd = &cobra.Command{
 	}
 
 var Post_PaymentGatewayActivities_cmd = &cobra.Command{
-		Aliases: []string{  "PGA",  "pga",  "paymentgatewayactivities",  },
+		Aliases: []string{  "pga",  "paymentgatewayactivities",  "PGA",  },
 		Use: `PaymentGatewayActivities {"PaymentGatewayActivity":{"AccountNumber":"string","ActivityData":"string","AuthCode":"string","AvsAddress":"string","AvsPostalcode":"string","AvsResultCode":"string","BalanceCurrencyCode":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CvvResultCode":"string","EcommerceIndicator":"string","EmvApplicationIdentifier":"string","EmvApplicationName":"string","EmvCryptogram":"string","EmvHostResponseCode":"string","EmvHostResponseMessage":"string","EmvPinVerified":"string","EntryMethod":"string","ExpirationDate":"string","MerchantId":"string","Name":"string","NetworkTransactionId":"string","Origin":"string","ProviderTransactionDateTime":"0001-01-01T00:00:00.000Z","ReferenceNumber":"string","ResponseCode":"string","ResponseMessage":"string","Success":"string","TerminalIdentifier":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserData":"string"}}`,
 		Short: `Create a new Payment Gateway Activity`,
 		Long:  `Create a new Payment Gateway Activity`,
@@ -2822,6 +3483,11 @@ var Post_PaymentGatewayActivities_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentGatewayActivitiesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2840,6 +3506,11 @@ var Post_PaymentGatewayCredentials_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentGatewayCredentialsGetCredential , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2850,7 +3521,7 @@ var Post_PaymentGatewayCredentials_cmd = &cobra.Command{
 	}
 
 var Post_PaymentGatewayNotifications_cmd = &cobra.Command{
-		Aliases: []string{  "pgn",  "paymentgatewaynotifications",  "PGN",  },
+		Aliases: []string{  "paymentgatewaynotifications",  "PGN",  "pgn",  },
 		Use: `PaymentGatewayNotifications {"NotificationEvent":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EventType":"string","Payload":"string","ProcessedDate":"0001-01-01T00:00:00.000Z","ReceivedDate":"0001-01-01T00:00:00.000Z","Reference":"string","Topic":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new notification event`,
 		Long:  `Create a new notification event.`,
@@ -2858,6 +3529,11 @@ var Post_PaymentGatewayNotifications_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentGatewayNotificationsCreateNotificationEvent , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2868,7 +3544,7 @@ var Post_PaymentGatewayNotifications_cmd = &cobra.Command{
 	}
 
 var Post_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PGTT",  "pgtt",  "paymentgatewaytransactiontypes",  },
+		Aliases: []string{  "paymentgatewaytransactiontypes",  "PGTT",  "pgtt",  },
 		Use: `PaymentGatewayTransactionTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Payment Gateway Transaction Type`,
 		Long:  `Create a new Payment Gateway Transaction Type.`,
@@ -2876,6 +3552,11 @@ var Post_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentGatewayTransactionTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2894,6 +3575,11 @@ var Post_PaymentMethodGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentMethodGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2904,7 +3590,7 @@ var Post_PaymentMethodGroups_cmd = &cobra.Command{
 	}
 
 var Post_PaymentMethodUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "paymentmethodusergroups",  "PMUG",  "pmug",  },
+		Aliases: []string{  "pmug",  "paymentmethodusergroups",  "PMUG",  },
 		Use: `PaymentMethodUserGroups {"PaymentMethodUserGroup":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
 		Short: `Create a new payment method/user group mapping`,
 		Long:  `Create a new payment method/user group mapping.`,
@@ -2912,6 +3598,11 @@ var Post_PaymentMethodUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentMethodUserGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2922,7 +3613,7 @@ var Post_PaymentMethodUserGroups_cmd = &cobra.Command{
 	}
 
 var Post_PaymentMethods_cmd = &cobra.Command{
-		Aliases: []string{  "pm",  "paymentmethods",  "PM",  },
+		Aliases: []string{  "paymentmethods",  "PM",  "pm",  },
 		Use: `PaymentMethods {"PaymentMethod":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","GlAccountId":"string","MerchantId":"string","MerchantIdForSwipe":"string","RequirePostalCode":"string","ShortDesc":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new payment method`,
 		Long:  `Create a new payment method.`,
@@ -2930,6 +3621,11 @@ var Post_PaymentMethods_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentMethodsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2948,13 +3644,15 @@ var Post_PaymentSignatures_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("PostForOrder"); test {
-					out, err = tq.Do(*_tq, _tq.Post.PaymentSignaturesPostForOrder , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.PaymentSignaturesCreate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("PostForOrder"); test {
+				out, err = tq.Do(*_tq, _tq.Post.PaymentSignaturesPostForOrder , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.PaymentSignaturesCreate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -2972,6 +3670,11 @@ var Post_PaymentTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -2982,7 +3685,7 @@ var Post_PaymentTypes_cmd = &cobra.Command{
 	}
 
 var Post_Payments_cmd = &cobra.Command{
-		Aliases: []string{  "payments",  "P",  "p",  },
+		Aliases: []string{  "P",  "p",  "payments",  },
 		Use: `Payments {"Request":{}}`,
 		Short: `Reserves a payment id generated per the request's required "increment" parameter`,
 		Long:  `Reserves a payment id generated per the request's required "increment" parameter. Increment number must be greater than 0.`,
@@ -2990,6 +3693,11 @@ var Post_Payments_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentsReserveIds , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3008,6 +3716,11 @@ var Post_PerformanceGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PerformanceGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3026,6 +3739,11 @@ var Post_PerformancePackageModeOfSales_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PerformancePackageModeOfSalesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3036,7 +3754,7 @@ var Post_PerformancePackageModeOfSales_cmd = &cobra.Command{
 	}
 
 var Post_PerformancePriceLayers_cmd = &cobra.Command{
-		Aliases: []string{  "PPL",  "ppl",  "performancepricelayers",  },
+		Aliases: []string{  "ppl",  "performancepricelayers",  "PPL",  },
 		Use: `PerformancePriceLayers {"PerformancePriceLayer":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EffectiveDateTime":"0001-01-01T00:00:00.000Z","PerformancePriceTypes":[object],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new performance price layer`,
 		Long:  `Create a new performance price layer.`,
@@ -3044,17 +3762,19 @@ var Post_PerformancePriceLayers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("PostSummaries"); test {
-					out, err = tq.Do(*_tq, _tq.Post.PerformancePriceLayersPostSummaries , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Search"); test {
-					out, err = tq.Do(*_tq, _tq.Post.PerformancePriceLayersSearch , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("SearchSummaries"); test {
-					out, err = tq.Do(*_tq, _tq.Post.PerformancePriceLayersSearchSummaries , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.PerformancePriceLayersCreate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("PostSummaries"); test {
+				out, err = tq.Do(*_tq, _tq.Post.PerformancePriceLayersPostSummaries , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Search"); test {
+				out, err = tq.Do(*_tq, _tq.Post.PerformancePriceLayersSearch , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("SearchSummaries"); test {
+				out, err = tq.Do(*_tq, _tq.Post.PerformancePriceLayersSearchSummaries , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.PerformancePriceLayersCreate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3064,7 +3784,7 @@ var Post_PerformancePriceLayers_cmd = &cobra.Command{
 	}
 
 var Post_PerformancePriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "performancepricetypes",  "PPT",  "ppt",  },
+		Aliases: []string{  "PPT",  "ppt",  "performancepricetypes",  },
 		Use: `PerformancePriceTypes {"PerformancePriceType":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EffectiveDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","PerformancePrices":[object],"StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new performance price type`,
 		Long:  `Create a new performance price type.`,
@@ -3072,6 +3792,11 @@ var Post_PerformancePriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PerformancePriceTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3090,6 +3815,11 @@ var Post_PerformancePrices_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PerformancePricesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3100,7 +3830,7 @@ var Post_PerformancePrices_cmd = &cobra.Command{
 	}
 
 var Post_PerformanceStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "PS",  "ps",  "performancestatuses",  },
+		Aliases: []string{  "performancestatuses",  "PS",  "ps",  },
 		Use: `PerformanceStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new performance status`,
 		Long:  `Create a new performance status.`,
@@ -3108,6 +3838,11 @@ var Post_PerformanceStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PerformanceStatusesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3118,7 +3853,7 @@ var Post_PerformanceStatuses_cmd = &cobra.Command{
 	}
 
 var Post_PerformanceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "performancetypes",  "PT",  "pt",  },
+		Aliases: []string{  "PT",  "pt",  "performancetypes",  },
 		Use: `PerformanceTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","ValidCountryList":"string"}}`,
 		Short: `Create a new performance type`,
 		Long:  `Create a new performance type.`,
@@ -3126,6 +3861,11 @@ var Post_PerformanceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PerformanceTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3136,7 +3876,7 @@ var Post_PerformanceTypes_cmd = &cobra.Command{
 	}
 
 var Post_Performances_cmd = &cobra.Command{
-		Aliases: []string{  "p",  "performances",  "P",  },
+		Aliases: []string{  "performances",  "P",  "p",  },
 		Use: `Performances {"PerformanceID":"string","Request":{"HoldUntilDate":"0001-01-01T00:00:00.000Z"},"SeatID":"string"}`,
 		Short: `Apply a single hold on a performance seat`,
 		Long:  `Apply a single hold on a performance seat.`,
@@ -3144,19 +3884,21 @@ var Post_Performances_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Copy"); test {
-					out, err = tq.Do(*_tq, _tq.Post.PerformancesCopy , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Reschedule"); test {
-					out, err = tq.Do(*_tq, _tq.Post.PerformancesReschedule , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Search"); test {
-					out, err = tq.Do(*_tq, _tq.Post.PerformancesSearch , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("SeatHolds"); test {
-					out, err = tq.Do(*_tq, _tq.Post.PerformancesUpdateSeatHolds , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.PerformancesApplySingleHold , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Copy"); test {
+				out, err = tq.Do(*_tq, _tq.Post.PerformancesCopy , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Reschedule"); test {
+				out, err = tq.Do(*_tq, _tq.Post.PerformancesReschedule , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Search"); test {
+				out, err = tq.Do(*_tq, _tq.Post.PerformancesSearch , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("SeatHolds"); test {
+				out, err = tq.Do(*_tq, _tq.Post.PerformancesUpdateSeatHolds , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.PerformancesApplySingleHold , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3166,7 +3908,7 @@ var Post_Performances_cmd = &cobra.Command{
 	}
 
 var Post_Philanthropy_cmd = &cobra.Command{
-		Aliases: []string{  "philanthropy",  "P",  "p",  },
+		Aliases: []string{  "P",  "p",  "philanthropy",  },
 		Use: `Philanthropy {"PhilanthropyEntry":{"Activity":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DonatedTo":"string","DonationDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create an philanthropyEntry for a constituent`,
 		Long:  `Create an philanthropyEntry for a constituent.`,
@@ -3174,6 +3916,11 @@ var Post_Philanthropy_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PhilanthropyCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3192,6 +3939,11 @@ var Post_PhilanthropyTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PhilanthropyTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3210,6 +3962,11 @@ var Post_PhoneIndicators_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PhoneIndicatorsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3228,6 +3985,11 @@ var Post_PhoneTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PhoneTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3238,7 +4000,7 @@ var Post_PhoneTypes_cmd = &cobra.Command{
 	}
 
 var Post_Phones_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "phones",  },
+		Aliases: []string{  "p",  "phones",  "P",  },
 		Use: `Phones {"Phone":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DayEveningIndicator":"string","PhoneFormatted":"string","PhoneNumber":"string","PhoneSearch":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new phone`,
 		Long:  `Create a new phone.`,
@@ -3246,6 +4008,11 @@ var Post_Phones_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PhonesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3264,6 +4031,11 @@ var Post_PlanPriorities_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PlanPrioritiesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3274,7 +4046,7 @@ var Post_PlanPriorities_cmd = &cobra.Command{
 	}
 
 var Post_PlanSources_cmd = &cobra.Command{
-		Aliases: []string{  "plansources",  "PS",  "ps",  },
+		Aliases: []string{  "PS",  "ps",  "plansources",  },
 		Use: `PlanSources {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new plan source`,
 		Long:  `Create a new plan source.`,
@@ -3282,6 +4054,11 @@ var Post_PlanSources_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PlanSourcesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3292,7 +4069,7 @@ var Post_PlanSources_cmd = &cobra.Command{
 	}
 
 var Post_PlanStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "PS",  "ps",  "planstatuses",  },
+		Aliases: []string{  "planstatuses",  "PS",  "ps",  },
 		Use: `PlanStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new plan status`,
 		Long:  `Create a new plan status.`,
@@ -3300,6 +4077,11 @@ var Post_PlanStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PlanStatusesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3310,7 +4092,7 @@ var Post_PlanStatuses_cmd = &cobra.Command{
 	}
 
 var Post_PlanTypes_cmd = &cobra.Command{
-		Aliases: []string{  "plantypes",  "PT",  "pt",  },
+		Aliases: []string{  "pt",  "plantypes",  "PT",  },
 		Use: `PlanTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new plan type`,
 		Long:  `Create a new plan type.`,
@@ -3318,6 +4100,11 @@ var Post_PlanTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PlanTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3336,6 +4123,11 @@ var Post_PlanWorkers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PlanWorkersCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3346,7 +4138,7 @@ var Post_PlanWorkers_cmd = &cobra.Command{
 	}
 
 var Post_Plans_cmd = &cobra.Command{
-		Aliases: []string{  "p",  "plans",  "P",  },
+		Aliases: []string{  "plans",  "P",  "p",  },
 		Use: `Plans {"Plan":{"CompleteByDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CustomDataItems":[object],"LastStepDate":"0001-01-01T00:00:00.000Z","LastWorkerDisplayName":"string","NextStepDate":"0001-01-01T00:00:00.000Z","Notes":"string","PlanAssociates":"string","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new plan`,
 		Long:  `Create a new plan.`,
@@ -3354,6 +4146,11 @@ var Post_Plans_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PlansCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3364,7 +4161,7 @@ var Post_Plans_cmd = &cobra.Command{
 	}
 
 var Post_PledgeBilling_cmd = &cobra.Command{
-		Aliases: []string{  "pb",  "pledgebilling",  "PB",  },
+		Aliases: []string{  "PB",  "pb",  "pledgebilling",  },
 		Use: `PledgeBilling {"PledgeBillingRequest":{"CutoffDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","FundIds":"string","MailDateTime":"0001-01-01T00:00:00.000Z","NewSourceDescription":"string","StartDateTime":"0001-01-01T00:00:00.000Z","UserId":"string"}}`,
 		Short: `This is not intended for use outside of the Tessitura application`,
 		Long:  `This is not intended for use outside of the Tessitura application.  There is no standard way to return billing details for a run. For a given campaign, funds, bill types etc., It raises bills for all those scheduled payments that have due date between given start and end dates. It also checks to see that a bill was not raised after a given 'cut off date'.`,
@@ -3372,6 +4169,11 @@ var Post_PledgeBilling_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PledgeBillingBillPledges , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3390,6 +4192,11 @@ var Post_PortfolioCustomElements_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PortfolioCustomElementsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3408,6 +4215,11 @@ var Post_Prefixes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PrefixesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3418,7 +4230,7 @@ var Post_Prefixes_cmd = &cobra.Command{
 	}
 
 var Post_Premieres_cmd = &cobra.Command{
-		Aliases: []string{  "premieres",  "P",  "p",  },
+		Aliases: []string{  "p",  "premieres",  "P",  },
 		Use: `Premieres {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new premiere`,
 		Long:  `Create a new premiere.`,
@@ -3426,6 +4238,11 @@ var Post_Premieres_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PremieresCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3444,6 +4261,11 @@ var Post_PriceCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PriceCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3462,6 +4284,11 @@ var Post_PriceLayerTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PriceLayerTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3472,7 +4299,7 @@ var Post_PriceLayerTypes_cmd = &cobra.Command{
 	}
 
 var Post_PriceTemplates_cmd = &cobra.Command{
-		Aliases: []string{  "pricetemplates",  "PT",  "pt",  },
+		Aliases: []string{  "PT",  "pt",  "pricetemplates",  },
 		Use: `PriceTemplates {"PriceTemplate":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Name":"string","TemplatePriceTypes":[object],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new price template`,
 		Long:  `Create a new price template.`,
@@ -3480,6 +4307,11 @@ var Post_PriceTemplates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PriceTemplatesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3498,6 +4330,11 @@ var Post_PriceTypeCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PriceTypeCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3516,6 +4353,11 @@ var Post_PriceTypeGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PriceTypeGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3534,6 +4376,11 @@ var Post_PriceTypeReasons_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PriceTypeReasonsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3544,7 +4391,7 @@ var Post_PriceTypeReasons_cmd = &cobra.Command{
 	}
 
 var Post_PriceTypeUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "pricetypeusergroups",  "PTUG",  "ptug",  },
+		Aliases: []string{  "ptug",  "pricetypeusergroups",  "PTUG",  },
 		Use: `PriceTypeUserGroups {"PriceTypeUserGroup":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
 		Short: `Create a new price typ/user group mapping`,
 		Long:  `Create a new price typ/user group mapping.`,
@@ -3552,6 +4399,11 @@ var Post_PriceTypeUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PriceTypeUserGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3570,6 +4422,11 @@ var Post_PriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PriceTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3588,6 +4445,11 @@ var Post_PricingRuleCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PricingRuleCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3606,6 +4468,11 @@ var Post_PricingRuleMessageTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PricingRuleMessageTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3624,6 +4491,11 @@ var Post_PricingRuleSets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PricingRuleSetsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3634,7 +4506,7 @@ var Post_PricingRuleSets_cmd = &cobra.Command{
 	}
 
 var Post_PricingRules_cmd = &cobra.Command{
-		Aliases: []string{  "PR",  "pr",  "pricingrules",  },
+		Aliases: []string{  "pricingrules",  "PR",  "pr",  },
 		Use: `PricingRules {"PricingRule":{"Appeals":"string","Constituencies":"string","ConstituentAttributeValue1":"string","ConstituentAttributeValue2":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndDateTime":"0001-01-01T00:00:00.000Z","Messages":[object],"OverTheLimitDateTime":"0001-01-01T00:00:00.000Z","PromotedAppeals":"string","PromotedSources":"string","QualifyingPackage":"string","QualifyingPerformance":"string","QualifyingPriceType1":"string","QualifyingPriceType2":"string","QualifyingProductionSeason":"string","QualifyingSeasonPackageType":"string","QualifyingZone":"string","ResultPackage":"string","ResultPerformance":"string","ResultPriceType":"string","ResultProductionSeason":"string","ResultSeasonPackageType":"string","ResultZone":"string","Sources":"string","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new pricing rule`,
 		Long:  `Create a new pricing rule.`,
@@ -3642,6 +4514,11 @@ var Post_PricingRules_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PricingRulesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3652,7 +4529,7 @@ var Post_PricingRules_cmd = &cobra.Command{
 	}
 
 var Post_Printers_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "printers",  },
+		Aliases: []string{  "printers",  "P",  "p",  },
 		Use: `Printers {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Type":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new printer`,
 		Long:  `Create a new printer.`,
@@ -3660,6 +4537,11 @@ var Post_Printers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PrintersCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3678,6 +4560,11 @@ var Post_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ProductionSeasonMembershipOrganizationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3697,6 +4584,11 @@ Returns production seasons matching the specified search criteria.`,
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ProductionSeasonsSearch , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3715,13 +4607,15 @@ var Post_Products_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Search"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ProductsSearch , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.ProductsDescribe , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Search"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ProductsSearch , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.ProductsDescribe , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -3739,6 +4633,11 @@ var Post_ProgramListings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ProgramListingsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3757,6 +4656,11 @@ var Post_Programs_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ProgramsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3767,7 +4671,7 @@ var Post_Programs_cmd = &cobra.Command{
 	}
 
 var Post_Pronouns_cmd = &cobra.Command{
-		Aliases: []string{  "p",  "pronouns",  "P",  },
+		Aliases: []string{  "pronouns",  "P",  "p",  },
 		Use: `Pronouns {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: ``,
 		Long:  ``,
@@ -3775,6 +4679,11 @@ var Post_Pronouns_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.PronounsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3793,6 +4702,11 @@ var Post_QualificationCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.QualificationCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3811,6 +4725,11 @@ var Post_Qualifications_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.QualificationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3821,7 +4740,7 @@ var Post_Qualifications_cmd = &cobra.Command{
 	}
 
 var Post_QueryElementFilters_cmd = &cobra.Command{
-		Aliases: []string{  "qef",  "queryelementfilters",  "QEF",  },
+		Aliases: []string{  "queryelementfilters",  "QEF",  "qef",  },
 		Use: `QueryElementFilters {"QueryElementFilter":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","FilterElement":"string","ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a query element filter`,
 		Long:  `Create a query element filter.`,
@@ -3829,6 +4748,11 @@ var Post_QueryElementFilters_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.QueryElementFiltersCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3847,6 +4771,11 @@ var Post_QueryElementGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.QueryElementGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3865,6 +4794,11 @@ var Post_QueryElements_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.QueryElementsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3875,7 +4809,7 @@ var Post_QueryElements_cmd = &cobra.Command{
 	}
 
 var Post_RankTypes_cmd = &cobra.Command{
-		Aliases: []string{  "rt",  "ranktypes",  "RT",  },
+		Aliases: []string{  "RT",  "rt",  "ranktypes",  },
 		Use: `RankTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new rank type`,
 		Long:  `Create a new rank type.`,
@@ -3883,6 +4817,11 @@ var Post_RankTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.RankTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3901,6 +4840,11 @@ var Post_Rankings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.RankingsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3919,6 +4863,11 @@ var Post_ReceiptSettings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ReceiptSettingsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3937,6 +4886,11 @@ var Post_RecordAttendance_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.RecordAttendanceRecordTicket , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3955,6 +4909,11 @@ var Post_ReferenceTableUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ReferenceTableUserGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3975,6 +4934,11 @@ The login must be unique for the login type. The electronic address for this con
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.RegistrationRegister , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -3985,7 +4949,7 @@ The login must be unique for the login type. The electronic address for this con
 	}
 
 var Post_RelationshipCategories_cmd = &cobra.Command{
-		Aliases: []string{  "rc",  "relationshipcategories",  "RC",  },
+		Aliases: []string{  "relationshipcategories",  "RC",  "rc",  },
 		Use: `RelationshipCategories {"Data":{"CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new relationship category`,
 		Long:  `Create a new relationship category.`,
@@ -3993,6 +4957,11 @@ var Post_RelationshipCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.RelationshipCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4003,7 +4972,7 @@ var Post_RelationshipCategories_cmd = &cobra.Command{
 	}
 
 var Post_ReportRequests_cmd = &cobra.Command{
-		Aliases: []string{  "rr",  "reportrequests",  "RR",  },
+		Aliases: []string{  "reportrequests",  "RR",  "rr",  },
 		Use: `ReportRequests {"ReportRequest":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EmailBody":"string","EmailRecipients":"string","EmailSubject":"string","EndDateTime":"0001-01-01T00:00:00.000Z","OutputOption":"string","Parameters":[object],"QueueStatus":"string","ReportId":"string","RequestDateTime":"0001-01-01T00:00:00.000Z","ResultCode":"string","ResultText":"string","Type":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string","UserId":"string"}}`,
 		Short: `Creates the report request`,
 		Long:  `Creates the report request.`,
@@ -4011,13 +4980,15 @@ var Post_ReportRequests_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("GenerateScheduled"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ReportRequestsGenerateScheduled , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.ReportRequestsCreate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("GenerateScheduled"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ReportRequestsGenerateScheduled , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.ReportRequestsCreate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4035,13 +5006,15 @@ var Post_ReportSchedules_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Save"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ReportSchedulesSave , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.ReportSchedulesCalculateNextRun , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Save"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ReportSchedulesSave , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.ReportSchedulesCalculateNextRun , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4059,6 +5032,11 @@ var Post_ReportUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ReportUserGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4077,6 +5055,11 @@ var Post_Reports_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ReportsGetParameterValues , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4095,6 +5078,11 @@ var Post_Research_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ResearchCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4113,6 +5101,11 @@ var Post_ResearchTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ResearchTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4131,6 +5124,11 @@ var Post_ResourceCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ResourceCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4149,6 +5147,11 @@ var Post_ResourceSchedules_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ResourceSchedulesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4167,6 +5170,11 @@ var Post_ResourceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ResourceTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4185,15 +5193,17 @@ var Post_Resources_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("FindAvailableResources"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ResourcesFindAvailableResources , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("ScheduleOccurrences"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ResourcesGetScheduleOccurrences , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.ResourcesCreate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("FindAvailableResources"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ResourcesFindAvailableResources , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("ScheduleOccurrences"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ResourcesGetScheduleOccurrences , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.ResourcesCreate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4211,6 +5221,11 @@ var Post_SalesChannels_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SalesChannelsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4229,6 +5244,11 @@ var Post_SalesLayoutButtonTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SalesLayoutButtonTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4239,7 +5259,7 @@ var Post_SalesLayoutButtonTypes_cmd = &cobra.Command{
 	}
 
 var Post_SalesLayouts_cmd = &cobra.Command{
-		Aliases: []string{  "SL",  "sl",  "saleslayouts",  },
+		Aliases: []string{  "saleslayouts",  "SL",  "sl",  },
 		Use: `SalesLayouts {"SalesLayout":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","PaymentMethods":[object],"PriceTypes":[object],"SalesLayoutButtons":[object],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new sales layout setup`,
 		Long:  `Create a new sales layout setup.`,
@@ -4247,6 +5267,11 @@ var Post_SalesLayouts_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SalesLayoutsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4265,6 +5290,11 @@ var Post_SalutationTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SalutationTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4275,7 +5305,7 @@ var Post_SalutationTypes_cmd = &cobra.Command{
 	}
 
 var Post_Salutations_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "salutations",  },
+		Aliases: []string{  "salutations",  "S",  "s",  },
 		Use: `Salutations {"Salutation":{"BusinessTitle":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EnvelopeSalutation1":"string","EnvelopeSalutation2":"string","LetterSalutation":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new salutation`,
 		Long:  `Create a new salutation.`,
@@ -4283,6 +5313,11 @@ var Post_Salutations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SalutationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4293,7 +5328,7 @@ var Post_Salutations_cmd = &cobra.Command{
 	}
 
 var Post_SchedulePatternTypes_cmd = &cobra.Command{
-		Aliases: []string{  "schedulepatterntypes",  "SPT",  "spt",  },
+		Aliases: []string{  "SPT",  "spt",  "schedulepatterntypes",  },
 		Use: `SchedulePatternTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Schedule Pattern`,
 		Long:  `Create a new Schedule Pattern.`,
@@ -4301,6 +5336,11 @@ var Post_SchedulePatternTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SchedulePatternTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4319,6 +5359,11 @@ var Post_ScheduleTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ScheduleTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4337,6 +5382,11 @@ var Post_SeasonTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SeasonTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4355,6 +5405,11 @@ var Post_Seasons_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SeasonsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4373,6 +5428,11 @@ var Post_SeatCodes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SeatCodesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4391,6 +5451,11 @@ var Post_SeatStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SeatStatusesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4401,7 +5466,7 @@ var Post_SeatStatuses_cmd = &cobra.Command{
 	}
 
 var Post_Sections_cmd = &cobra.Command{
-		Aliases: []string{  "sections",  "S",  "s",  },
+		Aliases: []string{  "s",  "sections",  "S",  },
 		Use: `Sections {"Data":{"AdditionalText":"string","AdditionalText2":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","PrintDesc":"string","SectionLegend":"string","ShortDesc":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new section`,
 		Long:  `Create a new section.`,
@@ -4409,6 +5474,11 @@ var Post_Sections_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SectionsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4427,6 +5497,11 @@ var Post_ServiceResourceUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ServiceResourceUserGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4445,41 +5520,43 @@ var Post_Session_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("BusinessFacingSession"); test {
-					out, err = tq.Do(*_tq, _tq.Post.SessionCreateBusinessFacingSession , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("LoadOrder"); test {
-					out, err = tq.Do(*_tq, _tq.Post.SessionLoadOrder , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Login"); test {
-					out, err = tq.Do(*_tq, _tq.Post.SessionLogin , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("LoginAsGuest"); test {
-					out, err = tq.Do(*_tq, _tq.Post.SessionLoginAsGuest , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("LoginUsingConstituentInfo"); test {
-					out, err = tq.Do(*_tq, _tq.Post.SessionLoginUsingConstituentInfo , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("LoginUsingEmail"); test {
-					out, err = tq.Do(*_tq, _tq.Post.SessionLoginUsingEmail , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("LoginUsingExternal"); test {
-					out, err = tq.Do(*_tq, _tq.Post.SessionLoginUsingExternal , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("LoginUsingToken"); test {
-					out, err = tq.Do(*_tq, _tq.Post.SessionLoginUsingToken , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Logout"); test {
-					out, err = tq.Do(*_tq, _tq.Post.SessionLogout , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("PromoCode"); test {
-					out, err = tq.Do(*_tq, _tq.Post.SessionGetPromoCode , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Reprint"); test {
-					out, err = tq.Do(*_tq, _tq.Post.SessionReprint , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("SendLoginCredentials"); test {
-					out, err = tq.Do(*_tq, _tq.Post.SessionSendLoginCredentials , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Session"); test {
-					out, err = tq.Do(*_tq, _tq.Post.SessionCreateSession , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("TransferSession"); test {
-					out, err = tq.Do(*_tq, _tq.Post.SessionTransferSession , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("WebLogin"); test {
-					out, err = tq.Do(*_tq, _tq.Post.SessionCreateWebLogin , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.SessionAddVariable , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("BusinessFacingSession"); test {
+				out, err = tq.Do(*_tq, _tq.Post.SessionCreateBusinessFacingSession , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("LoadOrder"); test {
+				out, err = tq.Do(*_tq, _tq.Post.SessionLoadOrder , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Login"); test {
+				out, err = tq.Do(*_tq, _tq.Post.SessionLogin , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("LoginAsGuest"); test {
+				out, err = tq.Do(*_tq, _tq.Post.SessionLoginAsGuest , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("LoginUsingConstituentInfo"); test {
+				out, err = tq.Do(*_tq, _tq.Post.SessionLoginUsingConstituentInfo , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("LoginUsingEmail"); test {
+				out, err = tq.Do(*_tq, _tq.Post.SessionLoginUsingEmail , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("LoginUsingExternal"); test {
+				out, err = tq.Do(*_tq, _tq.Post.SessionLoginUsingExternal , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("LoginUsingToken"); test {
+				out, err = tq.Do(*_tq, _tq.Post.SessionLoginUsingToken , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Logout"); test {
+				out, err = tq.Do(*_tq, _tq.Post.SessionLogout , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("PromoCode"); test {
+				out, err = tq.Do(*_tq, _tq.Post.SessionGetPromoCode , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Reprint"); test {
+				out, err = tq.Do(*_tq, _tq.Post.SessionReprint , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("SendLoginCredentials"); test {
+				out, err = tq.Do(*_tq, _tq.Post.SessionSendLoginCredentials , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Session"); test {
+				out, err = tq.Do(*_tq, _tq.Post.SessionCreateSession , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("TransferSession"); test {
+				out, err = tq.Do(*_tq, _tq.Post.SessionTransferSession , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("WebLogin"); test {
+				out, err = tq.Do(*_tq, _tq.Post.SessionCreateWebLogin , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.SessionAddVariable , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4489,7 +5566,7 @@ var Post_Session_cmd = &cobra.Command{
 	}
 
 var Post_SourceGroups_cmd = &cobra.Command{
-		Aliases: []string{  "sourcegroups",  "SG",  "sg",  },
+		Aliases: []string{  "SG",  "sg",  "sourcegroups",  },
 		Use: `SourceGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new source group`,
 		Long:  `Create a new source group.`,
@@ -4497,6 +5574,11 @@ var Post_SourceGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SourceGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4515,6 +5597,11 @@ var Post_SpecialActivities_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SpecialActivitiesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4525,7 +5612,7 @@ var Post_SpecialActivities_cmd = &cobra.Command{
 	}
 
 var Post_SpecialActivityStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "specialactivitystatuses",  "SAS",  "sas",  },
+		Aliases: []string{  "SAS",  "sas",  "specialactivitystatuses",  },
 		Use: `SpecialActivityStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Special Activity Status`,
 		Long:  `Create a new Special Activity Status.`,
@@ -4533,6 +5620,11 @@ var Post_SpecialActivityStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SpecialActivityStatusesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4543,7 +5635,7 @@ var Post_SpecialActivityStatuses_cmd = &cobra.Command{
 	}
 
 var Post_SpecialActivityTypes_cmd = &cobra.Command{
-		Aliases: []string{  "sat",  "specialactivitytypes",  "SAT",  },
+		Aliases: []string{  "specialactivitytypes",  "SAT",  "sat",  },
 		Use: `SpecialActivityTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Special Activity Type`,
 		Long:  `Create a new Special Activity Type.`,
@@ -4551,6 +5643,11 @@ var Post_SpecialActivityTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SpecialActivityTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4561,7 +5658,7 @@ var Post_SpecialActivityTypes_cmd = &cobra.Command{
 	}
 
 var Post_States_cmd = &cobra.Command{
-		Aliases: []string{  "states",  "S",  "s",  },
+		Aliases: []string{  "s",  "states",  "S",  },
 		Use: `States {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","StateCode":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new state`,
 		Long:  `Create a new state.`,
@@ -4569,6 +5666,11 @@ var Post_States_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.StatesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4579,7 +5681,7 @@ var Post_States_cmd = &cobra.Command{
 	}
 
 var Post_StepTypes_cmd = &cobra.Command{
-		Aliases: []string{  "st",  "steptypes",  "ST",  },
+		Aliases: []string{  "steptypes",  "ST",  "st",  },
 		Use: `StepTypes {"Data":{"AllowAttachments":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseAssociate":"string","UseCompletedOnDateTime":"string","UseDueDateTime":"string","UseNote":"string","UseWarningDays":"string","UseWorker":"string"}}`,
 		Short: `Create a new step type`,
 		Long:  `Create a new step type.`,
@@ -4587,6 +5689,11 @@ var Post_StepTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.StepTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4597,7 +5704,7 @@ var Post_StepTypes_cmd = &cobra.Command{
 	}
 
 var Post_Steps_cmd = &cobra.Command{
-		Aliases: []string{  "steps",  "S",  "s",  },
+		Aliases: []string{  "s",  "steps",  "S",  },
 		Use: `Steps {"Step":{"CompletedOnDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","DueDateTime":"0001-01-01T00:00:00.000Z","NewValue":"string","Notes":"string","OldValue":"string","StepDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new step`,
 		Long:  `Create a new step.`,
@@ -4605,13 +5712,15 @@ var Post_Steps_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("AddDocument"); test {
-					out, err = tq.Do(*_tq, _tq.Post.StepsAddDocument , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.StepsCreate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("AddDocument"); test {
+				out, err = tq.Do(*_tq, _tq.Post.StepsAddDocument , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.StepsCreate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4629,6 +5738,11 @@ var Post_SubLineItemStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SubLineItemStatusesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4639,7 +5753,7 @@ var Post_SubLineItemStatuses_cmd = &cobra.Command{
 	}
 
 var Post_Suffixes_cmd = &cobra.Command{
-		Aliases: []string{  "suffixes",  "S",  "s",  },
+		Aliases: []string{  "S",  "s",  "suffixes",  },
 		Use: `Suffixes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new suffix`,
 		Long:  `Create a new suffix.`,
@@ -4647,6 +5761,11 @@ var Post_Suffixes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SuffixesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4665,6 +5784,11 @@ var Post_SurveyQuestions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SurveyQuestionsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4683,6 +5807,11 @@ var Post_SurveyResponses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.SurveyResponsesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4701,6 +5830,11 @@ var Post_TemplateCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.TemplateCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4719,13 +5853,15 @@ var Post_TemplatePriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Batch"); test {
-					out, err = tq.Do(*_tq, _tq.Post.TemplatePriceTypesBatchCreate , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.TemplatePriceTypesCreate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Batch"); test {
+				out, err = tq.Do(*_tq, _tq.Post.TemplatePriceTypesBatchCreate , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.TemplatePriceTypesCreate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4743,13 +5879,15 @@ var Post_TemplatePrices_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Batch"); test {
-					out, err = tq.Do(*_tq, _tq.Post.TemplatePricesBatchCreate , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.TemplatePricesCreate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Batch"); test {
+				out, err = tq.Do(*_tq, _tq.Post.TemplatePricesBatchCreate , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.TemplatePricesCreate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4767,27 +5905,29 @@ var Post_Templates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("ConstituentInfo"); test {
-					out, err = tq.Do(*_tq, _tq.Post.TemplatesGetConstituentInfo , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("LoginCredentials"); test {
-					out, err = tq.Do(*_tq, _tq.Post.TemplatesGetLoginCredentials , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("OrderConfirmation"); test {
-					out, err = tq.Do(*_tq, _tq.Post.TemplatesGetOrderConfirmation , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("RenderConstituentInfo"); test {
-					out, err = tq.Do(*_tq, _tq.Post.TemplatesRenderConstituentInfo , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("RenderLoginCredentials"); test {
-					out, err = tq.Do(*_tq, _tq.Post.TemplatesRenderLoginCredentials , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("RenderOrderConfirmation"); test {
-					out, err = tq.Do(*_tq, _tq.Post.TemplatesRenderOrderConfirmation , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("RenderTickets"); test {
-					out, err = tq.Do(*_tq, _tq.Post.TemplatesRenderTickets , []byte(args[0]))
-				} else if test, _ := cmd.Flags().GetBool("Tickets"); test {
-					out, err = tq.Do(*_tq, _tq.Post.TemplatesGetTickets , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.TemplatesCreate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("ConstituentInfo"); test {
+				out, err = tq.Do(*_tq, _tq.Post.TemplatesGetConstituentInfo , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("LoginCredentials"); test {
+				out, err = tq.Do(*_tq, _tq.Post.TemplatesGetLoginCredentials , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("OrderConfirmation"); test {
+				out, err = tq.Do(*_tq, _tq.Post.TemplatesGetOrderConfirmation , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("RenderConstituentInfo"); test {
+				out, err = tq.Do(*_tq, _tq.Post.TemplatesRenderConstituentInfo , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("RenderLoginCredentials"); test {
+				out, err = tq.Do(*_tq, _tq.Post.TemplatesRenderLoginCredentials , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("RenderOrderConfirmation"); test {
+				out, err = tq.Do(*_tq, _tq.Post.TemplatesRenderOrderConfirmation , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("RenderTickets"); test {
+				out, err = tq.Do(*_tq, _tq.Post.TemplatesRenderTickets , []byte(args[0]))
+			} else if test, _ := cmd.Flags().GetBool("Tickets"); test {
+				out, err = tq.Do(*_tq, _tq.Post.TemplatesGetTickets , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.TemplatesCreate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4805,6 +5945,11 @@ var Post_Theaters_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.TheatersCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4815,7 +5960,7 @@ var Post_Theaters_cmd = &cobra.Command{
 	}
 
 var Post_TimeSlots_cmd = &cobra.Command{
-		Aliases: []string{  "TS",  "ts",  "timeslots",  },
+		Aliases: []string{  "timeslots",  "TS",  "ts",  },
 		Use: `TimeSlots {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndTime":"0001-01-01T00:00:00.000Z","StartTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new time slot`,
 		Long:  `Create a new time slot.`,
@@ -4823,6 +5968,11 @@ var Post_TimeSlots_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.TimeSlotsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4841,6 +5991,11 @@ var Post_TriPOSCloudConfigurations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.TriPOSCloudConfigurationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4851,7 +6006,7 @@ var Post_TriPOSCloudConfigurations_cmd = &cobra.Command{
 	}
 
 var Post_UpgradeCategories_cmd = &cobra.Command{
-		Aliases: []string{  "upgradecategories",  "UC",  "uc",  },
+		Aliases: []string{  "uc",  "upgradecategories",  "UC",  },
 		Use: `UpgradeCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Upgrade Category`,
 		Long:  `Create a new Upgrade Category.`,
@@ -4859,6 +6014,11 @@ var Post_UpgradeCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.UpgradeCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4877,6 +6037,11 @@ var Post_UpgradeLogs_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.UpgradeLogsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4895,13 +6060,15 @@ var Post_UserPreferences_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("SaveBatch"); test {
-					out, err = tq.Do(*_tq, _tq.Post.UserPreferencesSaveBatch , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.UserPreferencesCreate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("SaveBatch"); test {
+				out, err = tq.Do(*_tq, _tq.Post.UserPreferencesSaveBatch , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.UserPreferencesCreate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
@@ -4919,6 +6086,11 @@ var Post_Users_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.UsersChangePassword , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4937,6 +6109,11 @@ var Post_ValidateWebLogin_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ValidateWebLoginCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4955,6 +6132,11 @@ var Post_WebContentTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.WebContentTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4973,6 +6155,11 @@ var Post_WebLogins_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.WebLoginsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -4983,7 +6170,7 @@ var Post_WebLogins_cmd = &cobra.Command{
 	}
 
 var Post_WorkerQualifications_cmd = &cobra.Command{
-		Aliases: []string{  "workerqualifications",  "WQ",  "wq",  },
+		Aliases: []string{  "wq",  "workerqualifications",  "WQ",  },
 		Use: `WorkerQualifications {"WorkerQualification":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a WorkerQualification`,
 		Long:  `Create a WorkerQualification.`,
@@ -4991,6 +6178,11 @@ var Post_WorkerQualifications_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.WorkerQualificationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -5001,7 +6193,7 @@ var Post_WorkerQualifications_cmd = &cobra.Command{
 	}
 
 var Post_WorkerRoles_cmd = &cobra.Command{
-		Aliases: []string{  "wr",  "workerroles",  "WR",  },
+		Aliases: []string{  "workerroles",  "WR",  "wr",  },
 		Use: `WorkerRoles {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new worker role`,
 		Long:  `Create a new worker role.`,
@@ -5009,6 +6201,11 @@ var Post_WorkerRoles_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.WorkerRolesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -5019,7 +6216,7 @@ var Post_WorkerRoles_cmd = &cobra.Command{
 	}
 
 var Post_WorkerTypes_cmd = &cobra.Command{
-		Aliases: []string{  "WT",  "wt",  "workertypes",  },
+		Aliases: []string{  "wt",  "workertypes",  "WT",  },
 		Use: `WorkerTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new worker type`,
 		Long:  `Create a new worker type.`,
@@ -5027,6 +6224,11 @@ var Post_WorkerTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.WorkerTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -5045,6 +6247,11 @@ var Post_Workers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.WorkersCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -5055,7 +6262,7 @@ var Post_Workers_cmd = &cobra.Command{
 	}
 
 var Post_ZoneGroups_cmd = &cobra.Command{
-		Aliases: []string{  "zonegroups",  "ZG",  "zg",  },
+		Aliases: []string{  "ZG",  "zg",  "zonegroups",  },
 		Use: `ZoneGroups {"Data":{"AliasDescription":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new zone group`,
 		Long:  `Create a new zone group.`,
@@ -5063,6 +6270,11 @@ var Post_ZoneGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ZoneGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -5081,6 +6293,11 @@ var Post_ZoneMaps_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			
 			out, err = tq.Do(*_tq, _tq.Post.ZoneMapsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
@@ -5091,7 +6308,7 @@ var Post_ZoneMaps_cmd = &cobra.Command{
 	}
 
 var Post_Zones_cmd = &cobra.Command{
-		Aliases: []string{  "Z",  "z",  "zones",  },
+		Aliases: []string{  "zones",  "Z",  "z",  },
 		Use: `Zones {"Data":{"Abbreviation":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndTime":"string","ShortDescription":"string","StartTime":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","ZoneLegend":"string","ZoneTime":"string"}}`,
 		Short: `Create a new zone`,
 		Long:  `Create a new zone.`,
@@ -5099,13 +6316,15 @@ var Post_Zones_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-				if false {
-				// no-op for easy looping =)
-				} else if test, _ := cmd.Flags().GetBool("Search"); test {
-					out, err = tq.Do(*_tq, _tq.Post.ZonesSearch , []byte(args[0]))
-				} else {
-					out, err = tq.Do(*_tq, _tq.Post.ZonesCreate , []byte(args[0]))
-				}
+			if _tq.Post == nil {
+				_tq.Log.Error("login failed, exiting")
+				return
+			}
+			if test, _ := cmd.Flags().GetBool("Search"); test {
+				out, err = tq.Do(*_tq, _tq.Post.ZonesSearch , []byte(args[0]))
+			} else {
+				out, err = tq.Do(*_tq, _tq.Post.ZonesCreate , []byte(args[0]))
+			}
 			if err == nil {
 				fmt.Println(out)
 			} else {
