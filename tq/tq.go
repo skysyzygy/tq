@@ -85,14 +85,18 @@ func Do[P any, R any, O any, F func(*P, ...O) (*R, error)](
 ) ([]byte, error) {
 	tq.Log.Info(fmt.Sprint("calling swagger function: ",
 		run.FuncForPC(reflect.ValueOf(function).Pointer()).Name()))
+	if len(query) == 0 {
+		tq.Log.Info("query is empty, calling API endpoint once")
+		return DoOne(tq, function, query)
+	}
 	queries := new([]json.RawMessage)
 	err := json.Unmarshal(query, queries)
 	if _, ok := err.(*json.UnmarshalTypeError); ok {
-		tq.Log.Info("query is not an array, so calling API endpoint once")
+		tq.Log.Info("query is not an array, calling API endpoint once")
 		// it's not an array... so just call DoOne
 		return DoOne(tq, function, query)
 	} else if err == nil {
-		tq.Log.Info("query is an array, so calling API endpoint multiple times")
+		tq.Log.Info("query is an array, calling API endpoint multiple times")
 		// loop over queries and call DoOne for each
 		// TODO: Parallelize this!
 		out := make([]json.RawMessage, len(*queries))
@@ -123,20 +127,25 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 	tq TqConfig, function F, query []byte,
 ) ([]byte, error) {
 
+	var err error
+	var remainder map[string]any
 	params := new(P)
-	remainder, err := unmarshallStructWithRemainder(query, params)
 
-	// Is there a better way to determine failure?
-	if len(structFields(*params)) == 1 && len(mapFields(remainder)) > 0 {
-		remainder, err = unmarshallNestedStructWithRemainder(query, params)
-	}
+	if len(query) > 0 {
+		remainder, err = unmarshallStructWithRemainder(query, params)
 
-	if tq.verbose {
-		tq.Log.Info("structFields", "fields", fmt.Sprint(structFields(*params)))
-		tq.Log.Info("mapFields", "fields", fmt.Sprint(mapFields(remainder)))
-	}
-	if len(structFields(*params)) == 0 {
-		err = errors.Join(err, fmt.Errorf("query could not be parsed"))
+		// Is there a better way to determine failure?
+		if len(structFields(*params)) == 1 && len(mapFields(remainder)) > 0 {
+			remainder, err = unmarshallNestedStructWithRemainder(query, params)
+		}
+
+		if tq.verbose {
+			tq.Log.Info("structFields", "fields", fmt.Sprint(structFields(*params)))
+			tq.Log.Info("mapFields", "fields", fmt.Sprint(mapFields(remainder)))
+		}
+		if len(structFields(*params)) == 0 {
+			err = errors.Join(err, fmt.Errorf("query could not be parsed"))
+		}
 	}
 	if tq.dryRun || err != nil {
 		return nil, err
