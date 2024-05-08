@@ -5,6 +5,7 @@ package cmd
 import (
 	"testing"
     "regexp"
+    "strings"
 
 	"github.com/stretchr/testify/assert"
     "github.com/skysyzygy/tq/tq"
@@ -16,17 +17,21 @@ import (
 {{- range $commands }}
 func Test_{{ print $op "_" $key "_" .Variant "_cmd" }}(t *testing.T) {
         command := {{ print $op "_" $key "_cmd" }}
-        use := command.Use
+        var use string
 
         {{ if ne .Variant "" -}}
         flag := command.Flag("{{ .Variant }}")
         if flag != nil {
             flag.Value.Set("true")
+            defer flag.Value.Set("false")
             use = flag.Usage
         }
+        {{ else -}}
+        use = command.Use
         {{ end -}}
 
-		input := regexp.MustCompile(`\{.+\}`).FindString(use)
+		input := strings.ReplaceAll(regexp.MustCompile(`\{.+\}$`).FindString(use),
+                    "[object]","null")
         out, err := tq.CaptureOutput(func(){
             viper.Set("login",authString)
             // PreRun: tqInit

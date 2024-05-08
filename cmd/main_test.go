@@ -20,7 +20,7 @@ func TestMain(m *testing.M) {
 	server := server()
 	defer server.Close()
 
-	// Setup the test environment by make a separate keystore for testing
+	// Setup the test environment by making a separate keystore for testing
 	auth.Keys, _ = keyring.Open(keyring.Config{
 		ServiceName: "tq_test",
 	})
