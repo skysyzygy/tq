@@ -56,21 +56,35 @@ func Test_instantiateStructType(t *testing.T) {
 		P *test
 		O test
 	}
+	type arrayobj struct {
+		A  []test
+		AP *[]test
+	}
 	pointer := new(nest)
 	object := *pointer
+	arrays := new(arrayobj)
 	j, _ := json.Marshal(instantiateStructType(reflect.TypeOf(object), 1))
 	assert.Equal(t,
-		`{"P":{"I":0,"F":0,"B":false,"S":"string","SP":"string"},"O":{"I":0,"F":0,"B":false,"S":"string","SP":"string"}}`,
+		`{"P":{"I":123,"F":123.456,"B":false,"S":"string","SP":"string"},"O":{"I":123,"F":123.456,"B":false,"S":"string","SP":"string"}}`,
 		string(j))
 
 	j, _ = json.Marshal(instantiateStructType(reflect.TypeOf(pointer), 1))
 	assert.Equal(t,
-		`{"P":{"I":0,"F":0,"B":false,"S":"string","SP":"string"},"O":{"I":0,"F":0,"B":false,"S":"string","SP":"string"}}`,
+		`{"P":{"I":123,"F":123.456,"B":false,"S":"string","SP":"string"},"O":{"I":123,"F":123.456,"B":false,"S":"string","SP":"string"}}`,
 		string(j))
 
+	// only initialize the root object
 	j, _ = json.Marshal(instantiateStructType(reflect.TypeOf(pointer), 0))
 	assert.Equal(t,
 		`{"P":null,"O":{"I":0,"F":0,"B":false,"S":"","SP":null}}`,
+		string(j))
+	j, _ = json.Marshal(instantiateStructType(reflect.TypeOf(arrays), 0))
+	assert.Equal(t,
+		`{"A":null,"AP":null}`,
+		string(j))
+	j, _ = json.Marshal(instantiateStructType(reflect.TypeOf(arrays), 1))
+	assert.Equal(t,
+		`{"A":[{"I":123,"F":123.456,"B":false,"S":"string","SP":"string"}],"AP":[{"I":123,"F":123.456,"B":false,"S":"string","SP":"string"}]}`,
 		string(j))
 
 }

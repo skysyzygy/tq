@@ -117,9 +117,22 @@ func instantiateStructType(t reflect.Type, depth int) any {
 				field = field.Elem()
 			}
 			switch field.Kind() {
-			// bools, ints and floats are already initialized
+			// bools are already initialized
+			case reflect.Int:
+				field.SetInt(123)
+			case reflect.Float32, reflect.Float64:
+				field.SetFloat(123.456)
 			case reflect.String:
 				field.SetString("string")
+			case reflect.Slice:
+				field.Set(reflect.MakeSlice(field.Type(), 1, 1))
+				if depth > 0 {
+					first := field.Index(0)
+					first.Set(reflect.ValueOf(instantiateStructType(first.Type(), depth-1)))
+				} else {
+					// unset pointer
+					v.Field(i).SetZero()
+				}
 			case reflect.Struct:
 				if depth > 0 {
 					field.Set(reflect.ValueOf(instantiateStructType(field.Type(), depth-1)))
