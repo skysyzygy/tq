@@ -119,12 +119,12 @@ func tqInit(cmd *cobra.Command, args []string) {
 	_tq = tq.New(log, verbose, dryRun)
 	a, err := auth.FromString(viper.GetString("Login"))
 	if err != nil {
-		_tq.Log.Error("Bad login string in config file", "error", err.Error(), "login", a)
+		_tq.Log.Error("bad login string in config file", "error", err.Error(), "login", a)
 		return
 	}
 	a.Load()
 	if valid, err := a.Validate(); !valid || err != nil {
-		_tq.Log.Error("Invalid login", "error", err.Error(), "login", a)
+		_tq.Log.Error("invalid login", "error", err.Error(), "login", a)
 		return
 	}
 	_tq.Login(a)
