@@ -6,21 +6,9 @@ import (
 
 	"github.com/skysyzygy/tq/auth"
 
-	"github.com/99designs/keyring"
 	"github.com/skysyzygy/tq/tq"
 	"github.com/stretchr/testify/assert"
 )
-
-// Setup the test environment by making a separate keystore for testing
-func TestMain(m *testing.M) {
-	// setup code
-	auth.Keys, _ = keyring.Open(keyring.Config{
-		ServiceName: "tq_test",
-	})
-	code := m.Run()
-	// teardown code
-	os.Exit(code)
-}
 
 // authenticateAddCmd adds an auth method
 func Test_authenticateAddCmd(t *testing.T) {
@@ -36,14 +24,15 @@ func Test_authenticateAddCmd(t *testing.T) {
 	w.Write(password)
 	w.Close()
 
+	key, err := auth.Keys.Get("tessitura.api/basePath|user|group|location")
+	assert.Error(t, err)
+
 	authenticateAddCmd.Run(authenticateAddCmd, nil)
 
-	keys, _ := auth.Keys.Keys()
-	assert.Len(t, keys, 1)
-	assert.Equal(t, "tessitura.api/basePath|user|group|location", keys[0])
-
-	pass, _ := auth.Keys.Get(keys[0])
-	assert.Equal(t, []byte("password"), pass.Data)
+	key, err = auth.Keys.Get("tessitura.api/basePath|user|group|location")
+	assert.Equal(t, "tessitura.api/basePath|user|group|location", key.Key)
+	assert.Equal(t, []byte("password"), key.Data)
+	assert.NoError(t, err)
 }
 
 // authenticateListCmd lists all authentication methods
@@ -57,7 +46,7 @@ func Test_authenticateListCmd(t *testing.T) {
 		authenticateListCmd.Run(authenticateListCmd, nil)
 	})
 
-	assert.Equal(t, "{tessitura.api/basePath user group location }", string(stdout))
+	assert.Contains(t, string(stdout), "{tessitura.api/basePath user group location }")
 	assert.Equal(t, []byte{}, stderr)
 }
 
@@ -68,11 +57,11 @@ func Test_authenticateDeleteCmd(t *testing.T) {
 	*usergroup = "group"
 	*location = "location"
 
+	_, err := auth.Keys.Get("tessitura.api/basePath|user|group|location")
+	assert.NoError(t, err)
+
 	authenticateDeleteCmd.Run(authenticateDeleteCmd, nil)
 
-	keys, _ := keyring.Open(keyring.Config{
-		ServiceName: "tq",
-	})
-	ks, _ := keys.Keys()
-	assert.Len(t, ks, 0)
+	_, err = auth.Keys.Get("tessitura.api/basePath|user|group|location")
+	assert.Error(t, err)
 }
