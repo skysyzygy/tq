@@ -8,6 +8,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
     "github.com/skysyzygy/tq/tq"
+    "github.com/spf13/viper"
 )
 
 
@@ -17,15 +18,16 @@ func Test_Post_AccountTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -40,15 +42,16 @@ func Test_Post_Accounts_CardNumberAccount_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -63,15 +66,16 @@ func Test_Post_Accounts_DirectDebitAccount_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -86,15 +90,16 @@ func Test_Post_Accounts_SepaAccount_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -109,15 +114,16 @@ func Test_Post_Accounts_VantivEncryptedCardAccount_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -127,15 +133,16 @@ func Test_Post_ActionTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -145,15 +152,16 @@ func Test_Post_Actions__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -163,15 +171,16 @@ func Test_Post_ActivityCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -181,15 +190,16 @@ func Test_Post_ActivityTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -199,15 +209,16 @@ func Test_Post_AddressTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -217,15 +228,16 @@ func Test_Post_Addresses__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -240,15 +252,16 @@ func Test_Post_AffiliationInfo_PostAffiliation_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -258,15 +271,16 @@ func Test_Post_AffiliationTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -276,15 +290,16 @@ func Test_Post_Affiliations__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -294,15 +309,16 @@ func Test_Post_AliasTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -312,15 +328,16 @@ func Test_Post_Aliases__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -330,15 +347,16 @@ func Test_Post_AnalyticsReports__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -348,15 +366,16 @@ func Test_Post_AppealCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -366,15 +385,16 @@ func Test_Post_Artists__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -384,15 +404,16 @@ func Test_Post_AssetTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -402,15 +423,16 @@ func Test_Post_Assets__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -420,15 +442,16 @@ func Test_Post_AssociationTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -438,15 +461,16 @@ func Test_Post_Associations__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -456,15 +480,16 @@ func Test_Post_Attributes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -479,15 +504,16 @@ func Test_Post_Authenticate_Authenticate_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -502,15 +528,16 @@ func Test_Post_Authenticate_AuthenticateWindows_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -525,15 +552,16 @@ func Test_Post_Authenticate_GenerateToken_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -548,15 +576,16 @@ func Test_Post_Authenticate_GenerateTokenWindows_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -571,15 +600,16 @@ func Test_Post_Authenticate_ValidateToken_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -594,15 +624,16 @@ func Test_Post_Authorization_Authorize_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -617,15 +648,16 @@ func Test_Post_Authorization_Confirm_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -640,15 +672,16 @@ func Test_Post_Authorization_ConfirmPayByLink_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -663,15 +696,16 @@ func Test_Post_Authorization_Finalize_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -686,15 +720,16 @@ func Test_Post_Authorization_Link_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -709,15 +744,16 @@ func Test_Post_Authorization_Reverse_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -732,15 +768,16 @@ func Test_Post_Batch_Post_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -755,15 +792,16 @@ func Test_Post_Batch_Sample_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -773,15 +811,16 @@ func Test_Post_BatchMaintenance__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -791,15 +830,16 @@ func Test_Post_BatchTypeGroups__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -809,15 +849,16 @@ func Test_Post_BatchTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -827,15 +868,16 @@ func Test_Post_BillingSchedules__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -845,15 +887,16 @@ func Test_Post_BillingTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -863,15 +906,16 @@ func Test_Post_BookingCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -881,15 +925,16 @@ func Test_Post_BookingTemplates__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -899,15 +944,16 @@ func Test_Post_Bookings__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -922,15 +968,16 @@ func Test_Post_Bookings_AddDocument_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -945,15 +992,16 @@ func Test_Post_Bookings_FromTemplate_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -963,15 +1011,16 @@ func Test_Post_BulkCopySets__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -986,15 +1035,16 @@ func Test_Post_BulkCopySets_CopyDay_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1009,15 +1059,16 @@ func Test_Post_BulkCopySets_CopyEvent_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1032,15 +1083,16 @@ func Test_Post_BulkCopySets_ReplaceExclusions_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1050,15 +1102,16 @@ func Test_Post_BulkDailyCopyExclusions__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1068,15 +1121,16 @@ func Test_Post_BusinessUnits__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1086,15 +1140,16 @@ func Test_Post_CampaignDesignations__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1104,15 +1159,16 @@ func Test_Post_CampaignFunds__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1122,15 +1178,16 @@ func Test_Post_CardReaderTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1145,15 +1202,16 @@ func Test_Post_Cart_AddBooking_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1168,15 +1226,16 @@ func Test_Post_Cart_AddContribution_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1191,15 +1250,16 @@ func Test_Post_Cart_AddFee_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1214,15 +1274,16 @@ func Test_Post_Cart_AddGiftCertificate_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1237,15 +1298,16 @@ func Test_Post_Cart_AddNFSPackagePerformanceItem_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1260,15 +1322,16 @@ func Test_Post_Cart_AddOnAccount_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1283,15 +1346,16 @@ func Test_Post_Cart_AddPackageItem_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1306,15 +1370,16 @@ func Test_Post_Cart_AddPaymentPlan_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1329,15 +1394,16 @@ func Test_Post_Cart_AddPaymentPlanBasedOnBillingSchedule_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1352,15 +1418,16 @@ func Test_Post_Cart_AddPaymentPlanInstallments_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1375,15 +1442,16 @@ func Test_Post_Cart_AddSubPackageItem_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1398,15 +1466,16 @@ func Test_Post_Cart_ApplyCashPayment_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1421,15 +1490,16 @@ func Test_Post_Cart_ApplyCheckPayment_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1444,15 +1514,16 @@ func Test_Post_Cart_ApplyGiftCertificate_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1467,15 +1538,16 @@ func Test_Post_Cart_ApplyInvoicePayment_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1490,15 +1562,16 @@ func Test_Post_Cart_ApplyOnAccountPayment_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1513,15 +1586,16 @@ func Test_Post_Cart_ApplyOtherPayment_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1536,15 +1610,16 @@ func Test_Post_Cart_Authorize_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1559,15 +1634,16 @@ func Test_Post_Cart_Checkout_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1582,15 +1658,16 @@ func Test_Post_Cart_CheckoutWithCard_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1605,15 +1682,16 @@ func Test_Post_Cart_PreviewPaymentPlanBasedOnBillingSchedule_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1628,15 +1706,16 @@ func Test_Post_Cart_Price_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1651,15 +1730,16 @@ func Test_Post_Cart_PrintEmail_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1674,15 +1754,16 @@ func Test_Post_Cart_PrintPrintStrings_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1697,15 +1778,16 @@ func Test_Post_Cart_PrintTicketElements_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1720,15 +1802,16 @@ func Test_Post_Cart_ReserveTickets_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1743,15 +1826,16 @@ func Test_Post_Cart_ReserveTicketsForLineItem_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1766,15 +1850,16 @@ func Test_Post_Cart_ReturnTicket_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1789,15 +1874,16 @@ func Test_Post_Cart_ReturnTicketWithSeat_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1812,15 +1898,16 @@ func Test_Post_Cart_Validate_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1835,15 +1922,16 @@ func Test_Post_Cart_ValidateLimits_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1853,15 +1941,16 @@ func Test_Post_Colors__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1871,15 +1960,16 @@ func Test_Post_Composers__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1889,15 +1979,16 @@ func Test_Post_Constituencies__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1907,15 +1998,16 @@ func Test_Post_ConstituencyTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1925,15 +2017,16 @@ func Test_Post_ConstituentDocuments__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1943,15 +2036,16 @@ func Test_Post_ConstituentGroups__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1961,15 +2055,16 @@ func Test_Post_ConstituentInactives__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1979,15 +2074,16 @@ func Test_Post_ConstituentProtectionTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -1997,15 +2093,16 @@ func Test_Post_ConstituentTypeAffiliates__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2015,15 +2112,16 @@ func Test_Post_ConstituentTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2038,15 +2136,16 @@ func Test_Post_Constituents_Constituent_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2061,15 +2160,16 @@ func Test_Post_Constituents_ConstituentUsingSnapshot_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2084,15 +2184,16 @@ func Test_Post_Constituents_ConvertGroupToIndividual_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2107,15 +2208,16 @@ func Test_Post_Constituents_ConvertIndividualToHousehold_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2130,15 +2232,16 @@ func Test_Post_Constituents_ConvertIndividualToOrganization_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2153,15 +2256,16 @@ func Test_Post_Constituents_SchedulePurge_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2176,15 +2280,16 @@ func Test_Post_Constituents_SearchByCardNumber_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2199,15 +2304,16 @@ func Test_Post_Constituents_SwapConstituentA1A2_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2222,15 +2328,16 @@ func Test_Post_Constituents_UnschedulePurge_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2240,15 +2347,16 @@ func Test_Post_ContactPermissionCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2258,15 +2366,16 @@ func Test_Post_ContactPermissionTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2276,15 +2385,16 @@ func Test_Post_ContactPermissions__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2299,15 +2409,16 @@ func Test_Post_ContactPermissions_ForTransaction_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2317,15 +2428,16 @@ func Test_Post_ContactPointCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2335,15 +2447,16 @@ func Test_Post_ContactPointCategoryPurposes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2353,15 +2466,16 @@ func Test_Post_ContactPointPurposeCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2371,15 +2485,16 @@ func Test_Post_ContactPointPurposeMaps__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2389,15 +2504,16 @@ func Test_Post_ContactPointPurposes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2407,15 +2523,16 @@ func Test_Post_ContactTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2425,15 +2542,16 @@ func Test_Post_ContributionDesignations__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2443,15 +2561,16 @@ func Test_Post_ContributionImportSets__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2461,15 +2580,16 @@ func Test_Post_Contributions__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2479,15 +2599,16 @@ func Test_Post_ControlGroupUserGroups__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2497,15 +2618,16 @@ func Test_Post_ControlGroups__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2520,15 +2642,16 @@ func Test_Post_CoreIdentity_Sign_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2538,15 +2661,16 @@ func Test_Post_Countries__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2556,15 +2680,16 @@ func Test_Post_CrediteeTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2574,15 +2699,16 @@ func Test_Post_CurrencyTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2592,15 +2718,16 @@ func Test_Post_Custom__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2615,15 +2742,16 @@ func Test_Post_Custom_ExecuteLocalProcedure_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2638,15 +2766,16 @@ func Test_Post_Custom_ExecuteLocalProcedureWithMultipleResultSets_cmd(t *testing
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2656,15 +2785,16 @@ func Test_Post_CustomDefaultCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2674,15 +2804,16 @@ func Test_Post_CustomDefaults__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2692,15 +2823,16 @@ func Test_Post_DeliveryMethods__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2710,15 +2842,16 @@ func Test_Post_DesignationCodes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2733,15 +2866,16 @@ func Test_Post_Diagnostics_Check_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2751,15 +2885,16 @@ func Test_Post_DirectDebitAccountTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2769,15 +2904,16 @@ func Test_Post_DiscountTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2787,15 +2923,16 @@ func Test_Post_DocumentCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2805,15 +2942,16 @@ func Test_Post_DonationLevels__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2828,15 +2966,16 @@ func Test_Post_EMV_Authorization_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2851,15 +2990,16 @@ func Test_Post_EMV_Lane_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2874,15 +3014,16 @@ func Test_Post_EMV_Signature_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2897,15 +3038,16 @@ func Test_Post_EMV_Token_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2915,15 +3057,16 @@ func Test_Post_ElectronicAddressTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2933,15 +3076,16 @@ func Test_Post_ElectronicAddresses__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2956,15 +3100,16 @@ func Test_Post_ElectronicAddresses_Move_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2974,15 +3119,16 @@ func Test_Post_EmailProfiles__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -2997,15 +3143,16 @@ func Test_Post_EmailResponses_Appeal_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3020,15 +3167,16 @@ func Test_Post_Emails_Send_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3043,15 +3191,16 @@ func Test_Post_Emails_SendConstituentInfo_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3066,15 +3215,16 @@ func Test_Post_Emails_SendLoginCredentials_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3089,15 +3239,16 @@ func Test_Post_Emails_SendOrderConfirmation_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3112,15 +3263,16 @@ func Test_Post_Emails_SendTickets_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3130,15 +3282,16 @@ func Test_Post_EmarketIndicators__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3148,15 +3301,16 @@ func Test_Post_Eras__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3166,15 +3320,16 @@ func Test_Post_Facilities__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3184,15 +3339,16 @@ func Test_Post_Genders__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3202,15 +3358,16 @@ func Test_Post_GiftAidContactMethods__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3220,15 +3377,16 @@ func Test_Post_GiftAidDeclarations__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3238,15 +3396,16 @@ func Test_Post_GiftAidDocumentStatuses__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3256,15 +3415,16 @@ func Test_Post_GiftAidIneligibleReasons__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3274,15 +3434,16 @@ func Test_Post_GiftAidRates__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3292,15 +3453,16 @@ func Test_Post_GiftAidStatuses__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3310,15 +3472,16 @@ func Test_Post_GiftAidTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3333,15 +3496,16 @@ func Test_Post_GiftCertificates_TransactionDetailsForRedemption_cmd(t *testing.T
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3356,15 +3520,16 @@ func Test_Post_GiftCertificates_Unlock_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3374,15 +3539,16 @@ func Test_Post_HoldCodeCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3392,15 +3558,16 @@ func Test_Post_HoldCodeUserGroups__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3410,15 +3577,16 @@ func Test_Post_HoldCodes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3428,15 +3596,16 @@ func Test_Post_InactiveReasons__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3446,15 +3615,16 @@ func Test_Post_IntegrationDefaults__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3464,15 +3634,16 @@ func Test_Post_Integrations__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3482,15 +3653,16 @@ func Test_Post_InterestCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3500,15 +3672,16 @@ func Test_Post_InterestTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3518,15 +3691,16 @@ func Test_Post_Interests__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3541,15 +3715,16 @@ func Test_Post_Interests_Or_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3559,15 +3734,16 @@ func Test_Post_Internal__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3577,15 +3753,16 @@ func Test_Post_InventoryContactPermissionTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3595,15 +3772,16 @@ func Test_Post_InventoryWebContents__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3618,15 +3796,16 @@ func Test_Post_InvoiceBilling_BillInvoices_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3636,15 +3815,16 @@ func Test_Post_Issues__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3654,15 +3834,16 @@ func Test_Post_KeywordCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3672,15 +3853,16 @@ func Test_Post_Keywords__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3690,15 +3872,16 @@ func Test_Post_Languages__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3708,15 +3891,16 @@ func Test_Post_ListCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3726,15 +3910,16 @@ func Test_Post_Lists__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3749,15 +3934,16 @@ func Test_Post_Lists_Generate_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3772,15 +3958,16 @@ func Test_Post_Lists_Results_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3795,15 +3982,16 @@ func Test_Post_Lists_Search_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3813,15 +4001,16 @@ func Test_Post_LoginTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3831,15 +4020,16 @@ func Test_Post_MachineSettings__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3849,15 +4039,16 @@ func Test_Post_MailIndicators__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3867,15 +4058,16 @@ func Test_Post_MediaTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3885,15 +4077,16 @@ func Test_Post_MembershipLevelCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3908,15 +4101,16 @@ func Test_Post_Memberships_Calculate_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3926,15 +4120,16 @@ func Test_Post_ModeOfSaleCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3944,15 +4139,16 @@ func Test_Post_ModeOfSaleOffers__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3962,15 +4158,16 @@ func Test_Post_ModeOfSalePriceTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3980,15 +4177,16 @@ func Test_Post_ModeOfSaleSurveyQuestions__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -3998,15 +4196,16 @@ func Test_Post_ModeOfSaleUserGroups__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4016,15 +4215,16 @@ func Test_Post_ModesOfSale__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4034,15 +4234,16 @@ func Test_Post_NScanAccessAreas__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4052,15 +4253,16 @@ func Test_Post_NameStatuses__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4070,15 +4272,16 @@ func Test_Post_ObjectPermissions__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4093,15 +4296,16 @@ func Test_Post_OrderBilling_BillOrders_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4111,15 +4315,16 @@ func Test_Post_OrderCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4129,15 +4334,16 @@ func Test_Post_Orders__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4152,15 +4358,16 @@ func Test_Post_Orders_OrdersForDelivery_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4175,15 +4382,16 @@ func Test_Post_Orders_Price_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4198,15 +4406,16 @@ func Test_Post_Orders_PrintTicketElements_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4216,15 +4425,16 @@ func Test_Post_Organizations__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4234,15 +4444,16 @@ func Test_Post_OriginalSources__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4252,15 +4463,16 @@ func Test_Post_Origins__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4270,15 +4482,16 @@ func Test_Post_OutputSets__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4288,15 +4501,16 @@ func Test_Post_PackagePriceTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4306,15 +4520,16 @@ func Test_Post_PackageTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4324,15 +4539,16 @@ func Test_Post_PackageWebContents__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4347,15 +4563,16 @@ func Test_Post_Packages_Search_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4370,15 +4587,16 @@ func Test_Post_PaymentComponent_PaymentComponent_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4393,15 +4611,16 @@ func Test_Post_PaymentGatewayAccounts_Account_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4416,15 +4635,16 @@ func Test_Post_PaymentGatewayAccounts_StoreToken_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4434,15 +4654,16 @@ func Test_Post_PaymentGatewayActivities__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4457,15 +4678,16 @@ func Test_Post_PaymentGatewayCredentials_Credential_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4480,15 +4702,16 @@ func Test_Post_PaymentGatewayNotifications_NotificationEvent_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4498,15 +4721,16 @@ func Test_Post_PaymentGatewayTransactionTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4516,15 +4740,16 @@ func Test_Post_PaymentMethodGroups__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4534,15 +4759,16 @@ func Test_Post_PaymentMethodUserGroups__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4552,15 +4778,16 @@ func Test_Post_PaymentMethods__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4570,15 +4797,16 @@ func Test_Post_PaymentSignatures__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4593,15 +4821,16 @@ func Test_Post_PaymentSignatures_PostForOrder_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4611,15 +4840,16 @@ func Test_Post_PaymentTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4634,15 +4864,16 @@ func Test_Post_Payments_ReserveIds_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4652,15 +4883,16 @@ func Test_Post_PerformanceGroups__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4670,15 +4902,16 @@ func Test_Post_PerformancePackageModeOfSales__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4688,15 +4921,16 @@ func Test_Post_PerformancePriceLayers__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4711,15 +4945,16 @@ func Test_Post_PerformancePriceLayers_PostSummaries_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4734,15 +4969,16 @@ func Test_Post_PerformancePriceLayers_Search_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4757,15 +4993,16 @@ func Test_Post_PerformancePriceLayers_SearchSummaries_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4775,15 +5012,16 @@ func Test_Post_PerformancePriceTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4793,15 +5031,16 @@ func Test_Post_PerformancePrices__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4811,15 +5050,16 @@ func Test_Post_PerformanceStatuses__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4829,15 +5069,16 @@ func Test_Post_PerformanceTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4852,15 +5093,16 @@ func Test_Post_Performances_ApplySingleHold_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4875,15 +5117,16 @@ func Test_Post_Performances_Copy_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4898,15 +5141,16 @@ func Test_Post_Performances_Reschedule_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4921,15 +5165,16 @@ func Test_Post_Performances_Search_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4944,15 +5189,16 @@ func Test_Post_Performances_SeatHolds_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4962,15 +5208,16 @@ func Test_Post_Philanthropy__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4980,15 +5227,16 @@ func Test_Post_PhilanthropyTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -4998,15 +5246,16 @@ func Test_Post_PhoneIndicators__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5016,15 +5265,16 @@ func Test_Post_PhoneTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5034,15 +5284,16 @@ func Test_Post_Phones__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5052,15 +5303,16 @@ func Test_Post_PlanPriorities__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5070,15 +5322,16 @@ func Test_Post_PlanSources__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5088,15 +5341,16 @@ func Test_Post_PlanStatuses__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5106,15 +5360,16 @@ func Test_Post_PlanTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5124,15 +5379,16 @@ func Test_Post_PlanWorkers__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5142,15 +5398,16 @@ func Test_Post_Plans__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5165,15 +5422,16 @@ func Test_Post_PledgeBilling_BillPledges_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5183,15 +5441,16 @@ func Test_Post_PortfolioCustomElements__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5201,15 +5460,16 @@ func Test_Post_Prefixes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5219,15 +5479,16 @@ func Test_Post_Premieres__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5237,15 +5498,16 @@ func Test_Post_PriceCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5255,15 +5517,16 @@ func Test_Post_PriceLayerTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5273,15 +5536,16 @@ func Test_Post_PriceTemplates__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5291,15 +5555,16 @@ func Test_Post_PriceTypeCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5309,15 +5574,16 @@ func Test_Post_PriceTypeGroups__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5327,15 +5593,16 @@ func Test_Post_PriceTypeReasons__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5345,15 +5612,16 @@ func Test_Post_PriceTypeUserGroups__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5363,15 +5631,16 @@ func Test_Post_PriceTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5381,15 +5650,16 @@ func Test_Post_PricingRuleCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5399,15 +5669,16 @@ func Test_Post_PricingRuleMessageTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5417,15 +5688,16 @@ func Test_Post_PricingRuleSets__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5435,15 +5707,16 @@ func Test_Post_PricingRules__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5453,15 +5726,16 @@ func Test_Post_Printers__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5471,15 +5745,16 @@ func Test_Post_ProductionSeasonMembershipOrganizations__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5494,15 +5769,16 @@ func Test_Post_ProductionSeasons_Search_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5517,15 +5793,16 @@ func Test_Post_Products_Describe_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5540,15 +5817,16 @@ func Test_Post_Products_Search_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5558,15 +5836,16 @@ func Test_Post_ProgramListings__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5576,15 +5855,16 @@ func Test_Post_Programs__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5594,15 +5874,16 @@ func Test_Post_Pronouns__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5612,15 +5893,16 @@ func Test_Post_QualificationCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5630,15 +5912,16 @@ func Test_Post_Qualifications__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5648,15 +5931,16 @@ func Test_Post_QueryElementFilters__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5666,15 +5950,16 @@ func Test_Post_QueryElementGroups__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5684,15 +5969,16 @@ func Test_Post_QueryElements__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5702,15 +5988,16 @@ func Test_Post_RankTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5720,15 +6007,16 @@ func Test_Post_Rankings__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5738,15 +6026,16 @@ func Test_Post_ReceiptSettings__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5761,15 +6050,16 @@ func Test_Post_RecordAttendance_RecordTicket_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5779,15 +6069,16 @@ func Test_Post_ReferenceTableUserGroups__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5802,15 +6093,16 @@ func Test_Post_Registration_Register_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5820,15 +6112,16 @@ func Test_Post_RelationshipCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5838,15 +6131,16 @@ func Test_Post_ReportRequests__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5861,15 +6155,16 @@ func Test_Post_ReportRequests_GenerateScheduled_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5884,15 +6179,16 @@ func Test_Post_ReportSchedules_CalculateNextRun_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5907,15 +6203,16 @@ func Test_Post_ReportSchedules_Save_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5925,15 +6222,16 @@ func Test_Post_ReportUserGroups__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5948,15 +6246,16 @@ func Test_Post_Reports_ParameterValues_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5966,15 +6265,16 @@ func Test_Post_Research__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -5984,15 +6284,16 @@ func Test_Post_ResearchTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6002,15 +6303,16 @@ func Test_Post_ResourceCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6020,15 +6322,16 @@ func Test_Post_ResourceSchedules__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6038,15 +6341,16 @@ func Test_Post_ResourceTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6056,15 +6360,16 @@ func Test_Post_Resources__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6079,15 +6384,16 @@ func Test_Post_Resources_FindAvailableResources_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6102,15 +6408,16 @@ func Test_Post_Resources_ScheduleOccurrences_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6120,15 +6427,16 @@ func Test_Post_SalesChannels__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6138,15 +6446,16 @@ func Test_Post_SalesLayoutButtonTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6156,15 +6465,16 @@ func Test_Post_SalesLayouts__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6174,15 +6484,16 @@ func Test_Post_SalutationTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6192,15 +6503,16 @@ func Test_Post_Salutations__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6210,15 +6522,16 @@ func Test_Post_SchedulePatternTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6228,15 +6541,16 @@ func Test_Post_ScheduleTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6246,15 +6560,16 @@ func Test_Post_SeasonTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6264,15 +6579,16 @@ func Test_Post_Seasons__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6282,15 +6598,16 @@ func Test_Post_SeatCodes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6300,15 +6617,16 @@ func Test_Post_SeatStatuses__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6318,15 +6636,16 @@ func Test_Post_Sections__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6336,15 +6655,16 @@ func Test_Post_ServiceResourceUserGroups__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6359,15 +6679,16 @@ func Test_Post_Session_AddVariable_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6382,15 +6703,16 @@ func Test_Post_Session_BusinessFacingSession_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6405,15 +6727,16 @@ func Test_Post_Session_LoadOrder_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6428,15 +6751,16 @@ func Test_Post_Session_Login_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6451,15 +6775,16 @@ func Test_Post_Session_LoginAsGuest_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6474,15 +6799,16 @@ func Test_Post_Session_LoginUsingConstituentInfo_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6497,15 +6823,16 @@ func Test_Post_Session_LoginUsingEmail_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6520,15 +6847,16 @@ func Test_Post_Session_LoginUsingExternal_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6543,15 +6871,16 @@ func Test_Post_Session_LoginUsingToken_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6566,15 +6895,16 @@ func Test_Post_Session_Logout_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6589,15 +6919,16 @@ func Test_Post_Session_PromoCode_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6612,15 +6943,16 @@ func Test_Post_Session_Reprint_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6635,15 +6967,16 @@ func Test_Post_Session_SendLoginCredentials_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6658,15 +6991,16 @@ func Test_Post_Session_Session_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6681,15 +7015,16 @@ func Test_Post_Session_TransferSession_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6704,15 +7039,16 @@ func Test_Post_Session_WebLogin_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6722,15 +7058,16 @@ func Test_Post_SourceGroups__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6740,15 +7077,16 @@ func Test_Post_SpecialActivities__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6758,15 +7096,16 @@ func Test_Post_SpecialActivityStatuses__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6776,15 +7115,16 @@ func Test_Post_SpecialActivityTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6794,15 +7134,16 @@ func Test_Post_States__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6812,15 +7153,16 @@ func Test_Post_StepTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6830,15 +7172,16 @@ func Test_Post_Steps__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6853,15 +7196,16 @@ func Test_Post_Steps_AddDocument_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6871,15 +7215,16 @@ func Test_Post_SubLineItemStatuses__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6889,15 +7234,16 @@ func Test_Post_Suffixes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6907,15 +7253,16 @@ func Test_Post_SurveyQuestions__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6925,15 +7272,16 @@ func Test_Post_SurveyResponses__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6943,15 +7291,16 @@ func Test_Post_TemplateCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6961,15 +7310,16 @@ func Test_Post_TemplatePriceTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -6984,15 +7334,16 @@ func Test_Post_TemplatePriceTypes_Batch_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7002,15 +7353,16 @@ func Test_Post_TemplatePrices__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7025,15 +7377,16 @@ func Test_Post_TemplatePrices_Batch_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7043,15 +7396,16 @@ func Test_Post_Templates__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7066,15 +7420,16 @@ func Test_Post_Templates_ConstituentInfo_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7089,15 +7444,16 @@ func Test_Post_Templates_LoginCredentials_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7112,15 +7468,16 @@ func Test_Post_Templates_OrderConfirmation_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7135,15 +7492,16 @@ func Test_Post_Templates_RenderConstituentInfo_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7158,15 +7516,16 @@ func Test_Post_Templates_RenderLoginCredentials_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7181,15 +7540,16 @@ func Test_Post_Templates_RenderOrderConfirmation_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7204,15 +7564,16 @@ func Test_Post_Templates_RenderTickets_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7227,15 +7588,16 @@ func Test_Post_Templates_Tickets_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7245,15 +7607,16 @@ func Test_Post_Theaters__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7263,15 +7626,16 @@ func Test_Post_TimeSlots__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7281,15 +7645,16 @@ func Test_Post_TriPOSCloudConfigurations__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7299,15 +7664,16 @@ func Test_Post_UpgradeCategories__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7317,15 +7683,16 @@ func Test_Post_UpgradeLogs__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7335,15 +7702,16 @@ func Test_Post_UserPreferences__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7358,15 +7726,16 @@ func Test_Post_UserPreferences_SaveBatch_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7381,15 +7750,16 @@ func Test_Post_Users_ChangePassword_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7399,15 +7769,16 @@ func Test_Post_ValidateWebLogin__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7417,15 +7788,16 @@ func Test_Post_WebContentTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7435,15 +7807,16 @@ func Test_Post_WebLogins__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7453,15 +7826,16 @@ func Test_Post_WorkerQualifications__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7471,15 +7845,16 @@ func Test_Post_WorkerRoles__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7489,15 +7864,16 @@ func Test_Post_WorkerTypes__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7507,15 +7883,16 @@ func Test_Post_Workers__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7525,15 +7902,16 @@ func Test_Post_ZoneGroups__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7543,15 +7921,16 @@ func Test_Post_ZoneMaps__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7561,15 +7940,16 @@ func Test_Post_Zones__cmd(t *testing.T) {
 
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 
@@ -7584,14 +7964,15 @@ func Test_Post_Zones_Search_cmd(t *testing.T) {
         }
         input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             //Use: {{ print $key " " $command.Usage }},
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }

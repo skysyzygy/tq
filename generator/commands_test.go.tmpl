@@ -8,6 +8,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
     "github.com/skysyzygy/tq/tq"
+    "github.com/spf13/viper"
 )
 
 {{ $op := .op }}
@@ -27,15 +28,16 @@ func Test_{{ print $op "_" $key "_" .Variant "_cmd" }}(t *testing.T) {
 
 		input := regexp.MustCompile(`\{.+\}`).FindString(use)
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
             command.PreRun(command, nil)
             {{`//Use: {{ print $key " " $command.Usage }},`}}
             command.Run(command, []string{input})
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 {{ end }}
