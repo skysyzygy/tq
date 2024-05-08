@@ -11,7 +11,7 @@ import (
 
 
 var Get_AccountTypes_cmd = &cobra.Command{
-		Aliases: []string{  "accounttypes",  "AT",  "at",  },
+		Aliases: []string{  "at",  "accounttypes",  "AT",  },
 		Use: `AccountTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an account type by id`,
 		Long:  `Get the details of an account type by id.`,
@@ -19,7 +19,7 @@ var Get_AccountTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -47,7 +47,7 @@ var Get_Accounts_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -73,7 +73,7 @@ var Get_ActionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -101,7 +101,7 @@ var Get_Actions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -127,7 +127,7 @@ var Get_ActivityCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -147,7 +147,7 @@ var Get_ActivityCategories_cmd = &cobra.Command{
 	}
 
 var Get_ActivityTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "at",  "activitytypes",  },
+		Aliases: []string{  "activitytypes",  "AT",  "at",  },
 		Use: `ActivityTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an activity type by id`,
 		Long:  `Get the details of an activity type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -155,7 +155,7 @@ var Get_ActivityTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -183,7 +183,7 @@ var Get_AddressTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -211,7 +211,7 @@ var Get_Addresses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -237,7 +237,7 @@ var Get_AffiliationTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -265,7 +265,7 @@ var Get_Affiliations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -283,7 +283,7 @@ var Get_Affiliations_cmd = &cobra.Command{
 	}
 
 var Get_AliasTypes_cmd = &cobra.Command{
-		Aliases: []string{  "aliastypes",  "AT",  "at",  },
+		Aliases: []string{  "at",  "aliastypes",  "AT",  },
 		Use: `AliasTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an alias type by id`,
 		Long:  `Get the details of an alias type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -291,7 +291,7 @@ var Get_AliasTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -311,7 +311,7 @@ var Get_AliasTypes_cmd = &cobra.Command{
 	}
 
 var Get_Aliases_cmd = &cobra.Command{
-		Aliases: []string{  "a",  "aliases",  "A",  },
+		Aliases: []string{  "aliases",  "A",  "a",  },
 		Use: `Aliases {"AliasID":"string"}`,
 		Short: `Get details of an alias`,
 		Long:  `Get details of an alias.`,
@@ -319,7 +319,7 @@ var Get_Aliases_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -345,7 +345,7 @@ var Get_AnalyticsCubes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -363,7 +363,7 @@ var Get_AnalyticsCubes_cmd = &cobra.Command{
 	}
 
 var Get_AnalyticsReports_cmd = &cobra.Command{
-		Aliases: []string{  "analyticsreports",  "AR",  "ar",  },
+		Aliases: []string{  "ar",  "analyticsreports",  "AR",  },
 		Use: `AnalyticsReports {"AnalyticsReportID":"string"}`,
 		Short: `Get a single SSRS Report for display in Analytics`,
 		Long:  `Get a single SSRS Report for display in Analytics.`,
@@ -371,7 +371,7 @@ var Get_AnalyticsReports_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -397,7 +397,7 @@ var Get_AppScreenTexts_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -417,7 +417,7 @@ var Get_AppScreenTexts_cmd = &cobra.Command{
 	}
 
 var Get_AppealCategories_cmd = &cobra.Command{
-		Aliases: []string{  "AC",  "ac",  "appealcategories",  },
+		Aliases: []string{  "appealcategories",  "AC",  "ac",  },
 		Use: `AppealCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an appeal category by id`,
 		Long:  `Get the details of an appeal category by id.`,
@@ -425,7 +425,7 @@ var Get_AppealCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -445,7 +445,7 @@ var Get_AppealCategories_cmd = &cobra.Command{
 	}
 
 var Get_Appeals_cmd = &cobra.Command{
-		Aliases: []string{  "a",  "appeals",  "A",  },
+		Aliases: []string{  "appeals",  "A",  "a",  },
 		Use: `Appeals {"AppealID":"string"}`,
 		Short: `Get details of an Appeal`,
 		Long:  `Get details of an Appeal.`,
@@ -453,7 +453,7 @@ var Get_Appeals_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -479,7 +479,7 @@ var Get_ApplicationObjects_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -502,7 +502,7 @@ var Get_Artists_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -528,7 +528,7 @@ var Get_AssetTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -556,7 +556,7 @@ var Get_Assets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -574,7 +574,7 @@ var Get_Assets_cmd = &cobra.Command{
 	}
 
 var Get_AssociationTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "at",  "associationtypes",  },
+		Aliases: []string{  "associationtypes",  "AT",  "at",  },
 		Use: `AssociationTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an association type by id`,
 		Long:  `Get the details of an association type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -582,7 +582,7 @@ var Get_AssociationTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -610,7 +610,7 @@ var Get_Associations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -636,7 +636,7 @@ var Get_AttendanceHistory_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -651,7 +651,7 @@ var Get_AttendanceHistory_cmd = &cobra.Command{
 	}
 
 var Get_Attributes_cmd = &cobra.Command{
-		Aliases: []string{  "attributes",  "A",  "a",  },
+		Aliases: []string{  "a",  "attributes",  "A",  },
 		Use: `Attributes {"AttributeID":"string"}`,
 		Short: `Get details of an attribute`,
 		Long:  `Get details of an attribute.`,
@@ -659,7 +659,7 @@ var Get_Attributes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -685,7 +685,7 @@ var Get_AuditLogs_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -713,7 +713,7 @@ var Get_Authenticate_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -736,7 +736,7 @@ var Get_BatchMaintenance_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -754,7 +754,7 @@ var Get_BatchMaintenance_cmd = &cobra.Command{
 	}
 
 var Get_BatchTypeGroups_cmd = &cobra.Command{
-		Aliases: []string{  "btg",  "batchtypegroups",  "BTG",  },
+		Aliases: []string{  "BTG",  "btg",  "batchtypegroups",  },
 		Use: `BatchTypeGroups {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a batch type group by id`,
 		Long:  `Get the details of a batch type group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -762,7 +762,7 @@ var Get_BatchTypeGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -790,7 +790,7 @@ var Get_BatchTypeUserGroup_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -805,7 +805,7 @@ var Get_BatchTypeUserGroup_cmd = &cobra.Command{
 	}
 
 var Get_BatchTypes_cmd = &cobra.Command{
-		Aliases: []string{  "BT",  "bt",  "batchtypes",  },
+		Aliases: []string{  "batchtypes",  "BT",  "bt",  },
 		Use: `BatchTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a batch type by id`,
 		Long:  `Get the details of a batch type by id.`,
@@ -813,7 +813,7 @@ var Get_BatchTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -841,7 +841,7 @@ var Get_BillingSchedules_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -869,7 +869,7 @@ var Get_BillingTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -897,7 +897,7 @@ var Get_BookingCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -917,7 +917,7 @@ var Get_BookingCategories_cmd = &cobra.Command{
 	}
 
 var Get_BookingTemplates_cmd = &cobra.Command{
-		Aliases: []string{  "bookingtemplates",  "BT",  "bt",  },
+		Aliases: []string{  "bt",  "bookingtemplates",  "BT",  },
 		Use: `BookingTemplates {"BookingTemplateID":"string"}`,
 		Short: `Get a Booking Template by ID`,
 		Long:  `Get a Booking Template by ID`,
@@ -925,7 +925,7 @@ var Get_BookingTemplates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -951,7 +951,7 @@ var Get_Bookings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -983,7 +983,7 @@ var Get_BulkCopySets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1005,7 +1005,7 @@ var Get_BulkCopySets_cmd = &cobra.Command{
 	}
 
 var Get_BulkDailyCopyExclusions_cmd = &cobra.Command{
-		Aliases: []string{  "BDCE",  "bdce",  "bulkdailycopyexclusions",  },
+		Aliases: []string{  "bulkdailycopyexclusions",  "BDCE",  "bdce",  },
 		Use: `BulkDailyCopyExclusions {"BulkDailyCopyExclusionID":"string"}`,
 		Short: `Get a bulk daily copy exclusion by id`,
 		Long:  `Get a bulk daily copy exclusion by id.`,
@@ -1013,7 +1013,7 @@ var Get_BulkDailyCopyExclusions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1039,7 +1039,7 @@ var Get_BusinessUnits_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1067,7 +1067,7 @@ var Get_Cache_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1090,7 +1090,7 @@ var Get_CampaignDesignations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1116,7 +1116,7 @@ var Get_CampaignFunds_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1142,7 +1142,7 @@ var Get_Campaigns_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1160,7 +1160,7 @@ var Get_Campaigns_cmd = &cobra.Command{
 	}
 
 var Get_CardReaderTypes_cmd = &cobra.Command{
-		Aliases: []string{  "crt",  "cardreadertypes",  "CRT",  },
+		Aliases: []string{  "cardreadertypes",  "CRT",  "crt",  },
 		Use: `CardReaderTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Card Reader Type by id`,
 		Long:  `Get the details of a Card Reader Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -1168,7 +1168,7 @@ var Get_CardReaderTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1196,7 +1196,7 @@ var Get_Cart_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1220,7 +1220,7 @@ var Get_Cart_cmd = &cobra.Command{
 	}
 
 var Get_Colors_cmd = &cobra.Command{
-		Aliases: []string{  "colors",  "C",  "c",  },
+		Aliases: []string{  "c",  "colors",  "C",  },
 		Use: `Colors {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a color by id`,
 		Long:  `Get the details of a color by id.`,
@@ -1228,7 +1228,7 @@ var Get_Colors_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1248,7 +1248,7 @@ var Get_Colors_cmd = &cobra.Command{
 	}
 
 var Get_Composers_cmd = &cobra.Command{
-		Aliases: []string{  "composers",  "C",  "c",  },
+		Aliases: []string{  "C",  "c",  "composers",  },
 		Use: `Composers {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a composer by id`,
 		Long:  `Get the details of a composer by id.`,
@@ -1256,7 +1256,7 @@ var Get_Composers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1276,7 +1276,7 @@ var Get_Composers_cmd = &cobra.Command{
 	}
 
 var Get_Constituencies_cmd = &cobra.Command{
-		Aliases: []string{  "constituencies",  "C",  "c",  },
+		Aliases: []string{  "c",  "constituencies",  "C",  },
 		Use: `Constituencies {"ConstituencyID":"string"}`,
 		Short: `Get details of constituency`,
 		Long:  `Get details of constituency.`,
@@ -1284,7 +1284,7 @@ var Get_Constituencies_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1310,7 +1310,7 @@ var Get_ConstituencyTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1338,7 +1338,7 @@ var Get_ConstituentContributions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1361,7 +1361,7 @@ var Get_ConstituentDocuments_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1381,7 +1381,7 @@ var Get_ConstituentDocuments_cmd = &cobra.Command{
 	}
 
 var Get_ConstituentGroups_cmd = &cobra.Command{
-		Aliases: []string{  "CG",  "cg",  "constituentgroups",  },
+		Aliases: []string{  "cg",  "constituentgroups",  "CG",  },
 		Use: `ConstituentGroups {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent group by id`,
 		Long:  `Get the details of a constituent group by id.`,
@@ -1389,7 +1389,7 @@ var Get_ConstituentGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1417,7 +1417,7 @@ var Get_ConstituentInactives_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1437,7 +1437,7 @@ var Get_ConstituentInactives_cmd = &cobra.Command{
 	}
 
 var Get_ConstituentProtectionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CPT",  "cpt",  "constituentprotectiontypes",  },
+		Aliases: []string{  "constituentprotectiontypes",  "CPT",  "cpt",  },
 		Use: `ConstituentProtectionTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent protection type by id`,
 		Long:  `Get the details of a constituent protection type by id.`,
@@ -1445,7 +1445,7 @@ var Get_ConstituentProtectionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1465,7 +1465,7 @@ var Get_ConstituentProtectionTypes_cmd = &cobra.Command{
 	}
 
 var Get_ConstituentTypeAffiliates_cmd = &cobra.Command{
-		Aliases: []string{  "CTA",  "cta",  "constituenttypeaffiliates",  },
+		Aliases: []string{  "constituenttypeaffiliates",  "CTA",  "cta",  },
 		Use: `ConstituentTypeAffiliates {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent type affiliate by id`,
 		Long:  `Get the details of a constituent type affiliate by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -1473,7 +1473,7 @@ var Get_ConstituentTypeAffiliates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1501,7 +1501,7 @@ var Get_ConstituentTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1529,7 +1529,7 @@ var Get_Constituents_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1571,7 +1571,7 @@ var Get_ContactPermissionCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1591,7 +1591,7 @@ var Get_ContactPermissionCategories_cmd = &cobra.Command{
 	}
 
 var Get_ContactPermissionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CPT",  "cpt",  "contactpermissiontypes",  },
+		Aliases: []string{  "contactpermissiontypes",  "CPT",  "cpt",  },
 		Use: `ContactPermissionTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact permission type`,
 		Long:  `Get the details of a contact permission type. To get the resource only if the user has write/edit access, pass filter="writeonly".  To get the resource in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -1599,7 +1599,7 @@ var Get_ContactPermissionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1621,7 +1621,7 @@ var Get_ContactPermissionTypes_cmd = &cobra.Command{
 	}
 
 var Get_ContactPermissions_cmd = &cobra.Command{
-		Aliases: []string{  "contactpermissions",  "CP",  "cp",  },
+		Aliases: []string{  "CP",  "cp",  "contactpermissions",  },
 		Use: `ContactPermissions {"ContactPermissionID":"string"}`,
 		Short: `Get details of a contact permission`,
 		Long:  `Get details of a contact permission`,
@@ -1629,7 +1629,7 @@ var Get_ContactPermissions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1655,7 +1655,7 @@ var Get_ContactPointCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1683,7 +1683,7 @@ var Get_ContactPointCategoryPurposes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1711,7 +1711,7 @@ var Get_ContactPointPurposeCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1739,7 +1739,7 @@ var Get_ContactPointPurposeMaps_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1765,7 +1765,7 @@ var Get_ContactPointPurposes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1785,7 +1785,7 @@ var Get_ContactPointPurposes_cmd = &cobra.Command{
 	}
 
 var Get_ContactPoints_cmd = &cobra.Command{
-		Aliases: []string{  "contactpoints",  "CP",  "cp",  },
+		Aliases: []string{  "cp",  "contactpoints",  "CP",  },
 		Use: `ContactPoints {"ConstituentID":"string","IncludeAffiliations":"string"}`,
 		Short: `Get all the delivery points for the specified constituent (constituentId) and all its visible affiliation's delivery point purposes as well`,
 		Long:  `Get all the delivery points for the specified constituent (constituentId) and all its visible affiliation's delivery point purposes as well. To exclude delivery point purposes of the visible affiliations pass includeAffiliations=false.`,
@@ -1793,7 +1793,7 @@ var Get_ContactPoints_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1816,7 +1816,7 @@ var Get_ContactTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1844,7 +1844,7 @@ var Get_ContextInformation_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1867,7 +1867,7 @@ var Get_ContributionDesignations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1895,7 +1895,7 @@ var Get_ContributionImportSets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1915,7 +1915,7 @@ var Get_ContributionImportSets_cmd = &cobra.Command{
 	}
 
 var Get_ControlGroupUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "controlgroupusergroups",  "CGUG",  "cgug",  },
+		Aliases: []string{  "cgug",  "controlgroupusergroups",  "CGUG",  },
 		Use: `ControlGroupUserGroups {"ID":"string"}`,
 		Short: `Get the details of a control group/user group mapping by id`,
 		Long:  `Get the details of a control group/user group mapping by id.`,
@@ -1923,7 +1923,7 @@ var Get_ControlGroupUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1943,7 +1943,7 @@ var Get_ControlGroupUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_ControlGroups_cmd = &cobra.Command{
-		Aliases: []string{  "CG",  "cg",  "controlgroups",  },
+		Aliases: []string{  "controlgroups",  "CG",  "cg",  },
 		Use: `ControlGroups {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a control group by id`,
 		Long:  `Get the details of a control group by id.`,
@@ -1951,7 +1951,7 @@ var Get_ControlGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1979,7 +1979,7 @@ var Get_CoreIdentity_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1994,7 +1994,7 @@ var Get_CoreIdentity_cmd = &cobra.Command{
 	}
 
 var Get_Countries_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "countries",  },
+		Aliases: []string{  "c",  "countries",  "C",  },
 		Use: `Countries {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a country by id`,
 		Long:  `Get the details of a country by id.`,
@@ -2002,7 +2002,7 @@ var Get_Countries_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2030,7 +2030,7 @@ var Get_CrediteeTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2058,7 +2058,7 @@ var Get_Credits_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2081,7 +2081,7 @@ var Get_CriterionOperators_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2109,7 +2109,7 @@ var Get_CumulativeGivingReceipts_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2129,7 +2129,7 @@ var Get_CumulativeGivingReceipts_cmd = &cobra.Command{
 	}
 
 var Get_CurrencyTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CT",  "ct",  "currencytypes",  },
+		Aliases: []string{  "currencytypes",  "CT",  "ct",  },
 		Use: `CurrencyTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a currency type by id`,
 		Long:  `Get the details of a currency type by id.`,
@@ -2137,7 +2137,7 @@ var Get_CurrencyTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2157,7 +2157,7 @@ var Get_CurrencyTypes_cmd = &cobra.Command{
 	}
 
 var Get_Custom_cmd = &cobra.Command{
-		Aliases: []string{  "custom",  "C",  "c",  },
+		Aliases: []string{  "c",  "custom",  "C",  },
 		Use: `Custom {"ID":"string","ResourceName":"string"}`,
 		Short: `Get details of an entry in the table for the resource as defined by {resourceName} in TR_DATASERVICE_TABLES with the given id {Id}`,
 		Long:  `Get details of an entry in the table for the resource as defined by {resourceName} in TR_DATASERVICE_TABLES with the given id {Id}.`,
@@ -2165,7 +2165,7 @@ var Get_Custom_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2193,7 +2193,7 @@ var Get_CustomDefaultCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2221,7 +2221,7 @@ var Get_CustomDefaults_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2249,7 +2249,7 @@ var Get_DeliveryMethods_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2277,7 +2277,7 @@ var Get_DesignationCodes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2297,7 +2297,7 @@ var Get_DesignationCodes_cmd = &cobra.Command{
 	}
 
 var Get_Designs_cmd = &cobra.Command{
-		Aliases: []string{  "designs",  "D",  "d",  },
+		Aliases: []string{  "d",  "designs",  "D",  },
 		Use: `Designs {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a design by id`,
 		Long:  `Get the details of a design by id.`,
@@ -2305,7 +2305,7 @@ var Get_Designs_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2333,7 +2333,7 @@ var Get_Diagnostics_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2363,7 +2363,7 @@ var Get_DirectDebitAccountTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2383,7 +2383,7 @@ var Get_DirectDebitAccountTypes_cmd = &cobra.Command{
 	}
 
 var Get_DiscountTypes_cmd = &cobra.Command{
-		Aliases: []string{  "discounttypes",  "DT",  "dt",  },
+		Aliases: []string{  "DT",  "dt",  "discounttypes",  },
 		Use: `DiscountTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a discount type by id`,
 		Long:  `Get the details of a discount type by id.`,
@@ -2391,7 +2391,7 @@ var Get_DiscountTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2419,7 +2419,7 @@ var Get_Divisions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2445,7 +2445,7 @@ var Get_DocumentCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2473,7 +2473,7 @@ var Get_Documents_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2495,7 +2495,7 @@ var Get_Documents_cmd = &cobra.Command{
 	}
 
 var Get_DonationLevels_cmd = &cobra.Command{
-		Aliases: []string{  "dl",  "donationlevels",  "DL",  },
+		Aliases: []string{  "donationlevels",  "DL",  "dl",  },
 		Use: `DonationLevels {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a donation level by id`,
 		Long:  `Get the details of a donation level by id.`,
@@ -2503,7 +2503,7 @@ var Get_DonationLevels_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2531,7 +2531,7 @@ var Get_EMV_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2555,7 +2555,7 @@ var Get_EMV_cmd = &cobra.Command{
 	}
 
 var Get_ElectronicAddressTypes_cmd = &cobra.Command{
-		Aliases: []string{  "EAT",  "eat",  "electronicaddresstypes",  },
+		Aliases: []string{  "electronicaddresstypes",  "EAT",  "eat",  },
 		Use: `ElectronicAddressTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an electronic address type by id`,
 		Long:  `Get the details of an electronic address type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -2563,7 +2563,7 @@ var Get_ElectronicAddressTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2591,7 +2591,7 @@ var Get_ElectronicAddresses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2619,7 +2619,7 @@ var Get_EmailProfiles_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2639,7 +2639,7 @@ var Get_EmailProfiles_cmd = &cobra.Command{
 	}
 
 var Get_EmarketIndicators_cmd = &cobra.Command{
-		Aliases: []string{  "emarketindicators",  "EI",  "ei",  },
+		Aliases: []string{  "ei",  "emarketindicators",  "EI",  },
 		Use: `EmarketIndicators {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an emarket indicator by id`,
 		Long:  `Get the details of an emarket indicator by id.`,
@@ -2647,7 +2647,7 @@ var Get_EmarketIndicators_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2675,7 +2675,7 @@ var Get_Eras_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2695,7 +2695,7 @@ var Get_Eras_cmd = &cobra.Command{
 	}
 
 var Get_EventControl_cmd = &cobra.Command{
-		Aliases: []string{  "eventcontrol",  "EC",  "ec",  },
+		Aliases: []string{  "EC",  "ec",  "eventcontrol",  },
 		Use: `EventControl {"EndDate":"string","StartDate":"string"}`,
 		Short: `Returns a response containing a list of EventControl rows for the N-Scan event control table`,
 		Long:  `Returns a response containing a list of EventControl rows for the N-Scan event control table.`,
@@ -2703,7 +2703,7 @@ var Get_EventControl_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2718,7 +2718,7 @@ var Get_EventControl_cmd = &cobra.Command{
 	}
 
 var Get_Facilities_cmd = &cobra.Command{
-		Aliases: []string{  "facilities",  "F",  "f",  },
+		Aliases: []string{  "f",  "facilities",  "F",  },
 		Use: `Facilities {"ID":"string"}`,
 		Short: `Get details of a Facility`,
 		Long:  `Get details of a Facility.`,
@@ -2726,7 +2726,7 @@ var Get_Facilities_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2756,7 +2756,7 @@ var Get_Fees_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2776,7 +2776,7 @@ var Get_Fees_cmd = &cobra.Command{
 	}
 
 var Get_FinanceContributions_cmd = &cobra.Command{
-		Aliases: []string{  "fc",  "financecontributions",  "FC",  },
+		Aliases: []string{  "financecontributions",  "FC",  "fc",  },
 		Use: `FinanceContributions {"ContributionID":"string"}`,
 		Short: `Get details of a contribution`,
 		Long:  `Get details of a contribution.`,
@@ -2784,7 +2784,7 @@ var Get_FinanceContributions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2810,7 +2810,7 @@ var Get_Formats_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2838,7 +2838,7 @@ var Get_Funds_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2864,7 +2864,7 @@ var Get_GLAccounts_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2892,7 +2892,7 @@ var Get_Genders_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2912,7 +2912,7 @@ var Get_Genders_cmd = &cobra.Command{
 	}
 
 var Get_GiftAidContactMethods_cmd = &cobra.Command{
-		Aliases: []string{  "giftaidcontactmethods",  "GACM",  "gacm",  },
+		Aliases: []string{  "GACM",  "gacm",  "giftaidcontactmethods",  },
 		Use: `GiftAidContactMethods {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid contact method by id`,
 		Long:  `Get the details of a gift aid contact method by id.`,
@@ -2920,7 +2920,7 @@ var Get_GiftAidContactMethods_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2948,7 +2948,7 @@ var Get_GiftAidDeclarations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2966,7 +2966,7 @@ var Get_GiftAidDeclarations_cmd = &cobra.Command{
 	}
 
 var Get_GiftAidDocumentStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "giftaiddocumentstatuses",  "GADS",  "gads",  },
+		Aliases: []string{  "GADS",  "gads",  "giftaiddocumentstatuses",  },
 		Use: `GiftAidDocumentStatuses {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid document status by id`,
 		Long:  `Get the details of a gift aid document status by id.`,
@@ -2974,7 +2974,7 @@ var Get_GiftAidDocumentStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3002,7 +3002,7 @@ var Get_GiftAidIneligibleReasons_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3022,7 +3022,7 @@ var Get_GiftAidIneligibleReasons_cmd = &cobra.Command{
 	}
 
 var Get_GiftAidRates_cmd = &cobra.Command{
-		Aliases: []string{  "gar",  "giftaidrates",  "GAR",  },
+		Aliases: []string{  "giftaidrates",  "GAR",  "gar",  },
 		Use: `GiftAidRates {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid rate by id`,
 		Long:  `Get the details of a gift aid rate by id.`,
@@ -3030,7 +3030,7 @@ var Get_GiftAidRates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3058,7 +3058,7 @@ var Get_GiftAidStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3086,7 +3086,7 @@ var Get_GiftAidTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3106,7 +3106,7 @@ var Get_GiftAidTypes_cmd = &cobra.Command{
 	}
 
 var Get_GiftCertificates_cmd = &cobra.Command{
-		Aliases: []string{  "giftcertificates",  "GC",  "gc",  },
+		Aliases: []string{  "gc",  "giftcertificates",  "GC",  },
 		Use: `GiftCertificates {"GiftCertificateNumber":"string"}`,
 		Short: `Get details of a specific gift certificate`,
 		Long:  `Get details of a specific gift certificate.
@@ -3115,7 +3115,7 @@ The original amount, amount used and balance are all returned.  Amounts applied 
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3138,7 +3138,7 @@ var Get_HoldCodeCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3158,7 +3158,7 @@ var Get_HoldCodeCategories_cmd = &cobra.Command{
 	}
 
 var Get_HoldCodeUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "hcug",  "holdcodeusergroups",  "HCUG",  },
+		Aliases: []string{  "holdcodeusergroups",  "HCUG",  "hcug",  },
 		Use: `HoldCodeUserGroups {"HoldCodeUserGroupID":"string"}`,
 		Short: `Get the details of a hold code/user group mapping by id`,
 		Long:  `Get the details of a hold code/user group mapping by id.`,
@@ -3166,7 +3166,7 @@ var Get_HoldCodeUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3196,7 +3196,7 @@ var Get_HoldCodes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3222,7 +3222,7 @@ var Get_InactiveReasons_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3250,7 +3250,7 @@ var Get_IntegrationDefaults_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3278,7 +3278,7 @@ var Get_Integrations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3306,7 +3306,7 @@ var Get_InterestCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3334,7 +3334,7 @@ var Get_InterestTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3354,7 +3354,7 @@ var Get_InterestTypes_cmd = &cobra.Command{
 	}
 
 var Get_Interests_cmd = &cobra.Command{
-		Aliases: []string{  "interests",  "I",  "i",  },
+		Aliases: []string{  "I",  "i",  "interests",  },
 		Use: `Interests {"InterestID":"string"}`,
 		Short: `Get details of an interest`,
 		Long:  `Get details of an interest.`,
@@ -3362,7 +3362,7 @@ var Get_Interests_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3380,7 +3380,7 @@ var Get_Interests_cmd = &cobra.Command{
 	}
 
 var Get_Internal_cmd = &cobra.Command{
-		Aliases: []string{  "internal",  "I",  "i",  },
+		Aliases: []string{  "i",  "internal",  "I",  },
 		Use: `Internal {"AddressID":"string"}`,
 		Short: `Get details of an address and all the phones attached to it`,
 		Long:  `Get details of an address and all the phones attached to it.`,
@@ -3388,7 +3388,7 @@ var Get_Internal_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3408,7 +3408,7 @@ var Get_Internal_cmd = &cobra.Command{
 	}
 
 var Get_InventoryContactPermissionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "inventorycontactpermissiontypes",  "ICPT",  "icpt",  },
+		Aliases: []string{  "icpt",  "inventorycontactpermissiontypes",  "ICPT",  },
 		Use: `InventoryContactPermissionTypes {"InventoryContactPermissionTypeID":"string"}`,
 		Short: `Get details of an inventoryContactPermissionType`,
 		Long:  `Get details of an inventoryContactPermissionType.`,
@@ -3416,7 +3416,7 @@ var Get_InventoryContactPermissionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3442,7 +3442,7 @@ var Get_InventoryWebContents_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3462,7 +3462,7 @@ var Get_InventoryWebContents_cmd = &cobra.Command{
 	}
 
 var Get_InvoiceBilling_cmd = &cobra.Command{
-		Aliases: []string{  "invoicebilling",  "IB",  "ib",  },
+		Aliases: []string{  "ib",  "invoicebilling",  "IB",  },
 		Use: `InvoiceBilling {"ID":"string"}`,
 		Short: `Get status of a processing automated billing run`,
 		Long:  `Get status of a processing automated billing run.`,
@@ -3470,7 +3470,7 @@ var Get_InvoiceBilling_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3485,7 +3485,7 @@ var Get_InvoiceBilling_cmd = &cobra.Command{
 	}
 
 var Get_Issues_cmd = &cobra.Command{
-		Aliases: []string{  "I",  "i",  "issues",  },
+		Aliases: []string{  "issues",  "I",  "i",  },
 		Use: `Issues {"IssueID":"string"}`,
 		Short: `Get details of a customer issue`,
 		Long:  `Get details of a customer issue.`,
@@ -3493,7 +3493,7 @@ var Get_Issues_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3519,7 +3519,7 @@ var Get_KeywordCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3539,7 +3539,7 @@ var Get_KeywordCategories_cmd = &cobra.Command{
 	}
 
 var Get_Keywords_cmd = &cobra.Command{
-		Aliases: []string{  "K",  "k",  "keywords",  },
+		Aliases: []string{  "keywords",  "K",  "k",  },
 		Use: `Keywords {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a keyword by id`,
 		Long:  `Get the details of a keyword by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -3547,7 +3547,7 @@ var Get_Keywords_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3577,7 +3577,7 @@ var Get_Languages_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3597,7 +3597,7 @@ var Get_Languages_cmd = &cobra.Command{
 	}
 
 var Get_ListCategories_cmd = &cobra.Command{
-		Aliases: []string{  "LC",  "lc",  "listcategories",  },
+		Aliases: []string{  "listcategories",  "LC",  "lc",  },
 		Use: `ListCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a list category by id`,
 		Long:  `Get the details of a list category by id.`,
@@ -3605,7 +3605,7 @@ var Get_ListCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3625,7 +3625,7 @@ var Get_ListCategories_cmd = &cobra.Command{
 	}
 
 var Get_Lists_cmd = &cobra.Command{
-		Aliases: []string{  "l",  "lists",  "L",  },
+		Aliases: []string{  "lists",  "L",  "l",  },
 		Use: `Lists {"ListID":"string"}`,
 		Short: `Get a single List without contents`,
 		Long:  `Get a single List without contents.`,
@@ -3633,7 +3633,7 @@ var Get_Lists_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3657,7 +3657,7 @@ var Get_Lists_cmd = &cobra.Command{
 	}
 
 var Get_LoginTypes_cmd = &cobra.Command{
-		Aliases: []string{  "logintypes",  "LT",  "lt",  },
+		Aliases: []string{  "lt",  "logintypes",  "LT",  },
 		Use: `LoginTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a login type by id`,
 		Long:  `Get the details of a login type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -3665,7 +3665,7 @@ var Get_LoginTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3693,7 +3693,7 @@ var Get_MachineSettings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3721,7 +3721,7 @@ var Get_MailIndicators_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3749,7 +3749,7 @@ var Get_MediaTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3769,7 +3769,7 @@ var Get_MediaTypes_cmd = &cobra.Command{
 	}
 
 var Get_MembershipLevelCategories_cmd = &cobra.Command{
-		Aliases: []string{  "mlc",  "membershiplevelcategories",  "MLC",  },
+		Aliases: []string{  "membershiplevelcategories",  "MLC",  "mlc",  },
 		Use: `MembershipLevelCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a membership level category by id`,
 		Long:  `Get the details of a membership level category by id.`,
@@ -3777,7 +3777,7 @@ var Get_MembershipLevelCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3806,7 +3806,7 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3826,7 +3826,7 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 	}
 
 var Get_MembershipOrganizations_cmd = &cobra.Command{
-		Aliases: []string{  "mo",  "membershiporganizations",  "MO",  },
+		Aliases: []string{  "MO",  "mo",  "membershiporganizations",  },
 		Use: `MembershipOrganizations {"ID":"string"}`,
 		Short: `Get a specific membership organization`,
 		Long:  `Get a specific membership organization.
@@ -3835,7 +3835,7 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3855,7 +3855,7 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 	}
 
 var Get_MembershipStandings_cmd = &cobra.Command{
-		Aliases: []string{  "ms",  "membershipstandings",  "MS",  },
+		Aliases: []string{  "membershipstandings",  "MS",  "ms",  },
 		Use: `MembershipStandings {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get a specific MembershipStanding by id`,
 		Long:  `Get a specific MembershipStanding by id.`,
@@ -3863,7 +3863,7 @@ var Get_MembershipStandings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3892,7 +3892,7 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3915,7 +3915,7 @@ var Get_MerchantReferences_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3938,7 +3938,7 @@ var Get_Merchants_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3961,7 +3961,7 @@ var Get_ModeOfSaleCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3987,7 +3987,7 @@ var Get_ModeOfSaleOffers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4013,7 +4013,7 @@ var Get_ModeOfSalePriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4039,7 +4039,7 @@ var Get_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4057,7 +4057,7 @@ var Get_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 	}
 
 var Get_ModeOfSaleUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "modeofsaleusergroups",  "MOSUG",  "mosug",  },
+		Aliases: []string{  "mosug",  "modeofsaleusergroups",  "MOSUG",  },
 		Use: `ModeOfSaleUserGroups {"ModeOfSaleUserGroupID":"string"}`,
 		Short: `Get the details of a mode of sale/user group mapping by id`,
 		Long:  `Get the details of a mode of sale/user group mapping by id.`,
@@ -4065,7 +4065,7 @@ var Get_ModeOfSaleUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4083,7 +4083,7 @@ var Get_ModeOfSaleUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_ModesOfSale_cmd = &cobra.Command{
-		Aliases: []string{  "modesofsale",  "MOS",  "mos",  },
+		Aliases: []string{  "MOS",  "mos",  "modesofsale",  },
 		Use: `ModesOfSale {"ModeOfSaleID":"string"}`,
 		Short: `Get details of an existing mode of sale`,
 		Long:  `Get details of an existing mode of sale.`,
@@ -4091,7 +4091,7 @@ var Get_ModesOfSale_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4119,7 +4119,7 @@ var Get_NScanAccessAreas_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4139,7 +4139,7 @@ var Get_NScanAccessAreas_cmd = &cobra.Command{
 	}
 
 var Get_NameStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "ns",  "namestatuses",  "NS",  },
+		Aliases: []string{  "namestatuses",  "NS",  "ns",  },
 		Use: `NameStatuses {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a name status by id`,
 		Long:  `Get the details of a name status by id.`,
@@ -4147,7 +4147,7 @@ var Get_NameStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4175,7 +4175,7 @@ var Get_ObjectPermissions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4203,7 +4203,7 @@ var Get_OrderBilling_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4229,7 +4229,7 @@ var Get_OrderCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4249,7 +4249,7 @@ var Get_OrderCategories_cmd = &cobra.Command{
 	}
 
 var Get_Orders_cmd = &cobra.Command{
-		Aliases: []string{  "orders",  "O",  "o",  },
+		Aliases: []string{  "O",  "o",  "orders",  },
 		Use: `Orders {"OrderID":"string"}`,
 		Short: `Get the details of an existing Order as the contract OrderProductsView`,
 		Long:  `Get the details of an existing Order as the contract OrderProductsView, which mirrors the structure of the Cart response entity from GET Web/{sessionKey}/Cart. This resource can be used to fetch any saved order in this view. Order HTML templates use this response contract (OrdersProductsView) as the model within the template. Orders actively in a session/cart will not be available here until after checkout.`,
@@ -4257,7 +4257,7 @@ var Get_Orders_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4280,7 +4280,7 @@ var Get_Organizations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4308,7 +4308,7 @@ var Get_OriginalSources_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4336,7 +4336,7 @@ var Get_Origins_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4356,7 +4356,7 @@ var Get_Origins_cmd = &cobra.Command{
 	}
 
 var Get_OutputSets_cmd = &cobra.Command{
-		Aliases: []string{  "outputsets",  "OS",  "os",  },
+		Aliases: []string{  "OS",  "os",  "outputsets",  },
 		Use: `OutputSets {"OutputSetID":"string"}`,
 		Short: `Get a single Output Set`,
 		Long:  `Get a single Output Set.`,
@@ -4364,7 +4364,7 @@ var Get_OutputSets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4390,7 +4390,7 @@ var Get_PackageHistory_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4405,7 +4405,7 @@ var Get_PackageHistory_cmd = &cobra.Command{
 	}
 
 var Get_PackagePriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "packagepricetypes",  "PPT",  "ppt",  },
+		Aliases: []string{  "ppt",  "packagepricetypes",  "PPT",  },
 		Use: `PackagePriceTypes {"PackagePriceTypeID":"string"}`,
 		Short: `Get details of a specific package price type`,
 		Long:  `Get details of a specific package price type.`,
@@ -4413,7 +4413,7 @@ var Get_PackagePriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4439,7 +4439,7 @@ var Get_PackageTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4459,7 +4459,7 @@ var Get_PackageTypes_cmd = &cobra.Command{
 	}
 
 var Get_PackageWebContents_cmd = &cobra.Command{
-		Aliases: []string{  "packagewebcontents",  "PWC",  "pwc",  },
+		Aliases: []string{  "pwc",  "packagewebcontents",  "PWC",  },
 		Use: `PackageWebContents {"PackageWebContentID":"string"}`,
 		Short: `Get details of a packageWebContent`,
 		Long:  `Get details of a packageWebContent.`,
@@ -4467,7 +4467,7 @@ var Get_PackageWebContents_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4495,7 +4495,7 @@ var Get_Packages_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4535,7 +4535,7 @@ var Get_PaymentGatewayActivities_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4561,7 +4561,7 @@ var Get_PaymentGatewayConfiguration_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4576,7 +4576,7 @@ var Get_PaymentGatewayConfiguration_cmd = &cobra.Command{
 	}
 
 var Get_PaymentGatewayNotifications_cmd = &cobra.Command{
-		Aliases: []string{  "PGN",  "pgn",  "paymentgatewaynotifications",  },
+		Aliases: []string{  "paymentgatewaynotifications",  "PGN",  "pgn",  },
 		Use: `PaymentGatewayNotifications {"NotificationType":"string","Reference":"string"}`,
 		Short: `Get all notification events by reference`,
 		Long:  `Get all notification events by reference.`,
@@ -4584,7 +4584,7 @@ var Get_PaymentGatewayNotifications_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4606,7 +4606,7 @@ var Get_PaymentGatewayNotifications_cmd = &cobra.Command{
 	}
 
 var Get_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "paymentgatewaytransactiontypes",  "PGTT",  "pgtt",  },
+		Aliases: []string{  "pgtt",  "paymentgatewaytransactiontypes",  "PGTT",  },
 		Use: `PaymentGatewayTransactionTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Payment Gateway Transaction Type by id`,
 		Long:  `Get the details of a Payment Gateway Transaction Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -4614,7 +4614,7 @@ var Get_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4634,7 +4634,7 @@ var Get_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 	}
 
 var Get_PaymentHistory_cmd = &cobra.Command{
-		Aliases: []string{  "ph",  "paymenthistory",  "PH",  },
+		Aliases: []string{  "paymenthistory",  "PH",  "ph",  },
 		Use: `PaymentHistory {"ConstituentID":"string","EndDate":"string","IncludeAffiliates":"string","Page":"string","PageSize":"string","PaymentTypeID":"string","SortByDirection":"string","SortByField":"string","StartDate":"string","TransactionID":"string"}`,
 		Short: `Gets history information for payments by constituent`,
 		Long:  `Gets history information for payments by constituent.`,
@@ -4642,7 +4642,7 @@ var Get_PaymentHistory_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4657,7 +4657,7 @@ var Get_PaymentHistory_cmd = &cobra.Command{
 	}
 
 var Get_PaymentMethodGroups_cmd = &cobra.Command{
-		Aliases: []string{  "PMG",  "pmg",  "paymentmethodgroups",  },
+		Aliases: []string{  "paymentmethodgroups",  "PMG",  "pmg",  },
 		Use: `PaymentMethodGroups {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a payment method group by id`,
 		Long:  `Get the details of a payment method group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -4665,7 +4665,7 @@ var Get_PaymentMethodGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4685,7 +4685,7 @@ var Get_PaymentMethodGroups_cmd = &cobra.Command{
 	}
 
 var Get_PaymentMethodUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "PMUG",  "pmug",  "paymentmethodusergroups",  },
+		Aliases: []string{  "paymentmethodusergroups",  "PMUG",  "pmug",  },
 		Use: `PaymentMethodUserGroups {"PaymentMethodUserGroupID":"string"}`,
 		Short: `Get details of a payment method/user group mapping by id`,
 		Long:  `Get details of a payment method/user group mapping by id.`,
@@ -4693,7 +4693,7 @@ var Get_PaymentMethodUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4719,7 +4719,7 @@ var Get_PaymentMethods_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4741,7 +4741,7 @@ var Get_PaymentMethods_cmd = &cobra.Command{
 	}
 
 var Get_PaymentSignatures_cmd = &cobra.Command{
-		Aliases: []string{  "PS",  "ps",  "paymentsignatures",  },
+		Aliases: []string{  "paymentsignatures",  "PS",  "ps",  },
 		Use: `PaymentSignatures {"PaymentSignatureID":"string"}`,
 		Short: `Get details of a payment signature`,
 		Long:  `Get details of a payment signature.`,
@@ -4749,7 +4749,7 @@ var Get_PaymentSignatures_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4767,7 +4767,7 @@ var Get_PaymentSignatures_cmd = &cobra.Command{
 	}
 
 var Get_PaymentTypes_cmd = &cobra.Command{
-		Aliases: []string{  "pt",  "paymenttypes",  "PT",  },
+		Aliases: []string{  "paymenttypes",  "PT",  "pt",  },
 		Use: `PaymentTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a payment type by id`,
 		Long:  `Get the details of a payment type by id.`,
@@ -4775,7 +4775,7 @@ var Get_PaymentTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4803,7 +4803,7 @@ var Get_Payments_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4825,7 +4825,7 @@ var Get_Payments_cmd = &cobra.Command{
 	}
 
 var Get_PerformanceGroups_cmd = &cobra.Command{
-		Aliases: []string{  "performancegroups",  "PG",  "pg",  },
+		Aliases: []string{  "pg",  "performancegroups",  "PG",  },
 		Use: `PerformanceGroups {"ID":"string"}`,
 		Short: `Get details of a Performance Group`,
 		Long:  `Get details of a Performance Group.`,
@@ -4833,7 +4833,7 @@ var Get_PerformanceGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4861,7 +4861,7 @@ var Get_PerformancePackageModeOfSales_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4887,7 +4887,7 @@ var Get_PerformancePriceLayers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4915,7 +4915,7 @@ var Get_PerformancePriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4941,7 +4941,7 @@ var Get_PerformancePrices_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4963,7 +4963,7 @@ var Get_PerformancePrices_cmd = &cobra.Command{
 	}
 
 var Get_PerformanceStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "performancestatuses",  "PS",  "ps",  },
+		Aliases: []string{  "PS",  "ps",  "performancestatuses",  },
 		Use: `PerformanceStatuses {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a performance status by id`,
 		Long:  `Get the details of a performance status by id.`,
@@ -4971,7 +4971,7 @@ var Get_PerformanceStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4999,7 +4999,7 @@ var Get_PerformanceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5027,7 +5027,7 @@ var Get_Performances_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5071,7 +5071,7 @@ var Get_Philanthropy_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5097,7 +5097,7 @@ var Get_PhilanthropyTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5125,7 +5125,7 @@ var Get_PhoneIndicators_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5145,7 +5145,7 @@ var Get_PhoneIndicators_cmd = &cobra.Command{
 	}
 
 var Get_PhoneTypes_cmd = &cobra.Command{
-		Aliases: []string{  "pt",  "phonetypes",  "PT",  },
+		Aliases: []string{  "phonetypes",  "PT",  "pt",  },
 		Use: `PhoneTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a phone type by id`,
 		Long:  `Get the details of a phone type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -5153,7 +5153,7 @@ var Get_PhoneTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5173,7 +5173,7 @@ var Get_PhoneTypes_cmd = &cobra.Command{
 	}
 
 var Get_Phones_cmd = &cobra.Command{
-		Aliases: []string{  "p",  "phones",  "P",  },
+		Aliases: []string{  "phones",  "P",  "p",  },
 		Use: `Phones {"PhoneID":"string"}`,
 		Short: `Get details of a phone`,
 		Long:  `Get details of a phone.`,
@@ -5181,7 +5181,7 @@ var Get_Phones_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5199,7 +5199,7 @@ var Get_Phones_cmd = &cobra.Command{
 	}
 
 var Get_PlanPriorities_cmd = &cobra.Command{
-		Aliases: []string{  "planpriorities",  "PP",  "pp",  },
+		Aliases: []string{  "pp",  "planpriorities",  "PP",  },
 		Use: `PlanPriorities {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan priority by id`,
 		Long:  `Get the details of a plan priority by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -5207,7 +5207,7 @@ var Get_PlanPriorities_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5235,7 +5235,7 @@ var Get_PlanSources_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5255,7 +5255,7 @@ var Get_PlanSources_cmd = &cobra.Command{
 	}
 
 var Get_PlanStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "ps",  "planstatuses",  "PS",  },
+		Aliases: []string{  "planstatuses",  "PS",  "ps",  },
 		Use: `PlanStatuses {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan status by id`,
 		Long:  `Get the details of a plan status by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -5263,7 +5263,7 @@ var Get_PlanStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5283,7 +5283,7 @@ var Get_PlanStatuses_cmd = &cobra.Command{
 	}
 
 var Get_PlanTypes_cmd = &cobra.Command{
-		Aliases: []string{  "plantypes",  "PT",  "pt",  },
+		Aliases: []string{  "pt",  "plantypes",  "PT",  },
 		Use: `PlanTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan type by id`,
 		Long:  `Get the details of a plan type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -5291,7 +5291,7 @@ var Get_PlanTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5319,7 +5319,7 @@ var Get_PlanWorkers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5337,7 +5337,7 @@ var Get_PlanWorkers_cmd = &cobra.Command{
 	}
 
 var Get_Plans_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "plans",  },
+		Aliases: []string{  "p",  "plans",  "P",  },
 		Use: `Plans {"PlanID":"string"}`,
 		Short: `Get details of a plan`,
 		Long:  `Get details of a plan.`,
@@ -5345,7 +5345,7 @@ var Get_Plans_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5363,7 +5363,7 @@ var Get_Plans_cmd = &cobra.Command{
 	}
 
 var Get_PledgeBilling_cmd = &cobra.Command{
-		Aliases: []string{  "pledgebilling",  "PB",  "pb",  },
+		Aliases: []string{  "pb",  "pledgebilling",  "PB",  },
 		Use: `PledgeBilling {"ID":"string"}`,
 		Short: `Get status of a pledge billing run`,
 		Long:  `Get status of a pledge billing run. Job is finished processing when IsCompleted is true.  Only billing runs using automated billing will be running after the response from a POST to Txn/PledgeBilling.`,
@@ -5371,7 +5371,7 @@ var Get_PledgeBilling_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5394,7 +5394,7 @@ var Get_PortfolioCustomElements_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5414,7 +5414,7 @@ var Get_PortfolioCustomElements_cmd = &cobra.Command{
 	}
 
 var Get_Portfolios_cmd = &cobra.Command{
-		Aliases: []string{  "p",  "portfolios",  "P",  },
+		Aliases: []string{  "portfolios",  "P",  "p",  },
 		Use: `Portfolios {"ConstituentID":"string","Page":"string","PageSize":"string","PlanCustomColumns":"string","PortfolioCustomColumns":"string","PrimaryOnly":"string","StatusIds":"string","WorkerRoleIds":"string"}`,
 		Short: `Get portfolio for a constituent`,
 		Long:  `Get portfolio for a constituent.`,
@@ -5422,7 +5422,7 @@ var Get_Portfolios_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5448,7 +5448,7 @@ var Get_Prefixes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5468,7 +5468,7 @@ var Get_Prefixes_cmd = &cobra.Command{
 	}
 
 var Get_Premieres_cmd = &cobra.Command{
-		Aliases: []string{  "premieres",  "P",  "p",  },
+		Aliases: []string{  "P",  "p",  "premieres",  },
 		Use: `Premieres {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a premiere by id`,
 		Long:  `Get the details of a premiere by id.`,
@@ -5476,7 +5476,7 @@ var Get_Premieres_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5504,7 +5504,7 @@ var Get_PriceCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5524,7 +5524,7 @@ var Get_PriceCategories_cmd = &cobra.Command{
 	}
 
 var Get_PriceEvents_cmd = &cobra.Command{
-		Aliases: []string{  "priceevents",  "PE",  "pe",  },
+		Aliases: []string{  "PE",  "pe",  "priceevents",  },
 		Use: `PriceEvents {"PriceEventID":"string"}`,
 		Short: `Get details of a price event`,
 		Long:  `Get details of a price event.`,
@@ -5532,7 +5532,7 @@ var Get_PriceEvents_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5552,7 +5552,7 @@ var Get_PriceEvents_cmd = &cobra.Command{
 	}
 
 var Get_PriceLayerTypes_cmd = &cobra.Command{
-		Aliases: []string{  "pricelayertypes",  "PLT",  "plt",  },
+		Aliases: []string{  "plt",  "pricelayertypes",  "PLT",  },
 		Use: `PriceLayerTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a price layer type by id`,
 		Long:  `Get the details of a price layer type by id.`,
@@ -5560,7 +5560,7 @@ var Get_PriceLayerTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5580,7 +5580,7 @@ var Get_PriceLayerTypes_cmd = &cobra.Command{
 	}
 
 var Get_PriceTemplates_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "pt",  "pricetemplates",  },
+		Aliases: []string{  "pricetemplates",  "PT",  "pt",  },
 		Use: `PriceTemplates {"PriceTemplateID":"string"}`,
 		Short: `Get details of a price template`,
 		Long:  `Get details of a price template.`,
@@ -5588,7 +5588,7 @@ var Get_PriceTemplates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5616,7 +5616,7 @@ var Get_PriceTypeCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5644,7 +5644,7 @@ var Get_PriceTypeGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5664,7 +5664,7 @@ var Get_PriceTypeGroups_cmd = &cobra.Command{
 	}
 
 var Get_PriceTypeReasons_cmd = &cobra.Command{
-		Aliases: []string{  "PTR",  "ptr",  "pricetypereasons",  },
+		Aliases: []string{  "pricetypereasons",  "PTR",  "ptr",  },
 		Use: `PriceTypeReasons {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a price type reason by id`,
 		Long:  `Get the details of a price type reason by id.`,
@@ -5672,7 +5672,7 @@ var Get_PriceTypeReasons_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5700,7 +5700,7 @@ var Get_PriceTypeUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5718,7 +5718,7 @@ var Get_PriceTypeUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_PriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "pt",  "pricetypes",  },
+		Aliases: []string{  "pricetypes",  "PT",  "pt",  },
 		Use: `PriceTypes {"PriceTypeID":"string"}`,
 		Short: `Get details of a price type`,
 		Long:  `Get details of a price type.`,
@@ -5726,7 +5726,7 @@ var Get_PriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5752,7 +5752,7 @@ var Get_PriceTypes_cmd = &cobra.Command{
 	}
 
 var Get_PricingRuleCategories_cmd = &cobra.Command{
-		Aliases: []string{  "PRC",  "prc",  "pricingrulecategories",  },
+		Aliases: []string{  "pricingrulecategories",  "PRC",  "prc",  },
 		Use: `PricingRuleCategories {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a pricing rule category by id`,
 		Long:  `Get the details of a pricing rule category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -5760,7 +5760,7 @@ var Get_PricingRuleCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5788,7 +5788,7 @@ var Get_PricingRuleMessageTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5816,7 +5816,7 @@ var Get_PricingRuleSets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5844,7 +5844,7 @@ var Get_PricingRuleTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5872,7 +5872,7 @@ var Get_PricingRules_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5900,7 +5900,7 @@ var Get_Printers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5930,7 +5930,7 @@ For Production Elements: If the keyword is found, returns the keyword and the lo
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5945,7 +5945,7 @@ For Production Elements: If the keyword is found, returns the keyword and the lo
 	}
 
 var Get_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
-		Aliases: []string{  "productionseasonmembershiporganizations",  "PSMO",  "psmo",  },
+		Aliases: []string{  "psmo",  "productionseasonmembershiporganizations",  "PSMO",  },
 		Use: `ProductionSeasonMembershipOrganizations {"ID":"string"}`,
 		Short: `Get details of a specific production season membership organization`,
 		Long:  `Get details of a specific production season membership organization.`,
@@ -5953,7 +5953,7 @@ var Get_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5973,7 +5973,7 @@ var Get_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 	}
 
 var Get_ProductionSeasons_cmd = &cobra.Command{
-		Aliases: []string{  "PS",  "ps",  "productionseasons",  },
+		Aliases: []string{  "productionseasons",  "PS",  "ps",  },
 		Use: `ProductionSeasons {"ID":"string"}`,
 		Short: `Get details of a specific production season`,
 		Long:  `Get details of a specific production season.
@@ -5982,7 +5982,7 @@ Returns the full details for a single production season, including description a
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6002,7 +6002,7 @@ Returns the full details for a single production season, including description a
 	}
 
 var Get_Productions_cmd = &cobra.Command{
-		Aliases: []string{  "p",  "productions",  "P",  },
+		Aliases: []string{  "productions",  "P",  "p",  },
 		Use: `Productions {"ID":"string"}`,
 		Short: `Get details of a specific production`,
 		Long:  `Get details of a specific production.`,
@@ -6010,7 +6010,7 @@ var Get_Productions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6030,7 +6030,7 @@ var Get_Productions_cmd = &cobra.Command{
 	}
 
 var Get_ProgramListings_cmd = &cobra.Command{
-		Aliases: []string{  "programlistings",  "PL",  "pl",  },
+		Aliases: []string{  "PL",  "pl",  "programlistings",  },
 		Use: `ProgramListings {"ProgramListingID":"string"}`,
 		Short: `Get details of a program listing`,
 		Long:  `Get details of a program listing.`,
@@ -6038,7 +6038,7 @@ var Get_ProgramListings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6056,7 +6056,7 @@ var Get_ProgramListings_cmd = &cobra.Command{
 	}
 
 var Get_Programs_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "programs",  },
+		Aliases: []string{  "programs",  "P",  "p",  },
 		Use: `Programs {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a program by id`,
 		Long:  `Get the details of a program by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -6064,7 +6064,7 @@ var Get_Programs_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6092,7 +6092,7 @@ var Get_Pronouns_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6112,7 +6112,7 @@ var Get_Pronouns_cmd = &cobra.Command{
 	}
 
 var Get_QualificationCategories_cmd = &cobra.Command{
-		Aliases: []string{  "qualificationcategories",  "QC",  "qc",  },
+		Aliases: []string{  "QC",  "qc",  "qualificationcategories",  },
 		Use: `QualificationCategories {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Qualification Category by id`,
 		Long:  `Get the details of a Qualification Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -6120,7 +6120,7 @@ var Get_QualificationCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6140,7 +6140,7 @@ var Get_QualificationCategories_cmd = &cobra.Command{
 	}
 
 var Get_Qualifications_cmd = &cobra.Command{
-		Aliases: []string{  "q",  "qualifications",  "Q",  },
+		Aliases: []string{  "qualifications",  "Q",  "q",  },
 		Use: `Qualifications {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Qualification by id`,
 		Long:  `Get the details of a Qualification by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -6148,7 +6148,7 @@ var Get_Qualifications_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6176,7 +6176,7 @@ var Get_QueryElementFilters_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6206,7 +6206,7 @@ var Get_QueryElementGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6232,7 +6232,7 @@ var Get_QueryElements_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6260,7 +6260,7 @@ var Get_RankTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6288,7 +6288,7 @@ var Get_Rankings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6306,7 +6306,7 @@ var Get_Rankings_cmd = &cobra.Command{
 	}
 
 var Get_ReceiptSettings_cmd = &cobra.Command{
-		Aliases: []string{  "receiptsettings",  "RS",  "rs",  },
+		Aliases: []string{  "RS",  "rs",  "receiptsettings",  },
 		Use: `ReceiptSettings {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Receipt Setting by id`,
 		Long:  `Get the details of a Receipt Setting by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -6314,7 +6314,7 @@ var Get_ReceiptSettings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6334,7 +6334,7 @@ var Get_ReceiptSettings_cmd = &cobra.Command{
 	}
 
 var Get_ReferenceColumns_cmd = &cobra.Command{
-		Aliases: []string{  "RC",  "rc",  "referencecolumns",  },
+		Aliases: []string{  "referencecolumns",  "RC",  "rc",  },
 		Use: `ReferenceColumns {"MaintenanceMode":"string"}`,
 		Short: `Get all reference columns`,
 		Long:  `Get all reference columns. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`,
@@ -6342,7 +6342,7 @@ var Get_ReferenceColumns_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6360,7 +6360,7 @@ var Get_ReferenceColumns_cmd = &cobra.Command{
 	}
 
 var Get_ReferenceTableUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "referencetableusergroups",  "RTUG",  "rtug",  },
+		Aliases: []string{  "RTUG",  "rtug",  "referencetableusergroups",  },
 		Use: `ReferenceTableUserGroups {"ID":"string"}`,
 		Short: `Get the details of a reference table/user group mapping by id`,
 		Long:  `Get the details of a reference table/user group mapping by id.`,
@@ -6368,7 +6368,7 @@ var Get_ReferenceTableUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6388,7 +6388,7 @@ var Get_ReferenceTableUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_ReferenceTables_cmd = &cobra.Command{
-		Aliases: []string{  "RT",  "rt",  "referencetables",  },
+		Aliases: []string{  "referencetables",  "RT",  "rt",  },
 		Use: `ReferenceTables {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get details for a reference table by Id`,
 		Long:  `Get details for a reference table by Id.`,
@@ -6396,7 +6396,7 @@ var Get_ReferenceTables_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6424,7 +6424,7 @@ var Get_RelationshipCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6444,7 +6444,7 @@ var Get_RelationshipCategories_cmd = &cobra.Command{
 	}
 
 var Get_Relationships_cmd = &cobra.Command{
-		Aliases: []string{  "R",  "r",  "relationships",  },
+		Aliases: []string{  "relationships",  "R",  "r",  },
 		Use: `Relationships {"ActiveOnly":"string","AssociatedConstituentID":"string","ConstituentID":"string","EndActiveDate":"string","IncludeAffiliations":"string","StartActiveDate":"string"}`,
 		Short: `Get all affiliations and associations of the specified constituent id or get all affiliations and associations of the specified associated constituent id`,
 		Long:  `Get all affiliations and associations of the specified constituent id or get all affiliations and associations of the specified associated constituent id. If both are specified get all the associations and affiliations between them.`,
@@ -6452,7 +6452,7 @@ var Get_Relationships_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6467,7 +6467,7 @@ var Get_Relationships_cmd = &cobra.Command{
 	}
 
 var Get_ReportRequests_cmd = &cobra.Command{
-		Aliases: []string{  "reportrequests",  "RR",  "rr",  },
+		Aliases: []string{  "RR",  "rr",  "reportrequests",  },
 		Use: `ReportRequests {"ID":"string"}`,
 		Short: `Get a report request`,
 		Long:  `Get a report request.`,
@@ -6475,7 +6475,7 @@ var Get_ReportRequests_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6505,7 +6505,7 @@ var Get_ReportSchedules_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6531,7 +6531,7 @@ var Get_ReportUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6551,7 +6551,7 @@ var Get_ReportUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_Reports_cmd = &cobra.Command{
-		Aliases: []string{  "reports",  "R",  "r",  },
+		Aliases: []string{  "r",  "reports",  "R",  },
 		Use: `Reports {"ReportID":"string"}`,
 		Short: `Get details of a report`,
 		Long:  `Get details of a report.`,
@@ -6559,7 +6559,7 @@ var Get_Reports_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6585,7 +6585,7 @@ var Get_Reports_cmd = &cobra.Command{
 	}
 
 var Get_Research_cmd = &cobra.Command{
-		Aliases: []string{  "research",  "R",  "r",  },
+		Aliases: []string{  "R",  "r",  "research",  },
 		Use: `Research {"ResearchEntryID":"string"}`,
 		Short: `Get details of a research entry`,
 		Long:  `Get details of a research entry.`,
@@ -6593,7 +6593,7 @@ var Get_Research_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6619,7 +6619,7 @@ var Get_ResearchTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6647,7 +6647,7 @@ var Get_ResourceCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6667,7 +6667,7 @@ var Get_ResourceCategories_cmd = &cobra.Command{
 	}
 
 var Get_ResourceSchedules_cmd = &cobra.Command{
-		Aliases: []string{  "rs",  "resourceschedules",  "RS",  },
+		Aliases: []string{  "resourceschedules",  "RS",  "rs",  },
 		Use: `ResourceSchedules {"ResourceScheduleID":"string"}`,
 		Short: `Get a single resource schedule`,
 		Long:  `Get a single resource schedule.`,
@@ -6675,7 +6675,7 @@ var Get_ResourceSchedules_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6701,7 +6701,7 @@ var Get_ResourceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6721,7 +6721,7 @@ var Get_ResourceTypes_cmd = &cobra.Command{
 	}
 
 var Get_Resources_cmd = &cobra.Command{
-		Aliases: []string{  "resources",  "R",  "r",  },
+		Aliases: []string{  "r",  "resources",  "R",  },
 		Use: `Resources {"ID":"string"}`,
 		Short: `Get a specific Resource`,
 		Long:  `Get a specific Resource.`,
@@ -6729,7 +6729,7 @@ var Get_Resources_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6761,7 +6761,7 @@ var Get_SalesChannels_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6789,7 +6789,7 @@ var Get_SalesLayoutButtonTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6817,7 +6817,7 @@ var Get_SalesLayouts_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6845,7 +6845,7 @@ var Get_SalutationTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6873,7 +6873,7 @@ var Get_Salutations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6893,7 +6893,7 @@ var Get_Salutations_cmd = &cobra.Command{
 	}
 
 var Get_SchedulePatternTypes_cmd = &cobra.Command{
-		Aliases: []string{  "spt",  "schedulepatterntypes",  "SPT",  },
+		Aliases: []string{  "schedulepatterntypes",  "SPT",  "spt",  },
 		Use: `SchedulePatternTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Schedule Pattern by id`,
 		Long:  `Get the details of a Schedule Pattern by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -6901,7 +6901,7 @@ var Get_SchedulePatternTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6921,7 +6921,7 @@ var Get_SchedulePatternTypes_cmd = &cobra.Command{
 	}
 
 var Get_ScheduleTypes_cmd = &cobra.Command{
-		Aliases: []string{  "scheduletypes",  "ST",  "st",  },
+		Aliases: []string{  "ST",  "st",  "scheduletypes",  },
 		Use: `ScheduleTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Schedule Type by id`,
 		Long:  `Get the details of a Schedule Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -6929,7 +6929,7 @@ var Get_ScheduleTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6949,7 +6949,7 @@ var Get_ScheduleTypes_cmd = &cobra.Command{
 	}
 
 var Get_SeasonTypes_cmd = &cobra.Command{
-		Aliases: []string{  "seasontypes",  "ST",  "st",  },
+		Aliases: []string{  "st",  "seasontypes",  "ST",  },
 		Use: `SeasonTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a season type by id`,
 		Long:  `Get the details of a season type by id.`,
@@ -6957,7 +6957,7 @@ var Get_SeasonTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -6985,7 +6985,7 @@ var Get_Seasons_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7013,7 +7013,7 @@ var Get_SeatCodes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7041,7 +7041,7 @@ var Get_SeatStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7061,7 +7061,7 @@ var Get_SeatStatuses_cmd = &cobra.Command{
 	}
 
 var Get_Sections_cmd = &cobra.Command{
-		Aliases: []string{  "sections",  "S",  "s",  },
+		Aliases: []string{  "s",  "sections",  "S",  },
 		Use: `Sections {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a section by id`,
 		Long:  `Get the details of a section by id.`,
@@ -7069,7 +7069,7 @@ var Get_Sections_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7097,7 +7097,7 @@ var Get_SecurityBatchTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7120,7 +7120,7 @@ var Get_SecurityControlGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7143,7 +7143,7 @@ var Get_SecurityHoldCodes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7166,7 +7166,7 @@ var Get_SecurityModesOfSale_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7181,7 +7181,7 @@ var Get_SecurityModesOfSale_cmd = &cobra.Command{
 	}
 
 var Get_SecurityObjectPermissions_cmd = &cobra.Command{
-		Aliases: []string{  "SOP",  "sop",  "securityobjectpermissions",  },
+		Aliases: []string{  "securityobjectpermissions",  "SOP",  "sop",  },
 		Use: `SecurityObjectPermissions {"ConstituencyID":"string","ObjectIds":"string","Objectid":"string"}`,
 		Short: `Get all the object permissions valid for the context usergroup`,
 		Long:  `Get all the object permissions valid for the context usergroup. Optionally filter by constituency id and/or object id.`,
@@ -7189,7 +7189,7 @@ var Get_SecurityObjectPermissions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7212,7 +7212,7 @@ var Get_SecurityPaymentMethods_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7227,7 +7227,7 @@ var Get_SecurityPaymentMethods_cmd = &cobra.Command{
 	}
 
 var Get_SecurityPriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "SPT",  "spt",  "securitypricetypes",  },
+		Aliases: []string{  "securitypricetypes",  "SPT",  "spt",  },
 		Use: `SecurityPriceTypes `,
 		Short: `Get all price type/user group mappings valid for the context usergroup`,
 		Long:  `Get all price type/user group mappings valid for the context usergroup.`,
@@ -7235,7 +7235,7 @@ var Get_SecurityPriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7258,7 +7258,7 @@ var Get_SecurityReferenceTables_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7281,7 +7281,7 @@ var Get_SecurityReports_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7304,7 +7304,7 @@ var Get_SecurityServiceResources_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7327,7 +7327,7 @@ var Get_SecurityUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7355,7 +7355,7 @@ var Get_ServiceResourceUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7375,7 +7375,7 @@ var Get_ServiceResourceUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_ServiceResources_cmd = &cobra.Command{
-		Aliases: []string{  "SR",  "sr",  "serviceresources",  },
+		Aliases: []string{  "serviceresources",  "SR",  "sr",  },
 		Use: `ServiceResources {"MaintenanceMode":"string"}`,
 		Short: `Get all service resources`,
 		Long:  `Get all service resources. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`,
@@ -7383,7 +7383,7 @@ var Get_ServiceResources_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7410,7 +7410,7 @@ Includes counts of cart products, the login status, MOS and Source`,
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7440,7 +7440,7 @@ Includes counts of cart products, the login status, MOS and Source`,
 	}
 
 var Get_SourceGroups_cmd = &cobra.Command{
-		Aliases: []string{  "sourcegroups",  "SG",  "sg",  },
+		Aliases: []string{  "sg",  "sourcegroups",  "SG",  },
 		Use: `SourceGroups {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a source group by id`,
 		Long:  `Get the details of a source group by id.`,
@@ -7448,7 +7448,7 @@ var Get_SourceGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7476,7 +7476,7 @@ var Get_Sources_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7504,7 +7504,7 @@ var Get_SpecialActivities_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7530,7 +7530,7 @@ var Get_SpecialActivityStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7550,7 +7550,7 @@ var Get_SpecialActivityStatuses_cmd = &cobra.Command{
 	}
 
 var Get_SpecialActivityTypes_cmd = &cobra.Command{
-		Aliases: []string{  "sat",  "specialactivitytypes",  "SAT",  },
+		Aliases: []string{  "specialactivitytypes",  "SAT",  "sat",  },
 		Use: `SpecialActivityTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Special Activity Type by id`,
 		Long:  `Get the details of a Special Activity Type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -7558,7 +7558,7 @@ var Get_SpecialActivityTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7578,7 +7578,7 @@ var Get_SpecialActivityTypes_cmd = &cobra.Command{
 	}
 
 var Get_States_cmd = &cobra.Command{
-		Aliases: []string{  "states",  "S",  "s",  },
+		Aliases: []string{  "s",  "states",  "S",  },
 		Use: `States {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a state by id`,
 		Long:  `Get the details of a state by id.`,
@@ -7586,7 +7586,7 @@ var Get_States_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7614,7 +7614,7 @@ var Get_StepTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7642,7 +7642,7 @@ var Get_Steps_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7672,7 +7672,7 @@ var Get_SubLineItemStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7700,7 +7700,7 @@ var Get_SubLineItems_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7723,7 +7723,7 @@ var Get_Suffixes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7743,7 +7743,7 @@ var Get_Suffixes_cmd = &cobra.Command{
 	}
 
 var Get_SurveyQuestions_cmd = &cobra.Command{
-		Aliases: []string{  "surveyquestions",  "SQ",  "sq",  },
+		Aliases: []string{  "SQ",  "sq",  "surveyquestions",  },
 		Use: `SurveyQuestions {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a survey question by id`,
 		Long:  `Get the details of a survey question by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -7751,7 +7751,7 @@ var Get_SurveyQuestions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7773,7 +7773,7 @@ var Get_SurveyQuestions_cmd = &cobra.Command{
 	}
 
 var Get_SurveyResponses_cmd = &cobra.Command{
-		Aliases: []string{  "surveyresponses",  "SR",  "sr",  },
+		Aliases: []string{  "sr",  "surveyresponses",  "SR",  },
 		Use: `SurveyResponses {"SurveyResponseID":"string"}`,
 		Short: `Get details of a survey response`,
 		Long:  `Get details of a survey response.`,
@@ -7781,7 +7781,7 @@ var Get_SurveyResponses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7807,7 +7807,7 @@ var Get_SystemDefaults_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7835,7 +7835,7 @@ var Get_TemplateCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7863,7 +7863,7 @@ var Get_TemplatePriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7889,7 +7889,7 @@ var Get_TemplatePrices_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7915,7 +7915,7 @@ var Get_TemplateTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7943,7 +7943,7 @@ var Get_Templates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7971,7 +7971,7 @@ var Get_Theaters_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -7991,7 +7991,7 @@ var Get_Theaters_cmd = &cobra.Command{
 	}
 
 var Get_TicketHistory_cmd = &cobra.Command{
-		Aliases: []string{  "tickethistory",  "TH",  "th",  },
+		Aliases: []string{  "TH",  "th",  "tickethistory",  },
 		Use: `TicketHistory {"ConstituentID":"string","IncludeAffiliations":"string","OrderEndDate":"string","OrderStartDate":"string","PerformanceEndDate":"string","PerformanceID":"string","PerformanceStartDate":"string","ProductionSeasonID":"string","SeasonID":"string"}`,
 		Short: `Gets history information for tickets`,
 		Long:  `Gets history information for tickets`,
@@ -7999,7 +7999,7 @@ var Get_TicketHistory_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8014,7 +8014,7 @@ var Get_TicketHistory_cmd = &cobra.Command{
 	}
 
 var Get_TimeSlots_cmd = &cobra.Command{
-		Aliases: []string{  "timeslots",  "TS",  "ts",  },
+		Aliases: []string{  "TS",  "ts",  "timeslots",  },
 		Use: `TimeSlots {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a time slot by id`,
 		Long:  `Get the details of a time slot by id.`,
@@ -8022,7 +8022,7 @@ var Get_TimeSlots_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8042,7 +8042,7 @@ var Get_TimeSlots_cmd = &cobra.Command{
 	}
 
 var Get_Titles_cmd = &cobra.Command{
-		Aliases: []string{  "titles",  "T",  "t",  },
+		Aliases: []string{  "T",  "t",  "titles",  },
 		Use: `Titles {"ID":"string"}`,
 		Short: `Get details of a specific title`,
 		Long:  `Get details of a specific title.`,
@@ -8050,7 +8050,7 @@ var Get_Titles_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8078,7 +8078,7 @@ var Get_TransactionHistory_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8101,7 +8101,7 @@ var Get_TriPOSCloudConfigurations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8129,7 +8129,7 @@ var Get_UpgradeCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8149,7 +8149,7 @@ var Get_UpgradeCategories_cmd = &cobra.Command{
 	}
 
 var Get_UpgradeLogs_cmd = &cobra.Command{
-		Aliases: []string{  "UL",  "ul",  "upgradelogs",  },
+		Aliases: []string{  "upgradelogs",  "UL",  "ul",  },
 		Use: `UpgradeLogs {"UpgradeLogID":"string"}`,
 		Short: `Returns an upgradeLog for the given id`,
 		Long:  `Returns an upgradeLog for the given id.`,
@@ -8157,7 +8157,7 @@ var Get_UpgradeLogs_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8175,7 +8175,7 @@ var Get_UpgradeLogs_cmd = &cobra.Command{
 	}
 
 var Get_UserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "UG",  "ug",  "usergroups",  },
+		Aliases: []string{  "usergroups",  "UG",  "ug",  },
 		Use: `UserGroups {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a user group by id`,
 		Long:  `Get the details of a user group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -8183,7 +8183,7 @@ var Get_UserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8211,7 +8211,7 @@ var Get_UserPreferences_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8229,7 +8229,7 @@ var Get_UserPreferences_cmd = &cobra.Command{
 	}
 
 var Get_Users_cmd = &cobra.Command{
-		Aliases: []string{  "U",  "u",  "users",  },
+		Aliases: []string{  "users",  "U",  "u",  },
 		Use: `Users {"UserName":"string"}`,
 		Short: `Get the details of a user for the specified username`,
 		Long:  `Get the details of a user for the specified username.`,
@@ -8237,7 +8237,7 @@ var Get_Users_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8267,7 +8267,7 @@ var Get_WebContentTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8289,7 +8289,7 @@ var Get_WebContentTypes_cmd = &cobra.Command{
 	}
 
 var Get_WebContents_cmd = &cobra.Command{
-		Aliases: []string{  "wc",  "webcontents",  "WC",  },
+		Aliases: []string{  "webcontents",  "WC",  "wc",  },
 		Use: `WebContents {"ContentTypeIds":"string","PackageIds":"string","ProductionElementIds":"string","ShowAll":"string"}`,
 		Short: `Returns web content for the requested production elements or packages`,
 		Long:  `Returns web content for the requested production elements or packages.
@@ -8299,7 +8299,7 @@ If the content type is found, returns the content value at the lowest level at w
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8314,7 +8314,7 @@ If the content type is found, returns the content value at the lowest level at w
 	}
 
 var Get_WebLogins_cmd = &cobra.Command{
-		Aliases: []string{  "weblogins",  "WL",  "wl",  },
+		Aliases: []string{  "wl",  "weblogins",  "WL",  },
 		Use: `WebLogins {"WebLoginID":"string"}`,
 		Short: `Get details of a weblogin`,
 		Long:  `Get details of a weblogin.`,
@@ -8322,7 +8322,7 @@ var Get_WebLogins_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8352,7 +8352,7 @@ var Get_WorkerQualifications_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8370,7 +8370,7 @@ var Get_WorkerQualifications_cmd = &cobra.Command{
 	}
 
 var Get_WorkerRoles_cmd = &cobra.Command{
-		Aliases: []string{  "workerroles",  "WR",  "wr",  },
+		Aliases: []string{  "wr",  "workerroles",  "WR",  },
 		Use: `WorkerRoles {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a worker role by id`,
 		Long:  `Get the details of a worker role by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -8378,7 +8378,7 @@ var Get_WorkerRoles_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8406,7 +8406,7 @@ var Get_WorkerTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8426,7 +8426,7 @@ var Get_WorkerTypes_cmd = &cobra.Command{
 	}
 
 var Get_Workers_cmd = &cobra.Command{
-		Aliases: []string{  "workers",  "W",  "w",  },
+		Aliases: []string{  "w",  "workers",  "W",  },
 		Use: `Workers {"WorkerID":"string"}`,
 		Short: `Get details of a worker`,
 		Long:  `Get details of a worker.`,
@@ -8434,7 +8434,7 @@ var Get_Workers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8454,7 +8454,7 @@ var Get_Workers_cmd = &cobra.Command{
 	}
 
 var Get_ZoneGroups_cmd = &cobra.Command{
-		Aliases: []string{  "ZG",  "zg",  "zonegroups",  },
+		Aliases: []string{  "zg",  "zonegroups",  "ZG",  },
 		Use: `ZoneGroups {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a zone group by id`,
 		Long:  `Get the details of a zone group by id.`,
@@ -8462,7 +8462,7 @@ var Get_ZoneGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8482,7 +8482,7 @@ var Get_ZoneGroups_cmd = &cobra.Command{
 	}
 
 var Get_ZoneMaps_cmd = &cobra.Command{
-		Aliases: []string{  "zonemaps",  "ZM",  "zm",  },
+		Aliases: []string{  "zm",  "zonemaps",  "ZM",  },
 		Use: `ZoneMaps {"ID":"string"}`,
 		Short: `Get details of a specific zone map`,
 		Long:  `Get details of a specific zone map.`,
@@ -8490,7 +8490,7 @@ var Get_ZoneMaps_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -8510,7 +8510,7 @@ var Get_ZoneMaps_cmd = &cobra.Command{
 	}
 
 var Get_Zones_cmd = &cobra.Command{
-		Aliases: []string{  "Z",  "z",  "zones",  },
+		Aliases: []string{  "zones",  "Z",  "z",  },
 		Use: `Zones {"ZoneID":"string","ZoneMapID":"string"}`,
 		Short: `Get details of a specific zone`,
 		Long:  `Get details of a specific zone.`,
@@ -8518,7 +8518,7 @@ var Get_Zones_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Get == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}

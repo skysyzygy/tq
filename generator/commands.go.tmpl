@@ -23,7 +23,7 @@ var {{ print $op "_" $key "_cmd" }} = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.{{ $op }} == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}

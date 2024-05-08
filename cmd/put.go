@@ -11,7 +11,7 @@ import (
 
 
 var Put_AccountTypes_cmd = &cobra.Command{
-		Aliases: []string{  "accounttypes",  "AT",  "at",  },
+		Aliases: []string{  "AT",  "at",  "accounttypes",  },
 		Use: `AccountTypes {"Data":{"CardLength":"string","CardPrefix":"string","CardtypeIndicator":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditMask":"string","Mod10Indicator":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing account type`,
 		Long:  `Update an existing account type.`,
@@ -19,7 +19,7 @@ var Put_AccountTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -44,7 +44,7 @@ If tokenizing a non-tokenized card, PaymentMethodGroupId is required if one has 
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -64,7 +64,7 @@ If tokenizing a non-tokenized card, PaymentMethodGroupId is required if one has 
 	}
 
 var Put_ActionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "actiontypes",  "AT",  "at",  },
+		Aliases: []string{  "AT",  "at",  "actiontypes",  },
 		Use: `ActionTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing action type`,
 		Long:  `Update an existing action type.`,
@@ -72,7 +72,7 @@ var Put_ActionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -95,7 +95,7 @@ var Put_Actions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -110,7 +110,7 @@ var Put_Actions_cmd = &cobra.Command{
 	}
 
 var Put_ActivityCategories_cmd = &cobra.Command{
-		Aliases: []string{  "activitycategories",  "AC",  "ac",  },
+		Aliases: []string{  "AC",  "ac",  "activitycategories",  },
 		Use: `ActivityCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing activity category`,
 		Long:  `Update an existing activity category.`,
@@ -118,7 +118,7 @@ var Put_ActivityCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -133,7 +133,7 @@ var Put_ActivityCategories_cmd = &cobra.Command{
 	}
 
 var Put_ActivityTypes_cmd = &cobra.Command{
-		Aliases: []string{  "activitytypes",  "AT",  "at",  },
+		Aliases: []string{  "AT",  "at",  "activitytypes",  },
 		Use: `ActivityTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","PerfIndicator":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing activity type`,
 		Long:  `Update an existing activity type.`,
@@ -141,7 +141,7 @@ var Put_ActivityTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -164,7 +164,7 @@ var Put_AddressTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -179,7 +179,7 @@ var Put_AddressTypes_cmd = &cobra.Command{
 	}
 
 var Put_Addresses_cmd = &cobra.Command{
-		Aliases: []string{  "a",  "addresses",  "A",  },
+		Aliases: []string{  "addresses",  "A",  "a",  },
 		Use: `Addresses {"Address":{"City":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DeliveryPoint":"string","EndDate":"0001-01-01T00:00:00.000Z","Months":"string","PostalCode":"string","PostalCodeFormatted":"string","StartDate":"0001-01-01T00:00:00.000Z","Street1":"string","Street2":"string","Street3":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"AddressID":"string"}`,
 		Short: `Update an address for a Constituent by sending an XML or JSON representation of an existing Address object using HTTP PUT`,
 		Long:  `Update an address for a Constituent by sending an XML or JSON representation of an existing Address object using HTTP PUT.`,
@@ -187,7 +187,7 @@ var Put_Addresses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -210,7 +210,7 @@ var Put_AffiliationTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -225,7 +225,7 @@ var Put_AffiliationTypes_cmd = &cobra.Command{
 	}
 
 var Put_Affiliations_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "affiliations",  },
+		Aliases: []string{  "affiliations",  "A",  "a",  },
 		Use: `Affiliations {"Affiliation":{"AffiliatedName":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDate":"0001-01-01T00:00:00.000Z","GroupConstituentName":"string","GroupConstituentSortName":"string","IndividualConstituentName":"string","IndividualConstituentSortName":"string","Note":"string","StartDate":"0001-01-01T00:00:00.000Z","Title":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"AffiliationID":"string"}`,
 		Short: `Update an affiliation`,
 		Long:  `Update an affiliation.`,
@@ -233,7 +233,7 @@ var Put_Affiliations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -248,7 +248,7 @@ var Put_Affiliations_cmd = &cobra.Command{
 	}
 
 var Put_AliasTypes_cmd = &cobra.Command{
-		Aliases: []string{  "aliastypes",  "AT",  "at",  },
+		Aliases: []string{  "AT",  "at",  "aliastypes",  },
 		Use: `AliasTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing alias type`,
 		Long:  `Update an existing alias type.`,
@@ -256,7 +256,7 @@ var Put_AliasTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -279,7 +279,7 @@ var Put_Aliases_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -302,7 +302,7 @@ var Put_AnalyticsReports_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -325,7 +325,7 @@ var Put_AppScreenTexts_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -348,7 +348,7 @@ var Put_AppealCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -363,7 +363,7 @@ var Put_AppealCategories_cmd = &cobra.Command{
 	}
 
 var Put_Artists_cmd = &cobra.Command{
-		Aliases: []string{  "a",  "artists",  "A",  },
+		Aliases: []string{  "artists",  "A",  "a",  },
 		Use: `Artists {"Artist":{"Bio":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","FirstName":"string","LastName":"string","MiddleName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ArtistID":"string"}`,
 		Short: `Update an existing artist`,
 		Long:  `Update an existing artist.`,
@@ -371,7 +371,7 @@ var Put_Artists_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -386,7 +386,7 @@ var Put_Artists_cmd = &cobra.Command{
 	}
 
 var Put_AssetTypes_cmd = &cobra.Command{
-		Aliases: []string{  "assettypes",  "AT",  "at",  },
+		Aliases: []string{  "AT",  "at",  "assettypes",  },
 		Use: `AssetTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing asset type`,
 		Long:  `Update an existing asset type.`,
@@ -394,7 +394,7 @@ var Put_AssetTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -409,7 +409,7 @@ var Put_AssetTypes_cmd = &cobra.Command{
 	}
 
 var Put_Assets_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "assets",  },
+		Aliases: []string{  "a",  "assets",  "A",  },
 		Use: `Assets {"Asset":{"AcquisitionDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Notes":"string","SaleDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"AssetID":"string"}`,
 		Short: `Update an existing asset for a constituent`,
 		Long:  `Update an existing asset for a constituent.`,
@@ -417,7 +417,7 @@ var Put_Assets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -440,7 +440,7 @@ var Put_AssociationTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -463,7 +463,7 @@ var Put_Associations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -478,7 +478,7 @@ var Put_Associations_cmd = &cobra.Command{
 	}
 
 var Put_Attributes_cmd = &cobra.Command{
-		Aliases: []string{  "a",  "attributes",  "A",  },
+		Aliases: []string{  "attributes",  "A",  "a",  },
 		Use: `Attributes {"Attribute":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Value":"string"},"AttributeID":"string"}`,
 		Short: `Update an attribute`,
 		Long:  `Update an attribute.`,
@@ -486,7 +486,7 @@ var Put_Attributes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -510,7 +510,7 @@ Expire a payment link which has yet to be authorized or already expired.  For Te
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -533,7 +533,7 @@ var Put_BatchTypeGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -556,7 +556,7 @@ var Put_BatchTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -571,7 +571,7 @@ var Put_BatchTypes_cmd = &cobra.Command{
 	}
 
 var Put_BillingSchedules_cmd = &cobra.Command{
-		Aliases: []string{  "bs",  "billingschedules",  "BS",  },
+		Aliases: []string{  "billingschedules",  "BS",  "bs",  },
 		Use: `BillingSchedules {"Data":{"BillAmounts":"string","BillDates":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","LongDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing Billing Schedule`,
 		Long:  `Update an existing Billing Schedule.`,
@@ -579,7 +579,7 @@ var Put_BillingSchedules_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -602,7 +602,7 @@ var Put_BillingTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -625,7 +625,7 @@ var Put_BookingCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -640,7 +640,7 @@ var Put_BookingCategories_cmd = &cobra.Command{
 	}
 
 var Put_BookingTemplates_cmd = &cobra.Command{
-		Aliases: []string{  "BT",  "bt",  "bookingtemplates",  },
+		Aliases: []string{  "bookingtemplates",  "BT",  "bt",  },
 		Use: `BookingTemplates {"BookingTemplate":{"Assignments":[object],"ConfirmationText":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Notes":"string","OverrideTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"BookingTemplateID":"string"}`,
 		Short: `Update an existing Booking Template`,
 		Long:  `Update an existing Booking Template`,
@@ -648,7 +648,7 @@ var Put_BookingTemplates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -671,7 +671,7 @@ var Put_Bookings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -694,7 +694,7 @@ var Put_BulkCopySets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -709,7 +709,7 @@ var Put_BulkCopySets_cmd = &cobra.Command{
 	}
 
 var Put_BulkDailyCopyExclusions_cmd = &cobra.Command{
-		Aliases: []string{  "bulkdailycopyexclusions",  "BDCE",  "bdce",  },
+		Aliases: []string{  "BDCE",  "bdce",  "bulkdailycopyexclusions",  },
 		Use: `BulkDailyCopyExclusions {"BulkDailyCopyExclusion":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"BulkDailyCopyExclusionID":"string"}`,
 		Short: `Updates an existing bulk daily copy exclusion`,
 		Long:  `Updates an existing bulk daily copy exclusion.`,
@@ -717,7 +717,7 @@ var Put_BulkDailyCopyExclusions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -732,7 +732,7 @@ var Put_BulkDailyCopyExclusions_cmd = &cobra.Command{
 	}
 
 var Put_BusinessUnits_cmd = &cobra.Command{
-		Aliases: []string{  "BU",  "bu",  "businessunits",  },
+		Aliases: []string{  "businessunits",  "BU",  "bu",  },
 		Use: `BusinessUnits {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing business unit`,
 		Long:  `Update an existing business unit.`,
@@ -740,7 +740,7 @@ var Put_BusinessUnits_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -755,7 +755,7 @@ var Put_BusinessUnits_cmd = &cobra.Command{
 	}
 
 var Put_CampaignDesignations_cmd = &cobra.Command{
-		Aliases: []string{  "cd",  "campaigndesignations",  "CD",  },
+		Aliases: []string{  "campaigndesignations",  "CD",  "cd",  },
 		Use: `CampaignDesignations {"CampaignDesignation":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"CampaignDesignationID":"string"}`,
 		Short: `Update an association between a Designation and a Campaign`,
 		Long:  `Update an association between a Designation and a Campaign.`,
@@ -763,7 +763,7 @@ var Put_CampaignDesignations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -786,7 +786,7 @@ var Put_CampaignFunds_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -801,7 +801,7 @@ var Put_CampaignFunds_cmd = &cobra.Command{
 	}
 
 var Put_CardReaderTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CRT",  "crt",  "cardreadertypes",  },
+		Aliases: []string{  "cardreadertypes",  "CRT",  "crt",  },
 		Use: `CardReaderTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing Card Reader Type`,
 		Long:  `Update an existing Card Reader Type.`,
@@ -809,7 +809,7 @@ var Put_CardReaderTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -834,7 +834,7 @@ The status field in the response will return as S if the discount can be used or
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -884,7 +884,7 @@ var Put_Colors_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -907,7 +907,7 @@ var Put_Composers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -930,7 +930,7 @@ var Put_Constituencies_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -953,7 +953,7 @@ var Put_ConstituencyTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -976,7 +976,7 @@ var Put_ConstituentDocuments_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -999,7 +999,7 @@ var Put_ConstituentGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1022,7 +1022,7 @@ var Put_ConstituentInactives_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1045,7 +1045,7 @@ var Put_ConstituentProtectionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1068,7 +1068,7 @@ var Put_ConstituentTypeAffiliates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1091,7 +1091,7 @@ var Put_ConstituentTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1114,7 +1114,7 @@ var Put_Constituents_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1137,7 +1137,7 @@ var Put_ContactPermissionCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1160,7 +1160,7 @@ var Put_ContactPermissionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1175,7 +1175,7 @@ var Put_ContactPermissionTypes_cmd = &cobra.Command{
 	}
 
 var Put_ContactPermissions_cmd = &cobra.Command{
-		Aliases: []string{  "CP",  "cp",  "contactpermissions",  },
+		Aliases: []string{  "contactpermissions",  "CP",  "cp",  },
 		Use: `ContactPermissions {"ContactPermission":{"Answer":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","LastAskedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ContactPermissionID":"string"}`,
 		Short: `Update a contact permission`,
 		Long:  `Update a contact permission`,
@@ -1183,7 +1183,7 @@ var Put_ContactPermissions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1206,7 +1206,7 @@ var Put_ContactPointCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1229,7 +1229,7 @@ var Put_ContactPointCategoryPurposes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1252,7 +1252,7 @@ var Put_ContactPointPurposeCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1275,7 +1275,7 @@ var Put_ContactPointPurposeMaps_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1290,7 +1290,7 @@ var Put_ContactPointPurposeMaps_cmd = &cobra.Command{
 	}
 
 var Put_ContactPointPurposes_cmd = &cobra.Command{
-		Aliases: []string{  "CPP",  "cpp",  "contactpointpurposes",  },
+		Aliases: []string{  "contactpointpurposes",  "CPP",  "cpp",  },
 		Use: `ContactPointPurposes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing contact point purpose`,
 		Long:  `Update an existing contact point purpose.`,
@@ -1298,7 +1298,7 @@ var Put_ContactPointPurposes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1321,7 +1321,7 @@ var Put_ContactTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1344,7 +1344,7 @@ var Put_ContributionDesignations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1367,7 +1367,7 @@ var Put_ContributionImportSets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1382,7 +1382,7 @@ var Put_ContributionImportSets_cmd = &cobra.Command{
 	}
 
 var Put_Contributions_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "contributions",  },
+		Aliases: []string{  "contributions",  "C",  "c",  },
 		Use: `Contributions {"Contribution":{"BillingAccount":"string","Cancel":"string","ContributionDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Custom0":"string","Custom1":"string","Custom2":"string","Custom3":"string","Custom4":"string","Custom5":"string","Custom6":"string","Custom7":"string","Custom8":"string","Custom9":"string","KindGiftDescription":"string","KindGiftTransferDateTime":"0001-01-01T00:00:00.000Z","MatchIndicator":"string","Notes":"string","PaymentEndDateTime":"0001-01-01T00:00:00.000Z","PaymentStartDateTime":"0001-01-01T00:00:00.000Z","Solicitor":"string","Type":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ContributionID":"string"}`,
 		Short: `This resource is currently strictly for interceptor plugin use`,
 		Long:  `This resource is currently strictly for interceptor plugin use. This is called any time an existing contribution is updated from contribution editor in the client application. Only Id (ref_no) is provided in the request content.`,
@@ -1390,7 +1390,7 @@ var Put_Contributions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1413,7 +1413,7 @@ var Put_ControlGroupUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1436,7 +1436,7 @@ var Put_ControlGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1451,7 +1451,7 @@ var Put_ControlGroups_cmd = &cobra.Command{
 	}
 
 var Put_Countries_cmd = &cobra.Command{
-		Aliases: []string{  "countries",  "C",  "c",  },
+		Aliases: []string{  "C",  "c",  "countries",  },
 		Use: `Countries {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DecimalSeparator":"string","Description":"string","IsoAlpha2Code":"string","IsoAlpha3Code":"string","PhoneCode":"string","PhoneEditstring":"string","PhoneMask":"string","PhoneValidLengths":"string","ShortDesc":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseAvs":"string","UseStateField":"string","ZipEditstring":"string","ZipMask":"string","ZipValidLengths":"string"},"ID":"string"}`,
 		Short: `Update an existing country`,
 		Long:  `Update an existing country.`,
@@ -1459,7 +1459,7 @@ var Put_Countries_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1482,7 +1482,7 @@ var Put_CrediteeTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1505,7 +1505,7 @@ var Put_CurrencyTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1528,7 +1528,7 @@ var Put_Custom_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1551,7 +1551,7 @@ var Put_CustomDefaultCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1574,7 +1574,7 @@ var Put_CustomDefaults_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1597,7 +1597,7 @@ var Put_DeliveryMethods_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1620,7 +1620,7 @@ var Put_DesignationCodes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1643,7 +1643,7 @@ var Put_Diagnostics_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1666,7 +1666,7 @@ var Put_DirectDebitAccountTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1689,7 +1689,7 @@ var Put_DiscountTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1704,7 +1704,7 @@ var Put_DiscountTypes_cmd = &cobra.Command{
 	}
 
 var Put_DocumentCategories_cmd = &cobra.Command{
-		Aliases: []string{  "documentcategories",  "DC",  "dc",  },
+		Aliases: []string{  "DC",  "dc",  "documentcategories",  },
 		Use: `DocumentCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ParentTableName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing documentCategory`,
 		Long:  `Update an existing documentCategory.`,
@@ -1712,7 +1712,7 @@ var Put_DocumentCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1727,7 +1727,7 @@ var Put_DocumentCategories_cmd = &cobra.Command{
 	}
 
 var Put_DonationLevels_cmd = &cobra.Command{
-		Aliases: []string{  "donationlevels",  "DL",  "dl",  },
+		Aliases: []string{  "dl",  "donationlevels",  "DL",  },
 		Use: `DonationLevels {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing donation level`,
 		Long:  `Update an existing donation level.`,
@@ -1735,7 +1735,7 @@ var Put_DonationLevels_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1758,7 +1758,7 @@ var Put_EMV_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1781,7 +1781,7 @@ var Put_ElectronicAddressTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1796,7 +1796,7 @@ var Put_ElectronicAddressTypes_cmd = &cobra.Command{
 	}
 
 var Put_ElectronicAddresses_cmd = &cobra.Command{
-		Aliases: []string{  "ea",  "electronicaddresses",  "EA",  },
+		Aliases: []string{  "electronicaddresses",  "EA",  "ea",  },
 		Use: `ElectronicAddresses {"ElectronicAddress":{"Address":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDate":"0001-01-01T00:00:00.000Z","Months":"string","StartDate":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ElectronicAddressID":"string"}`,
 		Short: `Update an electronic address`,
 		Long:  `Update an electronic address.`,
@@ -1804,7 +1804,7 @@ var Put_ElectronicAddresses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1819,7 +1819,7 @@ var Put_ElectronicAddresses_cmd = &cobra.Command{
 	}
 
 var Put_EmailProfiles_cmd = &cobra.Command{
-		Aliases: []string{  "emailprofiles",  "EP",  "ep",  },
+		Aliases: []string{  "ep",  "emailprofiles",  "EP",  },
 		Use: `EmailProfiles {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EmailBcc":"string","EmailCc":"string","EmailDefaultSubject":"string","EmailFrom":"string","SMTPPassword":"string","SMTPServer":"string","SMTPUserName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing email profile`,
 		Long:  `Update an existing email profile`,
@@ -1827,7 +1827,7 @@ var Put_EmailProfiles_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1842,7 +1842,7 @@ var Put_EmailProfiles_cmd = &cobra.Command{
 	}
 
 var Put_EmarketIndicators_cmd = &cobra.Command{
-		Aliases: []string{  "EI",  "ei",  "emarketindicators",  },
+		Aliases: []string{  "emarketindicators",  "EI",  "ei",  },
 		Use: `EmarketIndicators {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing emarket indicator`,
 		Long:  `Update an existing emarket indicator.`,
@@ -1850,7 +1850,7 @@ var Put_EmarketIndicators_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1865,7 +1865,7 @@ var Put_EmarketIndicators_cmd = &cobra.Command{
 	}
 
 var Put_Eras_cmd = &cobra.Command{
-		Aliases: []string{  "e",  "eras",  "E",  },
+		Aliases: []string{  "eras",  "E",  "e",  },
 		Use: `Eras {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing era`,
 		Long:  `Update an existing era.`,
@@ -1873,7 +1873,7 @@ var Put_Eras_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1888,7 +1888,7 @@ var Put_Eras_cmd = &cobra.Command{
 	}
 
 var Put_Facilities_cmd = &cobra.Command{
-		Aliases: []string{  "f",  "facilities",  "F",  },
+		Aliases: []string{  "facilities",  "F",  "f",  },
 		Use: `Facilities {"Facility":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update a Facility`,
 		Long:  `Update a Facility.`,
@@ -1896,7 +1896,7 @@ var Put_Facilities_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1911,7 +1911,7 @@ var Put_Facilities_cmd = &cobra.Command{
 	}
 
 var Put_Genders_cmd = &cobra.Command{
-		Aliases: []string{  "genders",  "G",  "g",  },
+		Aliases: []string{  "g",  "genders",  "G",  },
 		Use: `Genders {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing gender`,
 		Long:  `Update an existing gender.`,
@@ -1919,7 +1919,7 @@ var Put_Genders_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1934,7 +1934,7 @@ var Put_Genders_cmd = &cobra.Command{
 	}
 
 var Put_GiftAidContactMethods_cmd = &cobra.Command{
-		Aliases: []string{  "giftaidcontactmethods",  "GACM",  "gacm",  },
+		Aliases: []string{  "gacm",  "giftaidcontactmethods",  "GACM",  },
 		Use: `GiftAidContactMethods {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing gift aid contact method`,
 		Long:  `Update an existing gift aid contact method.`,
@@ -1942,7 +1942,7 @@ var Put_GiftAidContactMethods_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1957,7 +1957,7 @@ var Put_GiftAidContactMethods_cmd = &cobra.Command{
 	}
 
 var Put_GiftAidDeclarations_cmd = &cobra.Command{
-		Aliases: []string{  "GAD",  "gad",  "giftaiddeclarations",  },
+		Aliases: []string{  "gad",  "giftaiddeclarations",  "GAD",  },
 		Use: `GiftAidDeclarations {"GiftAidDeclaration":{"ConfirmDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","Notes":"string","ReceivedDateTime":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"GiftAidDeclarationID":"string"}`,
 		Short: `Update a Gift Aid Declaration`,
 		Long:  `Update a Gift Aid Declaration.`,
@@ -1965,7 +1965,7 @@ var Put_GiftAidDeclarations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -1988,7 +1988,7 @@ var Put_GiftAidDocumentStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2003,7 +2003,7 @@ var Put_GiftAidDocumentStatuses_cmd = &cobra.Command{
 	}
 
 var Put_GiftAidIneligibleReasons_cmd = &cobra.Command{
-		Aliases: []string{  "gair",  "giftaidineligiblereasons",  "GAIR",  },
+		Aliases: []string{  "giftaidineligiblereasons",  "GAIR",  "gair",  },
 		Use: `GiftAidIneligibleReasons {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing gift aid ineligible reason`,
 		Long:  `Update an existing gift aid ineligible reason.`,
@@ -2011,7 +2011,7 @@ var Put_GiftAidIneligibleReasons_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2026,7 +2026,7 @@ var Put_GiftAidIneligibleReasons_cmd = &cobra.Command{
 	}
 
 var Put_GiftAidRates_cmd = &cobra.Command{
-		Aliases: []string{  "gar",  "giftaidrates",  "GAR",  },
+		Aliases: []string{  "giftaidrates",  "GAR",  "gar",  },
 		Use: `GiftAidRates {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing gift aid rate`,
 		Long:  `Update an existing gift aid rate.`,
@@ -2034,7 +2034,7 @@ var Put_GiftAidRates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2049,7 +2049,7 @@ var Put_GiftAidRates_cmd = &cobra.Command{
 	}
 
 var Put_GiftAidStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "GAS",  "gas",  "giftaidstatuses",  },
+		Aliases: []string{  "giftaidstatuses",  "GAS",  "gas",  },
 		Use: `GiftAidStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing gift aid status`,
 		Long:  `Update an existing gift aid status.`,
@@ -2057,7 +2057,7 @@ var Put_GiftAidStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2072,7 +2072,7 @@ var Put_GiftAidStatuses_cmd = &cobra.Command{
 	}
 
 var Put_GiftAidTypes_cmd = &cobra.Command{
-		Aliases: []string{  "giftaidtypes",  "GAT",  "gat",  },
+		Aliases: []string{  "GAT",  "gat",  "giftaidtypes",  },
 		Use: `GiftAidTypes {"Data":{"CharityClaimsRef":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing gift aid type`,
 		Long:  `Update an existing gift aid type.`,
@@ -2080,7 +2080,7 @@ var Put_GiftAidTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2103,7 +2103,7 @@ var Put_HoldCodeCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2126,7 +2126,7 @@ var Put_HoldCodeUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2141,7 +2141,7 @@ var Put_HoldCodeUserGroups_cmd = &cobra.Command{
 	}
 
 var Put_HoldCodes_cmd = &cobra.Command{
-		Aliases: []string{  "holdcodes",  "HC",  "hc",  },
+		Aliases: []string{  "hc",  "holdcodes",  "HC",  },
 		Use: `HoldCodes {"HoldCode":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Legend":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"HoldCodeID":"string"}`,
 		Short: `Update an existing Hold Code`,
 		Long:  `Update an existing Hold Code.`,
@@ -2149,7 +2149,7 @@ var Put_HoldCodes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2172,7 +2172,7 @@ var Put_InactiveReasons_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2187,7 +2187,7 @@ var Put_InactiveReasons_cmd = &cobra.Command{
 	}
 
 var Put_IntegrationDefaults_cmd = &cobra.Command{
-		Aliases: []string{  "integrationdefaults",  "ID",  "id",  },
+		Aliases: []string{  "ID",  "id",  "integrationdefaults",  },
 		Use: `IntegrationDefaults {"Data":{"AccessId":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultValue":"string","Description":"string","FieldName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing Integration Default`,
 		Long:  `Update an existing Integration Default.`,
@@ -2195,7 +2195,7 @@ var Put_IntegrationDefaults_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2210,7 +2210,7 @@ var Put_IntegrationDefaults_cmd = &cobra.Command{
 	}
 
 var Put_Integrations_cmd = &cobra.Command{
-		Aliases: []string{  "integrations",  "I",  "i",  },
+		Aliases: []string{  "i",  "integrations",  "I",  },
 		Use: `Integrations {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing action type`,
 		Long:  `Update an existing action type.`,
@@ -2218,7 +2218,7 @@ var Put_Integrations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2241,7 +2241,7 @@ var Put_InterestCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2264,7 +2264,7 @@ var Put_InterestTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2279,7 +2279,7 @@ var Put_InterestTypes_cmd = &cobra.Command{
 	}
 
 var Put_Interests_cmd = &cobra.Command{
-		Aliases: []string{  "interests",  "I",  "i",  },
+		Aliases: []string{  "i",  "interests",  "I",  },
 		Use: `Interests {"Interest":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"InterestID":"string"}`,
 		Short: `Update an interest`,
 		Long:  `Update an interest. If the interest is not selected and the weight is 0 or null, it will be deleted.
@@ -2288,7 +2288,7 @@ For bulk interest edits, consider the CRM/Interests/CreateOrUpdate batching reso
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2311,7 +2311,7 @@ var Put_Internal_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2334,7 +2334,7 @@ var Put_InventoryContactPermissionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2357,7 +2357,7 @@ var Put_InventoryWebContents_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2380,7 +2380,7 @@ var Put_Issues_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2395,7 +2395,7 @@ var Put_Issues_cmd = &cobra.Command{
 	}
 
 var Put_KeywordCategories_cmd = &cobra.Command{
-		Aliases: []string{  "KC",  "kc",  "keywordcategories",  },
+		Aliases: []string{  "keywordcategories",  "KC",  "kc",  },
 		Use: `KeywordCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing keyword category`,
 		Long:  `Update an existing keyword category.`,
@@ -2403,7 +2403,7 @@ var Put_KeywordCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2426,7 +2426,7 @@ var Put_Keywords_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2449,7 +2449,7 @@ var Put_Languages_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2472,7 +2472,7 @@ var Put_ListCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2495,7 +2495,7 @@ var Put_Lists_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2521,7 +2521,7 @@ var Put_LoginTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2536,7 +2536,7 @@ var Put_LoginTypes_cmd = &cobra.Command{
 	}
 
 var Put_MachineSettings_cmd = &cobra.Command{
-		Aliases: []string{  "machinesettings",  "MS",  "ms",  },
+		Aliases: []string{  "MS",  "ms",  "machinesettings",  },
 		Use: `MachineSettings {"Data":{"CardReaderHost":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","MerchantId":"string","PXStation":"string","PXUserKey":"string","PXUserName":"string","TessituraPaymentsPosDevice":"string","TessituraPaymentsPosDeviceModel":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","WorkstationName":"string"},"ID":"string"}`,
 		Short: `Update an existing Machine Setting`,
 		Long:  `Update an existing Machine Setting.`,
@@ -2544,7 +2544,7 @@ var Put_MachineSettings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2559,7 +2559,7 @@ var Put_MachineSettings_cmd = &cobra.Command{
 	}
 
 var Put_MailIndicators_cmd = &cobra.Command{
-		Aliases: []string{  "mailindicators",  "MI",  "mi",  },
+		Aliases: []string{  "MI",  "mi",  "mailindicators",  },
 		Use: `MailIndicators {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing mail indicator`,
 		Long:  `Update an existing mail indicator.`,
@@ -2567,7 +2567,7 @@ var Put_MailIndicators_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2582,7 +2582,7 @@ var Put_MailIndicators_cmd = &cobra.Command{
 	}
 
 var Put_MediaTypes_cmd = &cobra.Command{
-		Aliases: []string{  "MT",  "mt",  "mediatypes",  },
+		Aliases: []string{  "mediatypes",  "MT",  "mt",  },
 		Use: `MediaTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing media type`,
 		Long:  `Update an existing media type.`,
@@ -2590,7 +2590,7 @@ var Put_MediaTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2613,7 +2613,7 @@ var Put_MembershipLevelCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2628,7 +2628,7 @@ var Put_MembershipLevelCategories_cmd = &cobra.Command{
 	}
 
 var Put_ModeOfSaleCategories_cmd = &cobra.Command{
-		Aliases: []string{  "MOSC",  "mosc",  "modeofsalecategories",  },
+		Aliases: []string{  "modeofsalecategories",  "MOSC",  "mosc",  },
 		Use: `ModeOfSaleCategories {"ModeOfSaleCategory":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ModeOfSaleCategoryID":"string"}`,
 		Short: `Update an existing mode of sale category`,
 		Long:  `Update an existing mode of sale category.`,
@@ -2636,7 +2636,7 @@ var Put_ModeOfSaleCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2651,7 +2651,7 @@ var Put_ModeOfSaleCategories_cmd = &cobra.Command{
 	}
 
 var Put_ModeOfSaleOffers_cmd = &cobra.Command{
-		Aliases: []string{  "modeofsaleoffers",  "MOSO",  "moso",  },
+		Aliases: []string{  "moso",  "modeofsaleoffers",  "MOSO",  },
 		Use: `ModeOfSaleOffers {"ModeOfSaleOffer":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z","Terms":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ModeOfSaleOfferID":"string"}`,
 		Short: `Update an existing mode of sale offer`,
 		Long:  `Update an existing mode of sale offer.`,
@@ -2659,7 +2659,7 @@ var Put_ModeOfSaleOffers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2674,7 +2674,7 @@ var Put_ModeOfSaleOffers_cmd = &cobra.Command{
 	}
 
 var Put_ModeOfSalePriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "MOSPT",  "mospt",  "modeofsalepricetypes",  },
+		Aliases: []string{  "modeofsalepricetypes",  "MOSPT",  "mospt",  },
 		Use: `ModeOfSalePriceTypes {"ModeOfSalePriceType":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ModeOfSalePriceTypeID":"string"}`,
 		Short: `Update an existing mode of sale price type`,
 		Long:  `Update an existing mode of sale price type.`,
@@ -2682,7 +2682,7 @@ var Put_ModeOfSalePriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2697,7 +2697,7 @@ var Put_ModeOfSalePriceTypes_cmd = &cobra.Command{
 	}
 
 var Put_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
-		Aliases: []string{  "mossq",  "modeofsalesurveyquestions",  "MOSSQ",  },
+		Aliases: []string{  "modeofsalesurveyquestions",  "MOSSQ",  "mossq",  },
 		Use: `ModeOfSaleSurveyQuestions {"ModeOfSaleSurveyQuestion":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ModeOfSaleSurveyQuestionID":"string"}`,
 		Short: `Update an existing mode of sale survey question`,
 		Long:  `Update an existing mode of sale survey question.`,
@@ -2705,7 +2705,7 @@ var Put_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2728,7 +2728,7 @@ var Put_ModeOfSaleUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2751,7 +2751,7 @@ var Put_ModesOfSale_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2766,7 +2766,7 @@ var Put_ModesOfSale_cmd = &cobra.Command{
 	}
 
 var Put_NScanAccessAreas_cmd = &cobra.Command{
-		Aliases: []string{  "NSAA",  "nsaa",  "nscanaccessareas",  },
+		Aliases: []string{  "nsaa",  "nscanaccessareas",  "NSAA",  },
 		Use: `NScanAccessAreas {"Data":{"AreaCode":"string","ConstituencyIds":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndDateTime":"0001-01-01T00:00:00.000Z","KeywordValue":"string","MembershipLevelIds":"string","PerformanceIds":"string","PriceTypeIds":"string","PriceZoneIds":"string","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing NScan Access Area`,
 		Long:  `Update an existing NScan Access Area.`,
@@ -2774,7 +2774,7 @@ var Put_NScanAccessAreas_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2789,7 +2789,7 @@ var Put_NScanAccessAreas_cmd = &cobra.Command{
 	}
 
 var Put_NameStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "namestatuses",  "NS",  "ns",  },
+		Aliases: []string{  "NS",  "ns",  "namestatuses",  },
 		Use: `NameStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing name status`,
 		Long:  `Update an existing name status.`,
@@ -2797,7 +2797,7 @@ var Put_NameStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2812,7 +2812,7 @@ var Put_NameStatuses_cmd = &cobra.Command{
 	}
 
 var Put_ObjectPermissions_cmd = &cobra.Command{
-		Aliases: []string{  "op",  "objectpermissions",  "OP",  },
+		Aliases: []string{  "objectpermissions",  "OP",  "op",  },
 		Use: `ObjectPermissions {"Data":{"CanCreate":"string","CanDelete":"string","CanEdit":"string","CanView":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing object permission`,
 		Long:  `Update an existing object permission.`,
@@ -2820,7 +2820,7 @@ var Put_ObjectPermissions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2835,7 +2835,7 @@ var Put_ObjectPermissions_cmd = &cobra.Command{
 	}
 
 var Put_OrderCategories_cmd = &cobra.Command{
-		Aliases: []string{  "OC",  "oc",  "ordercategories",  },
+		Aliases: []string{  "ordercategories",  "OC",  "oc",  },
 		Use: `OrderCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing order category`,
 		Long:  `Update an existing order category.`,
@@ -2843,7 +2843,7 @@ var Put_OrderCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2868,7 +2868,7 @@ This resource will be invoked from a cart checkout.`,
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2891,7 +2891,7 @@ var Put_Organizations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2906,7 +2906,7 @@ var Put_Organizations_cmd = &cobra.Command{
 	}
 
 var Put_OriginalSources_cmd = &cobra.Command{
-		Aliases: []string{  "OS",  "os",  "originalsources",  },
+		Aliases: []string{  "os",  "originalsources",  "OS",  },
 		Use: `OriginalSources {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing original source`,
 		Long:  `Update an existing original source.`,
@@ -2914,7 +2914,7 @@ var Put_OriginalSources_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2929,7 +2929,7 @@ var Put_OriginalSources_cmd = &cobra.Command{
 	}
 
 var Put_Origins_cmd = &cobra.Command{
-		Aliases: []string{  "origins",  "O",  "o",  },
+		Aliases: []string{  "O",  "o",  "origins",  },
 		Use: `Origins {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing origin`,
 		Long:  `Update an existing origin.`,
@@ -2937,7 +2937,7 @@ var Put_Origins_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2952,7 +2952,7 @@ var Put_Origins_cmd = &cobra.Command{
 	}
 
 var Put_OutputSets_cmd = &cobra.Command{
-		Aliases: []string{  "OS",  "os",  "outputsets",  },
+		Aliases: []string{  "os",  "outputsets",  "OS",  },
 		Use: `OutputSets {"OutputSet":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ElementGroups":[object],"LastUsedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"OutputSetID":"string"}`,
 		Short: `Update an existing Output Set`,
 		Long:  `Update an existing Output Set.`,
@@ -2960,7 +2960,7 @@ var Put_OutputSets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2975,7 +2975,7 @@ var Put_OutputSets_cmd = &cobra.Command{
 	}
 
 var Put_PackagePriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PPT",  "ppt",  "packagepricetypes",  },
+		Aliases: []string{  "packagepricetypes",  "PPT",  "ppt",  },
 		Use: `PackagePriceTypes {"PackagePriceType":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"PackagePriceTypeID":"string"}`,
 		Short: `Update an existing package price type`,
 		Long:  `Update an existing package price type.`,
@@ -2983,7 +2983,7 @@ var Put_PackagePriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -2998,7 +2998,7 @@ var Put_PackagePriceTypes_cmd = &cobra.Command{
 	}
 
 var Put_PackageTypes_cmd = &cobra.Command{
-		Aliases: []string{  "packagetypes",  "PT",  "pt",  },
+		Aliases: []string{  "PT",  "pt",  "packagetypes",  },
 		Use: `PackageTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing package type`,
 		Long:  `Update an existing package type.`,
@@ -3006,7 +3006,7 @@ var Put_PackageTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3021,7 +3021,7 @@ var Put_PackageTypes_cmd = &cobra.Command{
 	}
 
 var Put_PackageWebContents_cmd = &cobra.Command{
-		Aliases: []string{  "packagewebcontents",  "PWC",  "pwc",  },
+		Aliases: []string{  "PWC",  "pwc",  "packagewebcontents",  },
 		Use: `PackageWebContents {"PackageWebContent":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Value":"string"},"PackageWebContentID":"string"}`,
 		Short: `Update an existing packageWebContent`,
 		Long:  `Update an existing packageWebContent.`,
@@ -3029,7 +3029,7 @@ var Put_PackageWebContents_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3052,7 +3052,7 @@ var Put_PaymentGatewayActivities_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3075,7 +3075,7 @@ var Put_PaymentGatewayNotifications_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3098,7 +3098,7 @@ var Put_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3121,7 +3121,7 @@ var Put_PaymentMethodGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3144,7 +3144,7 @@ var Put_PaymentMethodUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3167,7 +3167,7 @@ var Put_PaymentMethods_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3190,7 +3190,7 @@ var Put_PaymentSignatures_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3213,7 +3213,7 @@ var Put_PaymentTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3236,7 +3236,7 @@ var Put_PerformanceGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3251,7 +3251,7 @@ var Put_PerformanceGroups_cmd = &cobra.Command{
 	}
 
 var Put_PerformancePackageModeOfSales_cmd = &cobra.Command{
-		Aliases: []string{  "performancepackagemodeofsales",  "PPMOS",  "ppmos",  },
+		Aliases: []string{  "PPMOS",  "ppmos",  "performancepackagemodeofsales",  },
 		Use: `PerformancePackageModeOfSales {"PerformancePackageModeOfSale":{"AutoAttend":"string","ETicketReleaseDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z"},"PerformancePackageModeOfSaleID":"string"}`,
 		Short: `Update an existing performance package mode of sale`,
 		Long:  `Update an existing performance package mode of sale.`,
@@ -3259,7 +3259,7 @@ var Put_PerformancePackageModeOfSales_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3274,7 +3274,7 @@ var Put_PerformancePackageModeOfSales_cmd = &cobra.Command{
 	}
 
 var Put_PerformancePriceLayers_cmd = &cobra.Command{
-		Aliases: []string{  "performancepricelayers",  "PPL",  "ppl",  },
+		Aliases: []string{  "PPL",  "ppl",  "performancepricelayers",  },
 		Use: `PerformancePriceLayers {"PerformancePriceLayer":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EffectiveDateTime":"0001-01-01T00:00:00.000Z","PerformancePriceTypes":[object],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"PerformancePriceLayerID":"string"}`,
 		Short: `Update an existing performance price layer`,
 		Long:  `Update an existing performance price layer.`,
@@ -3282,7 +3282,7 @@ var Put_PerformancePriceLayers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3308,7 +3308,7 @@ var Put_PerformancePriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3336,7 +3336,7 @@ var Put_PerformancePrices_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3351,7 +3351,7 @@ var Put_PerformancePrices_cmd = &cobra.Command{
 	}
 
 var Put_PerformanceStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "performancestatuses",  "PS",  "ps",  },
+		Aliases: []string{  "ps",  "performancestatuses",  "PS",  },
 		Use: `PerformanceStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing performance status`,
 		Long:  `Update an existing performance status.`,
@@ -3359,7 +3359,7 @@ var Put_PerformanceStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3382,7 +3382,7 @@ var Put_PerformanceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3405,7 +3405,7 @@ var Put_Performances_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3428,7 +3428,7 @@ var Put_Philanthropy_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3451,7 +3451,7 @@ var Put_PhilanthropyTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3466,7 +3466,7 @@ var Put_PhilanthropyTypes_cmd = &cobra.Command{
 	}
 
 var Put_PhoneIndicators_cmd = &cobra.Command{
-		Aliases: []string{  "phoneindicators",  "PI",  "pi",  },
+		Aliases: []string{  "pi",  "phoneindicators",  "PI",  },
 		Use: `PhoneIndicators {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing phone indicator`,
 		Long:  `Update an existing phone indicator.`,
@@ -3474,7 +3474,7 @@ var Put_PhoneIndicators_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3489,7 +3489,7 @@ var Put_PhoneIndicators_cmd = &cobra.Command{
 	}
 
 var Put_PhoneTypes_cmd = &cobra.Command{
-		Aliases: []string{  "phonetypes",  "PT",  "pt",  },
+		Aliases: []string{  "pt",  "phonetypes",  "PT",  },
 		Use: `PhoneTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DayEveningIndicator":"string","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing phone type`,
 		Long:  `Update an existing phone type.`,
@@ -3497,7 +3497,7 @@ var Put_PhoneTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3520,7 +3520,7 @@ var Put_Phones_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3543,7 +3543,7 @@ var Put_PlanPriorities_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3566,7 +3566,7 @@ var Put_PlanSources_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3581,7 +3581,7 @@ var Put_PlanSources_cmd = &cobra.Command{
 	}
 
 var Put_PlanStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "planstatuses",  "PS",  "ps",  },
+		Aliases: []string{  "PS",  "ps",  "planstatuses",  },
 		Use: `PlanStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing plan status`,
 		Long:  `Update an existing plan status.`,
@@ -3589,7 +3589,7 @@ var Put_PlanStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3612,7 +3612,7 @@ var Put_PlanTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3635,7 +3635,7 @@ var Put_PlanWorkers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3658,7 +3658,7 @@ var Put_Plans_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3673,7 +3673,7 @@ var Put_Plans_cmd = &cobra.Command{
 	}
 
 var Put_PortfolioCustomElements_cmd = &cobra.Command{
-		Aliases: []string{  "pce",  "portfoliocustomelements",  "PCE",  },
+		Aliases: []string{  "portfoliocustomelements",  "PCE",  "pce",  },
 		Use: `PortfolioCustomElements {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","SqlQuery":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing portfolio custom element`,
 		Long:  `Update an existing portfolio custom element.`,
@@ -3681,7 +3681,7 @@ var Put_PortfolioCustomElements_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3696,7 +3696,7 @@ var Put_PortfolioCustomElements_cmd = &cobra.Command{
 	}
 
 var Put_Prefixes_cmd = &cobra.Command{
-		Aliases: []string{  "prefixes",  "P",  "p",  },
+		Aliases: []string{  "P",  "p",  "prefixes",  },
 		Use: `Prefixes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing prefix`,
 		Long:  `Update an existing prefix.`,
@@ -3704,7 +3704,7 @@ var Put_Prefixes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3727,7 +3727,7 @@ var Put_Premieres_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3750,7 +3750,7 @@ var Put_PriceCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3765,7 +3765,7 @@ var Put_PriceCategories_cmd = &cobra.Command{
 	}
 
 var Put_PriceEvents_cmd = &cobra.Command{
-		Aliases: []string{  "priceevents",  "PE",  "pe",  },
+		Aliases: []string{  "PE",  "pe",  "priceevents",  },
 		Use: `PriceEvents {"Request":{"EventDateTime":"0001-01-01T00:00:00.000Z","EventIds":"string"}}`,
 		Short: `Move a set of price events to a new date`,
 		Long:  `Move a set of price events to a new date.`,
@@ -3773,7 +3773,7 @@ var Put_PriceEvents_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3788,7 +3788,7 @@ var Put_PriceEvents_cmd = &cobra.Command{
 	}
 
 var Put_PriceLayerTypes_cmd = &cobra.Command{
-		Aliases: []string{  "pricelayertypes",  "PLT",  "plt",  },
+		Aliases: []string{  "plt",  "pricelayertypes",  "PLT",  },
 		Use: `PriceLayerTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing price layer type`,
 		Long:  `Update an existing price layer type.`,
@@ -3796,7 +3796,7 @@ var Put_PriceLayerTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3819,7 +3819,7 @@ var Put_PriceTemplates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3834,7 +3834,7 @@ var Put_PriceTemplates_cmd = &cobra.Command{
 	}
 
 var Put_PriceTypeCategories_cmd = &cobra.Command{
-		Aliases: []string{  "ptc",  "pricetypecategories",  "PTC",  },
+		Aliases: []string{  "pricetypecategories",  "PTC",  "ptc",  },
 		Use: `PriceTypeCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing price type category`,
 		Long:  `Update an existing price type category.`,
@@ -3842,7 +3842,7 @@ var Put_PriceTypeCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3865,7 +3865,7 @@ var Put_PriceTypeGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3888,7 +3888,7 @@ var Put_PriceTypeReasons_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3911,7 +3911,7 @@ var Put_PriceTypeUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3934,7 +3934,7 @@ var Put_PriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3957,7 +3957,7 @@ var Put_PricingRuleCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3980,7 +3980,7 @@ var Put_PricingRuleMessageTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -3995,7 +3995,7 @@ var Put_PricingRuleMessageTypes_cmd = &cobra.Command{
 	}
 
 var Put_PricingRuleSets_cmd = &cobra.Command{
-		Aliases: []string{  "prs",  "pricingrulesets",  "PRS",  },
+		Aliases: []string{  "pricingrulesets",  "PRS",  "prs",  },
 		Use: `PricingRuleSets {"PricingRuleSet":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Rules":[object],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"PricingRuleSetID":"string"}`,
 		Short: `Update an existing pricing rule set`,
 		Long:  `Update an existing pricing rule set.`,
@@ -4003,7 +4003,7 @@ var Put_PricingRuleSets_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4026,7 +4026,7 @@ var Put_PricingRules_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4041,7 +4041,7 @@ var Put_PricingRules_cmd = &cobra.Command{
 	}
 
 var Put_Printers_cmd = &cobra.Command{
-		Aliases: []string{  "printers",  "P",  "p",  },
+		Aliases: []string{  "p",  "printers",  "P",  },
 		Use: `Printers {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Type":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing printer`,
 		Long:  `Update an existing printer.`,
@@ -4049,7 +4049,7 @@ var Put_Printers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4072,7 +4072,7 @@ var Put_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4095,7 +4095,7 @@ var Put_ProgramListings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4118,7 +4118,7 @@ var Put_Programs_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4141,7 +4141,7 @@ var Put_Pronouns_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4156,7 +4156,7 @@ var Put_Pronouns_cmd = &cobra.Command{
 	}
 
 var Put_QualificationCategories_cmd = &cobra.Command{
-		Aliases: []string{  "QC",  "qc",  "qualificationcategories",  },
+		Aliases: []string{  "qualificationcategories",  "QC",  "qc",  },
 		Use: `QualificationCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing Qualification Category`,
 		Long:  `Update an existing Qualification Category.`,
@@ -4164,7 +4164,7 @@ var Put_QualificationCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4179,7 +4179,7 @@ var Put_QualificationCategories_cmd = &cobra.Command{
 	}
 
 var Put_Qualifications_cmd = &cobra.Command{
-		Aliases: []string{  "Q",  "q",  "qualifications",  },
+		Aliases: []string{  "qualifications",  "Q",  "q",  },
 		Use: `Qualifications {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing Qualification`,
 		Long:  `Update an existing Qualification.`,
@@ -4187,7 +4187,7 @@ var Put_Qualifications_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4202,7 +4202,7 @@ var Put_Qualifications_cmd = &cobra.Command{
 	}
 
 var Put_QueryElementFilters_cmd = &cobra.Command{
-		Aliases: []string{  "queryelementfilters",  "QEF",  "qef",  },
+		Aliases: []string{  "qef",  "queryelementfilters",  "QEF",  },
 		Use: `QueryElementFilters {"QueryElementFilter":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","FilterElement":"string","ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"QueryElementFilterID":"string"}`,
 		Short: `Update an existing query element filter`,
 		Long:  `Update an existing query element filter.`,
@@ -4210,7 +4210,7 @@ var Put_QueryElementFilters_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4225,7 +4225,7 @@ var Put_QueryElementFilters_cmd = &cobra.Command{
 	}
 
 var Put_QueryElementGroups_cmd = &cobra.Command{
-		Aliases: []string{  "QEG",  "qeg",  "queryelementgroups",  },
+		Aliases: []string{  "queryelementgroups",  "QEG",  "qeg",  },
 		Use: `QueryElementGroups {"QueryElementGroup":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DataFrom":"string","DataWhere":"string","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"QueryElementGroupID":"string"}`,
 		Short: `Update an existing query element group`,
 		Long:  `Update an existing query element group.`,
@@ -4233,7 +4233,7 @@ var Put_QueryElementGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4256,7 +4256,7 @@ var Put_QueryElements_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4279,7 +4279,7 @@ var Put_RankTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4302,7 +4302,7 @@ var Put_Rankings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4325,7 +4325,7 @@ var Put_ReceiptSettings_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4348,7 +4348,7 @@ var Put_ReferenceTableUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4371,7 +4371,7 @@ var Put_RelationshipCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4386,7 +4386,7 @@ var Put_RelationshipCategories_cmd = &cobra.Command{
 	}
 
 var Put_ReportRequests_cmd = &cobra.Command{
-		Aliases: []string{  "rr",  "reportrequests",  "RR",  },
+		Aliases: []string{  "reportrequests",  "RR",  "rr",  },
 		Use: `ReportRequests {"ID":"string","ReportRequest":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EmailBody":"string","EmailRecipients":"string","EmailSubject":"string","EndDateTime":"0001-01-01T00:00:00.000Z","OutputOption":"string","Parameters":[object],"QueueStatus":"string","ReportId":"string","RequestDateTime":"0001-01-01T00:00:00.000Z","ResultCode":"string","ResultText":"string","Type":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string","UserId":"string"}}`,
 		Short: `Update the details of a report request`,
 		Long:  `Update the details of a report request.`,
@@ -4394,7 +4394,7 @@ var Put_ReportRequests_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4420,7 +4420,7 @@ var Put_ReportSchedules_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4443,7 +4443,7 @@ var Put_ReportUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4458,7 +4458,7 @@ var Put_ReportUserGroups_cmd = &cobra.Command{
 	}
 
 var Put_Research_cmd = &cobra.Command{
-		Aliases: []string{  "R",  "r",  "research",  },
+		Aliases: []string{  "research",  "R",  "r",  },
 		Use: `Research {"ResearchEntry":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","ResearchDate":"0001-01-01T00:00:00.000Z","ResearchSource":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ResearchEntryID":"string"}`,
 		Short: `Updated an existing research entry for a constituent`,
 		Long:  `Updated an existing research entry for a constituent.`,
@@ -4466,7 +4466,7 @@ var Put_Research_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4489,7 +4489,7 @@ var Put_ResearchTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4504,7 +4504,7 @@ var Put_ResearchTypes_cmd = &cobra.Command{
 	}
 
 var Put_ResourceCategories_cmd = &cobra.Command{
-		Aliases: []string{  "RC",  "rc",  "resourcecategories",  },
+		Aliases: []string{  "resourcecategories",  "RC",  "rc",  },
 		Use: `ResourceCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing Resource Category`,
 		Long:  `Update an existing Resource Category.`,
@@ -4512,7 +4512,7 @@ var Put_ResourceCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4527,7 +4527,7 @@ var Put_ResourceCategories_cmd = &cobra.Command{
 	}
 
 var Put_ResourceSchedules_cmd = &cobra.Command{
-		Aliases: []string{  "rs",  "resourceschedules",  "RS",  },
+		Aliases: []string{  "resourceschedules",  "RS",  "rs",  },
 		Use: `ResourceSchedules {"ResourceSchedule":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndDateTime":"0001-01-01T00:00:00.000Z","RecurrenceDayOfWeek":"string","RecurrenceEndDate":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ResourceScheduleID":"string"}`,
 		Short: `Update a specific resource schedule`,
 		Long:  `Update a specific resource schedule.  Only Busy or Available types can be updated.`,
@@ -4535,7 +4535,7 @@ var Put_ResourceSchedules_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4558,7 +4558,7 @@ var Put_ResourceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4581,7 +4581,7 @@ var Put_Resources_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4596,7 +4596,7 @@ var Put_Resources_cmd = &cobra.Command{
 	}
 
 var Put_SalesChannels_cmd = &cobra.Command{
-		Aliases: []string{  "SC",  "sc",  "saleschannels",  },
+		Aliases: []string{  "sc",  "saleschannels",  "SC",  },
 		Use: `SalesChannels {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing sales channel`,
 		Long:  `Update an existing sales channel.`,
@@ -4604,7 +4604,7 @@ var Put_SalesChannels_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4627,7 +4627,7 @@ var Put_SalesLayoutButtonTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4642,7 +4642,7 @@ var Put_SalesLayoutButtonTypes_cmd = &cobra.Command{
 	}
 
 var Put_SalesLayouts_cmd = &cobra.Command{
-		Aliases: []string{  "saleslayouts",  "SL",  "sl",  },
+		Aliases: []string{  "SL",  "sl",  "saleslayouts",  },
 		Use: `SalesLayouts {"SalesLayout":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","PaymentMethods":[object],"PriceTypes":[object],"SalesLayoutButtons":[object],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"SalesLayoutID":"string"}`,
 		Short: `Update an existing sales layout setup`,
 		Long:  `Update an existing sales layout setup.`,
@@ -4650,7 +4650,7 @@ var Put_SalesLayouts_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4673,7 +4673,7 @@ var Put_SalutationTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4696,7 +4696,7 @@ var Put_Salutations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4711,7 +4711,7 @@ var Put_Salutations_cmd = &cobra.Command{
 	}
 
 var Put_SchedulePatternTypes_cmd = &cobra.Command{
-		Aliases: []string{  "spt",  "schedulepatterntypes",  "SPT",  },
+		Aliases: []string{  "schedulepatterntypes",  "SPT",  "spt",  },
 		Use: `SchedulePatternTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing Schedule Pattern`,
 		Long:  `Update an existing Schedule Pattern.`,
@@ -4719,7 +4719,7 @@ var Put_SchedulePatternTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4734,7 +4734,7 @@ var Put_SchedulePatternTypes_cmd = &cobra.Command{
 	}
 
 var Put_ScheduleTypes_cmd = &cobra.Command{
-		Aliases: []string{  "scheduletypes",  "ST",  "st",  },
+		Aliases: []string{  "st",  "scheduletypes",  "ST",  },
 		Use: `ScheduleTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing Schedule Type`,
 		Long:  `Update an existing Schedule Type.`,
@@ -4742,7 +4742,7 @@ var Put_ScheduleTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4757,7 +4757,7 @@ var Put_ScheduleTypes_cmd = &cobra.Command{
 	}
 
 var Put_SeasonTypes_cmd = &cobra.Command{
-		Aliases: []string{  "st",  "seasontypes",  "ST",  },
+		Aliases: []string{  "seasontypes",  "ST",  "st",  },
 		Use: `SeasonTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing season type`,
 		Long:  `Update an existing season type.`,
@@ -4765,7 +4765,7 @@ var Put_SeasonTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4780,7 +4780,7 @@ var Put_SeasonTypes_cmd = &cobra.Command{
 	}
 
 var Put_Seasons_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "seasons",  },
+		Aliases: []string{  "seasons",  "S",  "s",  },
 		Use: `Seasons {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndDateTime":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing season`,
 		Long:  `Update an existing season.`,
@@ -4788,7 +4788,7 @@ var Put_Seasons_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4803,7 +4803,7 @@ var Put_Seasons_cmd = &cobra.Command{
 	}
 
 var Put_SeatCodes_cmd = &cobra.Command{
-		Aliases: []string{  "seatcodes",  "SC",  "sc",  },
+		Aliases: []string{  "SC",  "sc",  "seatcodes",  },
 		Use: `SeatCodes {"Data":{"Context":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","DisplayLetter":"string","TicketText":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing seat code`,
 		Long:  `Update an existing seat code.`,
@@ -4811,7 +4811,7 @@ var Put_SeatCodes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4834,7 +4834,7 @@ var Put_SeatStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4857,7 +4857,7 @@ var Put_Sections_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4880,7 +4880,7 @@ var Put_ServiceResourceUserGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4905,7 +4905,7 @@ If the default is set to "Prompt", both the household and individual are returne
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4935,7 +4935,7 @@ var Put_SourceGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4958,7 +4958,7 @@ var Put_SpecialActivities_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4973,7 +4973,7 @@ var Put_SpecialActivities_cmd = &cobra.Command{
 	}
 
 var Put_SpecialActivityStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "SAS",  "sas",  "specialactivitystatuses",  },
+		Aliases: []string{  "specialactivitystatuses",  "SAS",  "sas",  },
 		Use: `SpecialActivityStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an Special Activity Status`,
 		Long:  `Update an Special Activity Status.`,
@@ -4981,7 +4981,7 @@ var Put_SpecialActivityStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -4996,7 +4996,7 @@ var Put_SpecialActivityStatuses_cmd = &cobra.Command{
 	}
 
 var Put_SpecialActivityTypes_cmd = &cobra.Command{
-		Aliases: []string{  "SAT",  "sat",  "specialactivitytypes",  },
+		Aliases: []string{  "specialactivitytypes",  "SAT",  "sat",  },
 		Use: `SpecialActivityTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing Special Activity Type`,
 		Long:  `Update an existing Special Activity Type.`,
@@ -5004,7 +5004,7 @@ var Put_SpecialActivityTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5019,7 +5019,7 @@ var Put_SpecialActivityTypes_cmd = &cobra.Command{
 	}
 
 var Put_States_cmd = &cobra.Command{
-		Aliases: []string{  "states",  "S",  "s",  },
+		Aliases: []string{  "s",  "states",  "S",  },
 		Use: `States {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","StateCode":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing state`,
 		Long:  `Update an existing state.`,
@@ -5027,7 +5027,7 @@ var Put_States_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5050,7 +5050,7 @@ var Put_StepTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5073,7 +5073,7 @@ var Put_Steps_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5099,7 +5099,7 @@ var Put_SubLineItemStatuses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5114,7 +5114,7 @@ var Put_SubLineItemStatuses_cmd = &cobra.Command{
 	}
 
 var Put_Suffixes_cmd = &cobra.Command{
-		Aliases: []string{  "s",  "suffixes",  "S",  },
+		Aliases: []string{  "S",  "s",  "suffixes",  },
 		Use: `Suffixes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing suffix`,
 		Long:  `Update an existing suffix.`,
@@ -5122,7 +5122,7 @@ var Put_Suffixes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5145,7 +5145,7 @@ var Put_SurveyQuestions_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5168,7 +5168,7 @@ var Put_SurveyResponses_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5191,7 +5191,7 @@ var Put_TemplateCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5214,7 +5214,7 @@ var Put_TemplatePriceTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5237,7 +5237,7 @@ var Put_TemplatePrices_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5260,7 +5260,7 @@ var Put_Templates_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5275,7 +5275,7 @@ var Put_Templates_cmd = &cobra.Command{
 	}
 
 var Put_Theaters_cmd = &cobra.Command{
-		Aliases: []string{  "theaters",  "T",  "t",  },
+		Aliases: []string{  "t",  "theaters",  "T",  },
 		Use: `Theaters {"Data":{"City":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DataWindowDefinition":"string","Description":"string","DrivingDirections":"string","Phone":"string","PostalCode":"string","State":"string","Street":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ID":"string"}`,
 		Short: `Update an existing theater`,
 		Long:  `Update an existing theater.`,
@@ -5283,7 +5283,7 @@ var Put_Theaters_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5306,7 +5306,7 @@ var Put_TimeSlots_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5329,7 +5329,7 @@ var Put_TriPOSCloudConfigurations_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5352,7 +5352,7 @@ var Put_UpgradeCategories_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5375,7 +5375,7 @@ var Put_UpgradeLogs_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5390,7 +5390,7 @@ var Put_UpgradeLogs_cmd = &cobra.Command{
 	}
 
 var Put_UserPreferences_cmd = &cobra.Command{
-		Aliases: []string{  "userpreferences",  "UP",  "up",  },
+		Aliases: []string{  "UP",  "up",  "userpreferences",  },
 		Use: `UserPreferences {"ID":"string","UserPreference":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Key":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Value":"string"}}`,
 		Short: `Update a user preference by id`,
 		Long:  `Update a user preference by id.`,
@@ -5398,7 +5398,7 @@ var Put_UserPreferences_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5421,7 +5421,7 @@ var Put_WebContentTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5444,7 +5444,7 @@ var Put_WebLogins_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5459,7 +5459,7 @@ var Put_WebLogins_cmd = &cobra.Command{
 	}
 
 var Put_WorkerQualifications_cmd = &cobra.Command{
-		Aliases: []string{  "workerqualifications",  "WQ",  "wq",  },
+		Aliases: []string{  "wq",  "workerqualifications",  "WQ",  },
 		Use: `WorkerQualifications {"WorkerQualification":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"WorkerQualificationID":"string"}`,
 		Short: `Update an existing WorkerQualification`,
 		Long:  `Update an existing WorkerQualification.`,
@@ -5467,7 +5467,7 @@ var Put_WorkerQualifications_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5490,7 +5490,7 @@ var Put_WorkerRoles_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5513,7 +5513,7 @@ var Put_WorkerTypes_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5528,7 +5528,7 @@ var Put_WorkerTypes_cmd = &cobra.Command{
 	}
 
 var Put_Workers_cmd = &cobra.Command{
-		Aliases: []string{  "w",  "workers",  "W",  },
+		Aliases: []string{  "workers",  "W",  "w",  },
 		Use: `Workers {"Worker":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","FirstName":"string","LastName":"string","ShortDisplayName":"string","SortName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"WorkerID":"string"}`,
 		Short: `Update an existing worker`,
 		Long:  `Update an existing worker.`,
@@ -5536,7 +5536,7 @@ var Put_Workers_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5559,7 +5559,7 @@ var Put_ZoneGroups_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5574,7 +5574,7 @@ var Put_ZoneGroups_cmd = &cobra.Command{
 	}
 
 var Put_ZoneMaps_cmd = &cobra.Command{
-		Aliases: []string{  "ZM",  "zm",  "zonemaps",  },
+		Aliases: []string{  "zonemaps",  "ZM",  "zm",  },
 		Use: `ZoneMaps {"ID":"string","ZoneMap":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Update an existing zone map`,
 		Long:  `Update an existing zone map.`,
@@ -5582,7 +5582,7 @@ var Put_ZoneMaps_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
@@ -5605,7 +5605,7 @@ var Put_Zones_cmd = &cobra.Command{
 		Run: func(cmd *cobra.Command, args []string) {
 			var out []byte
 			var err error
-			if _tq.Put == nil {
+			if _tq == nil || _tq.TessituraServiceWeb == nil {
 				_tq.Log.Error("login failed, exiting")
 				return
 			}
