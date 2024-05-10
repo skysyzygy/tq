@@ -11,7 +11,7 @@ import (
 
 
 var Get_AccountTypes_cmd = &cobra.Command{
-		Aliases: []string{  "at",  "accounttypes",  "AT",  },
+		Aliases: []string{  "accounttypes",  "AT",  "at",  },
 		Use: `AccountTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an account type by id`,
 		Long:  `Get the details of an account type by id.`,
@@ -119,7 +119,7 @@ var Get_Actions_cmd = &cobra.Command{
 	}
 
 var Get_ActivityCategories_cmd = &cobra.Command{
-		Aliases: []string{  "activitycategories",  "AC",  "ac",  },
+		Aliases: []string{  "ac",  "activitycategories",  "AC",  },
 		Use: `ActivityCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an activity category by id`,
 		Long:  `Get the details of an activity category by id.`,
@@ -203,7 +203,7 @@ var Get_AddressTypes_cmd = &cobra.Command{
 	}
 
 var Get_Addresses_cmd = &cobra.Command{
-		Aliases: []string{  "addresses",  "A",  "a",  },
+		Aliases: []string{  "a",  "addresses",  "A",  },
 		Use: `Addresses {"AddressID":"string"}`,
 		Short: `Get details of an address using addressId as a URL query parameter`,
 		Long:  `Get details of an address using addressId as a URL query parameter. Returns 404 Not Found if an address with the specified Id is not found.`,
@@ -257,7 +257,7 @@ var Get_AffiliationTypes_cmd = &cobra.Command{
 	}
 
 var Get_Affiliations_cmd = &cobra.Command{
-		Aliases: []string{  "affiliations",  "A",  "a",  },
+		Aliases: []string{  "A",  "a",  "affiliations",  },
 		Use: `Affiliations {"AffiliationID":"string"}`,
 		Short: `Get details of an affiliation`,
 		Long:  `Get details of an affiliation.`,
@@ -283,7 +283,7 @@ var Get_Affiliations_cmd = &cobra.Command{
 	}
 
 var Get_AliasTypes_cmd = &cobra.Command{
-		Aliases: []string{  "at",  "aliastypes",  "AT",  },
+		Aliases: []string{  "aliastypes",  "AT",  "at",  },
 		Use: `AliasTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an alias type by id`,
 		Long:  `Get the details of an alias type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -337,7 +337,7 @@ var Get_Aliases_cmd = &cobra.Command{
 	}
 
 var Get_AnalyticsCubes_cmd = &cobra.Command{
-		Aliases: []string{  "analyticscubes",  "AC",  "ac",  },
+		Aliases: []string{  "ac",  "analyticscubes",  "AC",  },
 		Use: `AnalyticsCubes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an analytics cube`,
 		Long:  `Get the details of an analytics cube.`,
@@ -363,7 +363,7 @@ var Get_AnalyticsCubes_cmd = &cobra.Command{
 	}
 
 var Get_AnalyticsReports_cmd = &cobra.Command{
-		Aliases: []string{  "ar",  "analyticsreports",  "AR",  },
+		Aliases: []string{  "analyticsreports",  "AR",  "ar",  },
 		Use: `AnalyticsReports {"AnalyticsReportID":"string"}`,
 		Short: `Get a single SSRS Report for display in Analytics`,
 		Long:  `Get a single SSRS Report for display in Analytics.`,
@@ -602,7 +602,7 @@ var Get_AssociationTypes_cmd = &cobra.Command{
 	}
 
 var Get_Associations_cmd = &cobra.Command{
-		Aliases: []string{  "associations",  "A",  "a",  },
+		Aliases: []string{  "a",  "associations",  "A",  },
 		Use: `Associations {"AssociationID":"string"}`,
 		Short: `Get details of an association`,
 		Long:  `Get details of an association.`,
@@ -651,7 +651,7 @@ var Get_AttendanceHistory_cmd = &cobra.Command{
 	}
 
 var Get_Attributes_cmd = &cobra.Command{
-		Aliases: []string{  "a",  "attributes",  "A",  },
+		Aliases: []string{  "attributes",  "A",  "a",  },
 		Use: `Attributes {"AttributeID":"string"}`,
 		Short: `Get details of an attribute`,
 		Long:  `Get details of an attribute.`,
@@ -728,7 +728,7 @@ var Get_Authenticate_cmd = &cobra.Command{
 	}
 
 var Get_BatchMaintenance_cmd = &cobra.Command{
-		Aliases: []string{  "batchmaintenance",  "BM",  "bm",  },
+		Aliases: []string{  "BM",  "bm",  "batchmaintenance",  },
 		Use: `BatchMaintenance {"BatchID":"string"}`,
 		Short: `Get a single Batch`,
 		Long:  `Get a single Batch`,
@@ -833,7 +833,7 @@ var Get_BatchTypes_cmd = &cobra.Command{
 	}
 
 var Get_BillingSchedules_cmd = &cobra.Command{
-		Aliases: []string{  "billingschedules",  "BS",  "bs",  },
+		Aliases: []string{  "BS",  "bs",  "billingschedules",  },
 		Use: `BillingSchedules {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Billing Schedule`,
 		Long:  `Get the details of a Billing Schedule. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -917,7 +917,7 @@ var Get_BookingCategories_cmd = &cobra.Command{
 	}
 
 var Get_BookingTemplates_cmd = &cobra.Command{
-		Aliases: []string{  "bt",  "bookingtemplates",  "BT",  },
+		Aliases: []string{  "bookingtemplates",  "BT",  "bt",  },
 		Use: `BookingTemplates {"BookingTemplateID":"string"}`,
 		Short: `Get a Booking Template by ID`,
 		Long:  `Get a Booking Template by ID`,
@@ -1108,7 +1108,7 @@ var Get_CampaignDesignations_cmd = &cobra.Command{
 	}
 
 var Get_CampaignFunds_cmd = &cobra.Command{
-		Aliases: []string{  "CF",  "cf",  "campaignfunds",  },
+		Aliases: []string{  "campaignfunds",  "CF",  "cf",  },
 		Use: `CampaignFunds {"CampaignFundID":"string"}`,
 		Short: `Get a single Fund associated to a Campaign`,
 		Long:  `Get a single Fund associated to a Campaign.`,
@@ -1220,7 +1220,7 @@ var Get_Cart_cmd = &cobra.Command{
 	}
 
 var Get_Colors_cmd = &cobra.Command{
-		Aliases: []string{  "c",  "colors",  "C",  },
+		Aliases: []string{  "colors",  "C",  "c",  },
 		Use: `Colors {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a color by id`,
 		Long:  `Get the details of a color by id.`,
@@ -1248,7 +1248,7 @@ var Get_Colors_cmd = &cobra.Command{
 	}
 
 var Get_Composers_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "composers",  },
+		Aliases: []string{  "c",  "composers",  "C",  },
 		Use: `Composers {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a composer by id`,
 		Long:  `Get the details of a composer by id.`,
@@ -1381,7 +1381,7 @@ var Get_ConstituentDocuments_cmd = &cobra.Command{
 	}
 
 var Get_ConstituentGroups_cmd = &cobra.Command{
-		Aliases: []string{  "cg",  "constituentgroups",  "CG",  },
+		Aliases: []string{  "constituentgroups",  "CG",  "cg",  },
 		Use: `ConstituentGroups {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent group by id`,
 		Long:  `Get the details of a constituent group by id.`,
@@ -1465,7 +1465,7 @@ var Get_ConstituentProtectionTypes_cmd = &cobra.Command{
 	}
 
 var Get_ConstituentTypeAffiliates_cmd = &cobra.Command{
-		Aliases: []string{  "constituenttypeaffiliates",  "CTA",  "cta",  },
+		Aliases: []string{  "CTA",  "cta",  "constituenttypeaffiliates",  },
 		Use: `ConstituentTypeAffiliates {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent type affiliate by id`,
 		Long:  `Get the details of a constituent type affiliate by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -1621,7 +1621,7 @@ var Get_ContactPermissionTypes_cmd = &cobra.Command{
 	}
 
 var Get_ContactPermissions_cmd = &cobra.Command{
-		Aliases: []string{  "CP",  "cp",  "contactpermissions",  },
+		Aliases: []string{  "contactpermissions",  "CP",  "cp",  },
 		Use: `ContactPermissions {"ContactPermissionID":"string"}`,
 		Short: `Get details of a contact permission`,
 		Long:  `Get details of a contact permission`,
@@ -1731,7 +1731,7 @@ var Get_ContactPointPurposeCategories_cmd = &cobra.Command{
 	}
 
 var Get_ContactPointPurposeMaps_cmd = &cobra.Command{
-		Aliases: []string{  "contactpointpurposemaps",  "CPPM",  "cppm",  },
+		Aliases: []string{  "CPPM",  "cppm",  "contactpointpurposemaps",  },
 		Use: `ContactPointPurposeMaps {"ContactPointPurposeMapID":"string"}`,
 		Short: `Get details of a contact point purpose`,
 		Long:  `Get details of a contact point purpose.`,
@@ -1785,7 +1785,7 @@ var Get_ContactPointPurposes_cmd = &cobra.Command{
 	}
 
 var Get_ContactPoints_cmd = &cobra.Command{
-		Aliases: []string{  "cp",  "contactpoints",  "CP",  },
+		Aliases: []string{  "contactpoints",  "CP",  "cp",  },
 		Use: `ContactPoints {"ConstituentID":"string","IncludeAffiliations":"string"}`,
 		Short: `Get all the delivery points for the specified constituent (constituentId) and all its visible affiliation's delivery point purposes as well`,
 		Long:  `Get all the delivery points for the specified constituent (constituentId) and all its visible affiliation's delivery point purposes as well. To exclude delivery point purposes of the visible affiliations pass includeAffiliations=false.`,
@@ -1808,7 +1808,7 @@ var Get_ContactPoints_cmd = &cobra.Command{
 	}
 
 var Get_ContactTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CT",  "ct",  "contacttypes",  },
+		Aliases: []string{  "contacttypes",  "CT",  "ct",  },
 		Use: `ContactTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact type by id`,
 		Long:  `Get the details of a contact type by id.`,
@@ -1915,7 +1915,7 @@ var Get_ContributionImportSets_cmd = &cobra.Command{
 	}
 
 var Get_ControlGroupUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "cgug",  "controlgroupusergroups",  "CGUG",  },
+		Aliases: []string{  "controlgroupusergroups",  "CGUG",  "cgug",  },
 		Use: `ControlGroupUserGroups {"ID":"string"}`,
 		Short: `Get the details of a control group/user group mapping by id`,
 		Long:  `Get the details of a control group/user group mapping by id.`,
@@ -1943,7 +1943,7 @@ var Get_ControlGroupUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_ControlGroups_cmd = &cobra.Command{
-		Aliases: []string{  "controlgroups",  "CG",  "cg",  },
+		Aliases: []string{  "CG",  "cg",  "controlgroups",  },
 		Use: `ControlGroups {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a control group by id`,
 		Long:  `Get the details of a control group by id.`,
@@ -2157,7 +2157,7 @@ var Get_CurrencyTypes_cmd = &cobra.Command{
 	}
 
 var Get_Custom_cmd = &cobra.Command{
-		Aliases: []string{  "c",  "custom",  "C",  },
+		Aliases: []string{  "custom",  "C",  "c",  },
 		Use: `Custom {"ID":"string","ResourceName":"string"}`,
 		Short: `Get details of an entry in the table for the resource as defined by {resourceName} in TR_DATASERVICE_TABLES with the given id {Id}`,
 		Long:  `Get details of an entry in the table for the resource as defined by {resourceName} in TR_DATASERVICE_TABLES with the given id {Id}.`,
@@ -2213,7 +2213,7 @@ var Get_CustomDefaultCategories_cmd = &cobra.Command{
 	}
 
 var Get_CustomDefaults_cmd = &cobra.Command{
-		Aliases: []string{  "customdefaults",  "CD",  "cd",  },
+		Aliases: []string{  "CD",  "cd",  "customdefaults",  },
 		Use: `CustomDefaults {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a custom default by id`,
 		Long:  `Get the details of a custom default by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -2383,7 +2383,7 @@ var Get_DirectDebitAccountTypes_cmd = &cobra.Command{
 	}
 
 var Get_DiscountTypes_cmd = &cobra.Command{
-		Aliases: []string{  "DT",  "dt",  "discounttypes",  },
+		Aliases: []string{  "discounttypes",  "DT",  "dt",  },
 		Use: `DiscountTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a discount type by id`,
 		Long:  `Get the details of a discount type by id.`,
@@ -2437,7 +2437,7 @@ var Get_Divisions_cmd = &cobra.Command{
 	}
 
 var Get_DocumentCategories_cmd = &cobra.Command{
-		Aliases: []string{  "documentcategories",  "DC",  "dc",  },
+		Aliases: []string{  "DC",  "dc",  "documentcategories",  },
 		Use: `DocumentCategories {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a documentCategory by id`,
 		Long:  `Get the details of a documentCategory by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -2465,7 +2465,7 @@ var Get_DocumentCategories_cmd = &cobra.Command{
 	}
 
 var Get_Documents_cmd = &cobra.Command{
-		Aliases: []string{  "documents",  "D",  "d",  },
+		Aliases: []string{  "d",  "documents",  "D",  },
 		Use: `Documents {"DocumentID":"string"}`,
 		Short: `Get the details of a document`,
 		Long:  `Get the details of a document.`,
@@ -2611,7 +2611,7 @@ var Get_ElectronicAddresses_cmd = &cobra.Command{
 	}
 
 var Get_EmailProfiles_cmd = &cobra.Command{
-		Aliases: []string{  "emailprofiles",  "EP",  "ep",  },
+		Aliases: []string{  "EP",  "ep",  "emailprofiles",  },
 		Use: `EmailProfiles {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an email profile by id`,
 		Long:  `Get the details of an email profile by id`,
@@ -2639,7 +2639,7 @@ var Get_EmailProfiles_cmd = &cobra.Command{
 	}
 
 var Get_EmarketIndicators_cmd = &cobra.Command{
-		Aliases: []string{  "ei",  "emarketindicators",  "EI",  },
+		Aliases: []string{  "emarketindicators",  "EI",  "ei",  },
 		Use: `EmarketIndicators {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an emarket indicator by id`,
 		Long:  `Get the details of an emarket indicator by id.`,
@@ -2695,7 +2695,7 @@ var Get_Eras_cmd = &cobra.Command{
 	}
 
 var Get_EventControl_cmd = &cobra.Command{
-		Aliases: []string{  "EC",  "ec",  "eventcontrol",  },
+		Aliases: []string{  "eventcontrol",  "EC",  "ec",  },
 		Use: `EventControl {"EndDate":"string","StartDate":"string"}`,
 		Short: `Returns a response containing a list of EventControl rows for the N-Scan event control table`,
 		Long:  `Returns a response containing a list of EventControl rows for the N-Scan event control table.`,
@@ -2718,7 +2718,7 @@ var Get_EventControl_cmd = &cobra.Command{
 	}
 
 var Get_Facilities_cmd = &cobra.Command{
-		Aliases: []string{  "f",  "facilities",  "F",  },
+		Aliases: []string{  "F",  "f",  "facilities",  },
 		Use: `Facilities {"ID":"string"}`,
 		Short: `Get details of a Facility`,
 		Long:  `Get details of a Facility.`,
@@ -2856,7 +2856,7 @@ var Get_Funds_cmd = &cobra.Command{
 	}
 
 var Get_GLAccounts_cmd = &cobra.Command{
-		Aliases: []string{  "glaccounts",  "GLA",  "gla",  },
+		Aliases: []string{  "GLA",  "gla",  "glaccounts",  },
 		Use: `GLAccounts {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gl account by id`,
 		Long:  `Get the details of a gl account by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -2912,7 +2912,7 @@ var Get_Genders_cmd = &cobra.Command{
 	}
 
 var Get_GiftAidContactMethods_cmd = &cobra.Command{
-		Aliases: []string{  "GACM",  "gacm",  "giftaidcontactmethods",  },
+		Aliases: []string{  "giftaidcontactmethods",  "GACM",  "gacm",  },
 		Use: `GiftAidContactMethods {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid contact method by id`,
 		Long:  `Get the details of a gift aid contact method by id.`,
@@ -2966,7 +2966,7 @@ var Get_GiftAidDeclarations_cmd = &cobra.Command{
 	}
 
 var Get_GiftAidDocumentStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "GADS",  "gads",  "giftaiddocumentstatuses",  },
+		Aliases: []string{  "giftaiddocumentstatuses",  "GADS",  "gads",  },
 		Use: `GiftAidDocumentStatuses {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid document status by id`,
 		Long:  `Get the details of a gift aid document status by id.`,
@@ -3022,7 +3022,7 @@ var Get_GiftAidIneligibleReasons_cmd = &cobra.Command{
 	}
 
 var Get_GiftAidRates_cmd = &cobra.Command{
-		Aliases: []string{  "giftaidrates",  "GAR",  "gar",  },
+		Aliases: []string{  "GAR",  "gar",  "giftaidrates",  },
 		Use: `GiftAidRates {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid rate by id`,
 		Long:  `Get the details of a gift aid rate by id.`,
@@ -3050,7 +3050,7 @@ var Get_GiftAidRates_cmd = &cobra.Command{
 	}
 
 var Get_GiftAidStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "giftaidstatuses",  "GAS",  "gas",  },
+		Aliases: []string{  "gas",  "giftaidstatuses",  "GAS",  },
 		Use: `GiftAidStatuses {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid status by id`,
 		Long:  `Get the details of a gift aid status by id.`,
@@ -3078,7 +3078,7 @@ var Get_GiftAidStatuses_cmd = &cobra.Command{
 	}
 
 var Get_GiftAidTypes_cmd = &cobra.Command{
-		Aliases: []string{  "giftaidtypes",  "GAT",  "gat",  },
+		Aliases: []string{  "gat",  "giftaidtypes",  "GAT",  },
 		Use: `GiftAidTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid type by id`,
 		Long:  `Get the details of a gift aid type by id.`,
@@ -3106,7 +3106,7 @@ var Get_GiftAidTypes_cmd = &cobra.Command{
 	}
 
 var Get_GiftCertificates_cmd = &cobra.Command{
-		Aliases: []string{  "gc",  "giftcertificates",  "GC",  },
+		Aliases: []string{  "giftcertificates",  "GC",  "gc",  },
 		Use: `GiftCertificates {"GiftCertificateNumber":"string"}`,
 		Short: `Get details of a specific gift certificate`,
 		Long:  `Get details of a specific gift certificate.
@@ -3188,7 +3188,7 @@ var Get_HoldCodeUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_HoldCodes_cmd = &cobra.Command{
-		Aliases: []string{  "holdcodes",  "HC",  "hc",  },
+		Aliases: []string{  "hc",  "holdcodes",  "HC",  },
 		Use: `HoldCodes {"HoldCodeID":"string"}`,
 		Short: `Get details of a Hold Code`,
 		Long:  `Get details of a Hold Code.`,
@@ -3242,7 +3242,7 @@ var Get_InactiveReasons_cmd = &cobra.Command{
 	}
 
 var Get_IntegrationDefaults_cmd = &cobra.Command{
-		Aliases: []string{  "ID",  "id",  "integrationdefaults",  },
+		Aliases: []string{  "integrationdefaults",  "ID",  "id",  },
 		Use: `IntegrationDefaults {"ID":"string"}`,
 		Short: `Get the details of an Integration Default by id`,
 		Long:  `Get the details of an Integration Default by id.`,
@@ -3326,7 +3326,7 @@ var Get_InterestCategories_cmd = &cobra.Command{
 	}
 
 var Get_InterestTypes_cmd = &cobra.Command{
-		Aliases: []string{  "it",  "interesttypes",  "IT",  },
+		Aliases: []string{  "interesttypes",  "IT",  "it",  },
 		Use: `InterestTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an interest type by id`,
 		Long:  `Get the details of an interest type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -3354,7 +3354,7 @@ var Get_InterestTypes_cmd = &cobra.Command{
 	}
 
 var Get_Interests_cmd = &cobra.Command{
-		Aliases: []string{  "I",  "i",  "interests",  },
+		Aliases: []string{  "interests",  "I",  "i",  },
 		Use: `Interests {"InterestID":"string"}`,
 		Short: `Get details of an interest`,
 		Long:  `Get details of an interest.`,
@@ -3380,7 +3380,7 @@ var Get_Interests_cmd = &cobra.Command{
 	}
 
 var Get_Internal_cmd = &cobra.Command{
-		Aliases: []string{  "i",  "internal",  "I",  },
+		Aliases: []string{  "internal",  "I",  "i",  },
 		Use: `Internal {"AddressID":"string"}`,
 		Short: `Get details of an address and all the phones attached to it`,
 		Long:  `Get details of an address and all the phones attached to it.`,
@@ -3408,7 +3408,7 @@ var Get_Internal_cmd = &cobra.Command{
 	}
 
 var Get_InventoryContactPermissionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "icpt",  "inventorycontactpermissiontypes",  "ICPT",  },
+		Aliases: []string{  "ICPT",  "icpt",  "inventorycontactpermissiontypes",  },
 		Use: `InventoryContactPermissionTypes {"InventoryContactPermissionTypeID":"string"}`,
 		Short: `Get details of an inventoryContactPermissionType`,
 		Long:  `Get details of an inventoryContactPermissionType.`,
@@ -3462,7 +3462,7 @@ var Get_InventoryWebContents_cmd = &cobra.Command{
 	}
 
 var Get_InvoiceBilling_cmd = &cobra.Command{
-		Aliases: []string{  "ib",  "invoicebilling",  "IB",  },
+		Aliases: []string{  "invoicebilling",  "IB",  "ib",  },
 		Use: `InvoiceBilling {"ID":"string"}`,
 		Short: `Get status of a processing automated billing run`,
 		Long:  `Get status of a processing automated billing run.`,
@@ -3485,7 +3485,7 @@ var Get_InvoiceBilling_cmd = &cobra.Command{
 	}
 
 var Get_Issues_cmd = &cobra.Command{
-		Aliases: []string{  "issues",  "I",  "i",  },
+		Aliases: []string{  "I",  "i",  "issues",  },
 		Use: `Issues {"IssueID":"string"}`,
 		Short: `Get details of a customer issue`,
 		Long:  `Get details of a customer issue.`,
@@ -3539,7 +3539,7 @@ var Get_KeywordCategories_cmd = &cobra.Command{
 	}
 
 var Get_Keywords_cmd = &cobra.Command{
-		Aliases: []string{  "keywords",  "K",  "k",  },
+		Aliases: []string{  "k",  "keywords",  "K",  },
 		Use: `Keywords {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a keyword by id`,
 		Long:  `Get the details of a keyword by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -3597,7 +3597,7 @@ var Get_Languages_cmd = &cobra.Command{
 	}
 
 var Get_ListCategories_cmd = &cobra.Command{
-		Aliases: []string{  "listcategories",  "LC",  "lc",  },
+		Aliases: []string{  "LC",  "lc",  "listcategories",  },
 		Use: `ListCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a list category by id`,
 		Long:  `Get the details of a list category by id.`,
@@ -3657,7 +3657,7 @@ var Get_Lists_cmd = &cobra.Command{
 	}
 
 var Get_LoginTypes_cmd = &cobra.Command{
-		Aliases: []string{  "lt",  "logintypes",  "LT",  },
+		Aliases: []string{  "logintypes",  "LT",  "lt",  },
 		Use: `LoginTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a login type by id`,
 		Long:  `Get the details of a login type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -3713,7 +3713,7 @@ var Get_MachineSettings_cmd = &cobra.Command{
 	}
 
 var Get_MailIndicators_cmd = &cobra.Command{
-		Aliases: []string{  "mailindicators",  "MI",  "mi",  },
+		Aliases: []string{  "MI",  "mi",  "mailindicators",  },
 		Use: `MailIndicators {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a mail indicator by id`,
 		Long:  `Get the details of a mail indicator by id.`,
@@ -3826,7 +3826,7 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 	}
 
 var Get_MembershipOrganizations_cmd = &cobra.Command{
-		Aliases: []string{  "MO",  "mo",  "membershiporganizations",  },
+		Aliases: []string{  "membershiporganizations",  "MO",  "mo",  },
 		Use: `MembershipOrganizations {"ID":"string"}`,
 		Short: `Get a specific membership organization`,
 		Long:  `Get a specific membership organization.
@@ -3883,7 +3883,7 @@ var Get_MembershipStandings_cmd = &cobra.Command{
 	}
 
 var Get_Memberships_cmd = &cobra.Command{
-		Aliases: []string{  "memberships",  "M",  "m",  },
+		Aliases: []string{  "M",  "m",  "memberships",  },
 		Use: `Memberships {"ConstituentID":"string","IncludeAffiliations":"string","MembershipOrgIds":"string","OnlyShowCurrent":"string","OnlyShowDefault":"string"}`,
 		Short: `Returns membership details for a constituent`,
 		Long:  `Returns membership details for a constituent.
@@ -4005,7 +4005,7 @@ var Get_ModeOfSaleOffers_cmd = &cobra.Command{
 	}
 
 var Get_ModeOfSalePriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "modeofsalepricetypes",  "MOSPT",  "mospt",  },
+		Aliases: []string{  "MOSPT",  "mospt",  "modeofsalepricetypes",  },
 		Use: `ModeOfSalePriceTypes {"ModeOfSalePriceTypeID":"string"}`,
 		Short: `Get details of a mode of sale price type`,
 		Long:  `Get details of a mode of sale price type.`,
@@ -4057,7 +4057,7 @@ var Get_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 	}
 
 var Get_ModeOfSaleUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "mosug",  "modeofsaleusergroups",  "MOSUG",  },
+		Aliases: []string{  "modeofsaleusergroups",  "MOSUG",  "mosug",  },
 		Use: `ModeOfSaleUserGroups {"ModeOfSaleUserGroupID":"string"}`,
 		Short: `Get the details of a mode of sale/user group mapping by id`,
 		Long:  `Get the details of a mode of sale/user group mapping by id.`,
@@ -4083,7 +4083,7 @@ var Get_ModeOfSaleUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_ModesOfSale_cmd = &cobra.Command{
-		Aliases: []string{  "MOS",  "mos",  "modesofsale",  },
+		Aliases: []string{  "modesofsale",  "MOS",  "mos",  },
 		Use: `ModesOfSale {"ModeOfSaleID":"string"}`,
 		Short: `Get details of an existing mode of sale`,
 		Long:  `Get details of an existing mode of sale.`,
@@ -4249,7 +4249,7 @@ var Get_OrderCategories_cmd = &cobra.Command{
 	}
 
 var Get_Orders_cmd = &cobra.Command{
-		Aliases: []string{  "O",  "o",  "orders",  },
+		Aliases: []string{  "orders",  "O",  "o",  },
 		Use: `Orders {"OrderID":"string"}`,
 		Short: `Get the details of an existing Order as the contract OrderProductsView`,
 		Long:  `Get the details of an existing Order as the contract OrderProductsView, which mirrors the structure of the Cart response entity from GET Web/{sessionKey}/Cart. This resource can be used to fetch any saved order in this view. Order HTML templates use this response contract (OrdersProductsView) as the model within the template. Orders actively in a session/cart will not be available here until after checkout.`,
@@ -4272,7 +4272,7 @@ var Get_Orders_cmd = &cobra.Command{
 	}
 
 var Get_Organizations_cmd = &cobra.Command{
-		Aliases: []string{  "organizations",  "O",  "o",  },
+		Aliases: []string{  "O",  "o",  "organizations",  },
 		Use: `Organizations {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an organization by ID`,
 		Long:  `Get the details of an organization by ID. To get the resource in maintenance mode (ignoring control groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -4356,7 +4356,7 @@ var Get_Origins_cmd = &cobra.Command{
 	}
 
 var Get_OutputSets_cmd = &cobra.Command{
-		Aliases: []string{  "OS",  "os",  "outputsets",  },
+		Aliases: []string{  "outputsets",  "OS",  "os",  },
 		Use: `OutputSets {"OutputSetID":"string"}`,
 		Short: `Get a single Output Set`,
 		Long:  `Get a single Output Set.`,
@@ -4382,7 +4382,7 @@ var Get_OutputSets_cmd = &cobra.Command{
 	}
 
 var Get_PackageHistory_cmd = &cobra.Command{
-		Aliases: []string{  "packagehistory",  "PH",  "ph",  },
+		Aliases: []string{  "PH",  "ph",  "packagehistory",  },
 		Use: `PackageHistory {"ConstituentID":"string","IncludeAffiliations":"string","OrderEndDate":"string","OrderStartDate":"string","PackageID":"string","PackageTypeID":"string","SeasonID":"string"}`,
 		Short: `Gets history information for packages`,
 		Long:  `Gets history information for packages`,
@@ -4405,7 +4405,7 @@ var Get_PackageHistory_cmd = &cobra.Command{
 	}
 
 var Get_PackagePriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "ppt",  "packagepricetypes",  "PPT",  },
+		Aliases: []string{  "packagepricetypes",  "PPT",  "ppt",  },
 		Use: `PackagePriceTypes {"PackagePriceTypeID":"string"}`,
 		Short: `Get details of a specific package price type`,
 		Long:  `Get details of a specific package price type.`,
@@ -4459,7 +4459,7 @@ var Get_PackageTypes_cmd = &cobra.Command{
 	}
 
 var Get_PackageWebContents_cmd = &cobra.Command{
-		Aliases: []string{  "pwc",  "packagewebcontents",  "PWC",  },
+		Aliases: []string{  "packagewebcontents",  "PWC",  "pwc",  },
 		Use: `PackageWebContents {"PackageWebContentID":"string"}`,
 		Short: `Get details of a packageWebContent`,
 		Long:  `Get details of a packageWebContent.`,
@@ -4576,7 +4576,7 @@ var Get_PaymentGatewayConfiguration_cmd = &cobra.Command{
 	}
 
 var Get_PaymentGatewayNotifications_cmd = &cobra.Command{
-		Aliases: []string{  "paymentgatewaynotifications",  "PGN",  "pgn",  },
+		Aliases: []string{  "pgn",  "paymentgatewaynotifications",  "PGN",  },
 		Use: `PaymentGatewayNotifications {"NotificationType":"string","Reference":"string"}`,
 		Short: `Get all notification events by reference`,
 		Long:  `Get all notification events by reference.`,
@@ -4606,7 +4606,7 @@ var Get_PaymentGatewayNotifications_cmd = &cobra.Command{
 	}
 
 var Get_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "pgtt",  "paymentgatewaytransactiontypes",  "PGTT",  },
+		Aliases: []string{  "paymentgatewaytransactiontypes",  "PGTT",  "pgtt",  },
 		Use: `PaymentGatewayTransactionTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Payment Gateway Transaction Type by id`,
 		Long:  `Get the details of a Payment Gateway Transaction Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -4657,7 +4657,7 @@ var Get_PaymentHistory_cmd = &cobra.Command{
 	}
 
 var Get_PaymentMethodGroups_cmd = &cobra.Command{
-		Aliases: []string{  "paymentmethodgroups",  "PMG",  "pmg",  },
+		Aliases: []string{  "PMG",  "pmg",  "paymentmethodgroups",  },
 		Use: `PaymentMethodGroups {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a payment method group by id`,
 		Long:  `Get the details of a payment method group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -4685,7 +4685,7 @@ var Get_PaymentMethodGroups_cmd = &cobra.Command{
 	}
 
 var Get_PaymentMethodUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "paymentmethodusergroups",  "PMUG",  "pmug",  },
+		Aliases: []string{  "PMUG",  "pmug",  "paymentmethodusergroups",  },
 		Use: `PaymentMethodUserGroups {"PaymentMethodUserGroupID":"string"}`,
 		Short: `Get details of a payment method/user group mapping by id`,
 		Long:  `Get details of a payment method/user group mapping by id.`,
@@ -4741,7 +4741,7 @@ var Get_PaymentMethods_cmd = &cobra.Command{
 	}
 
 var Get_PaymentSignatures_cmd = &cobra.Command{
-		Aliases: []string{  "paymentsignatures",  "PS",  "ps",  },
+		Aliases: []string{  "PS",  "ps",  "paymentsignatures",  },
 		Use: `PaymentSignatures {"PaymentSignatureID":"string"}`,
 		Short: `Get details of a payment signature`,
 		Long:  `Get details of a payment signature.`,
@@ -4825,7 +4825,7 @@ var Get_Payments_cmd = &cobra.Command{
 	}
 
 var Get_PerformanceGroups_cmd = &cobra.Command{
-		Aliases: []string{  "pg",  "performancegroups",  "PG",  },
+		Aliases: []string{  "performancegroups",  "PG",  "pg",  },
 		Use: `PerformanceGroups {"ID":"string"}`,
 		Short: `Get details of a Performance Group`,
 		Long:  `Get details of a Performance Group.`,
@@ -4907,7 +4907,7 @@ var Get_PerformancePriceLayers_cmd = &cobra.Command{
 	}
 
 var Get_PerformancePriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "performancepricetypes",  "PPT",  "ppt",  },
+		Aliases: []string{  "ppt",  "performancepricetypes",  "PPT",  },
 		Use: `PerformancePriceTypes {"AsOfDateTime":"string","PerformancePriceTypeID":"string"}`,
 		Short: `Get details of a performance price type`,
 		Long:  `Get details of a performance price type.`,
@@ -4933,7 +4933,7 @@ var Get_PerformancePriceTypes_cmd = &cobra.Command{
 	}
 
 var Get_PerformancePrices_cmd = &cobra.Command{
-		Aliases: []string{  "performanceprices",  "PP",  "pp",  },
+		Aliases: []string{  "PP",  "pp",  "performanceprices",  },
 		Use: `PerformancePrices {"AsOfDateTime":"string","PerformancePriceID":"string"}`,
 		Short: `Get details of a performance price`,
 		Long:  `Get details of a performance price.`,
@@ -4963,7 +4963,7 @@ var Get_PerformancePrices_cmd = &cobra.Command{
 	}
 
 var Get_PerformanceStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "PS",  "ps",  "performancestatuses",  },
+		Aliases: []string{  "performancestatuses",  "PS",  "ps",  },
 		Use: `PerformanceStatuses {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a performance status by id`,
 		Long:  `Get the details of a performance status by id.`,
@@ -5117,7 +5117,7 @@ var Get_PhilanthropyTypes_cmd = &cobra.Command{
 	}
 
 var Get_PhoneIndicators_cmd = &cobra.Command{
-		Aliases: []string{  "phoneindicators",  "PI",  "pi",  },
+		Aliases: []string{  "PI",  "pi",  "phoneindicators",  },
 		Use: `PhoneIndicators {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a phone indicator by id`,
 		Long:  `Get the details of a phone indicator by id.`,
@@ -5199,7 +5199,7 @@ var Get_Phones_cmd = &cobra.Command{
 	}
 
 var Get_PlanPriorities_cmd = &cobra.Command{
-		Aliases: []string{  "pp",  "planpriorities",  "PP",  },
+		Aliases: []string{  "planpriorities",  "PP",  "pp",  },
 		Use: `PlanPriorities {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan priority by id`,
 		Long:  `Get the details of a plan priority by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -5227,7 +5227,7 @@ var Get_PlanPriorities_cmd = &cobra.Command{
 	}
 
 var Get_PlanSources_cmd = &cobra.Command{
-		Aliases: []string{  "plansources",  "PS",  "ps",  },
+		Aliases: []string{  "ps",  "plansources",  "PS",  },
 		Use: `PlanSources {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan source by id`,
 		Long:  `Get the details of a plan source by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -5283,7 +5283,7 @@ var Get_PlanStatuses_cmd = &cobra.Command{
 	}
 
 var Get_PlanTypes_cmd = &cobra.Command{
-		Aliases: []string{  "pt",  "plantypes",  "PT",  },
+		Aliases: []string{  "plantypes",  "PT",  "pt",  },
 		Use: `PlanTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan type by id`,
 		Long:  `Get the details of a plan type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -5311,7 +5311,7 @@ var Get_PlanTypes_cmd = &cobra.Command{
 	}
 
 var Get_PlanWorkers_cmd = &cobra.Command{
-		Aliases: []string{  "planworkers",  "PW",  "pw",  },
+		Aliases: []string{  "PW",  "pw",  "planworkers",  },
 		Use: `PlanWorkers {"PlanWorkerID":"string"}`,
 		Short: `Get details of a plan worker`,
 		Long:  `Get details of a plan worker.`,
@@ -5363,7 +5363,7 @@ var Get_Plans_cmd = &cobra.Command{
 	}
 
 var Get_PledgeBilling_cmd = &cobra.Command{
-		Aliases: []string{  "pb",  "pledgebilling",  "PB",  },
+		Aliases: []string{  "PB",  "pb",  "pledgebilling",  },
 		Use: `PledgeBilling {"ID":"string"}`,
 		Short: `Get status of a pledge billing run`,
 		Long:  `Get status of a pledge billing run. Job is finished processing when IsCompleted is true.  Only billing runs using automated billing will be running after the response from a POST to Txn/PledgeBilling.`,
@@ -5440,7 +5440,7 @@ var Get_Portfolios_cmd = &cobra.Command{
 	}
 
 var Get_Prefixes_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "prefixes",  },
+		Aliases: []string{  "prefixes",  "P",  "p",  },
 		Use: `Prefixes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a prefix by id`,
 		Long:  `Get the details of a prefix by id.`,
@@ -5468,7 +5468,7 @@ var Get_Prefixes_cmd = &cobra.Command{
 	}
 
 var Get_Premieres_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "premieres",  },
+		Aliases: []string{  "premieres",  "P",  "p",  },
 		Use: `Premieres {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a premiere by id`,
 		Long:  `Get the details of a premiere by id.`,
@@ -5608,7 +5608,7 @@ var Get_PriceTemplates_cmd = &cobra.Command{
 	}
 
 var Get_PriceTypeCategories_cmd = &cobra.Command{
-		Aliases: []string{  "pricetypecategories",  "PTC",  "ptc",  },
+		Aliases: []string{  "PTC",  "ptc",  "pricetypecategories",  },
 		Use: `PriceTypeCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a price type category by id`,
 		Long:  `Get the details of a price type category by id.`,
@@ -5718,7 +5718,7 @@ var Get_PriceTypeUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_PriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "pricetypes",  "PT",  "pt",  },
+		Aliases: []string{  "PT",  "pt",  "pricetypes",  },
 		Use: `PriceTypes {"PriceTypeID":"string"}`,
 		Short: `Get details of a price type`,
 		Long:  `Get details of a price type.`,
@@ -5752,7 +5752,7 @@ var Get_PriceTypes_cmd = &cobra.Command{
 	}
 
 var Get_PricingRuleCategories_cmd = &cobra.Command{
-		Aliases: []string{  "pricingrulecategories",  "PRC",  "prc",  },
+		Aliases: []string{  "PRC",  "prc",  "pricingrulecategories",  },
 		Use: `PricingRuleCategories {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a pricing rule category by id`,
 		Long:  `Get the details of a pricing rule category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -5945,7 +5945,7 @@ For Production Elements: If the keyword is found, returns the keyword and the lo
 	}
 
 var Get_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
-		Aliases: []string{  "psmo",  "productionseasonmembershiporganizations",  "PSMO",  },
+		Aliases: []string{  "productionseasonmembershiporganizations",  "PSMO",  "psmo",  },
 		Use: `ProductionSeasonMembershipOrganizations {"ID":"string"}`,
 		Short: `Get details of a specific production season membership organization`,
 		Long:  `Get details of a specific production season membership organization.`,
@@ -6112,7 +6112,7 @@ var Get_Pronouns_cmd = &cobra.Command{
 	}
 
 var Get_QualificationCategories_cmd = &cobra.Command{
-		Aliases: []string{  "QC",  "qc",  "qualificationcategories",  },
+		Aliases: []string{  "qualificationcategories",  "QC",  "qc",  },
 		Use: `QualificationCategories {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Qualification Category by id`,
 		Long:  `Get the details of a Qualification Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -6306,7 +6306,7 @@ var Get_Rankings_cmd = &cobra.Command{
 	}
 
 var Get_ReceiptSettings_cmd = &cobra.Command{
-		Aliases: []string{  "RS",  "rs",  "receiptsettings",  },
+		Aliases: []string{  "receiptsettings",  "RS",  "rs",  },
 		Use: `ReceiptSettings {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Receipt Setting by id`,
 		Long:  `Get the details of a Receipt Setting by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -6360,7 +6360,7 @@ var Get_ReferenceColumns_cmd = &cobra.Command{
 	}
 
 var Get_ReferenceTableUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "RTUG",  "rtug",  "referencetableusergroups",  },
+		Aliases: []string{  "referencetableusergroups",  "RTUG",  "rtug",  },
 		Use: `ReferenceTableUserGroups {"ID":"string"}`,
 		Short: `Get the details of a reference table/user group mapping by id`,
 		Long:  `Get the details of a reference table/user group mapping by id.`,
@@ -6444,7 +6444,7 @@ var Get_RelationshipCategories_cmd = &cobra.Command{
 	}
 
 var Get_Relationships_cmd = &cobra.Command{
-		Aliases: []string{  "relationships",  "R",  "r",  },
+		Aliases: []string{  "R",  "r",  "relationships",  },
 		Use: `Relationships {"ActiveOnly":"string","AssociatedConstituentID":"string","ConstituentID":"string","EndActiveDate":"string","IncludeAffiliations":"string","StartActiveDate":"string"}`,
 		Short: `Get all affiliations and associations of the specified constituent id or get all affiliations and associations of the specified associated constituent id`,
 		Long:  `Get all affiliations and associations of the specified constituent id or get all affiliations and associations of the specified associated constituent id. If both are specified get all the associations and affiliations between them.`,
@@ -6467,7 +6467,7 @@ var Get_Relationships_cmd = &cobra.Command{
 	}
 
 var Get_ReportRequests_cmd = &cobra.Command{
-		Aliases: []string{  "RR",  "rr",  "reportrequests",  },
+		Aliases: []string{  "reportrequests",  "RR",  "rr",  },
 		Use: `ReportRequests {"ID":"string"}`,
 		Short: `Get a report request`,
 		Long:  `Get a report request.`,
@@ -6611,7 +6611,7 @@ var Get_Research_cmd = &cobra.Command{
 	}
 
 var Get_ResearchTypes_cmd = &cobra.Command{
-		Aliases: []string{  "researchtypes",  "RT",  "rt",  },
+		Aliases: []string{  "rt",  "researchtypes",  "RT",  },
 		Use: `ResearchTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of research type by id`,
 		Long:  `Get the details of research type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -6721,7 +6721,7 @@ var Get_ResourceTypes_cmd = &cobra.Command{
 	}
 
 var Get_Resources_cmd = &cobra.Command{
-		Aliases: []string{  "r",  "resources",  "R",  },
+		Aliases: []string{  "resources",  "R",  "r",  },
 		Use: `Resources {"ID":"string"}`,
 		Short: `Get a specific Resource`,
 		Long:  `Get a specific Resource.`,
@@ -6781,7 +6781,7 @@ var Get_SalesChannels_cmd = &cobra.Command{
 	}
 
 var Get_SalesLayoutButtonTypes_cmd = &cobra.Command{
-		Aliases: []string{  "saleslayoutbuttontypes",  "SLBT",  "slbt",  },
+		Aliases: []string{  "SLBT",  "slbt",  "saleslayoutbuttontypes",  },
 		Use: `SalesLayoutButtonTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a sales layout button type by id`,
 		Long:  `Get the details of a sales layout button type by id.`,
@@ -6893,7 +6893,7 @@ var Get_Salutations_cmd = &cobra.Command{
 	}
 
 var Get_SchedulePatternTypes_cmd = &cobra.Command{
-		Aliases: []string{  "schedulepatterntypes",  "SPT",  "spt",  },
+		Aliases: []string{  "spt",  "schedulepatterntypes",  "SPT",  },
 		Use: `SchedulePatternTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Schedule Pattern by id`,
 		Long:  `Get the details of a Schedule Pattern by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -6949,7 +6949,7 @@ var Get_ScheduleTypes_cmd = &cobra.Command{
 	}
 
 var Get_SeasonTypes_cmd = &cobra.Command{
-		Aliases: []string{  "st",  "seasontypes",  "ST",  },
+		Aliases: []string{  "seasontypes",  "ST",  "st",  },
 		Use: `SeasonTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a season type by id`,
 		Long:  `Get the details of a season type by id.`,
@@ -6977,7 +6977,7 @@ var Get_SeasonTypes_cmd = &cobra.Command{
 	}
 
 var Get_Seasons_cmd = &cobra.Command{
-		Aliases: []string{  "seasons",  "S",  "s",  },
+		Aliases: []string{  "s",  "seasons",  "S",  },
 		Use: `Seasons {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a season by id`,
 		Long:  `Get the details of a season by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -7061,7 +7061,7 @@ var Get_SeatStatuses_cmd = &cobra.Command{
 	}
 
 var Get_Sections_cmd = &cobra.Command{
-		Aliases: []string{  "s",  "sections",  "S",  },
+		Aliases: []string{  "S",  "s",  "sections",  },
 		Use: `Sections {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a section by id`,
 		Long:  `Get the details of a section by id.`,
@@ -7347,7 +7347,7 @@ var Get_SecurityUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_ServiceResourceUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "serviceresourceusergroups",  "SRUG",  "srug",  },
+		Aliases: []string{  "SRUG",  "srug",  "serviceresourceusergroups",  },
 		Use: `ServiceResourceUserGroups {"ID":"string"}`,
 		Short: `Get the details of a service resource/user group mapping by id`,
 		Long:  `Get the details of a service resource/user group mapping by id.`,
@@ -7550,7 +7550,7 @@ var Get_SpecialActivityStatuses_cmd = &cobra.Command{
 	}
 
 var Get_SpecialActivityTypes_cmd = &cobra.Command{
-		Aliases: []string{  "specialactivitytypes",  "SAT",  "sat",  },
+		Aliases: []string{  "SAT",  "sat",  "specialactivitytypes",  },
 		Use: `SpecialActivityTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Special Activity Type by id`,
 		Long:  `Get the details of a Special Activity Type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -7664,7 +7664,7 @@ var Get_Steps_cmd = &cobra.Command{
 	}
 
 var Get_SubLineItemStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "sublineitemstatuses",  "SLIS",  "slis",  },
+		Aliases: []string{  "slis",  "sublineitemstatuses",  "SLIS",  },
 		Use: `SubLineItemStatuses {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a sub line item status by id`,
 		Long:  `Get the details of a sub line item status by id.`,
@@ -7715,7 +7715,7 @@ var Get_SubLineItems_cmd = &cobra.Command{
 	}
 
 var Get_Suffixes_cmd = &cobra.Command{
-		Aliases: []string{  "suffixes",  "S",  "s",  },
+		Aliases: []string{  "s",  "suffixes",  "S",  },
 		Use: `Suffixes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a suffix by id`,
 		Long:  `Get the details of a suffix by id.`,
@@ -7743,7 +7743,7 @@ var Get_Suffixes_cmd = &cobra.Command{
 	}
 
 var Get_SurveyQuestions_cmd = &cobra.Command{
-		Aliases: []string{  "SQ",  "sq",  "surveyquestions",  },
+		Aliases: []string{  "surveyquestions",  "SQ",  "sq",  },
 		Use: `SurveyQuestions {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a survey question by id`,
 		Long:  `Get the details of a survey question by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -7827,7 +7827,7 @@ var Get_SystemDefaults_cmd = &cobra.Command{
 	}
 
 var Get_TemplateCategories_cmd = &cobra.Command{
-		Aliases: []string{  "templatecategories",  "TC",  "tc",  },
+		Aliases: []string{  "tc",  "templatecategories",  "TC",  },
 		Use: `TemplateCategories {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a template category by id`,
 		Long:  `Get the details of a template category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -7935,7 +7935,7 @@ var Get_TemplateTypes_cmd = &cobra.Command{
 	}
 
 var Get_Templates_cmd = &cobra.Command{
-		Aliases: []string{  "templates",  "T",  "t",  },
+		Aliases: []string{  "T",  "t",  "templates",  },
 		Use: `Templates {"TemplateID":"string"}`,
 		Short: `Get the details of a template by id`,
 		Long:  `Get the details of a template by id`,
@@ -7991,7 +7991,7 @@ var Get_Theaters_cmd = &cobra.Command{
 	}
 
 var Get_TicketHistory_cmd = &cobra.Command{
-		Aliases: []string{  "TH",  "th",  "tickethistory",  },
+		Aliases: []string{  "tickethistory",  "TH",  "th",  },
 		Use: `TicketHistory {"ConstituentID":"string","IncludeAffiliations":"string","OrderEndDate":"string","OrderStartDate":"string","PerformanceEndDate":"string","PerformanceID":"string","PerformanceStartDate":"string","ProductionSeasonID":"string","SeasonID":"string"}`,
 		Short: `Gets history information for tickets`,
 		Long:  `Gets history information for tickets`,
@@ -8014,7 +8014,7 @@ var Get_TicketHistory_cmd = &cobra.Command{
 	}
 
 var Get_TimeSlots_cmd = &cobra.Command{
-		Aliases: []string{  "TS",  "ts",  "timeslots",  },
+		Aliases: []string{  "timeslots",  "TS",  "ts",  },
 		Use: `TimeSlots {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a time slot by id`,
 		Long:  `Get the details of a time slot by id.`,
@@ -8042,7 +8042,7 @@ var Get_TimeSlots_cmd = &cobra.Command{
 	}
 
 var Get_Titles_cmd = &cobra.Command{
-		Aliases: []string{  "T",  "t",  "titles",  },
+		Aliases: []string{  "titles",  "T",  "t",  },
 		Use: `Titles {"ID":"string"}`,
 		Short: `Get details of a specific title`,
 		Long:  `Get details of a specific title.`,
@@ -8121,7 +8121,7 @@ var Get_TriPOSCloudConfigurations_cmd = &cobra.Command{
 	}
 
 var Get_UpgradeCategories_cmd = &cobra.Command{
-		Aliases: []string{  "upgradecategories",  "UC",  "uc",  },
+		Aliases: []string{  "uc",  "upgradecategories",  "UC",  },
 		Use: `UpgradeCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an Upgrade Category by id`,
 		Long:  `Get the details of an Upgrade Category by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -8149,7 +8149,7 @@ var Get_UpgradeCategories_cmd = &cobra.Command{
 	}
 
 var Get_UpgradeLogs_cmd = &cobra.Command{
-		Aliases: []string{  "upgradelogs",  "UL",  "ul",  },
+		Aliases: []string{  "ul",  "upgradelogs",  "UL",  },
 		Use: `UpgradeLogs {"UpgradeLogID":"string"}`,
 		Short: `Returns an upgradeLog for the given id`,
 		Long:  `Returns an upgradeLog for the given id.`,
@@ -8229,7 +8229,7 @@ var Get_UserPreferences_cmd = &cobra.Command{
 	}
 
 var Get_Users_cmd = &cobra.Command{
-		Aliases: []string{  "users",  "U",  "u",  },
+		Aliases: []string{  "U",  "u",  "users",  },
 		Use: `Users {"UserName":"string"}`,
 		Short: `Get the details of a user for the specified username`,
 		Long:  `Get the details of a user for the specified username.`,
@@ -8314,7 +8314,7 @@ If the content type is found, returns the content value at the lowest level at w
 	}
 
 var Get_WebLogins_cmd = &cobra.Command{
-		Aliases: []string{  "wl",  "weblogins",  "WL",  },
+		Aliases: []string{  "weblogins",  "WL",  "wl",  },
 		Use: `WebLogins {"WebLoginID":"string"}`,
 		Short: `Get details of a weblogin`,
 		Long:  `Get details of a weblogin.`,
@@ -8344,7 +8344,7 @@ var Get_WebLogins_cmd = &cobra.Command{
 	}
 
 var Get_WorkerQualifications_cmd = &cobra.Command{
-		Aliases: []string{  "workerqualifications",  "WQ",  "wq",  },
+		Aliases: []string{  "wq",  "workerqualifications",  "WQ",  },
 		Use: `WorkerQualifications {"WorkerQualificationID":"string"}`,
 		Short: `Get a single WorkerQualification by Id`,
 		Long:  `Get a single WorkerQualification by Id.`,
@@ -8370,7 +8370,7 @@ var Get_WorkerQualifications_cmd = &cobra.Command{
 	}
 
 var Get_WorkerRoles_cmd = &cobra.Command{
-		Aliases: []string{  "wr",  "workerroles",  "WR",  },
+		Aliases: []string{  "workerroles",  "WR",  "wr",  },
 		Use: `WorkerRoles {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a worker role by id`,
 		Long:  `Get the details of a worker role by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
@@ -8426,7 +8426,7 @@ var Get_WorkerTypes_cmd = &cobra.Command{
 	}
 
 var Get_Workers_cmd = &cobra.Command{
-		Aliases: []string{  "w",  "workers",  "W",  },
+		Aliases: []string{  "workers",  "W",  "w",  },
 		Use: `Workers {"WorkerID":"string"}`,
 		Short: `Get details of a worker`,
 		Long:  `Get details of a worker.`,
@@ -8454,7 +8454,7 @@ var Get_Workers_cmd = &cobra.Command{
 	}
 
 var Get_ZoneGroups_cmd = &cobra.Command{
-		Aliases: []string{  "zg",  "zonegroups",  "ZG",  },
+		Aliases: []string{  "ZG",  "zg",  "zonegroups",  },
 		Use: `ZoneGroups {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a zone group by id`,
 		Long:  `Get the details of a zone group by id.`,
@@ -8510,7 +8510,7 @@ var Get_ZoneMaps_cmd = &cobra.Command{
 	}
 
 var Get_Zones_cmd = &cobra.Command{
-		Aliases: []string{  "zones",  "Z",  "z",  },
+		Aliases: []string{  "Z",  "z",  "zones",  },
 		Use: `Zones {"ZoneID":"string","ZoneMapID":"string"}`,
 		Short: `Get details of a specific zone`,
 		Long:  `Get details of a specific zone.`,

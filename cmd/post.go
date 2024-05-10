@@ -11,8 +11,8 @@ import (
 
 
 var Post_AccountTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "at",  "accounttypes",  },
-		Use: `AccountTypes {"Data":{"CardLength":"string","CardPrefix":"string","CardtypeIndicator":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditMask":"string","Mod10Indicator":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "accounttypes",  "AT",  "at",  },
+		Use: `AccountTypes {"Data":{"CardLength":"string","CardPrefix":"string","CardtypeIndicator":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditMask":"string","Id":123,"Inactive":true,"Mod10Indicator":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new account type`,
 		Long:  `Create a new account type.`,
 		PreRun: tqInit,
@@ -34,8 +34,8 @@ var Post_AccountTypes_cmd = &cobra.Command{
 	}
 
 var Post_Accounts_cmd = &cobra.Command{
-		Aliases: []string{  "accounts",  "A",  "a",  },
-		Use: `Accounts {"Request":{"AccountNumber":"string","Name":"string","TransactionOrigin":"string"}}`,
+		Aliases: []string{  "A",  "a",  "accounts",  },
+		Use: `Accounts {"Request":{"AccountNumber":"string","CardExpiryMonth":123,"CardExpiryYear":123,"ConstituentId":123,"ExclusiveToControlledBatchId":123,"Inactive":true,"Name":"string","PaymentMethodGroupId":123,"ReturnAccountIfAccountExists":true,"TransactionOrigin":"string","VantivEncryptedCard":{"Id":123}}}`,
 		Short: `Create a credit card account`,
 		Long:  `Create a credit card account, storing the card number. Will create and store a token if tokenization is enabled.`,
 		PreRun: tqInit,
@@ -64,8 +64,8 @@ var Post_Accounts_cmd = &cobra.Command{
 	}
 
 var Post_ActionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "at",  "actiontypes",  },
-		Use: `ActionTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "actiontypes",  "AT",  "at",  },
+		Use: `ActionTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"LetterIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new action type`,
 		Long:  `Create a new action type.`,
 		PreRun: tqInit,
@@ -87,8 +87,8 @@ var Post_ActionTypes_cmd = &cobra.Command{
 	}
 
 var Post_Actions_cmd = &cobra.Command{
-		Aliases: []string{  "actions",  "A",  "a",  },
-		Use: `Actions {"IssueAction":{"ActionDate":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","LetterPrintedDate":"0001-01-01T00:00:00.000Z","Notes":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "a",  "actions",  "A",  },
+		Use: `Actions {"IssueAction":{"ActionDate":"0001-01-01T00:00:00.000Z","ActionType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Issue":{"Id":123},"LetterPrintedDate":"0001-01-01T00:00:00.000Z","Notes":"string","Resolved":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create an issue action for a Constituent`,
 		Long:  `Create an issue action for a Constituent`,
 		PreRun: tqInit,
@@ -111,7 +111,7 @@ var Post_Actions_cmd = &cobra.Command{
 
 var Post_ActivityCategories_cmd = &cobra.Command{
 		Aliases: []string{  "activitycategories",  "AC",  "ac",  },
-		Use: `ActivityCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ActivityCategories {"Data":{"AutoClose":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new activity category`,
 		Long:  `Create a new activity category.`,
 		PreRun: tqInit,
@@ -133,8 +133,8 @@ var Post_ActivityCategories_cmd = &cobra.Command{
 	}
 
 var Post_ActivityTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "at",  "activitytypes",  },
-		Use: `ActivityTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","PerfIndicator":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "activitytypes",  "AT",  "at",  },
+		Use: `ActivityTypes {"Data":{"Category":{"Id":123},"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PerfIndicator":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new activity type`,
 		Long:  `Create a new activity type.`,
 		PreRun: tqInit,
@@ -157,7 +157,7 @@ var Post_ActivityTypes_cmd = &cobra.Command{
 
 var Post_AddressTypes_cmd = &cobra.Command{
 		Aliases: []string{  "addresstypes",  "AT",  "at",  },
-		Use: `AddressTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `AddressTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new address type`,
 		Long:  `Create a new address type.`,
 		PreRun: tqInit,
@@ -180,7 +180,7 @@ var Post_AddressTypes_cmd = &cobra.Command{
 
 var Post_Addresses_cmd = &cobra.Command{
 		Aliases: []string{  "addresses",  "A",  "a",  },
-		Use: `Addresses {"Address":{"City":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DeliveryPoint":"string","EndDate":"0001-01-01T00:00:00.000Z","Months":"string","PostalCode":"string","PostalCodeFormatted":"string","StartDate":"0001-01-01T00:00:00.000Z","Street1":"string","Street2":"string","Street3":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Addresses {"Address":{"AddressType":{"Id":123},"AffiliatedConstituent":{"Id":123},"AltSalutationType":{"Id":123},"City":"string","Constituent":{"Id":123},"Country":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DeliveryPoint":"string","EditIndicator":true,"EndDate":"0001-01-01T00:00:00.000Z","GeoArea":123,"Id":123,"Inactive":true,"IsFromAffiliation":true,"Label":true,"Months":"string","NcoaAction":123,"NcoaSession":123,"PostalCode":"string","PostalCodeFormatted":"string","PrimaryIndicator":true,"StartDate":"0001-01-01T00:00:00.000Z","State":{"Id":123},"Street1":"string","Street1Address":{"Id":123},"Street2":"string","Street3":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new address for a Constituent by sending an XML or JSON representation of an Address object using HTTP POST`,
 		Long:  `Create a new address for a Constituent by sending an XML or JSON representation of an Address object using HTTP POST.`,
 		PreRun: tqInit,
@@ -203,7 +203,7 @@ var Post_Addresses_cmd = &cobra.Command{
 
 var Post_AffiliationInfo_cmd = &cobra.Command{
 		Aliases: []string{  "affiliationinfo",  "AI",  "ai",  },
-		Use: `AffiliationInfo {"AffiliationInfo":{"EndDate":"0001-01-01T00:00:00.000Z","Note":"string","RelatedConstituentFirstName":"string","RelatedConstituentLastName":"string","RelatedConstituentMiddleName":"string","RelatedConstituentNameStatusDescription":"string","RelatedConstituentShortDisplayName":"string","RelatedConstituentSortName":"string","StartDate":"0001-01-01T00:00:00.000Z","Title":"string"}}`,
+		Use: `AffiliationInfo {"AffiliationInfo":{"AffiliationType":{"Id":123},"ConstituentId":123,"EditIndicator":true,"EndDate":"0001-01-01T00:00:00.000Z","Id":123,"Inactive":true,"IsAllowedToTransact":true,"IsIncludedInSearchResults":true,"NameIndicator":123,"Note":"string","PrimaryIndicator":true,"ProtectionType":{"Id":123},"Rank":123,"RelatedConstituentFirstName":"string","RelatedConstituentGender":{"Id":123},"RelatedConstituentId":123,"RelatedConstituentInactive":true,"RelatedConstituentLastName":"string","RelatedConstituentMiddleName":"string","RelatedConstituentNameStatusDescription":"string","RelatedConstituentNameStatusId":123,"RelatedConstituentPrefix":{"Id":123},"RelatedConstituentShortDisplayName":"string","RelatedConstituentSortName":"string","RelatedConstituentSuffix":{"Id":123},"RelatedConstituentType":{"Id":123},"Salary":123.456,"StartDate":"0001-01-01T00:00:00.000Z","Title":"string"}}`,
 		Short: `Create affiliation between a group constituent and its related constituent`,
 		Long:  `Create affiliation between a group constituent and its related constituent. If the related constituent does not exist then create the related constituent as well before creating the affiliation.`,
 		PreRun: tqInit,
@@ -226,7 +226,7 @@ var Post_AffiliationInfo_cmd = &cobra.Command{
 
 var Post_AffiliationTypes_cmd = &cobra.Command{
 		Aliases: []string{  "affiliationtypes",  "AT",  "at",  },
-		Use: `AffiliationTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `AffiliationTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"IsAllowedToTransactDefault":true,"IsIncludedInSearchResultsDefault":true,"RelationshipCategory":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseSalary":true,"UseTitle":true}}`,
 		Short: `Create a new affiliation type`,
 		Long:  `Create a new affiliation type.`,
 		PreRun: tqInit,
@@ -249,7 +249,7 @@ var Post_AffiliationTypes_cmd = &cobra.Command{
 
 var Post_Affiliations_cmd = &cobra.Command{
 		Aliases: []string{  "a",  "affiliations",  "A",  },
-		Use: `Affiliations {"Affiliation":{"AffiliatedName":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDate":"0001-01-01T00:00:00.000Z","GroupConstituentName":"string","GroupConstituentSortName":"string","IndividualConstituentName":"string","IndividualConstituentSortName":"string","Note":"string","StartDate":"0001-01-01T00:00:00.000Z","Title":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Affiliations {"Affiliation":{"AddressId":123,"AffiliatedName":"string","AffiliationType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"ElectronicAddressId":123,"EndDate":"0001-01-01T00:00:00.000Z","GroupConstituent":{"Id":123},"GroupConstituentName":"string","GroupConstituentSortName":"string","Id":123,"Inactive":true,"IndividualConstituent":{"Id":123},"IndividualConstituentName":"string","IndividualConstituentSortName":"string","IsAllowedToTransact":true,"IsIncludedInSearchResults":true,"NameIndicator":123,"Note":"string","PrimaryIndicator":true,"Salary":123.456,"SalutationId":123,"StartDate":"0001-01-01T00:00:00.000Z","Title":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new affiliation`,
 		Long:  `Create a new affiliation.`,
 		PreRun: tqInit,
@@ -272,7 +272,7 @@ var Post_Affiliations_cmd = &cobra.Command{
 
 var Post_AliasTypes_cmd = &cobra.Command{
 		Aliases: []string{  "aliastypes",  "AT",  "at",  },
-		Use: `AliasTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `AliasTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new alias type`,
 		Long:  `Create a new alias type.`,
 		PreRun: tqInit,
@@ -295,7 +295,7 @@ var Post_AliasTypes_cmd = &cobra.Command{
 
 var Post_Aliases_cmd = &cobra.Command{
 		Aliases: []string{  "aliases",  "A",  "a",  },
-		Use: `Aliases {"Alias":{"AliasFirstName":"string","AliasLastName":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Aliases {"Alias":{"AliasFirstName":"string","AliasLastName":"string","AliasType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new alias`,
 		Long:  `Create a new alias.`,
 		PreRun: tqInit,
@@ -317,8 +317,8 @@ var Post_Aliases_cmd = &cobra.Command{
 	}
 
 var Post_AnalyticsReports_cmd = &cobra.Command{
-		Aliases: []string{  "AR",  "ar",  "analyticsreports",  },
-		Use: `AnalyticsReports {"AnalyticsReport":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ReportPath":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "analyticsreports",  "AR",  "ar",  },
+		Use: `AnalyticsReports {"AnalyticsReport":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Division":{"Id":123},"Id":123,"Inactive":true,"ReportPath":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create SSRS Reports for display in Analytics`,
 		Long:  `Create SSRS Reports for display in Analytics.`,
 		PreRun: tqInit,
@@ -341,7 +341,7 @@ var Post_AnalyticsReports_cmd = &cobra.Command{
 
 var Post_AppealCategories_cmd = &cobra.Command{
 		Aliases: []string{  "appealcategories",  "AC",  "ac",  },
-		Use: `AppealCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `AppealCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new appeal category`,
 		Long:  `Create a new appeal category.`,
 		PreRun: tqInit,
@@ -364,7 +364,7 @@ var Post_AppealCategories_cmd = &cobra.Command{
 
 var Post_Artists_cmd = &cobra.Command{
 		Aliases: []string{  "artists",  "A",  "a",  },
-		Use: `Artists {"Artist":{"Bio":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","FirstName":"string","LastName":"string","MiddleName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Artists {"Artist":{"Bio":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","FirstName":"string","Id":123,"LastName":"string","MiddleName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","VoiceId":123}}`,
 		Short: `Create a new artist`,
 		Long:  `Create a new artist.`,
 		PreRun: tqInit,
@@ -387,7 +387,7 @@ var Post_Artists_cmd = &cobra.Command{
 
 var Post_AssetTypes_cmd = &cobra.Command{
 		Aliases: []string{  "assettypes",  "AT",  "at",  },
-		Use: `AssetTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `AssetTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new asset type`,
 		Long:  `Create a new asset type.`,
 		PreRun: tqInit,
@@ -410,7 +410,7 @@ var Post_AssetTypes_cmd = &cobra.Command{
 
 var Post_Assets_cmd = &cobra.Command{
 		Aliases: []string{  "assets",  "A",  "a",  },
-		Use: `Assets {"Asset":{"AcquisitionDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Notes":"string","SaleDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Assets {"Asset":{"AcquisitionDateTime":"0001-01-01T00:00:00.000Z","AssetType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"EstimatedValue":123.456,"Id":123,"Notes":"string","SaleDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create an asset for a constituent`,
 		Long:  `Create an asset for a constituent.`,
 		PreRun: tqInit,
@@ -433,7 +433,7 @@ var Post_Assets_cmd = &cobra.Command{
 
 var Post_AssociationTypes_cmd = &cobra.Command{
 		Aliases: []string{  "associationtypes",  "AT",  "at",  },
-		Use: `AssociationTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `AssociationTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"IsIncludedInSearchResultsDefault":true,"ReciprocalType":{"Id":123},"RelationshipCategory":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseBirthDate":true,"UseGender":true}}`,
 		Short: `Create a new association type`,
 		Long:  `Create a new association type.`,
 		PreRun: tqInit,
@@ -456,7 +456,7 @@ var Post_AssociationTypes_cmd = &cobra.Command{
 
 var Post_Associations_cmd = &cobra.Command{
 		Aliases: []string{  "associations",  "A",  "a",  },
-		Use: `Associations {"Association":{"AssociatedName":"string","BirthDate":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDate":"0001-01-01T00:00:00.000Z","Note":"string","StartDate":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Associations {"Association":{"AssociatedConstituent":{"Id":123},"AssociatedName":"string","AssociationType":{"Id":123},"BirthDate":"0001-01-01T00:00:00.000Z","Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"EndDate":"0001-01-01T00:00:00.000Z","Gender":{"Id":123},"Id":123,"Inactive":true,"IsIncludedInSearchResults":true,"Note":"string","ReciprocalAssociation":{"Id":123},"StartDate":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new association`,
 		Long:  `Create a new association.`,
 		PreRun: tqInit,
@@ -478,8 +478,8 @@ var Post_Associations_cmd = &cobra.Command{
 	}
 
 var Post_Attributes_cmd = &cobra.Command{
-		Aliases: []string{  "attributes",  "A",  "a",  },
-		Use: `Attributes {"Attribute":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Value":"string"}}`,
+		Aliases: []string{  "a",  "attributes",  "A",  },
+		Use: `Attributes {"Attribute":{"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Keyword":{"Id":123},"KeywordConstituentType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Value":"string"}}`,
 		Short: `Create a new attribute`,
 		Long:  `Create a new attribute.`,
 		PreRun: tqInit,
@@ -501,7 +501,7 @@ var Post_Attributes_cmd = &cobra.Command{
 	}
 
 var Post_Authenticate_cmd = &cobra.Command{
-		Aliases: []string{  "authenticate",  "A",  "a",  },
+		Aliases: []string{  "a",  "authenticate",  "A",  },
 		Use: `Authenticate {"AuthenticationRequest":{"Application":"string","MachineLocation":"string","Password":"string","UserGroup":"string","UserName":"string"}}`,
 		Short: `Authenticate the provided credentials`,
 		Long:  `Authenticate the provided credentials`,
@@ -533,8 +533,8 @@ var Post_Authenticate_cmd = &cobra.Command{
 	}
 
 var Post_Authorization_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "authorization",  },
-		Use: `Authorization {"Request":{"AuthorizationCode":"string","DeliveryDate":"0001-01-01T00:00:00.000Z","ReferenceNumber":"string","ReturnUrl":"string","ShopperIp":"string","TransactionOrigin":"string","UserData":"string"}}`,
+		Aliases: []string{  "authorization",  "A",  "a",  },
+		Use: `Authorization {"Request":{"AllowPartialAuth":true,"Amount":123.456,"AuthorizationCode":"string","BillingAddress":{"Id":123},"Card":{"Id":123},"ConstituentId":123,"DeliveryDate":"0001-01-01T00:00:00.000Z","IsECommerce":true,"IsRecurring":true,"PaymentId":123,"PaymentMethodId":123,"ReferenceNumber":"string","ReturnUrl":"string","ShopperIp":"string","StoreAccount":true,"ThreeDSecureData":{"Id":123},"TransactionOrigin":"string","UserData":"string"}}`,
 		Short: `Authorize a payment using a manually keyed`,
 		Long:  `Authorize a payment using a manually keyed, swiped or encrypted card data, including payments made using the Tessitura Merchant Services Payment Component.`,
 		PreRun: tqInit,
@@ -594,7 +594,7 @@ var Post_Batch_cmd = &cobra.Command{
 
 var Post_BatchMaintenance_cmd = &cobra.Command{
 		Aliases: []string{  "batchmaintenance",  "BM",  "bm",  },
-		Use: `BatchMaintenance {"Batch":{"CloseDateTime":"0001-01-01T00:00:00.000Z","ClosedBy":"string","CntlIndicator":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Notes":"string","OpenLoc":"string","Owner":"string","PostedBy":"string","PostedDateTime":"0001-01-01T00:00:00.000Z","Status":"string","UniqueTag":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `BatchMaintenance {"Batch":{"AmtPosted":123.456,"BatchType":{"Id":123},"CloseDateTime":"0001-01-01T00:00:00.000Z","ClosedBy":"string","CntlIndicator":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"Notes":"string","NumAccCc":123,"NumRejCc":123,"OpenLoc":"string","Owner":"string","PostId":123,"PostedBy":"string","PostedDateTime":"0001-01-01T00:00:00.000Z","Status":"string","TallyPlAmount":123.456,"TallyReAmount":123.456,"UniqueTag":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Batch`,
 		Long:  `Create a new Batch`,
 		PreRun: tqInit,
@@ -616,8 +616,8 @@ var Post_BatchMaintenance_cmd = &cobra.Command{
 	}
 
 var Post_BatchTypeGroups_cmd = &cobra.Command{
-		Aliases: []string{  "btg",  "batchtypegroups",  "BTG",  },
-		Use: `BatchTypeGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "batchtypegroups",  "BTG",  "btg",  },
+		Use: `BatchTypeGroups {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new batch type group`,
 		Long:  `Create a new batch type group.`,
 		PreRun: tqInit,
@@ -639,8 +639,8 @@ var Post_BatchTypeGroups_cmd = &cobra.Command{
 	}
 
 var Post_BatchTypes_cmd = &cobra.Command{
-		Aliases: []string{  "batchtypes",  "BT",  "bt",  },
-		Use: `BatchTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "BT",  "bt",  "batchtypes",  },
+		Use: `BatchTypes {"Data":{"BatchTypeGroup":{"Id":123},"BusinessUnit":{"Id":123},"Category":123,"CntlIndicator":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new batch type`,
 		Long:  `Create a new batch type.`,
 		PreRun: tqInit,
@@ -663,7 +663,7 @@ var Post_BatchTypes_cmd = &cobra.Command{
 
 var Post_BillingSchedules_cmd = &cobra.Command{
 		Aliases: []string{  "billingschedules",  "BS",  "bs",  },
-		Use: `BillingSchedules {"Data":{"BillAmounts":"string","BillDates":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","LongDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `BillingSchedules {"Data":{"BillAmounts":"string","BillDates":"string","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"LongDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Billing Schedule`,
 		Long:  `Create a new Billing Schedule.`,
 		PreRun: tqInit,
@@ -685,8 +685,8 @@ var Post_BillingSchedules_cmd = &cobra.Command{
 	}
 
 var Post_BillingTypes_cmd = &cobra.Command{
-		Aliases: []string{  "bt",  "billingtypes",  "BT",  },
-		Use: `BillingTypes {"Data":{"AutoBillingIndicator":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "billingtypes",  "BT",  "bt",  },
+		Use: `BillingTypes {"Data":{"AutoBillingIndicator":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Billing Type`,
 		Long:  `Create a new Billing Type.`,
 		PreRun: tqInit,
@@ -709,7 +709,7 @@ var Post_BillingTypes_cmd = &cobra.Command{
 
 var Post_BookingCategories_cmd = &cobra.Command{
 		Aliases: []string{  "bc",  "bookingcategories",  "BC",  },
-		Use: `BookingCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `BookingCategories {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Booking Category`,
 		Long:  `Create a new Booking Category.`,
 		PreRun: tqInit,
@@ -731,8 +731,8 @@ var Post_BookingCategories_cmd = &cobra.Command{
 	}
 
 var Post_BookingTemplates_cmd = &cobra.Command{
-		Aliases: []string{  "bookingtemplates",  "BT",  "bt",  },
-		Use: `BookingTemplates {"BookingTemplate":{"Assignments":[object],"ConfirmationText":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Notes":"string","OverrideTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "bt",  "bookingtemplates",  "BT",  },
+		Use: `BookingTemplates {"BookingTemplate":{"Assignments":[{"Id":123},...],"Category":{"Id":123},"ConfirmationText":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Notes":"string","OverrideTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Booking Template`,
 		Long:  `Create a new Booking Template`,
 		PreRun: tqInit,
@@ -755,7 +755,7 @@ var Post_BookingTemplates_cmd = &cobra.Command{
 
 var Post_Bookings_cmd = &cobra.Command{
 		Aliases: []string{  "bookings",  "B",  "b",  },
-		Use: `Bookings {"Booking":{"Assignments":[object],"ConfirmationText":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Notes":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Bookings {"Booking":{"Assignments":[{"Id":123},...],"BookingSource":123,"Category":{"Id":123},"ConfirmationText":"string","Context":{},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultCount":123,"DefaultDateTime":"0001-01-01T00:00:00.000Z","DefaultDuration":123,"Description":"string","EditIndicator":true,"Id":123,"Notes":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Booking`,
 		Long:  `Create a new Booking`,
 		PreRun: tqInit,
@@ -783,7 +783,7 @@ var Post_Bookings_cmd = &cobra.Command{
 
 var Post_BulkCopySets_cmd = &cobra.Command{
 		Aliases: []string{  "bulkcopysets",  "BCS",  "bcs",  },
-		Use: `BulkCopySets {"BulkCopySet":{"CreateFromDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreateMode":"string","CreateToDateTime":"0001-01-01T00:00:00.000Z","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultRelativeDates":"string","PackageCode":"string","PackageModeOfSaleRelativeDates":"string","PerformanceCode":"string","PerformanceDescription":"string","PerformanceModeOfSaleRelativeDates":"string","PerformanceTime":"string","PriceEventRelativeDates":"string","PriceTypeRelativeDates":"string","PublishRelativeDates":"string","ReferenceDay":"0001-01-01T00:00:00.000Z","ReferenceSeasonString":"string","SetDescription":"string","ShortName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `BulkCopySets {"BulkCopySet":{"AvailableForSaleIndicator":true,"ControlGroup":{"Id":123},"CopyCredits":true,"CopyNotes":true,"CopyOffers":true,"CopyPriceEvents":true,"CopyPrices":true,"CreateFriday":true,"CreateFromDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreateMode":"string","CreateMonday":true,"CreateSaturday":true,"CreateSunday":true,"CreateThursday":true,"CreateToDateTime":"0001-01-01T00:00:00.000Z","CreateTuesday":true,"CreateWednesday":true,"CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultRelativeDates":"string","Id":123,"Inactive":true,"OverrideOnSale":true,"PackageCode":"string","PackageCodeSeed":123,"PackageModeOfSaleRelativeDates":"string","PerformanceCode":"string","PerformanceCodeSeed":123,"PerformanceDescription":"string","PerformanceModeOfSaleRelativeDates":"string","PerformanceStatus":{"Id":123},"PerformanceTime":"string","PerformanceType":{"Id":123},"PriceEventRelativeDates":"string","PriceTypeRelativeDates":"string","ProductionSeason":{"Id":123},"PublishRelativeDates":"string","ReferenceDay":"0001-01-01T00:00:00.000Z","ReferencePerformanceId":123,"ReferenceSeasonString":"string","SetDescription":"string","SetType":123,"ShortName":"string","TimeSlot":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Creates a new bulk copy set`,
 		Long:  `Creates a new bulk copy set.`,
 		PreRun: tqInit,
@@ -813,7 +813,7 @@ var Post_BulkCopySets_cmd = &cobra.Command{
 
 var Post_BulkDailyCopyExclusions_cmd = &cobra.Command{
 		Aliases: []string{  "bulkdailycopyexclusions",  "BDCE",  "bdce",  },
-		Use: `BulkDailyCopyExclusions {"BulkDailyCopyExclusion":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `BulkDailyCopyExclusions {"BulkDailyCopyExclusion":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DoNotCopy":true,"Id":123,"IncludeWithoutCopy":true,"PackageId":123,"PerformanceId":123,"SetId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Creates a bulk daily copy exclusion`,
 		Long:  `Creates a bulk daily copy exclusion.`,
 		PreRun: tqInit,
@@ -835,8 +835,8 @@ var Post_BulkDailyCopyExclusions_cmd = &cobra.Command{
 	}
 
 var Post_BusinessUnits_cmd = &cobra.Command{
-		Aliases: []string{  "businessunits",  "BU",  "bu",  },
-		Use: `BusinessUnits {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "bu",  "businessunits",  "BU",  },
+		Use: `BusinessUnits {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new business unit`,
 		Long:  `Create a new business unit.`,
 		PreRun: tqInit,
@@ -858,8 +858,8 @@ var Post_BusinessUnits_cmd = &cobra.Command{
 	}
 
 var Post_CampaignDesignations_cmd = &cobra.Command{
-		Aliases: []string{  "campaigndesignations",  "CD",  "cd",  },
-		Use: `CampaignDesignations {"CampaignDesignation":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "cd",  "campaigndesignations",  "CD",  },
+		Use: `CampaignDesignations {"CampaignDesignation":{"Campaign":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultIndicator":true,"Designation":{"Id":123},"EditIndicator":true,"GoalAmount":123.456,"Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new association between a Designation and a Campaign`,
 		Long:  `Create a new association between a Designation and a Campaign.`,
 		PreRun: tqInit,
@@ -881,8 +881,8 @@ var Post_CampaignDesignations_cmd = &cobra.Command{
 	}
 
 var Post_CampaignFunds_cmd = &cobra.Command{
-		Aliases: []string{  "campaignfunds",  "CF",  "cf",  },
-		Use: `CampaignFunds {"CampaignFund":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "cf",  "campaignfunds",  "CF",  },
+		Use: `CampaignFunds {"CampaignFund":{"Campaign":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"EndDateTime":"0001-01-01T00:00:00.000Z","Fund":{"Id":123},"GoalAmount":123.456,"Id":123,"StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Fund association to a Campaign`,
 		Long:  `Create a new Fund association to a Campaign.`,
 		PreRun: tqInit,
@@ -905,7 +905,7 @@ var Post_CampaignFunds_cmd = &cobra.Command{
 
 var Post_CardReaderTypes_cmd = &cobra.Command{
 		Aliases: []string{  "cardreadertypes",  "CRT",  "crt",  },
-		Use: `CardReaderTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `CardReaderTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Card Reader Type`,
 		Long:  `Create a new Card Reader Type.`,
 		PreRun: tqInit,
@@ -928,7 +928,7 @@ var Post_CardReaderTypes_cmd = &cobra.Command{
 
 var Post_Cart_cmd = &cobra.Command{
 		Aliases: []string{  "cart",  "C",  "c",  },
-		Use: `Cart {"BookingRequest":{},"SessionKey":"string"}`,
+		Use: `Cart {"BookingRequest":{"BookingId":123},"SessionKey":"string"}`,
 		Short: `Attach an existing booking to the cart`,
 		Long:  `Attach an existing booking to the cart.`,
 		PreRun: tqInit,
@@ -1012,7 +1012,7 @@ var Post_Cart_cmd = &cobra.Command{
 
 var Post_Colors_cmd = &cobra.Command{
 		Aliases: []string{  "colors",  "C",  "c",  },
-		Use: `Colors {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Colors {"Data":{"ColorValue":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new color`,
 		Long:  `Create a new color.`,
 		PreRun: tqInit,
@@ -1034,8 +1034,8 @@ var Post_Colors_cmd = &cobra.Command{
 	}
 
 var Post_Composers_cmd = &cobra.Command{
-		Aliases: []string{  "composers",  "C",  "c",  },
-		Use: `Composers {"Data":{"Bio":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","FirstName":"string","LastName":"string","MiddleName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "c",  "composers",  "C",  },
+		Use: `Composers {"Data":{"Bio":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","FirstName":"string","Id":123,"Inactive":true,"LastName":"string","MiddleName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new composer`,
 		Long:  `Create a new composer.`,
 		PreRun: tqInit,
@@ -1058,7 +1058,7 @@ var Post_Composers_cmd = &cobra.Command{
 
 var Post_Constituencies_cmd = &cobra.Command{
 		Aliases: []string{  "constituencies",  "C",  "c",  },
-		Use: `Constituencies {"Constituency":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDate":"0001-01-01T00:00:00.000Z","StartDate":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Constituencies {"Constituency":{"ConstituencyType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"EndDate":"0001-01-01T00:00:00.000Z","Id":123,"StartDate":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituency`,
 		Long:  `Create a new constituency.`,
 		PreRun: tqInit,
@@ -1080,8 +1080,8 @@ var Post_Constituencies_cmd = &cobra.Command{
 	}
 
 var Post_ConstituencyTypes_cmd = &cobra.Command{
-		Aliases: []string{  "constituencytypes",  "CT",  "ct",  },
-		Use: `ConstituencyTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "ct",  "constituencytypes",  "CT",  },
+		Use: `ConstituencyTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rank":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituency type`,
 		Long:  `Create a new constituency type.`,
 		PreRun: tqInit,
@@ -1103,8 +1103,8 @@ var Post_ConstituencyTypes_cmd = &cobra.Command{
 	}
 
 var Post_ConstituentDocuments_cmd = &cobra.Command{
-		Aliases: []string{  "constituentdocuments",  "CD",  "cd",  },
-		Use: `ConstituentDocuments {"Document":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","FileName":"string","Notes":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "cd",  "constituentdocuments",  "CD",  },
+		Use: `ConstituentDocuments {"Document":{"Category":{"Id":123},"ConstituentId":123,"Contents":"AA==","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","FileName":"string","Id":123,"Notes":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create document for a constituent`,
 		Long:  `Create document for a constituent.`,
 		PreRun: tqInit,
@@ -1126,8 +1126,8 @@ var Post_ConstituentDocuments_cmd = &cobra.Command{
 	}
 
 var Post_ConstituentGroups_cmd = &cobra.Command{
-		Aliases: []string{  "constituentgroups",  "CG",  "cg",  },
-		Use: `ConstituentGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "cg",  "constituentgroups",  "CG",  },
+		Use: `ConstituentGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituent group`,
 		Long:  `Create a new constituent group.`,
 		PreRun: tqInit,
@@ -1149,8 +1149,8 @@ var Post_ConstituentGroups_cmd = &cobra.Command{
 	}
 
 var Post_ConstituentInactives_cmd = &cobra.Command{
-		Aliases: []string{  "constituentinactives",  "CI",  "ci",  },
-		Use: `ConstituentInactives {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "ci",  "constituentinactives",  "CI",  },
+		Use: `ConstituentInactives {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituent inactive`,
 		Long:  `Create a new constituent inactive.`,
 		PreRun: tqInit,
@@ -1172,8 +1172,8 @@ var Post_ConstituentInactives_cmd = &cobra.Command{
 	}
 
 var Post_ConstituentProtectionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "cpt",  "constituentprotectiontypes",  "CPT",  },
-		Use: `ConstituentProtectionTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "constituentprotectiontypes",  "CPT",  "cpt",  },
+		Use: `ConstituentProtectionTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituent protection type`,
 		Long:  `Create a new constituent protection type.`,
 		PreRun: tqInit,
@@ -1196,7 +1196,7 @@ var Post_ConstituentProtectionTypes_cmd = &cobra.Command{
 
 var Post_ConstituentTypeAffiliates_cmd = &cobra.Command{
 		Aliases: []string{  "constituenttypeaffiliates",  "CTA",  "cta",  },
-		Use: `ConstituentTypeAffiliates {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ConstituentTypeAffiliates {"Data":{"AffiliationType":{"Id":123},"ConstituentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","HouseholdPrimary":true,"Id":123,"Rank":123,"ShowWithGroup":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituent type affiliate`,
 		Long:  `Create a new constituent type affiliate.`,
 		PreRun: tqInit,
@@ -1218,8 +1218,8 @@ var Post_ConstituentTypeAffiliates_cmd = &cobra.Command{
 	}
 
 var Post_ConstituentTypes_cmd = &cobra.Command{
-		Aliases: []string{  "constituenttypes",  "CT",  "ct",  },
-		Use: `ConstituentTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "ct",  "constituenttypes",  "CT",  },
+		Use: `ConstituentTypes {"Data":{"AddressTypeId":123,"ConstituentGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultAffiliatedConstituentTypeId":123,"DefaultAffiliationTypeId":123,"DefaultIndicator":true,"DefaultSalutationId":123,"Description":"string","ElectronicAddressTypeId":123,"GiftAidIndicator":true,"Id":123,"Inactive":true,"LoginTypeId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituent type`,
 		Long:  `Create a new constituent type.`,
 		PreRun: tqInit,
@@ -1241,8 +1241,8 @@ var Post_ConstituentTypes_cmd = &cobra.Command{
 	}
 
 var Post_Constituents_cmd = &cobra.Command{
-		Aliases: []string{  "constituents",  "C",  "c",  },
-		Use: `Constituents {"Constituent":{"Addresses":[object],"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DisplayName":"string","ElectronicAddresses":[object],"FirstName":"string","LastActivityDate":"0001-01-01T00:00:00.000Z","LastGiftDate":"0001-01-01T00:00:00.000Z","LastName":"string","LastTicketDate":"0001-01-01T00:00:00.000Z","MiddleName":"string","PhoneNumbers":[object],"Salutations":[object],"SortName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "C",  "c",  "constituents",  },
+		Use: `Constituents {"Constituent":{"Addresses":[{"Id":123},...],"ConstituentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DisplayName":"string","ElectronicAddresses":[{"Id":123},...],"EmarketIndicator":{"Id":123},"FirstName":"string","Gender":{"Id":123},"Id":123,"Inactive":{"Id":123},"InactiveReason":{"Id":123},"LastActivityDate":"0001-01-01T00:00:00.000Z","LastGiftDate":"0001-01-01T00:00:00.000Z","LastName":"string","LastTicketDate":"0001-01-01T00:00:00.000Z","MailIndicator":{"Id":123},"MiddleName":"string","NameStatus":{"Id":123},"OriginalSource":{"Id":123},"PhoneIndicator":{"Id":123},"PhoneNumbers":[{"Id":123},...],"Prefix":{"Id":123},"ProtectionType":{"Id":123},"Salutations":[{"Id":123},...],"SortName":"string","Suffix":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituent with addresses`,
 		Long:  `Create a new constituent with addresses, electronicAddresses, salutations and phones.`,
 		PreRun: tqInit,
@@ -1281,8 +1281,8 @@ var Post_Constituents_cmd = &cobra.Command{
 	}
 
 var Post_ContactPermissionCategories_cmd = &cobra.Command{
-		Aliases: []string{  "CPC",  "cpc",  "contactpermissioncategories",  },
-		Use: `ContactPermissionCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "cpc",  "contactpermissioncategories",  "CPC",  },
+		Use: `ContactPermissionCategories {"Data":{"AskFrequencyMonths":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact permission category`,
 		Long:  `Create a new contact permission category.`,
 		PreRun: tqInit,
@@ -1304,8 +1304,8 @@ var Post_ContactPermissionCategories_cmd = &cobra.Command{
 	}
 
 var Post_ContactPermissionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CPT",  "cpt",  "contactpermissiontypes",  },
-		Use: `ContactPermissionTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultValueForAdd":"string","Description":"string","ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "contactpermissiontypes",  "CPT",  "cpt",  },
+		Use: `ContactPermissionTypes {"Data":{"Category":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultValueForAdd":"string","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Presenter":true,"Rank":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact permission type`,
 		Long:  `Create a new contact permission type.`,
 		PreRun: tqInit,
@@ -1328,7 +1328,7 @@ var Post_ContactPermissionTypes_cmd = &cobra.Command{
 
 var Post_ContactPermissions_cmd = &cobra.Command{
 		Aliases: []string{  "contactpermissions",  "CP",  "cp",  },
-		Use: `ContactPermissions {"ContactPermission":{"Answer":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","LastAskedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ContactPermissions {"ContactPermission":{"Answer":"string","Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"LastAskedDateTime":"0001-01-01T00:00:00.000Z","ShouldAsk":true,"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact permission`,
 		Long:  `Create a new contact permission`,
 		PreRun: tqInit,
@@ -1353,8 +1353,8 @@ var Post_ContactPermissions_cmd = &cobra.Command{
 	}
 
 var Post_ContactPointCategories_cmd = &cobra.Command{
-		Aliases: []string{  "contactpointcategories",  "CPC",  "cpc",  },
-		Use: `ContactPointCategories {"Data":{"ContactPointKey":"string","ContactPointTable":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "CPC",  "cpc",  "contactpointcategories",  },
+		Use: `ContactPointCategories {"Data":{"ContactPointKey":"string","ContactPointTable":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact point category`,
 		Long:  `Create a new contact point category.`,
 		PreRun: tqInit,
@@ -1377,7 +1377,7 @@ var Post_ContactPointCategories_cmd = &cobra.Command{
 
 var Post_ContactPointCategoryPurposes_cmd = &cobra.Command{
 		Aliases: []string{  "CPCP",  "cpcp",  "contactpointcategorypurposes",  },
-		Use: `ContactPointCategoryPurposes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ContactPointCategoryPurposes {"Data":{"ContactPointCategory":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"Purpose":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact point category purpose`,
 		Long:  `Create a new contact point category purpose.`,
 		PreRun: tqInit,
@@ -1400,7 +1400,7 @@ var Post_ContactPointCategoryPurposes_cmd = &cobra.Command{
 
 var Post_ContactPointPurposeCategories_cmd = &cobra.Command{
 		Aliases: []string{  "contactpointpurposecategories",  "CPPC",  "cppc",  },
-		Use: `ContactPointPurposeCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ContactPointPurposeCategories {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact point purpose category`,
 		Long:  `Create a new contact point purpose category.`,
 		PreRun: tqInit,
@@ -1423,7 +1423,7 @@ var Post_ContactPointPurposeCategories_cmd = &cobra.Command{
 
 var Post_ContactPointPurposeMaps_cmd = &cobra.Command{
 		Aliases: []string{  "contactpointpurposemaps",  "CPPM",  "cppm",  },
-		Use: `ContactPointPurposeMaps {"ContactPointPurposeMap":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ContactPointPurposeMaps {"ContactPointPurposeMap":{"ContactPoint":{"Id":123},"ContactPointCategory":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Purpose":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact point purpose`,
 		Long:  `Create a new contact point purpose.`,
 		PreRun: tqInit,
@@ -1446,7 +1446,7 @@ var Post_ContactPointPurposeMaps_cmd = &cobra.Command{
 
 var Post_ContactPointPurposes_cmd = &cobra.Command{
 		Aliases: []string{  "CPP",  "cpp",  "contactpointpurposes",  },
-		Use: `ContactPointPurposes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ContactPointPurposes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PurposeCategory":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact point purpose`,
 		Long:  `Create a new contact point purpose.`,
 		PreRun: tqInit,
@@ -1469,7 +1469,7 @@ var Post_ContactPointPurposes_cmd = &cobra.Command{
 
 var Post_ContactTypes_cmd = &cobra.Command{
 		Aliases: []string{  "contacttypes",  "CT",  "ct",  },
-		Use: `ContactTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ContactTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact type`,
 		Long:  `Create a new contact type.`,
 		PreRun: tqInit,
@@ -1491,8 +1491,8 @@ var Post_ContactTypes_cmd = &cobra.Command{
 	}
 
 var Post_ContributionDesignations_cmd = &cobra.Command{
-		Aliases: []string{  "cd",  "contributiondesignations",  "CD",  },
-		Use: `ContributionDesignations {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","LetterText":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "CD",  "cd",  "contributiondesignations",  },
+		Use: `ContributionDesignations {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"LetterText":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contribution designation`,
 		Long:  `Create a new contribution designation.`,
 		PreRun: tqInit,
@@ -1514,8 +1514,8 @@ var Post_ContributionDesignations_cmd = &cobra.Command{
 	}
 
 var Post_ContributionImportSets_cmd = &cobra.Command{
-		Aliases: []string{  "CIS",  "cis",  "contributionimportsets",  },
-		Use: `ContributionImportSets {"Data":{"ContributionDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultCountryCode":"string","Description":"string","FilePath":"string","FormatFile":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "contributionimportsets",  "CIS",  "cis",  },
+		Use: `ContributionImportSets {"Data":{"AccountMatchKeyword":{"Id":123},"AcknowledgmentLetterMode":123,"BatchType":{"Id":123},"BillingSchedule":{"Id":123},"BillingType":{"Id":123},"Campaign":{"Id":123},"ContributionDateTime":"0001-01-01T00:00:00.000Z","ContributionPayMode":123,"CreateLocation":"string","CreatePotentialDuplicate":true,"CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CrediteeMode":123,"CrediteeType":{"Id":123},"DefaultConstituentType":{"Id":123},"DefaultCountryCode":"string","DefaultHouseholdConstituentType":{"Id":123},"DefaultOriginalSource":{"Id":123},"Description":"string","Designation":{"Id":123},"FilePath":"string","FormatFile":"string","Fund":{"Id":123},"Id":123,"ImportRefNoLocation":123,"Inactive":true,"PaymentMethod":{"Id":123},"SalesChannel":{"Id":123},"Source":{"Id":123},"StripPhoneFormatting":true,"TransactAsHousehold":true,"TransactAsHouseholdCreditee":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Worker":{"Id":123}}}`,
 		Short: `Create a new contributionImportSet`,
 		Long:  `Create a new contributionImportSet.`,
 		PreRun: tqInit,
@@ -1538,7 +1538,7 @@ var Post_ContributionImportSets_cmd = &cobra.Command{
 
 var Post_Contributions_cmd = &cobra.Command{
 		Aliases: []string{  "contributions",  "C",  "c",  },
-		Use: `Contributions {"Contribution":{"BillingAccount":"string","Cancel":"string","ContributionDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Custom0":"string","Custom1":"string","Custom2":"string","Custom3":"string","Custom4":"string","Custom5":"string","Custom6":"string","Custom7":"string","Custom8":"string","Custom9":"string","KindGiftDescription":"string","KindGiftTransferDateTime":"0001-01-01T00:00:00.000Z","MatchIndicator":"string","Notes":"string","PaymentEndDateTime":"0001-01-01T00:00:00.000Z","PaymentStartDateTime":"0001-01-01T00:00:00.000Z","Solicitor":"string","Type":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Contributions {"Contribution":{"AccountId":123,"AppealId":123,"BatchId":123,"BillingAccount":"string","BillingTypeId":123,"BusinessUnitId":123,"Campaign":{"Id":123},"Cancel":"string","Channel":{"Id":123},"Constituent":{"Id":123},"ContributionAmount":123.456,"ContributionDateTime":"0001-01-01T00:00:00.000Z","ContributionDesignation":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Custom0":"string","Custom1":"string","Custom2":"string","Custom3":"string","Custom4":"string","Custom5":"string","Custom6":"string","Custom7":"string","Custom8":"string","Custom9":"string","EditIndicator":true,"Fund":{"Id":123},"Id":123,"Initiator":{"Id":123},"KindGiftDescription":"string","KindGiftTransferDateTime":"0001-01-01T00:00:00.000Z","MatchIndicator":"string","MatchingContributionId":123,"MediaType":{"Id":123},"MirrorLock":123,"Notes":"string","PaymentEndDateTime":"0001-01-01T00:00:00.000Z","PaymentStartDateTime":"0001-01-01T00:00:00.000Z","Plan":{"Id":123},"PledgeStatusId":123,"ReceivedAmount":123.456,"Solicitor":"string","SourceId":123,"Type":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `This resource is currently strictly for interceptor plugin use`,
 		Long:  `This resource is currently strictly for interceptor plugin use. This is called any time a new contribution is saved from the contribution editor in the client application. Only Id (ref_no) is provided in the request content.`,
 		PreRun: tqInit,
@@ -1561,7 +1561,7 @@ var Post_Contributions_cmd = &cobra.Command{
 
 var Post_ControlGroupUserGroups_cmd = &cobra.Command{
 		Aliases: []string{  "controlgroupusergroups",  "CGUG",  "cgug",  },
-		Use: `ControlGroupUserGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
+		Use: `ControlGroupUserGroups {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultIndicator":true,"EditIndicator":true,"Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
 		Short: `Create a new control group/user group mapping`,
 		Long:  `Create a new control group/user group mapping.`,
 		PreRun: tqInit,
@@ -1583,8 +1583,8 @@ var Post_ControlGroupUserGroups_cmd = &cobra.Command{
 	}
 
 var Post_ControlGroups_cmd = &cobra.Command{
-		Aliases: []string{  "CG",  "cg",  "controlgroups",  },
-		Use: `ControlGroups {"Data":{"CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "cg",  "controlgroups",  "CG",  },
+		Use: `ControlGroups {"Data":{"CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Permission":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new control group`,
 		Long:  `Create a new control group.`,
 		PreRun: tqInit,
@@ -1607,7 +1607,7 @@ var Post_ControlGroups_cmd = &cobra.Command{
 
 var Post_CoreIdentity_cmd = &cobra.Command{
 		Aliases: []string{  "coreidentity",  "CI",  "ci",  },
-		Use: `CoreIdentity {"CoreIdentitySignRequest":{"Body":"string","Headers":[object],"Method":"string","Path":"string","QueryParameters":[object]}}`,
+		Use: `CoreIdentity {"CoreIdentitySignRequest":{"Body":"string","Headers":[{"Id":123},...],"Method":"string","Path":"string","QueryParameters":[{"Id":123},...]}}`,
 		Short: ``,
 		Long:  ``,
 		PreRun: tqInit,
@@ -1630,7 +1630,7 @@ var Post_CoreIdentity_cmd = &cobra.Command{
 
 var Post_Countries_cmd = &cobra.Command{
 		Aliases: []string{  "countries",  "C",  "c",  },
-		Use: `Countries {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DecimalSeparator":"string","Description":"string","IsoAlpha2Code":"string","IsoAlpha3Code":"string","PhoneCode":"string","PhoneEditstring":"string","PhoneMask":"string","PhoneValidLengths":"string","ShortDesc":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseAvs":"string","UseStateField":"string","ZipEditstring":"string","ZipMask":"string","ZipValidLengths":"string"}}`,
+		Use: `Countries {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DecimalSeparator":"string","Description":"string","Id":123,"Inactive":true,"IsoAlpha2Code":"string","IsoAlpha3Code":"string","PhoneCode":"string","PhoneEditstring":"string","PhoneMask":"string","PhoneValidLengths":"string","ReqCity":true,"ReqPcode":true,"ShortDesc":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseAvs":"string","UseStateField":"string","ZipEditstring":"string","ZipMask":"string","ZipValidLengths":"string"}}`,
 		Short: `Create a new country`,
 		Long:  `Create a new country.`,
 		PreRun: tqInit,
@@ -1653,7 +1653,7 @@ var Post_Countries_cmd = &cobra.Command{
 
 var Post_CrediteeTypes_cmd = &cobra.Command{
 		Aliases: []string{  "crediteetypes",  "CT",  "ct",  },
-		Use: `CrediteeTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `CrediteeTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CreditMembershipIndicator":true,"Description":"string","GiftAidIndicator":true,"Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new crediteeType`,
 		Long:  `Create a new crediteeType.`,
 		PreRun: tqInit,
@@ -1676,7 +1676,7 @@ var Post_CrediteeTypes_cmd = &cobra.Command{
 
 var Post_CurrencyTypes_cmd = &cobra.Command{
 		Aliases: []string{  "currencytypes",  "CT",  "ct",  },
-		Use: `CurrencyTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `CurrencyTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rate":123.456,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new currency type`,
 		Long:  `Create a new currency type.`,
 		PreRun: tqInit,
@@ -1698,7 +1698,7 @@ var Post_CurrencyTypes_cmd = &cobra.Command{
 	}
 
 var Post_Custom_cmd = &cobra.Command{
-		Aliases: []string{  "custom",  "C",  "c",  },
+		Aliases: []string{  "C",  "c",  "custom",  },
 		Use: `Custom {"Request":"string","ResourceName":"string"}`,
 		Short: `Create an entry with the given data for the table as defined by the {resourceName} in TR_DATASERVICE_TABLES`,
 		Long:  `Create an entry with the given data for the table as defined by the {resourceName} in TR_DATASERVICE_TABLES.`,
@@ -1726,8 +1726,8 @@ var Post_Custom_cmd = &cobra.Command{
 	}
 
 var Post_CustomDefaultCategories_cmd = &cobra.Command{
-		Aliases: []string{  "customdefaultcategories",  "CDC",  "cdc",  },
-		Use: `CustomDefaultCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "cdc",  "customdefaultcategories",  "CDC",  },
+		Use: `CustomDefaultCategories {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new custom default category`,
 		Long:  `Create a new custom default category.`,
 		PreRun: tqInit,
@@ -1750,7 +1750,7 @@ var Post_CustomDefaultCategories_cmd = &cobra.Command{
 
 var Post_CustomDefaults_cmd = &cobra.Command{
 		Aliases: []string{  "customdefaults",  "CD",  "cd",  },
-		Use: `CustomDefaults {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultValue":"string","Description":"string","FieldName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `CustomDefaults {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CustomDefaultCategory":{"Id":123},"DefaultValue":"string","Description":"string","FieldName":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new custom default`,
 		Long:  `Create a new custom default.`,
 		PreRun: tqInit,
@@ -1772,8 +1772,8 @@ var Post_CustomDefaults_cmd = &cobra.Command{
 	}
 
 var Post_DeliveryMethods_cmd = &cobra.Command{
-		Aliases: []string{  "DM",  "dm",  "deliverymethods",  },
-		Use: `DeliveryMethods {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "deliverymethods",  "DM",  "dm",  },
+		Use: `DeliveryMethods {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PrintAtHome":true,"RequireAddress":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new delivery method`,
 		Long:  `Create a new delivery method.`,
 		PreRun: tqInit,
@@ -1796,7 +1796,7 @@ var Post_DeliveryMethods_cmd = &cobra.Command{
 
 var Post_DesignationCodes_cmd = &cobra.Command{
 		Aliases: []string{  "designationcodes",  "DC",  "dc",  },
-		Use: `DesignationCodes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `DesignationCodes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new designation code`,
 		Long:  `Create a new designation code.`,
 		PreRun: tqInit,
@@ -1818,7 +1818,7 @@ var Post_DesignationCodes_cmd = &cobra.Command{
 	}
 
 var Post_Diagnostics_cmd = &cobra.Command{
-		Aliases: []string{  "d",  "diagnostics",  "D",  },
+		Aliases: []string{  "diagnostics",  "D",  "d",  },
 		Use: `Diagnostics {"Request":{"ServerName":"string"}}`,
 		Short: `Check connection information`,
 		Long:  `Check connection information.`,
@@ -1841,8 +1841,8 @@ var Post_Diagnostics_cmd = &cobra.Command{
 	}
 
 var Post_DirectDebitAccountTypes_cmd = &cobra.Command{
-		Aliases: []string{  "directdebitaccounttypes",  "DDAT",  "ddat",  },
-		Use: `DirectDebitAccountTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "ddat",  "directdebitaccounttypes",  "DDAT",  },
+		Use: `DirectDebitAccountTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new direct debit account type`,
 		Long:  `Create a new direct debit account type.`,
 		PreRun: tqInit,
@@ -1865,7 +1865,7 @@ var Post_DirectDebitAccountTypes_cmd = &cobra.Command{
 
 var Post_DiscountTypes_cmd = &cobra.Command{
 		Aliases: []string{  "discounttypes",  "DT",  "dt",  },
-		Use: `DiscountTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `DiscountTypes {"Data":{"Amount":123.456,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PercentIndicator":true,"RespectMinimumPrice":true,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new discount type`,
 		Long:  `Create a new discount type.`,
 		PreRun: tqInit,
@@ -1887,8 +1887,8 @@ var Post_DiscountTypes_cmd = &cobra.Command{
 	}
 
 var Post_DocumentCategories_cmd = &cobra.Command{
-		Aliases: []string{  "DC",  "dc",  "documentcategories",  },
-		Use: `DocumentCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ParentTableName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "documentcategories",  "DC",  "dc",  },
+		Use: `DocumentCategories {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"ParentTableName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new documentCategory`,
 		Long:  `Create a new documentCategory.`,
 		PreRun: tqInit,
@@ -1910,8 +1910,8 @@ var Post_DocumentCategories_cmd = &cobra.Command{
 	}
 
 var Post_DonationLevels_cmd = &cobra.Command{
-		Aliases: []string{  "donationlevels",  "DL",  "dl",  },
-		Use: `DonationLevels {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "dl",  "donationlevels",  "DL",  },
+		Use: `DonationLevels {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"ProgramType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new donation level`,
 		Long:  `Create a new donation level.`,
 		PreRun: tqInit,
@@ -1934,7 +1934,7 @@ var Post_DonationLevels_cmd = &cobra.Command{
 
 var Post_EMV_cmd = &cobra.Command{
 		Aliases: []string{  "emv",  },
-		Use: `EMV {"Request":{"TransactionOrigin":"string","UserData":"string"}}`,
+		Use: `EMV {"Request":{"Amount":123.456,"BillingAddress":{"Id":123},"ConstituentId":123,"IsMoto":true,"MachineId":123,"PaymentId":123,"StoreAccount":true,"TransactionOrigin":"string","UserData":"string"}}`,
 		Short: `Authorize a payment via a Payment Express HIT`,
 		Long:  `Authorize a payment via a Payment Express HIT, TriPOSCloud, or Adyen device.`,
 		PreRun: tqInit,
@@ -1964,7 +1964,7 @@ var Post_EMV_cmd = &cobra.Command{
 
 var Post_ElectronicAddressTypes_cmd = &cobra.Command{
 		Aliases: []string{  "electronicaddresstypes",  "EAT",  "eat",  },
-		Use: `ElectronicAddressTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ElectronicAddressTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"IsEmail":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new electronic address type`,
 		Long:  `Create a new electronic address type.`,
 		PreRun: tqInit,
@@ -1986,8 +1986,8 @@ var Post_ElectronicAddressTypes_cmd = &cobra.Command{
 	}
 
 var Post_ElectronicAddresses_cmd = &cobra.Command{
-		Aliases: []string{  "ea",  "electronicaddresses",  "EA",  },
-		Use: `ElectronicAddresses {"ElectronicAddress":{"Address":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDate":"0001-01-01T00:00:00.000Z","Months":"string","StartDate":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "electronicaddresses",  "EA",  "ea",  },
+		Use: `ElectronicAddresses {"ElectronicAddress":{"Address":"string","AffiliatedConstituent":{"Id":123},"AllowHtmlFormat":true,"AllowMarketing":true,"AltSalutationType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"ElectronicAddressType":{"Id":123},"EndDate":"0001-01-01T00:00:00.000Z","Id":123,"Inactive":true,"IsEmail":true,"IsFromAffiliation":true,"Months":"string","PrimaryIndicator":true,"StartDate":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new electronic address`,
 		Long:  `Create a new electronic address.`,
 		PreRun: tqInit,
@@ -2012,8 +2012,8 @@ var Post_ElectronicAddresses_cmd = &cobra.Command{
 	}
 
 var Post_EmailProfiles_cmd = &cobra.Command{
-		Aliases: []string{  "emailprofiles",  "EP",  "ep",  },
-		Use: `EmailProfiles {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EmailBcc":"string","EmailCc":"string","EmailDefaultSubject":"string","EmailFrom":"string","SMTPPassword":"string","SMTPServer":"string","SMTPUserName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "EP",  "ep",  "emailprofiles",  },
+		Use: `EmailProfiles {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EmailBcc":"string","EmailCc":"string","EmailDefaultSubject":"string","EmailFrom":"string","Id":123,"Inactive":true,"SMTPPassword":"string","SMTPPort":123,"SMTPServer":"string","SMTPUserName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseSsl":true}}`,
 		Short: `Create a new email profile`,
 		Long:  `Create a new email profile`,
 		PreRun: tqInit,
@@ -2036,7 +2036,7 @@ var Post_EmailProfiles_cmd = &cobra.Command{
 
 var Post_EmailResponses_cmd = &cobra.Command{
 		Aliases: []string{  "emailresponses",  "ER",  "er",  },
-		Use: `EmailResponses {"Request":{"EventDateTime":"0001-01-01T00:00:00.000Z","EventName":"string"}}`,
+		Use: `EmailResponses {"Request":{"ConstituentId":123,"DownloadNumber":123,"EventDateTime":"0001-01-01T00:00:00.000Z","EventName":"string"}}`,
 		Short: `Updates an appeal with customer data in response to an email event`,
 		Long:  `Updates an appeal with customer data in response to an email event. EventName should be one of open, click, hard-bounce, soft-bounce or opt-out.`,
 		PreRun: tqInit,
@@ -2059,7 +2059,7 @@ var Post_EmailResponses_cmd = &cobra.Command{
 
 var Post_Emails_cmd = &cobra.Command{
 		Aliases: []string{  "emails",  "E",  "e",  },
-		Use: `Emails {"Request":{"Attachments":[object],"DuplicateBodyAttachmentName":"string","EmbeddedImages":[object],"FromAddress":"string","HtmlBody":"string","PlainTextBody":"string","RecipientAddress":"string","Subject":"string"}}`,
+		Use: `Emails {"Request":{"Attachments":[{"Id":123},...],"DuplicateBodyAsAttachment":true,"DuplicateBodyAttachmentName":"string","EmailProfileId":123,"EmbeddedImages":[{"Id":123},...],"FromAddress":"string","HtmlBody":"string","PlainTextBody":"string","RecipientAddress":"string","Subject":"string"}}`,
 		Short: `Sends an email via SMTP`,
 		Long:  `Sends an email via SMTP`,
 		PreRun: tqInit,
@@ -2090,8 +2090,8 @@ var Post_Emails_cmd = &cobra.Command{
 	}
 
 var Post_EmarketIndicators_cmd = &cobra.Command{
-		Aliases: []string{  "emarketindicators",  "EI",  "ei",  },
-		Use: `EmarketIndicators {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "EI",  "ei",  "emarketindicators",  },
+		Use: `EmarketIndicators {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new emarket indicator`,
 		Long:  `Create a new emarket indicator.`,
 		PreRun: tqInit,
@@ -2114,7 +2114,7 @@ var Post_EmarketIndicators_cmd = &cobra.Command{
 
 var Post_Eras_cmd = &cobra.Command{
 		Aliases: []string{  "eras",  "E",  "e",  },
-		Use: `Eras {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Eras {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new era`,
 		Long:  `Create a new era.`,
 		PreRun: tqInit,
@@ -2137,7 +2137,7 @@ var Post_Eras_cmd = &cobra.Command{
 
 var Post_Facilities_cmd = &cobra.Command{
 		Aliases: []string{  "facilities",  "F",  "f",  },
-		Use: `Facilities {"Facility":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Facilities {"Facility":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultBestSeatMapId":123,"DefaultZoneMapId":123,"Description":"string","Id":123,"SeatMap":{"Id":123},"Theater":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Facility`,
 		Long:  `Create a new Facility.`,
 		PreRun: tqInit,
@@ -2159,8 +2159,8 @@ var Post_Facilities_cmd = &cobra.Command{
 	}
 
 var Post_Genders_cmd = &cobra.Command{
-		Aliases: []string{  "genders",  "G",  "g",  },
-		Use: `Genders {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "G",  "g",  "genders",  },
+		Use: `Genders {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultPrefix":{"Id":123},"Description":"string","Id":123,"Inactive":true,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gender`,
 		Long:  `Create a new gender.`,
 		PreRun: tqInit,
@@ -2182,8 +2182,8 @@ var Post_Genders_cmd = &cobra.Command{
 	}
 
 var Post_GiftAidContactMethods_cmd = &cobra.Command{
-		Aliases: []string{  "GACM",  "gacm",  "giftaidcontactmethods",  },
-		Use: `GiftAidContactMethods {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "giftaidcontactmethods",  "GACM",  "gacm",  },
+		Use: `GiftAidContactMethods {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gift aid contact method`,
 		Long:  `Create a new gift aid contact method.`,
 		PreRun: tqInit,
@@ -2206,7 +2206,7 @@ var Post_GiftAidContactMethods_cmd = &cobra.Command{
 
 var Post_GiftAidDeclarations_cmd = &cobra.Command{
 		Aliases: []string{  "giftaiddeclarations",  "GAD",  "gad",  },
-		Use: `GiftAidDeclarations {"GiftAidDeclaration":{"ConfirmDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","Notes":"string","ReceivedDateTime":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `GiftAidDeclarations {"GiftAidDeclaration":{"ConfirmDateTime":"0001-01-01T00:00:00.000Z","Constituent":{"Id":123},"ContactMethod":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DocumentStatus":{"Id":123},"EligibleIndicator":true,"EndDateTime":"0001-01-01T00:00:00.000Z","GiftAidType":{"Id":123},"Id":123,"IneligibleReason":{"Id":123},"Notes":"string","ReceivedDateTime":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Creates a Gift Aid Declaration`,
 		Long:  `Creates a Gift Aid Declaration.`,
 		PreRun: tqInit,
@@ -2228,8 +2228,8 @@ var Post_GiftAidDeclarations_cmd = &cobra.Command{
 	}
 
 var Post_GiftAidDocumentStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "gads",  "giftaiddocumentstatuses",  "GADS",  },
-		Use: `GiftAidDocumentStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "giftaiddocumentstatuses",  "GADS",  "gads",  },
+		Use: `GiftAidDocumentStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gift aid document status`,
 		Long:  `Create a new gift aid document status.`,
 		PreRun: tqInit,
@@ -2251,8 +2251,8 @@ var Post_GiftAidDocumentStatuses_cmd = &cobra.Command{
 	}
 
 var Post_GiftAidIneligibleReasons_cmd = &cobra.Command{
-		Aliases: []string{  "giftaidineligiblereasons",  "GAIR",  "gair",  },
-		Use: `GiftAidIneligibleReasons {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "gair",  "giftaidineligiblereasons",  "GAIR",  },
+		Use: `GiftAidIneligibleReasons {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gift aid ineligible reason`,
 		Long:  `Create a new gift aid ineligible reason.`,
 		PreRun: tqInit,
@@ -2275,7 +2275,7 @@ var Post_GiftAidIneligibleReasons_cmd = &cobra.Command{
 
 var Post_GiftAidRates_cmd = &cobra.Command{
 		Aliases: []string{  "GAR",  "gar",  "giftaidrates",  },
-		Use: `GiftAidRates {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `GiftAidRates {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","Id":123,"Rate":123.456,"StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gift aid rate`,
 		Long:  `Create a new gift aid rate.`,
 		PreRun: tqInit,
@@ -2298,7 +2298,7 @@ var Post_GiftAidRates_cmd = &cobra.Command{
 
 var Post_GiftAidStatuses_cmd = &cobra.Command{
 		Aliases: []string{  "giftaidstatuses",  "GAS",  "gas",  },
-		Use: `GiftAidStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `GiftAidStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gift aid status`,
 		Long:  `Create a new gift aid status.`,
 		PreRun: tqInit,
@@ -2320,8 +2320,8 @@ var Post_GiftAidStatuses_cmd = &cobra.Command{
 	}
 
 var Post_GiftAidTypes_cmd = &cobra.Command{
-		Aliases: []string{  "GAT",  "gat",  "giftaidtypes",  },
-		Use: `GiftAidTypes {"Data":{"CharityClaimsRef":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "giftaidtypes",  "GAT",  "gat",  },
+		Use: `GiftAidTypes {"Data":{"CharityClaimsRef":"string","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gift aid type`,
 		Long:  `Create a new gift aid type.`,
 		PreRun: tqInit,
@@ -2343,8 +2343,8 @@ var Post_GiftAidTypes_cmd = &cobra.Command{
 	}
 
 var Post_GiftCertificates_cmd = &cobra.Command{
-		Aliases: []string{  "gc",  "giftcertificates",  "GC",  },
-		Use: `GiftCertificates {"GiftCertificateRedemptionRequest":{"Number":"string"}}`,
+		Aliases: []string{  "giftcertificates",  "GC",  "gc",  },
+		Use: `GiftCertificates {"GiftCertificateRedemptionRequest":{"BatchId":123,"LockForBatch":true,"Number":"string","PaymentMethodId":123}}`,
 		Short: `Get transaction details for a gift certificate and lock it for redemption in a specific batch`,
 		Long:  `Get transaction details for a gift certificate and lock it for redemption in a specific batch.`,
 		PreRun: tqInit,
@@ -2369,8 +2369,8 @@ var Post_GiftCertificates_cmd = &cobra.Command{
 	}
 
 var Post_HoldCodeCategories_cmd = &cobra.Command{
-		Aliases: []string{  "HCC",  "hcc",  "holdcodecategories",  },
-		Use: `HoldCodeCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "holdcodecategories",  "HCC",  "hcc",  },
+		Use: `HoldCodeCategories {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Hold Code Category`,
 		Long:  `Create a new Hold Code Category.`,
 		PreRun: tqInit,
@@ -2393,7 +2393,7 @@ var Post_HoldCodeCategories_cmd = &cobra.Command{
 
 var Post_HoldCodeUserGroups_cmd = &cobra.Command{
 		Aliases: []string{  "holdcodeusergroups",  "HCUG",  "hcug",  },
-		Use: `HoldCodeUserGroups {"HoldCodeUserGroup":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
+		Use: `HoldCodeUserGroups {"HoldCodeUserGroup":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","HoldCode":{"Id":123},"Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
 		Short: `Create a new hold code/user group mapping`,
 		Long:  `Create a new hold code/user group mapping.`,
 		PreRun: tqInit,
@@ -2416,7 +2416,7 @@ var Post_HoldCodeUserGroups_cmd = &cobra.Command{
 
 var Post_HoldCodes_cmd = &cobra.Command{
 		Aliases: []string{  "holdcodes",  "HC",  "hc",  },
-		Use: `HoldCodes {"HoldCode":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Legend":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `HoldCodes {"HoldCode":{"BlackoutIndicator":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Legend":"string","Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a Hold Code`,
 		Long:  `Create a Hold Code.`,
 		PreRun: tqInit,
@@ -2438,8 +2438,8 @@ var Post_HoldCodes_cmd = &cobra.Command{
 	}
 
 var Post_InactiveReasons_cmd = &cobra.Command{
-		Aliases: []string{  "ir",  "inactivereasons",  "IR",  },
-		Use: `InactiveReasons {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "inactivereasons",  "IR",  "ir",  },
+		Use: `InactiveReasons {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new inactive reason`,
 		Long:  `Create a new inactive reason.`,
 		PreRun: tqInit,
@@ -2461,8 +2461,8 @@ var Post_InactiveReasons_cmd = &cobra.Command{
 	}
 
 var Post_IntegrationDefaults_cmd = &cobra.Command{
-		Aliases: []string{  "id",  "integrationdefaults",  "ID",  },
-		Use: `IntegrationDefaults {"Data":{"AccessId":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultValue":"string","Description":"string","FieldName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "integrationdefaults",  "ID",  "id",  },
+		Use: `IntegrationDefaults {"Data":{"AccessId":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultValue":"string","Description":"string","FieldName":"string","Id":123,"Integration":{"Id":123},"Organization":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Integration Default`,
 		Long:  `Create a new Integration Default.`,
 		PreRun: tqInit,
@@ -2485,7 +2485,7 @@ var Post_IntegrationDefaults_cmd = &cobra.Command{
 
 var Post_Integrations_cmd = &cobra.Command{
 		Aliases: []string{  "integrations",  "I",  "i",  },
-		Use: `Integrations {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Integrations {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new action type`,
 		Long:  `Create a new action type.`,
 		PreRun: tqInit,
@@ -2507,8 +2507,8 @@ var Post_Integrations_cmd = &cobra.Command{
 	}
 
 var Post_InterestCategories_cmd = &cobra.Command{
-		Aliases: []string{  "IC",  "ic",  "interestcategories",  },
-		Use: `InterestCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "ic",  "interestcategories",  "IC",  },
+		Use: `InterestCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new interest category`,
 		Long:  `Create a new interest category.`,
 		PreRun: tqInit,
@@ -2531,7 +2531,7 @@ var Post_InterestCategories_cmd = &cobra.Command{
 
 var Post_InterestTypes_cmd = &cobra.Command{
 		Aliases: []string{  "interesttypes",  "IT",  "it",  },
-		Use: `InterestTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UsedIn":"string"}}`,
+		Use: `InterestTypes {"Data":{"Category":{"Id":123},"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"SearchIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UsedIn":"string"}}`,
 		Short: `Create a new interest type`,
 		Long:  `Create a new interest type.`,
 		PreRun: tqInit,
@@ -2553,8 +2553,8 @@ var Post_InterestTypes_cmd = &cobra.Command{
 	}
 
 var Post_Interests_cmd = &cobra.Command{
-		Aliases: []string{  "I",  "i",  "interests",  },
-		Use: `Interests {"Interest":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "interests",  "I",  "i",  },
+		Use: `Interests {"Interest":{"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"InterestType":{"Id":123},"Selected":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Weight":123}}`,
 		Short: `Create a new interest associating an interest type to a constituent`,
 		Long:  `Create a new interest associating an interest type to a constituent.
 For bulk interest edits, consider the CRM/Interests/CreateOrUpdate batching resource which allows multiple interests to be created, updated, or removed in a single request.`,
@@ -2580,8 +2580,8 @@ For bulk interest edits, consider the CRM/Interests/CreateOrUpdate batching reso
 	}
 
 var Post_Internal_cmd = &cobra.Command{
-		Aliases: []string{  "I",  "i",  "internal",  },
-		Use: `Internal {"AddressDetail":{"City":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DayEveningIndicator1":"string","DayEveningIndicator2":"string","DayEveningIndicator3":"string","DeliveryPoint":"string","EndDate":"0001-01-01T00:00:00.000Z","Months":"string","PhoneNumber1":"string","PhoneNumber1Formatted":"string","PhoneNumber2":"string","PhoneNumber2Formatted":"string","PhoneNumber3":"string","PhoneNumber3Formatted":"string","PhoneSearch1":"string","PhoneSearch2":"string","PhoneSearch3":"string","PostalCode":"string","PostalCodeFormatted":"string","StartDate":"0001-01-01T00:00:00.000Z","Street1":"string","Street2":"string","Street3":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedDateTime1":"0001-01-01T00:00:00.000Z","UpdatedDateTime2":"0001-01-01T00:00:00.000Z","UpdatedDateTime3":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "internal",  "I",  "i",  },
+		Use: `Internal {"AddressDetail":{"AddressType":{"Id":123},"AffiliatedConstituent":{"Id":123},"AllowTelemarketing1":true,"AllowTelemarketing2":true,"AllowTelemarketing3":true,"AltSalutationType":{"Id":123},"City":"string","Constituent":{"Id":123},"Country":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DayEveningIndicator1":"string","DayEveningIndicator2":"string","DayEveningIndicator3":"string","DeliveryPoint":"string","EditIndicator":true,"EditIndicator1":true,"EditIndicator2":true,"EditIndicator3":true,"EndDate":"0001-01-01T00:00:00.000Z","GeoArea":123,"Id":123,"Inactive":true,"Label":true,"Months":"string","NcoaAction":123,"NcoaSession":123,"PhoneId1":123,"PhoneId2":123,"PhoneId3":123,"PhoneNumber1":"string","PhoneNumber1Formatted":"string","PhoneNumber2":"string","PhoneNumber2Formatted":"string","PhoneNumber3":"string","PhoneNumber3Formatted":"string","PhoneSearch1":"string","PhoneSearch2":"string","PhoneSearch3":"string","PostalCode":"string","PostalCodeFormatted":"string","PrimaryIndicator":true,"StartDate":"0001-01-01T00:00:00.000Z","State":{"Id":123},"Street1":"string","Street2":"string","Street3":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedDateTime1":"0001-01-01T00:00:00.000Z","UpdatedDateTime2":"0001-01-01T00:00:00.000Z","UpdatedDateTime3":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new address along with the phones and attach all the phones to the address`,
 		Long:  `Create a new address along with the phones and attach all the phones to the address. By default first phone is of phone type 1, second phone is of phone type 2 and third phone is of phone type 3.`,
 		PreRun: tqInit,
@@ -2603,8 +2603,8 @@ var Post_Internal_cmd = &cobra.Command{
 	}
 
 var Post_InventoryContactPermissionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "icpt",  "inventorycontactpermissiontypes",  "ICPT",  },
-		Use: `InventoryContactPermissionTypes {"InventoryContactPermissionType":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "inventorycontactpermissiontypes",  "ICPT",  "icpt",  },
+		Use: `InventoryContactPermissionTypes {"InventoryContactPermissionType":{"ContactPermissionType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"ProductionElementId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create an inventoryContactPermissionType`,
 		Long:  `Create an inventoryContactPermissionType.`,
 		PreRun: tqInit,
@@ -2627,7 +2627,7 @@ var Post_InventoryContactPermissionTypes_cmd = &cobra.Command{
 
 var Post_InventoryWebContents_cmd = &cobra.Command{
 		Aliases: []string{  "inventorywebcontents",  "IWC",  "iwc",  },
-		Use: `InventoryWebContents {"InventoryWebContent":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Value":"string"}}`,
+		Use: `InventoryWebContents {"InventoryWebContent":{"ContentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"ProductionElementId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Value":"string"}}`,
 		Short: `Create an inventoryWebContent`,
 		Long:  `Create an inventoryWebContent.`,
 		PreRun: tqInit,
@@ -2650,7 +2650,7 @@ var Post_InventoryWebContents_cmd = &cobra.Command{
 
 var Post_InvoiceBilling_cmd = &cobra.Command{
 		Aliases: []string{  "invoicebilling",  "IB",  "ib",  },
-		Use: `InvoiceBilling {"InvoiceBillingRequest":{"CutoffDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","InvoiceEndDateTime":"0001-01-01T00:00:00.000Z","InvoiceStartDateTime":"0001-01-01T00:00:00.000Z","MailDateTime":"0001-01-01T00:00:00.000Z","NewSourceDescription":"string","StartDateTime":"0001-01-01T00:00:00.000Z","UserId":"string"}}`,
+		Use: `InvoiceBilling {"InvoiceBillingRequest":{"AppealId":123,"BatchTypeId":123,"BillingTypeId":123,"BusinessUnitId":123,"CutoffDateTime":"0001-01-01T00:00:00.000Z","ElectronicAddressPurposeId":123,"ElectronicAddressTypeId":123,"EndDateTime":"0001-01-01T00:00:00.000Z","InvoiceEndDateTime":"0001-01-01T00:00:00.000Z","InvoiceStartDateTime":"0001-01-01T00:00:00.000Z","IsLabel":true,"ListId":123,"MailDateTime":"0001-01-01T00:00:00.000Z","MailTypeId":123,"MaxNumberOfBillsToPrint":123,"MediaTypeId":123,"MinAmount":123.456,"MinNumberOfBillsToPrint":123,"NewSourceDescription":"string","PaymentMethodGroupId":123,"PaymentMethodId":123,"RespectElectronicAddressMarketingFlag":true,"SalutationTypeId":123,"ShouldCollectAll":true,"ShouldUpdate":true,"StartDateTime":"0001-01-01T00:00:00.000Z","UserId":"string"}}`,
 		Short: `Invoice billing`,
 		Long:  `Invoice billing`,
 		PreRun: tqInit,
@@ -2672,8 +2672,8 @@ var Post_InvoiceBilling_cmd = &cobra.Command{
 	}
 
 var Post_Issues_cmd = &cobra.Command{
-		Aliases: []string{  "I",  "i",  "issues",  },
-		Use: `Issues {"Issue":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","IssueDate":"0001-01-01T00:00:00.000Z","Notes":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "issues",  "I",  "i",  },
+		Use: `Issues {"Issue":{"ActivityType":{"Id":123},"Constituent":{"Id":123},"ContactType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"HasReminder":true,"Id":123,"IssueDate":"0001-01-01T00:00:00.000Z","Notes":"string","Origin":{"Id":123},"PackageId":123,"PerformanceId":123,"ResolvedIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UrgentIndicator":true}}`,
 		Short: `Create an issue for a Constituent`,
 		Long:  `Create an issue for a Constituent`,
 		PreRun: tqInit,
@@ -2696,7 +2696,7 @@ var Post_Issues_cmd = &cobra.Command{
 
 var Post_KeywordCategories_cmd = &cobra.Command{
 		Aliases: []string{  "keywordcategories",  "KC",  "kc",  },
-		Use: `KeywordCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `KeywordCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new keyword category`,
 		Long:  `Create a new keyword category.`,
 		PreRun: tqInit,
@@ -2718,8 +2718,8 @@ var Post_KeywordCategories_cmd = &cobra.Command{
 	}
 
 var Post_Keywords_cmd = &cobra.Command{
-		Aliases: []string{  "keywords",  "K",  "k",  },
-		Use: `Keywords {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CustomDefaultValue":"string","DataType":"string","Description":"string","DetailColumn":"string","DetailTable":"string","EditMask":"string","ExtendedDescription":"string","FrequentUpdateDate":"0001-01-01T00:00:00.000Z","HelpText":"string","KeyColumn":"string","KeywordUse":"string","ParentKeyColumn":"string","ParentTable":"string","PrimaryGroupDefault":"string","ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "k",  "keywords",  "K",  },
+		Use: `Keywords {"Data":{"Category":{"Id":123},"ConstituentType":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CustomDefaultValue":"string","CustomId":123,"CustomLimit":123,"CustomRequired":true,"DataType":"string","Description":"string","DetailColumn":"string","DetailTable":"string","EditIndicator":true,"EditMask":"string","ExtendedDescription":"string","FrequentUpdateDate":"0001-01-01T00:00:00.000Z","HelpText":"string","Id":123,"KeyColumn":"string","KeywordUse":"string","MultipleValue":true,"ParentKeyColumn":"string","ParentTable":"string","PrimaryGroupDefault":"string","ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","SortOrder":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseForSearch":true,"ValuesCodedIndicator":true}}`,
 		Short: `Create a new keyword`,
 		Long:  `Create a new keyword.`,
 		PreRun: tqInit,
@@ -2741,8 +2741,8 @@ var Post_Keywords_cmd = &cobra.Command{
 	}
 
 var Post_Languages_cmd = &cobra.Command{
-		Aliases: []string{  "languages",  "L",  "l",  },
-		Use: `Languages {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "l",  "languages",  "L",  },
+		Use: `Languages {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new language`,
 		Long:  `Create a new language.`,
 		PreRun: tqInit,
@@ -2764,8 +2764,8 @@ var Post_Languages_cmd = &cobra.Command{
 	}
 
 var Post_ListCategories_cmd = &cobra.Command{
-		Aliases: []string{  "listcategories",  "LC",  "lc",  },
-		Use: `ListCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "lc",  "listcategories",  "LC",  },
+		Use: `ListCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new list category`,
 		Long:  `Create a new list category.`,
 		PreRun: tqInit,
@@ -2787,8 +2787,8 @@ var Post_ListCategories_cmd = &cobra.Command{
 	}
 
 var Post_Lists_cmd = &cobra.Command{
-		Aliases: []string{  "L",  "l",  "lists",  },
-		Use: `Lists {"List":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Criteria":[object],"Description":"string","EditMode":"string","LastUsedDateTime":"0001-01-01T00:00:00.000Z","ListSql":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "lists",  "L",  "l",  },
+		Use: `Lists {"List":{"AffiliatedIndividuals":123,"AnalyticsIndicator":true,"Category":{"Id":123},"ConstituentCount":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Criteria":[{"Id":123},...],"Description":"string","EditIndicator":true,"EditMode":"string","Generate":true,"Households":123,"Id":123,"Inactive":true,"Individuals":123,"IsDynamic":true,"LastUsedDateTime":"0001-01-01T00:00:00.000Z","ListSql":"string","Organizations":123,"OutputSet":{"Id":123},"RelationshipOptions":{"Id":123},"TMSIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a List`,
 		Long:  `Create a List.`,
 		PreRun: tqInit,
@@ -2818,7 +2818,7 @@ var Post_Lists_cmd = &cobra.Command{
 
 var Post_LoginTypes_cmd = &cobra.Command{
 		Aliases: []string{  "logintypes",  "LT",  "lt",  },
-		Use: `LoginTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `LoginTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new login type`,
 		Long:  `Create a new login type.`,
 		PreRun: tqInit,
@@ -2841,7 +2841,7 @@ var Post_LoginTypes_cmd = &cobra.Command{
 
 var Post_MachineSettings_cmd = &cobra.Command{
 		Aliases: []string{  "machinesettings",  "MS",  "ms",  },
-		Use: `MachineSettings {"Data":{"CardReaderHost":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","MerchantId":"string","PXStation":"string","PXUserKey":"string","PXUserName":"string","TessituraPaymentsPosDevice":"string","TessituraPaymentsPosDeviceModel":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","WorkstationName":"string"}}`,
+		Use: `MachineSettings {"Data":{"CardReaderHost":"string","CardReaderPort":123,"CardReaderType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"Inactive":true,"MerchantId":"string","PXStation":"string","PXUserKey":"string","PXUserName":"string","TessituraPaymentsPosDevice":"string","TessituraPaymentsPosDeviceModel":"string","TnspaySoftwareTerminal":true,"TriPOSCloudConfiguration":{"Id":123},"TriposLane":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","WorkstationName":"string"}}`,
 		Short: `Create a new Machine Setting`,
 		Long:  `Create a new Machine Setting.`,
 		PreRun: tqInit,
@@ -2864,7 +2864,7 @@ var Post_MachineSettings_cmd = &cobra.Command{
 
 var Post_MailIndicators_cmd = &cobra.Command{
 		Aliases: []string{  "mailindicators",  "MI",  "mi",  },
-		Use: `MailIndicators {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `MailIndicators {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new mail indicator`,
 		Long:  `Create a new mail indicator.`,
 		PreRun: tqInit,
@@ -2887,7 +2887,7 @@ var Post_MailIndicators_cmd = &cobra.Command{
 
 var Post_MediaTypes_cmd = &cobra.Command{
 		Aliases: []string{  "mediatypes",  "MT",  "mt",  },
-		Use: `MediaTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `MediaTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","GenerateCost":123.456,"Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new media type`,
 		Long:  `Create a new media type.`,
 		PreRun: tqInit,
@@ -2909,8 +2909,8 @@ var Post_MediaTypes_cmd = &cobra.Command{
 	}
 
 var Post_MembershipLevelCategories_cmd = &cobra.Command{
-		Aliases: []string{  "membershiplevelcategories",  "MLC",  "mlc",  },
-		Use: `MembershipLevelCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "MLC",  "mlc",  "membershiplevelcategories",  },
+		Use: `MembershipLevelCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new membership level category`,
 		Long:  `Create a new membership level category.`,
 		PreRun: tqInit,
@@ -2933,7 +2933,7 @@ var Post_MembershipLevelCategories_cmd = &cobra.Command{
 
 var Post_Memberships_cmd = &cobra.Command{
 		Aliases: []string{  "memberships",  "M",  "m",  },
-		Use: `Memberships {"CalculateMembershipRequest":{"CalcContributionDate":"0001-01-01T00:00:00.000Z","CalcExpirationDate":"0001-01-01T00:00:00.000Z","CalcInitialDate":"0001-01-01T00:00:00.000Z","DeclineBenefits":"string","MembershipLevelOverride":"string","RealOrMirror":"string","RenewUpgradeIndicator":"string"}}`,
+		Use: `Memberships {"CalculateMembershipRequest":{"CalcCampaignId":123,"CalcConstituentId":123,"CalcContributionAmount":123.456,"CalcContributionDate":"0001-01-01T00:00:00.000Z","CalcExpirationDate":"0001-01-01T00:00:00.000Z","CalcInitialDate":"0001-01-01T00:00:00.000Z","CrediteeId":123,"DeclineBenefits":"string","MembershipLevelOverride":"string","MembershipOrganizationId":123,"RealOrMirror":"string","RenewUpgradeIndicator":"string"}}`,
 		Short: `This returns a result of calculated changes to a constituent membership`,
 		Long:  `This returns a result of calculated changes to a constituent membership.  This resource makes no actual changes and only returns calculated membership data for information purposes.
 NOTE: As part of the upcoming changes to membership functionality, this resource will change significantly in an upcoming major Tessitura release and likely break code that references it. Please make a note that code that references it will need to be revisited as part of that upgrade process.`,
@@ -2957,7 +2957,7 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 
 var Post_ModeOfSaleCategories_cmd = &cobra.Command{
 		Aliases: []string{  "modeofsalecategories",  "MOSC",  "mosc",  },
-		Use: `ModeOfSaleCategories {"ModeOfSaleCategory":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ModeOfSaleCategories {"ModeOfSaleCategory":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Sequence":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new mode of sale category`,
 		Long:  `Create a new mode of sale category.`,
 		PreRun: tqInit,
@@ -2980,7 +2980,7 @@ var Post_ModeOfSaleCategories_cmd = &cobra.Command{
 
 var Post_ModeOfSaleOffers_cmd = &cobra.Command{
 		Aliases: []string{  "modeofsaleoffers",  "MOSO",  "moso",  },
-		Use: `ModeOfSaleOffers {"ModeOfSaleOffer":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z","Terms":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ModeOfSaleOffers {"ModeOfSaleOffer":{"AppealId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","Id":123,"MaxSeats":123,"ModeOfSaleId":123,"OverrideDefaultPriceTypeIndicator":true,"PackageId":123,"PerformanceId":123,"PriceTypeId":123,"Rank":123,"SourceId":123,"StartDateTime":"0001-01-01T00:00:00.000Z","Terms":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new mode of sale offer`,
 		Long:  `Create a new mode of sale offer.`,
 		PreRun: tqInit,
@@ -3002,8 +3002,8 @@ var Post_ModeOfSaleOffers_cmd = &cobra.Command{
 	}
 
 var Post_ModeOfSalePriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "MOSPT",  "mospt",  "modeofsalepricetypes",  },
-		Use: `ModeOfSalePriceTypes {"ModeOfSalePriceType":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "modeofsalepricetypes",  "MOSPT",  "mospt",  },
+		Use: `ModeOfSalePriceTypes {"ModeOfSalePriceType":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultIndicator":true,"Id":123,"ModeOfSale":{"Id":123},"PriceType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new mode of sale price type`,
 		Long:  `Create a new mode of sale price type.`,
 		PreRun: tqInit,
@@ -3026,7 +3026,7 @@ var Post_ModeOfSalePriceTypes_cmd = &cobra.Command{
 
 var Post_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 		Aliases: []string{  "modeofsalesurveyquestions",  "MOSSQ",  "mossq",  },
-		Use: `ModeOfSaleSurveyQuestions {"ModeOfSaleSurveyQuestion":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ModeOfSaleSurveyQuestions {"ModeOfSaleSurveyQuestion":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"ModeOfSale":{"Id":123},"Question":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new mode of sale survey question`,
 		Long:  `Create a new mode of sale survey question.`,
 		PreRun: tqInit,
@@ -3048,8 +3048,8 @@ var Post_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 	}
 
 var Post_ModeOfSaleUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "MOSUG",  "mosug",  "modeofsaleusergroups",  },
-		Use: `ModeOfSaleUserGroups {"ModeOfSaleUserGroup":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
+		Aliases: []string{  "modeofsaleusergroups",  "MOSUG",  "mosug",  },
+		Use: `ModeOfSaleUserGroups {"ModeOfSaleUserGroup":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultIndicator":true,"Id":123,"ModeOfSale":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
 		Short: `Create a new mode of sale/user group mapping`,
 		Long:  `Create a new mode of sale/user group mapping.`,
 		PreRun: tqInit,
@@ -3072,7 +3072,7 @@ var Post_ModeOfSaleUserGroups_cmd = &cobra.Command{
 
 var Post_ModesOfSale_cmd = &cobra.Command{
 		Aliases: []string{  "modesofsale",  "MOS",  "mos",  },
-		Use: `ModesOfSale {"ModeOfSale":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","HoldUntilDate":"0001-01-01T00:00:00.000Z","HoldUntilMethod":"string","StartPkgOrPerf":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ModesOfSale {"ModeOfSale":{"AllowUnseatedPaidInd":true,"Category":{"Id":123},"CategoryRequired":true,"ClearSourceNoInd":true,"ClearSourceOnReload":true,"ConfirmationMode":true,"ConstLinkRequired":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultAckFormatId":123,"DefaultChannelId":123,"DefaultDeliveryMethodId":123,"DefaultHeaderFormatId":123,"DefaultSalesLayoutId":123,"Description":"string","EditDate":true,"EditSourceOnReload":true,"GeneralPublicInd":true,"HaboDays":123,"HaboForeign":true,"HoldUntilDate":"0001-01-01T00:00:00.000Z","HoldUntilDays":123,"HoldUntilMethod":"string","Id":123,"Inactive":true,"MustBePaidInd":true,"MustBeSeatedInd":true,"MustBeTicketedInd":true,"PricingRuleSetId":123,"SampleForGeneralPublic":123,"SampleForKnownConstituent":123,"SliAutoDeleteInd":true,"StartPkgOrPerf":"string","SubsSummaryRequired":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new mode of sale`,
 		Long:  `Create a new mode of sale.`,
 		PreRun: tqInit,
@@ -3094,8 +3094,8 @@ var Post_ModesOfSale_cmd = &cobra.Command{
 	}
 
 var Post_NScanAccessAreas_cmd = &cobra.Command{
-		Aliases: []string{  "nscanaccessareas",  "NSAA",  "nsaa",  },
-		Use: `NScanAccessAreas {"Data":{"AreaCode":"string","ConstituencyIds":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndDateTime":"0001-01-01T00:00:00.000Z","KeywordValue":"string","MembershipLevelIds":"string","PerformanceIds":"string","PriceTypeIds":"string","PriceZoneIds":"string","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "nsaa",  "nscanaccessareas",  "NSAA",  },
+		Use: `NScanAccessAreas {"Data":{"AreaCode":"string","ConstituencyIds":"string","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndDateTime":"0001-01-01T00:00:00.000Z","Id":123,"Inactive":true,"KeywordId":123,"KeywordValue":"string","ListId":123,"MaxEntries":123,"MembershipLevelIds":"string","PerformanceIds":"string","PriceTypeIds":"string","PriceZoneIds":"string","PromptQuantity":true,"StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new NScan Access Area`,
 		Long:  `Create a new NScan Access Area.`,
 		PreRun: tqInit,
@@ -3117,8 +3117,8 @@ var Post_NScanAccessAreas_cmd = &cobra.Command{
 	}
 
 var Post_NameStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "namestatuses",  "NS",  "ns",  },
-		Use: `NameStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "ns",  "namestatuses",  "NS",  },
+		Use: `NameStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new name status`,
 		Long:  `Create a new name status.`,
 		PreRun: tqInit,
@@ -3140,8 +3140,8 @@ var Post_NameStatuses_cmd = &cobra.Command{
 	}
 
 var Post_ObjectPermissions_cmd = &cobra.Command{
-		Aliases: []string{  "objectpermissions",  "OP",  "op",  },
-		Use: `ObjectPermissions {"Data":{"CanCreate":"string","CanDelete":"string","CanEdit":"string","CanView":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "OP",  "op",  "objectpermissions",  },
+		Use: `ObjectPermissions {"Data":{"ApplicationObject":{"Id":123},"CanCreate":"string","CanDelete":"string","CanEdit":"string","CanView":"string","Constituency":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroup":{"Id":123}}}`,
 		Short: `Create a new object permission`,
 		Long:  `Create a new object permission.`,
 		PreRun: tqInit,
@@ -3164,7 +3164,7 @@ var Post_ObjectPermissions_cmd = &cobra.Command{
 
 var Post_OrderBilling_cmd = &cobra.Command{
 		Aliases: []string{  "orderbilling",  "OB",  "ob",  },
-		Use: `OrderBilling {"OrderBillingRequest":{"CutoffDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","ModesOfSale":"string","NewSourceDescription":"string","OrderEndDateTime":"0001-01-01T00:00:00.000Z","OrderStartDateTime":"0001-01-01T00:00:00.000Z","PerformanceEndDateTime":"0001-01-01T00:00:00.000Z","PerformanceStartDateTime":"0001-01-01T00:00:00.000Z","Seasons":"string","StartDateTime":"0001-01-01T00:00:00.000Z","UserId":"string"}}`,
+		Use: `OrderBilling {"OrderBillingRequest":{"AppealId":123,"BatchTypeId":123,"BillingTypeId":123,"CutoffDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","ListId":123,"MaxNumberOfBillsToPrint":123,"MediaTypeId":123,"MinAmount":123.456,"MinNumberOfBillsToPrint":123,"ModesOfSale":"string","NewSourceDescription":"string","OrderEndDateTime":"0001-01-01T00:00:00.000Z","OrderStartDateTime":"0001-01-01T00:00:00.000Z","PaymentMethodGroupId":123,"PerformanceEndDateTime":"0001-01-01T00:00:00.000Z","PerformanceStartDateTime":"0001-01-01T00:00:00.000Z","Seasons":"string","ShouldUpdate":true,"StartDateTime":"0001-01-01T00:00:00.000Z","UserId":"string"}}`,
 		Short: `Order billing`,
 		Long:  `Order billing`,
 		PreRun: tqInit,
@@ -3186,8 +3186,8 @@ var Post_OrderBilling_cmd = &cobra.Command{
 	}
 
 var Post_OrderCategories_cmd = &cobra.Command{
-		Aliases: []string{  "ordercategories",  "OC",  "oc",  },
-		Use: `OrderCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "OC",  "oc",  "ordercategories",  },
+		Use: `OrderCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new order category`,
 		Long:  `Create a new order category.`,
 		PreRun: tqInit,
@@ -3210,7 +3210,7 @@ var Post_OrderCategories_cmd = &cobra.Command{
 
 var Post_Orders_cmd = &cobra.Command{
 		Aliases: []string{  "orders",  "O",  "o",  },
-		Use: `Orders {"Order":{"AppliedMessageRules":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Custom0":"string","Custom1":"string","Custom2":"string","Custom3":"string","Custom4":"string","Custom5":"string","Custom6":"string","Custom7":"string","Custom8":"string","Custom9":"string","DeliveryDate":"0001-01-01T00:00:00.000Z","HoldUntilDateTime":"0001-01-01T00:00:00.000Z","LineItems":[object],"Messages":[object],"Notes":"string","OrderDateTime":"0001-01-01T00:00:00.000Z","Solicitor":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","VirtualConstituencies":"string"}}`,
+		Use: `Orders {"Order":{"AcceptingRollovers":true,"AccountId":123,"AltAddressId":123,"AltElectronicAddressId":123,"AppealId":123,"AppliedMessageRules":"string","BatchId":123,"BusinessUnitId":123,"CategoryId":123,"ChannelId":123,"ConstituentId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Custom0":"string","Custom1":"string","Custom2":"string","Custom3":"string","Custom4":"string","Custom5":"string","Custom6":"string","Custom7":"string","Custom8":"string","Custom9":"string","DeliveryDate":"0001-01-01T00:00:00.000Z","DeliveryMethodId":123,"HoldUntilDateTime":"0001-01-01T00:00:00.000Z","Id":123,"InitiatorId":123,"LineItems":[{"Id":123},...],"Messages":[{"Id":123},...],"MirrorLock":123,"ModeOfSaleId":123,"Notes":"string","OrderDateTime":"0001-01-01T00:00:00.000Z","ReloadPricingRules":true,"Solicitor":"string","SourceId":123,"TotalDue":123.456,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","VirtualConstituencies":"string"}}`,
 		Short: `This resource is currently only for interceptor plugin use`,
 		Long:  `This resource is currently only for interceptor plugin use. This is called any time a new order is saved via the API or from the client application. Only OrderId is provided in the request content.
             
@@ -3242,7 +3242,7 @@ This resource will be invoked from a cart checkout.`,
 
 var Post_Organizations_cmd = &cobra.Command{
 		Aliases: []string{  "organizations",  "O",  "o",  },
-		Use: `Organizations {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","LicenseeAccountCode":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Organizations {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"LicenseeAccountCode":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new organization`,
 		Long:  `Create a new organization.`,
 		PreRun: tqInit,
@@ -3264,8 +3264,8 @@ var Post_Organizations_cmd = &cobra.Command{
 	}
 
 var Post_OriginalSources_cmd = &cobra.Command{
-		Aliases: []string{  "OS",  "os",  "originalsources",  },
-		Use: `OriginalSources {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "originalsources",  "OS",  "os",  },
+		Use: `OriginalSources {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new original source`,
 		Long:  `Create a new original source.`,
 		PreRun: tqInit,
@@ -3287,8 +3287,8 @@ var Post_OriginalSources_cmd = &cobra.Command{
 	}
 
 var Post_Origins_cmd = &cobra.Command{
-		Aliases: []string{  "origins",  "O",  "o",  },
-		Use: `Origins {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "O",  "o",  "origins",  },
+		Use: `Origins {"Data":{"ActivityType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new origin`,
 		Long:  `Create a new origin.`,
 		PreRun: tqInit,
@@ -3311,7 +3311,7 @@ var Post_Origins_cmd = &cobra.Command{
 
 var Post_OutputSets_cmd = &cobra.Command{
 		Aliases: []string{  "outputsets",  "OS",  "os",  },
-		Use: `OutputSets {"OutputSet":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ElementGroups":[object],"LastUsedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `OutputSets {"OutputSet":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"ElementGroups":[{"Id":123},...],"Id":123,"LastUsedDateTime":"0001-01-01T00:00:00.000Z","TMSIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create an Output Set`,
 		Long:  `Create an Output Set.`,
 		PreRun: tqInit,
@@ -3334,7 +3334,7 @@ var Post_OutputSets_cmd = &cobra.Command{
 
 var Post_PackagePriceTypes_cmd = &cobra.Command{
 		Aliases: []string{  "packagepricetypes",  "PPT",  "ppt",  },
-		Use: `PackagePriceTypes {"PackagePriceType":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PackagePriceTypes {"PackagePriceType":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"PackageId":123,"PriceTypeId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new package price type`,
 		Long:  `Create a new package price type.`,
 		PreRun: tqInit,
@@ -3357,7 +3357,7 @@ var Post_PackagePriceTypes_cmd = &cobra.Command{
 
 var Post_PackageTypes_cmd = &cobra.Command{
 		Aliases: []string{  "PT",  "pt",  "packagetypes",  },
-		Use: `PackageTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PackageTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new package type`,
 		Long:  `Create a new package type.`,
 		PreRun: tqInit,
@@ -3380,7 +3380,7 @@ var Post_PackageTypes_cmd = &cobra.Command{
 
 var Post_PackageWebContents_cmd = &cobra.Command{
 		Aliases: []string{  "packagewebcontents",  "PWC",  "pwc",  },
-		Use: `PackageWebContents {"PackageWebContent":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Value":"string"}}`,
+		Use: `PackageWebContents {"PackageWebContent":{"ContentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"PackageId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Value":"string"}}`,
 		Short: `Create a packageWebContent`,
 		Long:  `Create a packageWebContent.`,
 		PreRun: tqInit,
@@ -3403,7 +3403,7 @@ var Post_PackageWebContents_cmd = &cobra.Command{
 
 var Post_Packages_cmd = &cobra.Command{
 		Aliases: []string{  "packages",  "P",  "p",  },
-		Use: `Packages {"Request":{"ArtistIds":"string","FullTextSearch":"string","PackageEndDate":"0001-01-01T00:00:00.000Z","PackageFacilityIds":"string","PackageKeywordAndOr":"string","PackageKeywordIds":"string","PackageStartDate":"0001-01-01T00:00:00.000Z","PackageTypeIds":"string","PerformanceEndDate":"0001-01-01T00:00:00.000Z","PerformanceFacilityIds":"string","PerformanceKeywordAndOr":"string","PerformanceKeywordIds":"string","PerformanceStartDate":"0001-01-01T00:00:00.000Z","SeasonIds":"string"}}`,
+		Use: `Packages {"Request":{"ArtistIds":"string","BusinessUnitId":123,"ConstituentId":123,"FullTextSearch":"string","MatchAllPerformances":true,"ModeOfSaleId":123,"PackageEndDate":"0001-01-01T00:00:00.000Z","PackageFacilityIds":"string","PackageKeywordAndOr":"string","PackageKeywordIds":"string","PackageStartDate":"0001-01-01T00:00:00.000Z","PackageTypeIds":"string","PerformanceEndDate":"0001-01-01T00:00:00.000Z","PerformanceFacilityIds":"string","PerformanceKeywordAndOr":"string","PerformanceKeywordIds":"string","PerformanceStartDate":"0001-01-01T00:00:00.000Z","SeasonIds":"string"}}`,
 		Short: `Search for packages`,
 		Long:  `Search for packages`,
 		PreRun: tqInit,
@@ -3426,7 +3426,7 @@ var Post_Packages_cmd = &cobra.Command{
 
 var Post_PaymentComponent_cmd = &cobra.Command{
 		Aliases: []string{  "paymentcomponent",  "PC",  "pc",  },
-		Use: `PaymentComponent {"Request":{"CardBrandsToInclude":[object],"ComponentVersion":"string","MerchantId":"string"}}`,
+		Use: `PaymentComponent {"Request":{"Id":123}}`,
 		Short: `This request is used to configure a transaction and retrieve the JavaScript location for implementing the Tessitura Merchant Services Payment Component`,
 		Long:  `This request is used to configure a transaction and retrieve the JavaScript location for implementing the Tessitura Merchant Services Payment Component. 
 For complete documentation on how to implement the Payment Component, please visit https://bitbucket.org/TN_WebShare/tessituramerchantservicesintegrationsample`,
@@ -3450,7 +3450,7 @@ For complete documentation on how to implement the Payment Component, please vis
 
 var Post_PaymentGatewayAccounts_cmd = &cobra.Command{
 		Aliases: []string{  "paymentgatewayaccounts",  "PGA",  "pga",  },
-		Use: `PaymentGatewayAccounts {"Request":{"ReferenceNumber":"string"}}`,
+		Use: `PaymentGatewayAccounts {"Request":{"ConstituentId":123,"ReferenceNumber":"string"}}`,
 		Short: `Generate a payment card token from a ReferenceNumber obtained from a previous Authorization request (Vantiv only)`,
 		Long:  `Generate a payment card token from a ReferenceNumber obtained from a previous Authorization request (Vantiv only)`,
 		PreRun: tqInit,
@@ -3475,8 +3475,8 @@ var Post_PaymentGatewayAccounts_cmd = &cobra.Command{
 	}
 
 var Post_PaymentGatewayActivities_cmd = &cobra.Command{
-		Aliases: []string{  "paymentgatewayactivities",  "PGA",  "pga",  },
-		Use: `PaymentGatewayActivities {"PaymentGatewayActivity":{"AccountNumber":"string","ActivityData":"string","AuthCode":"string","AvsAddress":"string","AvsPostalcode":"string","AvsResultCode":"string","BalanceCurrencyCode":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CvvResultCode":"string","EcommerceIndicator":"string","EmvApplicationIdentifier":"string","EmvApplicationName":"string","EmvCryptogram":"string","EmvHostResponseCode":"string","EmvHostResponseMessage":"string","EmvPinVerified":"string","EntryMethod":"string","ExpirationDate":"string","MerchantId":"string","Name":"string","NetworkTransactionId":"string","Origin":"string","ProviderTransactionDateTime":"0001-01-01T00:00:00.000Z","ReferenceNumber":"string","ResponseCode":"string","ResponseMessage":"string","Success":"string","TerminalIdentifier":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserData":"string"}}`,
+		Aliases: []string{  "pga",  "paymentgatewayactivities",  "PGA",  },
+		Use: `PaymentGatewayActivities {"PaymentGatewayActivity":{"AccountId":123,"AccountNumber":"string","ActivityData":"string","Amount":123.456,"AuthCode":"string","AvsAddress":"string","AvsPostalcode":"string","AvsResultCode":"string","BalanceAmount":123.456,"BalanceCurrencyCode":"string","ConstituentId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CvvResultCode":"string","EcommerceIndicator":"string","EmvApplicationIdentifier":"string","EmvApplicationName":"string","EmvCryptogram":"string","EmvHostResponseCode":"string","EmvHostResponseMessage":"string","EmvPinVerified":"string","EntryMethod":"string","ExpirationDate":"string","Id":123,"MerchantId":"string","Name":"string","NetworkTransactionId":"string","Origin":"string","PaymentGatewayTransactionType":{"Id":123},"PaymentId":123,"PaymentMethodGroupId":123,"PaymentMethodId":123,"ProviderCommunicationDurationMs":123,"ProviderTransactionDateTime":"0001-01-01T00:00:00.000Z","ReferenceNumber":"string","ResponseCode":"string","ResponseMessage":"string","Success":"string","TerminalIdentifier":"string","TotalDurationMs":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserData":"string"}}`,
 		Short: `Create a new Payment Gateway Activity`,
 		Long:  `Create a new Payment Gateway Activity`,
 		PreRun: tqInit,
@@ -3498,8 +3498,8 @@ var Post_PaymentGatewayActivities_cmd = &cobra.Command{
 	}
 
 var Post_PaymentGatewayCredentials_cmd = &cobra.Command{
-		Aliases: []string{  "paymentgatewaycredentials",  "PGC",  "pgc",  },
-		Use: `PaymentGatewayCredentials {"Request":{"MerchantId":"string"}}`,
+		Aliases: []string{  "PGC",  "pgc",  "paymentgatewaycredentials",  },
+		Use: `PaymentGatewayCredentials {"Request":{"ConstituentId":123,"MerchantId":"string"}}`,
 		Short: ``,
 		Long:  ``,
 		PreRun: tqInit,
@@ -3522,7 +3522,7 @@ var Post_PaymentGatewayCredentials_cmd = &cobra.Command{
 
 var Post_PaymentGatewayNotifications_cmd = &cobra.Command{
 		Aliases: []string{  "paymentgatewaynotifications",  "PGN",  "pgn",  },
-		Use: `PaymentGatewayNotifications {"NotificationEvent":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EventType":"string","Payload":"string","ProcessedDate":"0001-01-01T00:00:00.000Z","ReceivedDate":"0001-01-01T00:00:00.000Z","Reference":"string","Topic":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PaymentGatewayNotifications {"NotificationEvent":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EventType":"string","Id":123,"Payload":"string","ProcessedDate":"0001-01-01T00:00:00.000Z","ReceivedDate":"0001-01-01T00:00:00.000Z","Reference":"string","Topic":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new notification event`,
 		Long:  `Create a new notification event.`,
 		PreRun: tqInit,
@@ -3545,7 +3545,7 @@ var Post_PaymentGatewayNotifications_cmd = &cobra.Command{
 
 var Post_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 		Aliases: []string{  "paymentgatewaytransactiontypes",  "PGTT",  "pgtt",  },
-		Use: `PaymentGatewayTransactionTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PaymentGatewayTransactionTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Payment Gateway Transaction Type`,
 		Long:  `Create a new Payment Gateway Transaction Type.`,
 		PreRun: tqInit,
@@ -3568,7 +3568,7 @@ var Post_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 
 var Post_PaymentMethodGroups_cmd = &cobra.Command{
 		Aliases: []string{  "paymentmethodgroups",  "PMG",  "pmg",  },
-		Use: `PaymentMethodGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","MerchantId":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PaymentMethodGroups {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"MerchantId":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new payment method group`,
 		Long:  `Create a new payment method group.`,
 		PreRun: tqInit,
@@ -3591,7 +3591,7 @@ var Post_PaymentMethodGroups_cmd = &cobra.Command{
 
 var Post_PaymentMethodUserGroups_cmd = &cobra.Command{
 		Aliases: []string{  "paymentmethodusergroups",  "PMUG",  "pmug",  },
-		Use: `PaymentMethodUserGroups {"PaymentMethodUserGroup":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
+		Use: `PaymentMethodUserGroups {"PaymentMethodUserGroup":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"IncomeIndicator":true,"MaxRefund":123.456,"PaymentMethod":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
 		Short: `Create a new payment method/user group mapping`,
 		Long:  `Create a new payment method/user group mapping.`,
 		PreRun: tqInit,
@@ -3614,7 +3614,7 @@ var Post_PaymentMethodUserGroups_cmd = &cobra.Command{
 
 var Post_PaymentMethods_cmd = &cobra.Command{
 		Aliases: []string{  "paymentmethods",  "PM",  "pm",  },
-		Use: `PaymentMethods {"PaymentMethod":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","GlAccountId":"string","MerchantId":"string","MerchantIdForSwipe":"string","RequirePostalCode":"string","ShortDesc":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PaymentMethods {"PaymentMethod":{"AccountType":{"Id":123},"AuthIndicator":true,"BusinessUnitId":123,"CanRefund":true,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CurrencyTypeId":123,"DefaultIndicator":true,"Description":"string","GiftAidIndicator":true,"GlAccountId":"string","Id":123,"Inactive":true,"Income":true,"MerchantId":"string","MerchantIdForSwipe":"string","NoCopiesOnAuth":123,"NoCopiesOnSave":123,"OpenCashDrawer":true,"PaymentMethodGroup":{"Id":123},"PaymentType":{"Id":123},"ReceiptFormatId":123,"RequireCheckIndicator":true,"RequireCvv":true,"RequirePostalCode":"string","ShortDesc":"string","StoreTenderedAmount":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseWithCardReader":true}}`,
 		Short: `Create a new payment method`,
 		Long:  `Create a new payment method.`,
 		PreRun: tqInit,
@@ -3637,7 +3637,7 @@ var Post_PaymentMethods_cmd = &cobra.Command{
 
 var Post_PaymentSignatures_cmd = &cobra.Command{
 		Aliases: []string{  "paymentsignatures",  "PS",  "ps",  },
-		Use: `PaymentSignatures {"PaymentSignature":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PaymentSignatures {"PaymentSignature":{"Id":123}}`,
 		Short: `Create a new payment signature`,
 		Long:  `Create a new payment signature.`,
 		PreRun: tqInit,
@@ -3663,7 +3663,7 @@ var Post_PaymentSignatures_cmd = &cobra.Command{
 
 var Post_PaymentTypes_cmd = &cobra.Command{
 		Aliases: []string{  "paymenttypes",  "PT",  "pt",  },
-		Use: `PaymentTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PaymentTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new payment type`,
 		Long:  `Create a new payment type.`,
 		PreRun: tqInit,
@@ -3686,7 +3686,7 @@ var Post_PaymentTypes_cmd = &cobra.Command{
 
 var Post_Payments_cmd = &cobra.Command{
 		Aliases: []string{  "payments",  "P",  "p",  },
-		Use: `Payments {"Request":{}}`,
+		Use: `Payments {"Request":{"Increment":123}}`,
 		Short: `Reserves a payment id generated per the request's required "increment" parameter`,
 		Long:  `Reserves a payment id generated per the request's required "increment" parameter. Increment number must be greater than 0.`,
 		PreRun: tqInit,
@@ -3709,7 +3709,7 @@ var Post_Payments_cmd = &cobra.Command{
 
 var Post_PerformanceGroups_cmd = &cobra.Command{
 		Aliases: []string{  "performancegroups",  "PG",  "pg",  },
-		Use: `PerformanceGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PerformanceGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","DisplayByZone":true,"Facility":{"Id":123},"FixedSeatIndicator":true,"Id":123,"Season":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","ZoneMap":{"Id":123}}}`,
 		Short: `Create a new Performance Group`,
 		Long:  `Create a new Performance Group.`,
 		PreRun: tqInit,
@@ -3731,8 +3731,8 @@ var Post_PerformanceGroups_cmd = &cobra.Command{
 	}
 
 var Post_PerformancePackageModeOfSales_cmd = &cobra.Command{
-		Aliases: []string{  "ppmos",  "performancepackagemodeofsales",  "PPMOS",  },
-		Use: `PerformancePackageModeOfSales {"PerformancePackageModeOfSale":{"AutoAttend":"string","ETicketReleaseDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "performancepackagemodeofsales",  "PPMOS",  "ppmos",  },
+		Use: `PerformancePackageModeOfSales {"PerformancePackageModeOfSale":{"AutoAttend":"string","ETicketReleaseDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","Id":123,"ModeOfSaleId":123,"PackageId":123,"PerformanceId":123,"PrintIndicator":true,"PrintOnAutoAttend":true,"SeatIndicator":true,"StartDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new performance package mode of sale`,
 		Long:  `Create a new performance package mode of sale.`,
 		PreRun: tqInit,
@@ -3755,7 +3755,7 @@ var Post_PerformancePackageModeOfSales_cmd = &cobra.Command{
 
 var Post_PerformancePriceLayers_cmd = &cobra.Command{
 		Aliases: []string{  "performancepricelayers",  "PPL",  "ppl",  },
-		Use: `PerformancePriceLayers {"PerformancePriceLayer":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EffectiveDateTime":"0001-01-01T00:00:00.000Z","PerformancePriceTypes":[object],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PerformancePriceLayers {"PerformancePriceLayer":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultDesignationCodeId":123,"DefaultGlAccountId":123,"DefaultResaleAccountId":123,"Description":"string","EffectiveDateTime":"0001-01-01T00:00:00.000Z","Id":123,"PerformanceId":123,"PerformancePriceTypes":[{"Id":123},...],"PriceLayerType":{"Id":123},"TemplateId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new performance price layer`,
 		Long:  `Create a new performance price layer.`,
 		PreRun: tqInit,
@@ -3785,7 +3785,7 @@ var Post_PerformancePriceLayers_cmd = &cobra.Command{
 
 var Post_PerformancePriceTypes_cmd = &cobra.Command{
 		Aliases: []string{  "performancepricetypes",  "PPT",  "ppt",  },
-		Use: `PerformancePriceTypes {"PerformancePriceType":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EffectiveDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","PerformancePrices":[object],"StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PerformancePriceTypes {"PerformancePriceType":{"BaseIndicator":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DesignationCodeId":123,"EffectiveDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","GlAccountId":123,"Id":123,"IsWithinDateRange":true,"PerformanceId":123,"PerformancePriceLayerId":123,"PerformancePrices":[{"Id":123},...],"PriceTypeId":123,"ResaleAccountId":123,"StartDateTime":"0001-01-01T00:00:00.000Z","TicketDesignId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new performance price type`,
 		Long:  `Create a new performance price type.`,
 		PreRun: tqInit,
@@ -3807,8 +3807,8 @@ var Post_PerformancePriceTypes_cmd = &cobra.Command{
 	}
 
 var Post_PerformancePrices_cmd = &cobra.Command{
-		Aliases: []string{  "PP",  "pp",  "performanceprices",  },
-		Use: `PerformancePrices {"PerformancePrice":{"EffectiveDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "performanceprices",  "PP",  "pp",  },
+		Use: `PerformancePrices {"PerformancePrice":{"EditIndicator":true,"EffectiveDateTime":"0001-01-01T00:00:00.000Z","Enabled":true,"HasEvents":true,"Id":123,"IsPriceBasedOnCurrentEvent":true,"MinPrice":123.456,"PerformanceId":123,"PerformancePriceTypeId":123,"Price":123.456,"ZoneId":123}}`,
 		Short: `Create a new performance price`,
 		Long:  `Create a new performance price.`,
 		PreRun: tqInit,
@@ -3830,8 +3830,8 @@ var Post_PerformancePrices_cmd = &cobra.Command{
 	}
 
 var Post_PerformanceStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "PS",  "ps",  "performancestatuses",  },
-		Use: `PerformanceStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "performancestatuses",  "PS",  "ps",  },
+		Use: `PerformanceStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new performance status`,
 		Long:  `Create a new performance status.`,
 		PreRun: tqInit,
@@ -3854,7 +3854,7 @@ var Post_PerformanceStatuses_cmd = &cobra.Command{
 
 var Post_PerformanceTypes_cmd = &cobra.Command{
 		Aliases: []string{  "performancetypes",  "PT",  "pt",  },
-		Use: `PerformanceTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","ValidCountryList":"string"}}`,
+		Use: `PerformanceTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","ValidCountryList":"string"}}`,
 		Short: `Create a new performance type`,
 		Long:  `Create a new performance type.`,
 		PreRun: tqInit,
@@ -3877,7 +3877,7 @@ var Post_PerformanceTypes_cmd = &cobra.Command{
 
 var Post_Performances_cmd = &cobra.Command{
 		Aliases: []string{  "performances",  "P",  "p",  },
-		Use: `Performances {"PerformanceID":"string","Request":{"HoldUntilDate":"0001-01-01T00:00:00.000Z"},"SeatID":"string"}`,
+		Use: `Performances {"PerformanceID":"string","Request":{"HoldCodeId":123,"HoldUntilDate":"0001-01-01T00:00:00.000Z","ReplaceMode":123},"SeatID":"string"}`,
 		Short: `Apply a single hold on a performance seat`,
 		Long:  `Apply a single hold on a performance seat.`,
 		PreRun: tqInit,
@@ -3908,8 +3908,8 @@ var Post_Performances_cmd = &cobra.Command{
 	}
 
 var Post_Philanthropy_cmd = &cobra.Command{
-		Aliases: []string{  "p",  "philanthropy",  "P",  },
-		Use: `Philanthropy {"PhilanthropyEntry":{"Activity":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DonatedTo":"string","DonationDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "philanthropy",  "P",  "p",  },
+		Use: `Philanthropy {"PhilanthropyEntry":{"Activity":"string","Amount":123.456,"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DonatedTo":"string","DonatedToConstituent":{"Id":123},"DonationDateTime":"0001-01-01T00:00:00.000Z","Id":123,"PhilanthropyType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create an philanthropyEntry for a constituent`,
 		Long:  `Create an philanthropyEntry for a constituent.`,
 		PreRun: tqInit,
@@ -3932,7 +3932,7 @@ var Post_Philanthropy_cmd = &cobra.Command{
 
 var Post_PhilanthropyTypes_cmd = &cobra.Command{
 		Aliases: []string{  "philanthropytypes",  "PT",  "pt",  },
-		Use: `PhilanthropyTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PhilanthropyTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new philosophy type`,
 		Long:  `Create a new philosophy type.`,
 		PreRun: tqInit,
@@ -3955,7 +3955,7 @@ var Post_PhilanthropyTypes_cmd = &cobra.Command{
 
 var Post_PhoneIndicators_cmd = &cobra.Command{
 		Aliases: []string{  "phoneindicators",  "PI",  "pi",  },
-		Use: `PhoneIndicators {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PhoneIndicators {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new phone indicator`,
 		Long:  `Create a new phone indicator.`,
 		PreRun: tqInit,
@@ -3977,8 +3977,8 @@ var Post_PhoneIndicators_cmd = &cobra.Command{
 	}
 
 var Post_PhoneTypes_cmd = &cobra.Command{
-		Aliases: []string{  "pt",  "phonetypes",  "PT",  },
-		Use: `PhoneTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DayEveningIndicator":"string","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "phonetypes",  "PT",  "pt",  },
+		Use: `PhoneTypes {"Data":{"AllowMarketing":true,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DayEveningIndicator":"string","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new phone type`,
 		Long:  `Create a new phone type.`,
 		PreRun: tqInit,
@@ -4001,7 +4001,7 @@ var Post_PhoneTypes_cmd = &cobra.Command{
 
 var Post_Phones_cmd = &cobra.Command{
 		Aliases: []string{  "phones",  "P",  "p",  },
-		Use: `Phones {"Phone":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DayEveningIndicator":"string","PhoneFormatted":"string","PhoneNumber":"string","PhoneSearch":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Phones {"Phone":{"Address":{"Id":123},"AllowTelemarketing":true,"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DayEveningIndicator":"string","EditIndicator":true,"Id":123,"Inactive":true,"PhoneFormatted":"string","PhoneNumber":"string","PhoneSearch":"string","PhoneType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new phone`,
 		Long:  `Create a new phone.`,
 		PreRun: tqInit,
@@ -4024,7 +4024,7 @@ var Post_Phones_cmd = &cobra.Command{
 
 var Post_PlanPriorities_cmd = &cobra.Command{
 		Aliases: []string{  "planpriorities",  "PP",  "pp",  },
-		Use: `PlanPriorities {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PlanPriorities {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Ranking":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new plan priority`,
 		Long:  `Create a new plan priority.`,
 		PreRun: tqInit,
@@ -4046,8 +4046,8 @@ var Post_PlanPriorities_cmd = &cobra.Command{
 	}
 
 var Post_PlanSources_cmd = &cobra.Command{
-		Aliases: []string{  "PS",  "ps",  "plansources",  },
-		Use: `PlanSources {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "plansources",  "PS",  "ps",  },
+		Use: `PlanSources {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new plan source`,
 		Long:  `Create a new plan source.`,
 		PreRun: tqInit,
@@ -4069,8 +4069,8 @@ var Post_PlanSources_cmd = &cobra.Command{
 	}
 
 var Post_PlanStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "planstatuses",  "PS",  "ps",  },
-		Use: `PlanStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "PS",  "ps",  "planstatuses",  },
+		Use: `PlanStatuses {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new plan status`,
 		Long:  `Create a new plan status.`,
 		PreRun: tqInit,
@@ -4093,7 +4093,7 @@ var Post_PlanStatuses_cmd = &cobra.Command{
 
 var Post_PlanTypes_cmd = &cobra.Command{
 		Aliases: []string{  "plantypes",  "PT",  "pt",  },
-		Use: `PlanTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PlanTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new plan type`,
 		Long:  `Create a new plan type.`,
 		PreRun: tqInit,
@@ -4116,7 +4116,7 @@ var Post_PlanTypes_cmd = &cobra.Command{
 
 var Post_PlanWorkers_cmd = &cobra.Command{
 		Aliases: []string{  "planworkers",  "PW",  "pw",  },
-		Use: `PlanWorkers {"PlanWorker":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PlanWorkers {"PlanWorker":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Plan":{"Id":123},"PrimaryIndicator":true,"Role":{"Id":123},"ShowInPortfolio":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Worker":{"Id":123}}}`,
 		Short: `Create a new plan worker`,
 		Long:  `Create a new plan worker.`,
 		PreRun: tqInit,
@@ -4139,7 +4139,7 @@ var Post_PlanWorkers_cmd = &cobra.Command{
 
 var Post_Plans_cmd = &cobra.Command{
 		Aliases: []string{  "plans",  "P",  "p",  },
-		Use: `Plans {"Plan":{"CompleteByDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CustomDataItems":[object],"LastStepDate":"0001-01-01T00:00:00.000Z","LastWorkerDisplayName":"string","NextStepDate":"0001-01-01T00:00:00.000Z","Notes":"string","PlanAssociates":"string","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Plans {"Plan":{"AskAmount":123.456,"Campaign":{"Id":123},"CompleteByDateTime":"0001-01-01T00:00:00.000Z","Constituent":{"Id":123},"ContributionAmount":123.456,"ContributionDesignation":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CustomDataItems":[{"Id":123},...],"EditIndicator":true,"Fund":{"Id":123},"GoalAmount":123.456,"HasOpenSteps":true,"HasSteps":true,"Id":123,"LastStepDate":"0001-01-01T00:00:00.000Z","LastStepType":{"Id":123},"LastWorkerDisplayName":"string","NextStepDate":"0001-01-01T00:00:00.000Z","NextStepType":{"Id":123},"Notes":"string","OriginalSource":{"Id":123},"PlanAssociates":"string","PrimaryWorker":{"Id":123},"Priority":{"Id":123},"Probability":123.456,"RecordedAmount":123.456,"StartDateTime":"0001-01-01T00:00:00.000Z","Status":{"Id":123},"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new plan`,
 		Long:  `Create a new plan.`,
 		PreRun: tqInit,
@@ -4161,8 +4161,8 @@ var Post_Plans_cmd = &cobra.Command{
 	}
 
 var Post_PledgeBilling_cmd = &cobra.Command{
-		Aliases: []string{  "pledgebilling",  "PB",  "pb",  },
-		Use: `PledgeBilling {"PledgeBillingRequest":{"CutoffDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","FundIds":"string","MailDateTime":"0001-01-01T00:00:00.000Z","NewSourceDescription":"string","StartDateTime":"0001-01-01T00:00:00.000Z","UserId":"string"}}`,
+		Aliases: []string{  "pb",  "pledgebilling",  "PB",  },
+		Use: `PledgeBilling {"PledgeBillingRequest":{"AcknowledgementLetterId":123,"AppealId":123,"BatchTypeId":123,"BillingTypeId":123,"CampaignId":123,"CutoffDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","FundIds":"string","IsLabel":true,"ListId":123,"MailDateTime":"0001-01-01T00:00:00.000Z","MailTypeId":123,"MaxNumberOfBillsToPrint":123,"MediaTypeId":123,"MinAmount":123.456,"MinNumberOfBillsToPrint":123,"NewSourceDescription":"string","PaymentMethodGroupId":123,"SalutationTypeId":123,"ShouldUpdate":true,"StartDateTime":"0001-01-01T00:00:00.000Z","UserId":"string"}}`,
 		Short: `This is not intended for use outside of the Tessitura application`,
 		Long:  `This is not intended for use outside of the Tessitura application.  There is no standard way to return billing details for a run. For a given campaign, funds, bill types etc., It raises bills for all those scheduled payments that have due date between given start and end dates. It also checks to see that a bill was not raised after a given 'cut off date'.`,
 		PreRun: tqInit,
@@ -4185,7 +4185,7 @@ var Post_PledgeBilling_cmd = &cobra.Command{
 
 var Post_PortfolioCustomElements_cmd = &cobra.Command{
 		Aliases: []string{  "portfoliocustomelements",  "PCE",  "pce",  },
-		Use: `PortfolioCustomElements {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","SqlQuery":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PortfolioCustomElements {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DataType":123,"Description":"string","Id":123,"Inactive":true,"SqlQuery":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new portfolio custom element`,
 		Long:  `Create a new portfolio custom element.`,
 		PreRun: tqInit,
@@ -4207,8 +4207,8 @@ var Post_PortfolioCustomElements_cmd = &cobra.Command{
 	}
 
 var Post_Prefixes_cmd = &cobra.Command{
-		Aliases: []string{  "prefixes",  "P",  "p",  },
-		Use: `Prefixes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "P",  "p",  "prefixes",  },
+		Use: `Prefixes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new prefix`,
 		Long:  `Create a new prefix.`,
 		PreRun: tqInit,
@@ -4230,8 +4230,8 @@ var Post_Prefixes_cmd = &cobra.Command{
 	}
 
 var Post_Premieres_cmd = &cobra.Command{
-		Aliases: []string{  "p",  "premieres",  "P",  },
-		Use: `Premieres {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "premieres",  "P",  "p",  },
+		Use: `Premieres {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new premiere`,
 		Long:  `Create a new premiere.`,
 		PreRun: tqInit,
@@ -4254,7 +4254,7 @@ var Post_Premieres_cmd = &cobra.Command{
 
 var Post_PriceCategories_cmd = &cobra.Command{
 		Aliases: []string{  "pricecategories",  "PC",  "pc",  },
-		Use: `PriceCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PriceCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new price category`,
 		Long:  `Create a new price category.`,
 		PreRun: tqInit,
@@ -4277,7 +4277,7 @@ var Post_PriceCategories_cmd = &cobra.Command{
 
 var Post_PriceLayerTypes_cmd = &cobra.Command{
 		Aliases: []string{  "pricelayertypes",  "PLT",  "plt",  },
-		Use: `PriceLayerTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PriceLayerTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ExcludeFromRules":true,"Id":123,"Inactive":true,"PriceCategory":{"Id":123},"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new price layer type`,
 		Long:  `Create a new price layer type.`,
 		PreRun: tqInit,
@@ -4299,8 +4299,8 @@ var Post_PriceLayerTypes_cmd = &cobra.Command{
 	}
 
 var Post_PriceTemplates_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "pt",  "pricetemplates",  },
-		Use: `PriceTemplates {"PriceTemplate":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Name":"string","TemplatePriceTypes":[object],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "pt",  "pricetemplates",  "PT",  },
+		Use: `PriceTemplates {"PriceTemplate":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultDesignationCode":{"Id":123},"DefaultGlAccount":{"Id":123},"DefaultPriceLayerType":{"Id":123},"DefaultResaleAccount":{"Id":123},"Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Name":"string","PriceCategory":{"Id":123},"TemplatePriceTypes":[{"Id":123},...],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","ZoneMap":{"Id":123}}}`,
 		Short: `Create a new price template`,
 		Long:  `Create a new price template.`,
 		PreRun: tqInit,
@@ -4323,7 +4323,7 @@ var Post_PriceTemplates_cmd = &cobra.Command{
 
 var Post_PriceTypeCategories_cmd = &cobra.Command{
 		Aliases: []string{  "pricetypecategories",  "PTC",  "ptc",  },
-		Use: `PriceTypeCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PriceTypeCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new price type category`,
 		Long:  `Create a new price type category.`,
 		PreRun: tqInit,
@@ -4345,8 +4345,8 @@ var Post_PriceTypeCategories_cmd = &cobra.Command{
 	}
 
 var Post_PriceTypeGroups_cmd = &cobra.Command{
-		Aliases: []string{  "pricetypegroups",  "PTG",  "ptg",  },
-		Use: `PriceTypeGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "PTG",  "ptg",  "pricetypegroups",  },
+		Use: `PriceTypeGroups {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new price type group`,
 		Long:  `Create a new price type group.`,
 		PreRun: tqInit,
@@ -4368,8 +4368,8 @@ var Post_PriceTypeGroups_cmd = &cobra.Command{
 	}
 
 var Post_PriceTypeReasons_cmd = &cobra.Command{
-		Aliases: []string{  "PTR",  "ptr",  "pricetypereasons",  },
-		Use: `PriceTypeReasons {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ShortDescription":"string","TicketText":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "pricetypereasons",  "PTR",  "ptr",  },
+		Use: `PriceTypeReasons {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"ShortDescription":"string","TicketText":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new price type reason`,
 		Long:  `Create a new price type reason.`,
 		PreRun: tqInit,
@@ -4392,7 +4392,7 @@ var Post_PriceTypeReasons_cmd = &cobra.Command{
 
 var Post_PriceTypeUserGroups_cmd = &cobra.Command{
 		Aliases: []string{  "pricetypeusergroups",  "PTUG",  "ptug",  },
-		Use: `PriceTypeUserGroups {"PriceTypeUserGroup":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
+		Use: `PriceTypeUserGroups {"PriceTypeUserGroup":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"PriceType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
 		Short: `Create a new price typ/user group mapping`,
 		Long:  `Create a new price typ/user group mapping.`,
 		PreRun: tqInit,
@@ -4414,8 +4414,8 @@ var Post_PriceTypeUserGroups_cmd = &cobra.Command{
 	}
 
 var Post_PriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "pt",  "pricetypes",  },
-		Use: `PriceTypes {"PriceType":{"AliasDescription":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "pricetypes",  "PT",  "pt",  },
+		Use: `PriceTypes {"PriceType":{"AliasDescription":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultTicketDesign":{"Id":123},"Description":"string","EditIndicator":true,"EditableIndicator":true,"Id":123,"Inactive":true,"PriceTypeCategory":{"Id":123},"PriceTypeGroup":{"Id":123},"ReasonIndicator":true,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new price type`,
 		Long:  `Create a new price type.`,
 		PreRun: tqInit,
@@ -4437,8 +4437,8 @@ var Post_PriceTypes_cmd = &cobra.Command{
 	}
 
 var Post_PricingRuleCategories_cmd = &cobra.Command{
-		Aliases: []string{  "PRC",  "prc",  "pricingrulecategories",  },
-		Use: `PricingRuleCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "pricingrulecategories",  "PRC",  "prc",  },
+		Use: `PricingRuleCategories {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new pricing rule category`,
 		Long:  `Create a new pricing rule category.`,
 		PreRun: tqInit,
@@ -4461,7 +4461,7 @@ var Post_PricingRuleCategories_cmd = &cobra.Command{
 
 var Post_PricingRuleMessageTypes_cmd = &cobra.Command{
 		Aliases: []string{  "pricingrulemessagetypes",  "PRMT",  "prmt",  },
-		Use: `PricingRuleMessageTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PricingRuleMessageTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new pricing rule message type`,
 		Long:  `Create a new pricing rule message type.`,
 		PreRun: tqInit,
@@ -4484,7 +4484,7 @@ var Post_PricingRuleMessageTypes_cmd = &cobra.Command{
 
 var Post_PricingRuleSets_cmd = &cobra.Command{
 		Aliases: []string{  "pricingrulesets",  "PRS",  "prs",  },
-		Use: `PricingRuleSets {"PricingRuleSet":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Rules":[object],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `PricingRuleSets {"PricingRuleSet":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Rules":[{"Id":123},...],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new pricing rule set`,
 		Long:  `Create a new pricing rule set.`,
 		PreRun: tqInit,
@@ -4506,8 +4506,8 @@ var Post_PricingRuleSets_cmd = &cobra.Command{
 	}
 
 var Post_PricingRules_cmd = &cobra.Command{
-		Aliases: []string{  "pricingrules",  "PR",  "pr",  },
-		Use: `PricingRules {"PricingRule":{"Appeals":"string","Constituencies":"string","ConstituentAttributeValue1":"string","ConstituentAttributeValue2":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndDateTime":"0001-01-01T00:00:00.000Z","Messages":[object],"OverTheLimitDateTime":"0001-01-01T00:00:00.000Z","PromotedAppeals":"string","PromotedSources":"string","QualifyingPackage":"string","QualifyingPerformance":"string","QualifyingPriceType1":"string","QualifyingPriceType2":"string","QualifyingProductionSeason":"string","QualifyingSeasonPackageType":"string","QualifyingZone":"string","ResultPackage":"string","ResultPerformance":"string","ResultPriceType":"string","ResultProductionSeason":"string","ResultSeasonPackageType":"string","ResultZone":"string","Sources":"string","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "PR",  "pr",  "pricingrules",  },
+		Use: `PricingRules {"PricingRule":{"Appeals":"string","ApplyOncePerOrder":true,"ApplyToLowestCommonNumberOfSeats":true,"Constituencies":"string","ConstituentAttribute":123,"ConstituentAttributeOperator":{"Id":123},"ConstituentAttributeValue1":"string","ConstituentAttributeValue2":"string","ConstituentExclusionListId":123,"ConstituentListId":123,"ConstituentRankType":123,"ConstituentRankingOperator":{"Id":123},"ConstituentRankingValue1":123,"ConstituentRankingValue2":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","DiscountAmount":123.456,"DiscountIsPercent":true,"DiscountPercentRound":123,"DiscountPriceTypeId":123,"EditIndicator":true,"EndDateTime":"0001-01-01T00:00:00.000Z","ExcludeGeneralPublic":true,"Id":123,"Inactive":true,"MaxSeats":123,"Messages":[{"Id":123},...],"OverTheLimitDateTime":"0001-01-01T00:00:00.000Z","PromotedAppeals":"string","PromotedSources":"string","QualifyingPackage":"string","QualifyingPerformance":"string","QualifyingPriceType1":"string","QualifyingPriceType2":"string","QualifyingProductionSeason":"string","QualifyingSeasonPackageType":"string","QualifyingSeatCount1Value1":123,"QualifyingSeatCount1Value2":123,"QualifyingSeatCount2Value1":123,"QualifyingSeatCount2Value2":123,"QualifyingZone":"string","RespectMinimumPrice":true,"ResultMaximumSeats":123,"ResultMaximumSeats2":123,"ResultPackage":"string","ResultPerformance":"string","ResultPriceType":"string","ResultProductionSeason":"string","ResultSeasonPackageType":"string","ResultSeatCount":123,"ResultZone":"string","RuleAction":123,"RuleCategory":{"Id":123},"RuleType":{"Id":123},"Sources":"string","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new pricing rule`,
 		Long:  `Create a new pricing rule.`,
 		PreRun: tqInit,
@@ -4529,8 +4529,8 @@ var Post_PricingRules_cmd = &cobra.Command{
 	}
 
 var Post_Printers_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "printers",  },
-		Use: `Printers {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Type":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "p",  "printers",  "P",  },
+		Use: `Printers {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"MaxCol":123,"MaxRow":123,"MaxX2val":123,"MaxY2val":123,"Type":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new printer`,
 		Long:  `Create a new printer.`,
 		PreRun: tqInit,
@@ -4552,8 +4552,8 @@ var Post_Printers_cmd = &cobra.Command{
 	}
 
 var Post_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
-		Aliases: []string{  "psmo",  "productionseasonmembershiporganizations",  "PSMO",  },
-		Use: `ProductionSeasonMembershipOrganizations {"ProductionSeasonMembershipOrganization":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "productionseasonmembershiporganizations",  "PSMO",  "psmo",  },
+		Use: `ProductionSeasonMembershipOrganizations {"ProductionSeasonMembershipOrganization":{"AllowMultipleEntry":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"MembershipOrganization":{"Id":123},"ProductionSeason":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new production season membership organization`,
 		Long:  `Create a new production season membership organization.`,
 		PreRun: tqInit,
@@ -4576,7 +4576,7 @@ var Post_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 
 var Post_ProductionSeasons_cmd = &cobra.Command{
 		Aliases: []string{  "productionseasons",  "PS",  "ps",  },
-		Use: `ProductionSeasons {"Request":{"ArtistIds":"string","FacilityIds":"string","FullTextSearch":"string","KeywordAndOr":"string","KeywordIds":"string","PerformanceEndDate":"0001-01-01T00:00:00.000Z","PerformanceStartDate":"0001-01-01T00:00:00.000Z","SeasonIds":"string"}}`,
+		Use: `ProductionSeasons {"Request":{"ArtistIds":"string","BusinessUnitId":123,"ConstituentId":123,"FacilityIds":"string","FullTextSearch":"string","KeywordAndOr":"string","KeywordIds":"string","MatchAllPerformances":true,"ModeOfSaleId":123,"PerformanceEndDate":"0001-01-01T00:00:00.000Z","PerformanceStartDate":"0001-01-01T00:00:00.000Z","SeasonIds":"string"}}`,
 		Short: `Search for production seasons`,
 		Long:  `Search for production seasons
 Returns production seasons matching the specified search criteria.`,
@@ -4626,7 +4626,7 @@ var Post_Products_cmd = &cobra.Command{
 
 var Post_ProgramListings_cmd = &cobra.Command{
 		Aliases: []string{  "programlistings",  "PL",  "pl",  },
-		Use: `ProgramListings {"ProgramListing":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","ProgramName":"string","SortName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ProgramListings {"ProgramListing":{"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DonationLevel":{"Id":123},"EditIndicator":true,"Id":123,"ProgramName":"string","ProgramType":{"Id":123},"SortName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new program listing`,
 		Long:  `Create a new program listing.`,
 		PreRun: tqInit,
@@ -4649,7 +4649,7 @@ var Post_ProgramListings_cmd = &cobra.Command{
 
 var Post_Programs_cmd = &cobra.Command{
 		Aliases: []string{  "programs",  "P",  "p",  },
-		Use: `Programs {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Programs {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new program`,
 		Long:  `Create a new program.`,
 		PreRun: tqInit,
@@ -4672,7 +4672,7 @@ var Post_Programs_cmd = &cobra.Command{
 
 var Post_Pronouns_cmd = &cobra.Command{
 		Aliases: []string{  "pronouns",  "P",  "p",  },
-		Use: `Pronouns {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Pronouns {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: ``,
 		Long:  ``,
 		PreRun: tqInit,
@@ -4695,7 +4695,7 @@ var Post_Pronouns_cmd = &cobra.Command{
 
 var Post_QualificationCategories_cmd = &cobra.Command{
 		Aliases: []string{  "qualificationcategories",  "QC",  "qc",  },
-		Use: `QualificationCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `QualificationCategories {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Qualification Category`,
 		Long:  `Create a new Qualification Category.`,
 		PreRun: tqInit,
@@ -4717,8 +4717,8 @@ var Post_QualificationCategories_cmd = &cobra.Command{
 	}
 
 var Post_Qualifications_cmd = &cobra.Command{
-		Aliases: []string{  "qualifications",  "Q",  "q",  },
-		Use: `Qualifications {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "Q",  "q",  "qualifications",  },
+		Use: `Qualifications {"Data":{"Category":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Qualification`,
 		Long:  `Create a new Qualification.`,
 		PreRun: tqInit,
@@ -4740,8 +4740,8 @@ var Post_Qualifications_cmd = &cobra.Command{
 	}
 
 var Post_QueryElementFilters_cmd = &cobra.Command{
-		Aliases: []string{  "queryelementfilters",  "QEF",  "qef",  },
-		Use: `QueryElementFilters {"QueryElementFilter":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","FilterElement":"string","ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "qef",  "queryelementfilters",  "QEF",  },
+		Use: `QueryElementFilters {"QueryElementFilter":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DataType":123,"Description":"string","EndOfDay":true,"FilterElement":"string","Group":{"Id":123},"Id":123,"ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a query element filter`,
 		Long:  `Create a query element filter.`,
 		PreRun: tqInit,
@@ -4764,7 +4764,7 @@ var Post_QueryElementFilters_cmd = &cobra.Command{
 
 var Post_QueryElementGroups_cmd = &cobra.Command{
 		Aliases: []string{  "queryelementgroups",  "QEG",  "qeg",  },
-		Use: `QueryElementGroups {"QueryElementGroup":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DataFrom":"string","DataWhere":"string","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `QueryElementGroups {"QueryElementGroup":{"Category":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DataFrom":"string","DataWhere":"string","Description":"string","Id":123,"IsVirtual":true,"NumberOfParameters":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new query element group`,
 		Long:  `Create a new query element group.`,
 		PreRun: tqInit,
@@ -4787,7 +4787,7 @@ var Post_QueryElementGroups_cmd = &cobra.Command{
 
 var Post_QueryElements_cmd = &cobra.Command{
 		Aliases: []string{  "queryelements",  "QE",  "qe",  },
-		Use: `QueryElements {"QueryElement":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DataSelect":"string","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `QueryElements {"QueryElement":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DataSelect":"string","Description":"string","Group":{"Id":123},"Id":123,"Inactive":true,"IsSingleRow":true,"KeywordId":123,"PrimaryGroupDefault":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new query element`,
 		Long:  `Create a new query element.`,
 		PreRun: tqInit,
@@ -4810,7 +4810,7 @@ var Post_QueryElements_cmd = &cobra.Command{
 
 var Post_RankTypes_cmd = &cobra.Command{
 		Aliases: []string{  "ranktypes",  "RT",  "rt",  },
-		Use: `RankTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `RankTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new rank type`,
 		Long:  `Create a new rank type.`,
 		PreRun: tqInit,
@@ -4833,7 +4833,7 @@ var Post_RankTypes_cmd = &cobra.Command{
 
 var Post_Rankings_cmd = &cobra.Command{
 		Aliases: []string{  "rankings",  "R",  "r",  },
-		Use: `Rankings {"Ranking":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Rankings {"Ranking":{"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Rank":123,"RankType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new ranking`,
 		Long:  `Create a new ranking.`,
 		PreRun: tqInit,
@@ -4856,7 +4856,7 @@ var Post_Rankings_cmd = &cobra.Command{
 
 var Post_ReceiptSettings_cmd = &cobra.Command{
 		Aliases: []string{  "receiptsettings",  "RS",  "rs",  },
-		Use: `ReceiptSettings {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EmailFooter":"string","EmailHeader":"string","EmailSubject":"string","PrintFooter":"string","PrintHeader":"string","TicketEmailSubject":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ReceiptSettings {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EmailFooter":"string","EmailHeader":"string","EmailSubject":"string","Id":123,"Inactive":true,"PrintFooter":"string","PrintHeader":"string","ReceiptEmailProfile":{"Id":123},"TicketEmailProfile":{"Id":123},"TicketEmailSubject":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Receipt Setting`,
 		Long:  `Create a new Receipt Setting.`,
 		PreRun: tqInit,
@@ -4879,7 +4879,7 @@ var Post_ReceiptSettings_cmd = &cobra.Command{
 
 var Post_RecordAttendance_cmd = &cobra.Command{
 		Aliases: []string{  "recordattendance",  "RA",  "ra",  },
-		Use: `RecordAttendance {"Request":{}}`,
+		Use: `RecordAttendance {"Request":{"OverrideDoorsOpen":true,"ProfileId":123,"TicketNo":123}}`,
 		Short: `Records attendance for a given ticket number`,
 		Long:  `Records attendance for a given ticket number.`,
 		PreRun: tqInit,
@@ -4902,7 +4902,7 @@ var Post_RecordAttendance_cmd = &cobra.Command{
 
 var Post_ReferenceTableUserGroups_cmd = &cobra.Command{
 		Aliases: []string{  "referencetableusergroups",  "RTUG",  "rtug",  },
-		Use: `ReferenceTableUserGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
+		Use: `ReferenceTableUserGroups {"Data":{"CanEdit":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"ReferenceTable":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
 		Short: `Create a new reference table/user group mapping`,
 		Long:  `Create a new reference table/user group mapping.`,
 		PreRun: tqInit,
@@ -4924,8 +4924,8 @@ var Post_ReferenceTableUserGroups_cmd = &cobra.Command{
 	}
 
 var Post_Registration_cmd = &cobra.Command{
-		Aliases: []string{  "registration",  "R",  "r",  },
-		Use: `Registration {"Constituent":{"Affiliates":[object],"FirstName":"string","LastName":"string","MiddleName":"string","Phones":[object],"SortName":"string"},"SessionKey":"string"}`,
+		Aliases: []string{  "R",  "r",  "registration",  },
+		Use: `Registration {"Constituent":{"Address":{"Id":123},"Affiliates":[{"Id":123},...],"ConstituentTypeId":123,"ElectronicAddress":{"Id":123},"EmarketIndicatorId":123,"FirstName":"string","GenderId":123,"LastName":"string","MailIndicatorId":123,"MiddleName":"string","NameStatusId":123,"OriginalSourceId":123,"PhoneIndicatorId":123,"Phones":[{"Id":123},...],"PrefixId":123,"Salutation":{"Id":123},"SortName":"string","SourceId":123,"SuffixId":123,"WebLogin":{"Id":123}},"SessionKey":"string"}`,
 		Short: `This is a combined resource for registering a new constituent with logging into the current session`,
 		Long:  `This is a combined resource for registering a new constituent with logging into the current session. This resource combines a workflow of multiple API actions into a single request. This is primarily designed for creating a constituent with a primary electronic address, a primary login, and logging into the session using the provide login.
 Creates a new constituent and login. Affiliates can be specified for the constituent to create a household account.
@@ -4949,8 +4949,8 @@ The login must be unique for the login type. The electronic address for this con
 	}
 
 var Post_RelationshipCategories_cmd = &cobra.Command{
-		Aliases: []string{  "RC",  "rc",  "relationshipcategories",  },
-		Use: `RelationshipCategories {"Data":{"CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "relationshipcategories",  "RC",  "rc",  },
+		Use: `RelationshipCategories {"Data":{"CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new relationship category`,
 		Long:  `Create a new relationship category.`,
 		PreRun: tqInit,
@@ -4972,8 +4972,8 @@ var Post_RelationshipCategories_cmd = &cobra.Command{
 	}
 
 var Post_ReportRequests_cmd = &cobra.Command{
-		Aliases: []string{  "reportrequests",  "RR",  "rr",  },
-		Use: `ReportRequests {"ReportRequest":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EmailBody":"string","EmailRecipients":"string","EmailSubject":"string","EndDateTime":"0001-01-01T00:00:00.000Z","OutputOption":"string","Parameters":[object],"QueueStatus":"string","ReportId":"string","RequestDateTime":"0001-01-01T00:00:00.000Z","ResultCode":"string","ResultText":"string","Type":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string","UserId":"string"}}`,
+		Aliases: []string{  "rr",  "reportrequests",  "RR",  },
+		Use: `ReportRequests {"ReportRequest":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DeletedIndicator":true,"EmailBody":"string","EmailRecipients":"string","EmailSubject":"string","EndDateTime":"0001-01-01T00:00:00.000Z","Id":123,"OutputOption":"string","Parameters":[{"Id":123},...],"PublicIndicator":true,"QueueStatus":"string","ReportId":"string","ReportType":123,"RequestDateTime":"0001-01-01T00:00:00.000Z","ResultCode":"string","ResultText":"string","ScheduleId":123,"Type":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string","UserId":"string"}}`,
 		Short: `Creates the report request`,
 		Long:  `Creates the report request.`,
 		PreRun: tqInit,
@@ -4998,8 +4998,8 @@ var Post_ReportRequests_cmd = &cobra.Command{
 	}
 
 var Post_ReportSchedules_cmd = &cobra.Command{
-		Aliases: []string{  "rs",  "reportschedules",  "RS",  },
-		Use: `ReportSchedules {"ReportScheduleNextRequest":{"EndDate":"0001-01-01T00:00:00.000Z","EndTime":"0001-01-01T00:00:00.000Z","StartDate":"0001-01-01T00:00:00.000Z","StartTime":"0001-01-01T00:00:00.000Z","Type":"string"}}`,
+		Aliases: []string{  "reportschedules",  "RS",  "rs",  },
+		Use: `ReportSchedules {"ReportScheduleNextRequest":{"DayOfWeek":123,"DayWeekNumber":123,"EndDate":"0001-01-01T00:00:00.000Z","EndTime":"0001-01-01T00:00:00.000Z","Interval":123,"StartDate":"0001-01-01T00:00:00.000Z","StartTime":"0001-01-01T00:00:00.000Z","Type":"string"}}`,
 		Short: `Verify the next run for a schedule's recurrence pattern by passing the pattern`,
 		Long:  `Verify the next run for a schedule's recurrence pattern by passing the pattern.  Returns its calculated next run date/time.`,
 		PreRun: tqInit,
@@ -5025,7 +5025,7 @@ var Post_ReportSchedules_cmd = &cobra.Command{
 
 var Post_ReportUserGroups_cmd = &cobra.Command{
 		Aliases: []string{  "reportusergroups",  "RUG",  "rug",  },
-		Use: `ReportUserGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","ReportId":"string","RunRight":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string","ViewRight":"string"}}`,
+		Use: `ReportUserGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"ReportId":"string","RunRight":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string","ViewRight":"string"}}`,
 		Short: `Create a new report/user group mapping`,
 		Long:  `Create a new report/user group mapping.`,
 		PreRun: tqInit,
@@ -5048,7 +5048,7 @@ var Post_ReportUserGroups_cmd = &cobra.Command{
 
 var Post_Reports_cmd = &cobra.Command{
 		Aliases: []string{  "reports",  "R",  "r",  },
-		Use: `Reports {"Request":{"ParameterName":"string","ReportId":"string","WhereDependencies":[object]}}`,
+		Use: `Reports {"Request":{"ParameterName":"string","ReportId":"string","WhereDependencies":[{"Id":123},...]}}`,
 		Short: `Get parameter values for a report parameter`,
 		Long:  `Get parameter values for a report parameter.`,
 		PreRun: tqInit,
@@ -5070,8 +5070,8 @@ var Post_Reports_cmd = &cobra.Command{
 	}
 
 var Post_Research_cmd = &cobra.Command{
-		Aliases: []string{  "research",  "R",  "r",  },
-		Use: `Research {"ResearchEntry":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","ResearchDate":"0001-01-01T00:00:00.000Z","ResearchSource":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "r",  "research",  "R",  },
+		Use: `Research {"ResearchEntry":{"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"ResearchDate":"0001-01-01T00:00:00.000Z","ResearchSource":"string","ResearchType":{"Id":123},"Researcher":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a research entry for a constituent`,
 		Long:  `Create a research entry for a constituent.`,
 		PreRun: tqInit,
@@ -5093,8 +5093,8 @@ var Post_Research_cmd = &cobra.Command{
 	}
 
 var Post_ResearchTypes_cmd = &cobra.Command{
-		Aliases: []string{  "researchtypes",  "RT",  "rt",  },
-		Use: `ResearchTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "RT",  "rt",  "researchtypes",  },
+		Use: `ResearchTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new research type`,
 		Long:  `Create a new research type.`,
 		PreRun: tqInit,
@@ -5116,8 +5116,8 @@ var Post_ResearchTypes_cmd = &cobra.Command{
 	}
 
 var Post_ResourceCategories_cmd = &cobra.Command{
-		Aliases: []string{  "rc",  "resourcecategories",  "RC",  },
-		Use: `ResourceCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "RC",  "rc",  "resourcecategories",  },
+		Use: `ResourceCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Resource Category`,
 		Long:  `Create a new Resource Category.`,
 		PreRun: tqInit,
@@ -5140,7 +5140,7 @@ var Post_ResourceCategories_cmd = &cobra.Command{
 
 var Post_ResourceSchedules_cmd = &cobra.Command{
 		Aliases: []string{  "resourceschedules",  "RS",  "rs",  },
-		Use: `ResourceSchedules {"ResourceSchedule":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndDateTime":"0001-01-01T00:00:00.000Z","RecurrenceDayOfWeek":"string","RecurrenceEndDate":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ResourceSchedules {"ResourceSchedule":{"BookingAssignmentId":123,"ConstituentId":123,"Count":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndDateTime":"0001-01-01T00:00:00.000Z","Id":123,"OverrideConflicts":true,"RecurrenceDayOfWeek":"string","RecurrenceEndDate":"0001-01-01T00:00:00.000Z","RecurrenceInterval":123,"RecurrenceOrdinal":123,"RecurrencePattern":123,"ResourceId":123,"StartDateTime":"0001-01-01T00:00:00.000Z","Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a Busy or Available resource schedule`,
 		Long:  `Create a Busy or Available resource schedule.  Booking Assignment Schedules must be created in a booking.`,
 		PreRun: tqInit,
@@ -5163,7 +5163,7 @@ var Post_ResourceSchedules_cmd = &cobra.Command{
 
 var Post_ResourceTypes_cmd = &cobra.Command{
 		Aliases: []string{  "resourcetypes",  "RT",  "rt",  },
-		Use: `ResourceTypes {"ResourceType":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ResourceTypes {"ResourceType":{"CanBeShared":true,"Category":{"Id":123},"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"HasCapacity":true,"Id":123,"Inactive":true,"RequireAvailability":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new resource type`,
 		Long:  `Create a new resource type.`,
 		PreRun: tqInit,
@@ -5186,7 +5186,7 @@ var Post_ResourceTypes_cmd = &cobra.Command{
 
 var Post_Resources_cmd = &cobra.Command{
 		Aliases: []string{  "resources",  "R",  "r",  },
-		Use: `Resources {"Resource":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultConfirmationText":"string","Description":"string","Notes":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Resources {"Resource":{"Capacity":123,"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultConfirmationText":"string","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Notes":"string","ResourceType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a Resource`,
 		Long:  `Create a Resource.`,
 		PreRun: tqInit,
@@ -5214,7 +5214,7 @@ var Post_Resources_cmd = &cobra.Command{
 
 var Post_SalesChannels_cmd = &cobra.Command{
 		Aliases: []string{  "saleschannels",  "SC",  "sc",  },
-		Use: `SalesChannels {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `SalesChannels {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new sales channel`,
 		Long:  `Create a new sales channel.`,
 		PreRun: tqInit,
@@ -5237,7 +5237,7 @@ var Post_SalesChannels_cmd = &cobra.Command{
 
 var Post_SalesLayoutButtonTypes_cmd = &cobra.Command{
 		Aliases: []string{  "saleslayoutbuttontypes",  "SLBT",  "slbt",  },
-		Use: `SalesLayoutButtonTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `SalesLayoutButtonTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new sales layout button type`,
 		Long:  `Create a new sales layout button type.`,
 		PreRun: tqInit,
@@ -5260,7 +5260,7 @@ var Post_SalesLayoutButtonTypes_cmd = &cobra.Command{
 
 var Post_SalesLayouts_cmd = &cobra.Command{
 		Aliases: []string{  "saleslayouts",  "SL",  "sl",  },
-		Use: `SalesLayouts {"SalesLayout":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","PaymentMethods":[object],"PriceTypes":[object],"SalesLayoutButtons":[object],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `SalesLayouts {"SalesLayout":{"Columns":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PaymentMethods":[{"Id":123},...],"PriceTypes":[{"Id":123},...],"PrimaryIndicator":true,"Rows":123,"SalesLayoutButtons":[{"Id":123},...],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new sales layout setup`,
 		Long:  `Create a new sales layout setup.`,
 		PreRun: tqInit,
@@ -5282,8 +5282,8 @@ var Post_SalesLayouts_cmd = &cobra.Command{
 	}
 
 var Post_SalutationTypes_cmd = &cobra.Command{
-		Aliases: []string{  "ST",  "st",  "salutationtypes",  },
-		Use: `SalutationTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "salutationtypes",  "ST",  "st",  },
+		Use: `SalutationTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new salutation type`,
 		Long:  `Create a new salutation type.`,
 		PreRun: tqInit,
@@ -5305,8 +5305,8 @@ var Post_SalutationTypes_cmd = &cobra.Command{
 	}
 
 var Post_Salutations_cmd = &cobra.Command{
-		Aliases: []string{  "salutations",  "S",  "s",  },
-		Use: `Salutations {"Salutation":{"BusinessTitle":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EnvelopeSalutation1":"string","EnvelopeSalutation2":"string","LetterSalutation":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "S",  "s",  "salutations",  },
+		Use: `Salutations {"Salutation":{"BusinessTitle":"string","Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultIndicator":true,"EditIndicator":true,"EnvelopeSalutation1":"string","EnvelopeSalutation2":"string","Id":123,"IsFromAffiliation":true,"Label":true,"LetterSalutation":"string","SalutationType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new salutation`,
 		Long:  `Create a new salutation.`,
 		PreRun: tqInit,
@@ -5329,7 +5329,7 @@ var Post_Salutations_cmd = &cobra.Command{
 
 var Post_SchedulePatternTypes_cmd = &cobra.Command{
 		Aliases: []string{  "schedulepatterntypes",  "SPT",  "spt",  },
-		Use: `SchedulePatternTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `SchedulePatternTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Schedule Pattern`,
 		Long:  `Create a new Schedule Pattern.`,
 		PreRun: tqInit,
@@ -5352,7 +5352,7 @@ var Post_SchedulePatternTypes_cmd = &cobra.Command{
 
 var Post_ScheduleTypes_cmd = &cobra.Command{
 		Aliases: []string{  "scheduletypes",  "ST",  "st",  },
-		Use: `ScheduleTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ScheduleTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Schedule Type`,
 		Long:  `Create a new Schedule Type.`,
 		PreRun: tqInit,
@@ -5375,7 +5375,7 @@ var Post_ScheduleTypes_cmd = &cobra.Command{
 
 var Post_SeasonTypes_cmd = &cobra.Command{
 		Aliases: []string{  "seasontypes",  "ST",  "st",  },
-		Use: `SeasonTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `SeasonTypes {"Data":{"BusinessUnit":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new season type`,
 		Long:  `Create a new season type.`,
 		PreRun: tqInit,
@@ -5398,7 +5398,7 @@ var Post_SeasonTypes_cmd = &cobra.Command{
 
 var Post_Seasons_cmd = &cobra.Command{
 		Aliases: []string{  "seasons",  "S",  "s",  },
-		Use: `Seasons {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndDateTime":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Seasons {"Data":{"ConfirmationNoticeFormat":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultIndicator":true,"Description":"string","DisplayInSeasonOverview":true,"EndDateTime":"0001-01-01T00:00:00.000Z","FYear":123,"Id":123,"Inactive":true,"RenewalNoticeFormat":123,"StartDateTime":"0001-01-01T00:00:00.000Z","SubscriptionFund1":123,"SubscriptionFund2":123,"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","YearlySeason":123}}`,
 		Short: `Create a new season`,
 		Long:  `Create a new season.`,
 		PreRun: tqInit,
@@ -5421,7 +5421,7 @@ var Post_Seasons_cmd = &cobra.Command{
 
 var Post_SeatCodes_cmd = &cobra.Command{
 		Aliases: []string{  "seatcodes",  "SC",  "sc",  },
-		Use: `SeatCodes {"Data":{"Context":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","DisplayLetter":"string","TicketText":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `SeatCodes {"Data":{"BackColor":123,"Context":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","DisplayLetter":"string","ForeColor":123,"Id":123,"Inactive":true,"IsSeat":123,"TicketText":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new seat code`,
 		Long:  `Create a new seat code.`,
 		PreRun: tqInit,
@@ -5444,7 +5444,7 @@ var Post_SeatCodes_cmd = &cobra.Command{
 
 var Post_SeatStatuses_cmd = &cobra.Command{
 		Aliases: []string{  "seatstatuses",  "SS",  "ss",  },
-		Use: `SeatStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","StatusCode":"string","StatusLegend":"string","Tck":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `SeatStatuses {"Data":{"BackColor":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ForeColor":123,"Id":123,"Inactive":true,"StatusCode":"string","StatusLegend":"string","StatusPriority":123,"Tck":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new seat status`,
 		Long:  `Create a new seat status.`,
 		PreRun: tqInit,
@@ -5467,7 +5467,7 @@ var Post_SeatStatuses_cmd = &cobra.Command{
 
 var Post_Sections_cmd = &cobra.Command{
 		Aliases: []string{  "sections",  "S",  "s",  },
-		Use: `Sections {"Data":{"AdditionalText":"string","AdditionalText2":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","PrintDesc":"string","SectionLegend":"string","ShortDesc":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Sections {"Data":{"AdditionalText":"string","AdditionalText2":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"PrintDesc":"string","PrintSequence":123,"SectionLegend":"string","ShortDesc":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new section`,
 		Long:  `Create a new section.`,
 		PreRun: tqInit,
@@ -5490,7 +5490,7 @@ var Post_Sections_cmd = &cobra.Command{
 
 var Post_ServiceResourceUserGroups_cmd = &cobra.Command{
 		Aliases: []string{  "serviceresourceusergroups",  "SRUG",  "srug",  },
-		Use: `ServiceResourceUserGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
+		Use: `ServiceResourceUserGroups {"Data":{"CanCreate":true,"CanDelete":true,"CanRead":true,"CanUpdate":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"ServiceResource":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
 		Short: `Create a new service resource/user group mapping`,
 		Long:  `Create a new service resource/user group mapping.`,
 		PreRun: tqInit,
@@ -5567,7 +5567,7 @@ var Post_Session_cmd = &cobra.Command{
 
 var Post_SourceGroups_cmd = &cobra.Command{
 		Aliases: []string{  "sourcegroups",  "SG",  "sg",  },
-		Use: `SourceGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `SourceGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new source group`,
 		Long:  `Create a new source group.`,
 		PreRun: tqInit,
@@ -5589,8 +5589,8 @@ var Post_SourceGroups_cmd = &cobra.Command{
 	}
 
 var Post_SpecialActivities_cmd = &cobra.Command{
-		Aliases: []string{  "specialactivities",  "SA",  "sa",  },
-		Use: `SpecialActivities {"SpecialActivity":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Notes":"string","Performance":"string","SpecialActivityDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "sa",  "specialactivities",  "SA",  },
+		Use: `SpecialActivities {"SpecialActivity":{"ConstituentId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"Notes":"string","NumberOfAttendees":123,"Performance":"string","SpecialActivityDateTime":"0001-01-01T00:00:00.000Z","Status":{"Id":123},"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","WorkerConstituentId":123}}`,
 		Short: `Create a new activity record`,
 		Long:  `Create a new activity record.`,
 		PreRun: tqInit,
@@ -5612,8 +5612,8 @@ var Post_SpecialActivities_cmd = &cobra.Command{
 	}
 
 var Post_SpecialActivityStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "SAS",  "sas",  "specialactivitystatuses",  },
-		Use: `SpecialActivityStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "specialactivitystatuses",  "SAS",  "sas",  },
+		Use: `SpecialActivityStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Special Activity Status`,
 		Long:  `Create a new Special Activity Status.`,
 		PreRun: tqInit,
@@ -5635,8 +5635,8 @@ var Post_SpecialActivityStatuses_cmd = &cobra.Command{
 	}
 
 var Post_SpecialActivityTypes_cmd = &cobra.Command{
-		Aliases: []string{  "specialactivitytypes",  "SAT",  "sat",  },
-		Use: `SpecialActivityTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "SAT",  "sat",  "specialactivitytypes",  },
+		Use: `SpecialActivityTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Special Activity Type`,
 		Long:  `Create a new Special Activity Type.`,
 		PreRun: tqInit,
@@ -5659,7 +5659,7 @@ var Post_SpecialActivityTypes_cmd = &cobra.Command{
 
 var Post_States_cmd = &cobra.Command{
 		Aliases: []string{  "states",  "S",  "s",  },
-		Use: `States {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","StateCode":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `States {"Data":{"Country":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"StateCode":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new state`,
 		Long:  `Create a new state.`,
 		PreRun: tqInit,
@@ -5682,7 +5682,7 @@ var Post_States_cmd = &cobra.Command{
 
 var Post_StepTypes_cmd = &cobra.Command{
 		Aliases: []string{  "steptypes",  "ST",  "st",  },
-		Use: `StepTypes {"Data":{"AllowAttachments":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseAssociate":"string","UseCompletedOnDateTime":"string","UseDueDateTime":"string","UseNote":"string","UseWarningDays":"string","UseWorker":"string"}}`,
+		Use: `StepTypes {"Data":{"AllowAttachments":"string","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseAssociate":"string","UseCompletedOnDateTime":"string","UseDueDateTime":"string","UseNote":"string","UseWarningDays":"string","UseWorker":"string"}}`,
 		Short: `Create a new step type`,
 		Long:  `Create a new step type.`,
 		PreRun: tqInit,
@@ -5705,7 +5705,7 @@ var Post_StepTypes_cmd = &cobra.Command{
 
 var Post_Steps_cmd = &cobra.Command{
 		Aliases: []string{  "steps",  "S",  "s",  },
-		Use: `Steps {"Step":{"CompletedOnDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","DueDateTime":"0001-01-01T00:00:00.000Z","NewValue":"string","Notes":"string","OldValue":"string","StepDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Steps {"Step":{"Associate":{"Id":123},"CompletedOnDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","DueDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"NewValue":"string","Notes":"string","OldValue":"string","Plan":{"Id":123},"Priority":123,"StepDateTime":"0001-01-01T00:00:00.000Z","Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","WarningDays":123,"Worker":{"Id":123}}}`,
 		Short: `Create a new step`,
 		Long:  `Create a new step.`,
 		PreRun: tqInit,
@@ -5730,8 +5730,8 @@ var Post_Steps_cmd = &cobra.Command{
 	}
 
 var Post_SubLineItemStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "SLIS",  "slis",  "sublineitemstatuses",  },
-		Use: `SubLineItemStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","StatusCode":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "sublineitemstatuses",  "SLIS",  "slis",  },
+		Use: `SubLineItemStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Priority":123,"StatusCode":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new sub line item status`,
 		Long:  `Create a new sub line item status.`,
 		PreRun: tqInit,
@@ -5754,7 +5754,7 @@ var Post_SubLineItemStatuses_cmd = &cobra.Command{
 
 var Post_Suffixes_cmd = &cobra.Command{
 		Aliases: []string{  "suffixes",  "S",  "s",  },
-		Use: `Suffixes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Suffixes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new suffix`,
 		Long:  `Create a new suffix.`,
 		PreRun: tqInit,
@@ -5777,7 +5777,7 @@ var Post_Suffixes_cmd = &cobra.Command{
 
 var Post_SurveyQuestions_cmd = &cobra.Command{
 		Aliases: []string{  "surveyquestions",  "SQ",  "sq",  },
-		Use: `SurveyQuestions {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultValue":"string","Question":"string","ReferenceTable":"string","ReferenceTableDescriptionColumn":"string","ReferenceTableIdColumn":"string","ReferenceTableSort":"string","ReferenceTableWhereClause":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `SurveyQuestions {"Data":{"AskType":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DataType":123,"DefaultValue":"string","Id":123,"Inactive":true,"Question":"string","ReferenceTable":"string","ReferenceTableDescriptionColumn":"string","ReferenceTableIdColumn":"string","ReferenceTableSort":"string","ReferenceTableWhereClause":"string","Required":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new survey question`,
 		Long:  `Create a new survey question.`,
 		PreRun: tqInit,
@@ -5799,8 +5799,8 @@ var Post_SurveyQuestions_cmd = &cobra.Command{
 	}
 
 var Post_SurveyResponses_cmd = &cobra.Command{
-		Aliases: []string{  "sr",  "surveyresponses",  "SR",  },
-		Use: `SurveyResponses {"SurveyResponse":{"Answer":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "surveyresponses",  "SR",  "sr",  },
+		Use: `SurveyResponses {"SurveyResponse":{"Answer":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"OrderId":123,"QuestionId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new survey response`,
 		Long:  `Create a new survey response.`,
 		PreRun: tqInit,
@@ -5822,8 +5822,8 @@ var Post_SurveyResponses_cmd = &cobra.Command{
 	}
 
 var Post_TemplateCategories_cmd = &cobra.Command{
-		Aliases: []string{  "templatecategories",  "TC",  "tc",  },
-		Use: `TemplateCategories {"TemplateCategory":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "tc",  "templatecategories",  "TC",  },
+		Use: `TemplateCategories {"TemplateCategory":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new template category`,
 		Long:  `Create a new template category`,
 		PreRun: tqInit,
@@ -5845,8 +5845,8 @@ var Post_TemplateCategories_cmd = &cobra.Command{
 	}
 
 var Post_TemplatePriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "tpt",  "templatepricetypes",  "TPT",  },
-		Use: `TemplatePriceTypes {"TemplatePriceType":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","TemplatePrices":[object],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "templatepricetypes",  "TPT",  "tpt",  },
+		Use: `TemplatePriceTypes {"TemplatePriceType":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DesignationCode":{"Id":123},"GlAccount":{"Id":123},"Id":123,"PriceTemplate":{"Id":123},"PriceType":{"Id":123},"ResaleAccount":{"Id":123},"TemplatePrices":[{"Id":123},...],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new template price type`,
 		Long:  `Create a new template price type.`,
 		PreRun: tqInit,
@@ -5871,8 +5871,8 @@ var Post_TemplatePriceTypes_cmd = &cobra.Command{
 	}
 
 var Post_TemplatePrices_cmd = &cobra.Command{
-		Aliases: []string{  "templateprices",  "TP",  "tp",  },
-		Use: `TemplatePrices {"TemplatePrice":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "tp",  "templateprices",  "TP",  },
+		Use: `TemplatePrices {"TemplatePrice":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Enabled":true,"Id":123,"MinPrice":123.456,"Price":123.456,"TemplatePriceType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Zone":{"Id":123}}}`,
 		Short: `Create a new template price`,
 		Long:  `Create a new template price.`,
 		PreRun: tqInit,
@@ -5898,7 +5898,7 @@ var Post_TemplatePrices_cmd = &cobra.Command{
 
 var Post_Templates_cmd = &cobra.Command{
 		Aliases: []string{  "templates",  "T",  "t",  },
-		Use: `Templates {"Template":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","TemplateBody":"string","TemplateSubject":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `Templates {"Template":{"Category":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"IsHtmlBody":true,"TemplateBody":"string","TemplateSubject":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new template`,
 		Long:  `Create a new template`,
 		PreRun: tqInit,
@@ -5937,8 +5937,8 @@ var Post_Templates_cmd = &cobra.Command{
 	}
 
 var Post_Theaters_cmd = &cobra.Command{
-		Aliases: []string{  "t",  "theaters",  "T",  },
-		Use: `Theaters {"Data":{"City":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DataWindowDefinition":"string","Description":"string","DrivingDirections":"string","Phone":"string","PostalCode":"string","State":"string","Street":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "theaters",  "T",  "t",  },
+		Use: `Theaters {"Data":{"City":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DataWindowDefinition":"string","Description":"string","DrivingDirections":"string","Id":123,"Inactive":true,"MaximumNumberOfSeats":123,"Phone":"string","PostalCode":"string","State":"string","Street":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new theater`,
 		Long:  `Create a new theater.`,
 		PreRun: tqInit,
@@ -5961,7 +5961,7 @@ var Post_Theaters_cmd = &cobra.Command{
 
 var Post_TimeSlots_cmd = &cobra.Command{
 		Aliases: []string{  "timeslots",  "TS",  "ts",  },
-		Use: `TimeSlots {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndTime":"0001-01-01T00:00:00.000Z","StartTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `TimeSlots {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndTime":"0001-01-01T00:00:00.000Z","Id":123,"Inactive":true,"StartTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new time slot`,
 		Long:  `Create a new time slot.`,
 		PreRun: tqInit,
@@ -5984,7 +5984,7 @@ var Post_TimeSlots_cmd = &cobra.Command{
 
 var Post_TriPOSCloudConfigurations_cmd = &cobra.Command{
 		Aliases: []string{  "triposcloudconfigurations",  "TPOSCC",  "tposcc",  },
-		Use: `TriPOSCloudConfigurations {"Data":{"ConfigSetting":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `TriPOSCloudConfigurations {"Data":{"ConfigSetting":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new TriPOS Cloud configuration`,
 		Long:  `Create a new TriPOS Cloud configuration.`,
 		PreRun: tqInit,
@@ -6007,7 +6007,7 @@ var Post_TriPOSCloudConfigurations_cmd = &cobra.Command{
 
 var Post_UpgradeCategories_cmd = &cobra.Command{
 		Aliases: []string{  "upgradecategories",  "UC",  "uc",  },
-		Use: `UpgradeCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `UpgradeCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Upgrade Category`,
 		Long:  `Create a new Upgrade Category.`,
 		PreRun: tqInit,
@@ -6029,8 +6029,8 @@ var Post_UpgradeCategories_cmd = &cobra.Command{
 	}
 
 var Post_UpgradeLogs_cmd = &cobra.Command{
-		Aliases: []string{  "upgradelogs",  "UL",  "ul",  },
-		Use: `UpgradeLogs {"UpgradeLog":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","ReleaseDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Version":"string"}}`,
+		Aliases: []string{  "UL",  "ul",  "upgradelogs",  },
+		Use: `UpgradeLogs {"UpgradeLog":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","HotFixNumber":123,"Id":123,"ReleaseDescription":"string","ScriptId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UpgradeCategorySummary":{"Id":123},"Version":"string"}}`,
 		Short: `Saves the given upgradeLog`,
 		Long:  `Saves the given upgradeLog.`,
 		PreRun: tqInit,
@@ -6052,8 +6052,8 @@ var Post_UpgradeLogs_cmd = &cobra.Command{
 	}
 
 var Post_UserPreferences_cmd = &cobra.Command{
-		Aliases: []string{  "userpreferences",  "UP",  "up",  },
-		Use: `UserPreferences {"UserPreference":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Key":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Value":"string"}}`,
+		Aliases: []string{  "up",  "userpreferences",  "UP",  },
+		Use: `UserPreferences {"UserPreference":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"Key":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Value":"string"}}`,
 		Short: `Create a new user preference`,
 		Long:  `Create a new user preference.`,
 		PreRun: tqInit,
@@ -6078,7 +6078,7 @@ var Post_UserPreferences_cmd = &cobra.Command{
 	}
 
 var Post_Users_cmd = &cobra.Command{
-		Aliases: []string{  "users",  "U",  "u",  },
+		Aliases: []string{  "U",  "u",  "users",  },
 		Use: `Users {"PasswordChangeRequest":{"NewPassword":"string","OldPassword":"string"},"UserName":"string"}`,
 		Short: `Allows for changing of a user's password`,
 		Long:  `Allows for changing of a user's password`,
@@ -6102,7 +6102,7 @@ var Post_Users_cmd = &cobra.Command{
 
 var Post_ValidateWebLogin_cmd = &cobra.Command{
 		Aliases: []string{  "validateweblogin",  "VWL",  "vwl",  },
-		Use: `ValidateWebLogin {"ValidationRequest":{"LoginName":"string","Password":"string"}}`,
+		Use: `ValidateWebLogin {"ValidationRequest":{"LoginName":"string","LoginTypeId":123,"Password":"string"}}`,
 		Short: `Validate a web login`,
 		Long:  `Validate a web login.`,
 		PreRun: tqInit,
@@ -6125,7 +6125,7 @@ var Post_ValidateWebLogin_cmd = &cobra.Command{
 
 var Post_WebContentTypes_cmd = &cobra.Command{
 		Aliases: []string{  "webcontenttypes",  "WCT",  "wct",  },
-		Use: `WebContentTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditMask":"string","LastContentUseUpdateDateTime":"0001-01-01T00:00:00.000Z","ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `WebContentTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditMask":"string","FullTextSearchIndicator":true,"Id":123,"Inactive":true,"LastContentUseUpdateDateTime":"0001-01-01T00:00:00.000Z","Limit":123,"ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseWebApi":true}}`,
 		Short: `Create a Web Content Type`,
 		Long:  `Create a Web Content Type.`,
 		PreRun: tqInit,
@@ -6148,7 +6148,7 @@ var Post_WebContentTypes_cmd = &cobra.Command{
 
 var Post_WebLogins_cmd = &cobra.Command{
 		Aliases: []string{  "weblogins",  "WL",  "wl",  },
-		Use: `WebLogins {"Login":{"ConstituentUpdateDate":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","LastLoginDate":"0001-01-01T00:00:00.000Z","LockedDate":"0001-01-01T00:00:00.000Z","Login":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `WebLogins {"Login":{"Constituent":{"Id":123},"ConstituentUpdateDate":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Email":{"Id":123},"FailedAttempts":123,"Id":123,"Inactive":true,"LastLoginDate":"0001-01-01T00:00:00.000Z","LockedDate":"0001-01-01T00:00:00.000Z","Login":"string","LoginType":{"Id":123},"PrimaryIndicator":true,"TemporaryIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new weblogin`,
 		Long:  `Create a new weblogin.`,
 		PreRun: tqInit,
@@ -6171,7 +6171,7 @@ var Post_WebLogins_cmd = &cobra.Command{
 
 var Post_WorkerQualifications_cmd = &cobra.Command{
 		Aliases: []string{  "workerqualifications",  "WQ",  "wq",  },
-		Use: `WorkerQualifications {"WorkerQualification":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `WorkerQualifications {"WorkerQualification":{"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","Id":123,"Qualification":{"Id":123},"StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a WorkerQualification`,
 		Long:  `Create a WorkerQualification.`,
 		PreRun: tqInit,
@@ -6194,7 +6194,7 @@ var Post_WorkerQualifications_cmd = &cobra.Command{
 
 var Post_WorkerRoles_cmd = &cobra.Command{
 		Aliases: []string{  "workerroles",  "WR",  "wr",  },
-		Use: `WorkerRoles {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `WorkerRoles {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"ShowInPortfolioDefault":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new worker role`,
 		Long:  `Create a new worker role.`,
 		PreRun: tqInit,
@@ -6216,8 +6216,8 @@ var Post_WorkerRoles_cmd = &cobra.Command{
 	}
 
 var Post_WorkerTypes_cmd = &cobra.Command{
-		Aliases: []string{  "workertypes",  "WT",  "wt",  },
-		Use: `WorkerTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "WT",  "wt",  "workertypes",  },
+		Use: `WorkerTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new worker type`,
 		Long:  `Create a new worker type.`,
 		PreRun: tqInit,
@@ -6239,8 +6239,8 @@ var Post_WorkerTypes_cmd = &cobra.Command{
 	}
 
 var Post_Workers_cmd = &cobra.Command{
-		Aliases: []string{  "workers",  "W",  "w",  },
-		Use: `Workers {"Worker":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","FirstName":"string","LastName":"string","ShortDisplayName":"string","SortName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "W",  "w",  "workers",  },
+		Use: `Workers {"Worker":{"ConstituentId":123,"ConstituentInactive":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"FirstName":"string","Id":123,"Inactive":true,"LastName":"string","Prefix":{"Id":123},"ShortDisplayName":"string","SortName":"string","Suffix":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","WorkerType":{"Id":123}}}`,
 		Short: `Create a new worker`,
 		Long:  `Create a new worker.`,
 		PreRun: tqInit,
@@ -6262,8 +6262,8 @@ var Post_Workers_cmd = &cobra.Command{
 	}
 
 var Post_ZoneGroups_cmd = &cobra.Command{
-		Aliases: []string{  "ZG",  "zg",  "zonegroups",  },
-		Use: `ZoneGroups {"Data":{"AliasDescription":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Aliases: []string{  "zonegroups",  "ZG",  "zg",  },
+		Use: `ZoneGroups {"Data":{"AliasDescription":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new zone group`,
 		Long:  `Create a new zone group.`,
 		PreRun: tqInit,
@@ -6286,7 +6286,7 @@ var Post_ZoneGroups_cmd = &cobra.Command{
 
 var Post_ZoneMaps_cmd = &cobra.Command{
 		Aliases: []string{  "zonemaps",  "ZM",  "zm",  },
-		Use: `ZoneMaps {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
+		Use: `ZoneMaps {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"SeatMap":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new zone map`,
 		Long:  `Create a new zone map.`,
 		PreRun: tqInit,
@@ -6309,7 +6309,7 @@ var Post_ZoneMaps_cmd = &cobra.Command{
 
 var Post_Zones_cmd = &cobra.Command{
 		Aliases: []string{  "zones",  "Z",  "z",  },
-		Use: `Zones {"Data":{"Abbreviation":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndTime":"string","ShortDescription":"string","StartTime":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","ZoneLegend":"string","ZoneTime":"string"}}`,
+		Use: `Zones {"Data":{"Abbreviation":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndTime":"string","Id":123,"Rank":123,"ShortDescription":"string","StartTime":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","ZoneGroup":{"Id":123},"ZoneLegend":"string","ZoneMapId":123,"ZoneTime":"string"}}`,
 		Short: `Create a new zone`,
 		Long:  `Create a new zone.`,
 		PreRun: tqInit,
@@ -6339,11 +6339,11 @@ func init() {
 	
 		Post_cmd.AddCommand(Post_Accounts_cmd) 
 				Post_Accounts_cmd.Flags().Bool("DirectDebitAccount", false, `Store a direct debit account.
-{"Request":{"AccountNumber":"string","Name":"string"}}`) 
+{"Request":{"AccountNumber":"string","CardExpiryMonth":123,"CardExpiryYear":123,"ConstituentId":123,"DirectDebitAccountType":{"Id":123},"Inactive":true,"Name":"string"}}`) 
 				Post_Accounts_cmd.Flags().Bool("SepaAccount", false, `Store a SEPA Direct Debit account.
-{"Request":{"AccountNumber":"string","BankIdentifierCode":"string","MandateNumber":"string","Name":"string","SignatureDate":"0001-01-01T00:00:00.000Z"}}`) 
+{"Request":{"AccountNumber":"string","BankIdentifierCode":"string","ConstituentId":123,"Inactive":true,"MandateNumber":"string","MandateType":123,"Name":"string","SignatureDate":"0001-01-01T00:00:00.000Z"}}`) 
 				Post_Accounts_cmd.Flags().Bool("VantivEncryptedCardAccount", false, `Create a credit card account from a Vantiv Encrypted Reader using tokenization.
-{"Request":{"Name":"string"}}`)
+{"Request":{"ConstituentId":123,"ExclusiveToControlledBatchId":123,"Inactive":true,"Name":"string","PaymentMethodGroupId":123,"VantivEncryptedCard":{"Id":123}}}`)
 	
 		Post_cmd.AddCommand(Post_ActionTypes_cmd)
 	
@@ -6395,21 +6395,21 @@ func init() {
 	
 		Post_cmd.AddCommand(Post_Authorization_cmd) 
 				Post_Authorization_cmd.Flags().Bool("Confirm", false, `Confirm an authorization using its reference number. For all gateways, this results in a confirm transaction being written to T_PAYMENT_GATEWAY_ACTIVITY. For EPay gateway, the confirm endpoint also sends a capture transaction.
-{"ConfirmAuthorizationRequest":{"TransactionOrigin":"string","UserData":"string"},"ReferenceNumber":"string"}`) 
+{"ConfirmAuthorizationRequest":{"Amount":123.456,"IsECommerce":true,"PaymentId":123,"PaymentMethodId":123,"TransactionOrigin":"string","UserData":"string"},"ReferenceNumber":"string"}`) 
 				Post_Authorization_cmd.Flags().Bool("ConfirmPayByLink", false, `NOTE: THIS IS FOR TESSITURA USE ONLY. Custom implementations of this endpoint are not supported.
 Check to see if a Pay by Link has been authorized.  For Tessitura Merchant Services only.
-{"PayByLinkAuthorizationRequest":{},"PaymentID":"string"}`) 
+{"PayByLinkAuthorizationRequest":{"BypassNotificationEventCheck":true},"PaymentID":"string"}`) 
 				Post_Authorization_cmd.Flags().Bool("Finalize", false, `Finalize an authorization.  For use with Tessitura Merchant Services only. Finalizes a payment authorization derived from the Authorize request.
-{"FinalizeRequest":{"ActionData":"string","RedirectResult":"string"}}`) 
+{"FinalizeRequest":{"ActionData":"string","PaymentId":123,"RedirectResult":"string","StoreAccount":true}}`) 
 				Post_Authorization_cmd.Flags().Bool("Link", false, `NOTE: THIS IS FOR TESSITURA USE ONLY. Custom implementations of this endpoint are not supported.
 Create a payment link to a hosted payment form where shoppers can pay.  For Tessitura Merchant Services only.
-{"PayByLinkRequest":{"AllowedPaymentMethods":[object],"CountryCode":"string","Currency":"string","Description":"string","LinkExpiry":"0001-01-01T00:00:00.000Z","Locale":"string","MerchantId":"string","TransactionOrigin":"string"}}`) 
+{"PayByLinkRequest":{"Id":123}}`) 
 				Post_Authorization_cmd.Flags().Bool("Reverse", false, `Reverse a payment authorization using its reference number.
-{"ReferenceNumber":"string","ReversalRequest":{"TransactionOrigin":"string","UserData":"string"}}`)
+{"ReferenceNumber":"string","ReversalRequest":{"Amount":123.456,"Card":{"Id":123},"ConstituentId":123,"IsECommerce":true,"IsElementDebit":true,"IsSwiped":true,"PaymentId":123,"PaymentMethodId":123,"TransactionOrigin":"string","UserData":"string"}}`)
 	
 		Post_cmd.AddCommand(Post_Batch_cmd) 
 				Post_Batch_cmd.Flags().Bool("Sample", false, `
-{"Request":{"Requests":[object]}}`)
+{"Request":{"Requests":[{"Id":123},...]}}`)
 	
 		Post_cmd.AddCommand(Post_BatchMaintenance_cmd)
 	
@@ -6427,17 +6427,17 @@ Create a payment link to a hosted payment form where shoppers can pay.  For Tess
 	
 		Post_cmd.AddCommand(Post_Bookings_cmd) 
 				Post_Bookings_cmd.Flags().Bool("AddDocument", false, `Add a document to the booking.
-{"BookingID":"string","Document":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","FileName":"string","Notes":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`) 
+{"BookingID":"string","Document":{"Category":{"Id":123},"ConstituentId":123,"Contents":"AA==","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","FileName":"string","Id":123,"Notes":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`) 
 				Post_Bookings_cmd.Flags().Bool("FromTemplate", false, `Create a new Booking using the details and Resource Type assignments from a Booking Template.
-{"Request":{"ConfirmationText":"string","DefaultDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Notes":"string"}}`)
+{"Request":{"BookingSource":123,"BookingTemplateId":123,"ConfirmationText":"string","DefaultCount":123,"DefaultDateTime":"0001-01-01T00:00:00.000Z","DefaultDuration":123,"Description":"string","Notes":"string"}}`)
 	
 		Post_cmd.AddCommand(Post_BulkCopySets_cmd) 
 				Post_BulkCopySets_cmd.Flags().Bool("CopyDay", false, `Copies the packages, performances groups and performances from a day defined in the bulk copy set to the day specified in the request.
-{"BulkCopyDayRequest":{"CopyToDate":"0001-01-01T00:00:00.000Z"},"BulkCopySetID":"string"}`) 
+{"BulkCopyDayRequest":{"CopyToDate":"0001-01-01T00:00:00.000Z","PackageCodeCounter":123,"PerformanceCodeCounter":123},"BulkCopySetID":"string"}`) 
 				Post_BulkCopySets_cmd.Flags().Bool("CopyEvent", false, `Copies the performance specified in the bulk copy set to the date and time specified in the request.
-{"BulkCopyEventRequest":{"CopyToDate":"0001-01-01T00:00:00.000Z"},"BulkCopySetID":"string"}`) 
+{"BulkCopyEventRequest":{"CopyToDate":"0001-01-01T00:00:00.000Z","PerformanceCodeCounter":123},"BulkCopySetID":"string"}`) 
 				Post_BulkCopySets_cmd.Flags().Bool("ReplaceExclusions", false, `Replaces bulk copy exclusions for a given set by deleting them and inserting the new collection.
-{"BulkCopySetID":"string","BulkDailyCopyExclusions":[object]}`)
+{"BulkCopySetID":"string","BulkDailyCopyExclusions":[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DoNotCopy":true,"Id":123,"IncludeWithoutCopy":true,"PackageId":123,"PerformanceId":123,"SetId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},...]}`)
 	
 		Post_cmd.AddCommand(Post_BulkDailyCopyExclusions_cmd)
 	
@@ -6452,57 +6452,57 @@ Create a payment link to a hosted payment form where shoppers can pay.  For Tess
 		Post_cmd.AddCommand(Post_Cart_cmd) 
 				Post_Cart_cmd.Flags().Bool("AddContribution", false, `Adds a contribution to the cart
 The donation must be applied directly to a fund.  This method also allows a specific membership level ID to be specified.
-{"Request":{"CustomDataItems":[object],"Notes":"string"},"SessionKey":"string"}`) 
+{"Request":{"Amount":123.456,"CustomDataItems":[{"Id":123},...],"FundId":123,"MembershipLevelId":123,"Notes":"string","Renew":true,"Upgrade":true},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("AddFee", false, `Adds or Updates a fee
 Only user-defined fees can be added.  Seat-based fees can be overridden to zero only, while order-based or user-defined fees can be overridden to any amount, as allowed by the rules in fee setup.  To add and edit a user-defined fee call this method twice, once to add the fee, and once to override the amount.
-{"Request":{"Action":"string"},"SessionKey":"string"}`) 
+{"Request":{"Action":"string","Amount":123.456,"FeeId":123,"ItemFeeId":123},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("AddGiftCertificate", false, `Adds a gift certificate for the specified amount to the cart
 The resulting gift certificate number can be found with /Web/Cart (GET).
-{"Request":{"Name":"string","Notes":"string"},"SessionKey":"string"}`) 
+{"Request":{"Amount":123.456,"Name":"string","Notes":"string","PaymentMethodId":123},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("AddNFSPackagePerformanceItem", false, `Adds a new nfs package item to the cart
 This method adds a seated or unseated non fixed seat (NFS) or flex package to the cart by adding the component performances.  When the package is seated, the best seating function can be used or specific seat numbers can be passed for use with SYOS functionality.  
 A NFS or flex package line item is created when the first component performance is added to the cart.The ID number from the package line item is required when the remaining component performances are added.  It is returned as NFSPackageLineItemId in the method's response.
 /Web/Cart/Validation can be called at any time, setting the ValidateNFSPackages boolean to true, to determine whether all of the rules for the package have been met with items in the shopping cart.
 This method will allow the reservation of held seats.  To enable this functionality, add the key ''Reserve Held Seats' to T_DEFAULTS with a value of 'Yes' under the "Tessitura Web" parent table (or organization name if operating in a consortium environment).
-{"Request":{"PriceType":"string","PriceTypeReason":"string","RequestedSeats":"string","SpecialRequests":"string"},"SessionKey":"string"}`) 
+{"Request":{"LeaveSingleSeats":true,"NFSPackageLineItemId":123,"NumberOfSeats":123,"PackageId":123,"PerformanceGroupId":123,"PerformanceId":123,"PriceType":"string","PriceTypeReason":"string","RequestedSeats":"string","SpecialRequests":"string","Unseated":true,"ZoneId":123},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("AddOnAccount", false, `Adds an On Account balance to the cart
 Checkout will not be allowed for a general public order if On Account balance is added.
-{"Request":{"Notes":"string"},"SessionKey":"string"}`) 
+{"Request":{"Amount":123.456,"Notes":"string","PaymentMethodId":123},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("AddPackageItem", false, `Adds a new fixed seat package item to the cart
 Adds a seated or unseated fixed seat package line item to the cart and reserves seats using either the best seat function or reserves specific seats.
 PackageId line items can be added as alternate/upgrade line items to another line item in the cart.  To add an alternate/upgrade line item, the parent line item ID must be retrieved using /Web/Cart (GET) and then passed as the ParentPackageLineItemId parameter value for this method.
 This method will allow the reservation of held seats.To enable this functionality, add the key ''Reserve Held Seats' to T_DEFAULTS with a value of 'Yes' under the "Tessitura Web" parent table (or organization name if operating in a consortium environment).
-{"Request":{"PriceType":"string","PriceTypeReason":"string","RequestedSeats":"string"},"SessionKey":"string"}`) 
+{"Request":{"LeaveSingleSeats":true,"NumberOfSeats":123,"PackageId":123,"ParentPackageLineItemId":123,"PriceType":"string","PriceTypeReason":"string","RequestedSeats":"string","Unseated":true,"ZoneId":123},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("AddPaymentPlan", false, `Sets a payment plan on the cart using a start date, end date and a specific number of payments to be spread across the date range.
 The due date for the first payment is set to the entered beginning date, and the due date for subsequent payments is calculated by adding an equal number of days to each previous payment, based on the amount of time between the beginning and ending dates.
-{"Request":{"EndDate":"0001-01-01T00:00:00.000Z","StartDate":"0001-01-01T00:00:00.000Z"},"SessionKey":"string"}`) 
+{"Request":{"AccountId":123,"BillingTypeId":123,"Card":{"Id":123},"EndDate":"0001-01-01T00:00:00.000Z","NumberOfPayments":123,"StartDate":"0001-01-01T00:00:00.000Z"},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("AddPaymentPlanBasedOnBillingSchedule", false, `Sets a payment plan on the cart using a start date, end date and a pre-defined billing schedule.
 The number of payments, payment amounts, and payment due dates are calculated based on the selected billing schedule.  For details on setting up billing schedules see the TR_BILLING_SCHEDULE section of the System Tables document.
-{"Request":{"EndDate":"0001-01-01T00:00:00.000Z","StartDate":"0001-01-01T00:00:00.000Z"},"SessionKey":"string"}`) 
+{"Request":{"AccountId":123,"BillingScheduleId":123,"BillingTypeId":123,"Card":{"Id":123},"EndDate":"0001-01-01T00:00:00.000Z","OverrideAmountToSchedule":123.456,"StartDate":"0001-01-01T00:00:00.000Z"},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("AddPaymentPlanInstallments", false, `Sets a payment plan on the cart using a start date, end date and a list of installments with amount and due date.
 The total of the installment amounts must add up to the cart total. /Web/Cart/Validation can be used to validate that the payment plan is correct by passing True for ValidatePaymentPlan in that method.
-{"Request":{"PaymentPlanInstallments":[object]},"SessionKey":"string"}`) 
+{"Request":{"AccountId":123,"BillingTypeId":123,"Card":{"Id":123},"PaymentPlanInstallments":[{"Id":123},...]},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("AddSubPackageItem", false, `Adds a new sub package item to the cart
 This method is used to add a seated or unseated super package line item to the cart for the specified session by adding the component sub packages.  When the package is seated, the best seating function can be used or specific seat numbers can be passed for use with SYOS functionality.  The method must be called once for each sub package.
 A super package line item is created when the first sub package is added to the cart.The ID number from the super package line item is required when the remaining component sub packages are added.It is returned as SuperPackageLineItemId in the response.
 Super package line items can be added as alternate/upgrade line items to another super package line item in the cart.  To add an alternate/upgrade line item, the parent line item ID must be passed as the ParentSuperPackageLineItemId parameter value for this method.The parent line item ID can be retrieved using the /Web/Cart (GET) method.
-{"Request":{"PriceType":"string","PriceTypeReason":"string","RequestedSeats":"string"},"SessionKey":"string"}`) 
+{"Request":{"LeaveSingleSeats":true,"NumberOfSeats":123,"ParentSuperPackageLineItemId":123,"PriceType":"string","PriceTypeReason":"string","RequestedSeats":"string","SubPackageId":123,"SuperPackageLineItemId":123,"Unseated":true,"ZoneId":123},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("ApplyCashPayment", false, `Applies a cash payment to the cart
-{"Request":{"Notes":"string"},"SessionKey":"string"}`) 
+{"Request":{"Amount":123.456,"Notes":"string","PaymentMethodId":123,"TenderedAmount":123.456},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("ApplyCheckPayment", false, `Applies a check payment to the cart
-{"Request":{"CheckNumber":"string","Notes":"string","PayerName":"string"},"SessionKey":"string"}`) 
+{"Request":{"Amount":123.456,"CheckNumber":"string","Notes":"string","PayerName":"string","PaymentMethodId":123},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("ApplyGiftCertificate", false, `Applies a gift certificate as payment for a cart
-{"Request":{"GiftCertificateNumber":"string","Notes":"string"},"SessionKey":"string"}`) 
+{"Request":{"Amount":123.456,"GiftCertificateNumber":"string","Notes":"string"},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("ApplyInvoicePayment", false, `Applies an invoice payment to the cart
 Checkout will not be allowed for a general public order if an Invoice payment is applied
-{"Request":{"Notes":"string"},"SessionKey":"string"}`) 
+{"Request":{"Amount":123.456,"Notes":"string","PaymentMethodId":123},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("ApplyOnAccountPayment", false, `Applies an On Account payment to the cart.
 Not valid for a general public cart.
-{"Request":{"Notes":"string"},"SessionKey":"string"}`) 
+{"Request":{"Amount":123.456,"Notes":"string","PaymentMethodId":123},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("ApplyOtherPayment", false, `Applies an other payment to the cart
-{"Request":{"Notes":"string"},"SessionKey":"string"}`) 
+{"Request":{"Amount":123.456,"Notes":"string","PaymentMethodId":123},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("Authorize", false, `Authorize payment using a card reader in a web based transaction.
-{"Request":{"TransactionOrigin":"string","UserData":"string"},"SessionKey":"string"}`) 
+{"Request":{"Amount":123.456,"IsMoto":true,"MachineId":123,"TransactionOrigin":"string","UserData":"string"},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("Checkout", false, `Validates, processes payment for, and saves an order for a specified session.  
 Payment information can be provided as follows:
 -	The full card details can be provided in the request
@@ -6514,55 +6514,55 @@ Payment information can be provided as follows:
 When the method is run the status of the order is checked to ensure checkout has not started. The procedure will set the status in T_WEB_CHECKOUT to one of the following values: (S)ave in progress, (C)ompleted save, (E)rror when saving.
 The response includes a status and message details about the status.Possible status results are: SaveInProgress, SaveComplete, Error.
 In order to facilitate the use of the interceptor capability, the checkout method now makes a POST call to Txn / Orders.By default this call does nothing unless a developer has added interceptor plug -in code to the exposure.
-{"Request":{"Address":"string","AuthorizationCode":"string","CreditCardAuthenticationCode":"string","CreditCardNumber":"string","CreditCardOwner":"string","DeliveryDate":"0001-01-01T00:00:00.000Z","PaymentReference":"string","SecureValues":"string","ZipCode":"string"},"SessionKey":"string"}`) 
+{"Request":{"AccountId":123,"Address":"string","AllowUnderPayment":true,"Amount":123.456,"AuthorizationCode":"string","Authorize":true,"CreditCardAuthenticationCode":"string","CreditCardMonth":123,"CreditCardNumber":"string","CreditCardOwner":"string","CreditCardType":123,"CreditCardYear":123,"DeliveryDate":"0001-01-01T00:00:00.000Z","ECommerce":true,"PaymentId":123,"PaymentReference":"string","SecureValues":"string","StoreAccount":true,"ZipCode":"string"},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("CheckoutWithCard", false, `Processes checkout for the cart, using card swipe information for payment. Used by TRBO.
  When the method is run the status of the order is checked to ensure checkout has not started. The procedure will set the status in T_WEB_CHECKOUT to one of the following values: (S)ave in progress, (C)ompleted save, (E)rror when saving.
 The response includes a status and message details about the status.Possible status results are: SaveInProgress, SaveComplete, Error.
 In order to facilitate the use of the interceptor capability, the checkout method now makes a POST call to Txn / Orders.By default this call does nothing unless a developer has added interceptor plug -in code to the exposure.
-{"Request":{"AuthorizationCode":"string","CreditCardTrack1":"string","CreditCardTrack2":"string","DeliveryDate":"0001-01-01T00:00:00.000Z","ZipCode":"string"},"SessionKey":"string"}`) 
+{"Request":{"AllowUnderPayment":true,"Amount":123.456,"AuthorizationCode":"string","Authorize":true,"CreditCardTrack1":"string","CreditCardTrack2":"string","CreditCardType":123,"DeliveryDate":"0001-01-01T00:00:00.000Z","ECommerce":true,"StoreAccount":true,"ZipCode":"string"},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("PreviewPaymentPlanBasedOnBillingSchedule", false, `Returns the payment schedule that would be applied to the current cart for the selected billing schedule without applying it to the cart.
 The number of payments, payment amounts, and payment due dates are calculated based on the selected billing schedule.  For details on setting up billing schedules see the TR_BILLING_SCHEDULE section of the System Tables document.
-{"Request":{"EndDate":"0001-01-01T00:00:00.000Z","StartDate":"0001-01-01T00:00:00.000Z"},"SessionKey":"string"}`) 
+{"Request":{"BillingScheduleId":123,"EndDate":"0001-01-01T00:00:00.000Z","OverrideAmountToSchedule":123.456,"StartDate":"0001-01-01T00:00:00.000Z"},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("Price", false, `Price the current web cart associated with the specified sessionKey.
 {"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("PrintEmail", false, `Prints tickets for specified order, lineitems, or sublineitems and returns a formatted html body and attachments
 The method returns tickets for unprinted fully-paid orders or reprints printed tickets specified via order number, one or more line item numbers, or one or more sub line item numbers.  In the case of partially-paid orders, only line items or sub line items which have been fully-paid will be eligible for printing. Only tickets belonging to the customer associated via the current web session can be returned. Ticket information can be returned in the default design specified for the ticket price type, or you may specify a ticket design to utilize via the request parameters. After the tickets have been returned via the API, seats will be flagged as Ticketed in Tessitura.
 When reprinting tickets, one of the request parameters provides you with the option to regenerate the ticket number or reuse the current ticket number.
 If PrinterType = "B", ticket designs with images are not supported
-{"ReceiptSettingsID":"string","Request":{"LineItems":"string","PrinterType":"string","SubLineItems":"string"},"SessionKey":"string"}`) 
+{"ReceiptSettingsID":"string","Request":{"HeaderDesignId":123,"IncludeReceipts":true,"LineItems":"string","Mode":123,"NewTicketNoForReprints":true,"OrderId":123,"PrinterType":"string","ReprintTickets":true,"SubLineItems":"string","TicketDesignId":123},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("PrintPrintStrings", false, `Prints tickets for specified order, lineitems, or sublineitems and returns a collection of formatted strings based on printer type.
 The returned strings can then be sent to the appropriate printer. NOTE:  Currently only Zebra printer types are supported by this method. (PrinterType = "Z")
 The method returns tickets for unprinted fully-paid orders or reprints printed tickets specified via order number, one or more line item numbers, or one or more sub line item numbers.  In the case of partially-paid orders, only line items or sub line items which have been fully-paid will be eligible for printing. Only tickets belonging to the customer associated via the current web session can be returned. Ticket information can be returned in the default design specified for the ticket price type, or you may specify a ticket design to utilize via the request parameters. After the tickets have been returned via the API, seats will be flagged as Ticketed in Tessitura.
 When reprinting tickets, one of the request parameters provides you with the option to regenerate the ticket number or reuse the current ticket number.
-{"Request":{"LineItems":"string","PrinterType":"string","SubLineItems":"string"},"SessionKey":"string"}`) 
+{"Request":{"HeaderDesignId":123,"IncludeReceipts":true,"LineItems":"string","Mode":123,"NewTicketNoForReprints":true,"OrderId":123,"PrinterType":"string","ReprintTickets":true,"SubLineItems":"string","TicketDesignId":123},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("PrintTicketElements", false, `Prints tickets for specified order, lineitems, or sublineitems and returns all ticket elements.
 The method returns ticket data for unprinted fully-paid orders or reprints printed tickets specified via order number, one or more line item numbers, or one or more sub line item numbers.  In the case of partially-paid orders, only line items or sub line items which have been fully-paid will be eligible for printing. Only tickets belonging to the customer associated via the current web session can be returned. Ticket information can be returned in the default design specified for the ticket price type, or you may specify a ticket design to utilize via the request parameters. After the ticket data has been returned via the API, seats will be flagged as Ticketed in Tessitura.
 When reprinting tickets, one of the request parameters provides you with the option to regenerate the ticket number or reuse the current ticket number.
-{"Request":{"LineItems":"string","PrinterType":"string","SubLineItems":"string"},"SessionKey":"string"}`) 
+{"Request":{"HeaderDesignId":123,"IncludeReceipts":true,"LineItems":"string","Mode":123,"NewTicketNoForReprints":true,"OrderId":123,"PrinterType":"string","ReprintTickets":true,"SubLineItems":"string","TicketDesignId":123},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("ReserveTickets", false, `Reserves tickets in cart
 Adds a seated or unseated performance line item to the cart and reserves seats using either the best seat function or reserves specific seats.
 This method will allow the reservation of held seats.To enable this functionality, add the key ''Reserve Held Seats' to T_DEFAULTS with a value of 'Yes' under the "Tessitura Web" parent table (or organization name if operating in a consortium environment).
-{"Request":{"PriceType":"string","PriceTypeReason":"string","RequestedSeats":"string","SpecialRequests":"string"},"SessionKey":"string"}`) 
+{"Request":{"NumberOfSeats":123,"PerformanceId":123,"PriceType":"string","PriceTypeReason":"string","RequestedSeats":"string","SpecialRequests":"string","Unseated":true,"ZoneId":123},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("ReserveTicketsForLineItem", false, `Reserves tickets in cart for an existing line item
 PerformanceId specified must be valid for the line item
-{"LineItemID":"string","Request":{"PriceType":"string","PriceTypeReason":"string","RequestedSeats":"string","SpecialRequests":"string"},"SessionKey":"string"}`) 
+{"LineItemID":"string","Request":{"NumberOfSeats":123,"PerformanceId":123,"PriceType":"string","PriceTypeReason":"string","RequestedSeats":"string","SpecialRequests":"string","Unseated":true,"ZoneId":123},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("ReturnTicket", false, `Return a ticket by ticket number.
 This method is used to return tickets (generally for exchanges).  The method can also be used to donate a ticket for resale.
 Returning a ticket will generate a credit on the ticket order.The credit must be applied to another line item(performance, package, etc.), fee, contribution, or on account payment method.
 Donating a ticket uses the standard Tessitura Donate for Resale function, which releases the seat without generating a credit.
-{"Request":{"Checksum":"string","ReturnOrDonate":"string"},"SessionKey":"string"}`) 
+{"Request":{"Checksum":"string","ReturnOrDonate":"string","TicketNumber":123},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("ReturnTicketWithSeat", false, `Return a ticket by seat number.
 This method is used to return tickets (generally for exchanges).  The method can also be used to donate a ticket for resale.
 Returning a ticket will generate a credit on the ticket order.The credit must be applied to another line item(performance, package, etc.), fee, contribution, or on account payment method.
 Donating a ticket uses the standard Tessitura Donate for Resale function, which releases the seat without generating a credit.
-{"Request":{"Checksum":"string","ReturnOrDonate":"string"},"SessionKey":"string"}`) 
+{"Request":{"Checksum":"string","PerformanceId":123,"ReturnOrDonate":"string","SeatNumber":123},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("Validate", false, `Validates various aspects of the cart
 Payment Plans, Fixed Seat Packages, Non-Fixed Seat (flex) packages and Super Packages can be validated by setting the appropriate boolean in the request.
-{"Request":{},"SessionKey":"string"}`) 
+{"Request":{"ValidateFSPackages":true,"ValidateNFSPackages":true,"ValidatePaymentPlan":true,"ValidateSuperPackages":true},"SessionKey":"string"}`) 
 				Post_Cart_cmd.Flags().Bool("ValidateLimits", false, `Validates ticket limits
 Offer Limits are evaluated for the specified price type and seat count using the cart source code.  Requires either a performance ID or a package ID.
 To enable ticket limit validation, add the Field Name "ENFORCE_SEAT_LIMIT_FOR_ORDERS" under the "Impresario" parent table with a value of "Yes." This setting applies to both the Web API and the Tessitura Client Application.
-{"Request":{},"SessionKey":"string"}`)
+{"Request":{"PackageId":123,"PerformanceId":123,"PriceTypeId":123,"SeatCount":123},"SessionKey":"string"}`)
 	
 		Post_cmd.AddCommand(Post_Colors_cmd)
 	
@@ -6586,15 +6586,15 @@ To enable ticket limit validation, add the Field Name "ENFORCE_SEAT_LIMIT_FOR_OR
 	
 		Post_cmd.AddCommand(Post_Constituents_cmd) 
 				Post_Constituents_cmd.Flags().Bool("ConstituentUsingSnapshot", false, `Create a constituent optionally with primary address, primary salutation, primary electronic address, primary &amp; general phones and affiliates information.
-{"ConstituentSnapshot":{"Affiliates":[object],"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DisplayName":"string","FirstName":"string","LastActivityDate":"0001-01-01T00:00:00.000Z","LastName":"string","MiddleName":"string","PrimaryPhoneNumbers":[object],"ShortDisplayName":"string","SortName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`) 
+{"ConstituentSnapshot":{"Address":{"Id":123},"Affiliates":[{"Id":123},...],"ConstituentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DisplayName":"string","EditIndicator":true,"ElectronicAddress":{"Id":123},"EmarketIndicator":{"Id":123},"FirstName":"string","Gender":{"Id":123},"Id":123,"Inactive":{"Id":123},"InactiveReason":{"Id":123},"LastActivityDate":"0001-01-01T00:00:00.000Z","LastName":"string","MailIndicator":{"Id":123},"MiddleName":"string","NameStatus":{"Id":123},"OriginalSource":{"Id":123},"PhoneIndicator":{"Id":123},"Prefix":{"Id":123},"PrimaryPhoneNumbers":[{"Id":123},...],"ProtectionType":{"Id":123},"Salutation":{"Id":123},"ShortDisplayName":"string","SortName":"string","Suffix":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`) 
 				Post_Constituents_cmd.Flags().Bool("ConvertGroupToIndividual", false, `Convert existing household to an individual.
-{"ConstituentID":"string","Request":{"AffiliationIdsToBeDeleted":[object],"AffiliationsToAssociationsInfo":[object],"AssociationIdsToBeDeleted":[object],"AssociationsToAffiliationsInfo":[object]}}`) 
+{"ConstituentID":"string","Request":{"AffiliationIdsToBeDeleted":[0,...],"AffiliationsToAssociationsInfo":[{"Id":123},...],"AssociationIdsToBeDeleted":[0,...],"AssociationsToAffiliationsInfo":[{"Id":123},...],"IndividualConstituent":{"Id":123},"Merge":{"Id":123}}}`) 
 				Post_Constituents_cmd.Flags().Bool("ConvertIndividualToHousehold", false, `Convert existing individual constituent to a household.
-{"ConstituentID":"string","Request":{}}`) 
+{"ConstituentID":"string","Request":{"AffiliationTypeId":123,"ConstituentTypeId":123}}`) 
 				Post_Constituents_cmd.Flags().Bool("ConvertIndividualToOrganization", false, `Convert existing individual constituent to an organization.
-{"ConstituentID":"string","Request":{"AffiliationIdsToBeDeleted":[object],"AffiliationsToAssociationsInfo":[object],"AssociationIdsToBeDeleted":[object],"AssociationsToAffiliationsInfo":[object],"LastName":"string"}}`) 
+{"ConstituentID":"string","Request":{"AffiliationIdsToBeDeleted":[0,...],"AffiliationsToAssociationsInfo":[{"Id":123},...],"AssociationIdsToBeDeleted":[0,...],"AssociationsToAffiliationsInfo":[{"Id":123},...],"ConstituentTypeId":123,"LastName":"string"}}`) 
 				Post_Constituents_cmd.Flags().Bool("SchedulePurge", false, `Schedule a constituent to be purged.  This only marks a constituent for purge, but does not actually purge the constituent.  If constituent has open transactions or an order for a future performance, a bad request will be returned indicating open transactions.  Pass IgnoreWarnings = true in request to bypass and schedule.
-{"ConstituentID":"string","SchedulePurgeRequest":{}}`) 
+{"ConstituentID":"string","SchedulePurgeRequest":{"IgnoreWarnings":true}}`) 
 				Post_Constituents_cmd.Flags().Bool("SearchByCardNumber", false, `Search for constituents by card number.
 {"SearchRequest":{"CardNumber":"string"}}`) 
 				Post_Constituents_cmd.Flags().Bool("SwapConstituentA1A2", false, `Swaps A1/A2 names on a household account and regenerates its salutation.
@@ -6608,7 +6608,7 @@ To enable ticket limit validation, add the Field Name "ENFORCE_SEAT_LIMIT_FOR_OR
 	
 		Post_cmd.AddCommand(Post_ContactPermissions_cmd) 
 				Post_ContactPermissions_cmd.Flags().Bool("ForTransaction", false, `Request a set of contact permissions relevant to an order or contribution context.  Send request with ReturnRequiredOnly to true to only send back permissions that require constituent ask.
-{"ContactPermissionsTransactionRequest":{"ProductionSeasonIds":"string"}}`)
+{"ContactPermissionsTransactionRequest":{"InitiatorId":123,"OwnerId":123,"ProductionSeasonIds":"string","ReturnRequiredOnly":true}}`)
 	
 		Post_cmd.AddCommand(Post_ContactPointCategories_cmd)
 	
@@ -6642,9 +6642,9 @@ To enable ticket limit validation, add the Field Name "ENFORCE_SEAT_LIMIT_FOR_OR
 	
 		Post_cmd.AddCommand(Post_Custom_cmd) 
 				Post_Custom_cmd.Flags().Bool("ExecuteLocalProcedure", false, `Executes a local procedure defined in TR_LOCAL_PROCEDURE. This will only return a collection of the first result set in a registered procedure.  For the result set, null values in each data row are not returned as properties.
-{"LocalProcedureRequest":{"ParameterValues":[object],"Parameters":"string","ProcedureName":"string"}}`) 
+{"LocalProcedureRequest":{"ParameterValues":[{"Id":123},...],"Parameters":"string","ProcedureId":123,"ProcedureName":"string"}}`) 
 				Post_Custom_cmd.Flags().Bool("ExecuteLocalProcedureWithMultipleResultSets", false, `Executes a local procedure defined in TR_LOCAL_PROCEDURE.  This resource supports multiple result sets in a registered procedure. The response object is different from Custom/Execute. For each result set, null values are not returned as properties.
-{"LocalProcedureRequest":{"ParameterValues":[object],"Parameters":"string","ProcedureName":"string"}}`)
+{"LocalProcedureRequest":{"ParameterValues":[{"Id":123},...],"Parameters":"string","ProcedureId":123,"ProcedureName":"string"}}`)
 	
 		Post_cmd.AddCommand(Post_CustomDefaultCategories_cmd)
 	
@@ -6668,9 +6668,9 @@ To enable ticket limit validation, add the Field Name "ENFORCE_SEAT_LIMIT_FOR_OR
 				Post_EMV_cmd.Flags().Bool("Lane", false, `Add a new lane to merchant
 {"Cert":"string","Lane":{"ActivationCode":"string","Description":"string","LaneId":"string","MarketCode":"string","TerminalId":"string"},"Merchant":"string"}`) 
 				Post_EMV_cmd.Flags().Bool("Signature", false, `Accepts the signature for a Payment Express HIT authorization.
-{"Request":{}}`) 
+{"Request":{"MachineId":123,"PaymentId":123,"SignatureMatches":true,"StoreAccount":true}}`) 
 				Post_EMV_cmd.Flags().Bool("Token", false, `Creates a token on the specified constituent via a Payment Express HIT, TriPOSCloud, or Adyen device without authorizing a transaction.
-{"Request":{"TransactionOrigin":"string"}}`)
+{"Request":{"ConstituentId":123,"IsMoto":true,"MachineId":123,"TransactionOrigin":"string"}}`)
 	
 		Post_cmd.AddCommand(Post_ElectronicAddressTypes_cmd)
 	
@@ -6684,15 +6684,15 @@ To enable ticket limit validation, add the Field Name "ENFORCE_SEAT_LIMIT_FOR_OR
 	
 		Post_cmd.AddCommand(Post_Emails_cmd) 
 				Post_Emails_cmd.Flags().Bool("SendConstituentInfo", false, `Queues a Constituents Info email
-{"ConstituentID":"string","Request":{"EmailAddress":"string","NameValues":[object]}}`) 
+{"ConstituentID":"string","Request":{"EmailAddress":"string","EmailProfileId":123,"NameValues":[{"Id":123},...],"TemplateId":123}}`) 
 				Post_Emails_cmd.Flags().Bool("SendLoginCredentials", false, `Queues a Login Credentials email.
 This endpoint will not generate a password token and should be used for testing a login credentials template.
 Use the SendCredentials endpoint in Web/Session to send a login credentials email with a generated password token.
-{"LoginID":"string","Request":{"EmailAddress":"string","NameValues":[object]}}`) 
+{"LoginID":"string","Request":{"EmailAddress":"string","EmailProfileId":123,"NameValues":[{"Id":123},...],"TemplateId":123}}`) 
 				Post_Emails_cmd.Flags().Bool("SendOrderConfirmation", false, `Queues an Order Confirmation email
-{"OrderID":"string","Request":{"EmailAddress":"string","NameValues":[object]}}`) 
+{"OrderID":"string","Request":{"EmailAddress":"string","EmailProfileId":123,"NameValues":[{"Id":123},...],"TemplateId":123}}`) 
 				Post_Emails_cmd.Flags().Bool("SendTickets", false, `Queues a ticket email
-{"OrderID":"string","Request":{"EmailAddress":"string"}}`)
+{"OrderID":"string","Request":{"EmailAddress":"string","EmailProfileId":123,"PrintOrderTicketsRequest":{"Id":123},"TemplateId":123}}`)
 	
 		Post_cmd.AddCommand(Post_EmarketIndicators_cmd)
 	
@@ -6738,7 +6738,7 @@ Use the SendCredentials endpoint in Web/Session to send a login credentials emai
 	
 		Post_cmd.AddCommand(Post_Interests_cmd) 
 				Post_Interests_cmd.Flags().Bool("Or", false, `Creates, updates, or deletes interests passed as a collection. We recommend that this resource be used for making multiple edits to Constituent Interests in a single API request. Interests that exist will be updated with provided Weight and Selected values. If an existing interest is provided with a Weight of 0 or NULL and a Selected: false, the interest will be deleted. New Interests should be created with an Id of -999 (or NULL).
-{"Interests":[object]}`)
+{"Interests":[{"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"InterestType":{"Id":123},"Selected":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Weight":123},...]}`)
 	
 		Post_cmd.AddCommand(Post_Internal_cmd)
 	
@@ -6763,9 +6763,9 @@ Use the SendCredentials endpoint in Web/Session to send a login credentials emai
 {"ListID":"string"}`) 
 				Post_Lists_cmd.Flags().Bool("Results", false, `Get results for List and OutputSet combination. If no outputSetId is passed in the request, a default output set must be set for the list. 
 Response returns custom HTTP headers: X-Page, X-Page-Size, and X-Total-Count. Default page is 1 and default page size is 100.
-{"ListID":"string","OutputResultRequest":{"MailingDateTime":"0001-01-01T00:00:00.000Z","SearchText":"string","SortBy":"string"}}`) 
+{"ListID":"string","OutputResultRequest":{"AddressPurposeId":123,"DisableListGenerate":true,"EMarketingIndicator":true,"ElectronicAddressPurposeId":123,"ElectronicAddressTypeId":123,"FormatDate":true,"MailingDateTime":"0001-01-01T00:00:00.000Z","MembershipOrganizationId":123,"OutputSetId":123,"Page":123,"PageSize":123,"SalutationTypeId":123,"SearchText":"string","SortBy":"string","UseLabelAddress":true}}`) 
 				Post_Lists_cmd.Flags().Bool("Search", false, `Search for List. Response returns custom HTTP headers: X-Page, X-Page-Size, and X-Total-Count. Default page is 1 and default page size is 50.
-{"ListSearchRequest":{"SearchText":"string"}}`)
+{"ListSearchRequest":{"CategoryId":123,"MyListsOnly":true,"Page":123,"PageSize":123,"SearchText":"string","ShowEmpty":true}}`)
 	
 		Post_cmd.AddCommand(Post_LoginTypes_cmd)
 	
@@ -6803,15 +6803,15 @@ Response returns custom HTTP headers: X-Page, X-Page-Size, and X-Total-Count. De
 	
 		Post_cmd.AddCommand(Post_Orders_cmd) 
 				Post_Orders_cmd.Flags().Bool("OrdersForDelivery", false, `Get all the orders for delivery.
-{"Request":{"DeliveryMethods":"string","ModesOfSale":"string","OrderEndDateTime":"0001-01-01T00:00:00.000Z","OrderStartDateTime":"0001-01-01T00:00:00.000Z","OrganizationName":"string","PerformanceEndDateTime":"0001-01-01T00:00:00.000Z","PerformanceStartDateTime":"0001-01-01T00:00:00.000Z"}}`) 
+{"Request":{"DeliveryMethods":"string","MaxRowsToReturn":123,"ModesOfSale":"string","OrderDaysInPast":123,"OrderEndDateTime":"0001-01-01T00:00:00.000Z","OrderStartDateTime":"0001-01-01T00:00:00.000Z","OrganizationName":"string","PerformanceEndDateTime":"0001-01-01T00:00:00.000Z","PerformanceStartDateTime":"0001-01-01T00:00:00.000Z","UsePrimaryEmail":true}}`) 
 				Post_Orders_cmd.Flags().Bool("Price", false, `Prices an order(including pricing rules). Should have at least one line item, with each line item having at least one sub line item.
 Individual sub line items can be ignored for pricing by passing ApplyPricing = false, on those sub line items.
-{"Order":{"AppliedMessageRules":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Custom0":"string","Custom1":"string","Custom2":"string","Custom3":"string","Custom4":"string","Custom5":"string","Custom6":"string","Custom7":"string","Custom8":"string","Custom9":"string","DeliveryDate":"0001-01-01T00:00:00.000Z","HoldUntilDateTime":"0001-01-01T00:00:00.000Z","LineItems":[object],"Messages":[object],"Notes":"string","OrderDateTime":"0001-01-01T00:00:00.000Z","Solicitor":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","VirtualConstituencies":"string"}}`) 
+{"Order":{"AcceptingRollovers":true,"AccountId":123,"AltAddressId":123,"AltElectronicAddressId":123,"AppealId":123,"AppliedMessageRules":"string","BatchId":123,"BusinessUnitId":123,"CategoryId":123,"ChannelId":123,"ConstituentId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Custom0":"string","Custom1":"string","Custom2":"string","Custom3":"string","Custom4":"string","Custom5":"string","Custom6":"string","Custom7":"string","Custom8":"string","Custom9":"string","DeliveryDate":"0001-01-01T00:00:00.000Z","DeliveryMethodId":123,"HoldUntilDateTime":"0001-01-01T00:00:00.000Z","Id":123,"InitiatorId":123,"LineItems":[{"Id":123},...],"Messages":[{"Id":123},...],"MirrorLock":123,"ModeOfSaleId":123,"Notes":"string","OrderDateTime":"0001-01-01T00:00:00.000Z","ReloadPricingRules":true,"Solicitor":"string","SourceId":123,"TotalDue":123.456,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","VirtualConstituencies":"string"}}`) 
 				Post_Orders_cmd.Flags().Bool("PrintTicketElements", false, `Returns ticket elements by header, receipts, and tickets; created primarily for use for building HTML ticket templates
 The method returns ticket data for unprinted fully-paid orders or reprints printed tickets specified via order number, one or more line item numbers, or one or more sub line item numbers.  In the case of partially-paid orders, only line items or sub line items which have been fully-paid will be eligible for printing. Ticket information can be returned in the default design specified for the ticket price type, or you may specify a ticket design to utilize via the request parameters. After the ticket data has been returned via the API, seats will be flagged as Ticketed in Tessitura.
 When reprinting tickets, one of the request parameters provides you with the option to regenerate the ticket number or reuse the current ticket number.
 Composite tickets are not currently supported, so a request to print one will instead return ticket elements for each performance, as if no composite ticket design had been selected for the package.
-{"OrderID":"string","Request":{"LineItems":"string","PrinterType":"string","SubLineItems":"string"}}`)
+{"OrderID":"string","Request":{"BatchId":123,"HeaderDesignId":123,"IncludeReceipts":true,"LineItems":"string","NewTicketNoForReprints":true,"PrinterType":"string","ReprintTickets":true,"SubLineItems":"string","TicketDesignId":123}}`)
 	
 		Post_cmd.AddCommand(Post_Organizations_cmd)
 	
@@ -6833,7 +6833,7 @@ Composite tickets are not currently supported, so a request to print one will in
 	
 		Post_cmd.AddCommand(Post_PaymentGatewayAccounts_cmd) 
 				Post_PaymentGatewayAccounts_cmd.Flags().Bool("StoreToken", false, `Store an externally generated payment card token in Tessitura. Note that for this call to function, the card_mnemonic column in TR_ACCOUNT_TYPE must be filled in appropriately for your credit card processor. Look for the TR_ACCOUNT_TYPE topic in the Tessitura help documentation for more information on the card mnemonic column.
-{"Request":{"DateUsed":"0001-01-01T00:00:00.000Z","NetworkTransactionId":"string","ShopperReference":"string","Token":"string"}}`)
+{"Request":{"Card":{"Id":123},"ConstituentId":123,"DateUsed":"0001-01-01T00:00:00.000Z","IsECommerce":true,"NetworkTransactionId":"string","PaymentMethodGroupId":123,"ShopperReference":"string","Token":"string"}}`)
 	
 		Post_cmd.AddCommand(Post_PaymentGatewayActivities_cmd)
 	
@@ -6851,7 +6851,7 @@ Composite tickets are not currently supported, so a request to print one will in
 	
 		Post_cmd.AddCommand(Post_PaymentSignatures_cmd) 
 				Post_PaymentSignatures_cmd.Flags().Bool("PostForOrder", false, `Create a new payment signature.
-{"OrderID":"string","PaymentSignature":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`)
+{"OrderID":"string","PaymentSignature":{"Id":123}}`)
 	
 		Post_cmd.AddCommand(Post_PaymentTypes_cmd)
 	
@@ -6863,7 +6863,7 @@ Composite tickets are not currently supported, so a request to print one will in
 	
 		Post_cmd.AddCommand(Post_PerformancePriceLayers_cmd) 
 				Post_PerformancePriceLayers_cmd.Flags().Bool("PostSummaries", false, `Create/Update the prices for a set of performances.
-{"Layers":[object]}`) 
+{"Layers":[{"DefaultDesignationCodeId":123,"DefaultGlAccountId":123,"DefaultResaleAccountId":123,"Description":"string","EffectiveDateTime":"0001-01-01T00:00:00.000Z","Id":123,"PerformanceId":123,"PerformancePriceTypes":[{"Id":123},...],"PriceLayerTypeId":123,"TemplateId":123},...]}`) 
 				Post_PerformancePriceLayers_cmd.Flags().Bool("Search", false, `Get all performance price layers for the list of performances. Only one of AsOfDateTime or AsOfRelativeDate can be specified to get prices effective for that date time.
 {"Request":{"AsOfDateTime":"string","AsOfRelativeDate":"string","PerformanceIds":"string"}}`) 
 				Post_PerformancePriceLayers_cmd.Flags().Bool("SearchSummaries", false, `Get all performance price layers for the list of performances. Only one of AsOfDateTime or AsOfRelativeDate can be specified to get prices effective for that date time.
@@ -6879,14 +6879,14 @@ Composite tickets are not currently supported, so a request to print one will in
 	
 		Post_cmd.AddCommand(Post_Performances_cmd) 
 				Post_Performances_cmd.Flags().Bool("Copy", false, `Copy existing performance to a new performance with options.
-{"PerformanceCopyRequest":{"Code":"string","DateTime":"0001-01-01T00:00:00.000Z","Description":"string","ShortName":"string"}}`) 
+{"PerformanceCopyRequest":{"AvailSaleIndicator":true,"Code":"string","CopyCredits":true,"CopyNotes":true,"CopyOffers":true,"CopyPriceEvents":true,"CopyPriceLayers":true,"DateTime":"0001-01-01T00:00:00.000Z","DefaultSaleDateOption":123,"Description":"string","ModeOfSaleDateOption":123,"PriceEventDateOption":123,"PriceTypeDateOption":123,"ProductionSeasonId":123,"PublishDateOption":123,"ShortName":"string","SourcePerformanceId":123,"StatusId":123,"TimeSlotId":123,"TypeId":123}}`) 
 				Post_Performances_cmd.Flags().Bool("Reschedule", false, `Reschedules an existing performance according to the provided options
-{"PerformanceRescheduleRequest":{"Code":"string","DateTime":"0001-01-01T00:00:00.000Z"}}`) 
+{"PerformanceRescheduleRequest":{"Campaign":{"Id":123},"Code":"string","DateTime":"0001-01-01T00:00:00.000Z","DefaultSaleDateOption":123,"Id":123,"ModeOfSaleDateOption":123,"OffersDateOption":123,"PriceEventDateOption":123,"PriceTypeDateOption":123,"ProductionSeasonId":123,"PublishDateOption":123,"TimeSlotId":123}}`) 
 				Post_Performances_cmd.Flags().Bool("Search", false, `Search for performances, based on provided criteria.
-{"Request":{"ArtistIds":"string","FacilityIds":"string","FullTextSearch":"string","KeywordAndOr":"string","KeywordIds":"string","PerformanceEndDate":"0001-01-01T00:00:00.000Z","PerformanceStartDate":"0001-01-01T00:00:00.000Z","PerformanceTypeIds":"string","ProductionSeasonIds":"string","SeasonIds":"string"}}`) 
+{"Request":{"ArtistIds":"string","BusinessUnitId":123,"ConstituentId":123,"FacilityIds":"string","FullTextSearch":"string","KeywordAndOr":"string","KeywordIds":"string","ModeOfSaleId":123,"PerformanceEndDate":"0001-01-01T00:00:00.000Z","PerformanceStartDate":"0001-01-01T00:00:00.000Z","PerformanceTypeIds":"string","ProductionSeasonIds":"string","SeasonIds":"string"}}`) 
 				Post_Performances_cmd.Flags().Bool("SeatHolds", false, `Update seat holds for a performance
 Can be used to add or remove holds from seats for the specified performance. Specifying a hold code of -1 for a seat will remove all hold codes from that seat.
-{"PerformanceID":"string","UpdateSeatHoldRequest":{"HoldUntilDate":"0001-01-01T00:00:00.000Z","SeatHolds":[object]}}`)
+{"PerformanceID":"string","UpdateSeatHoldRequest":{"HoldUntilDate":"0001-01-01T00:00:00.000Z","OnlyAffectAvailable":true,"ReplaceMode":123,"SeatHolds":[{"Id":123},...]}}`)
 	
 		Post_cmd.AddCommand(Post_Philanthropy_cmd)
 	
@@ -6950,7 +6950,7 @@ Can be used to add or remove holds from seats for the specified performance. Spe
 	
 		Post_cmd.AddCommand(Post_Products_cmd) 
 				Post_Products_cmd.Flags().Bool("Search", false, `Search for products based on a set of criteria.
-{"Request":{"DayOfWeek":"string","EndDateRange":"0001-01-01T00:00:00.000Z","EndDateRangePackage":"0001-01-01T00:00:00.000Z","FullText":"string","FullTextType":"string","KeywordDescriptions":"string","Keywords":"string","OneOrAllPerformancesInPackage":"string","PackageIds":"string","PerformanceIds":"string","ProductionSeasonIds":"string","SeasonIds":"string","StartDateRange":"0001-01-01T00:00:00.000Z","StartDateRangePackage":"0001-01-01T00:00:00.000Z"}}`)
+{"Request":{"ArtistId":123,"BusinessUnitId":123,"ComposerId":123,"ConstituentId":123,"DayOfWeek":"string","EndDateRange":"0001-01-01T00:00:00.000Z","EndDateRangePackage":"0001-01-01T00:00:00.000Z","FacilityId":123,"FullText":"string","FullTextType":"string","IsWebSearch":true,"KeywordAndOr":123,"KeywordDescriptions":"string","KeywordId":123,"Keywords":"string","LanguageId":123,"ModeOfSaleId":123,"OnSaleOnly":true,"OneOrAllPerformancesInPackage":"string","PackageId":123,"PackageIds":"string","PackageSeasonId":123,"PackageTypeId":123,"PerformanceIds":"string","ProductionSeasonId":123,"ProductionSeasonIds":"string","SeasonId":123,"SeasonIds":"string","ShowAll":true,"ShowConstituentAvailability":true,"ShowGrossAvailability":true,"StartDateRange":"0001-01-01T00:00:00.000Z","StartDateRangePackage":"0001-01-01T00:00:00.000Z","TimeSlotId":123,"TitleId":123}}`)
 	
 		Post_cmd.AddCommand(Post_ProgramListings_cmd)
 	
@@ -6984,11 +6984,11 @@ Can be used to add or remove holds from seats for the specified performance. Spe
 	
 		Post_cmd.AddCommand(Post_ReportRequests_cmd) 
 				Post_ReportRequests_cmd.Flags().Bool("GenerateScheduled", false, `
-{"GenerateScheduledRequest":[object]}`)
+{"GenerateScheduledRequest":null}`)
 	
 		Post_cmd.AddCommand(Post_ReportSchedules_cmd) 
 				Post_ReportSchedules_cmd.Flags().Bool("Save", false, `Create a report schedule.
-{"ReportSchedule":{"AsOfDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDate":"0001-01-01T00:00:00.000Z","EndTime":"0001-01-01T00:00:00.000Z","Name":"string","StartDate":"0001-01-01T00:00:00.000Z","StartTime":"0001-01-01T00:00:00.000Z","Type":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`)
+{"ReportSchedule":{"AsOfDateTime":"0001-01-01T00:00:00.000Z","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DayOfWeek":123,"DayWeekNumber":123,"EndDate":"0001-01-01T00:00:00.000Z","EndTime":"0001-01-01T00:00:00.000Z","HeaderRequest":{"Id":123},"Id":123,"Inactive":true,"Interval":123,"Name":"string","StartDate":"0001-01-01T00:00:00.000Z","StartTime":"0001-01-01T00:00:00.000Z","Type":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`)
 	
 		Post_cmd.AddCommand(Post_ReportUserGroups_cmd)
 	
@@ -7006,9 +7006,9 @@ Can be used to add or remove holds from seats for the specified performance. Spe
 	
 		Post_cmd.AddCommand(Post_Resources_cmd) 
 				Post_Resources_cmd.Flags().Bool("FindAvailableResources", false, `Get a set of resources available at the requested time/count/qualifications.
-{"Request":{"EndDateTime":"0001-01-01T00:00:00.000Z","QualificationIds":"string","StartDateTime":"0001-01-01T00:00:00.000Z"}}`) 
+{"Request":{"EndDateTime":"0001-01-01T00:00:00.000Z","QualificationIds":"string","ResourceCount":123,"ResourceTypeId":123,"StartDateTime":"0001-01-01T00:00:00.000Z"}}`) 
 				Post_Resources_cmd.Flags().Bool("ScheduleOccurrences", false, `Get schedule occurrences for set of resources and/or constituents during certain period of time.
-{"Request":{"ConstituentIds":"string","EndDateTime":"0001-01-01T00:00:00.000Z","ResourceIds":"string","ResourceTypeIds":"string","StartDateTime":"0001-01-01T00:00:00.000Z"}}`)
+{"Request":{"ConstituentIds":"string","EndDateTime":"0001-01-01T00:00:00.000Z","ExpandWorkerAssignments":true,"ResourceIds":"string","ResourceTypeIds":"string","StartDateTime":"0001-01-01T00:00:00.000Z"}}`)
 	
 		Post_cmd.AddCommand(Post_SalesChannels_cmd)
 	
@@ -7039,7 +7039,7 @@ Can be used to add or remove holds from seats for the specified performance. Spe
 		Post_cmd.AddCommand(Post_Session_cmd) 
 				Post_Session_cmd.Flags().Bool("BusinessFacingSession", false, `Creates a new business-facing session and returns a unique session key.
 A source number and mode of sale must be supplied. An optional valid batch id may be included.
-{"Request":{"IpAddress":"string","Organization":"string"}}`) 
+{"Request":{"BusinessUnit":123,"IpAddress":"string","Organization":"string","SessionInfo":{"Id":123}}}`) 
 				Post_Session_cmd.Flags().Bool("LoadOrder", false, `Load an existing order into the cart and return the cart details
 
 Once an order is loaded, changes can be made to the order. When loaded, the session mode of sale changes to the mode of sale of the loaded order. The method raises an exception if called with existing items in the cart.
@@ -7056,11 +7056,11 @@ This method sets four session variables:
 - UserName -- The username for the session
 - Status -- The status of the login (P = permanent, T = temporary)
 A constituent can be locked out of logging in after a certain number of failed log in attempts.  The number of failed attempts before lockout and the length of lockout are set in the T_DEFAULTS table.  Should a constituent exceed the allowed number of failed log in attempts, the method returns data on the number of failed login attempts per login along with a timestamp of the time at which the user was locked out of the login process.
-{"Request":{"Password":"string","UserName":"string"},"SessionKey":"string"}`) 
+{"Request":{"LoginTypeId":123,"Password":"string","PersistSessionOnFailure":true,"PromotionCode":123,"UserName":"string"},"SessionKey":"string"}`) 
 				Post_Session_cmd.Flags().Bool("LoginAsGuest", false, `Login for guest checkout.
 Allows anonymous checkout under constituent 0, attaching the supplied email address to the cart.  The session will be marked as a guest login.
 If the email address exists attached to a login of the specified login type, that login's constituent ID will be used on the cart.
-{"Request":{"EmailAddress":"string"},"SessionKey":"string"}`) 
+{"Request":{"ElectronicAddressTypeId":123,"EmailAddress":"string","LoginTypeId":123},"SessionKey":"string"}`) 
 				Post_Session_cmd.Flags().Bool("LoginUsingConstituentInfo", false, `Login a constituent using Constituent ID, Phone Number and Postal Code.  Email can also be passed for additional validation but is optional.
 A constituent record must have an existing login in order for successful authentication.  
 A login type parameter is used to determine which login is evaluated for authentication when a constituent record has more than one.  This is generally used to differentiate each organization's logins in a consortium environment.
@@ -7070,7 +7070,7 @@ This method sets four session variables:
 - UserName -- The username for the session
 - Status -- The status of the login (P = permanent, T = temporary)
 A constituent can be locked out of logging in after a certain number of failed log in attempts.  The number of failed attempts before lockout and the length of lockout are set in the T_DEFAULTS table.  Should a constituent exceed the allowed number of failed log in attempts, the method returns data on the number of failed login attempts per login along with a timestamp of the time at which the user was locked out of the login process.
-{"Request":{"EmailAddress":"string","PhoneNumber":"string","PostalCode":"string"},"SessionKey":"string"}`) 
+{"Request":{"ConstituentId":123,"EmailAddress":"string","LoginTypeId":123,"PhoneNumber":"string","PostalCode":"string","PromotionCode":123},"SessionKey":"string"}`) 
 				Post_Session_cmd.Flags().Bool("LoginUsingEmail", false, `Login a constituent using Email and Password
 A constituent record must have an existing login in order for successful authentication.  
 A login type parameter is used to determine which login is evaluated for authentication when a constituent record has more than one.  This is generally used to differentiate each organization's logins in a consortium environment.
@@ -7080,7 +7080,7 @@ This method sets four session variables:
 - UserName -- The username for the session
 - Status -- The status of the login (P = permanent, T = temporary)
 A constituent can be locked out of logging in after a certain number of failed log in attempts.  The number of failed attempts before lockout and the length of lockout are set in the T_DEFAULTS table.  Should a constituent exceed the allowed number of failed log in attempts, the method returns data on the number of failed login attempts per login along with a timestamp of the time at which the user was locked out of the login process.
-{"Request":{"EmailAddress":"string","Password":"string"},"SessionKey":"string"}`) 
+{"Request":{"EmailAddress":"string","LoginTypeId":123,"Password":"string","PromotionCode":123},"SessionKey":"string"}`) 
 				Post_Session_cmd.Flags().Bool("LoginUsingExternal", false, `Login a constituent using External Authentication 
 A constituent record must have an existing login in order for successful authentication.  
 A login type parameter is used to determine which login is evaluated for authentication when a constituent record has more than one.  This is generally used to differentiate each organization's logins in a consortium environment.
@@ -7090,7 +7090,7 @@ This method sets four session variables:
 - UserName -- The username for the session
 - Status -- The status of the login (P = permanent, T = temporary)
 A constituent can be locked out of logging in after a certain number of failed log in attempts.  The number of failed attempts before lockout and the length of lockout are set in the T_DEFAULTS table.  Should a constituent exceed the allowed number of failed log in attempts, the method returns data on the number of failed login attempts per login along with a timestamp of the time at which the user was locked out of the login process.
-{"Request":{"UserName":"string"},"SessionKey":"string"}`) 
+{"Request":{"LoginTypeId":123,"PromotionCode":123,"UserName":"string"},"SessionKey":"string"}`) 
 				Post_Session_cmd.Flags().Bool("LoginUsingToken", false, `Login a constituent using Login Token and Email
 A constituent record must have an existing login in order for successful authentication.  
 A login type parameter is used to determine which login is evaluated for authentication when a constituent record has more than one.  This is generally used to differentiate each organization's logins in a consortium environment.
@@ -7100,29 +7100,29 @@ This method sets four session variables:
 - UserName -- The username for the session
 - Status -- The status of the login (P = permanent, T = temporary)
 A constituent can be locked out of logging in after a certain number of failed log in attempts.  The number of failed attempts before lockout and the length of lockout are set in the T_DEFAULTS table.  Should a constituent exceed the allowed number of failed log in attempts, the method returns data on the number of failed login attempts per login along with a timestamp of the time at which the user was locked out of the login process.
-{"Request":{"EmailAddress":"string","ForgotLoginToken":"string"},"SessionKey":"string"}`) 
+{"Request":{"EmailAddress":"string","ForgotLoginToken":"string","LoginTypeId":123,"PromotionCode":123},"SessionKey":"string"}`) 
 				Post_Session_cmd.Flags().Bool("Logout", false, `Logout a constituent
 Seats locked by the session are automatically released during logout. This behavior can be disabled by setting the DISCONNECT_ON_LOGOUT entry in T_DEFAULTS or the web.config file to False.
 {"SessionKey":"string"}`) 
 				Post_Session_cmd.Flags().Bool("PromoCode", false, `Returns promotion information for a session by number or description
 A primary use of this method is to translate promo codes (text) into source codes (integers). This method also returns the 6 fields of text that can be recorded for each web source, which can be used to display specific messaging when a promo code is entered by a constituent.
-{"Request":{"PromoCodeString":"string"},"SessionKey":"string"}`) 
+{"Request":{"PromoCode":123,"PromoCodeString":"string"},"SessionKey":"string"}`) 
 				Post_Session_cmd.Flags().Bool("Reprint", false, `This method causes a Print at Home reprint request to be written for the specified order.
 Note that the order will only be reprinted by the Tessitura Print at Home Ticketing service if the service is configured to recognize the delivery method used by the order.
 The mode of sale for the order must also be set in the TR_PAHT_CONFIGURATION table to allow TPAHT reprints.
 See the Tessitura Print at Home Ticketing Service document for more details.
-{"Request":{},"SessionKey":"string"}`) 
+{"Request":{"EmailAddressId":123,"OrderId":123},"SessionKey":"string"}`) 
 				Post_Session_cmd.Flags().Bool("SendLoginCredentials", false, `Sends an email with a temporary login token to a specific email address and login type.
 The service searches for the email address in logins of the specified type. If it is found, a password token will be generated and the login credentials template that is configured in T_FORMAT_INFO will be sent.
-{"Request":{"EmailAddress":"string"},"SessionKey":"string"}`) 
+{"Request":{"EmailAddress":"string","LoginTypeId":123,"TemplateFormatId":123},"SessionKey":"string"}`) 
 				Post_Session_cmd.Flags().Bool("Session", false, `Creates a new session and returns a unique session key.
-{"Request":{"IpAddress":"string","Organization":"string"}}`) 
+{"Request":{"BusinessUnitId":123,"IpAddress":"string","Organization":"string","PromotionCode":123}}`) 
 				Post_Session_cmd.Flags().Bool("TransferSession", false, ` Transfers the authentication for the specified session to another session. 
 This method is typically called after completing checkout, so the constituent is automatically transferred to a new session.  This avoids having to log in again. NOTE:  The new session must be generated using the /Web/Session (POST) method.
  You can choose to have the web API automatically disconnect the constituent's session from the Seat Server once transfer session has completed by setting the configuration value of DISCONNECT_SEAT_SERVER_SESSION_WHEN_TRANSFERING_SESSION to True in the Web API config file.
 {"Request":{"NewSessionKey":"string"},"SessionKey":"string"}`) 
 				Post_Session_cmd.Flags().Bool("WebLogin", false, `Creates a webLogin for a user and logs back into the session using new credentials.
-{"SessionKey":"string","SessionWebLogin":{"ConstituentUpdateDate":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","LastLoginDate":"0001-01-01T00:00:00.000Z","LockedDate":"0001-01-01T00:00:00.000Z","Login":"string","Password":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`)
+{"SessionKey":"string","SessionWebLogin":{"Constituent":{"Id":123},"ConstituentUpdateDate":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Email":{"Id":123},"FailedAttempts":123,"Id":123,"Inactive":true,"LastLoginDate":"0001-01-01T00:00:00.000Z","LockedDate":"0001-01-01T00:00:00.000Z","Login":"string","LoginType":{"Id":123},"Password":"string","PrimaryIndicator":true,"TemporaryIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`)
 	
 		Post_cmd.AddCommand(Post_SourceGroups_cmd)
 	
@@ -7138,7 +7138,7 @@ This method is typically called after completing checkout, so the constituent is
 	
 		Post_cmd.AddCommand(Post_Steps_cmd) 
 				Post_Steps_cmd.Flags().Bool("AddDocument", false, `Add a document to the step.
-{"Document":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","FileName":"string","Notes":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"StepID":"string"}`)
+{"Document":{"Category":{"Id":123},"ConstituentId":123,"Contents":"AA==","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","FileName":"string","Id":123,"Notes":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"StepID":"string"}`)
 	
 		Post_cmd.AddCommand(Post_SubLineItemStatuses_cmd)
 	
@@ -7152,35 +7152,35 @@ This method is typically called after completing checkout, so the constituent is
 	
 		Post_cmd.AddCommand(Post_TemplatePriceTypes_cmd) 
 				Post_TemplatePriceTypes_cmd.Flags().Bool("Batch", false, `Create or update a set of template price types.
-{"TemplatePriceTypes":[object]}`)
+{"TemplatePriceTypes":[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DesignationCode":{"Id":123},"GlAccount":{"Id":123},"Id":123,"PriceTemplate":{"Id":123},"PriceType":{"Id":123},"ResaleAccount":{"Id":123},"TemplatePrices":[{"Id":123},...],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},...]}`)
 	
 		Post_cmd.AddCommand(Post_TemplatePrices_cmd) 
 				Post_TemplatePrices_cmd.Flags().Bool("Batch", false, `Create or update a set of template prices.
-{"TemplatePrices":[object]}`)
+{"TemplatePrices":[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Enabled":true,"Id":123,"MinPrice":123.456,"Price":123.456,"TemplatePriceType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Zone":{"Id":123}},...]}`)
 	
 		Post_cmd.AddCommand(Post_Templates_cmd) 
 				Post_Templates_cmd.Flags().Bool("ConstituentInfo", false, `Get a formatted html body for constituent info
-{"ConstituentID":"string","Request":[object],"TemplateID":"string"}`) 
+{"ConstituentID":"string","Request":[{"Name":"string","Value":"string"},...],"TemplateID":"string"}`) 
 				Post_Templates_cmd.Flags().Bool("LoginCredentials", false, `Get a formatted html body for login credentials.
 This endpoint will not generate a password token and should be used for testing a login credentials template.
 Use the SendCredentials endpoint in Web/Session to send a login credentials email with a generated password token.
-{"LoginID":"string","Request":[object],"TemplateID":"string"}`) 
+{"LoginID":"string","Request":[{"Name":"string","Value":"string"},...],"TemplateID":"string"}`) 
 				Post_Templates_cmd.Flags().Bool("OrderConfirmation", false, `Get a formatted html body for an order confirmation
-{"OrderID":"string","Request":[object],"TemplateID":"string"}`) 
+{"OrderID":"string","Request":[{"Name":"string","Value":"string"},...],"TemplateID":"string"}`) 
 				Post_Templates_cmd.Flags().Bool("RenderConstituentInfo", false, `Return the rendered constituent info template for the provided constituent Id
-{"ConstituentID":"string","Request":{"Body":"string","NameValues":[object]}}`) 
+{"ConstituentID":"string","Request":{"Body":"string","NameValues":[{"Id":123},...]}}`) 
 				Post_Templates_cmd.Flags().Bool("RenderLoginCredentials", false, `Return the rendered login credentials template for the provided web login id
 This endpoint will not generate a password token and should be used for testing a login credentials template.
 Use the SendCredentials endpoint in Web/Session to send a login credentials email with a generated password token.
-{"LoginID":"string","Request":{"Body":"string","NameValues":[object]}}`) 
+{"LoginID":"string","Request":{"Body":"string","NameValues":[{"Id":123},...]}}`) 
 				Post_Templates_cmd.Flags().Bool("RenderOrderConfirmation", false, `Return the rendered order confirmation template for the provided order Id
-{"OrderID":"string","Request":{"Body":"string","NameValues":[object]}}`) 
+{"OrderID":"string","Request":{"Body":"string","NameValues":[{"Id":123},...]}}`) 
 				Post_Templates_cmd.Flags().Bool("RenderTickets", false, `Return the rendered tickets for the provided order Id
 Composite tickets are not currently supported, so a request to print one will instead return ticket elements for each performance, as if no composite ticket design had been selected for the package.
-{"OrderID":"string","Request":{"Body":"string"}}`) 
+{"OrderID":"string","Request":{"Body":"string","PrintOrderTicketsRequest":{"Id":123}}}`) 
 				Post_Templates_cmd.Flags().Bool("Tickets", false, `Get a formatted html body for tickets
 Composite tickets are not currently supported, so a request to print one will instead return ticket elements for each performance, as if no composite ticket design had been selected for the package.
-{"OrderID":"string","Request":{"LineItems":"string","PrinterType":"string","SubLineItems":"string"},"TemplateID":"string"}`)
+{"OrderID":"string","Request":{"BatchId":123,"HeaderDesignId":123,"IncludeReceipts":true,"LineItems":"string","NewTicketNoForReprints":true,"PrinterType":"string","ReprintTickets":true,"SubLineItems":"string","TicketDesignId":123},"TemplateID":"string"}`)
 	
 		Post_cmd.AddCommand(Post_Theaters_cmd)
 	
@@ -7194,7 +7194,7 @@ Composite tickets are not currently supported, so a request to print one will in
 	
 		Post_cmd.AddCommand(Post_UserPreferences_cmd) 
 				Post_UserPreferences_cmd.Flags().Bool("SaveBatch", false, `Save a batch of user preferences.
-{"UserPreferences":[object]}`)
+{"UserPreferences":[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"Key":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Value":"string"},...]}`)
 	
 		Post_cmd.AddCommand(Post_Users_cmd)
 	
