@@ -37,7 +37,7 @@ func TestMain(m *testing.M) {
 
 func server() (server *httptest.Server) {
 	methods := map[string]string{
-		"^/Web/Cart/.+?/Bookings$":                         "POST",
+		"^/Web/Cart/.+?/Bookings":                          "POST",
 		"^/Web/Cart/.+?/Contributions/.+?/CustomData/.+?$": "PUT",
 		"^/Web/Cart/.+?/CustomData/.+?$":                   "PUT",
 		"^/TXN/PerformancePriceTypes$":                     "PUT",
@@ -66,7 +66,7 @@ func server() (server *httptest.Server) {
 		"^/Web/Cart/.+?/SubLineItems/.+?/Recipient$":       "PUT",
 		"^/Web/Cart/.+?/LineItems/.+?/SpecialRequest$":     "PUT",
 		"^/Reporting/ReportRequests/FlushIncomplete$":      "PUT",
-		"^/TXN/PerformancePriceTypes/Base$":                "PUT",
+		"^/TXN/PerformancePriceTypes/Base":                 "PUT",
 		"^/TXN/PerformancePriceLayers/Prices$":             "PUT",
 	}
 
