@@ -160,8 +160,9 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 		return nil, err
 	} else {
 		// Marshall the json response
-		if payload := reflect.ValueOf(obj).Elem().FieldByName("Payload"); !payload.IsZero() {
-			return json.Marshal(payload.Interface())
+		if !reflect.ValueOf(obj).Elem().IsZero() &&
+			!reflect.ValueOf(obj).Elem().FieldByName("Payload").IsZero() {
+			return json.Marshal(reflect.ValueOf(obj).Elem().FieldByName("Payload").Interface())
 		} else {
 			return json.Marshal(obj)
 		}
