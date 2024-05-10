@@ -17,7 +17,7 @@ import (
 {{- range $commands }}
 func Test_{{ print $op "_" $key "_" .Variant "_cmd" }}(t *testing.T) {
         command := {{ print $op "_" $key "_cmd" }}
-        var use string
+        use := command.Use
 
         {{ if ne .Variant "" -}}
         flag := command.Flag("{{ .Variant }}")
@@ -26,8 +26,6 @@ func Test_{{ print $op "_" $key "_" .Variant "_cmd" }}(t *testing.T) {
             defer flag.Value.Set("false")
             use = flag.Usage
         }
-        {{ else -}}
-        use = command.Use
         {{ end -}}
 
 		input := strings.ReplaceAll(regexp.MustCompile(`\{.+\}$`).FindString(use),
