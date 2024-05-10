@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/go-openapi/spec"
+	"github.com/go-openapi/strfmt"
 )
 
 type command struct {
@@ -94,60 +95,65 @@ func describe(funcName string) (thing string, long string) {
 }
 
 // Instantiate a struct type and fill it with descriptions up to depth (starting at 0)
-func instantiateStructType(t reflect.Type, depth int) any {
+func instantiateStructType(t reflect.Type, depth int) (s any, maxDepth int) {
 	var v reflect.Value
+	maxDepth = 0
 
 	// instantiate the root element
-	if t.Kind() == reflect.Pointer &&
-		t.Elem().Kind() == reflect.Struct {
+	if t.Kind() == reflect.Pointer {
 		// v = *new(*t)
 		v = reflect.New(t.Elem()).Elem()
-	} else if t.Kind() == reflect.Struct {
+	} else {
 		// v = *new(t)
 		v = reflect.New(t).Elem()
-	} else {
-		return reflect.New(t).Interface()
 	}
 
-	for i := 0; i < v.NumField(); i++ {
-		field := v.Field(i)
-		if field.CanSet() {
-			if field.Kind() == reflect.Pointer {
-				field.Set(reflect.New(field.Type().Elem()))
-				field = field.Elem()
-			}
-			switch field.Kind() {
-			// bools are already initialized
-			case reflect.Int:
-				field.SetInt(123)
-			case reflect.Float32, reflect.Float64:
-				field.SetFloat(123.456)
-			case reflect.String:
-				field.SetString("string")
-			case reflect.Slice:
-				field.Set(reflect.MakeSlice(field.Type(), 1, 1))
-				if depth > 0 {
-					first := field.Index(0)
-					first.Set(reflect.ValueOf(instantiateStructType(first.Type(), depth-1)))
-				} else {
-					// unset pointer
-					v.Field(i).SetZero()
+	// instantiate struct fields
+	if v.Kind() == reflect.Struct {
+		for i := 0; i < v.NumField(); i++ {
+			field := v.Field(i)
+			if field.CanSet() {
+				if field.Kind() == reflect.Pointer {
+					field.Set(reflect.New(field.Type().Elem()))
+					field = field.Elem()
 				}
-			case reflect.Struct:
-				if depth > 0 {
-					field.Set(reflect.ValueOf(instantiateStructType(field.Type(), depth-1)))
-				} else {
-					// unset pointer
-					v.Field(i).SetZero()
+				switch field.Kind() {
+				case reflect.Bool:
+					field.SetBool(true)
+				case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64,
+					reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
+					field.SetInt(123)
+				case reflect.Float32, reflect.Float64:
+					field.SetFloat(123.456)
+				case reflect.String:
+					field.SetString("string")
+				case reflect.Slice, reflect.Struct:
+					// recurse!
+					if field.Kind() == reflect.Slice {
+						field.Set(reflect.MakeSlice(field.Type(), 1, 1))
+						field = field.Index(0)
+					}
+					if depth > 0 {
+						s, i := instantiateStructType(field.Type(), depth-1)
+						field.Set(reflect.ValueOf(s))
+						if field.Type() != reflect.TypeOf(strfmt.DateTime{}) {
+							maxDepth = max(maxDepth, i+1)
+						}
+					} else {
+						// unset pointer
+						v.Field(i).SetZero()
+					}
 				}
 			}
 		}
 	}
 
 	if t.Kind() == reflect.Pointer {
-		return v.Addr().Interface()
+		s = v.Addr().Interface()
+	} else {
+		s = v.Interface()
 	}
-	return v.Interface()
+	return
 }
 
 // Generate usage for `method` by instantiating its first (non-receiver) argument
@@ -157,7 +163,8 @@ func usage(method reflect.Method) []byte {
 	if numIn < 2 {
 		return nil
 	}
-	params := reflect.ValueOf(instantiateStructType(method.Type.In(numIn-2), 1))
+	s, depth := instantiateStructType(method.Type.In(numIn-2), 2)
+	params := reflect.ValueOf(s)
 	if params.Kind() == reflect.Pointer {
 		params = params.Elem()
 	}
@@ -166,6 +173,7 @@ func usage(method reflect.Method) []byte {
 		return nil
 	}
 
+	// have to remove fields before marshaling because HTTPClient is a function
 	paramsMap := make(map[string]any)
 	removeFields := []string{"timeout", "Context", "HTTPClient"}
 	for i := 0; i < params.NumField(); i++ {
@@ -176,10 +184,15 @@ func usage(method reflect.Method) []byte {
 	}
 
 	usage, err := json.Marshal(paramsMap)
+
 	if err != nil {
 		panic(err)
 	}
-	usage = []byte(strings.ReplaceAll(string(usage), "null", "[object]"))
+	if depth > 1 {
+		usage = regexp.MustCompile(`{[^{}]+}`).ReplaceAll(usage, []byte(`{"Id":123}`))
+	}
+	usage = regexp.MustCompile(`]`).ReplaceAll(usage, []byte(`,...]`))
+	//usage = []byte(strings.ReplaceAll(string(usage), "null", "[object]"))
 	if string(usage) == "{}" {
 		usage = nil
 	}
