@@ -31,7 +31,7 @@ func Test_{{ print $op "_" $key "_" .Variant "_cmd" }}(t *testing.T) {
         {{ end -}}
 
 		input := strings.ReplaceAll(regexp.MustCompile(`\{.+\}$`).FindString(use),
-                    "[object]","null")
+                    ",...","")
         out, err := tq.CaptureOutput(func(){
             viper.Set("login",authString)
             // PreRun: tqInit
