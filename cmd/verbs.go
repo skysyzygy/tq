@@ -5,19 +5,19 @@ import (
 )
 
 var Get_cmd = &cobra.Command{
-	Use:     "Get",
-	Aliases: []string{"Get", "get", "Retrieve", "retrieve", "R", "r"},
+	Use:     "get",
+	Aliases: []string{"Get", "get", "Retrieve", "retrieve", "G", "g", "R", "r"},
 	Short:   "Retrieve entities from Tessitura",
 }
 
 var Post_cmd = &cobra.Command{
-	Use:     "Post",
+	Use:     "create",
 	Aliases: []string{"Post", "post", "Create", "create", "C", "c"},
 	Short:   "Create entities in Tessitura",
 }
 
 var Put_cmd = &cobra.Command{
-	Use:     "Put",
+	Use:     "update",
 	Aliases: []string{"Put", "put", "Update", "update", "U", "u"},
 	Short:   "Update entities in Tessitura",
 }
