@@ -189,7 +189,9 @@ func usage(method reflect.Method) []byte {
 		panic(err)
 	}
 	if depth > 1 {
-		usage = regexp.MustCompile(`{[^{}]+}`).ReplaceAll(usage, []byte(`{"Id":123}`))
+		usage = regexp.
+			MustCompile(`{[^{}]*("Id":[^,}]+)[^{}]*}`).
+			ReplaceAll(usage, []byte(`{$1}`))
 	}
 	usage = regexp.MustCompile(`]`).ReplaceAll(usage, []byte(`,...]`))
 	//usage = []byte(strings.ReplaceAll(string(usage), "null", "[object]"))
