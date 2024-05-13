@@ -7,7 +7,9 @@ import (
 	"os"
 	"reflect"
 	run "runtime"
+	"slices"
 	"strings"
+	"sync"
 
 	"encoding/json"
 
@@ -98,15 +100,18 @@ func Do[P any, R any, O any, F func(*P, ...O) (*R, error)](
 	} else if err == nil {
 		tq.Log.Info("query is an array, calling API endpoint multiple times")
 		// loop over queries and call DoOne for each
-		// TODO: Parallelize this!
 		out := make([]json.RawMessage, len(*queries))
-		errs := make([]error, 0, len(*queries))
+		errs := make([]error, len(*queries))
+		wait := new(sync.WaitGroup)
+		wait.Add(len(*queries))
 		for i, q := range *queries {
-			out[i], err = DoOne(tq, function, q)
-			if err != nil {
-				errs = append(errs, err)
-			}
+			go func(i int) {
+				out[i], errs[i] = DoOne(tq, function, q)
+				wait.Done()
+			}(i)
 		}
+		wait.Wait()
+		errs = slices.DeleteFunc(errs, func(e error) bool { return e == nil })
 		res, _ := json.Marshal(out)
 		if len(errs) > 0 {
 			err = errs[len(errs)-1]
