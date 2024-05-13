@@ -143,11 +143,13 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 			tq.Log.Info("structFields", "fields", fmt.Sprint(structFields(*params)))
 			tq.Log.Info("mapFields", "fields", fmt.Sprint(mapFields(remainder)))
 		}
-		if len(structFields(*params)) == 0 {
-			err = errors.Join(err, fmt.Errorf("query %v could not be parsed into %#v",
-				string(query),
-				params))
-		}
+
+	}
+
+	if err != nil {
+		err = errors.Join(err, fmt.Errorf("query %v could not be parsed into %#v",
+			string(query),
+			params))
 	}
 	if tq.dryRun || err != nil {
 		return nil, err
