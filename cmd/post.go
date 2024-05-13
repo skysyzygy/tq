@@ -15,21 +15,16 @@ var Post_AccountTypes_cmd = &cobra.Command{
 		Use: `AccountTypes {"Data":{"CardLength":"string","CardPrefix":"string","CardtypeIndicator":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditMask":"string","Id":123,"Inactive":true,"Mod10Indicator":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new account type`,
 		Long:  `Create a new account type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AccountTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -38,14 +33,10 @@ var Post_Accounts_cmd = &cobra.Command{
 		Use: `Accounts {"Request":{"AccountNumber":"string","CardExpiryMonth":123,"CardExpiryYear":123,"ConstituentId":123,"ExclusiveToControlledBatchId":123,"Inactive":true,"Name":"string","PaymentMethodGroupId":123,"ReturnAccountIfAccountExists":true,"TransactionOrigin":"string","VantivEncryptedCard":{"Version":"string"}}}`,
 		Short: `Create a credit card account`,
 		Long:  `Create a credit card account, storing the card number. Will create and store a token if tokenization is enabled.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("DirectDebitAccount"); test {
 				out, err = tq.Do(*_tq, _tq.Post.AccountsCreateDirectDebitAccount , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("SepaAccount"); test {
@@ -57,32 +48,26 @@ var Post_Accounts_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ActionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "at",  "actiontypes",  "AT",  },
+		Aliases: []string{  "actiontypes",  "AT",  "at",  },
 		Use: `ActionTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"LetterIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new action type`,
 		Long:  `Create a new action type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ActionTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -91,44 +76,34 @@ var Post_Actions_cmd = &cobra.Command{
 		Use: `Actions {"IssueAction":{"ActionDate":"0001-01-01T00:00:00.000Z","ActionType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Issue":{"Id":123},"LetterPrintedDate":"0001-01-01T00:00:00.000Z","Notes":"string","Resolved":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create an issue action for a Constituent`,
 		Long:  `Create an issue action for a Constituent`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ActionsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ActivityCategories_cmd = &cobra.Command{
-		Aliases: []string{  "ac",  "activitycategories",  "AC",  },
+		Aliases: []string{  "activitycategories",  "AC",  "ac",  },
 		Use: `ActivityCategories {"Data":{"AutoClose":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new activity category`,
 		Long:  `Create a new activity category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ActivityCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -137,21 +112,16 @@ var Post_ActivityTypes_cmd = &cobra.Command{
 		Use: `ActivityTypes {"Data":{"Category":{"Id":123},"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PerfIndicator":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new activity type`,
 		Long:  `Create a new activity type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ActivityTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -160,21 +130,16 @@ var Post_AddressTypes_cmd = &cobra.Command{
 		Use: `AddressTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new address type`,
 		Long:  `Create a new address type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AddressTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -183,67 +148,52 @@ var Post_Addresses_cmd = &cobra.Command{
 		Use: `Addresses {"Address":{"AddressType":{"Id":123},"AffiliatedConstituent":{"Id":123},"AltSalutationType":{"Id":123},"City":"string","Constituent":{"Id":123},"Country":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DeliveryPoint":"string","EditIndicator":true,"EndDate":"0001-01-01T00:00:00.000Z","GeoArea":123,"Id":123,"Inactive":true,"IsFromAffiliation":true,"Label":true,"Months":"string","NcoaAction":123,"NcoaSession":123,"PostalCode":"string","PostalCodeFormatted":"string","PrimaryIndicator":true,"StartDate":"0001-01-01T00:00:00.000Z","State":{"Id":123},"Street1":"string","Street1Address":{"Number":"string","Street":"string"},"Street2":"string","Street3":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new address for a Constituent by sending an XML or JSON representation of an Address object using HTTP POST`,
 		Long:  `Create a new address for a Constituent by sending an XML or JSON representation of an Address object using HTTP POST.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AddressesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_AffiliationInfo_cmd = &cobra.Command{
-		Aliases: []string{  "ai",  "affiliationinfo",  "AI",  },
+		Aliases: []string{  "affiliationinfo",  "AI",  "ai",  },
 		Use: `AffiliationInfo {"AffiliationInfo":{"AffiliationType":{"Id":123},"ConstituentId":123,"EditIndicator":true,"EndDate":"0001-01-01T00:00:00.000Z","Id":123,"Inactive":true,"IsAllowedToTransact":true,"IsIncludedInSearchResults":true,"NameIndicator":123,"Note":"string","PrimaryIndicator":true,"ProtectionType":{"Id":123},"Rank":123,"RelatedConstituentFirstName":"string","RelatedConstituentGender":{"Id":123},"RelatedConstituentId":123,"RelatedConstituentInactive":true,"RelatedConstituentLastName":"string","RelatedConstituentMiddleName":"string","RelatedConstituentNameStatusDescription":"string","RelatedConstituentNameStatusId":123,"RelatedConstituentPrefix":{"Id":123},"RelatedConstituentShortDisplayName":"string","RelatedConstituentSortName":"string","RelatedConstituentSuffix":{"Id":123},"RelatedConstituentType":{"Id":123},"Salary":123.456,"StartDate":"0001-01-01T00:00:00.000Z","Title":"string"}}`,
 		Short: `Create affiliation between a group constituent and its related constituent`,
 		Long:  `Create affiliation between a group constituent and its related constituent. If the related constituent does not exist then create the related constituent as well before creating the affiliation.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AffiliationInfoPostAffiliation , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_AffiliationTypes_cmd = &cobra.Command{
-		Aliases: []string{  "affiliationtypes",  "AT",  "at",  },
+		Aliases: []string{  "AT",  "at",  "affiliationtypes",  },
 		Use: `AffiliationTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"IsAllowedToTransactDefault":true,"IsIncludedInSearchResultsDefault":true,"RelationshipCategory":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseSalary":true,"UseTitle":true}}`,
 		Short: `Create a new affiliation type`,
 		Long:  `Create a new affiliation type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AffiliationTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -252,44 +202,34 @@ var Post_Affiliations_cmd = &cobra.Command{
 		Use: `Affiliations {"Affiliation":{"AddressId":123,"AffiliatedName":"string","AffiliationType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"ElectronicAddressId":123,"EndDate":"0001-01-01T00:00:00.000Z","GroupConstituent":{"Id":123},"GroupConstituentName":"string","GroupConstituentSortName":"string","Id":123,"Inactive":true,"IndividualConstituent":{"Id":123},"IndividualConstituentName":"string","IndividualConstituentSortName":"string","IsAllowedToTransact":true,"IsIncludedInSearchResults":true,"NameIndicator":123,"Note":"string","PrimaryIndicator":true,"Salary":123.456,"SalutationId":123,"StartDate":"0001-01-01T00:00:00.000Z","Title":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new affiliation`,
 		Long:  `Create a new affiliation.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AffiliationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_AliasTypes_cmd = &cobra.Command{
-		Aliases: []string{  "aliastypes",  "AT",  "at",  },
+		Aliases: []string{  "at",  "aliastypes",  "AT",  },
 		Use: `AliasTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new alias type`,
 		Long:  `Create a new alias type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AliasTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -298,67 +238,52 @@ var Post_Aliases_cmd = &cobra.Command{
 		Use: `Aliases {"Alias":{"AliasFirstName":"string","AliasLastName":"string","AliasType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new alias`,
 		Long:  `Create a new alias.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AliasesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_AnalyticsReports_cmd = &cobra.Command{
-		Aliases: []string{  "ar",  "analyticsreports",  "AR",  },
+		Aliases: []string{  "analyticsreports",  "AR",  "ar",  },
 		Use: `AnalyticsReports {"AnalyticsReport":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Division":{"Id":"string"},"Id":123,"Inactive":true,"ReportPath":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create SSRS Reports for display in Analytics`,
 		Long:  `Create SSRS Reports for display in Analytics.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AnalyticsReportsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_AppealCategories_cmd = &cobra.Command{
-		Aliases: []string{  "appealcategories",  "AC",  "ac",  },
+		Aliases: []string{  "AC",  "ac",  "appealcategories",  },
 		Use: `AppealCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new appeal category`,
 		Long:  `Create a new appeal category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AppealCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -367,44 +292,34 @@ var Post_Artists_cmd = &cobra.Command{
 		Use: `Artists {"Artist":{"Bio":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","FirstName":"string","Id":123,"LastName":"string","MiddleName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","VoiceId":123}}`,
 		Short: `Create a new artist`,
 		Long:  `Create a new artist.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ArtistsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_AssetTypes_cmd = &cobra.Command{
-		Aliases: []string{  "at",  "assettypes",  "AT",  },
+		Aliases: []string{  "assettypes",  "AT",  "at",  },
 		Use: `AssetTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new asset type`,
 		Long:  `Create a new asset type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AssetTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -413,44 +328,34 @@ var Post_Assets_cmd = &cobra.Command{
 		Use: `Assets {"Asset":{"AcquisitionDateTime":"0001-01-01T00:00:00.000Z","AssetType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"EstimatedValue":123.456,"Id":123,"Notes":"string","SaleDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create an asset for a constituent`,
 		Long:  `Create an asset for a constituent.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AssetsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_AssociationTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "at",  "associationtypes",  },
+		Aliases: []string{  "associationtypes",  "AT",  "at",  },
 		Use: `AssociationTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"IsIncludedInSearchResultsDefault":true,"ReciprocalType":{"Id":123},"RelationshipCategory":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseBirthDate":true,"UseGender":true}}`,
 		Short: `Create a new association type`,
 		Long:  `Create a new association type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AssociationTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -459,44 +364,34 @@ var Post_Associations_cmd = &cobra.Command{
 		Use: `Associations {"Association":{"AssociatedConstituent":{"Id":123},"AssociatedName":"string","AssociationType":{"Id":123},"BirthDate":"0001-01-01T00:00:00.000Z","Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"EndDate":"0001-01-01T00:00:00.000Z","Gender":{"Id":123},"Id":123,"Inactive":true,"IsIncludedInSearchResults":true,"Note":"string","ReciprocalAssociation":{"Id":123},"StartDate":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new association`,
 		Long:  `Create a new association.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AssociationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Attributes_cmd = &cobra.Command{
-		Aliases: []string{  "a",  "attributes",  "A",  },
+		Aliases: []string{  "attributes",  "A",  "a",  },
 		Use: `Attributes {"Attribute":{"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Keyword":{"Id":123},"KeywordConstituentType":{"Inactive":true,"Rank":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Value":"string"}}`,
 		Short: `Create a new attribute`,
 		Long:  `Create a new attribute.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AttributesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -505,14 +400,10 @@ var Post_Authenticate_cmd = &cobra.Command{
 		Use: `Authenticate {"AuthenticationRequest":{"Application":"string","MachineLocation":"string","Password":"string","UserGroup":"string","UserName":"string"}}`,
 		Short: `Authenticate the provided credentials`,
 		Long:  `Authenticate the provided credentials`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("AuthenticateWindows"); test {
 				out, err = tq.Do(*_tq, _tq.Post.AuthenticateAuthenticateWindows , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("GenerateToken"); test {
@@ -526,9 +417,8 @@ var Post_Authenticate_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -537,14 +427,10 @@ var Post_Authorization_cmd = &cobra.Command{
 		Use: `Authorization {"Request":{"AllowPartialAuth":true,"Amount":123.456,"AuthorizationCode":"string","BillingAddress":{"AddressId":123,"Country":"string","PostalCode":"string","Street1":"string"},"Card":{"AccountId":123,"CardHolderName":"string","CardNumber":"string","Cvv2":"string","ExpirationDate":"string","TessituraMerchantServicesData":"string","Track1":"string","Track2":"string"},"ConstituentId":123,"DeliveryDate":"0001-01-01T00:00:00.000Z","IsECommerce":true,"IsRecurring":true,"PaymentId":123,"PaymentMethodId":123,"ReferenceNumber":"string","ReturnUrl":"string","ShopperIp":"string","StoreAccount":true,"ThreeDSecureData":{"EciIndicatorType":"string","MpiSessionId":"string","SecureTransactionId":"string","SecureTransactionSecurity":"string","VerAuthValue":"string","VerCertificateSerialCardAcceptor":"string","VerCertificateSerialCardHolder":"string","VerHashResult":"string"},"TransactionOrigin":"string","UserData":"string"}}`,
 		Short: `Authorize a payment using a manually keyed`,
 		Long:  `Authorize a payment using a manually keyed, swiped or encrypted card data, including payments made using the Tessitura Merchant Services Payment Component.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Confirm"); test {
 				out, err = tq.Do(*_tq, _tq.Post.AuthorizationConfirm , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ConfirmPayByLink"); test {
@@ -560,25 +446,20 @@ var Post_Authorization_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Batch_cmd = &cobra.Command{
-		Aliases: []string{  "batch",  "B",  "b",  },
+		Aliases: []string{  "B",  "b",  "batch",  },
 		Use: `Batch {"RequestMessage":"string"}`,
 		Short: `Post multiple requests with method type along with the payload (for the put and post) and get the responses for all the specified request in one call`,
 		Long:  `Post multiple requests with method type along with the payload (for the put and post) and get the responses for all the specified request in one call.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Sample"); test {
 				out, err = tq.Do(*_tq, _tq.Post.BatchSample , []byte(args[0]))
 			} else {
@@ -586,9 +467,8 @@ var Post_Batch_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -597,21 +477,16 @@ var Post_BatchMaintenance_cmd = &cobra.Command{
 		Use: `BatchMaintenance {"Batch":{"AmtPosted":123.456,"BatchType":{"Id":123},"CloseDateTime":"0001-01-01T00:00:00.000Z","ClosedBy":"string","CntlIndicator":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"Notes":"string","NumAccCc":123,"NumRejCc":123,"OpenLoc":"string","Owner":"string","PostId":123,"PostedBy":"string","PostedDateTime":"0001-01-01T00:00:00.000Z","Status":"string","TallyPlAmount":123.456,"TallyReAmount":123.456,"UniqueTag":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Batch`,
 		Long:  `Create a new Batch`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.BatchMaintenanceCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -620,44 +495,34 @@ var Post_BatchTypeGroups_cmd = &cobra.Command{
 		Use: `BatchTypeGroups {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new batch type group`,
 		Long:  `Create a new batch type group.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.BatchTypeGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_BatchTypes_cmd = &cobra.Command{
-		Aliases: []string{  "batchtypes",  "BT",  "bt",  },
+		Aliases: []string{  "bt",  "batchtypes",  "BT",  },
 		Use: `BatchTypes {"Data":{"BatchTypeGroup":{"Id":123},"BusinessUnit":{"Id":123},"Category":123,"CntlIndicator":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new batch type`,
 		Long:  `Create a new batch type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.BatchTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -666,21 +531,16 @@ var Post_BillingSchedules_cmd = &cobra.Command{
 		Use: `BillingSchedules {"Data":{"BillAmounts":"string","BillDates":"string","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"LongDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Billing Schedule`,
 		Long:  `Create a new Billing Schedule.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.BillingSchedulesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -689,21 +549,16 @@ var Post_BillingTypes_cmd = &cobra.Command{
 		Use: `BillingTypes {"Data":{"AutoBillingIndicator":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Billing Type`,
 		Long:  `Create a new Billing Type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.BillingTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -712,21 +567,16 @@ var Post_BookingCategories_cmd = &cobra.Command{
 		Use: `BookingCategories {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Booking Category`,
 		Long:  `Create a new Booking Category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.BookingCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -735,21 +585,16 @@ var Post_BookingTemplates_cmd = &cobra.Command{
 		Use: `BookingTemplates {"BookingTemplate":{"Assignments":[{"Id":123},...],"Category":{"Id":123},"ConfirmationText":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Notes":"string","OverrideTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Booking Template`,
 		Long:  `Create a new Booking Template`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.BookingTemplatesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -758,14 +603,10 @@ var Post_Bookings_cmd = &cobra.Command{
 		Use: `Bookings {"Booking":{"Assignments":[{"Id":123},...],"BookingSource":123,"Category":{"Id":123},"ConfirmationText":"string","Context":{},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultCount":123,"DefaultDateTime":"0001-01-01T00:00:00.000Z","DefaultDuration":123,"Description":"string","EditIndicator":true,"Id":123,"Notes":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Booking`,
 		Long:  `Create a new Booking`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("AddDocument"); test {
 				out, err = tq.Do(*_tq, _tq.Post.BookingsAddDocument , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("FromTemplate"); test {
@@ -775,25 +616,20 @@ var Post_Bookings_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_BulkCopySets_cmd = &cobra.Command{
-		Aliases: []string{  "bcs",  "bulkcopysets",  "BCS",  },
+		Aliases: []string{  "bulkcopysets",  "BCS",  "bcs",  },
 		Use: `BulkCopySets {"BulkCopySet":{"AvailableForSaleIndicator":true,"ControlGroup":{"Id":123},"CopyCredits":true,"CopyNotes":true,"CopyOffers":true,"CopyPriceEvents":true,"CopyPrices":true,"CreateFriday":true,"CreateFromDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreateMode":"string","CreateMonday":true,"CreateSaturday":true,"CreateSunday":true,"CreateThursday":true,"CreateToDateTime":"0001-01-01T00:00:00.000Z","CreateTuesday":true,"CreateWednesday":true,"CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultRelativeDates":"string","Id":123,"Inactive":true,"OverrideOnSale":true,"PackageCode":"string","PackageCodeSeed":123,"PackageModeOfSaleRelativeDates":"string","PerformanceCode":"string","PerformanceCodeSeed":123,"PerformanceDescription":"string","PerformanceModeOfSaleRelativeDates":"string","PerformanceStatus":{"Id":123},"PerformanceTime":"string","PerformanceType":{"Id":123},"PriceEventRelativeDates":"string","PriceTypeRelativeDates":"string","ProductionSeason":{"Id":123},"PublishRelativeDates":"string","ReferenceDay":"0001-01-01T00:00:00.000Z","ReferencePerformanceId":123,"ReferenceSeasonString":"string","SetDescription":"string","SetType":123,"ShortName":"string","TimeSlot":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Creates a new bulk copy set`,
 		Long:  `Creates a new bulk copy set.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("CopyDay"); test {
 				out, err = tq.Do(*_tq, _tq.Post.BulkCopySetsCopyDay , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("CopyEvent"); test {
@@ -805,9 +641,8 @@ var Post_BulkCopySets_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -816,21 +651,16 @@ var Post_BulkDailyCopyExclusions_cmd = &cobra.Command{
 		Use: `BulkDailyCopyExclusions {"BulkDailyCopyExclusion":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DoNotCopy":true,"Id":123,"IncludeWithoutCopy":true,"PackageId":123,"PerformanceId":123,"SetId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Creates a bulk daily copy exclusion`,
 		Long:  `Creates a bulk daily copy exclusion.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.BulkDailyCopyExclusionsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -839,90 +669,70 @@ var Post_BusinessUnits_cmd = &cobra.Command{
 		Use: `BusinessUnits {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new business unit`,
 		Long:  `Create a new business unit.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.BusinessUnitsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_CampaignDesignations_cmd = &cobra.Command{
-		Aliases: []string{  "CD",  "cd",  "campaigndesignations",  },
+		Aliases: []string{  "campaigndesignations",  "CD",  "cd",  },
 		Use: `CampaignDesignations {"CampaignDesignation":{"Campaign":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultIndicator":true,"Designation":{"Id":123},"EditIndicator":true,"GoalAmount":123.456,"Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new association between a Designation and a Campaign`,
 		Long:  `Create a new association between a Designation and a Campaign.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.CampaignDesignationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_CampaignFunds_cmd = &cobra.Command{
-		Aliases: []string{  "CF",  "cf",  "campaignfunds",  },
+		Aliases: []string{  "campaignfunds",  "CF",  "cf",  },
 		Use: `CampaignFunds {"CampaignFund":{"Campaign":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"EndDateTime":"0001-01-01T00:00:00.000Z","Fund":{"Id":123},"GoalAmount":123.456,"Id":123,"StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Fund association to a Campaign`,
 		Long:  `Create a new Fund association to a Campaign.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.CampaignFundsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_CardReaderTypes_cmd = &cobra.Command{
-		Aliases: []string{  "crt",  "cardreadertypes",  "CRT",  },
+		Aliases: []string{  "cardreadertypes",  "CRT",  "crt",  },
 		Use: `CardReaderTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Card Reader Type`,
 		Long:  `Create a new Card Reader Type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.CardReaderTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -931,14 +741,10 @@ var Post_Cart_cmd = &cobra.Command{
 		Use: `Cart {"BookingRequest":{"BookingId":123},"SessionKey":"string"}`,
 		Short: `Attach an existing booking to the cart`,
 		Long:  `Attach an existing booking to the cart.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("AddContribution"); test {
 				out, err = tq.Do(*_tq, _tq.Post.CartAddContribution , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AddFee"); test {
@@ -1004,32 +810,26 @@ var Post_Cart_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Colors_cmd = &cobra.Command{
-		Aliases: []string{  "colors",  "C",  "c",  },
+		Aliases: []string{  "C",  "c",  "colors",  },
 		Use: `Colors {"Data":{"ColorValue":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new color`,
 		Long:  `Create a new color.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ColorsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1038,90 +838,70 @@ var Post_Composers_cmd = &cobra.Command{
 		Use: `Composers {"Data":{"Bio":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","FirstName":"string","Id":123,"Inactive":true,"LastName":"string","MiddleName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new composer`,
 		Long:  `Create a new composer.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ComposersCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Constituencies_cmd = &cobra.Command{
-		Aliases: []string{  "constituencies",  "C",  "c",  },
+		Aliases: []string{  "C",  "c",  "constituencies",  },
 		Use: `Constituencies {"Constituency":{"ConstituencyType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"EndDate":"0001-01-01T00:00:00.000Z","Id":123,"StartDate":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituency`,
 		Long:  `Create a new constituency.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituenciesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ConstituencyTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CT",  "ct",  "constituencytypes",  },
+		Aliases: []string{  "constituencytypes",  "CT",  "ct",  },
 		Use: `ConstituencyTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rank":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituency type`,
 		Long:  `Create a new constituency type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituencyTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ConstituentDocuments_cmd = &cobra.Command{
-		Aliases: []string{  "constituentdocuments",  "CD",  "cd",  },
+		Aliases: []string{  "cd",  "constituentdocuments",  "CD",  },
 		Use: `ConstituentDocuments {"Document":{"Category":{"Id":123},"ConstituentId":123,"Contents":"AA==","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","FileName":"string","Id":123,"Notes":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create document for a constituent`,
 		Long:  `Create document for a constituent.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituentDocumentsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1130,21 +910,16 @@ var Post_ConstituentGroups_cmd = &cobra.Command{
 		Use: `ConstituentGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituent group`,
 		Long:  `Create a new constituent group.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituentGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1153,21 +928,16 @@ var Post_ConstituentInactives_cmd = &cobra.Command{
 		Use: `ConstituentInactives {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituent inactive`,
 		Long:  `Create a new constituent inactive.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituentInactivesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1176,21 +946,16 @@ var Post_ConstituentProtectionTypes_cmd = &cobra.Command{
 		Use: `ConstituentProtectionTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituent protection type`,
 		Long:  `Create a new constituent protection type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituentProtectionTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1199,44 +964,34 @@ var Post_ConstituentTypeAffiliates_cmd = &cobra.Command{
 		Use: `ConstituentTypeAffiliates {"Data":{"AffiliationType":{"Id":123},"ConstituentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","HouseholdPrimary":true,"Id":123,"Rank":123,"ShowWithGroup":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituent type affiliate`,
 		Long:  `Create a new constituent type affiliate.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituentTypeAffiliatesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ConstituentTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CT",  "ct",  "constituenttypes",  },
+		Aliases: []string{  "constituenttypes",  "CT",  "ct",  },
 		Use: `ConstituentTypes {"Data":{"AddressTypeId":123,"ConstituentGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultAffiliatedConstituentTypeId":123,"DefaultAffiliationTypeId":123,"DefaultIndicator":true,"DefaultSalutationId":123,"Description":"string","ElectronicAddressTypeId":123,"GiftAidIndicator":true,"Id":123,"Inactive":true,"LoginTypeId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituent type`,
 		Long:  `Create a new constituent type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituentTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1245,14 +1000,10 @@ var Post_Constituents_cmd = &cobra.Command{
 		Use: `Constituents {"Constituent":{"Addresses":[{"Id":123},...],"ConstituentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DisplayName":"string","ElectronicAddresses":[{"Id":123},...],"EmarketIndicator":{"Id":123},"FirstName":"string","Gender":{"Id":123},"Id":123,"Inactive":{"Id":123},"InactiveReason":{"Id":123},"LastActivityDate":"0001-01-01T00:00:00.000Z","LastGiftDate":"0001-01-01T00:00:00.000Z","LastName":"string","LastTicketDate":"0001-01-01T00:00:00.000Z","MailIndicator":{"Id":123},"MiddleName":"string","NameStatus":{"Id":123},"OriginalSource":{"Id":123},"PhoneIndicator":{"Id":123},"PhoneNumbers":[{"Id":123},...],"Prefix":{"Id":123},"ProtectionType":{"Id":123},"Salutations":[{"Id":123},...],"SortName":"string","Suffix":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new constituent with addresses`,
 		Long:  `Create a new constituent with addresses, electronicAddresses, salutations and phones.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("ConstituentUsingSnapshot"); test {
 				out, err = tq.Do(*_tq, _tq.Post.ConstituentsCreateConstituentUsingSnapshot , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ConvertGroupToIndividual"); test {
@@ -1274,32 +1025,26 @@ var Post_Constituents_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ContactPermissionCategories_cmd = &cobra.Command{
-		Aliases: []string{  "CPC",  "cpc",  "contactpermissioncategories",  },
+		Aliases: []string{  "contactpermissioncategories",  "CPC",  "cpc",  },
 		Use: `ContactPermissionCategories {"Data":{"AskFrequencyMonths":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact permission category`,
 		Long:  `Create a new contact permission category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPermissionCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1308,21 +1053,16 @@ var Post_ContactPermissionTypes_cmd = &cobra.Command{
 		Use: `ContactPermissionTypes {"Data":{"Category":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultValueForAdd":"string","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Presenter":true,"Rank":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact permission type`,
 		Long:  `Create a new contact permission type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPermissionTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1331,14 +1071,10 @@ var Post_ContactPermissions_cmd = &cobra.Command{
 		Use: `ContactPermissions {"ContactPermission":{"Answer":"string","Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"LastAskedDateTime":"0001-01-01T00:00:00.000Z","ShouldAsk":true,"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact permission`,
 		Long:  `Create a new contact permission`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("ForTransaction"); test {
 				out, err = tq.Do(*_tq, _tq.Post.ContactPermissionsForTransaction , []byte(args[0]))
 			} else {
@@ -1346,9 +1082,8 @@ var Post_ContactPermissions_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1357,21 +1092,16 @@ var Post_ContactPointCategories_cmd = &cobra.Command{
 		Use: `ContactPointCategories {"Data":{"ContactPointKey":"string","ContactPointTable":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact point category`,
 		Long:  `Create a new contact point category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPointCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1380,21 +1110,16 @@ var Post_ContactPointCategoryPurposes_cmd = &cobra.Command{
 		Use: `ContactPointCategoryPurposes {"Data":{"ContactPointCategory":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"Purpose":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact point category purpose`,
 		Long:  `Create a new contact point category purpose.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPointCategoryPurposesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1403,21 +1128,16 @@ var Post_ContactPointPurposeCategories_cmd = &cobra.Command{
 		Use: `ContactPointPurposeCategories {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact point purpose category`,
 		Long:  `Create a new contact point purpose category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPointPurposeCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1426,44 +1146,34 @@ var Post_ContactPointPurposeMaps_cmd = &cobra.Command{
 		Use: `ContactPointPurposeMaps {"ContactPointPurposeMap":{"ContactPoint":{"Id":123},"ContactPointCategory":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Purpose":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact point purpose`,
 		Long:  `Create a new contact point purpose.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPointPurposeMapsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ContactPointPurposes_cmd = &cobra.Command{
-		Aliases: []string{  "cpp",  "contactpointpurposes",  "CPP",  },
+		Aliases: []string{  "contactpointpurposes",  "CPP",  "cpp",  },
 		Use: `ContactPointPurposes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PurposeCategory":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact point purpose`,
 		Long:  `Create a new contact point purpose.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPointPurposesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1472,21 +1182,16 @@ var Post_ContactTypes_cmd = &cobra.Command{
 		Use: `ContactTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contact type`,
 		Long:  `Create a new contact type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContactTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1495,44 +1200,34 @@ var Post_ContributionDesignations_cmd = &cobra.Command{
 		Use: `ContributionDesignations {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"LetterText":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new contribution designation`,
 		Long:  `Create a new contribution designation.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContributionDesignationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ContributionImportSets_cmd = &cobra.Command{
-		Aliases: []string{  "contributionimportsets",  "CIS",  "cis",  },
+		Aliases: []string{  "cis",  "contributionimportsets",  "CIS",  },
 		Use: `ContributionImportSets {"Data":{"AccountMatchKeyword":{"Id":123},"AcknowledgmentLetterMode":123,"BatchType":{"Id":123},"BillingSchedule":{"Id":123},"BillingType":{"Id":123},"Campaign":{"Id":123},"ContributionDateTime":"0001-01-01T00:00:00.000Z","ContributionPayMode":123,"CreateLocation":"string","CreatePotentialDuplicate":true,"CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CrediteeMode":123,"CrediteeType":{"Id":123},"DefaultConstituentType":{"Id":123},"DefaultCountryCode":"string","DefaultHouseholdConstituentType":{"Id":123},"DefaultOriginalSource":{"Id":123},"Description":"string","Designation":{"Id":123},"FilePath":"string","FormatFile":"string","Fund":{"Id":123},"Id":123,"ImportRefNoLocation":123,"Inactive":true,"PaymentMethod":{"Id":123},"SalesChannel":{"Id":123},"Source":{"Id":123},"StripPhoneFormatting":true,"TransactAsHousehold":true,"TransactAsHouseholdCreditee":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Worker":{"Id":123}}}`,
 		Short: `Create a new contributionImportSet`,
 		Long:  `Create a new contributionImportSet.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContributionImportSetsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1541,44 +1236,34 @@ var Post_Contributions_cmd = &cobra.Command{
 		Use: `Contributions {"Contribution":{"AccountId":123,"AppealId":123,"BatchId":123,"BillingAccount":"string","BillingTypeId":123,"BusinessUnitId":123,"Campaign":{"Id":123},"Cancel":"string","Channel":{"Id":123},"Constituent":{"Id":123},"ContributionAmount":123.456,"ContributionDateTime":"0001-01-01T00:00:00.000Z","ContributionDesignation":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Custom0":"string","Custom1":"string","Custom2":"string","Custom3":"string","Custom4":"string","Custom5":"string","Custom6":"string","Custom7":"string","Custom8":"string","Custom9":"string","EditIndicator":true,"Fund":{"Id":123},"Id":123,"Initiator":{"Id":123},"KindGiftDescription":"string","KindGiftTransferDateTime":"0001-01-01T00:00:00.000Z","MatchIndicator":"string","MatchingContributionId":123,"MediaType":{"Id":123},"MirrorLock":123,"Notes":"string","PaymentEndDateTime":"0001-01-01T00:00:00.000Z","PaymentStartDateTime":"0001-01-01T00:00:00.000Z","Plan":{"Id":123},"PledgeStatusId":123,"ReceivedAmount":123.456,"Solicitor":"string","SourceId":123,"Type":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `This resource is currently strictly for interceptor plugin use`,
 		Long:  `This resource is currently strictly for interceptor plugin use. This is called any time a new contribution is saved from the contribution editor in the client application. Only Id (ref_no) is provided in the request content.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContributionsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ControlGroupUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "controlgroupusergroups",  "CGUG",  "cgug",  },
+		Aliases: []string{  "CGUG",  "cgug",  "controlgroupusergroups",  },
 		Use: `ControlGroupUserGroups {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultIndicator":true,"EditIndicator":true,"Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
 		Short: `Create a new control group/user group mapping`,
 		Long:  `Create a new control group/user group mapping.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ControlGroupUserGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1587,21 +1272,16 @@ var Post_ControlGroups_cmd = &cobra.Command{
 		Use: `ControlGroups {"Data":{"CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Permission":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new control group`,
 		Long:  `Create a new control group.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ControlGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1610,21 +1290,16 @@ var Post_CoreIdentity_cmd = &cobra.Command{
 		Use: `CoreIdentity {"CoreIdentitySignRequest":{"Body":"string","Headers":[{"Name":"string","Value":"string"},...],"Method":"string","Path":"string","QueryParameters":[{"Name":"string","Value":"string"},...]}}`,
 		Short: ``,
 		Long:  ``,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.CoreIdentitySign , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1633,21 +1308,16 @@ var Post_Countries_cmd = &cobra.Command{
 		Use: `Countries {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DecimalSeparator":"string","Description":"string","Id":123,"Inactive":true,"IsoAlpha2Code":"string","IsoAlpha3Code":"string","PhoneCode":"string","PhoneEditstring":"string","PhoneMask":"string","PhoneValidLengths":"string","ReqCity":true,"ReqPcode":true,"ShortDesc":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseAvs":"string","UseStateField":"string","ZipEditstring":"string","ZipMask":"string","ZipValidLengths":"string"}}`,
 		Short: `Create a new country`,
 		Long:  `Create a new country.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.CountriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1656,21 +1326,16 @@ var Post_CrediteeTypes_cmd = &cobra.Command{
 		Use: `CrediteeTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CreditMembershipIndicator":true,"Description":"string","GiftAidIndicator":true,"Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new crediteeType`,
 		Long:  `Create a new crediteeType.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.CrediteeTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1679,37 +1344,28 @@ var Post_CurrencyTypes_cmd = &cobra.Command{
 		Use: `CurrencyTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rate":123.456,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new currency type`,
 		Long:  `Create a new currency type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.CurrencyTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Custom_cmd = &cobra.Command{
-		Aliases: []string{  "c",  "custom",  "C",  },
+		Aliases: []string{  "custom",  "C",  "c",  },
 		Use: `Custom {"Request":"string","ResourceName":"string"}`,
 		Short: `Create an entry with the given data for the table as defined by the {resourceName} in TR_DATASERVICE_TABLES`,
 		Long:  `Create an entry with the given data for the table as defined by the {resourceName} in TR_DATASERVICE_TABLES.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("ExecuteLocalProcedure"); test {
 				out, err = tq.Do(*_tq, _tq.Post.CustomExecuteLocalProcedure , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ExecuteLocalProcedureWithMultipleResultSets"); test {
@@ -1719,32 +1375,26 @@ var Post_Custom_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_CustomDefaultCategories_cmd = &cobra.Command{
-		Aliases: []string{  "CDC",  "cdc",  "customdefaultcategories",  },
+		Aliases: []string{  "customdefaultcategories",  "CDC",  "cdc",  },
 		Use: `CustomDefaultCategories {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new custom default category`,
 		Long:  `Create a new custom default category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.CustomDefaultCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1753,21 +1403,16 @@ var Post_CustomDefaults_cmd = &cobra.Command{
 		Use: `CustomDefaults {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CustomDefaultCategory":{"Id":123},"DefaultValue":"string","Description":"string","FieldName":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new custom default`,
 		Long:  `Create a new custom default.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.CustomDefaultsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1776,21 +1421,16 @@ var Post_DeliveryMethods_cmd = &cobra.Command{
 		Use: `DeliveryMethods {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PrintAtHome":true,"RequireAddress":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new delivery method`,
 		Long:  `Create a new delivery method.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.DeliveryMethodsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1799,21 +1439,16 @@ var Post_DesignationCodes_cmd = &cobra.Command{
 		Use: `DesignationCodes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new designation code`,
 		Long:  `Create a new designation code.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.DesignationCodesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1822,21 +1457,16 @@ var Post_Diagnostics_cmd = &cobra.Command{
 		Use: `Diagnostics {"Request":{"ServerName":"string"}}`,
 		Short: `Check connection information`,
 		Long:  `Check connection information.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.DiagnosticsCheck , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1845,21 +1475,16 @@ var Post_DirectDebitAccountTypes_cmd = &cobra.Command{
 		Use: `DirectDebitAccountTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new direct debit account type`,
 		Long:  `Create a new direct debit account type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.DirectDebitAccountTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1868,21 +1493,16 @@ var Post_DiscountTypes_cmd = &cobra.Command{
 		Use: `DiscountTypes {"Data":{"Amount":123.456,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PercentIndicator":true,"RespectMinimumPrice":true,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new discount type`,
 		Long:  `Create a new discount type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.DiscountTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1891,44 +1511,34 @@ var Post_DocumentCategories_cmd = &cobra.Command{
 		Use: `DocumentCategories {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"ParentTableName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new documentCategory`,
 		Long:  `Create a new documentCategory.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.DocumentCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_DonationLevels_cmd = &cobra.Command{
-		Aliases: []string{  "DL",  "dl",  "donationlevels",  },
+		Aliases: []string{  "donationlevels",  "DL",  "dl",  },
 		Use: `DonationLevels {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"ProgramType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new donation level`,
 		Long:  `Create a new donation level.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.DonationLevelsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1937,14 +1547,10 @@ var Post_EMV_cmd = &cobra.Command{
 		Use: `EMV {"Request":{"Amount":123.456,"BillingAddress":{"AddressId":123,"Country":"string","PostalCode":"string","Street1":"string"},"ConstituentId":123,"IsMoto":true,"MachineId":123,"PaymentId":123,"StoreAccount":true,"TransactionOrigin":"string","UserData":"string"}}`,
 		Short: `Authorize a payment via a Payment Express HIT`,
 		Long:  `Authorize a payment via a Payment Express HIT, TriPOSCloud, or Adyen device.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Lane"); test {
 				out, err = tq.Do(*_tq, _tq.Post.EMVCreateLane , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Signature"); test {
@@ -1956,9 +1562,8 @@ var Post_EMV_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1967,21 +1572,16 @@ var Post_ElectronicAddressTypes_cmd = &cobra.Command{
 		Use: `ElectronicAddressTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"IsEmail":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new electronic address type`,
 		Long:  `Create a new electronic address type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ElectronicAddressTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1990,14 +1590,10 @@ var Post_ElectronicAddresses_cmd = &cobra.Command{
 		Use: `ElectronicAddresses {"ElectronicAddress":{"Address":"string","AffiliatedConstituent":{"Id":123},"AllowHtmlFormat":true,"AllowMarketing":true,"AltSalutationType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"ElectronicAddressType":{"Id":123},"EndDate":"0001-01-01T00:00:00.000Z","Id":123,"Inactive":true,"IsEmail":true,"IsFromAffiliation":true,"Months":"string","PrimaryIndicator":true,"StartDate":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new electronic address`,
 		Long:  `Create a new electronic address.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Move"); test {
 				out, err = tq.Do(*_tq, _tq.Post.ElectronicAddressesMove , []byte(args[0]))
 			} else {
@@ -2005,9 +1601,8 @@ var Post_ElectronicAddresses_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2016,21 +1611,16 @@ var Post_EmailProfiles_cmd = &cobra.Command{
 		Use: `EmailProfiles {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EmailBcc":"string","EmailCc":"string","EmailDefaultSubject":"string","EmailFrom":"string","Id":123,"Inactive":true,"SMTPPassword":"string","SMTPPort":123,"SMTPServer":"string","SMTPUserName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseSsl":true}}`,
 		Short: `Create a new email profile`,
 		Long:  `Create a new email profile`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.EmailProfilesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2039,37 +1629,28 @@ var Post_EmailResponses_cmd = &cobra.Command{
 		Use: `EmailResponses {"Request":{"ConstituentId":123,"DownloadNumber":123,"EventDateTime":"0001-01-01T00:00:00.000Z","EventName":"string"}}`,
 		Short: `Updates an appeal with customer data in response to an email event`,
 		Long:  `Updates an appeal with customer data in response to an email event. EventName should be one of open, click, hard-bounce, soft-bounce or opt-out.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.EmailResponsesUpdateAppeal , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Emails_cmd = &cobra.Command{
-		Aliases: []string{  "emails",  "E",  "e",  },
+		Aliases: []string{  "E",  "e",  "emails",  },
 		Use: `Emails {"Request":{"Attachments":[{"Name":"string"},...],"DuplicateBodyAsAttachment":true,"DuplicateBodyAttachmentName":"string","EmailProfileId":123,"EmbeddedImages":[{"MediaType":"string","Name":"string"},...],"FromAddress":"string","HtmlBody":"string","PlainTextBody":"string","RecipientAddress":"string","Subject":"string"}}`,
 		Short: `Sends an email via SMTP`,
 		Long:  `Sends an email via SMTP`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("SendConstituentInfo"); test {
 				out, err = tq.Do(*_tq, _tq.Post.EmailsSendConstituentInfo , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("SendLoginCredentials"); test {
@@ -2083,9 +1664,8 @@ var Post_Emails_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2094,21 +1674,16 @@ var Post_EmarketIndicators_cmd = &cobra.Command{
 		Use: `EmarketIndicators {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new emarket indicator`,
 		Long:  `Create a new emarket indicator.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.EmarketIndicatorsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2117,21 +1692,16 @@ var Post_Eras_cmd = &cobra.Command{
 		Use: `Eras {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new era`,
 		Long:  `Create a new era.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ErasCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2140,21 +1710,16 @@ var Post_Facilities_cmd = &cobra.Command{
 		Use: `Facilities {"Facility":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultBestSeatMapId":123,"DefaultZoneMapId":123,"Description":"string","Id":123,"SeatMap":{"Id":123},"Theater":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Facility`,
 		Long:  `Create a new Facility.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.FacilitiesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2163,21 +1728,16 @@ var Post_Genders_cmd = &cobra.Command{
 		Use: `Genders {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultPrefix":{"Id":123},"Description":"string","Id":123,"Inactive":true,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gender`,
 		Long:  `Create a new gender.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.GendersCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2186,21 +1746,16 @@ var Post_GiftAidContactMethods_cmd = &cobra.Command{
 		Use: `GiftAidContactMethods {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gift aid contact method`,
 		Long:  `Create a new gift aid contact method.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidContactMethodsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2209,90 +1764,70 @@ var Post_GiftAidDeclarations_cmd = &cobra.Command{
 		Use: `GiftAidDeclarations {"GiftAidDeclaration":{"ConfirmDateTime":"0001-01-01T00:00:00.000Z","Constituent":{"Id":123},"ContactMethod":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DocumentStatus":{"Id":123},"EligibleIndicator":true,"EndDateTime":"0001-01-01T00:00:00.000Z","GiftAidType":{"Id":123},"Id":123,"IneligibleReason":{"Id":123},"Notes":"string","ReceivedDateTime":"0001-01-01T00:00:00.000Z","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Creates a Gift Aid Declaration`,
 		Long:  `Creates a Gift Aid Declaration.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidDeclarationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_GiftAidDocumentStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "GADS",  "gads",  "giftaiddocumentstatuses",  },
+		Aliases: []string{  "giftaiddocumentstatuses",  "GADS",  "gads",  },
 		Use: `GiftAidDocumentStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gift aid document status`,
 		Long:  `Create a new gift aid document status.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidDocumentStatusesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_GiftAidIneligibleReasons_cmd = &cobra.Command{
-		Aliases: []string{  "gair",  "giftaidineligiblereasons",  "GAIR",  },
+		Aliases: []string{  "giftaidineligiblereasons",  "GAIR",  "gair",  },
 		Use: `GiftAidIneligibleReasons {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gift aid ineligible reason`,
 		Long:  `Create a new gift aid ineligible reason.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidIneligibleReasonsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_GiftAidRates_cmd = &cobra.Command{
-		Aliases: []string{  "GAR",  "gar",  "giftaidrates",  },
+		Aliases: []string{  "giftaidrates",  "GAR",  "gar",  },
 		Use: `GiftAidRates {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","Id":123,"Rate":123.456,"StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gift aid rate`,
 		Long:  `Create a new gift aid rate.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidRatesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2301,44 +1836,34 @@ var Post_GiftAidStatuses_cmd = &cobra.Command{
 		Use: `GiftAidStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gift aid status`,
 		Long:  `Create a new gift aid status.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidStatusesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_GiftAidTypes_cmd = &cobra.Command{
-		Aliases: []string{  "GAT",  "gat",  "giftaidtypes",  },
+		Aliases: []string{  "gat",  "giftaidtypes",  "GAT",  },
 		Use: `GiftAidTypes {"Data":{"CharityClaimsRef":"string","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new gift aid type`,
 		Long:  `Create a new gift aid type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2347,14 +1872,10 @@ var Post_GiftCertificates_cmd = &cobra.Command{
 		Use: `GiftCertificates {"GiftCertificateRedemptionRequest":{"BatchId":123,"LockForBatch":true,"Number":"string","PaymentMethodId":123}}`,
 		Short: `Get transaction details for a gift certificate and lock it for redemption in a specific batch`,
 		Long:  `Get transaction details for a gift certificate and lock it for redemption in a specific batch.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Unlock"); test {
 				out, err = tq.Do(*_tq, _tq.Post.GiftCertificatesUnlock , []byte(args[0]))
 			} else {
@@ -2362,55 +1883,44 @@ var Post_GiftCertificates_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_HoldCodeCategories_cmd = &cobra.Command{
-		Aliases: []string{  "HCC",  "hcc",  "holdcodecategories",  },
+		Aliases: []string{  "holdcodecategories",  "HCC",  "hcc",  },
 		Use: `HoldCodeCategories {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Hold Code Category`,
 		Long:  `Create a new Hold Code Category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.HoldCodeCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_HoldCodeUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "holdcodeusergroups",  "HCUG",  "hcug",  },
+		Aliases: []string{  "hcug",  "holdcodeusergroups",  "HCUG",  },
 		Use: `HoldCodeUserGroups {"HoldCodeUserGroup":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","HoldCode":{"Id":123},"Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
 		Short: `Create a new hold code/user group mapping`,
 		Long:  `Create a new hold code/user group mapping.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.HoldCodeUserGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2419,21 +1929,16 @@ var Post_HoldCodes_cmd = &cobra.Command{
 		Use: `HoldCodes {"HoldCode":{"BlackoutIndicator":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Legend":"string","Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a Hold Code`,
 		Long:  `Create a Hold Code.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.HoldCodesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2442,67 +1947,52 @@ var Post_InactiveReasons_cmd = &cobra.Command{
 		Use: `InactiveReasons {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new inactive reason`,
 		Long:  `Create a new inactive reason.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.InactiveReasonsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_IntegrationDefaults_cmd = &cobra.Command{
-		Aliases: []string{  "ID",  "id",  "integrationdefaults",  },
+		Aliases: []string{  "integrationdefaults",  "ID",  "id",  },
 		Use: `IntegrationDefaults {"Data":{"AccessId":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultValue":"string","Description":"string","FieldName":"string","Id":123,"Integration":{"Id":123},"Organization":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Integration Default`,
 		Long:  `Create a new Integration Default.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.IntegrationDefaultsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Integrations_cmd = &cobra.Command{
-		Aliases: []string{  "i",  "integrations",  "I",  },
+		Aliases: []string{  "integrations",  "I",  "i",  },
 		Use: `Integrations {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new action type`,
 		Long:  `Create a new action type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.IntegrationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2511,44 +2001,34 @@ var Post_InterestCategories_cmd = &cobra.Command{
 		Use: `InterestCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new interest category`,
 		Long:  `Create a new interest category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.InterestCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_InterestTypes_cmd = &cobra.Command{
-		Aliases: []string{  "it",  "interesttypes",  "IT",  },
+		Aliases: []string{  "interesttypes",  "IT",  "it",  },
 		Use: `InterestTypes {"Data":{"Category":{"Id":123},"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"SearchIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UsedIn":"string"}}`,
 		Short: `Create a new interest type`,
 		Long:  `Create a new interest type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.InterestTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2558,14 +2038,10 @@ var Post_Interests_cmd = &cobra.Command{
 		Short: `Create a new interest associating an interest type to a constituent`,
 		Long:  `Create a new interest associating an interest type to a constituent.
 For bulk interest edits, consider the CRM/Interests/CreateOrUpdate batching resource which allows multiple interests to be created, updated, or removed in a single request.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Or"); test {
 				out, err = tq.Do(*_tq, _tq.Post.InterestsCreateOrUpdate , []byte(args[0]))
 			} else {
@@ -2573,9 +2049,8 @@ For bulk interest edits, consider the CRM/Interests/CreateOrUpdate batching reso
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2584,67 +2059,52 @@ var Post_Internal_cmd = &cobra.Command{
 		Use: `Internal {"AddressDetail":{"AddressType":{"Id":123},"AffiliatedConstituent":{"Id":123},"AllowTelemarketing1":true,"AllowTelemarketing2":true,"AllowTelemarketing3":true,"AltSalutationType":{"Id":123},"City":"string","Constituent":{"Id":123},"Country":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DayEveningIndicator1":"string","DayEveningIndicator2":"string","DayEveningIndicator3":"string","DeliveryPoint":"string","EditIndicator":true,"EditIndicator1":true,"EditIndicator2":true,"EditIndicator3":true,"EndDate":"0001-01-01T00:00:00.000Z","GeoArea":123,"Id":123,"Inactive":true,"Label":true,"Months":"string","NcoaAction":123,"NcoaSession":123,"PhoneId1":123,"PhoneId2":123,"PhoneId3":123,"PhoneNumber1":"string","PhoneNumber1Formatted":"string","PhoneNumber2":"string","PhoneNumber2Formatted":"string","PhoneNumber3":"string","PhoneNumber3Formatted":"string","PhoneSearch1":"string","PhoneSearch2":"string","PhoneSearch3":"string","PostalCode":"string","PostalCodeFormatted":"string","PrimaryIndicator":true,"StartDate":"0001-01-01T00:00:00.000Z","State":{"Id":123},"Street1":"string","Street2":"string","Street3":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UpdatedDateTime1":"0001-01-01T00:00:00.000Z","UpdatedDateTime2":"0001-01-01T00:00:00.000Z","UpdatedDateTime3":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new address along with the phones and attach all the phones to the address`,
 		Long:  `Create a new address along with the phones and attach all the phones to the address. By default first phone is of phone type 1, second phone is of phone type 2 and third phone is of phone type 3.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.InternalCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_InventoryContactPermissionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "icpt",  "inventorycontactpermissiontypes",  "ICPT",  },
+		Aliases: []string{  "inventorycontactpermissiontypes",  "ICPT",  "icpt",  },
 		Use: `InventoryContactPermissionTypes {"InventoryContactPermissionType":{"ContactPermissionType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"ProductionElementId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create an inventoryContactPermissionType`,
 		Long:  `Create an inventoryContactPermissionType.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.InventoryContactPermissionTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_InventoryWebContents_cmd = &cobra.Command{
-		Aliases: []string{  "inventorywebcontents",  "IWC",  "iwc",  },
+		Aliases: []string{  "IWC",  "iwc",  "inventorywebcontents",  },
 		Use: `InventoryWebContents {"InventoryWebContent":{"ContentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"ProductionElementId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Value":"string"}}`,
 		Short: `Create an inventoryWebContent`,
 		Long:  `Create an inventoryWebContent.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.InventoryWebContentsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2653,21 +2113,16 @@ var Post_InvoiceBilling_cmd = &cobra.Command{
 		Use: `InvoiceBilling {"InvoiceBillingRequest":{"AppealId":123,"BatchTypeId":123,"BillingTypeId":123,"BusinessUnitId":123,"CutoffDateTime":"0001-01-01T00:00:00.000Z","ElectronicAddressPurposeId":123,"ElectronicAddressTypeId":123,"EndDateTime":"0001-01-01T00:00:00.000Z","InvoiceEndDateTime":"0001-01-01T00:00:00.000Z","InvoiceStartDateTime":"0001-01-01T00:00:00.000Z","IsLabel":true,"ListId":123,"MailDateTime":"0001-01-01T00:00:00.000Z","MailTypeId":123,"MaxNumberOfBillsToPrint":123,"MediaTypeId":123,"MinAmount":123.456,"MinNumberOfBillsToPrint":123,"NewSourceDescription":"string","PaymentMethodGroupId":123,"PaymentMethodId":123,"RespectElectronicAddressMarketingFlag":true,"SalutationTypeId":123,"ShouldCollectAll":true,"ShouldUpdate":true,"StartDateTime":"0001-01-01T00:00:00.000Z","UserId":"string"}}`,
 		Short: `Invoice billing`,
 		Long:  `Invoice billing`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.InvoiceBillingBillInvoices , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2676,21 +2131,16 @@ var Post_Issues_cmd = &cobra.Command{
 		Use: `Issues {"Issue":{"ActivityType":{"Id":123},"Constituent":{"Id":123},"ContactType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"HasReminder":true,"Id":123,"IssueDate":"0001-01-01T00:00:00.000Z","Notes":"string","Origin":{"Id":123},"PackageId":123,"PerformanceId":123,"ResolvedIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UrgentIndicator":true}}`,
 		Short: `Create an issue for a Constituent`,
 		Long:  `Create an issue for a Constituent`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.IssuesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2699,67 +2149,52 @@ var Post_KeywordCategories_cmd = &cobra.Command{
 		Use: `KeywordCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new keyword category`,
 		Long:  `Create a new keyword category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.KeywordCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Keywords_cmd = &cobra.Command{
-		Aliases: []string{  "keywords",  "K",  "k",  },
+		Aliases: []string{  "k",  "keywords",  "K",  },
 		Use: `Keywords {"Data":{"Category":{"Id":123},"ConstituentType":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CustomDefaultValue":"string","CustomId":123,"CustomLimit":123,"CustomRequired":true,"DataType":"string","Description":"string","DetailColumn":"string","DetailTable":"string","EditIndicator":true,"EditMask":"string","ExtendedDescription":"string","FrequentUpdateDate":"0001-01-01T00:00:00.000Z","HelpText":"string","Id":123,"KeyColumn":"string","KeywordUse":"string","MultipleValue":true,"ParentKeyColumn":"string","ParentTable":"string","PrimaryGroupDefault":"string","ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","SortOrder":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseForSearch":true,"ValuesCodedIndicator":true}}`,
 		Short: `Create a new keyword`,
 		Long:  `Create a new keyword.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.KeywordsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Languages_cmd = &cobra.Command{
-		Aliases: []string{  "languages",  "L",  "l",  },
+		Aliases: []string{  "l",  "languages",  "L",  },
 		Use: `Languages {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new language`,
 		Long:  `Create a new language.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.LanguagesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2768,21 +2203,16 @@ var Post_ListCategories_cmd = &cobra.Command{
 		Use: `ListCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new list category`,
 		Long:  `Create a new list category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ListCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2791,14 +2221,10 @@ var Post_Lists_cmd = &cobra.Command{
 		Use: `Lists {"List":{"AffiliatedIndividuals":123,"AnalyticsIndicator":true,"Category":{"Id":123},"ConstituentCount":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Criteria":[{"Id":123},...],"Description":"string","EditIndicator":true,"EditMode":"string","Generate":true,"Households":123,"Id":123,"Inactive":true,"Individuals":123,"IsDynamic":true,"LastUsedDateTime":"0001-01-01T00:00:00.000Z","ListSql":"string","Organizations":123,"OutputSet":{"Id":123},"RelationshipOptions":{"AffiliatedGroupInactive":true,"AffiliatedGroupTypes":"string","AffiliatedGroupUseDates":true,"AffiliatedIndividualInactive":true,"AffiliatedIndividualTypes":"string","AffiliatedIndividualUseDates":true,"AssociatedInactive":true,"AssociatedTypes":"string","AssociatedUseDates":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","KeepOrReplaceOriginal":"string","ReplaceIndividuals":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"TMSIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a List`,
 		Long:  `Create a List.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Generate"); test {
 				out, err = tq.Do(*_tq, _tq.Post.ListsGenerate , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Results"); test {
@@ -2810,9 +2236,8 @@ var Post_Lists_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2821,21 +2246,16 @@ var Post_LoginTypes_cmd = &cobra.Command{
 		Use: `LoginTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new login type`,
 		Long:  `Create a new login type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.LoginTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2844,21 +2264,16 @@ var Post_MachineSettings_cmd = &cobra.Command{
 		Use: `MachineSettings {"Data":{"CardReaderHost":"string","CardReaderPort":123,"CardReaderType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"Inactive":true,"MerchantId":"string","PXStation":"string","PXUserKey":"string","PXUserName":"string","TessituraPaymentsPosDevice":"string","TessituraPaymentsPosDeviceModel":"string","TnspaySoftwareTerminal":true,"TriPOSCloudConfiguration":{"Id":123},"TriposLane":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","WorkstationName":"string"}}`,
 		Short: `Create a new Machine Setting`,
 		Long:  `Create a new Machine Setting.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.MachineSettingsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2867,21 +2282,16 @@ var Post_MailIndicators_cmd = &cobra.Command{
 		Use: `MailIndicators {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new mail indicator`,
 		Long:  `Create a new mail indicator.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.MailIndicatorsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2890,21 +2300,16 @@ var Post_MediaTypes_cmd = &cobra.Command{
 		Use: `MediaTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","GenerateCost":123.456,"Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new media type`,
 		Long:  `Create a new media type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.MediaTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2913,21 +2318,16 @@ var Post_MembershipLevelCategories_cmd = &cobra.Command{
 		Use: `MembershipLevelCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new membership level category`,
 		Long:  `Create a new membership level category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.MembershipLevelCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2937,21 +2337,16 @@ var Post_Memberships_cmd = &cobra.Command{
 		Short: `This returns a result of calculated changes to a constituent membership`,
 		Long:  `This returns a result of calculated changes to a constituent membership.  This resource makes no actual changes and only returns calculated membership data for information purposes.
 NOTE: As part of the upcoming changes to membership functionality, this resource will change significantly in an upcoming major Tessitura release and likely break code that references it. Please make a note that code that references it will need to be revisited as part of that upgrade process.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.MembershipsCalculate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2960,44 +2355,34 @@ var Post_ModeOfSaleCategories_cmd = &cobra.Command{
 		Use: `ModeOfSaleCategories {"ModeOfSaleCategory":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Sequence":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new mode of sale category`,
 		Long:  `Create a new mode of sale category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ModeOfSaleCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ModeOfSaleOffers_cmd = &cobra.Command{
-		Aliases: []string{  "modeofsaleoffers",  "MOSO",  "moso",  },
+		Aliases: []string{  "MOSO",  "moso",  "modeofsaleoffers",  },
 		Use: `ModeOfSaleOffers {"ModeOfSaleOffer":{"AppealId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","Id":123,"MaxSeats":123,"ModeOfSaleId":123,"OverrideDefaultPriceTypeIndicator":true,"PackageId":123,"PerformanceId":123,"PriceTypeId":123,"Rank":123,"SourceId":123,"StartDateTime":"0001-01-01T00:00:00.000Z","Terms":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new mode of sale offer`,
 		Long:  `Create a new mode of sale offer.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ModeOfSaleOffersCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3006,21 +2391,16 @@ var Post_ModeOfSalePriceTypes_cmd = &cobra.Command{
 		Use: `ModeOfSalePriceTypes {"ModeOfSalePriceType":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultIndicator":true,"Id":123,"ModeOfSale":{"Id":123},"PriceType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new mode of sale price type`,
 		Long:  `Create a new mode of sale price type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ModeOfSalePriceTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3029,21 +2409,16 @@ var Post_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 		Use: `ModeOfSaleSurveyQuestions {"ModeOfSaleSurveyQuestion":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"ModeOfSale":{"Id":123},"Question":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new mode of sale survey question`,
 		Long:  `Create a new mode of sale survey question.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ModeOfSaleSurveyQuestionsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3052,21 +2427,16 @@ var Post_ModeOfSaleUserGroups_cmd = &cobra.Command{
 		Use: `ModeOfSaleUserGroups {"ModeOfSaleUserGroup":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultIndicator":true,"Id":123,"ModeOfSale":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
 		Short: `Create a new mode of sale/user group mapping`,
 		Long:  `Create a new mode of sale/user group mapping.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ModeOfSaleUserGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3075,21 +2445,16 @@ var Post_ModesOfSale_cmd = &cobra.Command{
 		Use: `ModesOfSale {"ModeOfSale":{"AllowUnseatedPaidInd":true,"Category":{"Id":123},"CategoryRequired":true,"ClearSourceNoInd":true,"ClearSourceOnReload":true,"ConfirmationMode":true,"ConstLinkRequired":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultAckFormatId":123,"DefaultChannelId":123,"DefaultDeliveryMethodId":123,"DefaultHeaderFormatId":123,"DefaultSalesLayoutId":123,"Description":"string","EditDate":true,"EditSourceOnReload":true,"GeneralPublicInd":true,"HaboDays":123,"HaboForeign":true,"HoldUntilDate":"0001-01-01T00:00:00.000Z","HoldUntilDays":123,"HoldUntilMethod":"string","Id":123,"Inactive":true,"MustBePaidInd":true,"MustBeSeatedInd":true,"MustBeTicketedInd":true,"PricingRuleSetId":123,"SampleForGeneralPublic":123,"SampleForKnownConstituent":123,"SliAutoDeleteInd":true,"StartPkgOrPerf":"string","SubsSummaryRequired":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new mode of sale`,
 		Long:  `Create a new mode of sale.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ModesOfSaleCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3098,21 +2463,16 @@ var Post_NScanAccessAreas_cmd = &cobra.Command{
 		Use: `NScanAccessAreas {"Data":{"AreaCode":"string","ConstituencyIds":"string","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndDateTime":"0001-01-01T00:00:00.000Z","Id":123,"Inactive":true,"KeywordId":123,"KeywordValue":"string","ListId":123,"MaxEntries":123,"MembershipLevelIds":"string","PerformanceIds":"string","PriceTypeIds":"string","PriceZoneIds":"string","PromptQuantity":true,"StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new NScan Access Area`,
 		Long:  `Create a new NScan Access Area.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.NScanAccessAreasCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3121,67 +2481,52 @@ var Post_NameStatuses_cmd = &cobra.Command{
 		Use: `NameStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new name status`,
 		Long:  `Create a new name status.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.NameStatusesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ObjectPermissions_cmd = &cobra.Command{
-		Aliases: []string{  "objectpermissions",  "OP",  "op",  },
+		Aliases: []string{  "OP",  "op",  "objectpermissions",  },
 		Use: `ObjectPermissions {"Data":{"ApplicationObject":{"Id":123},"CanCreate":"string","CanDelete":"string","CanEdit":"string","CanView":"string","Constituency":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroup":{"Id":"string"}}}`,
 		Short: `Create a new object permission`,
 		Long:  `Create a new object permission.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ObjectPermissionsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_OrderBilling_cmd = &cobra.Command{
-		Aliases: []string{  "OB",  "ob",  "orderbilling",  },
+		Aliases: []string{  "orderbilling",  "OB",  "ob",  },
 		Use: `OrderBilling {"OrderBillingRequest":{"AppealId":123,"BatchTypeId":123,"BillingTypeId":123,"CutoffDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","ListId":123,"MaxNumberOfBillsToPrint":123,"MediaTypeId":123,"MinAmount":123.456,"MinNumberOfBillsToPrint":123,"ModesOfSale":"string","NewSourceDescription":"string","OrderEndDateTime":"0001-01-01T00:00:00.000Z","OrderStartDateTime":"0001-01-01T00:00:00.000Z","PaymentMethodGroupId":123,"PerformanceEndDateTime":"0001-01-01T00:00:00.000Z","PerformanceStartDateTime":"0001-01-01T00:00:00.000Z","Seasons":"string","ShouldUpdate":true,"StartDateTime":"0001-01-01T00:00:00.000Z","UserId":"string"}}`,
 		Short: `Order billing`,
 		Long:  `Order billing`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.OrderBillingBillOrders , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3190,39 +2535,30 @@ var Post_OrderCategories_cmd = &cobra.Command{
 		Use: `OrderCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new order category`,
 		Long:  `Create a new order category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.OrderCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Orders_cmd = &cobra.Command{
-		Aliases: []string{  "O",  "o",  "orders",  },
+		Aliases: []string{  "orders",  "O",  "o",  },
 		Use: `Orders {"Order":{"AcceptingRollovers":true,"AccountId":123,"AltAddressId":123,"AltElectronicAddressId":123,"AppealId":123,"AppliedMessageRules":"string","BatchId":123,"BusinessUnitId":123,"CategoryId":123,"ChannelId":123,"ConstituentId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Custom0":"string","Custom1":"string","Custom2":"string","Custom3":"string","Custom4":"string","Custom5":"string","Custom6":"string","Custom7":"string","Custom8":"string","Custom9":"string","DeliveryDate":"0001-01-01T00:00:00.000Z","DeliveryMethodId":123,"HoldUntilDateTime":"0001-01-01T00:00:00.000Z","Id":123,"InitiatorId":123,"LineItems":[{"Id":123},...],"Messages":[{"Id":123},...],"MirrorLock":123,"ModeOfSaleId":123,"Notes":"string","OrderDateTime":"0001-01-01T00:00:00.000Z","ReloadPricingRules":true,"Solicitor":"string","SourceId":123,"TotalDue":123.456,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","VirtualConstituencies":"string"}}`,
 		Short: `This resource is currently only for interceptor plugin use`,
 		Long:  `This resource is currently only for interceptor plugin use. This is called any time a new order is saved via the API or from the client application. Only OrderId is provided in the request content.
             
 This resource will be invoked from a cart checkout.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("OrdersForDelivery"); test {
 				out, err = tq.Do(*_tq, _tq.Post.OrdersGetOrdersForDelivery , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Price"); test {
@@ -3234,9 +2570,8 @@ This resource will be invoked from a cart checkout.`,
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3245,44 +2580,34 @@ var Post_Organizations_cmd = &cobra.Command{
 		Use: `Organizations {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"LicenseeAccountCode":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new organization`,
 		Long:  `Create a new organization.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.OrganizationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_OriginalSources_cmd = &cobra.Command{
-		Aliases: []string{  "originalsources",  "OS",  "os",  },
+		Aliases: []string{  "os",  "originalsources",  "OS",  },
 		Use: `OriginalSources {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new original source`,
 		Long:  `Create a new original source.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.OriginalSourcesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3291,21 +2616,16 @@ var Post_Origins_cmd = &cobra.Command{
 		Use: `Origins {"Data":{"ActivityType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new origin`,
 		Long:  `Create a new origin.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.OriginsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3314,21 +2634,16 @@ var Post_OutputSets_cmd = &cobra.Command{
 		Use: `OutputSets {"OutputSet":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"ElementGroups":[{"Elements":null,"Filters":null,"IncludePrimaryAffiliation":true,"IsSingleRow":true,"KeywordId":123},...],"Id":123,"LastUsedDateTime":"0001-01-01T00:00:00.000Z","TMSIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create an Output Set`,
 		Long:  `Create an Output Set.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.OutputSetsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3337,21 +2652,16 @@ var Post_PackagePriceTypes_cmd = &cobra.Command{
 		Use: `PackagePriceTypes {"PackagePriceType":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"PackageId":123,"PriceTypeId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new package price type`,
 		Long:  `Create a new package price type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PackagePriceTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3360,21 +2670,16 @@ var Post_PackageTypes_cmd = &cobra.Command{
 		Use: `PackageTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new package type`,
 		Long:  `Create a new package type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PackageTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3383,21 +2688,16 @@ var Post_PackageWebContents_cmd = &cobra.Command{
 		Use: `PackageWebContents {"PackageWebContent":{"ContentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"PackageId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Value":"string"}}`,
 		Short: `Create a packageWebContent`,
 		Long:  `Create a packageWebContent.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PackageWebContentsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3406,21 +2706,16 @@ var Post_Packages_cmd = &cobra.Command{
 		Use: `Packages {"Request":{"ArtistIds":"string","BusinessUnitId":123,"ConstituentId":123,"FullTextSearch":"string","MatchAllPerformances":true,"ModeOfSaleId":123,"PackageEndDate":"0001-01-01T00:00:00.000Z","PackageFacilityIds":"string","PackageKeywordAndOr":"string","PackageKeywordIds":"string","PackageStartDate":"0001-01-01T00:00:00.000Z","PackageTypeIds":"string","PerformanceEndDate":"0001-01-01T00:00:00.000Z","PerformanceFacilityIds":"string","PerformanceKeywordAndOr":"string","PerformanceKeywordIds":"string","PerformanceStartDate":"0001-01-01T00:00:00.000Z","SeasonIds":"string"}}`,
 		Short: `Search for packages`,
 		Long:  `Search for packages`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PackagesSearch , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3430,21 +2725,16 @@ var Post_PaymentComponent_cmd = &cobra.Command{
 		Short: `This request is used to configure a transaction and retrieve the JavaScript location for implementing the Tessitura Merchant Services Payment Component`,
 		Long:  `This request is used to configure a transaction and retrieve the JavaScript location for implementing the Tessitura Merchant Services Payment Component. 
 For complete documentation on how to implement the Payment Component, please visit https://bitbucket.org/TN_WebShare/tessituramerchantservicesintegrationsample`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentComponentGetPaymentComponent , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3453,14 +2743,10 @@ var Post_PaymentGatewayAccounts_cmd = &cobra.Command{
 		Use: `PaymentGatewayAccounts {"Request":{"ConstituentId":123,"ReferenceNumber":"string"}}`,
 		Short: `Generate a payment card token from a ReferenceNumber obtained from a previous Authorization request (Vantiv only)`,
 		Long:  `Generate a payment card token from a ReferenceNumber obtained from a previous Authorization request (Vantiv only)`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("StoreToken"); test {
 				out, err = tq.Do(*_tq, _tq.Post.PaymentGatewayAccountsStoreToken , []byte(args[0]))
 			} else {
@@ -3468,101 +2754,80 @@ var Post_PaymentGatewayAccounts_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_PaymentGatewayActivities_cmd = &cobra.Command{
-		Aliases: []string{  "paymentgatewayactivities",  "PGA",  "pga",  },
+		Aliases: []string{  "PGA",  "pga",  "paymentgatewayactivities",  },
 		Use: `PaymentGatewayActivities {"PaymentGatewayActivity":{"AccountId":123,"AccountNumber":"string","ActivityData":"string","Amount":123.456,"AuthCode":"string","AvsAddress":"string","AvsPostalcode":"string","AvsResultCode":"string","BalanceAmount":123.456,"BalanceCurrencyCode":"string","ConstituentId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CvvResultCode":"string","EcommerceIndicator":"string","EmvApplicationIdentifier":"string","EmvApplicationName":"string","EmvCryptogram":"string","EmvHostResponseCode":"string","EmvHostResponseMessage":"string","EmvPinVerified":"string","EntryMethod":"string","ExpirationDate":"string","Id":123,"MerchantId":"string","Name":"string","NetworkTransactionId":"string","Origin":"string","PaymentGatewayTransactionType":{"Id":123},"PaymentId":123,"PaymentMethodGroupId":123,"PaymentMethodId":123,"ProviderCommunicationDurationMs":123,"ProviderTransactionDateTime":"0001-01-01T00:00:00.000Z","ReferenceNumber":"string","ResponseCode":"string","ResponseMessage":"string","Success":"string","TerminalIdentifier":"string","TotalDurationMs":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserData":"string"}}`,
 		Short: `Create a new Payment Gateway Activity`,
 		Long:  `Create a new Payment Gateway Activity`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentGatewayActivitiesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_PaymentGatewayCredentials_cmd = &cobra.Command{
-		Aliases: []string{  "paymentgatewaycredentials",  "PGC",  "pgc",  },
+		Aliases: []string{  "pgc",  "paymentgatewaycredentials",  "PGC",  },
 		Use: `PaymentGatewayCredentials {"Request":{"ConstituentId":123,"MerchantId":"string"}}`,
 		Short: ``,
 		Long:  ``,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentGatewayCredentialsGetCredential , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_PaymentGatewayNotifications_cmd = &cobra.Command{
-		Aliases: []string{  "paymentgatewaynotifications",  "PGN",  "pgn",  },
+		Aliases: []string{  "PGN",  "pgn",  "paymentgatewaynotifications",  },
 		Use: `PaymentGatewayNotifications {"NotificationEvent":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EventType":"string","Id":123,"Payload":"string","ProcessedDate":"0001-01-01T00:00:00.000Z","ReceivedDate":"0001-01-01T00:00:00.000Z","Reference":"string","Topic":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new notification event`,
 		Long:  `Create a new notification event.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentGatewayNotificationsCreateNotificationEvent , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PGTT",  "pgtt",  "paymentgatewaytransactiontypes",  },
+		Aliases: []string{  "pgtt",  "paymentgatewaytransactiontypes",  "PGTT",  },
 		Use: `PaymentGatewayTransactionTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Payment Gateway Transaction Type`,
 		Long:  `Create a new Payment Gateway Transaction Type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentGatewayTransactionTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3571,21 +2836,16 @@ var Post_PaymentMethodGroups_cmd = &cobra.Command{
 		Use: `PaymentMethodGroups {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"MerchantId":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new payment method group`,
 		Long:  `Create a new payment method group.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentMethodGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3594,21 +2854,16 @@ var Post_PaymentMethodUserGroups_cmd = &cobra.Command{
 		Use: `PaymentMethodUserGroups {"PaymentMethodUserGroup":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"IncomeIndicator":true,"MaxRefund":123.456,"PaymentMethod":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
 		Short: `Create a new payment method/user group mapping`,
 		Long:  `Create a new payment method/user group mapping.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentMethodUserGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3617,21 +2872,16 @@ var Post_PaymentMethods_cmd = &cobra.Command{
 		Use: `PaymentMethods {"PaymentMethod":{"AccountType":{"Id":123},"AuthIndicator":true,"BusinessUnitId":123,"CanRefund":true,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CurrencyTypeId":123,"DefaultIndicator":true,"Description":"string","GiftAidIndicator":true,"GlAccountId":"string","Id":123,"Inactive":true,"Income":true,"MerchantId":"string","MerchantIdForSwipe":"string","NoCopiesOnAuth":123,"NoCopiesOnSave":123,"OpenCashDrawer":true,"PaymentMethodGroup":{"Id":123},"PaymentType":{"Id":123},"ReceiptFormatId":123,"RequireCheckIndicator":true,"RequireCvv":true,"RequirePostalCode":"string","ShortDesc":"string","StoreTenderedAmount":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseWithCardReader":true}}`,
 		Short: `Create a new payment method`,
 		Long:  `Create a new payment method.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentMethodsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3640,14 +2890,10 @@ var Post_PaymentSignatures_cmd = &cobra.Command{
 		Use: `PaymentSignatures {"PaymentSignature":{"Id":123}}`,
 		Short: `Create a new payment signature`,
 		Long:  `Create a new payment signature.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("PostForOrder"); test {
 				out, err = tq.Do(*_tq, _tq.Post.PaymentSignaturesPostForOrder , []byte(args[0]))
 			} else {
@@ -3655,9 +2901,8 @@ var Post_PaymentSignatures_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3666,67 +2911,52 @@ var Post_PaymentTypes_cmd = &cobra.Command{
 		Use: `PaymentTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new payment type`,
 		Long:  `Create a new payment type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Payments_cmd = &cobra.Command{
-		Aliases: []string{  "p",  "payments",  "P",  },
+		Aliases: []string{  "payments",  "P",  "p",  },
 		Use: `Payments {"Request":{"Increment":123}}`,
 		Short: `Reserves a payment id generated per the request's required "increment" parameter`,
 		Long:  `Reserves a payment id generated per the request's required "increment" parameter. Increment number must be greater than 0.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentsReserveIds , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_PerformanceGroups_cmd = &cobra.Command{
-		Aliases: []string{  "PG",  "pg",  "performancegroups",  },
+		Aliases: []string{  "performancegroups",  "PG",  "pg",  },
 		Use: `PerformanceGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","DisplayByZone":true,"Facility":{"Id":123},"FixedSeatIndicator":true,"Id":123,"Season":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","ZoneMap":{"Id":123}}}`,
 		Short: `Create a new Performance Group`,
 		Long:  `Create a new Performance Group.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PerformanceGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3735,21 +2965,16 @@ var Post_PerformancePackageModeOfSales_cmd = &cobra.Command{
 		Use: `PerformancePackageModeOfSales {"PerformancePackageModeOfSale":{"AutoAttend":"string","ETicketReleaseDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","Id":123,"ModeOfSaleId":123,"PackageId":123,"PerformanceId":123,"PrintIndicator":true,"PrintOnAutoAttend":true,"SeatIndicator":true,"StartDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new performance package mode of sale`,
 		Long:  `Create a new performance package mode of sale.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PerformancePackageModeOfSalesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3758,14 +2983,10 @@ var Post_PerformancePriceLayers_cmd = &cobra.Command{
 		Use: `PerformancePriceLayers {"PerformancePriceLayer":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultDesignationCodeId":123,"DefaultGlAccountId":123,"DefaultResaleAccountId":123,"Description":"string","EffectiveDateTime":"0001-01-01T00:00:00.000Z","Id":123,"PerformanceId":123,"PerformancePriceTypes":[{"Id":123},...],"PriceLayerType":{"Id":123},"TemplateId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new performance price layer`,
 		Long:  `Create a new performance price layer.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("PostSummaries"); test {
 				out, err = tq.Do(*_tq, _tq.Post.PerformancePriceLayersPostSummaries , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Search"); test {
@@ -3777,9 +2998,8 @@ var Post_PerformancePriceLayers_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3788,21 +3008,16 @@ var Post_PerformancePriceTypes_cmd = &cobra.Command{
 		Use: `PerformancePriceTypes {"PerformancePriceType":{"BaseIndicator":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DesignationCodeId":123,"EffectiveDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","GlAccountId":123,"Id":123,"IsWithinDateRange":true,"PerformanceId":123,"PerformancePriceLayerId":123,"PerformancePrices":[{"Id":123},...],"PriceTypeId":123,"ResaleAccountId":123,"StartDateTime":"0001-01-01T00:00:00.000Z","TicketDesignId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new performance price type`,
 		Long:  `Create a new performance price type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PerformancePriceTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3811,67 +3026,52 @@ var Post_PerformancePrices_cmd = &cobra.Command{
 		Use: `PerformancePrices {"PerformancePrice":{"EditIndicator":true,"EffectiveDateTime":"0001-01-01T00:00:00.000Z","Enabled":true,"HasEvents":true,"Id":123,"IsPriceBasedOnCurrentEvent":true,"MinPrice":123.456,"PerformanceId":123,"PerformancePriceTypeId":123,"Price":123.456,"ZoneId":123}}`,
 		Short: `Create a new performance price`,
 		Long:  `Create a new performance price.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PerformancePricesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_PerformanceStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "performancestatuses",  "PS",  "ps",  },
+		Aliases: []string{  "ps",  "performancestatuses",  "PS",  },
 		Use: `PerformanceStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new performance status`,
 		Long:  `Create a new performance status.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PerformanceStatusesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_PerformanceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "pt",  "performancetypes",  "PT",  },
+		Aliases: []string{  "PT",  "pt",  "performancetypes",  },
 		Use: `PerformanceTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","ValidCountryList":"string"}}`,
 		Short: `Create a new performance type`,
 		Long:  `Create a new performance type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PerformanceTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3880,14 +3080,10 @@ var Post_Performances_cmd = &cobra.Command{
 		Use: `Performances {"PerformanceID":"string","Request":{"HoldCodeId":123,"HoldUntilDate":"0001-01-01T00:00:00.000Z","ReplaceMode":123},"SeatID":"string"}`,
 		Short: `Apply a single hold on a performance seat`,
 		Long:  `Apply a single hold on a performance seat.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Copy"); test {
 				out, err = tq.Do(*_tq, _tq.Post.PerformancesCopy , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Reschedule"); test {
@@ -3901,9 +3097,8 @@ var Post_Performances_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3912,21 +3107,16 @@ var Post_Philanthropy_cmd = &cobra.Command{
 		Use: `Philanthropy {"PhilanthropyEntry":{"Activity":"string","Amount":123.456,"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DonatedTo":"string","DonatedToConstituent":{"Id":123},"DonationDateTime":"0001-01-01T00:00:00.000Z","Id":123,"PhilanthropyType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create an philanthropyEntry for a constituent`,
 		Long:  `Create an philanthropyEntry for a constituent.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PhilanthropyCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3935,21 +3125,16 @@ var Post_PhilanthropyTypes_cmd = &cobra.Command{
 		Use: `PhilanthropyTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new philosophy type`,
 		Long:  `Create a new philosophy type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PhilanthropyTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3958,67 +3143,52 @@ var Post_PhoneIndicators_cmd = &cobra.Command{
 		Use: `PhoneIndicators {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new phone indicator`,
 		Long:  `Create a new phone indicator.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PhoneIndicatorsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_PhoneTypes_cmd = &cobra.Command{
-		Aliases: []string{  "pt",  "phonetypes",  "PT",  },
+		Aliases: []string{  "phonetypes",  "PT",  "pt",  },
 		Use: `PhoneTypes {"Data":{"AllowMarketing":true,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DayEveningIndicator":"string","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new phone type`,
 		Long:  `Create a new phone type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PhoneTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Phones_cmd = &cobra.Command{
-		Aliases: []string{  "p",  "phones",  "P",  },
+		Aliases: []string{  "phones",  "P",  "p",  },
 		Use: `Phones {"Phone":{"Address":{"Id":123},"AllowTelemarketing":true,"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DayEveningIndicator":"string","EditIndicator":true,"Id":123,"Inactive":true,"PhoneFormatted":"string","PhoneNumber":"string","PhoneSearch":"string","PhoneType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new phone`,
 		Long:  `Create a new phone.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PhonesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4027,90 +3197,70 @@ var Post_PlanPriorities_cmd = &cobra.Command{
 		Use: `PlanPriorities {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Ranking":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new plan priority`,
 		Long:  `Create a new plan priority.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PlanPrioritiesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_PlanSources_cmd = &cobra.Command{
-		Aliases: []string{  "plansources",  "PS",  "ps",  },
+		Aliases: []string{  "PS",  "ps",  "plansources",  },
 		Use: `PlanSources {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new plan source`,
 		Long:  `Create a new plan source.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PlanSourcesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_PlanStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "planstatuses",  "PS",  "ps",  },
+		Aliases: []string{  "ps",  "planstatuses",  "PS",  },
 		Use: `PlanStatuses {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new plan status`,
 		Long:  `Create a new plan status.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PlanStatusesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_PlanTypes_cmd = &cobra.Command{
-		Aliases: []string{  "plantypes",  "PT",  "pt",  },
+		Aliases: []string{  "pt",  "plantypes",  "PT",  },
 		Use: `PlanTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new plan type`,
 		Long:  `Create a new plan type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PlanTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4119,90 +3269,70 @@ var Post_PlanWorkers_cmd = &cobra.Command{
 		Use: `PlanWorkers {"PlanWorker":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Plan":{"Id":123},"PrimaryIndicator":true,"Role":{"Id":123},"ShowInPortfolio":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Worker":{"Id":123}}}`,
 		Short: `Create a new plan worker`,
 		Long:  `Create a new plan worker.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PlanWorkersCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Plans_cmd = &cobra.Command{
-		Aliases: []string{  "p",  "plans",  "P",  },
+		Aliases: []string{  "P",  "p",  "plans",  },
 		Use: `Plans {"Plan":{"AskAmount":123.456,"Campaign":{"Id":123},"CompleteByDateTime":"0001-01-01T00:00:00.000Z","Constituent":{"Id":123},"ContributionAmount":123.456,"ContributionDesignation":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","CustomDataItems":[{"DataType":"string","Description":"string","EditIndicator":true,"Index":123,"IsDropdown":true,"KeywordId":123,"Name":"string","Value":"string"},...],"EditIndicator":true,"Fund":{"Id":123},"GoalAmount":123.456,"HasOpenSteps":true,"HasSteps":true,"Id":123,"LastStepDate":"0001-01-01T00:00:00.000Z","LastStepType":{"Id":123},"LastWorkerDisplayName":"string","NextStepDate":"0001-01-01T00:00:00.000Z","NextStepType":{"Id":123},"Notes":"string","OriginalSource":{"Id":123},"PlanAssociates":"string","PrimaryWorker":{"Id":123},"Priority":{"Id":123},"Probability":123.456,"RecordedAmount":123.456,"StartDateTime":"0001-01-01T00:00:00.000Z","Status":{"Id":123},"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new plan`,
 		Long:  `Create a new plan.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PlansCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_PledgeBilling_cmd = &cobra.Command{
-		Aliases: []string{  "pledgebilling",  "PB",  "pb",  },
+		Aliases: []string{  "PB",  "pb",  "pledgebilling",  },
 		Use: `PledgeBilling {"PledgeBillingRequest":{"AcknowledgementLetterId":123,"AppealId":123,"BatchTypeId":123,"BillingTypeId":123,"CampaignId":123,"CutoffDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","FundIds":"string","IsLabel":true,"ListId":123,"MailDateTime":"0001-01-01T00:00:00.000Z","MailTypeId":123,"MaxNumberOfBillsToPrint":123,"MediaTypeId":123,"MinAmount":123.456,"MinNumberOfBillsToPrint":123,"NewSourceDescription":"string","PaymentMethodGroupId":123,"SalutationTypeId":123,"ShouldUpdate":true,"StartDateTime":"0001-01-01T00:00:00.000Z","UserId":"string"}}`,
 		Short: `This is not intended for use outside of the Tessitura application`,
 		Long:  `This is not intended for use outside of the Tessitura application.  There is no standard way to return billing details for a run. For a given campaign, funds, bill types etc., It raises bills for all those scheduled payments that have due date between given start and end dates. It also checks to see that a bill was not raised after a given 'cut off date'.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PledgeBillingBillPledges , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_PortfolioCustomElements_cmd = &cobra.Command{
-		Aliases: []string{  "portfoliocustomelements",  "PCE",  "pce",  },
+		Aliases: []string{  "PCE",  "pce",  "portfoliocustomelements",  },
 		Use: `PortfolioCustomElements {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DataType":123,"Description":"string","Id":123,"Inactive":true,"SqlQuery":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new portfolio custom element`,
 		Long:  `Create a new portfolio custom element.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PortfolioCustomElementsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4211,21 +3341,16 @@ var Post_Prefixes_cmd = &cobra.Command{
 		Use: `Prefixes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new prefix`,
 		Long:  `Create a new prefix.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PrefixesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4234,44 +3359,34 @@ var Post_Premieres_cmd = &cobra.Command{
 		Use: `Premieres {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new premiere`,
 		Long:  `Create a new premiere.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PremieresCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_PriceCategories_cmd = &cobra.Command{
-		Aliases: []string{  "pc",  "pricecategories",  "PC",  },
+		Aliases: []string{  "PC",  "pc",  "pricecategories",  },
 		Use: `PriceCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new price category`,
 		Long:  `Create a new price category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PriceCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4280,21 +3395,16 @@ var Post_PriceLayerTypes_cmd = &cobra.Command{
 		Use: `PriceLayerTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ExcludeFromRules":true,"Id":123,"Inactive":true,"PriceCategory":{"Id":123},"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new price layer type`,
 		Long:  `Create a new price layer type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PriceLayerTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4303,21 +3413,16 @@ var Post_PriceTemplates_cmd = &cobra.Command{
 		Use: `PriceTemplates {"PriceTemplate":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultDesignationCode":{"Id":123},"DefaultGlAccount":{"Id":123},"DefaultPriceLayerType":{"Id":123},"DefaultResaleAccount":{"Id":123},"Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Name":"string","PriceCategory":{"Id":123},"TemplatePriceTypes":[{"Id":123},...],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","ZoneMap":{"Id":123}}}`,
 		Short: `Create a new price template`,
 		Long:  `Create a new price template.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PriceTemplatesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4326,21 +3431,16 @@ var Post_PriceTypeCategories_cmd = &cobra.Command{
 		Use: `PriceTypeCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new price type category`,
 		Long:  `Create a new price type category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PriceTypeCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4349,21 +3449,16 @@ var Post_PriceTypeGroups_cmd = &cobra.Command{
 		Use: `PriceTypeGroups {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new price type group`,
 		Long:  `Create a new price type group.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PriceTypeGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4372,21 +3467,16 @@ var Post_PriceTypeReasons_cmd = &cobra.Command{
 		Use: `PriceTypeReasons {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"ShortDescription":"string","TicketText":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new price type reason`,
 		Long:  `Create a new price type reason.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PriceTypeReasonsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4395,21 +3485,16 @@ var Post_PriceTypeUserGroups_cmd = &cobra.Command{
 		Use: `PriceTypeUserGroups {"PriceTypeUserGroup":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"PriceType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
 		Short: `Create a new price typ/user group mapping`,
 		Long:  `Create a new price typ/user group mapping.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PriceTypeUserGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4418,21 +3503,16 @@ var Post_PriceTypes_cmd = &cobra.Command{
 		Use: `PriceTypes {"PriceType":{"AliasDescription":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultTicketDesign":{"Id":123},"Description":"string","EditIndicator":true,"EditableIndicator":true,"Id":123,"Inactive":true,"PriceTypeCategory":{"Id":123},"PriceTypeGroup":{"Id":123},"ReasonIndicator":true,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new price type`,
 		Long:  `Create a new price type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PriceTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4441,44 +3521,34 @@ var Post_PricingRuleCategories_cmd = &cobra.Command{
 		Use: `PricingRuleCategories {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new pricing rule category`,
 		Long:  `Create a new pricing rule category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PricingRuleCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_PricingRuleMessageTypes_cmd = &cobra.Command{
-		Aliases: []string{  "pricingrulemessagetypes",  "PRMT",  "prmt",  },
+		Aliases: []string{  "prmt",  "pricingrulemessagetypes",  "PRMT",  },
 		Use: `PricingRuleMessageTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new pricing rule message type`,
 		Long:  `Create a new pricing rule message type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PricingRuleMessageTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4487,21 +3557,16 @@ var Post_PricingRuleSets_cmd = &cobra.Command{
 		Use: `PricingRuleSets {"PricingRuleSet":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Rules":[{"Id":123},...],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new pricing rule set`,
 		Long:  `Create a new pricing rule set.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PricingRuleSetsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4510,44 +3575,34 @@ var Post_PricingRules_cmd = &cobra.Command{
 		Use: `PricingRules {"PricingRule":{"Appeals":"string","ApplyOncePerOrder":true,"ApplyToLowestCommonNumberOfSeats":true,"Constituencies":"string","ConstituentAttribute":123,"ConstituentAttributeOperator":{"Id":123},"ConstituentAttributeValue1":"string","ConstituentAttributeValue2":"string","ConstituentExclusionListId":123,"ConstituentListId":123,"ConstituentRankType":123,"ConstituentRankingOperator":{"Id":123},"ConstituentRankingValue1":123,"ConstituentRankingValue2":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","DiscountAmount":123.456,"DiscountIsPercent":true,"DiscountPercentRound":123,"DiscountPriceTypeId":123,"EditIndicator":true,"EndDateTime":"0001-01-01T00:00:00.000Z","ExcludeGeneralPublic":true,"Id":123,"Inactive":true,"MaxSeats":123,"Messages":[{"Id":123},...],"OverTheLimitDateTime":"0001-01-01T00:00:00.000Z","PromotedAppeals":"string","PromotedSources":"string","QualifyingPackage":"string","QualifyingPerformance":"string","QualifyingPriceType1":"string","QualifyingPriceType2":"string","QualifyingProductionSeason":"string","QualifyingSeasonPackageType":"string","QualifyingSeatCount1Value1":123,"QualifyingSeatCount1Value2":123,"QualifyingSeatCount2Value1":123,"QualifyingSeatCount2Value2":123,"QualifyingZone":"string","RespectMinimumPrice":true,"ResultMaximumSeats":123,"ResultMaximumSeats2":123,"ResultPackage":"string","ResultPerformance":"string","ResultPriceType":"string","ResultProductionSeason":"string","ResultSeasonPackageType":"string","ResultSeatCount":123,"ResultZone":"string","RuleAction":123,"RuleCategory":{"Id":123},"RuleType":{"Id":123},"Sources":"string","StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new pricing rule`,
 		Long:  `Create a new pricing rule.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PricingRulesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Printers_cmd = &cobra.Command{
-		Aliases: []string{  "printers",  "P",  "p",  },
+		Aliases: []string{  "p",  "printers",  "P",  },
 		Use: `Printers {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"MaxCol":123,"MaxRow":123,"MaxX2val":123,"MaxY2val":123,"Type":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new printer`,
 		Long:  `Create a new printer.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PrintersCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4556,61 +3611,47 @@ var Post_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 		Use: `ProductionSeasonMembershipOrganizations {"ProductionSeasonMembershipOrganization":{"AllowMultipleEntry":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"MembershipOrganization":{"Id":123},"ProductionSeason":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new production season membership organization`,
 		Long:  `Create a new production season membership organization.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ProductionSeasonMembershipOrganizationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ProductionSeasons_cmd = &cobra.Command{
-		Aliases: []string{  "PS",  "ps",  "productionseasons",  },
+		Aliases: []string{  "productionseasons",  "PS",  "ps",  },
 		Use: `ProductionSeasons {"Request":{"ArtistIds":"string","BusinessUnitId":123,"ConstituentId":123,"FacilityIds":"string","FullTextSearch":"string","KeywordAndOr":"string","KeywordIds":"string","MatchAllPerformances":true,"ModeOfSaleId":123,"PerformanceEndDate":"0001-01-01T00:00:00.000Z","PerformanceStartDate":"0001-01-01T00:00:00.000Z","SeasonIds":"string"}}`,
 		Short: `Search for production seasons`,
 		Long:  `Search for production seasons
 Returns production seasons matching the specified search criteria.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ProductionSeasonsSearch , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Products_cmd = &cobra.Command{
-		Aliases: []string{  "p",  "products",  "P",  },
+		Aliases: []string{  "products",  "P",  "p",  },
 		Use: `Products {"Request":{"PackageIds":"string","PackageTypeIds":"string","PerformanceIds":"string","ProductionSeasonIds":"string"}}`,
 		Short: `Get product descriptions`,
 		Long:  `Get product descriptions`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Search"); test {
 				out, err = tq.Do(*_tq, _tq.Post.ProductsSearch , []byte(args[0]))
 			} else {
@@ -4618,32 +3659,26 @@ var Post_Products_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ProgramListings_cmd = &cobra.Command{
-		Aliases: []string{  "programlistings",  "PL",  "pl",  },
+		Aliases: []string{  "PL",  "pl",  "programlistings",  },
 		Use: `ProgramListings {"ProgramListing":{"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DonationLevel":{"Id":123},"EditIndicator":true,"Id":123,"ProgramName":"string","ProgramType":{"Id":123},"SortName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new program listing`,
 		Long:  `Create a new program listing.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ProgramListingsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4652,44 +3687,34 @@ var Post_Programs_cmd = &cobra.Command{
 		Use: `Programs {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new program`,
 		Long:  `Create a new program.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ProgramsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Pronouns_cmd = &cobra.Command{
-		Aliases: []string{  "pronouns",  "P",  "p",  },
+		Aliases: []string{  "p",  "pronouns",  "P",  },
 		Use: `Pronouns {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: ``,
 		Long:  ``,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PronounsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4698,67 +3723,52 @@ var Post_QualificationCategories_cmd = &cobra.Command{
 		Use: `QualificationCategories {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Qualification Category`,
 		Long:  `Create a new Qualification Category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.QualificationCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Qualifications_cmd = &cobra.Command{
-		Aliases: []string{  "q",  "qualifications",  "Q",  },
+		Aliases: []string{  "qualifications",  "Q",  "q",  },
 		Use: `Qualifications {"Data":{"Category":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Qualification`,
 		Long:  `Create a new Qualification.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.QualificationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_QueryElementFilters_cmd = &cobra.Command{
-		Aliases: []string{  "queryelementfilters",  "QEF",  "qef",  },
+		Aliases: []string{  "qef",  "queryelementfilters",  "QEF",  },
 		Use: `QueryElementFilters {"QueryElementFilter":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DataType":123,"Description":"string","EndOfDay":true,"FilterElement":"string","Group":{"Id":123},"Id":123,"ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a query element filter`,
 		Long:  `Create a query element filter.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.QueryElementFiltersCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4767,21 +3777,16 @@ var Post_QueryElementGroups_cmd = &cobra.Command{
 		Use: `QueryElementGroups {"QueryElementGroup":{"Category":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DataFrom":"string","DataWhere":"string","Description":"string","Id":123,"IsVirtual":true,"NumberOfParameters":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new query element group`,
 		Long:  `Create a new query element group.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.QueryElementGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4790,44 +3795,34 @@ var Post_QueryElements_cmd = &cobra.Command{
 		Use: `QueryElements {"QueryElement":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DataSelect":"string","Description":"string","Group":{"Id":123},"Id":123,"Inactive":true,"IsSingleRow":true,"KeywordId":123,"PrimaryGroupDefault":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new query element`,
 		Long:  `Create a new query element.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.QueryElementsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_RankTypes_cmd = &cobra.Command{
-		Aliases: []string{  "ranktypes",  "RT",  "rt",  },
+		Aliases: []string{  "rt",  "ranktypes",  "RT",  },
 		Use: `RankTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new rank type`,
 		Long:  `Create a new rank type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.RankTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4836,21 +3831,16 @@ var Post_Rankings_cmd = &cobra.Command{
 		Use: `Rankings {"Ranking":{"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Rank":123,"RankType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new ranking`,
 		Long:  `Create a new ranking.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.RankingsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4859,67 +3849,52 @@ var Post_ReceiptSettings_cmd = &cobra.Command{
 		Use: `ReceiptSettings {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EmailFooter":"string","EmailHeader":"string","EmailSubject":"string","Id":123,"Inactive":true,"PrintFooter":"string","PrintHeader":"string","ReceiptEmailProfile":{"Id":123},"TicketEmailProfile":{"Id":123},"TicketEmailSubject":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Receipt Setting`,
 		Long:  `Create a new Receipt Setting.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ReceiptSettingsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_RecordAttendance_cmd = &cobra.Command{
-		Aliases: []string{  "ra",  "recordattendance",  "RA",  },
+		Aliases: []string{  "recordattendance",  "RA",  "ra",  },
 		Use: `RecordAttendance {"Request":{"OverrideDoorsOpen":true,"ProfileId":123,"TicketNo":123}}`,
 		Short: `Records attendance for a given ticket number`,
 		Long:  `Records attendance for a given ticket number.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.RecordAttendanceRecordTicket , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ReferenceTableUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "referencetableusergroups",  "RTUG",  "rtug",  },
+		Aliases: []string{  "RTUG",  "rtug",  "referencetableusergroups",  },
 		Use: `ReferenceTableUserGroups {"Data":{"CanEdit":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"ReferenceTable":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
 		Short: `Create a new reference table/user group mapping`,
 		Long:  `Create a new reference table/user group mapping.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ReferenceTableUserGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4930,21 +3905,16 @@ var Post_Registration_cmd = &cobra.Command{
 		Long:  `This is a combined resource for registering a new constituent with logging into the current session. This resource combines a workflow of multiple API actions into a single request. This is primarily designed for creating a constituent with a primary electronic address, a primary login, and logging into the session using the provide login.
 Creates a new constituent and login. Affiliates can be specified for the constituent to create a household account.
 The login must be unique for the login type. The electronic address for this constituent must be primary. The primary indicator on ElectronicAddress is unused in this request. The session will be logged in with the new login after successful registration.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.RegistrationRegister , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4953,37 +3923,28 @@ var Post_RelationshipCategories_cmd = &cobra.Command{
 		Use: `RelationshipCategories {"Data":{"CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new relationship category`,
 		Long:  `Create a new relationship category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.RelationshipCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ReportRequests_cmd = &cobra.Command{
-		Aliases: []string{  "rr",  "reportrequests",  "RR",  },
+		Aliases: []string{  "reportrequests",  "RR",  "rr",  },
 		Use: `ReportRequests {"ReportRequest":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DeletedIndicator":true,"EmailBody":"string","EmailRecipients":"string","EmailSubject":"string","EndDateTime":"0001-01-01T00:00:00.000Z","Id":123,"OutputOption":"string","Parameters":[{"ParameterId":123,"ReportId":"string","RequestId":123,"Value":"string"},...],"PublicIndicator":true,"QueueStatus":"string","ReportId":"string","ReportType":123,"RequestDateTime":"0001-01-01T00:00:00.000Z","ResultCode":"string","ResultText":"string","ScheduleId":123,"Type":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string","UserId":"string"}}`,
 		Short: `Creates the report request`,
 		Long:  `Creates the report request.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("GenerateScheduled"); test {
 				out, err = tq.Do(*_tq, _tq.Post.ReportRequestsGenerateScheduled , []byte(args[0]))
 			} else {
@@ -4991,9 +3952,8 @@ var Post_ReportRequests_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5002,14 +3962,10 @@ var Post_ReportSchedules_cmd = &cobra.Command{
 		Use: `ReportSchedules {"ReportScheduleNextRequest":{"DayOfWeek":123,"DayWeekNumber":123,"EndDate":"0001-01-01T00:00:00.000Z","EndTime":"0001-01-01T00:00:00.000Z","Interval":123,"StartDate":"0001-01-01T00:00:00.000Z","StartTime":"0001-01-01T00:00:00.000Z","Type":"string"}}`,
 		Short: `Verify the next run for a schedule's recurrence pattern by passing the pattern`,
 		Long:  `Verify the next run for a schedule's recurrence pattern by passing the pattern.  Returns its calculated next run date/time.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Save"); test {
 				out, err = tq.Do(*_tq, _tq.Post.ReportSchedulesSave , []byte(args[0]))
 			} else {
@@ -5017,9 +3973,8 @@ var Post_ReportSchedules_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5028,67 +3983,52 @@ var Post_ReportUserGroups_cmd = &cobra.Command{
 		Use: `ReportUserGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"ReportId":"string","RunRight":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string","ViewRight":"string"}}`,
 		Short: `Create a new report/user group mapping`,
 		Long:  `Create a new report/user group mapping.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ReportUserGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Reports_cmd = &cobra.Command{
-		Aliases: []string{  "reports",  "R",  "r",  },
+		Aliases: []string{  "R",  "r",  "reports",  },
 		Use: `Reports {"Request":{"ParameterName":"string","ReportId":"string","WhereDependencies":[{"ParameterId":"string","Values":null},...]}}`,
 		Short: `Get parameter values for a report parameter`,
 		Long:  `Get parameter values for a report parameter.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ReportsGetParameterValues , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Research_cmd = &cobra.Command{
-		Aliases: []string{  "R",  "r",  "research",  },
+		Aliases: []string{  "research",  "R",  "r",  },
 		Use: `Research {"ResearchEntry":{"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"ResearchDate":"0001-01-01T00:00:00.000Z","ResearchSource":"string","ResearchType":{"Id":123},"Researcher":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a research entry for a constituent`,
 		Long:  `Create a research entry for a constituent.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ResearchCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5097,21 +4037,16 @@ var Post_ResearchTypes_cmd = &cobra.Command{
 		Use: `ResearchTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new research type`,
 		Long:  `Create a new research type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ResearchTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5120,44 +4055,34 @@ var Post_ResourceCategories_cmd = &cobra.Command{
 		Use: `ResourceCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Resource Category`,
 		Long:  `Create a new Resource Category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ResourceCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ResourceSchedules_cmd = &cobra.Command{
-		Aliases: []string{  "resourceschedules",  "RS",  "rs",  },
+		Aliases: []string{  "rs",  "resourceschedules",  "RS",  },
 		Use: `ResourceSchedules {"ResourceSchedule":{"BookingAssignmentId":123,"ConstituentId":123,"Count":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndDateTime":"0001-01-01T00:00:00.000Z","Id":123,"OverrideConflicts":true,"RecurrenceDayOfWeek":"string","RecurrenceEndDate":"0001-01-01T00:00:00.000Z","RecurrenceInterval":123,"RecurrenceOrdinal":123,"RecurrencePattern":123,"ResourceId":123,"StartDateTime":"0001-01-01T00:00:00.000Z","Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a Busy or Available resource schedule`,
 		Long:  `Create a Busy or Available resource schedule.  Booking Assignment Schedules must be created in a booking.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ResourceSchedulesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5166,21 +4091,16 @@ var Post_ResourceTypes_cmd = &cobra.Command{
 		Use: `ResourceTypes {"ResourceType":{"CanBeShared":true,"Category":{"Id":123},"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"HasCapacity":true,"Id":123,"Inactive":true,"RequireAvailability":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new resource type`,
 		Long:  `Create a new resource type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ResourceTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5189,14 +4109,10 @@ var Post_Resources_cmd = &cobra.Command{
 		Use: `Resources {"Resource":{"Capacity":123,"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultConfirmationText":"string","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Notes":"string","ResourceType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a Resource`,
 		Long:  `Create a Resource.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("FindAvailableResources"); test {
 				out, err = tq.Do(*_tq, _tq.Post.ResourcesFindAvailableResources , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ScheduleOccurrences"); test {
@@ -5206,9 +4122,8 @@ var Post_Resources_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5217,67 +4132,52 @@ var Post_SalesChannels_cmd = &cobra.Command{
 		Use: `SalesChannels {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new sales channel`,
 		Long:  `Create a new sales channel.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SalesChannelsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_SalesLayoutButtonTypes_cmd = &cobra.Command{
-		Aliases: []string{  "SLBT",  "slbt",  "saleslayoutbuttontypes",  },
+		Aliases: []string{  "saleslayoutbuttontypes",  "SLBT",  "slbt",  },
 		Use: `SalesLayoutButtonTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new sales layout button type`,
 		Long:  `Create a new sales layout button type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SalesLayoutButtonTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_SalesLayouts_cmd = &cobra.Command{
-		Aliases: []string{  "saleslayouts",  "SL",  "sl",  },
+		Aliases: []string{  "sl",  "saleslayouts",  "SL",  },
 		Use: `SalesLayouts {"SalesLayout":{"Columns":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PaymentMethods":[{"Id":123},...],"PriceTypes":[{"Id":123},...],"PrimaryIndicator":true,"Rows":123,"SalesLayoutButtons":[{"Id":123},...],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new sales layout setup`,
 		Long:  `Create a new sales layout setup.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SalesLayoutsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5286,21 +4186,16 @@ var Post_SalutationTypes_cmd = &cobra.Command{
 		Use: `SalutationTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new salutation type`,
 		Long:  `Create a new salutation type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SalutationTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5309,44 +4204,34 @@ var Post_Salutations_cmd = &cobra.Command{
 		Use: `Salutations {"Salutation":{"BusinessTitle":"string","Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultIndicator":true,"EditIndicator":true,"EnvelopeSalutation1":"string","EnvelopeSalutation2":"string","Id":123,"IsFromAffiliation":true,"Label":true,"LetterSalutation":"string","SalutationType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new salutation`,
 		Long:  `Create a new salutation.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SalutationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_SchedulePatternTypes_cmd = &cobra.Command{
-		Aliases: []string{  "SPT",  "spt",  "schedulepatterntypes",  },
+		Aliases: []string{  "schedulepatterntypes",  "SPT",  "spt",  },
 		Use: `SchedulePatternTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Schedule Pattern`,
 		Long:  `Create a new Schedule Pattern.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SchedulePatternTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5355,21 +4240,16 @@ var Post_ScheduleTypes_cmd = &cobra.Command{
 		Use: `ScheduleTypes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Schedule Type`,
 		Long:  `Create a new Schedule Type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ScheduleTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5378,44 +4258,34 @@ var Post_SeasonTypes_cmd = &cobra.Command{
 		Use: `SeasonTypes {"Data":{"BusinessUnit":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new season type`,
 		Long:  `Create a new season type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SeasonTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Seasons_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "seasons",  },
+		Aliases: []string{  "seasons",  "S",  "s",  },
 		Use: `Seasons {"Data":{"ConfirmationNoticeFormat":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DefaultIndicator":true,"Description":"string","DisplayInSeasonOverview":true,"EndDateTime":"0001-01-01T00:00:00.000Z","FYear":123,"Id":123,"Inactive":true,"RenewalNoticeFormat":123,"StartDateTime":"0001-01-01T00:00:00.000Z","SubscriptionFund1":123,"SubscriptionFund2":123,"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","YearlySeason":123}}`,
 		Short: `Create a new season`,
 		Long:  `Create a new season.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SeasonsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5424,21 +4294,16 @@ var Post_SeatCodes_cmd = &cobra.Command{
 		Use: `SeatCodes {"Data":{"BackColor":123,"Context":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","DisplayLetter":"string","ForeColor":123,"Id":123,"Inactive":true,"IsSeat":123,"TicketText":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new seat code`,
 		Long:  `Create a new seat code.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SeatCodesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5447,21 +4312,16 @@ var Post_SeatStatuses_cmd = &cobra.Command{
 		Use: `SeatStatuses {"Data":{"BackColor":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","ForeColor":123,"Id":123,"Inactive":true,"StatusCode":"string","StatusLegend":"string","StatusPriority":123,"Tck":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new seat status`,
 		Long:  `Create a new seat status.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SeatStatusesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5470,44 +4330,34 @@ var Post_Sections_cmd = &cobra.Command{
 		Use: `Sections {"Data":{"AdditionalText":"string","AdditionalText2":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"PrintDesc":"string","PrintSequence":123,"SectionLegend":"string","ShortDesc":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new section`,
 		Long:  `Create a new section.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SectionsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ServiceResourceUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "serviceresourceusergroups",  "SRUG",  "srug",  },
+		Aliases: []string{  "srug",  "serviceresourceusergroups",  "SRUG",  },
 		Use: `ServiceResourceUserGroups {"Data":{"CanCreate":true,"CanDelete":true,"CanRead":true,"CanUpdate":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"ServiceResource":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UserGroupId":"string"}}`,
 		Short: `Create a new service resource/user group mapping`,
 		Long:  `Create a new service resource/user group mapping.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ServiceResourceUserGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5516,14 +4366,10 @@ var Post_Session_cmd = &cobra.Command{
 		Use: `Session {"SessionKey":"string","SessionVariable":{"Name":"string","Value":"string"}}`,
 		Short: `Add a new session variable to specified session`,
 		Long:  `Add a new session variable to specified session.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("BusinessFacingSession"); test {
 				out, err = tq.Do(*_tq, _tq.Post.SessionCreateBusinessFacingSession , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("LoadOrder"); test {
@@ -5559,9 +4405,8 @@ var Post_Session_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5570,21 +4415,16 @@ var Post_SourceGroups_cmd = &cobra.Command{
 		Use: `SourceGroups {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new source group`,
 		Long:  `Create a new source group.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SourceGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5593,21 +4433,16 @@ var Post_SpecialActivities_cmd = &cobra.Command{
 		Use: `SpecialActivities {"SpecialActivity":{"ConstituentId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"Notes":"string","NumberOfAttendees":123,"Performance":"string","SpecialActivityDateTime":"0001-01-01T00:00:00.000Z","Status":{"Id":123},"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","WorkerConstituentId":123}}`,
 		Short: `Create a new activity record`,
 		Long:  `Create a new activity record.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SpecialActivitiesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5616,44 +4451,34 @@ var Post_SpecialActivityStatuses_cmd = &cobra.Command{
 		Use: `SpecialActivityStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Special Activity Status`,
 		Long:  `Create a new Special Activity Status.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SpecialActivityStatusesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_SpecialActivityTypes_cmd = &cobra.Command{
-		Aliases: []string{  "sat",  "specialactivitytypes",  "SAT",  },
+		Aliases: []string{  "specialactivitytypes",  "SAT",  "sat",  },
 		Use: `SpecialActivityTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Special Activity Type`,
 		Long:  `Create a new Special Activity Type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SpecialActivityTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5662,21 +4487,16 @@ var Post_States_cmd = &cobra.Command{
 		Use: `States {"Data":{"Country":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"StateCode":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new state`,
 		Long:  `Create a new state.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.StatesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5685,37 +4505,28 @@ var Post_StepTypes_cmd = &cobra.Command{
 		Use: `StepTypes {"Data":{"AllowAttachments":"string","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseAssociate":"string","UseCompletedOnDateTime":"string","UseDueDateTime":"string","UseNote":"string","UseWarningDays":"string","UseWorker":"string"}}`,
 		Short: `Create a new step type`,
 		Long:  `Create a new step type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.StepTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Steps_cmd = &cobra.Command{
-		Aliases: []string{  "steps",  "S",  "s",  },
+		Aliases: []string{  "S",  "s",  "steps",  },
 		Use: `Steps {"Step":{"Associate":{"Id":123},"CompletedOnDateTime":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","DueDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"NewValue":"string","Notes":"string","OldValue":"string","Plan":{"Id":123},"Priority":123,"StepDateTime":"0001-01-01T00:00:00.000Z","Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","WarningDays":123,"Worker":{"Id":123}}}`,
 		Short: `Create a new step`,
 		Long:  `Create a new step.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("AddDocument"); test {
 				out, err = tq.Do(*_tq, _tq.Post.StepsAddDocument , []byte(args[0]))
 			} else {
@@ -5723,55 +4534,44 @@ var Post_Steps_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_SubLineItemStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "sublineitemstatuses",  "SLIS",  "slis",  },
+		Aliases: []string{  "SLIS",  "slis",  "sublineitemstatuses",  },
 		Use: `SubLineItemStatuses {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Priority":123,"StatusCode":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new sub line item status`,
 		Long:  `Create a new sub line item status.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SubLineItemStatusesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_Suffixes_cmd = &cobra.Command{
-		Aliases: []string{  "suffixes",  "S",  "s",  },
+		Aliases: []string{  "s",  "suffixes",  "S",  },
 		Use: `Suffixes {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new suffix`,
 		Long:  `Create a new suffix.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SuffixesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5780,67 +4580,52 @@ var Post_SurveyQuestions_cmd = &cobra.Command{
 		Use: `SurveyQuestions {"Data":{"AskType":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DataType":123,"DefaultValue":"string","Id":123,"Inactive":true,"Question":"string","ReferenceTable":"string","ReferenceTableDescriptionColumn":"string","ReferenceTableIdColumn":"string","ReferenceTableSort":"string","ReferenceTableWhereClause":"string","Required":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new survey question`,
 		Long:  `Create a new survey question.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SurveyQuestionsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_SurveyResponses_cmd = &cobra.Command{
-		Aliases: []string{  "surveyresponses",  "SR",  "sr",  },
+		Aliases: []string{  "sr",  "surveyresponses",  "SR",  },
 		Use: `SurveyResponses {"SurveyResponse":{"Answer":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"OrderId":123,"QuestionId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new survey response`,
 		Long:  `Create a new survey response.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SurveyResponsesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_TemplateCategories_cmd = &cobra.Command{
-		Aliases: []string{  "tc",  "templatecategories",  "TC",  },
+		Aliases: []string{  "templatecategories",  "TC",  "tc",  },
 		Use: `TemplateCategories {"TemplateCategory":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new template category`,
 		Long:  `Create a new template category`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.TemplateCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5849,14 +4634,10 @@ var Post_TemplatePriceTypes_cmd = &cobra.Command{
 		Use: `TemplatePriceTypes {"TemplatePriceType":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DesignationCode":{"Id":123},"GlAccount":{"Id":123},"Id":123,"PriceTemplate":{"Id":123},"PriceType":{"Id":123},"ResaleAccount":{"Id":123},"TemplatePrices":[{"Id":123},...],"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new template price type`,
 		Long:  `Create a new template price type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Batch"); test {
 				out, err = tq.Do(*_tq, _tq.Post.TemplatePriceTypesBatchCreate , []byte(args[0]))
 			} else {
@@ -5864,25 +4645,20 @@ var Post_TemplatePriceTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_TemplatePrices_cmd = &cobra.Command{
-		Aliases: []string{  "templateprices",  "TP",  "tp",  },
+		Aliases: []string{  "TP",  "tp",  "templateprices",  },
 		Use: `TemplatePrices {"TemplatePrice":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Enabled":true,"Id":123,"MinPrice":123.456,"Price":123.456,"TemplatePriceType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Zone":{"Id":123}}}`,
 		Short: `Create a new template price`,
 		Long:  `Create a new template price.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Batch"); test {
 				out, err = tq.Do(*_tq, _tq.Post.TemplatePricesBatchCreate , []byte(args[0]))
 			} else {
@@ -5890,9 +4666,8 @@ var Post_TemplatePrices_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5901,14 +4676,10 @@ var Post_Templates_cmd = &cobra.Command{
 		Use: `Templates {"Template":{"Category":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"IsHtmlBody":true,"TemplateBody":"string","TemplateSubject":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new template`,
 		Long:  `Create a new template`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("ConstituentInfo"); test {
 				out, err = tq.Do(*_tq, _tq.Post.TemplatesGetConstituentInfo , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("LoginCredentials"); test {
@@ -5930,9 +4701,8 @@ var Post_Templates_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5941,21 +4711,16 @@ var Post_Theaters_cmd = &cobra.Command{
 		Use: `Theaters {"Data":{"City":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DataWindowDefinition":"string","Description":"string","DrivingDirections":"string","Id":123,"Inactive":true,"MaximumNumberOfSeats":123,"Phone":"string","PostalCode":"string","State":"string","Street":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new theater`,
 		Long:  `Create a new theater.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.TheatersCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5964,21 +4729,16 @@ var Post_TimeSlots_cmd = &cobra.Command{
 		Use: `TimeSlots {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndTime":"0001-01-01T00:00:00.000Z","Id":123,"Inactive":true,"StartTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new time slot`,
 		Long:  `Create a new time slot.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.TimeSlotsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5987,21 +4747,16 @@ var Post_TriPOSCloudConfigurations_cmd = &cobra.Command{
 		Use: `TriPOSCloudConfigurations {"Data":{"ConfigSetting":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new TriPOS Cloud configuration`,
 		Long:  `Create a new TriPOS Cloud configuration.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.TriPOSCloudConfigurationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6010,21 +4765,16 @@ var Post_UpgradeCategories_cmd = &cobra.Command{
 		Use: `UpgradeCategories {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new Upgrade Category`,
 		Long:  `Create a new Upgrade Category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.UpgradeCategoriesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6033,37 +4783,28 @@ var Post_UpgradeLogs_cmd = &cobra.Command{
 		Use: `UpgradeLogs {"UpgradeLog":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","HotFixNumber":123,"Id":123,"ReleaseDescription":"string","ScriptId":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UpgradeCategorySummary":{"Id":123},"Version":"string"}}`,
 		Short: `Saves the given upgradeLog`,
 		Long:  `Saves the given upgradeLog.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.UpgradeLogsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_UserPreferences_cmd = &cobra.Command{
-		Aliases: []string{  "userpreferences",  "UP",  "up",  },
+		Aliases: []string{  "up",  "userpreferences",  "UP",  },
 		Use: `UserPreferences {"UserPreference":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Id":123,"Key":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","Value":"string"}}`,
 		Short: `Create a new user preference`,
 		Long:  `Create a new user preference.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("SaveBatch"); test {
 				out, err = tq.Do(*_tq, _tq.Post.UserPreferencesSaveBatch , []byte(args[0]))
 			} else {
@@ -6071,9 +4812,8 @@ var Post_UserPreferences_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6082,44 +4822,34 @@ var Post_Users_cmd = &cobra.Command{
 		Use: `Users {"PasswordChangeRequest":{"NewPassword":"string","OldPassword":"string"},"UserName":"string"}`,
 		Short: `Allows for changing of a user's password`,
 		Long:  `Allows for changing of a user's password`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.UsersChangePassword , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ValidateWebLogin_cmd = &cobra.Command{
-		Aliases: []string{  "validateweblogin",  "VWL",  "vwl",  },
+		Aliases: []string{  "vwl",  "validateweblogin",  "VWL",  },
 		Use: `ValidateWebLogin {"ValidationRequest":{"LoginName":"string","LoginTypeId":123,"Password":"string"}}`,
 		Short: `Validate a web login`,
 		Long:  `Validate a web login.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ValidateWebLoginCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6128,67 +4858,52 @@ var Post_WebContentTypes_cmd = &cobra.Command{
 		Use: `WebContentTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EditMask":"string","FullTextSearchIndicator":true,"Id":123,"Inactive":true,"LastContentUseUpdateDateTime":"0001-01-01T00:00:00.000Z","Limit":123,"ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","UseWebApi":true}}`,
 		Short: `Create a Web Content Type`,
 		Long:  `Create a Web Content Type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.WebContentTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_WebLogins_cmd = &cobra.Command{
-		Aliases: []string{  "weblogins",  "WL",  "wl",  },
+		Aliases: []string{  "wl",  "weblogins",  "WL",  },
 		Use: `WebLogins {"Login":{"Constituent":{"Id":123},"ConstituentUpdateDate":"0001-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"Email":{"Id":123},"FailedAttempts":123,"Id":123,"Inactive":true,"LastLoginDate":"0001-01-01T00:00:00.000Z","LockedDate":"0001-01-01T00:00:00.000Z","Login":"string","LoginType":{"Id":123},"PrimaryIndicator":true,"TemporaryIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new weblogin`,
 		Long:  `Create a new weblogin.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.WebLoginsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_WorkerQualifications_cmd = &cobra.Command{
-		Aliases: []string{  "WQ",  "wq",  "workerqualifications",  },
+		Aliases: []string{  "wq",  "workerqualifications",  "WQ",  },
 		Use: `WorkerQualifications {"WorkerQualification":{"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EndDateTime":"0001-01-01T00:00:00.000Z","Id":123,"Qualification":{"Id":123},"StartDateTime":"0001-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a WorkerQualification`,
 		Long:  `Create a WorkerQualification.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.WorkerQualificationsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6197,21 +4912,16 @@ var Post_WorkerRoles_cmd = &cobra.Command{
 		Use: `WorkerRoles {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"ShowInPortfolioDefault":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new worker role`,
 		Long:  `Create a new worker role.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.WorkerRolesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6220,21 +4930,16 @@ var Post_WorkerTypes_cmd = &cobra.Command{
 		Use: `WorkerTypes {"Data":{"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new worker type`,
 		Long:  `Create a new worker type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.WorkerTypesCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6243,21 +4948,16 @@ var Post_Workers_cmd = &cobra.Command{
 		Use: `Workers {"Worker":{"ConstituentId":123,"ConstituentInactive":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","EditIndicator":true,"FirstName":"string","Id":123,"Inactive":true,"LastName":"string","Prefix":{"Id":123},"ShortDisplayName":"string","SortName":"string","Suffix":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","WorkerType":{"Id":123}}}`,
 		Short: `Create a new worker`,
 		Long:  `Create a new worker.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.WorkersCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6266,44 +4966,34 @@ var Post_ZoneGroups_cmd = &cobra.Command{
 		Use: `ZoneGroups {"Data":{"AliasDescription":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new zone group`,
 		Long:  `Create a new zone group.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ZoneGroupsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Post_ZoneMaps_cmd = &cobra.Command{
-		Aliases: []string{  "zonemaps",  "ZM",  "zm",  },
+		Aliases: []string{  "ZM",  "zm",  "zonemaps",  },
 		Use: `ZoneMaps {"Data":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"SeatMap":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`,
 		Short: `Create a new zone map`,
 		Long:  `Create a new zone map.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ZoneMapsCreate , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6312,14 +5002,10 @@ var Post_Zones_cmd = &cobra.Command{
 		Use: `Zones {"Data":{"Abbreviation":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","Description":"string","EndTime":"string","Id":123,"Rank":123,"ShortDescription":"string","StartTime":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z","ZoneGroup":{"Id":123},"ZoneLegend":"string","ZoneMapId":123,"ZoneTime":"string"}}`,
 		Short: `Create a new zone`,
 		Long:  `Create a new zone.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Search"); test {
 				out, err = tq.Do(*_tq, _tq.Post.ZonesSearch , []byte(args[0]))
 			} else {
@@ -6327,9 +5013,8 @@ var Post_Zones_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 

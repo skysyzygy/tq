@@ -33,9 +33,9 @@ func Test_{{ print $op "_" $key "_" .Variant "_cmd" }}(t *testing.T) {
         out, err := tq.CaptureOutput(func(){
             viper.Set("login",authString)
             // PreRun: tqInit
-            command.PreRun(command, nil)
+            command.PreRunE(command, nil)
             {{`//Use: {{ print $key " " $command.Usage }},`}}
-            command.Run(command, []string{input})
+            command.RunE(command, []string{input})
         })
     
         assert.Empty(t, string(err))

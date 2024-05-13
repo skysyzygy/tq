@@ -19,14 +19,10 @@ var {{ print $op "_" $key "_cmd" }} = &cobra.Command{
 		Use: `{{ print $key " " $command.Usage }}`,
 		Short: `{{ $command.Short }}`,
 		Long:  `{{ $command.Long }}`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			{{ if gt (len $commands) 1 }}
 			{{- range slice $commands 1 -}}
 			if test, _ := cmd.Flags().GetBool("{{ .Variant }}"); test {
@@ -41,9 +37,8 @@ var {{ print $op "_" $key "_cmd" }} = &cobra.Command{
 			{{- end }}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 {{ end }}

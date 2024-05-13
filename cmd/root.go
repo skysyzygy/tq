@@ -22,6 +22,7 @@ THE SOFTWARE.
 package cmd
 
 import (
+	"errors"
 	"fmt"
 	"os"
 
@@ -58,6 +59,7 @@ var rootCmd = &cobra.Command{
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	err := rootCmd.Execute()
+	_tq.Log.Error(err.Error())
 	if err != nil {
 		os.Exit(1)
 	}
@@ -105,27 +107,27 @@ func initConfig() {
 // and logs it in using the default authentication method.
 // Defined here but shouldn't be called until the last minute in order to make sure
 // all flags are set and that we don't unnecessarily ping the server.
-func tqInit(cmd *cobra.Command, args []string) {
+func tqInit(cmd *cobra.Command, args []string) error {
 	var log *os.File
 	var err error
 	if logFile != "" {
 		// open log file for appending
 		log, err = os.OpenFile(logFile, os.O_APPEND&os.O_CREATE, 0644)
 		if err != nil {
-			cmd.Println("Couldn't open log file: ", logFile)
-			return
+			return errors.Join(fmt.Errorf("Couldn't open log file: %v", logFile), err)
 		}
 	}
 	_tq = tq.New(log, verbose, dryRun)
 	a, err := auth.FromString(viper.GetString("Login"))
 	if err != nil {
 		_tq.Log.Error("bad login string in config file", "error", err.Error(), "login", a)
-		return
+		return errors.Join(fmt.Errorf("bad login string in config file"), err)
 	}
 	a.Load()
 	if valid, err := a.Validate(); !valid || err != nil {
 		_tq.Log.Error("invalid login", "error", err.Error(), "login", a)
-		return
+		return errors.Join(fmt.Errorf("invalid login"), err)
 	}
 	_tq.Login(a)
+	return nil
 }

@@ -11,18 +11,14 @@ import (
 
 
 var Get_AccountTypes_cmd = &cobra.Command{
-		Aliases: []string{  "at",  "accounttypes",  "AT",  },
+		Aliases: []string{  "accounttypes",  "AT",  "at",  },
 		Use: `AccountTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an account type by id`,
 		Long:  `Get the details of an account type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AccountTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -32,9 +28,8 @@ var Get_AccountTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -43,14 +38,10 @@ var Get_Accounts_cmd = &cobra.Command{
 		Use: `Accounts {"AccountID":"string"}`,
 		Short: `Get details of a specific credit card account`,
 		Long:  `Get details of a specific credit card account`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AccountsGetAll , []byte(args[0]))
 			} else {
@@ -58,9 +49,8 @@ var Get_Accounts_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -69,14 +59,10 @@ var Get_ActionTypes_cmd = &cobra.Command{
 		Use: `ActionTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an action type by id`,
 		Long:  `Get the details of an action type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ActionTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -86,9 +72,8 @@ var Get_ActionTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -97,14 +82,10 @@ var Get_Actions_cmd = &cobra.Command{
 		Use: `Actions {"IssueActionID":"string"}`,
 		Short: `Get details of an issue action`,
 		Long:  `Get details of an issue action.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ActionsGetAll , []byte(args[0]))
 			} else {
@@ -112,9 +93,8 @@ var Get_Actions_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -123,14 +103,10 @@ var Get_ActivityCategories_cmd = &cobra.Command{
 		Use: `ActivityCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an activity category by id`,
 		Long:  `Get the details of an activity category by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ActivityCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -140,9 +116,8 @@ var Get_ActivityCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -151,14 +126,10 @@ var Get_ActivityTypes_cmd = &cobra.Command{
 		Use: `ActivityTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an activity type by id`,
 		Long:  `Get the details of an activity type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ActivityTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -168,25 +139,20 @@ var Get_ActivityTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_AddressTypes_cmd = &cobra.Command{
-		Aliases: []string{  "at",  "addresstypes",  "AT",  },
+		Aliases: []string{  "addresstypes",  "AT",  "at",  },
 		Use: `AddressTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an address type by id`,
 		Long:  `Get the details of an address type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AddressTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -196,9 +162,8 @@ var Get_AddressTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -207,14 +172,10 @@ var Get_Addresses_cmd = &cobra.Command{
 		Use: `Addresses {"AddressID":"string"}`,
 		Short: `Get details of an address using addressId as a URL query parameter`,
 		Long:  `Get details of an address using addressId as a URL query parameter. Returns 404 Not Found if an address with the specified Id is not found.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AddressesGetAll , []byte(args[0]))
 			} else {
@@ -222,25 +183,20 @@ var Get_Addresses_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_AffiliationTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "at",  "affiliationtypes",  },
+		Aliases: []string{  "affiliationtypes",  "AT",  "at",  },
 		Use: `AffiliationTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an affiliation type by id`,
 		Long:  `Get the details of an affiliation type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AffiliationTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -250,25 +206,20 @@ var Get_AffiliationTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Affiliations_cmd = &cobra.Command{
-		Aliases: []string{  "affiliations",  "A",  "a",  },
+		Aliases: []string{  "A",  "a",  "affiliations",  },
 		Use: `Affiliations {"AffiliationID":"string"}`,
 		Short: `Get details of an affiliation`,
 		Long:  `Get details of an affiliation.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AffiliationsGetAll , []byte(args[0]))
 			} else {
@@ -276,9 +227,8 @@ var Get_Affiliations_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -287,14 +237,10 @@ var Get_AliasTypes_cmd = &cobra.Command{
 		Use: `AliasTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an alias type by id`,
 		Long:  `Get the details of an alias type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AliasTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -304,25 +250,20 @@ var Get_AliasTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Aliases_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "aliases",  },
+		Aliases: []string{  "aliases",  "A",  "a",  },
 		Use: `Aliases {"AliasID":"string"}`,
 		Short: `Get details of an alias`,
 		Long:  `Get details of an alias.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AliasesGetAll , []byte(args[0]))
 			} else {
@@ -330,9 +271,8 @@ var Get_Aliases_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -341,14 +281,10 @@ var Get_AnalyticsCubes_cmd = &cobra.Command{
 		Use: `AnalyticsCubes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an analytics cube`,
 		Long:  `Get the details of an analytics cube.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AnalyticsCubesGetAll , []byte(args[0]))
 			} else {
@@ -356,9 +292,8 @@ var Get_AnalyticsCubes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -367,14 +302,10 @@ var Get_AnalyticsReports_cmd = &cobra.Command{
 		Use: `AnalyticsReports {"AnalyticsReportID":"string"}`,
 		Short: `Get a single SSRS Report for display in Analytics`,
 		Long:  `Get a single SSRS Report for display in Analytics.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AnalyticsReportsGetAll , []byte(args[0]))
 			} else {
@@ -382,9 +313,8 @@ var Get_AnalyticsReports_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -393,14 +323,10 @@ var Get_AppScreenTexts_cmd = &cobra.Command{
 		Use: `AppScreenTexts {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an App Screen Text by id`,
 		Long:  `Get the details of an App Screen Text by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AppScreenTextsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -410,25 +336,20 @@ var Get_AppScreenTexts_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_AppealCategories_cmd = &cobra.Command{
-		Aliases: []string{  "AC",  "ac",  "appealcategories",  },
+		Aliases: []string{  "ac",  "appealcategories",  "AC",  },
 		Use: `AppealCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an appeal category by id`,
 		Long:  `Get the details of an appeal category by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AppealCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -438,25 +359,20 @@ var Get_AppealCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Appeals_cmd = &cobra.Command{
-		Aliases: []string{  "a",  "appeals",  "A",  },
+		Aliases: []string{  "A",  "a",  "appeals",  },
 		Use: `Appeals {"AppealID":"string"}`,
 		Short: `Get details of an Appeal`,
 		Long:  `Get details of an Appeal.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AppealsGetSummaries , []byte(args[0]))
 			} else {
@@ -464,32 +380,26 @@ var Get_Appeals_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ApplicationObjects_cmd = &cobra.Command{
-		Aliases: []string{  "ao",  "applicationobjects",  "AO",  },
+		Aliases: []string{  "applicationobjects",  "AO",  "ao",  },
 		Use: `ApplicationObjects `,
 		Short: `Get all application objects valid for the context usergroup`,
 		Long:  `Get all application objects valid for the context usergroup.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.ApplicationObjectsGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -498,14 +408,10 @@ var Get_Artists_cmd = &cobra.Command{
 		Use: `Artists {"ArtistID":"string"}`,
 		Short: `Get details of an existing artist`,
 		Long:  `Get details of an existing artist.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ArtistsGetAll , []byte(args[0]))
 			} else {
@@ -513,25 +419,20 @@ var Get_Artists_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_AssetTypes_cmd = &cobra.Command{
-		Aliases: []string{  "at",  "assettypes",  "AT",  },
+		Aliases: []string{  "assettypes",  "AT",  "at",  },
 		Use: `AssetTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an asset type by id`,
 		Long:  `Get the details of an asset type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AssetTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -541,9 +442,8 @@ var Get_AssetTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -552,14 +452,10 @@ var Get_Assets_cmd = &cobra.Command{
 		Use: `Assets {"AssetID":"string"}`,
 		Short: `Get details of an asset`,
 		Long:  `Get details of an asset.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AssetsGetAll , []byte(args[0]))
 			} else {
@@ -567,25 +463,20 @@ var Get_Assets_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_AssociationTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "at",  "associationtypes",  },
+		Aliases: []string{  "at",  "associationtypes",  "AT",  },
 		Use: `AssociationTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an association type by id`,
 		Long:  `Get the details of an association type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AssociationTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -595,25 +486,20 @@ var Get_AssociationTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Associations_cmd = &cobra.Command{
-		Aliases: []string{  "associations",  "A",  "a",  },
+		Aliases: []string{  "A",  "a",  "associations",  },
 		Use: `Associations {"AssociationID":"string"}`,
 		Short: `Get details of an association`,
 		Long:  `Get details of an association.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AssociationsGetAll , []byte(args[0]))
 			} else {
@@ -621,9 +507,8 @@ var Get_Associations_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -632,21 +517,16 @@ var Get_AttendanceHistory_cmd = &cobra.Command{
 		Use: `AttendanceHistory {"ConstituentID":"string","IncludeAffiliations":"string"}`,
 		Short: `Attendance History for a selected constituent optionally including primary affiliates`,
 		Long:  `Attendance History for a selected constituent optionally including primary affiliates.  Does not return history based on recipient for the selected constituent(s).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.AttendanceHistoryGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -655,14 +535,10 @@ var Get_Attributes_cmd = &cobra.Command{
 		Use: `Attributes {"AttributeID":"string"}`,
 		Short: `Get details of an attribute`,
 		Long:  `Get details of an attribute.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AttributesGetAll , []byte(args[0]))
 			} else {
@@ -670,9 +546,8 @@ var Get_Attributes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -681,14 +556,10 @@ var Get_AuditLogs_cmd = &cobra.Command{
 		Use: `AuditLogs {"AuditLog":"string"}`,
 		Short: `Get details of a audit log`,
 		Long:  `Get details of a audit log.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AuditLogsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Details"); test {
@@ -698,48 +569,38 @@ var Get_AuditLogs_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Authenticate_cmd = &cobra.Command{
-		Aliases: []string{  "authenticate",  "A",  "a",  },
+		Aliases: []string{  "a",  "authenticate",  "A",  },
 		Use: `Authenticate `,
 		Short: `This is a no-op operation for windows authentication diagnostics`,
 		Long:  `This is a no-op operation for windows authentication diagnostics.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.AuthenticateWindowsAuthentication , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_BatchMaintenance_cmd = &cobra.Command{
-		Aliases: []string{  "bm",  "batchmaintenance",  "BM",  },
+		Aliases: []string{  "batchmaintenance",  "BM",  "bm",  },
 		Use: `BatchMaintenance {"BatchID":"string"}`,
 		Short: `Get a single Batch`,
 		Long:  `Get a single Batch`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Active"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BatchMaintenanceActive , []byte(args[0]))
 			} else {
@@ -747,9 +608,8 @@ var Get_BatchMaintenance_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -758,14 +618,10 @@ var Get_BatchTypeGroups_cmd = &cobra.Command{
 		Use: `BatchTypeGroups {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a batch type group by id`,
 		Long:  `Get the details of a batch type group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BatchTypeGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -775,9 +631,8 @@ var Get_BatchTypeGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -786,21 +641,16 @@ var Get_BatchTypeUserGroup_cmd = &cobra.Command{
 		Use: `BatchTypeUserGroup {"UserGroup":"string"}`,
 		Short: `Get all batch type/user group mappings`,
 		Long:  `Get all batch type/user group mappings.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.BatchTypeUserGroupGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -809,14 +659,10 @@ var Get_BatchTypes_cmd = &cobra.Command{
 		Use: `BatchTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a batch type by id`,
 		Long:  `Get the details of a batch type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BatchTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -826,9 +672,8 @@ var Get_BatchTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -837,14 +682,10 @@ var Get_BillingSchedules_cmd = &cobra.Command{
 		Use: `BillingSchedules {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Billing Schedule`,
 		Long:  `Get the details of a Billing Schedule. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BillingSchedulesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -854,25 +695,20 @@ var Get_BillingSchedules_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_BillingTypes_cmd = &cobra.Command{
-		Aliases: []string{  "bt",  "billingtypes",  "BT",  },
+		Aliases: []string{  "billingtypes",  "BT",  "bt",  },
 		Use: `BillingTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Billing Type by id`,
 		Long:  `Get the details of a Billing Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BillingTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -882,25 +718,20 @@ var Get_BillingTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_BookingCategories_cmd = &cobra.Command{
-		Aliases: []string{  "bc",  "bookingcategories",  "BC",  },
+		Aliases: []string{  "bookingcategories",  "BC",  "bc",  },
 		Use: `BookingCategories {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Booking Category by id`,
 		Long:  `Get the details of a Booking Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BookingCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -910,25 +741,20 @@ var Get_BookingCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_BookingTemplates_cmd = &cobra.Command{
-		Aliases: []string{  "bt",  "bookingtemplates",  "BT",  },
+		Aliases: []string{  "bookingtemplates",  "BT",  "bt",  },
 		Use: `BookingTemplates {"BookingTemplateID":"string"}`,
 		Short: `Get a Booking Template by ID`,
 		Long:  `Get a Booking Template by ID`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BookingTemplatesGetSummaries , []byte(args[0]))
 			} else {
@@ -936,25 +762,20 @@ var Get_BookingTemplates_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Bookings_cmd = &cobra.Command{
-		Aliases: []string{  "b",  "bookings",  "B",  },
+		Aliases: []string{  "bookings",  "B",  "b",  },
 		Use: `Bookings {"BookingID":"string"}`,
 		Short: `Get a Booking by id`,
 		Long:  `Get a Booking by id`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("AllDocumentSummaries"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BookingsGetAllDocumentSummaries , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AllDocuments"); test {
@@ -968,9 +789,8 @@ var Get_Bookings_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -979,14 +799,10 @@ var Get_BulkCopySets_cmd = &cobra.Command{
 		Use: `BulkCopySets {"BulkCopySetID":"string"}`,
 		Short: `Get a bulk copy set by Id`,
 		Long:  `Get a bulk copy set by Id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BulkCopySetsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("DayForCopy"); test {
@@ -998,9 +814,8 @@ var Get_BulkCopySets_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1009,14 +824,10 @@ var Get_BulkDailyCopyExclusions_cmd = &cobra.Command{
 		Use: `BulkDailyCopyExclusions {"BulkDailyCopyExclusionID":"string"}`,
 		Short: `Get a bulk daily copy exclusion by id`,
 		Long:  `Get a bulk daily copy exclusion by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BulkDailyCopyExclusionsGetAll , []byte(args[0]))
 			} else {
@@ -1024,9 +835,8 @@ var Get_BulkDailyCopyExclusions_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1035,14 +845,10 @@ var Get_BusinessUnits_cmd = &cobra.Command{
 		Use: `BusinessUnits {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a business unit by id`,
 		Long:  `Get the details of a business unit by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BusinessUnitsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1052,9 +858,8 @@ var Get_BusinessUnits_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1063,37 +868,28 @@ var Get_Cache_cmd = &cobra.Command{
 		Use: `Cache `,
 		Short: ``,
 		Long:  ``,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.CacheInit , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_CampaignDesignations_cmd = &cobra.Command{
-		Aliases: []string{  "campaigndesignations",  "CD",  "cd",  },
+		Aliases: []string{  "CD",  "cd",  "campaigndesignations",  },
 		Use: `CampaignDesignations {"CampaignDesignationID":"string"}`,
 		Short: `Get a single Designation associated to a Campaign`,
 		Long:  `Get a single Designation associated to a Campaign.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CampaignDesignationsGetAll , []byte(args[0]))
 			} else {
@@ -1101,9 +897,8 @@ var Get_CampaignDesignations_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1112,14 +907,10 @@ var Get_CampaignFunds_cmd = &cobra.Command{
 		Use: `CampaignFunds {"CampaignFundID":"string"}`,
 		Short: `Get a single Fund associated to a Campaign`,
 		Long:  `Get a single Fund associated to a Campaign.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CampaignFundsGetAll , []byte(args[0]))
 			} else {
@@ -1127,25 +918,20 @@ var Get_CampaignFunds_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Campaigns_cmd = &cobra.Command{
-		Aliases: []string{  "campaigns",  "C",  "c",  },
+		Aliases: []string{  "c",  "campaigns",  "C",  },
 		Use: `Campaigns {"CampaignID":"string"}`,
 		Short: `Get summary of a specific campaign`,
 		Long:  `Get summary of a specific campaign.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CampaignsGetSummaries , []byte(args[0]))
 			} else {
@@ -1153,9 +939,8 @@ var Get_Campaigns_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1164,14 +949,10 @@ var Get_CardReaderTypes_cmd = &cobra.Command{
 		Use: `CardReaderTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Card Reader Type by id`,
 		Long:  `Get the details of a Card Reader Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CardReaderTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1181,9 +962,8 @@ var Get_CardReaderTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1192,14 +972,10 @@ var Get_Cart_cmd = &cobra.Command{
 		Use: `Cart {"MessageTypes":"string","SavedCart":"string","SessionKey":"string"}`,
 		Short: `Gets the cart details`,
 		Long:  `Gets the cart details`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("CartProperties"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CartGetCartProperties , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Messages"); test {
@@ -1213,9 +989,8 @@ var Get_Cart_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1224,14 +999,10 @@ var Get_Colors_cmd = &cobra.Command{
 		Use: `Colors {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a color by id`,
 		Long:  `Get the details of a color by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ColorsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1241,9 +1012,8 @@ var Get_Colors_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1252,14 +1022,10 @@ var Get_Composers_cmd = &cobra.Command{
 		Use: `Composers {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a composer by id`,
 		Long:  `Get the details of a composer by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ComposersGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1269,25 +1035,20 @@ var Get_Composers_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Constituencies_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "constituencies",  },
+		Aliases: []string{  "c",  "constituencies",  "C",  },
 		Use: `Constituencies {"ConstituencyID":"string"}`,
 		Short: `Get details of constituency`,
 		Long:  `Get details of constituency.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ConstituenciesGetAll , []byte(args[0]))
 			} else {
@@ -1295,25 +1056,20 @@ var Get_Constituencies_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ConstituencyTypes_cmd = &cobra.Command{
-		Aliases: []string{  "constituencytypes",  "CT",  "ct",  },
+		Aliases: []string{  "CT",  "ct",  "constituencytypes",  },
 		Use: `ConstituencyTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituency type by id`,
 		Long:  `Get the details of a constituency type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ConstituencyTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1323,32 +1079,26 @@ var Get_ConstituencyTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ConstituentContributions_cmd = &cobra.Command{
-		Aliases: []string{  "constituentcontributions",  "CC",  "cc",  },
+		Aliases: []string{  "CC",  "cc",  "constituentcontributions",  },
 		Use: `ConstituentContributions {"CampaignIds":"string","ConstituentID":"string","EndDate":"string","FundIds":"string","IncludeAffiliations":"string","StartDate":"string"}`,
 		Short: `Get contributions for a constituent`,
 		Long:  `Get contributions for a constituent.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.ConstituentContributionsGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1357,14 +1107,10 @@ var Get_ConstituentDocuments_cmd = &cobra.Command{
 		Use: `ConstituentDocuments {"DocumentID":"string"}`,
 		Short: `Get the details of a document for a constituent`,
 		Long:  `Get the details of a document for a constituent.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentDocumentsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AllSummary"); test {
@@ -1374,9 +1120,8 @@ var Get_ConstituentDocuments_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1385,14 +1130,10 @@ var Get_ConstituentGroups_cmd = &cobra.Command{
 		Use: `ConstituentGroups {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent group by id`,
 		Long:  `Get the details of a constituent group by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1402,9 +1143,8 @@ var Get_ConstituentGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1413,14 +1153,10 @@ var Get_ConstituentInactives_cmd = &cobra.Command{
 		Use: `ConstituentInactives {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent inactive by id`,
 		Long:  `Get the details of a constituent inactive by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentInactivesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1430,9 +1166,8 @@ var Get_ConstituentInactives_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1441,14 +1176,10 @@ var Get_ConstituentProtectionTypes_cmd = &cobra.Command{
 		Use: `ConstituentProtectionTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent protection type by id`,
 		Long:  `Get the details of a constituent protection type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentProtectionTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1458,9 +1189,8 @@ var Get_ConstituentProtectionTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1469,14 +1199,10 @@ var Get_ConstituentTypeAffiliates_cmd = &cobra.Command{
 		Use: `ConstituentTypeAffiliates {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent type affiliate by id`,
 		Long:  `Get the details of a constituent type affiliate by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentTypeAffiliatesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1486,9 +1212,8 @@ var Get_ConstituentTypeAffiliates_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1497,14 +1222,10 @@ var Get_ConstituentTypes_cmd = &cobra.Command{
 		Use: `ConstituentTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent type by id`,
 		Long:  `Get the details of a constituent type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1514,25 +1235,20 @@ var Get_ConstituentTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Constituents_cmd = &cobra.Command{
-		Aliases: []string{  "c",  "constituents",  "C",  },
+		Aliases: []string{  "constituents",  "C",  "c",  },
 		Use: `Constituents {"ConstituentID":"string"}`,
 		Short: `Get the details of a Constituent using id`,
 		Long:  `Get the details of a Constituent using id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Constituent"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentsGetConstituent , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ConstituentDevelopmentInfo"); test {
@@ -1556,25 +1272,20 @@ var Get_Constituents_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ContactPermissionCategories_cmd = &cobra.Command{
-		Aliases: []string{  "CPC",  "cpc",  "contactpermissioncategories",  },
+		Aliases: []string{  "contactpermissioncategories",  "CPC",  "cpc",  },
 		Use: `ContactPermissionCategories {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact permission category`,
 		Long:  `Get the details of a contact permission category. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContactPermissionCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1584,25 +1295,20 @@ var Get_ContactPermissionCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ContactPermissionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CPT",  "cpt",  "contactpermissiontypes",  },
+		Aliases: []string{  "contactpermissiontypes",  "CPT",  "cpt",  },
 		Use: `ContactPermissionTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact permission type`,
 		Long:  `Get the details of a contact permission type. To get the resource only if the user has write/edit access, pass filter="writeonly".  To get the resource in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContactPermissionTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ForProductionSeasons"); test {
@@ -1614,9 +1320,8 @@ var Get_ContactPermissionTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1625,14 +1330,10 @@ var Get_ContactPermissions_cmd = &cobra.Command{
 		Use: `ContactPermissions {"ContactPermissionID":"string"}`,
 		Short: `Get details of a contact permission`,
 		Long:  `Get details of a contact permission`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContactPermissionsGetAll , []byte(args[0]))
 			} else {
@@ -1640,25 +1341,20 @@ var Get_ContactPermissions_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ContactPointCategories_cmd = &cobra.Command{
-		Aliases: []string{  "contactpointcategories",  "CPC",  "cpc",  },
+		Aliases: []string{  "cpc",  "contactpointcategories",  "CPC",  },
 		Use: `ContactPointCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact point category by id`,
 		Long:  `Get the details of a contact point category by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContactPointCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1668,9 +1364,8 @@ var Get_ContactPointCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1679,14 +1374,10 @@ var Get_ContactPointCategoryPurposes_cmd = &cobra.Command{
 		Use: `ContactPointCategoryPurposes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact point category purpose by id`,
 		Long:  `Get the details of a contact point category purpose by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContactPointCategoryPurposesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1696,9 +1387,8 @@ var Get_ContactPointCategoryPurposes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1707,14 +1397,10 @@ var Get_ContactPointPurposeCategories_cmd = &cobra.Command{
 		Use: `ContactPointPurposeCategories {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact point purpose category by id`,
 		Long:  `Get the details of a contact point purpose category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposeCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1724,9 +1410,8 @@ var Get_ContactPointPurposeCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1735,14 +1420,10 @@ var Get_ContactPointPurposeMaps_cmd = &cobra.Command{
 		Use: `ContactPointPurposeMaps {"ContactPointPurposeMapID":"string"}`,
 		Short: `Get details of a contact point purpose`,
 		Long:  `Get details of a contact point purpose.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposeMapsGetAll , []byte(args[0]))
 			} else {
@@ -1750,9 +1431,8 @@ var Get_ContactPointPurposeMaps_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1761,14 +1441,10 @@ var Get_ContactPointPurposes_cmd = &cobra.Command{
 		Use: `ContactPointPurposes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact point purpose by id`,
 		Long:  `Get the details of a contact point purpose by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1778,9 +1454,8 @@ var Get_ContactPointPurposes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1789,37 +1464,28 @@ var Get_ContactPoints_cmd = &cobra.Command{
 		Use: `ContactPoints {"ConstituentID":"string","IncludeAffiliations":"string"}`,
 		Short: `Get all the delivery points for the specified constituent (constituentId) and all its visible affiliation's delivery point purposes as well`,
 		Long:  `Get all the delivery points for the specified constituent (constituentId) and all its visible affiliation's delivery point purposes as well. To exclude delivery point purposes of the visible affiliations pass includeAffiliations=false.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.ContactPointsGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ContactTypes_cmd = &cobra.Command{
-		Aliases: []string{  "contacttypes",  "CT",  "ct",  },
+		Aliases: []string{  "ct",  "contacttypes",  "CT",  },
 		Use: `ContactTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact type by id`,
 		Long:  `Get the details of a contact type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContactTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1829,32 +1495,26 @@ var Get_ContactTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ContextInformation_cmd = &cobra.Command{
-		Aliases: []string{  "contextinformation",  "CI",  "ci",  },
+		Aliases: []string{  "ci",  "contextinformation",  "CI",  },
 		Use: `ContextInformation `,
 		Short: `Get a commonly used set of default values for the user and usergroup in the current security context`,
 		Long:  `Get a commonly used set of default values for the user and usergroup in the current security context.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.ContextInformationGet , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1863,14 +1523,10 @@ var Get_ContributionDesignations_cmd = &cobra.Command{
 		Use: `ContributionDesignations {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contribution designation by id`,
 		Long:  `Get the details of a contribution designation by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContributionDesignationsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1880,9 +1536,8 @@ var Get_ContributionDesignations_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1891,14 +1546,10 @@ var Get_ContributionImportSets_cmd = &cobra.Command{
 		Use: `ContributionImportSets {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contributionImportSet by id`,
 		Long:  `Get the details of a contributionImportSet by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContributionImportSetsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1908,25 +1559,20 @@ var Get_ContributionImportSets_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ControlGroupUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "controlgroupusergroups",  "CGUG",  "cgug",  },
+		Aliases: []string{  "cgug",  "controlgroupusergroups",  "CGUG",  },
 		Use: `ControlGroupUserGroups {"ID":"string"}`,
 		Short: `Get the details of a control group/user group mapping by id`,
 		Long:  `Get the details of a control group/user group mapping by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ControlGroupUserGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1936,9 +1582,8 @@ var Get_ControlGroupUserGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1947,14 +1592,10 @@ var Get_ControlGroups_cmd = &cobra.Command{
 		Use: `ControlGroups {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a control group by id`,
 		Long:  `Get the details of a control group by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ControlGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1964,9 +1605,8 @@ var Get_ControlGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1975,21 +1615,16 @@ var Get_CoreIdentity_cmd = &cobra.Command{
 		Use: `CoreIdentity `,
 		Short: ``,
 		Long:  ``,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.CoreIdentityToken , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -1998,14 +1633,10 @@ var Get_Countries_cmd = &cobra.Command{
 		Use: `Countries {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a country by id`,
 		Long:  `Get the details of a country by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CountriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2015,9 +1646,8 @@ var Get_Countries_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2026,14 +1656,10 @@ var Get_CrediteeTypes_cmd = &cobra.Command{
 		Use: `CrediteeTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a crediteeType by id`,
 		Long:  `Get the details of a crediteeType by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CrediteeTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2043,9 +1669,8 @@ var Get_CrediteeTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2054,37 +1679,28 @@ var Get_Credits_cmd = &cobra.Command{
 		Use: `Credits {"ProductionElementIds":"string"}`,
 		Short: `Returns all credits for the requested production element`,
 		Long:  `Returns all credits for the requested production element, and all credits from above it in the production hierarchy.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.CreditsGetCredits , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_CriterionOperators_cmd = &cobra.Command{
-		Aliases: []string{  "criterionoperators",  "CO",  "co",  },
+		Aliases: []string{  "co",  "criterionoperators",  "CO",  },
 		Use: `CriterionOperators {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a criterion operator by id`,
 		Long:  `Get the details of a criterion operator by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CriterionOperatorsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2094,25 +1710,20 @@ var Get_CriterionOperators_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_CumulativeGivingReceipts_cmd = &cobra.Command{
-		Aliases: []string{  "cumulativegivingreceipts",  "CGR",  "cgr",  },
+		Aliases: []string{  "cgr",  "cumulativegivingreceipts",  "CGR",  },
 		Use: `CumulativeGivingReceipts {"CumulativeGivingReceiptID":"string"}`,
 		Short: `Get details of an cumulativeGivingReceipt`,
 		Long:  `Get details of an cumulativeGivingReceipt.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CumulativeGivingReceiptsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ForSession"); test {
@@ -2122,9 +1733,8 @@ var Get_CumulativeGivingReceipts_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2133,14 +1743,10 @@ var Get_CurrencyTypes_cmd = &cobra.Command{
 		Use: `CurrencyTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a currency type by id`,
 		Long:  `Get the details of a currency type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CurrencyTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2150,9 +1756,8 @@ var Get_CurrencyTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2161,14 +1766,10 @@ var Get_Custom_cmd = &cobra.Command{
 		Use: `Custom {"ID":"string","ResourceName":"string"}`,
 		Short: `Get details of an entry in the table for the resource as defined by {resourceName} in TR_DATASERVICE_TABLES with the given id {Id}`,
 		Long:  `Get details of an entry in the table for the resource as defined by {resourceName} in TR_DATASERVICE_TABLES with the given id {Id}.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CustomGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Metadata"); test {
@@ -2178,9 +1779,8 @@ var Get_Custom_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2189,14 +1789,10 @@ var Get_CustomDefaultCategories_cmd = &cobra.Command{
 		Use: `CustomDefaultCategories {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a custom default category by id`,
 		Long:  `Get the details of a custom default category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CustomDefaultCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2206,25 +1802,20 @@ var Get_CustomDefaultCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_CustomDefaults_cmd = &cobra.Command{
-		Aliases: []string{  "customdefaults",  "CD",  "cd",  },
+		Aliases: []string{  "CD",  "cd",  "customdefaults",  },
 		Use: `CustomDefaults {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a custom default by id`,
 		Long:  `Get the details of a custom default by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CustomDefaultsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2234,9 +1825,8 @@ var Get_CustomDefaults_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2245,14 +1835,10 @@ var Get_DeliveryMethods_cmd = &cobra.Command{
 		Use: `DeliveryMethods {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a delivery method by id`,
 		Long:  `Get the details of a delivery method by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DeliveryMethodsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2262,9 +1848,8 @@ var Get_DeliveryMethods_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2273,14 +1858,10 @@ var Get_DesignationCodes_cmd = &cobra.Command{
 		Use: `DesignationCodes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a designation code by id`,
 		Long:  `Get the details of a designation code by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DesignationCodesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2290,9 +1871,8 @@ var Get_DesignationCodes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2301,14 +1881,10 @@ var Get_Designs_cmd = &cobra.Command{
 		Use: `Designs {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a design by id`,
 		Long:  `Get the details of a design by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DesignsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2318,9 +1894,8 @@ var Get_Designs_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2329,14 +1904,10 @@ var Get_Diagnostics_cmd = &cobra.Command{
 		Use: `Diagnostics `,
 		Short: `Validates Encryption Key Dates`,
 		Long:  `Validates Encryption Key Dates.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("SeatServerStatus"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DiagnosticsGetSeatServerStatus , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Status"); test {
@@ -2348,25 +1919,20 @@ var Get_Diagnostics_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_DirectDebitAccountTypes_cmd = &cobra.Command{
-		Aliases: []string{  "directdebitaccounttypes",  "DDAT",  "ddat",  },
+		Aliases: []string{  "ddat",  "directdebitaccounttypes",  "DDAT",  },
 		Use: `DirectDebitAccountTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a direct debit account type by id`,
 		Long:  `Get the details of a direct debit account type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DirectDebitAccountTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2376,25 +1942,20 @@ var Get_DirectDebitAccountTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_DiscountTypes_cmd = &cobra.Command{
-		Aliases: []string{  "discounttypes",  "DT",  "dt",  },
+		Aliases: []string{  "dt",  "discounttypes",  "DT",  },
 		Use: `DiscountTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a discount type by id`,
 		Long:  `Get the details of a discount type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DiscountTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2404,9 +1965,8 @@ var Get_DiscountTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2415,14 +1975,10 @@ var Get_Divisions_cmd = &cobra.Command{
 		Use: `Divisions `,
 		Short: `Get the control group/division mappings for the specified division`,
 		Long:  `Get the control group/division mappings for the specified division.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("ForDivision"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DivisionsGetForDivision , []byte(args[0]))
 			} else {
@@ -2430,25 +1986,20 @@ var Get_Divisions_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_DocumentCategories_cmd = &cobra.Command{
-		Aliases: []string{  "dc",  "documentcategories",  "DC",  },
+		Aliases: []string{  "DC",  "dc",  "documentcategories",  },
 		Use: `DocumentCategories {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a documentCategory by id`,
 		Long:  `Get the details of a documentCategory by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DocumentCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2458,9 +2009,8 @@ var Get_DocumentCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2469,14 +2019,10 @@ var Get_Documents_cmd = &cobra.Command{
 		Use: `Documents {"DocumentID":"string"}`,
 		Short: `Get the details of a document`,
 		Long:  `Get the details of a document.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DocumentsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AllSummary"); test {
@@ -2488,25 +2034,20 @@ var Get_Documents_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_DonationLevels_cmd = &cobra.Command{
-		Aliases: []string{  "donationlevels",  "DL",  "dl",  },
+		Aliases: []string{  "dl",  "donationlevels",  "DL",  },
 		Use: `DonationLevels {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a donation level by id`,
 		Long:  `Get the details of a donation level by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DonationLevelsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2516,9 +2057,8 @@ var Get_DonationLevels_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2527,14 +2067,10 @@ var Get_EMV_cmd = &cobra.Command{
 		Use: `EMV {"Cert":"string","Merchant":"string"}`,
 		Short: `Retrieve information on all lanes associated with merchant`,
 		Long:  `Retrieve information on all lanes associated with merchant`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("ConnectionStatus"); test {
 				out, err = tq.Do(*_tq, _tq.Get.EMVGetConnectionStatus , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ConnectionStatusHistory"); test {
@@ -2548,25 +2084,20 @@ var Get_EMV_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ElectronicAddressTypes_cmd = &cobra.Command{
-		Aliases: []string{  "EAT",  "eat",  "electronicaddresstypes",  },
+		Aliases: []string{  "electronicaddresstypes",  "EAT",  "eat",  },
 		Use: `ElectronicAddressTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an electronic address type by id`,
 		Long:  `Get the details of an electronic address type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ElectronicAddressTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2576,9 +2107,8 @@ var Get_ElectronicAddressTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2587,14 +2117,10 @@ var Get_ElectronicAddresses_cmd = &cobra.Command{
 		Use: `ElectronicAddresses {"ElectronicAddressID":"string"}`,
 		Short: `Get details of an electronic address`,
 		Long:  `Get details of an electronic address.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ElectronicAddressesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("IsAttachedToLogin"); test {
@@ -2604,9 +2130,8 @@ var Get_ElectronicAddresses_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2615,14 +2140,10 @@ var Get_EmailProfiles_cmd = &cobra.Command{
 		Use: `EmailProfiles {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an email profile by id`,
 		Long:  `Get the details of an email profile by id`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.EmailProfilesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2632,25 +2153,20 @@ var Get_EmailProfiles_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_EmarketIndicators_cmd = &cobra.Command{
-		Aliases: []string{  "ei",  "emarketindicators",  "EI",  },
+		Aliases: []string{  "EI",  "ei",  "emarketindicators",  },
 		Use: `EmarketIndicators {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an emarket indicator by id`,
 		Long:  `Get the details of an emarket indicator by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.EmarketIndicatorsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2660,9 +2176,8 @@ var Get_EmarketIndicators_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2671,14 +2186,10 @@ var Get_Eras_cmd = &cobra.Command{
 		Use: `Eras {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an era by id`,
 		Long:  `Get the details of an era by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ErasGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2688,32 +2199,26 @@ var Get_Eras_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_EventControl_cmd = &cobra.Command{
-		Aliases: []string{  "ec",  "eventcontrol",  "EC",  },
+		Aliases: []string{  "eventcontrol",  "EC",  "ec",  },
 		Use: `EventControl {"EndDate":"string","StartDate":"string"}`,
 		Short: `Returns a response containing a list of EventControl rows for the N-Scan event control table`,
 		Long:  `Returns a response containing a list of EventControl rows for the N-Scan event control table.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.EventControlGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2722,14 +2227,10 @@ var Get_Facilities_cmd = &cobra.Command{
 		Use: `Facilities {"ID":"string"}`,
 		Short: `Get details of a Facility`,
 		Long:  `Get details of a Facility.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.FacilitiesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Screens"); test {
@@ -2741,9 +2242,8 @@ var Get_Facilities_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2752,14 +2252,10 @@ var Get_Fees_cmd = &cobra.Command{
 		Use: `Fees {"ID":"string"}`,
 		Short: `Get details of a fee`,
 		Long:  `Get details of a fee.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.FeesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2769,25 +2265,20 @@ var Get_Fees_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_FinanceContributions_cmd = &cobra.Command{
-		Aliases: []string{  "financecontributions",  "FC",  "fc",  },
+		Aliases: []string{  "FC",  "fc",  "financecontributions",  },
 		Use: `FinanceContributions {"ContributionID":"string"}`,
 		Short: `Get details of a contribution`,
 		Long:  `Get details of a contribution.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.FinanceContributionsGetAll , []byte(args[0]))
 			} else {
@@ -2795,25 +2286,20 @@ var Get_FinanceContributions_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Formats_cmd = &cobra.Command{
-		Aliases: []string{  "formats",  "F",  "f",  },
+		Aliases: []string{  "F",  "f",  "formats",  },
 		Use: `Formats {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a format by id`,
 		Long:  `Get the details of a format by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.FormatsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2823,25 +2309,20 @@ var Get_Formats_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Funds_cmd = &cobra.Command{
-		Aliases: []string{  "F",  "f",  "funds",  },
+		Aliases: []string{  "f",  "funds",  "F",  },
 		Use: `Funds {"FundID":"string"}`,
 		Short: `Get details of a specific fund`,
 		Long:  `Get details of a specific fund`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				out, err = tq.Do(*_tq, _tq.Get.FundsGetSummaries , []byte(args[0]))
 			} else {
@@ -2849,25 +2330,20 @@ var Get_Funds_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_GLAccounts_cmd = &cobra.Command{
-		Aliases: []string{  "gla",  "glaccounts",  "GLA",  },
+		Aliases: []string{  "glaccounts",  "GLA",  "gla",  },
 		Use: `GLAccounts {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gl account by id`,
 		Long:  `Get the details of a gl account by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.GLAccountsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2877,9 +2353,8 @@ var Get_GLAccounts_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2888,14 +2363,10 @@ var Get_Genders_cmd = &cobra.Command{
 		Use: `Genders {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gender by id`,
 		Long:  `Get the details of a gender by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.GendersGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2905,25 +2376,20 @@ var Get_Genders_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_GiftAidContactMethods_cmd = &cobra.Command{
-		Aliases: []string{  "giftaidcontactmethods",  "GACM",  "gacm",  },
+		Aliases: []string{  "gacm",  "giftaidcontactmethods",  "GACM",  },
 		Use: `GiftAidContactMethods {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid contact method by id`,
 		Long:  `Get the details of a gift aid contact method by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidContactMethodsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2933,25 +2399,20 @@ var Get_GiftAidContactMethods_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_GiftAidDeclarations_cmd = &cobra.Command{
-		Aliases: []string{  "giftaiddeclarations",  "GAD",  "gad",  },
+		Aliases: []string{  "gad",  "giftaiddeclarations",  "GAD",  },
 		Use: `GiftAidDeclarations {"GiftAidDeclarationID":"string"}`,
 		Short: `Gets a single Gift Aid Declaration`,
 		Long:  `Gets a single Gift Aid Declaration.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidDeclarationsGetAll , []byte(args[0]))
 			} else {
@@ -2959,25 +2420,20 @@ var Get_GiftAidDeclarations_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_GiftAidDocumentStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "giftaiddocumentstatuses",  "GADS",  "gads",  },
+		Aliases: []string{  "GADS",  "gads",  "giftaiddocumentstatuses",  },
 		Use: `GiftAidDocumentStatuses {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid document status by id`,
 		Long:  `Get the details of a gift aid document status by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidDocumentStatusesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2987,9 +2443,8 @@ var Get_GiftAidDocumentStatuses_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -2998,14 +2453,10 @@ var Get_GiftAidIneligibleReasons_cmd = &cobra.Command{
 		Use: `GiftAidIneligibleReasons {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid ineligible reason by id`,
 		Long:  `Get the details of a gift aid ineligible reason by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidIneligibleReasonsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3015,9 +2466,8 @@ var Get_GiftAidIneligibleReasons_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3026,14 +2476,10 @@ var Get_GiftAidRates_cmd = &cobra.Command{
 		Use: `GiftAidRates {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid rate by id`,
 		Long:  `Get the details of a gift aid rate by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidRatesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3043,9 +2489,8 @@ var Get_GiftAidRates_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3054,14 +2499,10 @@ var Get_GiftAidStatuses_cmd = &cobra.Command{
 		Use: `GiftAidStatuses {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid status by id`,
 		Long:  `Get the details of a gift aid status by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidStatusesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3071,25 +2512,20 @@ var Get_GiftAidStatuses_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_GiftAidTypes_cmd = &cobra.Command{
-		Aliases: []string{  "giftaidtypes",  "GAT",  "gat",  },
+		Aliases: []string{  "gat",  "giftaidtypes",  "GAT",  },
 		Use: `GiftAidTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid type by id`,
 		Long:  `Get the details of a gift aid type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3099,33 +2535,27 @@ var Get_GiftAidTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_GiftCertificates_cmd = &cobra.Command{
-		Aliases: []string{  "GC",  "gc",  "giftcertificates",  },
+		Aliases: []string{  "giftcertificates",  "GC",  "gc",  },
 		Use: `GiftCertificates {"GiftCertificateNumber":"string"}`,
 		Short: `Get details of a specific gift certificate`,
 		Long:  `Get details of a specific gift certificate.
 The original amount, amount used and balance are all returned.  Amounts applied to a current web session are included.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.GiftCertificatesGet , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3134,14 +2564,10 @@ var Get_HoldCodeCategories_cmd = &cobra.Command{
 		Use: `HoldCodeCategories {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Hold Code Category by id`,
 		Long:  `Get the details of a Hold Code Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.HoldCodeCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3151,9 +2577,8 @@ var Get_HoldCodeCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3162,14 +2587,10 @@ var Get_HoldCodeUserGroups_cmd = &cobra.Command{
 		Use: `HoldCodeUserGroups {"HoldCodeUserGroupID":"string"}`,
 		Short: `Get the details of a hold code/user group mapping by id`,
 		Long:  `Get the details of a hold code/user group mapping by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.HoldCodeUserGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3181,9 +2602,8 @@ var Get_HoldCodeUserGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3192,14 +2612,10 @@ var Get_HoldCodes_cmd = &cobra.Command{
 		Use: `HoldCodes {"HoldCodeID":"string"}`,
 		Short: `Get details of a Hold Code`,
 		Long:  `Get details of a Hold Code.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.HoldCodesGetAll , []byte(args[0]))
 			} else {
@@ -3207,9 +2623,8 @@ var Get_HoldCodes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3218,14 +2633,10 @@ var Get_InactiveReasons_cmd = &cobra.Command{
 		Use: `InactiveReasons {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an inactive reason by id`,
 		Long:  `Get the details of an inactive reason by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.InactiveReasonsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3235,9 +2646,8 @@ var Get_InactiveReasons_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3246,14 +2656,10 @@ var Get_IntegrationDefaults_cmd = &cobra.Command{
 		Use: `IntegrationDefaults {"ID":"string"}`,
 		Short: `Get the details of an Integration Default by id`,
 		Long:  `Get the details of an Integration Default by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.IntegrationDefaultsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3263,9 +2669,8 @@ var Get_IntegrationDefaults_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3274,14 +2679,10 @@ var Get_Integrations_cmd = &cobra.Command{
 		Use: `Integrations {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an action type by id`,
 		Long:  `Get the details of an action type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.IntegrationsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3291,25 +2692,20 @@ var Get_Integrations_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_InterestCategories_cmd = &cobra.Command{
-		Aliases: []string{  "IC",  "ic",  "interestcategories",  },
+		Aliases: []string{  "interestcategories",  "IC",  "ic",  },
 		Use: `InterestCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an interest category by id`,
 		Long:  `Get the details of an interest category by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.InterestCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3319,25 +2715,20 @@ var Get_InterestCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_InterestTypes_cmd = &cobra.Command{
-		Aliases: []string{  "interesttypes",  "IT",  "it",  },
+		Aliases: []string{  "it",  "interesttypes",  "IT",  },
 		Use: `InterestTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an interest type by id`,
 		Long:  `Get the details of an interest type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.InterestTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3347,9 +2738,8 @@ var Get_InterestTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3358,14 +2748,10 @@ var Get_Interests_cmd = &cobra.Command{
 		Use: `Interests {"InterestID":"string"}`,
 		Short: `Get details of an interest`,
 		Long:  `Get details of an interest.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.InterestsGetAll , []byte(args[0]))
 			} else {
@@ -3373,9 +2759,8 @@ var Get_Interests_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3384,14 +2769,10 @@ var Get_Internal_cmd = &cobra.Command{
 		Use: `Internal {"AddressID":"string"}`,
 		Short: `Get details of an address and all the phones attached to it`,
 		Long:  `Get details of an address and all the phones attached to it.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.InternalGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ConstituentMiniSnapshot"); test {
@@ -3401,9 +2782,8 @@ var Get_Internal_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3412,14 +2792,10 @@ var Get_InventoryContactPermissionTypes_cmd = &cobra.Command{
 		Use: `InventoryContactPermissionTypes {"InventoryContactPermissionTypeID":"string"}`,
 		Short: `Get details of an inventoryContactPermissionType`,
 		Long:  `Get details of an inventoryContactPermissionType.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.InventoryContactPermissionTypesGetAll , []byte(args[0]))
 			} else {
@@ -3427,25 +2803,20 @@ var Get_InventoryContactPermissionTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_InventoryWebContents_cmd = &cobra.Command{
-		Aliases: []string{  "inventorywebcontents",  "IWC",  "iwc",  },
+		Aliases: []string{  "IWC",  "iwc",  "inventorywebcontents",  },
 		Use: `InventoryWebContents {"InventoryWebContentID":"string"}`,
 		Short: `Get details of an inventoryWebContent`,
 		Long:  `Get details of an inventoryWebContent.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.InventoryWebContentsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AllSummaries"); test {
@@ -3455,32 +2826,26 @@ var Get_InventoryWebContents_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_InvoiceBilling_cmd = &cobra.Command{
-		Aliases: []string{  "invoicebilling",  "IB",  "ib",  },
+		Aliases: []string{  "ib",  "invoicebilling",  "IB",  },
 		Use: `InvoiceBilling {"ID":"string"}`,
 		Short: `Get status of a processing automated billing run`,
 		Long:  `Get status of a processing automated billing run.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.InvoiceBillingStatus , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3489,14 +2854,10 @@ var Get_Issues_cmd = &cobra.Command{
 		Use: `Issues {"IssueID":"string"}`,
 		Short: `Get details of a customer issue`,
 		Long:  `Get details of a customer issue.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.IssuesGetAll , []byte(args[0]))
 			} else {
@@ -3504,9 +2865,8 @@ var Get_Issues_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3515,14 +2875,10 @@ var Get_KeywordCategories_cmd = &cobra.Command{
 		Use: `KeywordCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a keyword category by id`,
 		Long:  `Get the details of a keyword category by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.KeywordCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3532,9 +2888,8 @@ var Get_KeywordCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3543,14 +2898,10 @@ var Get_Keywords_cmd = &cobra.Command{
 		Use: `Keywords {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a keyword by id`,
 		Long:  `Get the details of a keyword by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.KeywordsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("DataFor"); test {
@@ -3562,25 +2913,20 @@ var Get_Keywords_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Languages_cmd = &cobra.Command{
-		Aliases: []string{  "languages",  "L",  "l",  },
+		Aliases: []string{  "L",  "l",  "languages",  },
 		Use: `Languages {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a language by id`,
 		Long:  `Get the details of a language by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.LanguagesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3590,9 +2936,8 @@ var Get_Languages_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3601,14 +2946,10 @@ var Get_ListCategories_cmd = &cobra.Command{
 		Use: `ListCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a list category by id`,
 		Long:  `Get the details of a list category by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ListCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3618,9 +2959,8 @@ var Get_ListCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3629,14 +2969,10 @@ var Get_Lists_cmd = &cobra.Command{
 		Use: `Lists {"ListID":"string"}`,
 		Short: `Get a single List without contents`,
 		Long:  `Get a single List without contents.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Contents"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ListsGetContents , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ContentsDetail"); test {
@@ -3650,9 +2986,8 @@ var Get_Lists_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3661,14 +2996,10 @@ var Get_LoginTypes_cmd = &cobra.Command{
 		Use: `LoginTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a login type by id`,
 		Long:  `Get the details of a login type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.LoginTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3678,25 +3009,20 @@ var Get_LoginTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_MachineSettings_cmd = &cobra.Command{
-		Aliases: []string{  "machinesettings",  "MS",  "ms",  },
+		Aliases: []string{  "ms",  "machinesettings",  "MS",  },
 		Use: `MachineSettings {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Machine Setting by id`,
 		Long:  `Get the details of a Machine Setting by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.MachineSettingsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3706,9 +3032,8 @@ var Get_MachineSettings_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3717,14 +3042,10 @@ var Get_MailIndicators_cmd = &cobra.Command{
 		Use: `MailIndicators {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a mail indicator by id`,
 		Long:  `Get the details of a mail indicator by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.MailIndicatorsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3734,9 +3055,8 @@ var Get_MailIndicators_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3745,14 +3065,10 @@ var Get_MediaTypes_cmd = &cobra.Command{
 		Use: `MediaTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a media type by id`,
 		Long:  `Get the details of a media type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.MediaTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3762,9 +3078,8 @@ var Get_MediaTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3773,14 +3088,10 @@ var Get_MembershipLevelCategories_cmd = &cobra.Command{
 		Use: `MembershipLevelCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a membership level category by id`,
 		Long:  `Get the details of a membership level category by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.MembershipLevelCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3790,26 +3101,21 @@ var Get_MembershipLevelCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_MembershipLevels_cmd = &cobra.Command{
-		Aliases: []string{  "ml",  "membershiplevels",  "ML",  },
+		Aliases: []string{  "ML",  "ml",  "membershiplevels",  },
 		Use: `MembershipLevels {"MembershipLevelID":"string"}`,
 		Short: `Get a specific membership level`,
 		Long:  `Get a specific membership level.
 NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.MembershipLevelsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3819,9 +3125,8 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3831,14 +3136,10 @@ var Get_MembershipOrganizations_cmd = &cobra.Command{
 		Short: `Get a specific membership organization`,
 		Long:  `Get a specific membership organization.
 NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.MembershipOrganizationsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3848,25 +3149,20 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_MembershipStandings_cmd = &cobra.Command{
-		Aliases: []string{  "membershipstandings",  "MS",  "ms",  },
+		Aliases: []string{  "MS",  "ms",  "membershipstandings",  },
 		Use: `MembershipStandings {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get a specific MembershipStanding by id`,
 		Long:  `Get a specific MembershipStanding by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.MembershipStandingsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3876,9 +3172,8 @@ var Get_MembershipStandings_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3888,67 +3183,52 @@ var Get_Memberships_cmd = &cobra.Command{
 		Short: `Returns membership details for a constituent`,
 		Long:  `Returns membership details for a constituent.
 NOTE: As part of the upcoming changes to membership functionality, this resource will change significantly in an upcoming major Tessitura release and likely break code that references it. Please make a note that code that references it will need to be revisited as part of that upgrade process.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.MembershipsGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_MerchantReferences_cmd = &cobra.Command{
-		Aliases: []string{  "merchantreferences",  "MR",  "mr",  },
+		Aliases: []string{  "MR",  "mr",  "merchantreferences",  },
 		Use: `MerchantReferences {"MerchantAccount":"string","PaymentID":"string"}`,
 		Short: ``,
 		Long:  ``,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.MerchantReferencesReference , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Merchants_cmd = &cobra.Command{
-		Aliases: []string{  "merchants",  "M",  "m",  },
+		Aliases: []string{  "m",  "merchants",  "M",  },
 		Use: `Merchants `,
 		Short: `Retrieve Merchant List`,
 		Long:  `Retrieve Merchant List`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.MerchantsGetMerchants , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3957,14 +3237,10 @@ var Get_ModeOfSaleCategories_cmd = &cobra.Command{
 		Use: `ModeOfSaleCategories {"ModeOfSaleCategoryID":"string"}`,
 		Short: `Get details of a mode of sale category`,
 		Long:  `Get details of a mode of sale category.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleCategoriesGetAll , []byte(args[0]))
 			} else {
@@ -3972,9 +3248,8 @@ var Get_ModeOfSaleCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -3983,14 +3258,10 @@ var Get_ModeOfSaleOffers_cmd = &cobra.Command{
 		Use: `ModeOfSaleOffers {"ModeOfSaleOfferID":"string"}`,
 		Short: `Get details of a mode of sale offer`,
 		Long:  `Get details of a mode of sale offer.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleOffersGetAll , []byte(args[0]))
 			} else {
@@ -3998,25 +3269,20 @@ var Get_ModeOfSaleOffers_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ModeOfSalePriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "modeofsalepricetypes",  "MOSPT",  "mospt",  },
+		Aliases: []string{  "MOSPT",  "mospt",  "modeofsalepricetypes",  },
 		Use: `ModeOfSalePriceTypes {"ModeOfSalePriceTypeID":"string"}`,
 		Short: `Get details of a mode of sale price type`,
 		Long:  `Get details of a mode of sale price type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ModeOfSalePriceTypesGetAll , []byte(args[0]))
 			} else {
@@ -4024,9 +3290,8 @@ var Get_ModeOfSalePriceTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4035,14 +3300,10 @@ var Get_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 		Use: `ModeOfSaleSurveyQuestions {"ModeOfSaleSurveyQuestionID":"string"}`,
 		Short: `Get details of a mode of sale survey question`,
 		Long:  `Get details of a mode of sale survey question.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleSurveyQuestionsGetAll , []byte(args[0]))
 			} else {
@@ -4050,9 +3311,8 @@ var Get_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4061,14 +3321,10 @@ var Get_ModeOfSaleUserGroups_cmd = &cobra.Command{
 		Use: `ModeOfSaleUserGroups {"ModeOfSaleUserGroupID":"string"}`,
 		Short: `Get the details of a mode of sale/user group mapping by id`,
 		Long:  `Get the details of a mode of sale/user group mapping by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleUserGroupsGetAll , []byte(args[0]))
 			} else {
@@ -4076,25 +3332,20 @@ var Get_ModeOfSaleUserGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ModesOfSale_cmd = &cobra.Command{
-		Aliases: []string{  "modesofsale",  "MOS",  "mos",  },
+		Aliases: []string{  "mos",  "modesofsale",  "MOS",  },
 		Use: `ModesOfSale {"ModeOfSaleID":"string"}`,
 		Short: `Get details of an existing mode of sale`,
 		Long:  `Get details of an existing mode of sale.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ModesOfSaleGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4104,25 +3355,20 @@ var Get_ModesOfSale_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_NScanAccessAreas_cmd = &cobra.Command{
-		Aliases: []string{  "nsaa",  "nscanaccessareas",  "NSAA",  },
+		Aliases: []string{  "NSAA",  "nsaa",  "nscanaccessareas",  },
 		Use: `NScanAccessAreas {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an NScan Access Area by id`,
 		Long:  `Get the details of an NScan Access Area by id. To get the resource only if the user has write/edit access, pass filter="writeonly".. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.NScanAccessAreasGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4132,25 +3378,20 @@ var Get_NScanAccessAreas_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_NameStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "NS",  "ns",  "namestatuses",  },
+		Aliases: []string{  "namestatuses",  "NS",  "ns",  },
 		Use: `NameStatuses {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a name status by id`,
 		Long:  `Get the details of a name status by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.NameStatusesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4160,9 +3401,8 @@ var Get_NameStatuses_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4171,14 +3411,10 @@ var Get_ObjectPermissions_cmd = &cobra.Command{
 		Use: `ObjectPermissions {"ID":"string"}`,
 		Short: `Get the details of an object permission by id`,
 		Long:  `Get the details of an object permission by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ObjectPermissionsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4188,9 +3424,8 @@ var Get_ObjectPermissions_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4199,14 +3434,10 @@ var Get_OrderBilling_cmd = &cobra.Command{
 		Use: `OrderBilling {"OrderBillingID":"string"}`,
 		Short: `Reprint Order billing`,
 		Long:  `Reprint Order billing`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Status"); test {
 				out, err = tq.Do(*_tq, _tq.Get.OrderBillingStatus , []byte(args[0]))
 			} else {
@@ -4214,9 +3445,8 @@ var Get_OrderBilling_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4225,14 +3455,10 @@ var Get_OrderCategories_cmd = &cobra.Command{
 		Use: `OrderCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an order category by id`,
 		Long:  `Get the details of an order category by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.OrderCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4242,9 +3468,8 @@ var Get_OrderCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4253,21 +3478,16 @@ var Get_Orders_cmd = &cobra.Command{
 		Use: `Orders {"OrderID":"string"}`,
 		Short: `Get the details of an existing Order as the contract OrderProductsView`,
 		Long:  `Get the details of an existing Order as the contract OrderProductsView, which mirrors the structure of the Cart response entity from GET Web/{sessionKey}/Cart. This resource can be used to fetch any saved order in this view. Order HTML templates use this response contract (OrdersProductsView) as the model within the template. Orders actively in a session/cart will not be available here until after checkout.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.OrdersGetProductsView , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4276,14 +3496,10 @@ var Get_Organizations_cmd = &cobra.Command{
 		Use: `Organizations {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an organization by ID`,
 		Long:  `Get the details of an organization by ID. To get the resource in maintenance mode (ignoring control groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.OrganizationsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4293,9 +3509,8 @@ var Get_Organizations_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4304,14 +3519,10 @@ var Get_OriginalSources_cmd = &cobra.Command{
 		Use: `OriginalSources {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an original source by id`,
 		Long:  `Get the details of an original source by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.OriginalSourcesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4321,25 +3532,20 @@ var Get_OriginalSources_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Origins_cmd = &cobra.Command{
-		Aliases: []string{  "o",  "origins",  "O",  },
+		Aliases: []string{  "origins",  "O",  "o",  },
 		Use: `Origins {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an origin by id`,
 		Long:  `Get the details of an origin by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.OriginsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4349,9 +3555,8 @@ var Get_Origins_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4360,14 +3565,10 @@ var Get_OutputSets_cmd = &cobra.Command{
 		Use: `OutputSets {"OutputSetID":"string"}`,
 		Short: `Get a single Output Set`,
 		Long:  `Get a single Output Set.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				out, err = tq.Do(*_tq, _tq.Get.OutputSetsGetSummaries , []byte(args[0]))
 			} else {
@@ -4375,9 +3576,8 @@ var Get_OutputSets_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4386,21 +3586,16 @@ var Get_PackageHistory_cmd = &cobra.Command{
 		Use: `PackageHistory {"ConstituentID":"string","IncludeAffiliations":"string","OrderEndDate":"string","OrderStartDate":"string","PackageID":"string","PackageTypeID":"string","SeasonID":"string"}`,
 		Short: `Gets history information for packages`,
 		Long:  `Gets history information for packages`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.PackageHistoryGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4409,14 +3604,10 @@ var Get_PackagePriceTypes_cmd = &cobra.Command{
 		Use: `PackagePriceTypes {"PackagePriceTypeID":"string"}`,
 		Short: `Get details of a specific package price type`,
 		Long:  `Get details of a specific package price type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PackagePriceTypesGetAll , []byte(args[0]))
 			} else {
@@ -4424,25 +3615,20 @@ var Get_PackagePriceTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PackageTypes_cmd = &cobra.Command{
-		Aliases: []string{  "packagetypes",  "PT",  "pt",  },
+		Aliases: []string{  "PT",  "pt",  "packagetypes",  },
 		Use: `PackageTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a package type by id`,
 		Long:  `Get the details of a package type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PackageTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4452,25 +3638,20 @@ var Get_PackageTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PackageWebContents_cmd = &cobra.Command{
-		Aliases: []string{  "pwc",  "packagewebcontents",  "PWC",  },
+		Aliases: []string{  "packagewebcontents",  "PWC",  "pwc",  },
 		Use: `PackageWebContents {"PackageWebContentID":"string"}`,
 		Short: `Get details of a packageWebContent`,
 		Long:  `Get details of a packageWebContent.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PackageWebContentsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AllSummaries"); test {
@@ -4480,25 +3661,20 @@ var Get_PackageWebContents_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Packages_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "packages",  },
+		Aliases: []string{  "packages",  "P",  "p",  },
 		Use: `Packages {"PackageID":"string"}`,
 		Short: `Get details of a package`,
 		Long:  `Get details of a package.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PackagesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("PackageDetail"); test {
@@ -4520,9 +3696,8 @@ var Get_Packages_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4531,14 +3706,10 @@ var Get_PaymentGatewayActivities_cmd = &cobra.Command{
 		Use: `PaymentGatewayActivities {"PaymentGatewayActivityID":"string"}`,
 		Short: `Get a single Payment Gateway Activity`,
 		Long:  `Get a single Payment Gateway Activity`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayActivitiesGetAll , []byte(args[0]))
 			} else {
@@ -4546,9 +3717,8 @@ var Get_PaymentGatewayActivities_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4557,21 +3727,16 @@ var Get_PaymentGatewayConfiguration_cmd = &cobra.Command{
 		Use: `PaymentGatewayConfiguration `,
 		Short: `Retrieve Payment Gateway Configuration`,
 		Long:  `Retrieve Payment Gateway Configuration`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayConfigurationGetConfiguration , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4580,14 +3745,10 @@ var Get_PaymentGatewayNotifications_cmd = &cobra.Command{
 		Use: `PaymentGatewayNotifications {"NotificationType":"string","Reference":"string"}`,
 		Short: `Get all notification events by reference`,
 		Long:  `Get all notification events by reference.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Check"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayNotificationsCheck , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Notification"); test {
@@ -4599,25 +3760,20 @@ var Get_PaymentGatewayNotifications_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PGTT",  "pgtt",  "paymentgatewaytransactiontypes",  },
+		Aliases: []string{  "paymentgatewaytransactiontypes",  "PGTT",  "pgtt",  },
 		Use: `PaymentGatewayTransactionTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Payment Gateway Transaction Type by id`,
 		Long:  `Get the details of a Payment Gateway Transaction Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayTransactionTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4627,48 +3783,38 @@ var Get_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PaymentHistory_cmd = &cobra.Command{
-		Aliases: []string{  "paymenthistory",  "PH",  "ph",  },
+		Aliases: []string{  "ph",  "paymenthistory",  "PH",  },
 		Use: `PaymentHistory {"ConstituentID":"string","EndDate":"string","IncludeAffiliates":"string","Page":"string","PageSize":"string","PaymentTypeID":"string","SortByDirection":"string","SortByField":"string","StartDate":"string","TransactionID":"string"}`,
 		Short: `Gets history information for payments by constituent`,
 		Long:  `Gets history information for payments by constituent.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.PaymentHistoryGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PaymentMethodGroups_cmd = &cobra.Command{
-		Aliases: []string{  "paymentmethodgroups",  "PMG",  "pmg",  },
+		Aliases: []string{  "pmg",  "paymentmethodgroups",  "PMG",  },
 		Use: `PaymentMethodGroups {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a payment method group by id`,
 		Long:  `Get the details of a payment method group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PaymentMethodGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4678,9 +3824,8 @@ var Get_PaymentMethodGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4689,14 +3834,10 @@ var Get_PaymentMethodUserGroups_cmd = &cobra.Command{
 		Use: `PaymentMethodUserGroups {"PaymentMethodUserGroupID":"string"}`,
 		Short: `Get details of a payment method/user group mapping by id`,
 		Long:  `Get details of a payment method/user group mapping by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PaymentMethodUserGroupsGetAll , []byte(args[0]))
 			} else {
@@ -4704,9 +3845,8 @@ var Get_PaymentMethodUserGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4715,14 +3855,10 @@ var Get_PaymentMethods_cmd = &cobra.Command{
 		Use: `PaymentMethods {"PaymentMethodID":"string"}`,
 		Short: `Get details of a payment method`,
 		Long:  `Get details of a payment method.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PaymentMethodsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Check"); test {
@@ -4734,9 +3870,8 @@ var Get_PaymentMethods_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4745,14 +3880,10 @@ var Get_PaymentSignatures_cmd = &cobra.Command{
 		Use: `PaymentSignatures {"PaymentSignatureID":"string"}`,
 		Short: `Get details of a payment signature`,
 		Long:  `Get details of a payment signature.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PaymentSignaturesGetAll , []byte(args[0]))
 			} else {
@@ -4760,25 +3891,20 @@ var Get_PaymentSignatures_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PaymentTypes_cmd = &cobra.Command{
-		Aliases: []string{  "paymenttypes",  "PT",  "pt",  },
+		Aliases: []string{  "pt",  "paymenttypes",  "PT",  },
 		Use: `PaymentTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a payment type by id`,
 		Long:  `Get the details of a payment type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PaymentTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4788,9 +3914,8 @@ var Get_PaymentTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4799,14 +3924,10 @@ var Get_Payments_cmd = &cobra.Command{
 		Use: `Payments {"ID":"string"}`,
 		Short: `Get a single payment`,
 		Long:  `Get a single payment.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PaymentsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AvailableForRefund"); test {
@@ -4818,25 +3939,20 @@ var Get_Payments_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PerformanceGroups_cmd = &cobra.Command{
-		Aliases: []string{  "PG",  "pg",  "performancegroups",  },
+		Aliases: []string{  "performancegroups",  "PG",  "pg",  },
 		Use: `PerformanceGroups {"ID":"string"}`,
 		Short: `Get details of a Performance Group`,
 		Long:  `Get details of a Performance Group.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PerformanceGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4846,25 +3962,20 @@ var Get_PerformanceGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PerformancePackageModeOfSales_cmd = &cobra.Command{
-		Aliases: []string{  "ppmos",  "performancepackagemodeofsales",  "PPMOS",  },
+		Aliases: []string{  "performancepackagemodeofsales",  "PPMOS",  "ppmos",  },
 		Use: `PerformancePackageModeOfSales {"PerformancePackageModeOfSaleID":"string"}`,
 		Short: `Get details of a performance package mode of sale`,
 		Long:  `Get details of a performance package mode of sale.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PerformancePackageModeOfSalesGetAll , []byte(args[0]))
 			} else {
@@ -4872,9 +3983,8 @@ var Get_PerformancePackageModeOfSales_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4883,14 +3993,10 @@ var Get_PerformancePriceLayers_cmd = &cobra.Command{
 		Use: `PerformancePriceLayers {"AsOfDateTime":"string","PerformancePriceLayerID":"string"}`,
 		Short: `Get details of a performance price layer`,
 		Long:  `Get details of a performance price layer.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Counts"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PerformancePriceLayersGetCounts , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("PriceCount"); test {
@@ -4900,9 +4006,8 @@ var Get_PerformancePriceLayers_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4911,14 +4016,10 @@ var Get_PerformancePriceTypes_cmd = &cobra.Command{
 		Use: `PerformancePriceTypes {"AsOfDateTime":"string","PerformancePriceTypeID":"string"}`,
 		Short: `Get details of a performance price type`,
 		Long:  `Get details of a performance price type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PerformancePriceTypesGetAll , []byte(args[0]))
 			} else {
@@ -4926,9 +4027,8 @@ var Get_PerformancePriceTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4937,14 +4037,10 @@ var Get_PerformancePrices_cmd = &cobra.Command{
 		Use: `PerformancePrices {"AsOfDateTime":"string","PerformancePriceID":"string"}`,
 		Short: `Get details of a performance price`,
 		Long:  `Get details of a performance price.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PerformancePricesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AllWithEvents"); test {
@@ -4956,9 +4052,8 @@ var Get_PerformancePrices_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4967,14 +4062,10 @@ var Get_PerformanceStatuses_cmd = &cobra.Command{
 		Use: `PerformanceStatuses {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a performance status by id`,
 		Long:  `Get the details of a performance status by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PerformanceStatusesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4984,9 +4075,8 @@ var Get_PerformanceStatuses_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -4995,14 +4085,10 @@ var Get_PerformanceTypes_cmd = &cobra.Command{
 		Use: `PerformanceTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a performance type by id`,
 		Long:  `Get the details of a performance type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PerformanceTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5012,9 +4098,8 @@ var Get_PerformanceTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5023,14 +4108,10 @@ var Get_Performances_cmd = &cobra.Command{
 		Use: `Performances {"PerformanceID":"string"}`,
 		Short: `Get details of a performance`,
 		Long:  `Get details of a performance.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PerformancesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AuditEntries"); test {
@@ -5056,9 +4137,8 @@ var Get_Performances_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5067,14 +4147,10 @@ var Get_Philanthropy_cmd = &cobra.Command{
 		Use: `Philanthropy {"PhilanthropyEntryID":"string"}`,
 		Short: `Get details of an philanthropyEntry`,
 		Long:  `Get details of an philanthropyEntry.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PhilanthropyGetAll , []byte(args[0]))
 			} else {
@@ -5082,25 +4158,20 @@ var Get_Philanthropy_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PhilanthropyTypes_cmd = &cobra.Command{
-		Aliases: []string{  "philanthropytypes",  "PT",  "pt",  },
+		Aliases: []string{  "pt",  "philanthropytypes",  "PT",  },
 		Use: `PhilanthropyTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of philosophy type by id`,
 		Long:  `Get the details of philosophy type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PhilanthropyTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5110,9 +4181,8 @@ var Get_PhilanthropyTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5121,14 +4191,10 @@ var Get_PhoneIndicators_cmd = &cobra.Command{
 		Use: `PhoneIndicators {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a phone indicator by id`,
 		Long:  `Get the details of a phone indicator by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PhoneIndicatorsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5138,9 +4204,8 @@ var Get_PhoneIndicators_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5149,14 +4214,10 @@ var Get_PhoneTypes_cmd = &cobra.Command{
 		Use: `PhoneTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a phone type by id`,
 		Long:  `Get the details of a phone type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PhoneTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5166,9 +4227,8 @@ var Get_PhoneTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5177,14 +4237,10 @@ var Get_Phones_cmd = &cobra.Command{
 		Use: `Phones {"PhoneID":"string"}`,
 		Short: `Get details of a phone`,
 		Long:  `Get details of a phone.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PhonesGetAll , []byte(args[0]))
 			} else {
@@ -5192,25 +4248,20 @@ var Get_Phones_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PlanPriorities_cmd = &cobra.Command{
-		Aliases: []string{  "planpriorities",  "PP",  "pp",  },
+		Aliases: []string{  "PP",  "pp",  "planpriorities",  },
 		Use: `PlanPriorities {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan priority by id`,
 		Long:  `Get the details of a plan priority by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PlanPrioritiesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5220,9 +4271,8 @@ var Get_PlanPriorities_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5231,14 +4281,10 @@ var Get_PlanSources_cmd = &cobra.Command{
 		Use: `PlanSources {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan source by id`,
 		Long:  `Get the details of a plan source by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PlanSourcesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5248,25 +4294,20 @@ var Get_PlanSources_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PlanStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "ps",  "planstatuses",  "PS",  },
+		Aliases: []string{  "planstatuses",  "PS",  "ps",  },
 		Use: `PlanStatuses {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan status by id`,
 		Long:  `Get the details of a plan status by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PlanStatusesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5276,25 +4317,20 @@ var Get_PlanStatuses_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PlanTypes_cmd = &cobra.Command{
-		Aliases: []string{  "pt",  "plantypes",  "PT",  },
+		Aliases: []string{  "plantypes",  "PT",  "pt",  },
 		Use: `PlanTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan type by id`,
 		Long:  `Get the details of a plan type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PlanTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5304,9 +4340,8 @@ var Get_PlanTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5315,14 +4350,10 @@ var Get_PlanWorkers_cmd = &cobra.Command{
 		Use: `PlanWorkers {"PlanWorkerID":"string"}`,
 		Short: `Get details of a plan worker`,
 		Long:  `Get details of a plan worker.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PlanWorkersGetAll , []byte(args[0]))
 			} else {
@@ -5330,9 +4361,8 @@ var Get_PlanWorkers_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5341,14 +4371,10 @@ var Get_Plans_cmd = &cobra.Command{
 		Use: `Plans {"PlanID":"string"}`,
 		Short: `Get details of a plan`,
 		Long:  `Get details of a plan.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PlansGetAll , []byte(args[0]))
 			} else {
@@ -5356,9 +4382,8 @@ var Get_Plans_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5367,21 +4392,16 @@ var Get_PledgeBilling_cmd = &cobra.Command{
 		Use: `PledgeBilling {"ID":"string"}`,
 		Short: `Get status of a pledge billing run`,
 		Long:  `Get status of a pledge billing run. Job is finished processing when IsCompleted is true.  Only billing runs using automated billing will be running after the response from a POST to Txn/PledgeBilling.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.PledgeBillingGetStatus , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5390,14 +4410,10 @@ var Get_PortfolioCustomElements_cmd = &cobra.Command{
 		Use: `PortfolioCustomElements {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a portfolio custom element by id`,
 		Long:  `Get the details of a portfolio custom element by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PortfolioCustomElementsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5407,25 +4423,20 @@ var Get_PortfolioCustomElements_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Portfolios_cmd = &cobra.Command{
-		Aliases: []string{  "portfolios",  "P",  "p",  },
+		Aliases: []string{  "p",  "portfolios",  "P",  },
 		Use: `Portfolios {"ConstituentID":"string","Page":"string","PageSize":"string","PlanCustomColumns":"string","PortfolioCustomColumns":"string","PrimaryOnly":"string","StatusIds":"string","WorkerRoleIds":"string"}`,
 		Short: `Get portfolio for a constituent`,
 		Long:  `Get portfolio for a constituent.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("PortfolioEntry"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PortfoliosGetPortfolioEntry , []byte(args[0]))
 			} else {
@@ -5433,9 +4444,8 @@ var Get_Portfolios_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5444,14 +4454,10 @@ var Get_Prefixes_cmd = &cobra.Command{
 		Use: `Prefixes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a prefix by id`,
 		Long:  `Get the details of a prefix by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PrefixesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5461,9 +4467,8 @@ var Get_Prefixes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5472,14 +4477,10 @@ var Get_Premieres_cmd = &cobra.Command{
 		Use: `Premieres {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a premiere by id`,
 		Long:  `Get the details of a premiere by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PremieresGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5489,25 +4490,20 @@ var Get_Premieres_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PriceCategories_cmd = &cobra.Command{
-		Aliases: []string{  "pricecategories",  "PC",  "pc",  },
+		Aliases: []string{  "PC",  "pc",  "pricecategories",  },
 		Use: `PriceCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a price category by id`,
 		Long:  `Get the details of a price category by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PriceCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5517,9 +4513,8 @@ var Get_PriceCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5528,14 +4523,10 @@ var Get_PriceEvents_cmd = &cobra.Command{
 		Use: `PriceEvents {"PriceEventID":"string"}`,
 		Short: `Get details of a price event`,
 		Long:  `Get details of a price event.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PriceEventsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Dates"); test {
@@ -5545,25 +4536,20 @@ var Get_PriceEvents_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PriceLayerTypes_cmd = &cobra.Command{
-		Aliases: []string{  "pricelayertypes",  "PLT",  "plt",  },
+		Aliases: []string{  "PLT",  "plt",  "pricelayertypes",  },
 		Use: `PriceLayerTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a price layer type by id`,
 		Long:  `Get the details of a price layer type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PriceLayerTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5573,9 +4559,8 @@ var Get_PriceLayerTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5584,14 +4569,10 @@ var Get_PriceTemplates_cmd = &cobra.Command{
 		Use: `PriceTemplates {"PriceTemplateID":"string"}`,
 		Short: `Get details of a price template`,
 		Long:  `Get details of a price template.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PriceTemplatesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5601,25 +4582,20 @@ var Get_PriceTemplates_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PriceTypeCategories_cmd = &cobra.Command{
-		Aliases: []string{  "PTC",  "ptc",  "pricetypecategories",  },
+		Aliases: []string{  "pricetypecategories",  "PTC",  "ptc",  },
 		Use: `PriceTypeCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a price type category by id`,
 		Long:  `Get the details of a price type category by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PriceTypeCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5629,25 +4605,20 @@ var Get_PriceTypeCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PriceTypeGroups_cmd = &cobra.Command{
-		Aliases: []string{  "pricetypegroups",  "PTG",  "ptg",  },
+		Aliases: []string{  "ptg",  "pricetypegroups",  "PTG",  },
 		Use: `PriceTypeGroups {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a price type group by id`,
 		Long:  `Get the details of a price type group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PriceTypeGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5657,25 +4628,20 @@ var Get_PriceTypeGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PriceTypeReasons_cmd = &cobra.Command{
-		Aliases: []string{  "pricetypereasons",  "PTR",  "ptr",  },
+		Aliases: []string{  "PTR",  "ptr",  "pricetypereasons",  },
 		Use: `PriceTypeReasons {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a price type reason by id`,
 		Long:  `Get the details of a price type reason by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PriceTypeReasonsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5685,9 +4651,8 @@ var Get_PriceTypeReasons_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5696,14 +4661,10 @@ var Get_PriceTypeUserGroups_cmd = &cobra.Command{
 		Use: `PriceTypeUserGroups {"PriceTypeUserGroupID":"string"}`,
 		Short: `Get details of a price type/user group mapping by id`,
 		Long:  `Get details of a price type/user group mapping by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PriceTypeUserGroupsGetAll , []byte(args[0]))
 			} else {
@@ -5711,9 +4672,8 @@ var Get_PriceTypeUserGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5722,14 +4682,10 @@ var Get_PriceTypes_cmd = &cobra.Command{
 		Use: `PriceTypes {"PriceTypeID":"string"}`,
 		Short: `Get details of a price type`,
 		Long:  `Get details of a price type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PriceTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Reasons"); test {
@@ -5745,25 +4701,20 @@ var Get_PriceTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PricingRuleCategories_cmd = &cobra.Command{
-		Aliases: []string{  "prc",  "pricingrulecategories",  "PRC",  },
+		Aliases: []string{  "pricingrulecategories",  "PRC",  "prc",  },
 		Use: `PricingRuleCategories {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a pricing rule category by id`,
 		Long:  `Get the details of a pricing rule category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PricingRuleCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5773,25 +4724,20 @@ var Get_PricingRuleCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PricingRuleMessageTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PRMT",  "prmt",  "pricingrulemessagetypes",  },
+		Aliases: []string{  "prmt",  "pricingrulemessagetypes",  "PRMT",  },
 		Use: `PricingRuleMessageTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a pricing rule message type by id`,
 		Long:  `Get the details of a pricing rule message type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PricingRuleMessageTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5801,25 +4747,20 @@ var Get_PricingRuleMessageTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PricingRuleSets_cmd = &cobra.Command{
-		Aliases: []string{  "pricingrulesets",  "PRS",  "prs",  },
+		Aliases: []string{  "prs",  "pricingrulesets",  "PRS",  },
 		Use: `PricingRuleSets {"PricingRuleSetID":"string"}`,
 		Short: `Get details of a pricing rule set`,
 		Long:  `Get details of a pricing rule set.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PricingRuleSetsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5829,25 +4770,20 @@ var Get_PricingRuleSets_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PricingRuleTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PRT",  "prt",  "pricingruletypes",  },
+		Aliases: []string{  "pricingruletypes",  "PRT",  "prt",  },
 		Use: `PricingRuleTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a pricing rule type by id`,
 		Long:  `Get the details of a pricing rule type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PricingRuleTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5857,25 +4793,20 @@ var Get_PricingRuleTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_PricingRules_cmd = &cobra.Command{
-		Aliases: []string{  "pricingrules",  "PR",  "pr",  },
+		Aliases: []string{  "PR",  "pr",  "pricingrules",  },
 		Use: `PricingRules {"PricingRuleID":"string"}`,
 		Short: `Get details of a pricing rule`,
 		Long:  `Get details of a pricing rule.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PricingRulesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AllSummary"); test {
@@ -5885,25 +4816,20 @@ var Get_PricingRules_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Printers_cmd = &cobra.Command{
-		Aliases: []string{  "printers",  "P",  "p",  },
+		Aliases: []string{  "p",  "printers",  "P",  },
 		Use: `Printers {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a printer by id`,
 		Long:  `Get the details of a printer by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PrintersGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5913,9 +4839,8 @@ var Get_Printers_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5926,21 +4851,16 @@ var Get_ProductKeywords_cmd = &cobra.Command{
 		Long:  `Returns keywords for the requested production elements or packages.
 
 For Production Elements: If the keyword is found, returns the keyword and the lowest level at which it was found in the production hierarchy (Title, Production, Production Season, Performance) for the requested element. Optionally, all matching keywords anywhere above the requested element in the production hierarchy can be returned with the ShowAll parameter.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.ProductKeywordsGetKeywords , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5949,14 +4869,10 @@ var Get_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 		Use: `ProductionSeasonMembershipOrganizations {"ID":"string"}`,
 		Short: `Get details of a specific production season membership organization`,
 		Long:  `Get details of a specific production season membership organization.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ProductionSeasonMembershipOrganizationsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5966,9 +4882,8 @@ var Get_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -5978,14 +4893,10 @@ var Get_ProductionSeasons_cmd = &cobra.Command{
 		Short: `Get details of a specific production season`,
 		Long:  `Get details of a specific production season.
 Returns the full details for a single production season, including description and short description, season, first and last performance date, and the four ticket text lines.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ProductionSeasonsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5995,25 +4906,20 @@ Returns the full details for a single production season, including description a
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Productions_cmd = &cobra.Command{
-		Aliases: []string{  "p",  "productions",  "P",  },
+		Aliases: []string{  "productions",  "P",  "p",  },
 		Use: `Productions {"ID":"string"}`,
 		Short: `Get details of a specific production`,
 		Long:  `Get details of a specific production.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ProductionsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6023,9 +4929,8 @@ var Get_Productions_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6034,14 +4939,10 @@ var Get_ProgramListings_cmd = &cobra.Command{
 		Use: `ProgramListings {"ProgramListingID":"string"}`,
 		Short: `Get details of a program listing`,
 		Long:  `Get details of a program listing.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ProgramListingsGetAll , []byte(args[0]))
 			} else {
@@ -6049,25 +4950,20 @@ var Get_ProgramListings_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Programs_cmd = &cobra.Command{
-		Aliases: []string{  "programs",  "P",  "p",  },
+		Aliases: []string{  "p",  "programs",  "P",  },
 		Use: `Programs {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a program by id`,
 		Long:  `Get the details of a program by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ProgramsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6077,25 +4973,20 @@ var Get_Programs_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Pronouns_cmd = &cobra.Command{
-		Aliases: []string{  "p",  "pronouns",  "P",  },
+		Aliases: []string{  "P",  "p",  "pronouns",  },
 		Use: `Pronouns {"ID":"string","MaintenanceMode":"string"}`,
 		Short: ``,
 		Long:  ``,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PronounsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6105,25 +4996,20 @@ var Get_Pronouns_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_QualificationCategories_cmd = &cobra.Command{
-		Aliases: []string{  "QC",  "qc",  "qualificationcategories",  },
+		Aliases: []string{  "qualificationcategories",  "QC",  "qc",  },
 		Use: `QualificationCategories {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Qualification Category by id`,
 		Long:  `Get the details of a Qualification Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.QualificationCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6133,25 +5019,20 @@ var Get_QualificationCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Qualifications_cmd = &cobra.Command{
-		Aliases: []string{  "qualifications",  "Q",  "q",  },
+		Aliases: []string{  "q",  "qualifications",  "Q",  },
 		Use: `Qualifications {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Qualification by id`,
 		Long:  `Get the details of a Qualification by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.QualificationsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6161,9 +5042,8 @@ var Get_Qualifications_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6172,14 +5052,10 @@ var Get_QueryElementFilters_cmd = &cobra.Command{
 		Use: `QueryElementFilters {"QueryElementFilterID":"string"}`,
 		Short: `Get a specific query element filter`,
 		Long:  `Get a specific query element filter.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.QueryElementFiltersGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("DataFor"); test {
@@ -6191,9 +5067,8 @@ var Get_QueryElementFilters_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6202,14 +5077,10 @@ var Get_QueryElementGroups_cmd = &cobra.Command{
 		Use: `QueryElementGroups {"QueryElementGroupID":"string"}`,
 		Short: `Get the details of a query element group by id`,
 		Long:  `Get the details of a query element group by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.QueryElementGroupsGetAll , []byte(args[0]))
 			} else {
@@ -6217,25 +5088,20 @@ var Get_QueryElementGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_QueryElements_cmd = &cobra.Command{
-		Aliases: []string{  "queryelements",  "QE",  "qe",  },
+		Aliases: []string{  "qe",  "queryelements",  "QE",  },
 		Use: `QueryElements {"ID":"string"}`,
 		Short: `Get details of a query element by id`,
 		Long:  `Get details of a query element by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.QueryElementsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6245,9 +5111,8 @@ var Get_QueryElements_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6256,14 +5121,10 @@ var Get_RankTypes_cmd = &cobra.Command{
 		Use: `RankTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a rank type by id`,
 		Long:  `Get the details of a rank type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.RankTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6273,25 +5134,20 @@ var Get_RankTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Rankings_cmd = &cobra.Command{
-		Aliases: []string{  "R",  "r",  "rankings",  },
+		Aliases: []string{  "r",  "rankings",  "R",  },
 		Use: `Rankings {"RankingID":"string"}`,
 		Short: `Get details of a ranking`,
 		Long:  `Get details of a ranking.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.RankingsGetAll , []byte(args[0]))
 			} else {
@@ -6299,9 +5155,8 @@ var Get_Rankings_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6310,14 +5165,10 @@ var Get_ReceiptSettings_cmd = &cobra.Command{
 		Use: `ReceiptSettings {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Receipt Setting by id`,
 		Long:  `Get the details of a Receipt Setting by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ReceiptSettingsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6327,25 +5178,20 @@ var Get_ReceiptSettings_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ReferenceColumns_cmd = &cobra.Command{
-		Aliases: []string{  "referencecolumns",  "RC",  "rc",  },
+		Aliases: []string{  "RC",  "rc",  "referencecolumns",  },
 		Use: `ReferenceColumns {"MaintenanceMode":"string"}`,
 		Short: `Get all reference columns`,
 		Long:  `Get all reference columns. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ReferenceColumnsGetSummaries , []byte(args[0]))
 			} else {
@@ -6353,25 +5199,20 @@ var Get_ReferenceColumns_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ReferenceTableUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "RTUG",  "rtug",  "referencetableusergroups",  },
+		Aliases: []string{  "referencetableusergroups",  "RTUG",  "rtug",  },
 		Use: `ReferenceTableUserGroups {"ID":"string"}`,
 		Short: `Get the details of a reference table/user group mapping by id`,
 		Long:  `Get the details of a reference table/user group mapping by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ReferenceTableUserGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6381,25 +5222,20 @@ var Get_ReferenceTableUserGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ReferenceTables_cmd = &cobra.Command{
-		Aliases: []string{  "rt",  "referencetables",  "RT",  },
+		Aliases: []string{  "referencetables",  "RT",  "rt",  },
 		Use: `ReferenceTables {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get details for a reference table by Id`,
 		Long:  `Get details for a reference table by Id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ReferenceTablesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6409,25 +5245,20 @@ var Get_ReferenceTables_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_RelationshipCategories_cmd = &cobra.Command{
-		Aliases: []string{  "relationshipcategories",  "RC",  "rc",  },
+		Aliases: []string{  "RC",  "rc",  "relationshipcategories",  },
 		Use: `RelationshipCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a relationship category by id`,
 		Long:  `Get the details of a relationship category by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.RelationshipCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6437,32 +5268,26 @@ var Get_RelationshipCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Relationships_cmd = &cobra.Command{
-		Aliases: []string{  "relationships",  "R",  "r",  },
+		Aliases: []string{  "R",  "r",  "relationships",  },
 		Use: `Relationships {"ActiveOnly":"string","AssociatedConstituentID":"string","ConstituentID":"string","EndActiveDate":"string","IncludeAffiliations":"string","StartActiveDate":"string"}`,
 		Short: `Get all affiliations and associations of the specified constituent id or get all affiliations and associations of the specified associated constituent id`,
 		Long:  `Get all affiliations and associations of the specified constituent id or get all affiliations and associations of the specified associated constituent id. If both are specified get all the associations and affiliations between them.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.RelationshipsGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6471,14 +5296,10 @@ var Get_ReportRequests_cmd = &cobra.Command{
 		Use: `ReportRequests {"ID":"string"}`,
 		Short: `Get a report request`,
 		Long:  `Get a report request.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ReportRequestsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AllExpired"); test {
@@ -6490,25 +5311,20 @@ var Get_ReportRequests_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ReportSchedules_cmd = &cobra.Command{
-		Aliases: []string{  "rs",  "reportschedules",  "RS",  },
+		Aliases: []string{  "reportschedules",  "RS",  "rs",  },
 		Use: `ReportSchedules {"ID":"string"}`,
 		Short: `Get a report schedule`,
 		Long:  `Get a report schedule.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ReportSchedulesGetAll , []byte(args[0]))
 			} else {
@@ -6516,9 +5332,8 @@ var Get_ReportSchedules_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6527,14 +5342,10 @@ var Get_ReportUserGroups_cmd = &cobra.Command{
 		Use: `ReportUserGroups {"ID":"string"}`,
 		Short: `Get the details of a report/user group mapping by id`,
 		Long:  `Get the details of a report/user group mapping by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ReportUserGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6544,9 +5355,8 @@ var Get_ReportUserGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6555,14 +5365,10 @@ var Get_Reports_cmd = &cobra.Command{
 		Use: `Reports {"ReportID":"string"}`,
 		Short: `Get details of a report`,
 		Long:  `Get details of a report.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ReportsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("CustomData"); test {
@@ -6578,25 +5384,20 @@ var Get_Reports_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Research_cmd = &cobra.Command{
-		Aliases: []string{  "R",  "r",  "research",  },
+		Aliases: []string{  "research",  "R",  "r",  },
 		Use: `Research {"ResearchEntryID":"string"}`,
 		Short: `Get details of a research entry`,
 		Long:  `Get details of a research entry.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ResearchGetAll , []byte(args[0]))
 			} else {
@@ -6604,9 +5405,8 @@ var Get_Research_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6615,14 +5415,10 @@ var Get_ResearchTypes_cmd = &cobra.Command{
 		Use: `ResearchTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of research type by id`,
 		Long:  `Get the details of research type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ResearchTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6632,25 +5428,20 @@ var Get_ResearchTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ResourceCategories_cmd = &cobra.Command{
-		Aliases: []string{  "RC",  "rc",  "resourcecategories",  },
+		Aliases: []string{  "resourcecategories",  "RC",  "rc",  },
 		Use: `ResourceCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Resource Category by id`,
 		Long:  `Get the details of a Resource Category by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ResourceCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6660,9 +5451,8 @@ var Get_ResourceCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6671,14 +5461,10 @@ var Get_ResourceSchedules_cmd = &cobra.Command{
 		Use: `ResourceSchedules {"ResourceScheduleID":"string"}`,
 		Short: `Get a single resource schedule`,
 		Long:  `Get a single resource schedule.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ResourceSchedulesGetAll , []byte(args[0]))
 			} else {
@@ -6686,9 +5472,8 @@ var Get_ResourceSchedules_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6697,14 +5482,10 @@ var Get_ResourceTypes_cmd = &cobra.Command{
 		Use: `ResourceTypes {"ID":"string"}`,
 		Short: `Get all resource types`,
 		Long:  `Get all resource types.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ResourceTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6714,9 +5495,8 @@ var Get_ResourceTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6725,14 +5505,10 @@ var Get_Resources_cmd = &cobra.Command{
 		Use: `Resources {"ID":"string"}`,
 		Short: `Get a specific Resource`,
 		Long:  `Get a specific Resource.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ResourcesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Details"); test {
@@ -6746,25 +5522,20 @@ var Get_Resources_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_SalesChannels_cmd = &cobra.Command{
-		Aliases: []string{  "sc",  "saleschannels",  "SC",  },
+		Aliases: []string{  "saleschannels",  "SC",  "sc",  },
 		Use: `SalesChannels {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a sales channel by id`,
 		Long:  `Get the details of a sales channel by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SalesChannelsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6774,9 +5545,8 @@ var Get_SalesChannels_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6785,14 +5555,10 @@ var Get_SalesLayoutButtonTypes_cmd = &cobra.Command{
 		Use: `SalesLayoutButtonTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a sales layout button type by id`,
 		Long:  `Get the details of a sales layout button type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SalesLayoutButtonTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6802,9 +5568,8 @@ var Get_SalesLayoutButtonTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6813,14 +5578,10 @@ var Get_SalesLayouts_cmd = &cobra.Command{
 		Use: `SalesLayouts {"SalesLayoutID":"string"}`,
 		Short: `Get details of a sales layout setup`,
 		Long:  `Get details of a sales layout setup.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("ForSale"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SalesLayoutsGetForSale , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6830,9 +5591,8 @@ var Get_SalesLayouts_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6841,14 +5601,10 @@ var Get_SalutationTypes_cmd = &cobra.Command{
 		Use: `SalutationTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a salutation type by id`,
 		Long:  `Get the details of a salutation type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SalutationTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6858,9 +5614,8 @@ var Get_SalutationTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6869,14 +5624,10 @@ var Get_Salutations_cmd = &cobra.Command{
 		Use: `Salutations {"SalutationID":"string"}`,
 		Short: `Get details of a salutation`,
 		Long:  `Get details of a salutation.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SalutationsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Generate"); test {
@@ -6886,9 +5637,8 @@ var Get_Salutations_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6897,14 +5647,10 @@ var Get_SchedulePatternTypes_cmd = &cobra.Command{
 		Use: `SchedulePatternTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Schedule Pattern by id`,
 		Long:  `Get the details of a Schedule Pattern by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SchedulePatternTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6914,9 +5660,8 @@ var Get_SchedulePatternTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6925,14 +5670,10 @@ var Get_ScheduleTypes_cmd = &cobra.Command{
 		Use: `ScheduleTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Schedule Type by id`,
 		Long:  `Get the details of a Schedule Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ScheduleTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6942,9 +5683,8 @@ var Get_ScheduleTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -6953,14 +5693,10 @@ var Get_SeasonTypes_cmd = &cobra.Command{
 		Use: `SeasonTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a season type by id`,
 		Long:  `Get the details of a season type by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SeasonTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6970,25 +5706,20 @@ var Get_SeasonTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Seasons_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "seasons",  },
+		Aliases: []string{  "seasons",  "S",  "s",  },
 		Use: `Seasons {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a season by id`,
 		Long:  `Get the details of a season by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SeasonsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6998,25 +5729,20 @@ var Get_Seasons_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_SeatCodes_cmd = &cobra.Command{
-		Aliases: []string{  "sc",  "seatcodes",  "SC",  },
+		Aliases: []string{  "seatcodes",  "SC",  "sc",  },
 		Use: `SeatCodes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a seat code by id`,
 		Long:  `Get the details of a seat code by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SeatCodesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -7026,9 +5752,8 @@ var Get_SeatCodes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -7037,14 +5762,10 @@ var Get_SeatStatuses_cmd = &cobra.Command{
 		Use: `SeatStatuses {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a seat status by id`,
 		Long:  `Get the details of a seat status by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SeatStatusesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -7054,25 +5775,20 @@ var Get_SeatStatuses_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Sections_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "sections",  },
+		Aliases: []string{  "sections",  "S",  "s",  },
 		Use: `Sections {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a section by id`,
 		Long:  `Get the details of a section by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SectionsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -7082,9 +5798,8 @@ var Get_Sections_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -7093,21 +5808,16 @@ var Get_SecurityBatchTypes_cmd = &cobra.Command{
 		Use: `SecurityBatchTypes `,
 		Short: `Get all batch type/user group mappings valid for the context usergroup`,
 		Long:  `Get all batch type/user group mappings valid for the context usergroup.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityBatchTypesGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -7116,44 +5826,34 @@ var Get_SecurityControlGroups_cmd = &cobra.Command{
 		Use: `SecurityControlGroups `,
 		Short: `Get all control group/user group mappings valid for the context usergroup`,
 		Long:  `Get all control group/user group mappings valid for the context usergroup.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityControlGroupsGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_SecurityHoldCodes_cmd = &cobra.Command{
-		Aliases: []string{  "SHC",  "shc",  "securityholdcodes",  },
+		Aliases: []string{  "securityholdcodes",  "SHC",  "shc",  },
 		Use: `SecurityHoldCodes `,
 		Short: `Get all hold code/user group mappings valid for the context usergroup`,
 		Long:  `Get all hold code/user group mappings valid for the context usergroup.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityHoldCodesGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -7162,21 +5862,16 @@ var Get_SecurityModesOfSale_cmd = &cobra.Command{
 		Use: `SecurityModesOfSale `,
 		Short: `Get all mode of sale/user group mappings valid for the context usergroup`,
 		Long:  `Get all mode of sale/user group mappings valid for the context usergroup.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityModesOfSaleGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -7185,44 +5880,34 @@ var Get_SecurityObjectPermissions_cmd = &cobra.Command{
 		Use: `SecurityObjectPermissions {"ConstituencyID":"string","ObjectIds":"string","Objectid":"string"}`,
 		Short: `Get all the object permissions valid for the context usergroup`,
 		Long:  `Get all the object permissions valid for the context usergroup. Optionally filter by constituency id and/or object id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityObjectPermissionsGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_SecurityPaymentMethods_cmd = &cobra.Command{
-		Aliases: []string{  "securitypaymentmethods",  "SPM",  "spm",  },
+		Aliases: []string{  "spm",  "securitypaymentmethods",  "SPM",  },
 		Use: `SecurityPaymentMethods {"Amount":"string"}`,
 		Short: `Get all payment method/user group mappings valid for the context usergroup`,
 		Long:  `Get all payment method/user group mappings valid for the context usergroup.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityPaymentMethodsGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -7231,67 +5916,52 @@ var Get_SecurityPriceTypes_cmd = &cobra.Command{
 		Use: `SecurityPriceTypes `,
 		Short: `Get all price type/user group mappings valid for the context usergroup`,
 		Long:  `Get all price type/user group mappings valid for the context usergroup.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityPriceTypesGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_SecurityReferenceTables_cmd = &cobra.Command{
-		Aliases: []string{  "securityreferencetables",  "SRT",  "srt",  },
+		Aliases: []string{  "srt",  "securityreferencetables",  "SRT",  },
 		Use: `SecurityReferenceTables `,
 		Short: `Get all the reference table/user group mappings valid for the context usergroup`,
 		Long:  `Get all the reference table/user group mappings valid for the context usergroup.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityReferenceTablesGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_SecurityReports_cmd = &cobra.Command{
-		Aliases: []string{  "securityreports",  "SR",  "sr",  },
+		Aliases: []string{  "SR",  "sr",  "securityreports",  },
 		Use: `SecurityReports `,
 		Short: `Get all report/user group mappings valid for the context usergroup`,
 		Long:  `Get all report/user group mappings valid for the context usergroup.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityReportsGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -7300,21 +5970,16 @@ var Get_SecurityServiceResources_cmd = &cobra.Command{
 		Use: `SecurityServiceResources `,
 		Short: `Get all service resource/user group mappings valid for the context usergroup`,
 		Long:  `Get all service resource/user group mappings valid for the context usergroup.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityServiceResourcesGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -7323,14 +5988,10 @@ var Get_SecurityUserGroups_cmd = &cobra.Command{
 		Use: `SecurityUserGroups {"Application":"string","UserName":"string"}`,
 		Short: `Get all security user groups`,
 		Long:  `Get all security user groups.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("DefaultUserGroup"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SecurityUserGroupsGetDefaultUserGroup , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ManagedGroups"); test {
@@ -7340,25 +6001,20 @@ var Get_SecurityUserGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ServiceResourceUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "serviceresourceusergroups",  "SRUG",  "srug",  },
+		Aliases: []string{  "SRUG",  "srug",  "serviceresourceusergroups",  },
 		Use: `ServiceResourceUserGroups {"ID":"string"}`,
 		Short: `Get the details of a service resource/user group mapping by id`,
 		Long:  `Get the details of a service resource/user group mapping by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ServiceResourceUserGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -7368,25 +6024,20 @@ var Get_ServiceResourceUserGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_ServiceResources_cmd = &cobra.Command{
-		Aliases: []string{  "serviceresources",  "SR",  "sr",  },
+		Aliases: []string{  "SR",  "sr",  "serviceresources",  },
 		Use: `ServiceResources {"MaintenanceMode":"string"}`,
 		Short: `Get all service resources`,
 		Long:  `Get all service resources. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ServiceResourcesGetSummaries , []byte(args[0]))
 			} else {
@@ -7394,26 +6045,21 @@ var Get_ServiceResources_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Session_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "session",  },
+		Aliases: []string{  "session",  "S",  "s",  },
 		Use: `Session {"SessionKey":"string"}`,
 		Short: `Returns details summarizing a web session's state`,
 		Long:  `Returns details summarizing a web session's state.
 Includes counts of cart products, the login status, MOS and Source`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Default"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SessionGetDefault , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("DeliveryMethods"); test {
@@ -7433,9 +6079,8 @@ Includes counts of cart products, the login status, MOS and Source`,
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -7444,14 +6089,10 @@ var Get_SourceGroups_cmd = &cobra.Command{
 		Use: `SourceGroups {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a source group by id`,
 		Long:  `Get the details of a source group by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SourceGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -7461,25 +6102,20 @@ var Get_SourceGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Sources_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "sources",  },
+		Aliases: []string{  "s",  "sources",  "S",  },
 		Use: `Sources {"SourceID":"string"}`,
 		Short: `Get details of a Source`,
 		Long:  `Get details of a Source.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SourcesGetSummaries , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("WebExpiring"); test {
@@ -7489,25 +6125,20 @@ var Get_Sources_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_SpecialActivities_cmd = &cobra.Command{
-		Aliases: []string{  "specialactivities",  "SA",  "sa",  },
+		Aliases: []string{  "sa",  "specialactivities",  "SA",  },
 		Use: `SpecialActivities {"SpecialActivityID":"string"}`,
 		Short: `Get details of an activity record`,
 		Long:  `Get details of an activity record.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SpecialActivitiesGetAll , []byte(args[0]))
 			} else {
@@ -7515,25 +6146,20 @@ var Get_SpecialActivities_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_SpecialActivityStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "SAS",  "sas",  "specialactivitystatuses",  },
+		Aliases: []string{  "specialactivitystatuses",  "SAS",  "sas",  },
 		Use: `SpecialActivityStatuses {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Special Activity Status by id`,
 		Long:  `Get the details of a Special Activity Status by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SpecialActivityStatusesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -7543,9 +6169,8 @@ var Get_SpecialActivityStatuses_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -7554,14 +6179,10 @@ var Get_SpecialActivityTypes_cmd = &cobra.Command{
 		Use: `SpecialActivityTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Special Activity Type by id`,
 		Long:  `Get the details of a Special Activity Type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SpecialActivityTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -7571,9 +6192,8 @@ var Get_SpecialActivityTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -7582,14 +6202,10 @@ var Get_States_cmd = &cobra.Command{
 		Use: `States {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a state by id`,
 		Long:  `Get the details of a state by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.StatesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -7599,25 +6215,20 @@ var Get_States_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_StepTypes_cmd = &cobra.Command{
-		Aliases: []string{  "ST",  "st",  "steptypes",  },
+		Aliases: []string{  "st",  "steptypes",  "ST",  },
 		Use: `StepTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a step type by id`,
 		Long:  `Get the details of a step type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.StepTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -7627,25 +6238,20 @@ var Get_StepTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Steps_cmd = &cobra.Command{
-		Aliases: []string{  "steps",  "S",  "s",  },
+		Aliases: []string{  "s",  "steps",  "S",  },
 		Use: `Steps {"StepID":"string"}`,
 		Short: `Get details of a step`,
 		Long:  `Get details of a step.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.StepsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AllDocumentSummaries"); test {
@@ -7657,25 +6263,20 @@ var Get_Steps_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_SubLineItemStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "slis",  "sublineitemstatuses",  "SLIS",  },
+		Aliases: []string{  "SLIS",  "slis",  "sublineitemstatuses",  },
 		Use: `SubLineItemStatuses {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a sub line item status by id`,
 		Long:  `Get the details of a sub line item status by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SubLineItemStatusesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -7685,9 +6286,8 @@ var Get_SubLineItemStatuses_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -7696,37 +6296,28 @@ var Get_SubLineItems_cmd = &cobra.Command{
 		Use: `SubLineItems {"ConstituentID":"string","IncludeAffiliations":"string","IncludePackageBaseSubLineitems":"string","OrderEndDate":"string","OrderID":"string","OrderStartDate":"string","PerformanceEndDate":"string","PerformanceStartDate":"string","PerformanceTypeIds":"string","SubLineItemStatusIds":"string"}`,
 		Short: `Returns sub line item summary data for a constituent`,
 		Long:  `Returns sub line item summary data for a constituent`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SubLineItemsGetSubLineItemSummaries , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Suffixes_cmd = &cobra.Command{
-		Aliases: []string{  "suffixes",  "S",  "s",  },
+		Aliases: []string{  "s",  "suffixes",  "S",  },
 		Use: `Suffixes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a suffix by id`,
 		Long:  `Get the details of a suffix by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SuffixesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -7736,9 +6327,8 @@ var Get_Suffixes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -7747,14 +6337,10 @@ var Get_SurveyQuestions_cmd = &cobra.Command{
 		Use: `SurveyQuestions {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a survey question by id`,
 		Long:  `Get the details of a survey question by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SurveyQuestionsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("DataFor"); test {
@@ -7766,25 +6352,20 @@ var Get_SurveyQuestions_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_SurveyResponses_cmd = &cobra.Command{
-		Aliases: []string{  "surveyresponses",  "SR",  "sr",  },
+		Aliases: []string{  "SR",  "sr",  "surveyresponses",  },
 		Use: `SurveyResponses {"SurveyResponseID":"string"}`,
 		Short: `Get details of a survey response`,
 		Long:  `Get details of a survey response.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SurveyResponsesGetAll , []byte(args[0]))
 			} else {
@@ -7792,25 +6373,20 @@ var Get_SurveyResponses_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_SystemDefaults_cmd = &cobra.Command{
-		Aliases: []string{  "SD",  "sd",  "systemdefaults",  },
+		Aliases: []string{  "systemdefaults",  "SD",  "sd",  },
 		Use: `SystemDefaults {"MaintenanceMode":"string"}`,
 		Short: `Get all system defaults`,
 		Long:  `Get all system defaults. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("Default"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SystemDefaultsGetDefault , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -7820,9 +6396,8 @@ var Get_SystemDefaults_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -7831,14 +6406,10 @@ var Get_TemplateCategories_cmd = &cobra.Command{
 		Use: `TemplateCategories {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a template category by id`,
 		Long:  `Get the details of a template category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.TemplateCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -7848,9 +6419,8 @@ var Get_TemplateCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -7859,14 +6429,10 @@ var Get_TemplatePriceTypes_cmd = &cobra.Command{
 		Use: `TemplatePriceTypes {"TemplatePriceTypeID":"string"}`,
 		Short: `Get details of a template price type`,
 		Long:  `Get details of a template price type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.TemplatePriceTypesGetAll , []byte(args[0]))
 			} else {
@@ -7874,25 +6440,20 @@ var Get_TemplatePriceTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_TemplatePrices_cmd = &cobra.Command{
-		Aliases: []string{  "tp",  "templateprices",  "TP",  },
+		Aliases: []string{  "templateprices",  "TP",  "tp",  },
 		Use: `TemplatePrices {"TemplatePriceID":"string"}`,
 		Short: `Get details of a template price`,
 		Long:  `Get details of a template price.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.TemplatePricesGetAll , []byte(args[0]))
 			} else {
@@ -7900,25 +6461,20 @@ var Get_TemplatePrices_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_TemplateTypes_cmd = &cobra.Command{
-		Aliases: []string{  "templatetypes",  "TT",  "tt",  },
+		Aliases: []string{  "TT",  "tt",  "templatetypes",  },
 		Use: `TemplateTypes {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a template type by id`,
 		Long:  `Get the details of a template type by id. To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.TemplateTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -7928,25 +6484,20 @@ var Get_TemplateTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Templates_cmd = &cobra.Command{
-		Aliases: []string{  "templates",  "T",  "t",  },
+		Aliases: []string{  "t",  "templates",  "T",  },
 		Use: `Templates {"TemplateID":"string"}`,
 		Short: `Get the details of a template by id`,
 		Long:  `Get the details of a template by id`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.TemplatesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -7956,25 +6507,20 @@ var Get_Templates_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Theaters_cmd = &cobra.Command{
-		Aliases: []string{  "T",  "t",  "theaters",  },
+		Aliases: []string{  "theaters",  "T",  "t",  },
 		Use: `Theaters {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a theater by id`,
 		Long:  `Get the details of a theater by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.TheatersGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -7984,48 +6530,38 @@ var Get_Theaters_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_TicketHistory_cmd = &cobra.Command{
-		Aliases: []string{  "th",  "tickethistory",  "TH",  },
+		Aliases: []string{  "tickethistory",  "TH",  "th",  },
 		Use: `TicketHistory {"ConstituentID":"string","IncludeAffiliations":"string","OrderEndDate":"string","OrderStartDate":"string","PerformanceEndDate":"string","PerformanceID":"string","PerformanceStartDate":"string","ProductionSeasonID":"string","SeasonID":"string"}`,
 		Short: `Gets history information for tickets`,
 		Long:  `Gets history information for tickets`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.TicketHistoryGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_TimeSlots_cmd = &cobra.Command{
-		Aliases: []string{  "timeslots",  "TS",  "ts",  },
+		Aliases: []string{  "TS",  "ts",  "timeslots",  },
 		Use: `TimeSlots {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a time slot by id`,
 		Long:  `Get the details of a time slot by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.TimeSlotsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -8035,9 +6571,8 @@ var Get_TimeSlots_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -8046,14 +6581,10 @@ var Get_Titles_cmd = &cobra.Command{
 		Use: `Titles {"ID":"string"}`,
 		Short: `Get details of a specific title`,
 		Long:  `Get details of a specific title.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.TitlesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -8063,9 +6594,8 @@ var Get_Titles_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -8074,37 +6604,28 @@ var Get_TransactionHistory_cmd = &cobra.Command{
 		Use: `TransactionHistory {"ConstituentID":"string","EndDate":"string","IncludeAffiliations":"string","Page":"string","PageSize":"string","PaymentID":"string","ReferenceID":"string","SortByDirection":"string","SortByField":"string","StartDate":"string"}`,
 		Short: `Get details of all transaction histories for the specified constituent id and all its visible affiliations' transaction histories as well`,
 		Long:  `Get details of all transaction histories for the specified constituent id and all its visible affiliations' transaction histories as well. To exclude transaction histories of the visible affiliations pass includeAffiliations=false. This resource is paged. Pass filters such as transaction reference id, payment id, or start and end date to limit the results. Results can also be sorted.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.TransactionHistoryGetAll , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_TriPOSCloudConfigurations_cmd = &cobra.Command{
-		Aliases: []string{  "triposcloudconfigurations",  "TPOSCC",  "tposcc",  },
+		Aliases: []string{  "TPOSCC",  "tposcc",  "triposcloudconfigurations",  },
 		Use: `TriPOSCloudConfigurations {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a TriPOS Cloud configuration by id`,
 		Long:  `Get the details of a TriPOS Cloud configuration by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.TriPOSCloudConfigurationsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -8114,25 +6635,20 @@ var Get_TriPOSCloudConfigurations_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_UpgradeCategories_cmd = &cobra.Command{
-		Aliases: []string{  "upgradecategories",  "UC",  "uc",  },
+		Aliases: []string{  "UC",  "uc",  "upgradecategories",  },
 		Use: `UpgradeCategories {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an Upgrade Category by id`,
 		Long:  `Get the details of an Upgrade Category by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.UpgradeCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -8142,25 +6658,20 @@ var Get_UpgradeCategories_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_UpgradeLogs_cmd = &cobra.Command{
-		Aliases: []string{  "UL",  "ul",  "upgradelogs",  },
+		Aliases: []string{  "ul",  "upgradelogs",  "UL",  },
 		Use: `UpgradeLogs {"UpgradeLogID":"string"}`,
 		Short: `Returns an upgradeLog for the given id`,
 		Long:  `Returns an upgradeLog for the given id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.UpgradeLogsGetAll , []byte(args[0]))
 			} else {
@@ -8168,25 +6679,20 @@ var Get_UpgradeLogs_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_UserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "UG",  "ug",  "usergroups",  },
+		Aliases: []string{  "usergroups",  "UG",  "ug",  },
 		Use: `UserGroups {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a user group by id`,
 		Long:  `Get the details of a user group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.UserGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -8196,25 +6702,20 @@ var Get_UserGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_UserPreferences_cmd = &cobra.Command{
-		Aliases: []string{  "UP",  "up",  "userpreferences",  },
+		Aliases: []string{  "userpreferences",  "UP",  "up",  },
 		Use: `UserPreferences {"Key":"string"}`,
 		Short: `Get a specific user preference by key`,
 		Long:  `Get a specific user preference by key.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.UserPreferencesGetAll , []byte(args[0]))
 			} else {
@@ -8222,9 +6723,8 @@ var Get_UserPreferences_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -8233,14 +6733,10 @@ var Get_Users_cmd = &cobra.Command{
 		Use: `Users {"UserName":"string"}`,
 		Short: `Get the details of a user for the specified username`,
 		Long:  `Get the details of a user for the specified username.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("ActiveDirectoryUser"); test {
 				out, err = tq.Do(*_tq, _tq.Get.UsersGetActiveDirectoryUser , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("UserInformationForActiveDirectoryUser"); test {
@@ -8252,9 +6748,8 @@ var Get_Users_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -8263,14 +6758,10 @@ var Get_WebContentTypes_cmd = &cobra.Command{
 		Use: `WebContentTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get a specific web content type`,
 		Long:  `Get a specific web content type.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.WebContentTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("DataFor"); test {
@@ -8282,9 +6773,8 @@ var Get_WebContentTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -8295,37 +6785,28 @@ var Get_WebContents_cmd = &cobra.Command{
 		Long:  `Returns web content for the requested production elements or packages.
 The result can be filtered by content types.  At least one package id or production element id is required.
 If the content type is found, returns the content value at the lowest level at which it was found in the production hierarchy (Title, Production, Production Season, Performance) for the requested element. Optionally, all matching content anywhere above the requested element in the production hierarchy can be returned with the ShowAll parameter.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.WebContentsGetWebContents , []byte(args[0]))
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_WebLogins_cmd = &cobra.Command{
-		Aliases: []string{  "WL",  "wl",  "weblogins",  },
+		Aliases: []string{  "weblogins",  "WL",  "wl",  },
 		Use: `WebLogins {"WebLoginID":"string"}`,
 		Short: `Get details of a weblogin`,
 		Long:  `Get details of a weblogin.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.WebLoginsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("LoginCredentials"); test {
@@ -8337,25 +6818,20 @@ var Get_WebLogins_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_WorkerQualifications_cmd = &cobra.Command{
-		Aliases: []string{  "WQ",  "wq",  "workerqualifications",  },
+		Aliases: []string{  "workerqualifications",  "WQ",  "wq",  },
 		Use: `WorkerQualifications {"WorkerQualificationID":"string"}`,
 		Short: `Get a single WorkerQualification by Id`,
 		Long:  `Get a single WorkerQualification by Id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.WorkerQualificationsGetAll , []byte(args[0]))
 			} else {
@@ -8363,25 +6839,20 @@ var Get_WorkerQualifications_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_WorkerRoles_cmd = &cobra.Command{
-		Aliases: []string{  "wr",  "workerroles",  "WR",  },
+		Aliases: []string{  "workerroles",  "WR",  "wr",  },
 		Use: `WorkerRoles {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a worker role by id`,
 		Long:  `Get the details of a worker role by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.WorkerRolesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -8391,9 +6862,8 @@ var Get_WorkerRoles_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -8402,14 +6872,10 @@ var Get_WorkerTypes_cmd = &cobra.Command{
 		Use: `WorkerTypes {"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a worker type by id`,
 		Long:  `Get the details of a worker type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.WorkerTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -8419,9 +6885,8 @@ var Get_WorkerTypes_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -8430,14 +6895,10 @@ var Get_Workers_cmd = &cobra.Command{
 		Use: `Workers {"WorkerID":"string"}`,
 		Short: `Get details of a worker`,
 		Long:  `Get details of a worker.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.WorkersGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -8447,9 +6908,8 @@ var Get_Workers_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -8458,14 +6918,10 @@ var Get_ZoneGroups_cmd = &cobra.Command{
 		Use: `ZoneGroups {"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a zone group by id`,
 		Long:  `Get the details of a zone group by id.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ZoneGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -8475,9 +6931,8 @@ var Get_ZoneGroups_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
@@ -8486,14 +6941,10 @@ var Get_ZoneMaps_cmd = &cobra.Command{
 		Use: `ZoneMaps {"ID":"string"}`,
 		Short: `Get details of a specific zone map`,
 		Long:  `Get details of a specific zone map.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ZoneMapsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -8503,25 +6954,20 @@ var Get_ZoneMaps_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
 var Get_Zones_cmd = &cobra.Command{
-		Aliases: []string{  "z",  "zones",  "Z",  },
+		Aliases: []string{  "zones",  "Z",  "z",  },
 		Use: `Zones {"ZoneID":"string","ZoneMapID":"string"}`,
 		Short: `Get details of a specific zone`,
 		Long:  `Get details of a specific zone.`,
-		PreRun: tqInit,
-		Run: func(cmd *cobra.Command, args []string) {
+		PreRunE: tqInit,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
-			if _tq == nil || _tq.TessituraServiceWeb == nil {
-				_tq.Log.Error("login failed, exiting")
-				return
-			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ZonesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -8531,9 +6977,8 @@ var Get_Zones_cmd = &cobra.Command{
 			}
 			if err == nil {
 				fmt.Println(out)
-			} else {
-				_tq.Log.Error(err.Error())
-			}
+			} 
+			return err
 		},
 	}
 
