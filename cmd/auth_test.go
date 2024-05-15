@@ -10,8 +10,13 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+var skipAuth bool = false
+
 // authenticateAddCmd adds an auth method
 func Test_authenticateAddCmd(t *testing.T) {
+	if skipAuth {
+		t.Skip()
+	}
 	// test that the https gets removed
 	*hostname = "https://tessitura.api/basePath"
 	*username = "user"
@@ -37,6 +42,10 @@ func Test_authenticateAddCmd(t *testing.T) {
 
 // authenticateListCmd lists all authentication methods
 func Test_authenticateListCmd(t *testing.T) {
+	if skipAuth {
+		t.Skip()
+	}
+
 	*hostname = ""
 	*username = ""
 	*usergroup = ""
@@ -52,6 +61,10 @@ func Test_authenticateListCmd(t *testing.T) {
 
 // authenticateDeleteCmd removes an authentication method
 func Test_authenticateDeleteCmd(t *testing.T) {
+	if skipAuth {
+		t.Skip()
+	}
+
 	*hostname = "tessitura.api/basePath"
 	*username = "user"
 	*usergroup = "group"
