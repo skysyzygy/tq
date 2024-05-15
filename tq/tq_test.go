@@ -87,26 +87,98 @@ func Test_unmarshallNestedStructWithRemainder(t *testing.T) {
 		D, E, F string
 		Nest    P
 	}
+	type NP struct {
+		D, E, F string
+		Nest    *P
+	}
 
 	// test that unmarshallNestedWithRemainder fills nested struct and returns map of extra data
 	n := new(N)
-	res, err := unmarshallNestedStructWithRemainder([]byte(`{"A": "these", "B": "are", "C": "words"}`), n)
+	res, err := unmarshallNestedStructWithRemainder([]byte(`{"A": "these", "B": "are", "C": "words"}`), n, nil)
 	assert.Equal(t, N{Nest: P{"these", "are", "words"}}, *n)
 	assert.NoError(t, err)
 	assert.Equal(t, 0, len(res))
 
 	n = new(N)
-	res, err = unmarshallNestedStructWithRemainder([]byte(`{"A": "these", "B": "are", "C": "words", "D": "nothing", "E": "more"}`), n)
+	res, err = unmarshallNestedStructWithRemainder([]byte(`{"A": "these", "B": "are", "C": "words", "D": "nothing", "E": "more"}`), n, nil)
 	assert.Equal(t, N{D: "nothing", E: "more", Nest: P{"these", "are", "words"}}, *n)
 	assert.NoError(t, err)
 	assert.Equal(t, 0, len(res))
 
 	n = new(N)
-	res, err = unmarshallNestedStructWithRemainder([]byte(`{"A": "these", "B": "are", "C": "words", "D": "nothing", "Z": "zzz"}`), n)
+	res, err = unmarshallNestedStructWithRemainder([]byte(`{"A": "these", "B": "are", "C": "words", "D": "nothing", "Z": "zzz"}`), n, nil)
 	assert.Equal(t, N{D: "nothing", Nest: P{"these", "are", "words"}}, *n)
 	assert.NoError(t, err)
 	assert.Equal(t, 1, len(res))
 	assert.Equal(t, map[string]any{"Z": "zzz"}, res)
+
+	// test that unmarshallNestedWithRemainder fills pointer to nested struct and returns map of extra data
+	np := new(NP)
+	res, err = unmarshallNestedStructWithRemainder([]byte(`{"A": "these", "B": "are", "C": "words"}`), np, nil)
+	assert.Equal(t, NP{Nest: &P{"these", "are", "words"}}, *np)
+	assert.NoError(t, err)
+	assert.Equal(t, 0, len(res))
+
+	np = new(NP)
+	res, err = unmarshallNestedStructWithRemainder([]byte(`{"A": "these", "B": "are", "C": "words", "D": "nothing", "E": "more"}`), np, nil)
+	assert.Equal(t, NP{D: "nothing", E: "more", Nest: &P{"these", "are", "words"}}, *np)
+	assert.NoError(t, err)
+	assert.Equal(t, 0, len(res))
+
+	np = new(NP)
+	res, err = unmarshallNestedStructWithRemainder([]byte(`{"A": "these", "B": "are", "C": "words", "D": "nothing", "Z": "zzz"}`), np, nil)
+	assert.Equal(t, NP{D: "nothing", Nest: &P{"these", "are", "words"}}, *np)
+	assert.NoError(t, err)
+	assert.Equal(t, 1, len(res))
+	assert.Equal(t, map[string]any{"Z": "zzz"}, res)
+}
+
+// Test that unmarshallNestedStructWithRemainder doesn't recurse into `except`ed fields
+func Test_unmarshallNestedStructWithRemainder_Noop(t *testing.T) {
+	type P struct{ A, B, C string }
+	type N struct {
+		D, E, F string
+		Nest    P
+	}
+	type NP struct {
+		D, E, F string
+		Nest    *P
+	}
+
+	// test that unmarshallNestedWithRemainder fills nested struct and returns map of extra data
+	n := new(N)
+	res, err := unmarshallNestedStructWithRemainder([]byte(`{"A": "these", "B": "are", "D": "just", "C": "words"}`), n, []string{"Nest"})
+	assert.Equal(t, N{Nest: P{}, D: "just"}, *n)
+	assert.NoError(t, err)
+	assert.Equal(t, 3, len(res))
+
+	np := new(NP)
+	res, err = unmarshallNestedStructWithRemainder([]byte(`{"A": "these", "B": "are", "D": "just", "C": "words"}`), np, []string{"Nest"})
+	assert.Equal(t, NP{Nest: nil, D: "just"}, *np)
+	assert.NoError(t, err)
+	assert.Equal(t, 3, len(res))
+}
+
+func Test_unmarshallNestedStructWithRemainder_Conflict(t *testing.T) {
+	type B struct {
+		ID int `json:"Id"`
+	}
+	type A struct {
+		ID  string
+		Obj *B
+	}
+
+	a := new(A)
+	res, err := unmarshallStructWithRemainder([]byte(`{"ID":"string","Id":123}`), a)
+	assert.Equal(t, A{"string", nil}, *a)
+	assert.Regexp(t, "cannot unmarshal number into .+ type string", err.Error())
+	assert.Equal(t, 1, len(res))
+
+	a = new(A)
+	res, err = unmarshallNestedStructWithRemainder([]byte(`{"ID":"string","Id":123}`), a, nil)
+	assert.Equal(t, A{"string", &B{123}}, *a)
+	assert.NoError(t, err)
+	assert.Equal(t, 0, len(res))
 
 }
 

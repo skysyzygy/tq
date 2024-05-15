@@ -15,6 +15,7 @@ import (
 
 	"github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
+	"github.com/go-openapi/strfmt"
 	"github.com/skysyzygy/tq/auth"
 	"github.com/skysyzygy/tq/client"
 )
@@ -139,19 +140,22 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 	if len(query) > 0 {
 		remainder, err = unmarshallStructWithRemainder(query, params)
 
-		// Is there a better way to determine failure?
-		if len(structFields(*params)) == 1 && len(mapFields(remainder)) > 0 {
-			remainder, err = unmarshallNestedStructWithRemainder(query, params)
+		// If there are fields left over...
+		if len(remainder) > 0 {
+			remainder, err = unmarshallNestedStructWithRemainder(query, params,
+				[]string{"timeout", "Context", "HTTPClient"})
 		}
 
 		if tq.verbose {
-			tq.Log.Info("structFields", "fields", fmt.Sprint(structFields(*params)))
-			tq.Log.Info("mapFields", "fields", fmt.Sprint(mapFields(remainder)))
+			tq.Log.Info("query fields mapped:", "fields", fmt.Sprint(structFields(*params)))
+			tq.Log.Info("query fields ignored:", "fields", fmt.Sprint(mapFields(remainder)))
+			if err != nil {
+				tq.Log.Info("unmarshalling returned error:", err)
+			}
 		}
-
 	}
 
-	if err != nil || len(structFields(*params)) == 0 && len(remainder) > 0 {
+	if err != nil && len(structFields(*params)) == 0 && len(remainder) > 0 {
 		err = errors.Join(fmt.Errorf("query %v could not be parsed into %#v",
 			string(query),
 			params), err)
@@ -197,9 +201,14 @@ func unmarshallStructWithRemainder(query []byte, params any) (res map[string]any
 	typ := reflect.TypeOf(params).Elem()
 	for key := range res {
 		for i := 0; i < typ.NumField(); i++ {
-			// go's JSON is case insensitive and so should we
-			if strings.EqualFold(key, typ.Field(i).Name) {
-				delete(res, key)
+			if key == typ.Field(i).Name ||
+				key == strings.Split(typ.Field(i).Tag.Get("json"), ",")[0] {
+				// But only if they are set
+				field := reflect.ValueOf(params).Elem().Field(i)
+				if !(field.IsZero() || field.Kind() == reflect.Pointer &&
+					field.Elem().IsZero()) {
+					delete(res, key)
+				}
 			}
 		}
 	}
@@ -209,7 +218,7 @@ func unmarshallStructWithRemainder(query []byte, params any) (res map[string]any
 
 // Unmarshall into a nested struct from a flat query and return the remainder as a map
 // Errors if P is not a struct type
-func unmarshallNestedStructWithRemainder(query []byte, params any) (res map[string]any, err error) {
+func unmarshallNestedStructWithRemainder(query []byte, params any, except []string) (res map[string]any, err error) {
 	if reflect.TypeOf(params).Kind() != reflect.Pointer {
 		return nil, fmt.Errorf("params must be pointer to struct, got %v", reflect.TypeOf(params).Kind())
 	} else if reflect.TypeOf(params).Elem().Kind() != reflect.Struct {
@@ -218,21 +227,31 @@ func unmarshallNestedStructWithRemainder(query []byte, params any) (res map[stri
 
 	// First unmarshal the given struct so that those fields get mapped if possible
 	res, err = unmarshallStructWithRemainder(query, params)
-	if err != nil {
+
+	query, _ = json.Marshal(res)
+	if string(query) == "{}" {
 		return
 	}
-	query, _ = json.Marshal(res)
 
 	v := reflect.ValueOf(params).Elem()
 	for i := 0; i < v.NumField(); i++ {
-		if v.Field(i).Kind() == reflect.Struct && v.Field(i).IsZero() {
-			// Recurse if there's a struct field
-			res, err = unmarshallNestedStructWithRemainder(query, v.Field(i).Addr().Interface())
-			if err != nil {
-				return
+		field := v.Field(i)
+		// Don't overwrite existing fields or `except`ed fields
+		if (field.IsZero() || field.Kind() == reflect.Pointer &&
+			field.Elem().IsZero()) && !slices.Contains(except, v.Type().Field(i).Name) {
+			if field.Type().Kind() == reflect.Pointer {
+				// new struct if pointer is nil
+				field.Set(reflect.New(field.Type().Elem()))
+			} else {
+				field = field.Addr()
 			}
-			// Update the query with only unmatched fields
-			query, _ = json.Marshal(res)
+			if field.Type().Elem().Kind() == reflect.Struct &&
+				field.Type().Elem() != reflect.TypeOf(strfmt.DateTime{}) {
+				// recurse if there's a struct field
+				res, err = unmarshallNestedStructWithRemainder(query, field.Interface(), except)
+				// Update the query with only unmatched fields
+				query, _ = json.Marshal(res)
+			}
 		}
 	}
 
