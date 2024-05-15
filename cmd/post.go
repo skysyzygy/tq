@@ -2631,7 +2631,7 @@ var Post_Origins_cmd = &cobra.Command{
 
 var Post_OutputSets_cmd = &cobra.Command{
 		Aliases: []string{  "OS",  "os",  "outputsets",  },
-		Use: `OutputSets {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"ElementGroups":[{"Elements":null,"Filters":null,"IncludePrimaryAffiliation":true,"IsSingleRow":true,"KeywordId":123},...],"Id":123,"LastUsedDateTime":"2000-01-01T00:00:00.000Z","TMSIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
+		Use: `OutputSets {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"ElementGroups":[{"IncludePrimaryAffiliation":true,"IsSingleRow":true,"KeywordId":123},...],"Id":123,"LastUsedDateTime":"2000-01-01T00:00:00.000Z","TMSIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create an Output Set`,
 		Long:  `Create an Output Set.`,
 		PreRunE: tqInit,
@@ -3998,7 +3998,7 @@ var Post_ReportUserGroups_cmd = &cobra.Command{
 
 var Post_Reports_cmd = &cobra.Command{
 		Aliases: []string{  "R",  "r",  "reports",  },
-		Use: `Reports {"ParameterName":"string","ReportId":"string","WhereDependencies":[{"ParameterId":"string","Values":null},...]}`,
+		Use: `Reports {"ParameterName":"string","ReportId":"string","WhereDependencies":[{"ParameterId":"string"},...]}`,
 		Short: `Get parameter values for a report parameter`,
 		Long:  `Get parameter values for a report parameter.`,
 		PreRunE: tqInit,
@@ -5755,7 +5755,7 @@ Can be used to add or remove holds from seats for the specified performance. Spe
 		Post_cmd.AddCommand(Post_ReportRequests_cmd) 
 				Post_ReportRequests_cmd.Flags().Bool("GenerateScheduled", false, 
 					`
-{"GenerateScheduledRequest":null}`)
+{}`)
 	
 		Post_cmd.AddCommand(Post_ReportSchedules_cmd) 
 				Post_ReportSchedules_cmd.Flags().Bool("Save", false, 

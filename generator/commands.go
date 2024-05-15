@@ -209,14 +209,14 @@ func usage(method reflect.Method) string {
 	usage = regexp.MustCompile(`^({[^{]*)"[^"]+":{(.+)}([^}]*})$`).
 		ReplaceAllString(usage, `$1$2$3`)
 
+	// remove null values
+	usage = strings.ReplaceAll(regexp.MustCompile(`,?"[^"]+":null`).
+		ReplaceAllString(usage, ""), "{,", "{")
+
 	// // fix case of duplicated keys
 	// if strings.Contains(usage, `"ID":"string"`) {
 	// 	usage = strings.ReplaceAll(usage, `"Id":123,`, "")
 	// }
-
-	// // fix unparseable context keys
-	// usage = regexp.MustCompile(`"Context":[^,]+,`).ReplaceAllString(usage, "")
-
 	return usage
 }
 
