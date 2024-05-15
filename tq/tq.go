@@ -150,7 +150,7 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 			tq.Log.Info("query fields mapped:", "fields", fmt.Sprint(structFields(*params)))
 			tq.Log.Info("query fields ignored:", "fields", fmt.Sprint(mapFields(remainder)))
 			if err != nil {
-				tq.Log.Info("unmarshalling returned error:", err)
+				tq.Log.Info("unmarshalling returned error:", "error", err)
 			}
 		}
 	}
