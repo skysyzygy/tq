@@ -28,14 +28,19 @@ func Test_{{ print $op "_" $key "_" .Variant "_cmd" }}(t *testing.T) {
         }
         {{ end -}}
 
-		input := strings.ReplaceAll(regexp.MustCompile(`\{.+\}$`).FindString(use),
-                    ",...","")
+		input := regexp.MustCompile(`\{.+\}$`).FindString(
+                            strings.ReplaceAll(use,",...",""))
+
         out, err := tq.CaptureOutput(func(){
             viper.Set("login",authString)
             // PreRun: tqInit
-            command.PreRunE(command, nil)
-            {{`//Use: {{ print $key " " $command.Usage }},`}}
-            command.RunE(command, []string{input})
+            if err := command.PreRunE(command, nil); err != nil {
+                panic(err)
+            }
+            {{`//Use: {{ print $key " " $command.Usage `}}
+            if err := command.RunE(command, []string{input}); err != nil {
+                _tq.Log.Error(err.Error())
+            }
         })
     
         assert.Empty(t, string(err))
