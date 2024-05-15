@@ -134,10 +134,13 @@ func instantiateStructType(t reflect.Type, depth int) (s any, maxDepth int) {
 						field = field.Index(0)
 					}
 					if depth > 0 {
-						s, i := instantiateStructType(field.Type(), depth-1)
-						field.Set(reflect.ValueOf(s))
 						if field.Type() != reflect.TypeOf(strfmt.DateTime{}) {
+							s, i := instantiateStructType(field.Type(), depth-1)
+							field.Set(reflect.ValueOf(s))
 							maxDepth = max(maxDepth, i+1)
+						} else {
+							date, _ := strfmt.ParseDateTime("2000-01-01")
+							field.Set(reflect.ValueOf(date))
 						}
 					} else {
 						// unset pointer
@@ -158,10 +161,10 @@ func instantiateStructType(t reflect.Type, depth int) (s any, maxDepth int) {
 
 // Generate usage for `method` by instantiating its first (non-receiver) argument
 // and marshaling it to a JSON byte string, removing go-swagger specific parts
-func usage(method reflect.Method) []byte {
+func usage(method reflect.Method) string {
 	numIn := method.Type.NumIn()
 	if numIn < 2 {
-		return nil
+		return ""
 	}
 	s, depth := instantiateStructType(method.Type.In(numIn-2), 2)
 	params := reflect.ValueOf(s)
@@ -170,7 +173,7 @@ func usage(method reflect.Method) []byte {
 	}
 	if params.Kind() != reflect.Struct {
 		// Oops! Don't know what to do =)
-		return nil
+		return ""
 	}
 
 	// have to remove fields before marshaling because HTTPClient is a function
@@ -183,21 +186,37 @@ func usage(method reflect.Method) []byte {
 		}
 	}
 
-	usage, err := json.Marshal(paramsMap)
+	usageB, err := json.Marshal(paramsMap)
+	usage := string(usageB)
 
 	if err != nil {
 		panic(err)
 	}
+	if string(usage) == "{}" {
+		return ""
+	}
+
 	if depth > 1 {
+		// simplify nested objects to just ids
 		usage = regexp.
 			MustCompile(`{[^{}]*("Id":[^,}]+)[^{}]*}`).
-			ReplaceAll(usage, []byte(`{$1}`))
+			ReplaceAllString(usage, `{$1}`)
 	}
-	usage = regexp.MustCompile(`]`).ReplaceAll(usage, []byte(`,...]`))
-	//usage = []byte(strings.ReplaceAll(string(usage), "null", "[object]"))
-	if string(usage) == "{}" {
-		usage = nil
-	}
+	// make a nice array notation
+	usage = regexp.MustCompile(`]`).ReplaceAllString(usage, `,...]`)
+
+	// remove outer nesting
+	usage = regexp.MustCompile(`^({[^{]*)"[^"]+":{(.+)}([^}]*})$`).
+		ReplaceAllString(usage, `$1$2$3`)
+
+	// // fix case of duplicated keys
+	// if strings.Contains(usage, `"ID":"string"`) {
+	// 	usage = strings.ReplaceAll(usage, `"Id":123,`, "")
+	// }
+
+	// // fix unparseable context keys
+	// usage = regexp.MustCompile(`"Context":[^,]+,`).ReplaceAllString(usage, "")
+
 	return usage
 }
 
@@ -226,7 +245,7 @@ func newCommand(method reflect.Method) command {
 		Short:   short,
 		Variant: variant,
 		Long:    long,
-		Usage:   string(usage(method)),
+		Usage:   usage(method),
 		Aliases: []string{short},
 	}
 
@@ -253,5 +272,6 @@ func makeAliases(name string) []string {
 	for key := range substrings {
 		out = append(out, key)
 	}
+	slices.Sort(out)
 	return out
 }

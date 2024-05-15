@@ -48,7 +48,8 @@ func init() {
 		{{ $op }}_cmd.AddCommand({{ print $op "_" $key "_cmd" }})
 		{{- if gt (len $commands) 1 }}
 			{{- range slice $commands 1 }} 
-				{{ print $op "_" $key "_cmd" }}.Flags().Bool("{{ .Variant }}", false, `{{ printf "%v\n%v" .Long .Usage}}`)
+				{{ print $op "_" $key "_cmd" }}.Flags().Bool("{{ .Variant }}", false, 
+					`{{ printf "%v\n%v" .Long .Usage }}`)
 			{{- end }} 
 		{{- end }}
 	{{ end }}
