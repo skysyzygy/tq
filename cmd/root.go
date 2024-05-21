@@ -24,7 +24,9 @@ package cmd
 import (
 	"errors"
 	"fmt"
+	"io"
 	"os"
+	"slices"
 
 	"github.com/skysyzygy/tq/auth"
 	"github.com/skysyzygy/tq/tq"
@@ -107,27 +109,52 @@ func initConfig() {
 // and logs it in using the default authentication method.
 // Defined here but shouldn't be called until the last minute in order to make sure
 // all flags are set and that we don't unnecessarily ping the server.
-func tqInit(cmd *cobra.Command, args []string) error {
-	var log *os.File
-	var err error
+func tqInit(cmd *cobra.Command, args []string) (err error) {
+	var log, json *os.File
+	var _err error
+
 	if logFile != "" {
 		// open log file for appending
-		log, err = os.OpenFile(logFile, os.O_APPEND&os.O_CREATE, 0644)
-		if err != nil {
-			return errors.Join(fmt.Errorf("Couldn't open log file: %v", logFile), err)
+		os.OpenFile(logFile, os.O_CREATE, 0644)
+		log, _err = os.OpenFile(logFile, os.O_RDWR, 0644)
+		if _err != nil {
+			err = errors.Join(fmt.Errorf("cannot open log file for appending"), _err, err)
 		}
 	}
 	_tq = tq.New(log, verbose, dryRun)
-	a, err := auth.FromString(viper.GetString("Login"))
-	if err != nil {
-		_tq.Log.Error("bad login string in config file", "error", err.Error(), "login", a)
-		return errors.Join(fmt.Errorf("bad login string in config file"), err)
+
+	if jsonFile != "" {
+		// open input file for reading
+		json, _err = os.OpenFile(jsonFile, os.O_RDONLY, 0644)
+		if _err != nil {
+			err = errors.Join(fmt.Errorf("cannot open input file for reading"), _err, err)
+		}
+		input, _err := io.ReadAll(json)
+		if _err != nil {
+			err = errors.Join(fmt.Errorf("cannot read from input file"), _err, err)
+		}
+		cmd.SetArgs(slices.Concat([]string{string(input)}, args))
 	}
+
+	a, _err := auth.FromString(viper.GetString("Login"))
+	if _err != nil {
+		err = errors.Join(fmt.Errorf("bad login string in config file"), _err, err)
+	}
+
 	a.Load()
-	if valid, err := a.Validate(); !valid || err != nil {
-		_tq.Log.Error("invalid login", "error", err.Error(), "login", a)
-		return errors.Join(fmt.Errorf("invalid login"), err)
+
+	if valid, _err := a.Validate(); !valid || _err != nil {
+		err = errors.Join(fmt.Errorf("invalid login"), _err, err)
+	}
+
+	if err != nil {
+		_tq.Log.Error(err.Error(),
+			"logFile", logFile,
+			"jsonFile", jsonFile,
+			"auth", a)
+		return err
 	}
 	_tq.Login(a)
+
 	return nil
 }
