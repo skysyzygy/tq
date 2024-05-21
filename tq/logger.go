@@ -20,6 +20,12 @@ func NewLogHandler(fileWriter io.Writer, level *slog.LevelVar) *logHandler {
 		}),
 		consoleLogger: slog.NewTextHandler(os.Stderr, &slog.HandlerOptions{
 			Level: level,
+			ReplaceAttr: func(groups []string, a slog.Attr) slog.Attr {
+				if a.Key == "time" {
+					return slog.Attr{}
+				}
+				return a
+			},
 		}),
 	}
 }
