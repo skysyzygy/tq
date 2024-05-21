@@ -156,9 +156,13 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 	}
 
 	if len(structFields(*params)) == 0 && len(remainder) > 0 {
-		err = errors.Join(fmt.Errorf("query %v could not be parsed into %#v",
-			string(query),
-			params), err)
+		if tq.verbose {
+			err = errors.Join(fmt.Errorf("query %v could not be parsed into %#v",
+				string(query),
+				params), err)
+		} else {
+			err = errors.Join(fmt.Errorf("query could not be parsed"), err)
+		}
 	}
 	if tq.dryRun || err != nil {
 		return nil, err
