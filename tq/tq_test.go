@@ -291,7 +291,7 @@ func Test_DoOneNoop(t *testing.T) {
 
 	res, err := DoOne(*tq, tq.Get.ConstituentsGet, query)
 	assert.Equal(t, []byte(nil), res)
-	assert.Regexp(t, "query .+ could not be parsed", err.Error())
+	assert.Regexp(t, "query could not be parsed", err.Error())
 
 }
 
