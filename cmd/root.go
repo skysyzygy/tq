@@ -61,7 +61,11 @@ var rootCmd = &cobra.Command{
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	err := rootCmd.Execute()
-	_tq.Log.Error(err.Error())
+	if _tq.Log != nil {
+		_tq.Log.Error(err.Error())
+	} else {
+		fmt.Printf("Error: %v", err.Error())
+	}
 	if err != nil {
 		os.Exit(1)
 	}
@@ -154,7 +158,7 @@ func tqInit(cmd *cobra.Command, args []string) (err error) {
 			"auth", a)
 		return err
 	}
-	_tq.Login(a)
+	err = _tq.Login(a)
 
-	return nil
+	return err
 }
