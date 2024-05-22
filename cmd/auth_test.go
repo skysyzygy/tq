@@ -32,7 +32,7 @@ func Test_authenticateAddCmd(t *testing.T) {
 	key, err := auth.Keys.Get("tessitura.api/basePath|user|group|location")
 	assert.Error(t, err)
 
-	authenticateAddCmd.Run(authenticateAddCmd, nil)
+	authenticateAddCmd.RunE(authenticateAddCmd, nil)
 
 	key, err = auth.Keys.Get("tessitura.api/basePath|user|group|location")
 	assert.Equal(t, "tessitura.api/basePath|user|group|location", key.Key)
@@ -73,8 +73,45 @@ func Test_authenticateDeleteCmd(t *testing.T) {
 	_, err := auth.Keys.Get("tessitura.api/basePath|user|group|location")
 	assert.NoError(t, err)
 
-	authenticateDeleteCmd.Run(authenticateDeleteCmd, nil)
+	authenticateDeleteCmd.RunE(authenticateDeleteCmd, nil)
 
 	_, err = auth.Keys.Get("tessitura.api/basePath|user|group|location")
 	assert.Error(t, err)
+}
+
+func Test_authenticateSelectCmd(t *testing.T) {
+	cfgFile = "tq.yaml"
+	// root command calls this to read in the config file
+	initConfig()
+	defer os.Remove("tq.yaml")
+
+	*hostname = "tessitura.api/basePath"
+	*username = "user"
+	*usergroup = "group"
+	*location = "location"
+
+	assert.NoFileExists(t, "tq.yaml")
+	authenticateSelectCmd.RunE(authenticateSelectCmd, nil)
+	assert.FileExists(t, "tq.yaml")
+
+	configFile, _ := os.ReadFile("tq.yaml")
+	assert.Contains(t, string(configFile), "login: tessitura.api/basePath|user|group|location")
+}
+
+func Test_authenticateSelectCmd_ExistingFile(t *testing.T) {
+	os.WriteFile("tq.yaml", []byte("verbose: true\nlogin: null"), 0644)
+	cfgFile = "tq.yaml"
+	// root command calls this to read in the config file
+	initConfig()
+	defer os.Remove("tq.yaml")
+
+	*hostname = "tessitura.api/basePath"
+	*username = "user"
+	*usergroup = "group"
+	*location = "location"
+
+	authenticateSelectCmd.RunE(authenticateSelectCmd, nil)
+	configFile, _ := os.ReadFile("tq.yaml")
+	assert.Contains(t, string(configFile), "login: tessitura.api/basePath|user|group|location")
+	assert.Contains(t, string(configFile), "verbose: true")
 }

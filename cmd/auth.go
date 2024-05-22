@@ -11,6 +11,7 @@ import (
 
 	"github.com/skysyzygy/tq/auth"
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 	"golang.org/x/term"
 )
 
@@ -28,7 +29,7 @@ var authenticateAddCmd = &cobra.Command{
 	Use:     "add",
 	Aliases: []string{"a", "add"},
 	Short:   "Add an Tessitura API authentication method",
-	Run: func(cmd *cobra.Command, args []string) {
+	RunE: func(cmd *cobra.Command, args []string) error {
 		fmt.Print("Password: ")
 		var (
 			password []byte
@@ -41,8 +42,7 @@ var authenticateAddCmd = &cobra.Command{
 			password, err = io.ReadAll(os.Stdin)
 		}
 		if err != nil {
-			fmt.Printf("Error: %s", err)
-			return
+			return err
 		}
 
 		// strip protocol from hostname if it exists
@@ -50,9 +50,7 @@ var authenticateAddCmd = &cobra.Command{
 
 		a := auth.New(host, *username, *usergroup, *location, password)
 		err = a.Save()
-		if err != nil {
-			fmt.Printf("Error: %s", err)
-		}
+		return err
 	},
 }
 
@@ -78,9 +76,22 @@ var authenticateDeleteCmd = &cobra.Command{
 	Use:     "delete",
 	Aliases: []string{"d", "del", "rm"},
 	Short:   `Delete a Tessitura API authentication method`,
-	Run: func(cmd *cobra.Command, args []string) {
+	RunE: func(cmd *cobra.Command, args []string) error {
 		a := auth.New(*hostname, *username, *usergroup, *location, nil)
-		a.Delete()
+		return a.Delete()
+	},
+}
+
+var authenticateSelectCmd = &cobra.Command{
+	Use:     "select",
+	Aliases: []string{"s", "sel"},
+	Short:   `Select a Tessitura API authentication method`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		a := auth.New(*hostname, *username, *usergroup, *location, nil)
+		str, _ := a.String()
+		viper.Set("login", str)
+		err := viper.WriteConfig()
+		return err
 	},
 }
 
@@ -92,5 +103,6 @@ func init() {
 	usergroup = authenticateCmd.PersistentFlags().StringP("group", "g", "", "group to authenticate with")
 	location = authenticateCmd.PersistentFlags().StringP("location", "L", "", "machine location to authenticate with")
 
-	authenticateCmd.AddCommand(authenticateAddCmd, authenticateListCmd, authenticateDeleteCmd)
+	authenticateCmd.AddCommand(authenticateAddCmd, authenticateListCmd,
+		authenticateDeleteCmd, authenticateSelectCmd)
 }
