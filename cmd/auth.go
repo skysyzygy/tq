@@ -84,7 +84,7 @@ var authenticateListCmd = &cobra.Command{
 			*username != "" ||
 			*usergroup != "" ||
 			*location != "" {
-			fmt.Println("Warning: parameters ignored")
+			os.Stderr.WriteString("Warning: parameters ignored\n")
 		}
 		auths, _ := auth.List()
 		for _, auth := range auths {
@@ -108,16 +108,14 @@ var authenticateSelectCmd = &cobra.Command{
 	Aliases: []string{"s", "sel"},
 	Short:   `Select a Tessitura API authentication method`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		if *hostname == "" &&
-			*username == "" &&
-			*usergroup == "" &&
-			*location == "" {
-			return fmt.Errorf("no authentication information provided, nothing to select")
-		}
 		a := auth.New(*hostname, *username, *usergroup, *location, nil)
+		err := a.Load()
+		if err != nil {
+			return err
+		}
 		str, _ := a.String()
 		viper.Set("login", str)
-		err := viper.WriteConfig()
+		err = viper.WriteConfig()
 		return err
 	},
 }
