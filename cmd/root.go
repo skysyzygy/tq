@@ -61,12 +61,12 @@ var rootCmd = &cobra.Command{
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	err := rootCmd.Execute()
-	if _tq.Log != nil {
-		_tq.Log.Error(err.Error())
-	} else {
-		fmt.Printf("Error: %v", err.Error())
-	}
 	if err != nil {
+		if _tq != nil && _tq.Log != nil {
+			_tq.Log.Error(err.Error())
+		} else {
+			fmt.Println("Error: ", err.Error())
+		}
 		os.Exit(1)
 	}
 }
