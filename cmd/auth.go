@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"regexp"
 
 	"github.com/skysyzygy/tq/auth"
 	"github.com/spf13/cobra"
@@ -66,10 +65,7 @@ var authenticateAddCmd = &cobra.Command{
 			return err
 		}
 
-		// strip protocol from hostname if it exists
-		host := regexp.MustCompile("^.+//").ReplaceAllString(*hostname, "")
-
-		a := auth.New(host, *username, *usergroup, *location, password)
+		a := auth.New(*hostname, *username, *usergroup, *location, password)
 		err = a.Save()
 		return err
 	},
