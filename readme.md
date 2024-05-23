@@ -7,6 +7,18 @@
                      
 **tq** is basically a high-level API for common tasks in Tessi.
 
+## installation:
+
+The only prerequisite to using **tq** is [installing go](https://go.dev/doc/install).
+
+Then clone this repository and build:
+```
+git clone github.com/skysyzygy/tq
+cd tq
+go build .
+```
+
+
 ## usage: 
 
 ``` tq [flags] [verb] [object] [query]```
