@@ -116,6 +116,26 @@ var authenticateSelectCmd = &cobra.Command{
 	},
 }
 
+var authenticateValidateCmd = &cobra.Command{
+	Use:     "validate",
+	Aliases: []string{"v", "val"},
+	Short:   `Validate a Tessitura API authentication method with the server`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		a := auth.New(*hostname, *username, *usergroup, *location, nil)
+		err := a.Load()
+		if err != nil {
+			return err
+		}
+		valid, err := a.Validate()
+		if valid {
+			os.Stderr.WriteString("Success: authentication is valid!")
+		} else {
+			os.Stderr.WriteString("Failure: authentication is not valid.")
+		}
+		return err
+	},
+}
+
 func init() {
 	rootCmd.AddCommand(authenticateCmd)
 
@@ -125,5 +145,5 @@ func init() {
 	location = authenticateCmd.PersistentFlags().StringP("location", "L", "", "machine location to authenticate with")
 
 	authenticateCmd.AddCommand(authenticateAddCmd, authenticateListCmd,
-		authenticateDeleteCmd, authenticateSelectCmd)
+		authenticateDeleteCmd, authenticateSelectCmd, authenticateValidateCmd)
 }
