@@ -4,10 +4,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const longSuffix string = `Queries are simply JSON objects and can be batched by ` +
-	`combining multiple query objects into a single JSON array, e.g.\n` +
+const longSuffix string = "Queries are simply JSON objects and can be batched by " +
+	"combining multiple query objects into a single JSON array, e.g. \n\n\t" +
 	`[{"ID":123},{"ID":124},{"ID":125},...]` +
-	`Object definitions are detailed in the help for each command.`
+	"\n\nQuery details are detailed in the help for each command."
 
 var Get_cmd = &cobra.Command{
 	Use:     "get",
