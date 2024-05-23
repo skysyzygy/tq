@@ -12,21 +12,21 @@ var (
 
 	paraStyle = lipgloss.NewStyle().
 			Align(lipgloss.Left).
-			Foreground(lipgloss.Color("#FAFAFA")).
-			Background(highlight).
-			Padding(1, 2)
+		//Foreground(lipgloss.Color("#FAFAFA")).
+		//Background(highlight).
+		Padding(1, 2)
 
 	titleStyle = lipgloss.NewStyle().
 			MarginLeft(1).
 			MarginRight(5).
 			Padding(0, 1).
-			Italic(true).
-			Foreground(highlight)
+			Italic(true) //.
+		//Foreground(highlight)
 
 	hiliteStyle = lipgloss.NewStyle().
-			Foreground(lipgloss.Color("#FFFDF5")).
-			Background(lipgloss.Color("#FF5F87")).
-			Padding(0, 1)
+		//Foreground(lipgloss.Color("#FFFDF5")).
+		//Background(lipgloss.Color("#FF5F87")).
+		Padding(0, 1)
 )
 
 func helpParagraph(para string) string {
