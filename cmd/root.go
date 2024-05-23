@@ -116,7 +116,11 @@ func initConfig() {
 	if err := viper.ReadInConfig(); err == nil {
 		fmt.Fprintln(os.Stderr, "Using config file:", viper.ConfigFileUsed())
 	} else {
-		os.OpenFile(cfgFile, os.O_CREATE|os.O_WRONLY, 0644)
+		cfg, err := os.OpenFile(cfgFile, os.O_CREATE|os.O_WRONLY, 0644)
+		cfg.Close()
+		if err != nil {
+			fmt.Fprintln(os.Stderr, "Warning: couldn't access config file")
+		}
 	}
 }
 
