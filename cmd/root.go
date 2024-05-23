@@ -106,6 +106,8 @@ func initConfig() {
 	// If a config file is found, read it in.
 	if err := viper.ReadInConfig(); err == nil {
 		fmt.Fprintln(os.Stderr, "Using config file:", viper.ConfigFileUsed())
+	} else {
+		os.OpenFile(cfgFile, os.O_CREATE|os.O_WRONLY, 0644)
 	}
 }
 
@@ -119,8 +121,7 @@ func tqInit(cmd *cobra.Command, args []string) (err error) {
 
 	if logFile != "" {
 		// open log file for appending
-		os.OpenFile(logFile, os.O_CREATE, 0644)
-		log, _err = os.OpenFile(logFile, os.O_RDWR, 0644)
+		log, _err = os.OpenFile(logFile, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
 		if _err != nil {
 			err = errors.Join(fmt.Errorf("cannot open log file for appending"), _err, err)
 		}
