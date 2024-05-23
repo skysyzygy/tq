@@ -3,9 +3,9 @@
 ![go workflow](https://github.com/skysyzygy/tq/actions/workflows/go.yml/badge.svg)
 [![codecov](https://codecov.io/gh/skysyzygy/tq/graph/badge.svg?token=Ov8gpBWhHQ)](https://codecov.io/gh/skysyzygy/tq)
 
-**tq** is a wrapper around the Tessitura API that reads JSON-formatted data and outputs a series of API calls to Tessitura. It internally handles authentication, session creation and closure, and batch/concurrent processing so that humans like you (or bots or scripts) can focus on the data and not the intricacies of the Tessitura API.                                                       
+**tq** is a wrapper around the Tessitura API that reads JSON-formatted data and executes a series of API calls to Tessitura. It internally handles authentication, session creation and closure, and batch/concurrent processing so that humans like you (or bots or scripts) can focus on the data and not the intricacies of the Tessitura API.                                                       
                      
-**tq** is basically a high-level API for common tasks in Tessi.
+**tq** is basically a command-line interface for Tessitura. 🚀
 
 ## installation:
 
@@ -58,10 +58,13 @@ Queries are simply JSON objects and can be batched by combining multiple query o
 
 ```[{"ID":123},{"ID":124},{"ID":125},...]```
 
-Query details are detailed in the help for each command.
+Query object details are detailed in the help for each command.
 
 
 ### objects:
+These are the gettable objects with a brief description from the Tessi API docs. 
+Additional command variants are available (e.g. `--All`, `--Summary`, etc.) and are detailed in the help for each object.
+
 *  **AccountTypes** :                            Get the details of an account type by id
 *  **Accounts** :                                Get details of a specific credit card account
 *  **ActionTypes** :                             Get the details of an action type by id
