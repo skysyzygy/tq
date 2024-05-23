@@ -160,7 +160,7 @@ func tqInit(cmd *cobra.Command, args []string) (err error) {
 		err = errors.Join(fmt.Errorf("bad login string in config file"), _err, err)
 	}
 
-	a.Load()
+	err = errors.Join(a.Load(), err)
 
 	if valid, _err := a.Validate(); !valid || _err != nil {
 		err = errors.Join(fmt.Errorf("invalid login"), _err, err)
@@ -172,10 +172,6 @@ func tqInit(cmd *cobra.Command, args []string) (err error) {
 			"jsonFile", jsonFile,
 			"auth", a)
 		return err
-	}
-
-	if len(args) == 0 {
-		cmd.SetArgs([]string{""})
 	}
 
 	return _tq.Login(a)

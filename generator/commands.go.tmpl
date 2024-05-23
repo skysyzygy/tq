@@ -23,6 +23,9 @@ var {{ print $op "_" $key "_cmd" }} = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			{{ if gt (len $commands) 1 }}
 			{{- range slice $commands 1 -}}
 			if test, _ := cmd.Flags().GetBool("{{ .Variant }}"); test {

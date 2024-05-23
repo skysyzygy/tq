@@ -19,6 +19,9 @@ var Get_AccountTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AccountTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -42,6 +45,9 @@ var Get_Accounts_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AccountsGetAll , []byte(args[0]))
 			} else {
@@ -63,6 +69,9 @@ var Get_ActionTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ActionTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -86,6 +95,9 @@ var Get_Actions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ActionsGetAll , []byte(args[0]))
 			} else {
@@ -107,6 +119,9 @@ var Get_ActivityCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ActivityCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -130,6 +145,9 @@ var Get_ActivityTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ActivityTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -153,6 +171,9 @@ var Get_AddressTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AddressTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -176,6 +197,9 @@ var Get_Addresses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AddressesGetAll , []byte(args[0]))
 			} else {
@@ -197,6 +221,9 @@ var Get_AffiliationTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AffiliationTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -220,6 +247,9 @@ var Get_Affiliations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AffiliationsGetAll , []byte(args[0]))
 			} else {
@@ -241,6 +271,9 @@ var Get_AliasTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AliasTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -264,6 +297,9 @@ var Get_Aliases_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AliasesGetAll , []byte(args[0]))
 			} else {
@@ -285,6 +321,9 @@ var Get_AnalyticsCubes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AnalyticsCubesGetAll , []byte(args[0]))
 			} else {
@@ -306,6 +345,9 @@ var Get_AnalyticsReports_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AnalyticsReportsGetAll , []byte(args[0]))
 			} else {
@@ -327,6 +369,9 @@ var Get_AppScreenTexts_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AppScreenTextsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -350,6 +395,9 @@ var Get_AppealCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AppealCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -373,6 +421,9 @@ var Get_Appeals_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AppealsGetSummaries , []byte(args[0]))
 			} else {
@@ -394,6 +445,9 @@ var Get_ApplicationObjects_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.ApplicationObjectsGetAll , []byte(args[0]))
 			if err == nil {
@@ -412,6 +466,9 @@ var Get_Artists_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ArtistsGetAll , []byte(args[0]))
 			} else {
@@ -433,6 +490,9 @@ var Get_AssetTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AssetTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -456,6 +516,9 @@ var Get_Assets_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AssetsGetAll , []byte(args[0]))
 			} else {
@@ -477,6 +540,9 @@ var Get_AssociationTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AssociationTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -500,6 +566,9 @@ var Get_Associations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AssociationsGetAll , []byte(args[0]))
 			} else {
@@ -521,6 +590,9 @@ var Get_AttendanceHistory_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.AttendanceHistoryGetAll , []byte(args[0]))
 			if err == nil {
@@ -539,6 +611,9 @@ var Get_Attributes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AttributesGetAll , []byte(args[0]))
 			} else {
@@ -560,6 +635,9 @@ var Get_AuditLogs_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.AuditLogsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Details"); test {
@@ -583,6 +661,9 @@ var Get_Authenticate_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.AuthenticateWindowsAuthentication , []byte(args[0]))
 			if err == nil {
@@ -601,6 +682,9 @@ var Get_BatchMaintenance_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Active"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BatchMaintenanceActive , []byte(args[0]))
 			} else {
@@ -622,6 +706,9 @@ var Get_BatchTypeGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BatchTypeGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -645,6 +732,9 @@ var Get_BatchTypeUserGroup_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.BatchTypeUserGroupGetAll , []byte(args[0]))
 			if err == nil {
@@ -663,6 +753,9 @@ var Get_BatchTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BatchTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -686,6 +779,9 @@ var Get_BillingSchedules_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BillingSchedulesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -709,6 +805,9 @@ var Get_BillingTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BillingTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -732,6 +831,9 @@ var Get_BookingCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BookingCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -755,6 +857,9 @@ var Get_BookingTemplates_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BookingTemplatesGetSummaries , []byte(args[0]))
 			} else {
@@ -776,6 +881,9 @@ var Get_Bookings_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("AllDocumentSummaries"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BookingsGetAllDocumentSummaries , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AllDocuments"); test {
@@ -803,6 +911,9 @@ var Get_BulkCopySets_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BulkCopySetsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("DayForCopy"); test {
@@ -828,6 +939,9 @@ var Get_BulkDailyCopyExclusions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BulkDailyCopyExclusionsGetAll , []byte(args[0]))
 			} else {
@@ -849,6 +963,9 @@ var Get_BusinessUnits_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.BusinessUnitsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -872,6 +989,9 @@ var Get_Cache_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.CacheInit , []byte(args[0]))
 			if err == nil {
@@ -890,6 +1010,9 @@ var Get_CampaignDesignations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CampaignDesignationsGetAll , []byte(args[0]))
 			} else {
@@ -911,6 +1034,9 @@ var Get_CampaignFunds_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CampaignFundsGetAll , []byte(args[0]))
 			} else {
@@ -932,6 +1058,9 @@ var Get_Campaigns_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CampaignsGetSummaries , []byte(args[0]))
 			} else {
@@ -953,6 +1082,9 @@ var Get_CardReaderTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CardReaderTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -976,6 +1108,9 @@ var Get_Cart_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("CartProperties"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CartGetCartProperties , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Messages"); test {
@@ -1003,6 +1138,9 @@ var Get_Colors_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ColorsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1026,6 +1164,9 @@ var Get_Composers_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ComposersGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1049,6 +1190,9 @@ var Get_Constituencies_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ConstituenciesGetAll , []byte(args[0]))
 			} else {
@@ -1070,6 +1214,9 @@ var Get_ConstituencyTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ConstituencyTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1093,6 +1240,9 @@ var Get_ConstituentContributions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.ConstituentContributionsGetAll , []byte(args[0]))
 			if err == nil {
@@ -1111,6 +1261,9 @@ var Get_ConstituentDocuments_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentDocumentsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AllSummary"); test {
@@ -1134,6 +1287,9 @@ var Get_ConstituentGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1157,6 +1313,9 @@ var Get_ConstituentInactives_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentInactivesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1180,6 +1339,9 @@ var Get_ConstituentProtectionTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentProtectionTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1203,6 +1365,9 @@ var Get_ConstituentTypeAffiliates_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentTypeAffiliatesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1226,6 +1391,9 @@ var Get_ConstituentTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1249,6 +1417,9 @@ var Get_Constituents_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Constituent"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentsGetConstituent , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ConstituentDevelopmentInfo"); test {
@@ -1286,6 +1457,9 @@ var Get_ContactPermissionCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContactPermissionCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1309,6 +1483,9 @@ var Get_ContactPermissionTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContactPermissionTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ForProductionSeasons"); test {
@@ -1334,6 +1511,9 @@ var Get_ContactPermissions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContactPermissionsGetAll , []byte(args[0]))
 			} else {
@@ -1355,6 +1535,9 @@ var Get_ContactPointCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContactPointCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1378,6 +1561,9 @@ var Get_ContactPointCategoryPurposes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContactPointCategoryPurposesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1401,6 +1587,9 @@ var Get_ContactPointPurposeCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposeCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1424,6 +1613,9 @@ var Get_ContactPointPurposeMaps_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposeMapsGetAll , []byte(args[0]))
 			} else {
@@ -1445,6 +1637,9 @@ var Get_ContactPointPurposes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1468,6 +1663,9 @@ var Get_ContactPoints_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.ContactPointsGetAll , []byte(args[0]))
 			if err == nil {
@@ -1486,6 +1684,9 @@ var Get_ContactTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContactTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1509,6 +1710,9 @@ var Get_ContextInformation_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.ContextInformationGet , []byte(args[0]))
 			if err == nil {
@@ -1527,6 +1731,9 @@ var Get_ContributionDesignations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContributionDesignationsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1550,6 +1757,9 @@ var Get_ContributionImportSets_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ContributionImportSetsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1573,6 +1783,9 @@ var Get_ControlGroupUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ControlGroupUserGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1596,6 +1809,9 @@ var Get_ControlGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ControlGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1619,6 +1835,9 @@ var Get_CoreIdentity_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.CoreIdentityToken , []byte(args[0]))
 			if err == nil {
@@ -1637,6 +1856,9 @@ var Get_Countries_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CountriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1660,6 +1882,9 @@ var Get_CrediteeTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CrediteeTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1683,6 +1908,9 @@ var Get_Credits_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.CreditsGetCredits , []byte(args[0]))
 			if err == nil {
@@ -1701,6 +1929,9 @@ var Get_CriterionOperators_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CriterionOperatorsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1724,6 +1955,9 @@ var Get_CumulativeGivingReceipts_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CumulativeGivingReceiptsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ForSession"); test {
@@ -1747,6 +1981,9 @@ var Get_CurrencyTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CurrencyTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1770,6 +2007,9 @@ var Get_Custom_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CustomGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Metadata"); test {
@@ -1793,6 +2033,9 @@ var Get_CustomDefaultCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CustomDefaultCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1816,6 +2059,9 @@ var Get_CustomDefaults_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.CustomDefaultsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1839,6 +2085,9 @@ var Get_DeliveryMethods_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DeliveryMethodsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1862,6 +2111,9 @@ var Get_DesignationCodes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DesignationCodesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1885,6 +2137,9 @@ var Get_Designs_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DesignsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1908,6 +2163,9 @@ var Get_Diagnostics_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("SeatServerStatus"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DiagnosticsGetSeatServerStatus , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Status"); test {
@@ -1933,6 +2191,9 @@ var Get_DirectDebitAccountTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DirectDebitAccountTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1956,6 +2217,9 @@ var Get_DiscountTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DiscountTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -1979,6 +2243,9 @@ var Get_Divisions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("ForDivision"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DivisionsGetForDivision , []byte(args[0]))
 			} else {
@@ -2000,6 +2267,9 @@ var Get_DocumentCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DocumentCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2023,6 +2293,9 @@ var Get_Documents_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DocumentsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AllSummary"); test {
@@ -2048,6 +2321,9 @@ var Get_DonationLevels_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.DonationLevelsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2071,6 +2347,9 @@ var Get_EMV_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("ConnectionStatus"); test {
 				out, err = tq.Do(*_tq, _tq.Get.EMVGetConnectionStatus , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ConnectionStatusHistory"); test {
@@ -2098,6 +2377,9 @@ var Get_ElectronicAddressTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ElectronicAddressTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2121,6 +2403,9 @@ var Get_ElectronicAddresses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ElectronicAddressesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("IsAttachedToLogin"); test {
@@ -2144,6 +2429,9 @@ var Get_EmailProfiles_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.EmailProfilesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2167,6 +2455,9 @@ var Get_EmarketIndicators_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.EmarketIndicatorsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2190,6 +2481,9 @@ var Get_Eras_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ErasGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2213,6 +2507,9 @@ var Get_EventControl_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.EventControlGetAll , []byte(args[0]))
 			if err == nil {
@@ -2231,6 +2528,9 @@ var Get_Facilities_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.FacilitiesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Screens"); test {
@@ -2256,6 +2556,9 @@ var Get_Fees_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.FeesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2279,6 +2582,9 @@ var Get_FinanceContributions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.FinanceContributionsGetAll , []byte(args[0]))
 			} else {
@@ -2300,6 +2606,9 @@ var Get_Formats_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.FormatsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2323,6 +2632,9 @@ var Get_Funds_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				out, err = tq.Do(*_tq, _tq.Get.FundsGetSummaries , []byte(args[0]))
 			} else {
@@ -2344,6 +2656,9 @@ var Get_GLAccounts_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.GLAccountsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2367,6 +2682,9 @@ var Get_Genders_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.GendersGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2390,6 +2708,9 @@ var Get_GiftAidContactMethods_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidContactMethodsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2413,6 +2734,9 @@ var Get_GiftAidDeclarations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidDeclarationsGetAll , []byte(args[0]))
 			} else {
@@ -2434,6 +2758,9 @@ var Get_GiftAidDocumentStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidDocumentStatusesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2457,6 +2784,9 @@ var Get_GiftAidIneligibleReasons_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidIneligibleReasonsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2480,6 +2810,9 @@ var Get_GiftAidRates_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidRatesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2503,6 +2836,9 @@ var Get_GiftAidStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidStatusesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2526,6 +2862,9 @@ var Get_GiftAidTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2550,6 +2889,9 @@ The original amount, amount used and balance are all returned.  Amounts applied 
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.GiftCertificatesGet , []byte(args[0]))
 			if err == nil {
@@ -2568,6 +2910,9 @@ var Get_HoldCodeCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.HoldCodeCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2591,6 +2936,9 @@ var Get_HoldCodeUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.HoldCodeUserGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2616,6 +2964,9 @@ var Get_HoldCodes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.HoldCodesGetAll , []byte(args[0]))
 			} else {
@@ -2637,6 +2988,9 @@ var Get_InactiveReasons_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.InactiveReasonsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2660,6 +3014,9 @@ var Get_IntegrationDefaults_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.IntegrationDefaultsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2683,6 +3040,9 @@ var Get_Integrations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.IntegrationsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2706,6 +3066,9 @@ var Get_InterestCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.InterestCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2729,6 +3092,9 @@ var Get_InterestTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.InterestTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2752,6 +3118,9 @@ var Get_Interests_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.InterestsGetAll , []byte(args[0]))
 			} else {
@@ -2773,6 +3142,9 @@ var Get_Internal_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.InternalGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ConstituentMiniSnapshot"); test {
@@ -2796,6 +3168,9 @@ var Get_InventoryContactPermissionTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.InventoryContactPermissionTypesGetAll , []byte(args[0]))
 			} else {
@@ -2817,6 +3192,9 @@ var Get_InventoryWebContents_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.InventoryWebContentsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AllSummaries"); test {
@@ -2840,6 +3218,9 @@ var Get_InvoiceBilling_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.InvoiceBillingStatus , []byte(args[0]))
 			if err == nil {
@@ -2858,6 +3239,9 @@ var Get_Issues_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.IssuesGetAll , []byte(args[0]))
 			} else {
@@ -2879,6 +3263,9 @@ var Get_KeywordCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.KeywordCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2902,6 +3289,9 @@ var Get_Keywords_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.KeywordsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("DataFor"); test {
@@ -2927,6 +3317,9 @@ var Get_Languages_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.LanguagesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2950,6 +3343,9 @@ var Get_ListCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ListCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -2973,6 +3369,9 @@ var Get_Lists_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Contents"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ListsGetContents , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ContentsDetail"); test {
@@ -3000,6 +3399,9 @@ var Get_LoginTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.LoginTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3023,6 +3425,9 @@ var Get_MachineSettings_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.MachineSettingsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3046,6 +3451,9 @@ var Get_MailIndicators_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.MailIndicatorsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3069,6 +3477,9 @@ var Get_MediaTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.MediaTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3092,6 +3503,9 @@ var Get_MembershipLevelCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.MembershipLevelCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3116,6 +3530,9 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.MembershipLevelsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3140,6 +3557,9 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.MembershipOrganizationsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3163,6 +3583,9 @@ var Get_MembershipStandings_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.MembershipStandingsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3187,6 +3610,9 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.MembershipsGetAll , []byte(args[0]))
 			if err == nil {
@@ -3205,6 +3631,9 @@ var Get_MerchantReferences_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.MerchantReferencesReference , []byte(args[0]))
 			if err == nil {
@@ -3223,6 +3652,9 @@ var Get_Merchants_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.MerchantsGetMerchants , []byte(args[0]))
 			if err == nil {
@@ -3241,6 +3673,9 @@ var Get_ModeOfSaleCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleCategoriesGetAll , []byte(args[0]))
 			} else {
@@ -3262,6 +3697,9 @@ var Get_ModeOfSaleOffers_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleOffersGetAll , []byte(args[0]))
 			} else {
@@ -3283,6 +3721,9 @@ var Get_ModeOfSalePriceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ModeOfSalePriceTypesGetAll , []byte(args[0]))
 			} else {
@@ -3304,6 +3745,9 @@ var Get_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleSurveyQuestionsGetAll , []byte(args[0]))
 			} else {
@@ -3325,6 +3769,9 @@ var Get_ModeOfSaleUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleUserGroupsGetAll , []byte(args[0]))
 			} else {
@@ -3346,6 +3793,9 @@ var Get_ModesOfSale_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ModesOfSaleGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3369,6 +3819,9 @@ var Get_NScanAccessAreas_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.NScanAccessAreasGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3392,6 +3845,9 @@ var Get_NameStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.NameStatusesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3415,6 +3871,9 @@ var Get_ObjectPermissions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ObjectPermissionsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3438,6 +3897,9 @@ var Get_OrderBilling_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Status"); test {
 				out, err = tq.Do(*_tq, _tq.Get.OrderBillingStatus , []byte(args[0]))
 			} else {
@@ -3459,6 +3921,9 @@ var Get_OrderCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.OrderCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3482,6 +3947,9 @@ var Get_Orders_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.OrdersGetProductsView , []byte(args[0]))
 			if err == nil {
@@ -3500,6 +3968,9 @@ var Get_Organizations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.OrganizationsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3523,6 +3994,9 @@ var Get_OriginalSources_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.OriginalSourcesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3546,6 +4020,9 @@ var Get_Origins_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.OriginsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3569,6 +4046,9 @@ var Get_OutputSets_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				out, err = tq.Do(*_tq, _tq.Get.OutputSetsGetSummaries , []byte(args[0]))
 			} else {
@@ -3590,6 +4070,9 @@ var Get_PackageHistory_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.PackageHistoryGetAll , []byte(args[0]))
 			if err == nil {
@@ -3608,6 +4091,9 @@ var Get_PackagePriceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PackagePriceTypesGetAll , []byte(args[0]))
 			} else {
@@ -3629,6 +4115,9 @@ var Get_PackageTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PackageTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3652,6 +4141,9 @@ var Get_PackageWebContents_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PackageWebContentsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AllSummaries"); test {
@@ -3675,6 +4167,9 @@ var Get_Packages_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PackagesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("PackageDetail"); test {
@@ -3710,6 +4205,9 @@ var Get_PaymentGatewayActivities_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayActivitiesGetAll , []byte(args[0]))
 			} else {
@@ -3731,6 +4229,9 @@ var Get_PaymentGatewayConfiguration_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayConfigurationGetConfiguration , []byte(args[0]))
 			if err == nil {
@@ -3749,6 +4250,9 @@ var Get_PaymentGatewayNotifications_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Check"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayNotificationsCheck , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Notification"); test {
@@ -3774,6 +4278,9 @@ var Get_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayTransactionTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3797,6 +4304,9 @@ var Get_PaymentHistory_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.PaymentHistoryGetAll , []byte(args[0]))
 			if err == nil {
@@ -3815,6 +4325,9 @@ var Get_PaymentMethodGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PaymentMethodGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3838,6 +4351,9 @@ var Get_PaymentMethodUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PaymentMethodUserGroupsGetAll , []byte(args[0]))
 			} else {
@@ -3859,6 +4375,9 @@ var Get_PaymentMethods_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PaymentMethodsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Check"); test {
@@ -3884,6 +4403,9 @@ var Get_PaymentSignatures_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PaymentSignaturesGetAll , []byte(args[0]))
 			} else {
@@ -3905,6 +4427,9 @@ var Get_PaymentTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PaymentTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3928,6 +4453,9 @@ var Get_Payments_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PaymentsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AvailableForRefund"); test {
@@ -3953,6 +4481,9 @@ var Get_PerformanceGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PerformanceGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -3976,6 +4507,9 @@ var Get_PerformancePackageModeOfSales_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PerformancePackageModeOfSalesGetAll , []byte(args[0]))
 			} else {
@@ -3997,6 +4531,9 @@ var Get_PerformancePriceLayers_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Counts"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PerformancePriceLayersGetCounts , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("PriceCount"); test {
@@ -4020,6 +4557,9 @@ var Get_PerformancePriceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PerformancePriceTypesGetAll , []byte(args[0]))
 			} else {
@@ -4041,6 +4581,9 @@ var Get_PerformancePrices_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PerformancePricesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AllWithEvents"); test {
@@ -4066,6 +4609,9 @@ var Get_PerformanceStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PerformanceStatusesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4089,6 +4635,9 @@ var Get_PerformanceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PerformanceTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4112,6 +4661,9 @@ var Get_Performances_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PerformancesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AuditEntries"); test {
@@ -4151,6 +4703,9 @@ var Get_Philanthropy_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PhilanthropyGetAll , []byte(args[0]))
 			} else {
@@ -4172,6 +4727,9 @@ var Get_PhilanthropyTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PhilanthropyTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4195,6 +4753,9 @@ var Get_PhoneIndicators_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PhoneIndicatorsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4218,6 +4779,9 @@ var Get_PhoneTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PhoneTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4241,6 +4805,9 @@ var Get_Phones_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PhonesGetAll , []byte(args[0]))
 			} else {
@@ -4262,6 +4829,9 @@ var Get_PlanPriorities_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PlanPrioritiesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4285,6 +4855,9 @@ var Get_PlanSources_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PlanSourcesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4308,6 +4881,9 @@ var Get_PlanStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PlanStatusesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4331,6 +4907,9 @@ var Get_PlanTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PlanTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4354,6 +4933,9 @@ var Get_PlanWorkers_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PlanWorkersGetAll , []byte(args[0]))
 			} else {
@@ -4375,6 +4957,9 @@ var Get_Plans_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PlansGetAll , []byte(args[0]))
 			} else {
@@ -4396,6 +4981,9 @@ var Get_PledgeBilling_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.PledgeBillingGetStatus , []byte(args[0]))
 			if err == nil {
@@ -4414,6 +5002,9 @@ var Get_PortfolioCustomElements_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PortfolioCustomElementsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4437,6 +5028,9 @@ var Get_Portfolios_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("PortfolioEntry"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PortfoliosGetPortfolioEntry , []byte(args[0]))
 			} else {
@@ -4458,6 +5052,9 @@ var Get_Prefixes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PrefixesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4481,6 +5078,9 @@ var Get_Premieres_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PremieresGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4504,6 +5104,9 @@ var Get_PriceCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PriceCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4527,6 +5130,9 @@ var Get_PriceEvents_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PriceEventsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Dates"); test {
@@ -4550,6 +5156,9 @@ var Get_PriceLayerTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PriceLayerTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4573,6 +5182,9 @@ var Get_PriceTemplates_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PriceTemplatesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4596,6 +5208,9 @@ var Get_PriceTypeCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PriceTypeCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4619,6 +5234,9 @@ var Get_PriceTypeGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PriceTypeGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4642,6 +5260,9 @@ var Get_PriceTypeReasons_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PriceTypeReasonsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4665,6 +5286,9 @@ var Get_PriceTypeUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PriceTypeUserGroupsGetAll , []byte(args[0]))
 			} else {
@@ -4686,6 +5310,9 @@ var Get_PriceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PriceTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Reasons"); test {
@@ -4715,6 +5342,9 @@ var Get_PricingRuleCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PricingRuleCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4738,6 +5368,9 @@ var Get_PricingRuleMessageTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PricingRuleMessageTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4761,6 +5394,9 @@ var Get_PricingRuleSets_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PricingRuleSetsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4784,6 +5420,9 @@ var Get_PricingRuleTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PricingRuleTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4807,6 +5446,9 @@ var Get_PricingRules_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PricingRulesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AllSummary"); test {
@@ -4830,6 +5472,9 @@ var Get_Printers_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PrintersGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4855,6 +5500,9 @@ For Production Elements: If the keyword is found, returns the keyword and the lo
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.ProductKeywordsGetKeywords , []byte(args[0]))
 			if err == nil {
@@ -4873,6 +5521,9 @@ var Get_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ProductionSeasonMembershipOrganizationsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4897,6 +5548,9 @@ Returns the full details for a single production season, including description a
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ProductionSeasonsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4920,6 +5574,9 @@ var Get_Productions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ProductionsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4943,6 +5600,9 @@ var Get_ProgramListings_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ProgramListingsGetAll , []byte(args[0]))
 			} else {
@@ -4964,6 +5624,9 @@ var Get_Programs_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ProgramsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -4987,6 +5650,9 @@ var Get_Pronouns_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.PronounsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5010,6 +5676,9 @@ var Get_QualificationCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.QualificationCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5033,6 +5702,9 @@ var Get_Qualifications_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.QualificationsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5056,6 +5728,9 @@ var Get_QueryElementFilters_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.QueryElementFiltersGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("DataFor"); test {
@@ -5081,6 +5756,9 @@ var Get_QueryElementGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.QueryElementGroupsGetAll , []byte(args[0]))
 			} else {
@@ -5102,6 +5780,9 @@ var Get_QueryElements_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.QueryElementsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5125,6 +5806,9 @@ var Get_RankTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.RankTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5148,6 +5832,9 @@ var Get_Rankings_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.RankingsGetAll , []byte(args[0]))
 			} else {
@@ -5169,6 +5856,9 @@ var Get_ReceiptSettings_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ReceiptSettingsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5192,6 +5882,9 @@ var Get_ReferenceColumns_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ReferenceColumnsGetSummaries , []byte(args[0]))
 			} else {
@@ -5213,6 +5906,9 @@ var Get_ReferenceTableUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ReferenceTableUserGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5236,6 +5932,9 @@ var Get_ReferenceTables_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ReferenceTablesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5259,6 +5958,9 @@ var Get_RelationshipCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.RelationshipCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5282,6 +5984,9 @@ var Get_Relationships_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.RelationshipsGetAll , []byte(args[0]))
 			if err == nil {
@@ -5300,6 +6005,9 @@ var Get_ReportRequests_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ReportRequestsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AllExpired"); test {
@@ -5325,6 +6033,9 @@ var Get_ReportSchedules_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ReportSchedulesGetAll , []byte(args[0]))
 			} else {
@@ -5346,6 +6057,9 @@ var Get_ReportUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ReportUserGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5369,6 +6083,9 @@ var Get_Reports_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ReportsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("CustomData"); test {
@@ -5398,6 +6115,9 @@ var Get_Research_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ResearchGetAll , []byte(args[0]))
 			} else {
@@ -5419,6 +6139,9 @@ var Get_ResearchTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ResearchTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5442,6 +6165,9 @@ var Get_ResourceCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ResourceCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5465,6 +6191,9 @@ var Get_ResourceSchedules_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ResourceSchedulesGetAll , []byte(args[0]))
 			} else {
@@ -5486,6 +6215,9 @@ var Get_ResourceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ResourceTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5509,6 +6241,9 @@ var Get_Resources_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ResourcesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Details"); test {
@@ -5536,6 +6271,9 @@ var Get_SalesChannels_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SalesChannelsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5559,6 +6297,9 @@ var Get_SalesLayoutButtonTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SalesLayoutButtonTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5582,6 +6323,9 @@ var Get_SalesLayouts_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("ForSale"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SalesLayoutsGetForSale , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5605,6 +6349,9 @@ var Get_SalutationTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SalutationTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5628,6 +6375,9 @@ var Get_Salutations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SalutationsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Generate"); test {
@@ -5651,6 +6401,9 @@ var Get_SchedulePatternTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SchedulePatternTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5674,6 +6427,9 @@ var Get_ScheduleTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ScheduleTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5697,6 +6453,9 @@ var Get_SeasonTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SeasonTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5720,6 +6479,9 @@ var Get_Seasons_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SeasonsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5743,6 +6505,9 @@ var Get_SeatCodes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SeatCodesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5766,6 +6531,9 @@ var Get_SeatStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SeatStatusesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5789,6 +6557,9 @@ var Get_Sections_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SectionsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -5812,6 +6583,9 @@ var Get_SecurityBatchTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityBatchTypesGetAll , []byte(args[0]))
 			if err == nil {
@@ -5830,6 +6604,9 @@ var Get_SecurityControlGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityControlGroupsGetAll , []byte(args[0]))
 			if err == nil {
@@ -5848,6 +6625,9 @@ var Get_SecurityHoldCodes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityHoldCodesGetAll , []byte(args[0]))
 			if err == nil {
@@ -5866,6 +6646,9 @@ var Get_SecurityModesOfSale_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityModesOfSaleGetAll , []byte(args[0]))
 			if err == nil {
@@ -5884,6 +6667,9 @@ var Get_SecurityObjectPermissions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityObjectPermissionsGetAll , []byte(args[0]))
 			if err == nil {
@@ -5902,6 +6688,9 @@ var Get_SecurityPaymentMethods_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityPaymentMethodsGetAll , []byte(args[0]))
 			if err == nil {
@@ -5920,6 +6709,9 @@ var Get_SecurityPriceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityPriceTypesGetAll , []byte(args[0]))
 			if err == nil {
@@ -5938,6 +6730,9 @@ var Get_SecurityReferenceTables_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityReferenceTablesGetAll , []byte(args[0]))
 			if err == nil {
@@ -5956,6 +6751,9 @@ var Get_SecurityReports_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityReportsGetAll , []byte(args[0]))
 			if err == nil {
@@ -5974,6 +6772,9 @@ var Get_SecurityServiceResources_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityServiceResourcesGetAll , []byte(args[0]))
 			if err == nil {
@@ -5992,6 +6793,9 @@ var Get_SecurityUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("DefaultUserGroup"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SecurityUserGroupsGetDefaultUserGroup , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ManagedGroups"); test {
@@ -6015,6 +6819,9 @@ var Get_ServiceResourceUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ServiceResourceUserGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6038,6 +6845,9 @@ var Get_ServiceResources_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ServiceResourcesGetSummaries , []byte(args[0]))
 			} else {
@@ -6060,6 +6870,9 @@ Includes counts of cart products, the login status, MOS and Source`,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Default"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SessionGetDefault , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("DeliveryMethods"); test {
@@ -6093,6 +6906,9 @@ var Get_SourceGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SourceGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6116,6 +6932,9 @@ var Get_Sources_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SourcesGetSummaries , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("WebExpiring"); test {
@@ -6139,6 +6958,9 @@ var Get_SpecialActivities_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SpecialActivitiesGetAll , []byte(args[0]))
 			} else {
@@ -6160,6 +6982,9 @@ var Get_SpecialActivityStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SpecialActivityStatusesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6183,6 +7008,9 @@ var Get_SpecialActivityTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SpecialActivityTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6206,6 +7034,9 @@ var Get_States_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.StatesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6229,6 +7060,9 @@ var Get_StepTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.StepTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6252,6 +7086,9 @@ var Get_Steps_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.StepsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AllDocumentSummaries"); test {
@@ -6277,6 +7114,9 @@ var Get_SubLineItemStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SubLineItemStatusesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6300,6 +7140,9 @@ var Get_SubLineItems_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.SubLineItemsGetSubLineItemSummaries , []byte(args[0]))
 			if err == nil {
@@ -6318,6 +7161,9 @@ var Get_Suffixes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SuffixesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6341,6 +7187,9 @@ var Get_SurveyQuestions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SurveyQuestionsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("DataFor"); test {
@@ -6366,6 +7215,9 @@ var Get_SurveyResponses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SurveyResponsesGetAll , []byte(args[0]))
 			} else {
@@ -6387,6 +7239,9 @@ var Get_SystemDefaults_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Default"); test {
 				out, err = tq.Do(*_tq, _tq.Get.SystemDefaultsGetDefault , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6410,6 +7265,9 @@ var Get_TemplateCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.TemplateCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6433,6 +7291,9 @@ var Get_TemplatePriceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.TemplatePriceTypesGetAll , []byte(args[0]))
 			} else {
@@ -6454,6 +7315,9 @@ var Get_TemplatePrices_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.TemplatePricesGetAll , []byte(args[0]))
 			} else {
@@ -6475,6 +7339,9 @@ var Get_TemplateTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.TemplateTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6498,6 +7365,9 @@ var Get_Templates_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.TemplatesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6521,6 +7391,9 @@ var Get_Theaters_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.TheatersGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6544,6 +7417,9 @@ var Get_TicketHistory_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.TicketHistoryGetAll , []byte(args[0]))
 			if err == nil {
@@ -6562,6 +7438,9 @@ var Get_TimeSlots_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.TimeSlotsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6585,6 +7464,9 @@ var Get_Titles_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.TitlesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6608,6 +7490,9 @@ var Get_TransactionHistory_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.TransactionHistoryGetAll , []byte(args[0]))
 			if err == nil {
@@ -6626,6 +7511,9 @@ var Get_TriPOSCloudConfigurations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.TriPOSCloudConfigurationsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6649,6 +7537,9 @@ var Get_UpgradeCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.UpgradeCategoriesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6672,6 +7563,9 @@ var Get_UpgradeLogs_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.UpgradeLogsGetAll , []byte(args[0]))
 			} else {
@@ -6693,6 +7587,9 @@ var Get_UserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.UserGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6716,6 +7613,9 @@ var Get_UserPreferences_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.UserPreferencesGetAll , []byte(args[0]))
 			} else {
@@ -6737,6 +7637,9 @@ var Get_Users_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("ActiveDirectoryUser"); test {
 				out, err = tq.Do(*_tq, _tq.Get.UsersGetActiveDirectoryUser , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("UserInformationForActiveDirectoryUser"); test {
@@ -6762,6 +7665,9 @@ var Get_WebContentTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.WebContentTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("DataFor"); test {
@@ -6789,6 +7695,9 @@ If the content type is found, returns the content value at the lowest level at w
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Get.WebContentsGetWebContents , []byte(args[0]))
 			if err == nil {
@@ -6807,6 +7716,9 @@ var Get_WebLogins_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.WebLoginsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("LoginCredentials"); test {
@@ -6832,6 +7744,9 @@ var Get_WorkerQualifications_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.WorkerQualificationsGetAll , []byte(args[0]))
 			} else {
@@ -6853,6 +7768,9 @@ var Get_WorkerRoles_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.WorkerRolesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6876,6 +7794,9 @@ var Get_WorkerTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.WorkerTypesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6899,6 +7820,9 @@ var Get_Workers_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.WorkersGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6922,6 +7846,9 @@ var Get_ZoneGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ZoneGroupsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6945,6 +7872,9 @@ var Get_ZoneMaps_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ZoneMapsGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {
@@ -6968,6 +7898,9 @@ var Get_Zones_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				out, err = tq.Do(*_tq, _tq.Get.ZonesGetAll , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Summaries"); test {

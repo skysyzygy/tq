@@ -19,6 +19,9 @@ var Post_AccountTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AccountTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -37,6 +40,9 @@ var Post_Accounts_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("DirectDebitAccount"); test {
 				out, err = tq.Do(*_tq, _tq.Post.AccountsCreateDirectDebitAccount , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("SepaAccount"); test {
@@ -62,6 +68,9 @@ var Post_ActionTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ActionTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -80,6 +89,9 @@ var Post_Actions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ActionsCreate , []byte(args[0]))
 			if err == nil {
@@ -98,6 +110,9 @@ var Post_ActivityCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ActivityCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -116,6 +131,9 @@ var Post_ActivityTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ActivityTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -134,6 +152,9 @@ var Post_AddressTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AddressTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -152,6 +173,9 @@ var Post_Addresses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AddressesCreate , []byte(args[0]))
 			if err == nil {
@@ -170,6 +194,9 @@ var Post_AffiliationInfo_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AffiliationInfoPostAffiliation , []byte(args[0]))
 			if err == nil {
@@ -188,6 +215,9 @@ var Post_AffiliationTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AffiliationTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -206,6 +236,9 @@ var Post_Affiliations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AffiliationsCreate , []byte(args[0]))
 			if err == nil {
@@ -224,6 +257,9 @@ var Post_AliasTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AliasTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -242,6 +278,9 @@ var Post_Aliases_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AliasesCreate , []byte(args[0]))
 			if err == nil {
@@ -260,6 +299,9 @@ var Post_AnalyticsReports_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AnalyticsReportsCreate , []byte(args[0]))
 			if err == nil {
@@ -278,6 +320,9 @@ var Post_AppealCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AppealCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -296,6 +341,9 @@ var Post_Artists_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ArtistsCreate , []byte(args[0]))
 			if err == nil {
@@ -314,6 +362,9 @@ var Post_AssetTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AssetTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -332,6 +383,9 @@ var Post_Assets_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AssetsCreate , []byte(args[0]))
 			if err == nil {
@@ -350,6 +404,9 @@ var Post_AssociationTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AssociationTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -368,6 +425,9 @@ var Post_Associations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AssociationsCreate , []byte(args[0]))
 			if err == nil {
@@ -386,6 +446,9 @@ var Post_Attributes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.AttributesCreate , []byte(args[0]))
 			if err == nil {
@@ -404,6 +467,9 @@ var Post_Authenticate_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("AuthenticateWindows"); test {
 				out, err = tq.Do(*_tq, _tq.Post.AuthenticateAuthenticateWindows , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("GenerateToken"); test {
@@ -431,6 +497,9 @@ var Post_Authorization_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Confirm"); test {
 				out, err = tq.Do(*_tq, _tq.Post.AuthorizationConfirm , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ConfirmPayByLink"); test {
@@ -460,6 +529,9 @@ var Post_Batch_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Sample"); test {
 				out, err = tq.Do(*_tq, _tq.Post.BatchSample , []byte(args[0]))
 			} else {
@@ -481,6 +553,9 @@ var Post_BatchMaintenance_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.BatchMaintenanceCreate , []byte(args[0]))
 			if err == nil {
@@ -499,6 +574,9 @@ var Post_BatchTypeGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.BatchTypeGroupsCreate , []byte(args[0]))
 			if err == nil {
@@ -517,6 +595,9 @@ var Post_BatchTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.BatchTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -535,6 +616,9 @@ var Post_BillingSchedules_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.BillingSchedulesCreate , []byte(args[0]))
 			if err == nil {
@@ -553,6 +637,9 @@ var Post_BillingTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.BillingTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -571,6 +658,9 @@ var Post_BookingCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.BookingCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -589,6 +679,9 @@ var Post_BookingTemplates_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.BookingTemplatesCreate , []byte(args[0]))
 			if err == nil {
@@ -607,6 +700,9 @@ var Post_Bookings_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("AddDocument"); test {
 				out, err = tq.Do(*_tq, _tq.Post.BookingsAddDocument , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("FromTemplate"); test {
@@ -630,6 +726,9 @@ var Post_BulkCopySets_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("CopyDay"); test {
 				out, err = tq.Do(*_tq, _tq.Post.BulkCopySetsCopyDay , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("CopyEvent"); test {
@@ -655,6 +754,9 @@ var Post_BulkDailyCopyExclusions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.BulkDailyCopyExclusionsCreate , []byte(args[0]))
 			if err == nil {
@@ -673,6 +775,9 @@ var Post_BusinessUnits_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.BusinessUnitsCreate , []byte(args[0]))
 			if err == nil {
@@ -691,6 +796,9 @@ var Post_CampaignDesignations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.CampaignDesignationsCreate , []byte(args[0]))
 			if err == nil {
@@ -709,6 +817,9 @@ var Post_CampaignFunds_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.CampaignFundsCreate , []byte(args[0]))
 			if err == nil {
@@ -727,6 +838,9 @@ var Post_CardReaderTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.CardReaderTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -745,6 +859,9 @@ var Post_Cart_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("AddContribution"); test {
 				out, err = tq.Do(*_tq, _tq.Post.CartAddContribution , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("AddFee"); test {
@@ -824,6 +941,9 @@ var Post_Colors_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ColorsCreate , []byte(args[0]))
 			if err == nil {
@@ -842,6 +962,9 @@ var Post_Composers_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ComposersCreate , []byte(args[0]))
 			if err == nil {
@@ -860,6 +983,9 @@ var Post_Constituencies_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituenciesCreate , []byte(args[0]))
 			if err == nil {
@@ -878,6 +1004,9 @@ var Post_ConstituencyTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituencyTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -896,6 +1025,9 @@ var Post_ConstituentDocuments_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituentDocumentsCreate , []byte(args[0]))
 			if err == nil {
@@ -914,6 +1046,9 @@ var Post_ConstituentGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituentGroupsCreate , []byte(args[0]))
 			if err == nil {
@@ -932,6 +1067,9 @@ var Post_ConstituentInactives_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituentInactivesCreate , []byte(args[0]))
 			if err == nil {
@@ -950,6 +1088,9 @@ var Post_ConstituentProtectionTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituentProtectionTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -968,6 +1109,9 @@ var Post_ConstituentTypeAffiliates_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituentTypeAffiliatesCreate , []byte(args[0]))
 			if err == nil {
@@ -986,6 +1130,9 @@ var Post_ConstituentTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ConstituentTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -1004,6 +1151,9 @@ var Post_Constituents_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("ConstituentUsingSnapshot"); test {
 				out, err = tq.Do(*_tq, _tq.Post.ConstituentsCreateConstituentUsingSnapshot , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ConvertGroupToIndividual"); test {
@@ -1039,6 +1189,9 @@ var Post_ContactPermissionCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPermissionCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -1057,6 +1210,9 @@ var Post_ContactPermissionTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPermissionTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -1075,6 +1231,9 @@ var Post_ContactPermissions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("ForTransaction"); test {
 				out, err = tq.Do(*_tq, _tq.Post.ContactPermissionsForTransaction , []byte(args[0]))
 			} else {
@@ -1096,6 +1255,9 @@ var Post_ContactPointCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPointCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -1114,6 +1276,9 @@ var Post_ContactPointCategoryPurposes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPointCategoryPurposesCreate , []byte(args[0]))
 			if err == nil {
@@ -1132,6 +1297,9 @@ var Post_ContactPointPurposeCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPointPurposeCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -1150,6 +1318,9 @@ var Post_ContactPointPurposeMaps_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPointPurposeMapsCreate , []byte(args[0]))
 			if err == nil {
@@ -1168,6 +1339,9 @@ var Post_ContactPointPurposes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContactPointPurposesCreate , []byte(args[0]))
 			if err == nil {
@@ -1186,6 +1360,9 @@ var Post_ContactTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContactTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -1204,6 +1381,9 @@ var Post_ContributionDesignations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContributionDesignationsCreate , []byte(args[0]))
 			if err == nil {
@@ -1222,6 +1402,9 @@ var Post_ContributionImportSets_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContributionImportSetsCreate , []byte(args[0]))
 			if err == nil {
@@ -1240,6 +1423,9 @@ var Post_Contributions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ContributionsCreate , []byte(args[0]))
 			if err == nil {
@@ -1258,6 +1444,9 @@ var Post_ControlGroupUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ControlGroupUserGroupsCreate , []byte(args[0]))
 			if err == nil {
@@ -1276,6 +1465,9 @@ var Post_ControlGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ControlGroupsCreate , []byte(args[0]))
 			if err == nil {
@@ -1294,6 +1486,9 @@ var Post_CoreIdentity_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.CoreIdentitySign , []byte(args[0]))
 			if err == nil {
@@ -1312,6 +1507,9 @@ var Post_Countries_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.CountriesCreate , []byte(args[0]))
 			if err == nil {
@@ -1330,6 +1528,9 @@ var Post_CrediteeTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.CrediteeTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -1348,6 +1549,9 @@ var Post_CurrencyTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.CurrencyTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -1366,6 +1570,9 @@ var Post_Custom_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("ExecuteLocalProcedure"); test {
 				out, err = tq.Do(*_tq, _tq.Post.CustomExecuteLocalProcedure , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ExecuteLocalProcedureWithMultipleResultSets"); test {
@@ -1389,6 +1596,9 @@ var Post_CustomDefaultCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.CustomDefaultCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -1407,6 +1617,9 @@ var Post_CustomDefaults_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.CustomDefaultsCreate , []byte(args[0]))
 			if err == nil {
@@ -1425,6 +1638,9 @@ var Post_DeliveryMethods_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.DeliveryMethodsCreate , []byte(args[0]))
 			if err == nil {
@@ -1443,6 +1659,9 @@ var Post_DesignationCodes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.DesignationCodesCreate , []byte(args[0]))
 			if err == nil {
@@ -1461,6 +1680,9 @@ var Post_Diagnostics_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.DiagnosticsCheck , []byte(args[0]))
 			if err == nil {
@@ -1479,6 +1701,9 @@ var Post_DirectDebitAccountTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.DirectDebitAccountTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -1497,6 +1722,9 @@ var Post_DiscountTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.DiscountTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -1515,6 +1743,9 @@ var Post_DocumentCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.DocumentCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -1533,6 +1764,9 @@ var Post_DonationLevels_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.DonationLevelsCreate , []byte(args[0]))
 			if err == nil {
@@ -1551,6 +1785,9 @@ var Post_EMV_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Lane"); test {
 				out, err = tq.Do(*_tq, _tq.Post.EMVCreateLane , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Signature"); test {
@@ -1576,6 +1813,9 @@ var Post_ElectronicAddressTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ElectronicAddressTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -1594,6 +1834,9 @@ var Post_ElectronicAddresses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Move"); test {
 				out, err = tq.Do(*_tq, _tq.Post.ElectronicAddressesMove , []byte(args[0]))
 			} else {
@@ -1615,6 +1858,9 @@ var Post_EmailProfiles_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.EmailProfilesCreate , []byte(args[0]))
 			if err == nil {
@@ -1633,6 +1879,9 @@ var Post_EmailResponses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.EmailResponsesUpdateAppeal , []byte(args[0]))
 			if err == nil {
@@ -1651,6 +1900,9 @@ var Post_Emails_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("SendConstituentInfo"); test {
 				out, err = tq.Do(*_tq, _tq.Post.EmailsSendConstituentInfo , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("SendLoginCredentials"); test {
@@ -1678,6 +1930,9 @@ var Post_EmarketIndicators_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.EmarketIndicatorsCreate , []byte(args[0]))
 			if err == nil {
@@ -1696,6 +1951,9 @@ var Post_Eras_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ErasCreate , []byte(args[0]))
 			if err == nil {
@@ -1714,6 +1972,9 @@ var Post_Facilities_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.FacilitiesCreate , []byte(args[0]))
 			if err == nil {
@@ -1732,6 +1993,9 @@ var Post_Genders_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.GendersCreate , []byte(args[0]))
 			if err == nil {
@@ -1750,6 +2014,9 @@ var Post_GiftAidContactMethods_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidContactMethodsCreate , []byte(args[0]))
 			if err == nil {
@@ -1768,6 +2035,9 @@ var Post_GiftAidDeclarations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidDeclarationsCreate , []byte(args[0]))
 			if err == nil {
@@ -1786,6 +2056,9 @@ var Post_GiftAidDocumentStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidDocumentStatusesCreate , []byte(args[0]))
 			if err == nil {
@@ -1804,6 +2077,9 @@ var Post_GiftAidIneligibleReasons_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidIneligibleReasonsCreate , []byte(args[0]))
 			if err == nil {
@@ -1822,6 +2098,9 @@ var Post_GiftAidRates_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidRatesCreate , []byte(args[0]))
 			if err == nil {
@@ -1840,6 +2119,9 @@ var Post_GiftAidStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidStatusesCreate , []byte(args[0]))
 			if err == nil {
@@ -1858,6 +2140,9 @@ var Post_GiftAidTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.GiftAidTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -1876,6 +2161,9 @@ var Post_GiftCertificates_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Unlock"); test {
 				out, err = tq.Do(*_tq, _tq.Post.GiftCertificatesUnlock , []byte(args[0]))
 			} else {
@@ -1897,6 +2185,9 @@ var Post_HoldCodeCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.HoldCodeCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -1915,6 +2206,9 @@ var Post_HoldCodeUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.HoldCodeUserGroupsCreate , []byte(args[0]))
 			if err == nil {
@@ -1933,6 +2227,9 @@ var Post_HoldCodes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.HoldCodesCreate , []byte(args[0]))
 			if err == nil {
@@ -1951,6 +2248,9 @@ var Post_InactiveReasons_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.InactiveReasonsCreate , []byte(args[0]))
 			if err == nil {
@@ -1969,6 +2269,9 @@ var Post_IntegrationDefaults_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.IntegrationDefaultsCreate , []byte(args[0]))
 			if err == nil {
@@ -1987,6 +2290,9 @@ var Post_Integrations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.IntegrationsCreate , []byte(args[0]))
 			if err == nil {
@@ -2005,6 +2311,9 @@ var Post_InterestCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.InterestCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -2023,6 +2332,9 @@ var Post_InterestTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.InterestTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -2042,6 +2354,9 @@ For bulk interest edits, consider the CRM/Interests/CreateOrUpdate batching reso
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Or"); test {
 				out, err = tq.Do(*_tq, _tq.Post.InterestsCreateOrUpdate , []byte(args[0]))
 			} else {
@@ -2063,6 +2378,9 @@ var Post_Internal_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.InternalCreate , []byte(args[0]))
 			if err == nil {
@@ -2081,6 +2399,9 @@ var Post_InventoryContactPermissionTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.InventoryContactPermissionTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -2099,6 +2420,9 @@ var Post_InventoryWebContents_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.InventoryWebContentsCreate , []byte(args[0]))
 			if err == nil {
@@ -2117,6 +2441,9 @@ var Post_InvoiceBilling_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.InvoiceBillingBillInvoices , []byte(args[0]))
 			if err == nil {
@@ -2135,6 +2462,9 @@ var Post_Issues_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.IssuesCreate , []byte(args[0]))
 			if err == nil {
@@ -2153,6 +2483,9 @@ var Post_KeywordCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.KeywordCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -2171,6 +2504,9 @@ var Post_Keywords_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.KeywordsCreate , []byte(args[0]))
 			if err == nil {
@@ -2189,6 +2525,9 @@ var Post_Languages_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.LanguagesCreate , []byte(args[0]))
 			if err == nil {
@@ -2207,6 +2546,9 @@ var Post_ListCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ListCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -2225,6 +2567,9 @@ var Post_Lists_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Generate"); test {
 				out, err = tq.Do(*_tq, _tq.Post.ListsGenerate , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Results"); test {
@@ -2250,6 +2595,9 @@ var Post_LoginTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.LoginTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -2268,6 +2616,9 @@ var Post_MachineSettings_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.MachineSettingsCreate , []byte(args[0]))
 			if err == nil {
@@ -2286,6 +2637,9 @@ var Post_MailIndicators_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.MailIndicatorsCreate , []byte(args[0]))
 			if err == nil {
@@ -2304,6 +2658,9 @@ var Post_MediaTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.MediaTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -2322,6 +2679,9 @@ var Post_MembershipLevelCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.MembershipLevelCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -2341,6 +2701,9 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.MembershipsCalculate , []byte(args[0]))
 			if err == nil {
@@ -2359,6 +2722,9 @@ var Post_ModeOfSaleCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ModeOfSaleCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -2377,6 +2743,9 @@ var Post_ModeOfSaleOffers_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ModeOfSaleOffersCreate , []byte(args[0]))
 			if err == nil {
@@ -2395,6 +2764,9 @@ var Post_ModeOfSalePriceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ModeOfSalePriceTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -2413,6 +2785,9 @@ var Post_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ModeOfSaleSurveyQuestionsCreate , []byte(args[0]))
 			if err == nil {
@@ -2431,6 +2806,9 @@ var Post_ModeOfSaleUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ModeOfSaleUserGroupsCreate , []byte(args[0]))
 			if err == nil {
@@ -2449,6 +2827,9 @@ var Post_ModesOfSale_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ModesOfSaleCreate , []byte(args[0]))
 			if err == nil {
@@ -2467,6 +2848,9 @@ var Post_NScanAccessAreas_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.NScanAccessAreasCreate , []byte(args[0]))
 			if err == nil {
@@ -2485,6 +2869,9 @@ var Post_NameStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.NameStatusesCreate , []byte(args[0]))
 			if err == nil {
@@ -2503,6 +2890,9 @@ var Post_ObjectPermissions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ObjectPermissionsCreate , []byte(args[0]))
 			if err == nil {
@@ -2521,6 +2911,9 @@ var Post_OrderBilling_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.OrderBillingBillOrders , []byte(args[0]))
 			if err == nil {
@@ -2539,6 +2932,9 @@ var Post_OrderCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.OrderCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -2559,6 +2955,9 @@ This resource will be invoked from a cart checkout.`,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("OrdersForDelivery"); test {
 				out, err = tq.Do(*_tq, _tq.Post.OrdersGetOrdersForDelivery , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Price"); test {
@@ -2584,6 +2983,9 @@ var Post_Organizations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.OrganizationsCreate , []byte(args[0]))
 			if err == nil {
@@ -2602,6 +3004,9 @@ var Post_OriginalSources_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.OriginalSourcesCreate , []byte(args[0]))
 			if err == nil {
@@ -2620,6 +3025,9 @@ var Post_Origins_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.OriginsCreate , []byte(args[0]))
 			if err == nil {
@@ -2638,6 +3046,9 @@ var Post_OutputSets_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.OutputSetsCreate , []byte(args[0]))
 			if err == nil {
@@ -2656,6 +3067,9 @@ var Post_PackagePriceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PackagePriceTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -2674,6 +3088,9 @@ var Post_PackageTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PackageTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -2692,6 +3109,9 @@ var Post_PackageWebContents_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PackageWebContentsCreate , []byte(args[0]))
 			if err == nil {
@@ -2710,6 +3130,9 @@ var Post_Packages_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PackagesSearch , []byte(args[0]))
 			if err == nil {
@@ -2729,6 +3152,9 @@ For complete documentation on how to implement the Payment Component, please vis
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentComponentGetPaymentComponent , []byte(args[0]))
 			if err == nil {
@@ -2747,6 +3173,9 @@ var Post_PaymentGatewayAccounts_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("StoreToken"); test {
 				out, err = tq.Do(*_tq, _tq.Post.PaymentGatewayAccountsStoreToken , []byte(args[0]))
 			} else {
@@ -2768,6 +3197,9 @@ var Post_PaymentGatewayActivities_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentGatewayActivitiesCreate , []byte(args[0]))
 			if err == nil {
@@ -2786,6 +3218,9 @@ var Post_PaymentGatewayCredentials_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentGatewayCredentialsGetCredential , []byte(args[0]))
 			if err == nil {
@@ -2804,6 +3239,9 @@ var Post_PaymentGatewayNotifications_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentGatewayNotificationsCreateNotificationEvent , []byte(args[0]))
 			if err == nil {
@@ -2822,6 +3260,9 @@ var Post_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentGatewayTransactionTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -2840,6 +3281,9 @@ var Post_PaymentMethodGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentMethodGroupsCreate , []byte(args[0]))
 			if err == nil {
@@ -2858,6 +3302,9 @@ var Post_PaymentMethodUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentMethodUserGroupsCreate , []byte(args[0]))
 			if err == nil {
@@ -2876,6 +3323,9 @@ var Post_PaymentMethods_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentMethodsCreate , []byte(args[0]))
 			if err == nil {
@@ -2894,6 +3344,9 @@ var Post_PaymentSignatures_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("PostForOrder"); test {
 				out, err = tq.Do(*_tq, _tq.Post.PaymentSignaturesPostForOrder , []byte(args[0]))
 			} else {
@@ -2915,6 +3368,9 @@ var Post_PaymentTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -2933,6 +3389,9 @@ var Post_Payments_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PaymentsReserveIds , []byte(args[0]))
 			if err == nil {
@@ -2951,6 +3410,9 @@ var Post_PerformanceGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PerformanceGroupsCreate , []byte(args[0]))
 			if err == nil {
@@ -2969,6 +3431,9 @@ var Post_PerformancePackageModeOfSales_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PerformancePackageModeOfSalesCreate , []byte(args[0]))
 			if err == nil {
@@ -2987,6 +3452,9 @@ var Post_PerformancePriceLayers_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("PostSummaries"); test {
 				out, err = tq.Do(*_tq, _tq.Post.PerformancePriceLayersPostSummaries , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Search"); test {
@@ -3012,6 +3480,9 @@ var Post_PerformancePriceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PerformancePriceTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -3030,6 +3501,9 @@ var Post_PerformancePrices_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PerformancePricesCreate , []byte(args[0]))
 			if err == nil {
@@ -3048,6 +3522,9 @@ var Post_PerformanceStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PerformanceStatusesCreate , []byte(args[0]))
 			if err == nil {
@@ -3066,6 +3543,9 @@ var Post_PerformanceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PerformanceTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -3084,6 +3564,9 @@ var Post_Performances_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Copy"); test {
 				out, err = tq.Do(*_tq, _tq.Post.PerformancesCopy , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Reschedule"); test {
@@ -3111,6 +3594,9 @@ var Post_Philanthropy_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PhilanthropyCreate , []byte(args[0]))
 			if err == nil {
@@ -3129,6 +3615,9 @@ var Post_PhilanthropyTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PhilanthropyTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -3147,6 +3636,9 @@ var Post_PhoneIndicators_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PhoneIndicatorsCreate , []byte(args[0]))
 			if err == nil {
@@ -3165,6 +3657,9 @@ var Post_PhoneTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PhoneTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -3183,6 +3678,9 @@ var Post_Phones_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PhonesCreate , []byte(args[0]))
 			if err == nil {
@@ -3201,6 +3699,9 @@ var Post_PlanPriorities_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PlanPrioritiesCreate , []byte(args[0]))
 			if err == nil {
@@ -3219,6 +3720,9 @@ var Post_PlanSources_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PlanSourcesCreate , []byte(args[0]))
 			if err == nil {
@@ -3237,6 +3741,9 @@ var Post_PlanStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PlanStatusesCreate , []byte(args[0]))
 			if err == nil {
@@ -3255,6 +3762,9 @@ var Post_PlanTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PlanTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -3273,6 +3783,9 @@ var Post_PlanWorkers_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PlanWorkersCreate , []byte(args[0]))
 			if err == nil {
@@ -3291,6 +3804,9 @@ var Post_Plans_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PlansCreate , []byte(args[0]))
 			if err == nil {
@@ -3309,6 +3825,9 @@ var Post_PledgeBilling_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PledgeBillingBillPledges , []byte(args[0]))
 			if err == nil {
@@ -3327,6 +3846,9 @@ var Post_PortfolioCustomElements_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PortfolioCustomElementsCreate , []byte(args[0]))
 			if err == nil {
@@ -3345,6 +3867,9 @@ var Post_Prefixes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PrefixesCreate , []byte(args[0]))
 			if err == nil {
@@ -3363,6 +3888,9 @@ var Post_Premieres_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PremieresCreate , []byte(args[0]))
 			if err == nil {
@@ -3381,6 +3909,9 @@ var Post_PriceCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PriceCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -3399,6 +3930,9 @@ var Post_PriceLayerTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PriceLayerTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -3417,6 +3951,9 @@ var Post_PriceTemplates_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PriceTemplatesCreate , []byte(args[0]))
 			if err == nil {
@@ -3435,6 +3972,9 @@ var Post_PriceTypeCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PriceTypeCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -3453,6 +3993,9 @@ var Post_PriceTypeGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PriceTypeGroupsCreate , []byte(args[0]))
 			if err == nil {
@@ -3471,6 +4014,9 @@ var Post_PriceTypeReasons_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PriceTypeReasonsCreate , []byte(args[0]))
 			if err == nil {
@@ -3489,6 +4035,9 @@ var Post_PriceTypeUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PriceTypeUserGroupsCreate , []byte(args[0]))
 			if err == nil {
@@ -3507,6 +4056,9 @@ var Post_PriceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PriceTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -3525,6 +4077,9 @@ var Post_PricingRuleCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PricingRuleCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -3543,6 +4098,9 @@ var Post_PricingRuleMessageTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PricingRuleMessageTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -3561,6 +4119,9 @@ var Post_PricingRuleSets_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PricingRuleSetsCreate , []byte(args[0]))
 			if err == nil {
@@ -3579,6 +4140,9 @@ var Post_PricingRules_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PricingRulesCreate , []byte(args[0]))
 			if err == nil {
@@ -3597,6 +4161,9 @@ var Post_Printers_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PrintersCreate , []byte(args[0]))
 			if err == nil {
@@ -3615,6 +4182,9 @@ var Post_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ProductionSeasonMembershipOrganizationsCreate , []byte(args[0]))
 			if err == nil {
@@ -3634,6 +4204,9 @@ Returns production seasons matching the specified search criteria.`,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ProductionSeasonsSearch , []byte(args[0]))
 			if err == nil {
@@ -3652,6 +4225,9 @@ var Post_Products_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Search"); test {
 				out, err = tq.Do(*_tq, _tq.Post.ProductsSearch , []byte(args[0]))
 			} else {
@@ -3673,6 +4249,9 @@ var Post_ProgramListings_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ProgramListingsCreate , []byte(args[0]))
 			if err == nil {
@@ -3691,6 +4270,9 @@ var Post_Programs_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ProgramsCreate , []byte(args[0]))
 			if err == nil {
@@ -3709,6 +4291,9 @@ var Post_Pronouns_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.PronounsCreate , []byte(args[0]))
 			if err == nil {
@@ -3727,6 +4312,9 @@ var Post_QualificationCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.QualificationCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -3745,6 +4333,9 @@ var Post_Qualifications_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.QualificationsCreate , []byte(args[0]))
 			if err == nil {
@@ -3763,6 +4354,9 @@ var Post_QueryElementFilters_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.QueryElementFiltersCreate , []byte(args[0]))
 			if err == nil {
@@ -3781,6 +4375,9 @@ var Post_QueryElementGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.QueryElementGroupsCreate , []byte(args[0]))
 			if err == nil {
@@ -3799,6 +4396,9 @@ var Post_QueryElements_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.QueryElementsCreate , []byte(args[0]))
 			if err == nil {
@@ -3817,6 +4417,9 @@ var Post_RankTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.RankTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -3835,6 +4438,9 @@ var Post_Rankings_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.RankingsCreate , []byte(args[0]))
 			if err == nil {
@@ -3853,6 +4459,9 @@ var Post_ReceiptSettings_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ReceiptSettingsCreate , []byte(args[0]))
 			if err == nil {
@@ -3871,6 +4480,9 @@ var Post_RecordAttendance_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.RecordAttendanceRecordTicket , []byte(args[0]))
 			if err == nil {
@@ -3889,6 +4501,9 @@ var Post_ReferenceTableUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ReferenceTableUserGroupsCreate , []byte(args[0]))
 			if err == nil {
@@ -3909,6 +4524,9 @@ The login must be unique for the login type. The electronic address for this con
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.RegistrationRegister , []byte(args[0]))
 			if err == nil {
@@ -3927,6 +4545,9 @@ var Post_RelationshipCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.RelationshipCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -3945,6 +4566,9 @@ var Post_ReportRequests_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("GenerateScheduled"); test {
 				out, err = tq.Do(*_tq, _tq.Post.ReportRequestsGenerateScheduled , []byte(args[0]))
 			} else {
@@ -3966,6 +4590,9 @@ var Post_ReportSchedules_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Save"); test {
 				out, err = tq.Do(*_tq, _tq.Post.ReportSchedulesSave , []byte(args[0]))
 			} else {
@@ -3987,6 +4614,9 @@ var Post_ReportUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ReportUserGroupsCreate , []byte(args[0]))
 			if err == nil {
@@ -4005,6 +4635,9 @@ var Post_Reports_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ReportsGetParameterValues , []byte(args[0]))
 			if err == nil {
@@ -4023,6 +4656,9 @@ var Post_Research_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ResearchCreate , []byte(args[0]))
 			if err == nil {
@@ -4041,6 +4677,9 @@ var Post_ResearchTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ResearchTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -4059,6 +4698,9 @@ var Post_ResourceCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ResourceCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -4077,6 +4719,9 @@ var Post_ResourceSchedules_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ResourceSchedulesCreate , []byte(args[0]))
 			if err == nil {
@@ -4095,6 +4740,9 @@ var Post_ResourceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ResourceTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -4113,6 +4761,9 @@ var Post_Resources_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("FindAvailableResources"); test {
 				out, err = tq.Do(*_tq, _tq.Post.ResourcesFindAvailableResources , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("ScheduleOccurrences"); test {
@@ -4136,6 +4787,9 @@ var Post_SalesChannels_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SalesChannelsCreate , []byte(args[0]))
 			if err == nil {
@@ -4154,6 +4808,9 @@ var Post_SalesLayoutButtonTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SalesLayoutButtonTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -4172,6 +4829,9 @@ var Post_SalesLayouts_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SalesLayoutsCreate , []byte(args[0]))
 			if err == nil {
@@ -4190,6 +4850,9 @@ var Post_SalutationTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SalutationTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -4208,6 +4871,9 @@ var Post_Salutations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SalutationsCreate , []byte(args[0]))
 			if err == nil {
@@ -4226,6 +4892,9 @@ var Post_SchedulePatternTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SchedulePatternTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -4244,6 +4913,9 @@ var Post_ScheduleTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ScheduleTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -4262,6 +4934,9 @@ var Post_SeasonTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SeasonTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -4280,6 +4955,9 @@ var Post_Seasons_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SeasonsCreate , []byte(args[0]))
 			if err == nil {
@@ -4298,6 +4976,9 @@ var Post_SeatCodes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SeatCodesCreate , []byte(args[0]))
 			if err == nil {
@@ -4316,6 +4997,9 @@ var Post_SeatStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SeatStatusesCreate , []byte(args[0]))
 			if err == nil {
@@ -4334,6 +5018,9 @@ var Post_Sections_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SectionsCreate , []byte(args[0]))
 			if err == nil {
@@ -4352,6 +5039,9 @@ var Post_ServiceResourceUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ServiceResourceUserGroupsCreate , []byte(args[0]))
 			if err == nil {
@@ -4370,6 +5060,9 @@ var Post_Session_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("BusinessFacingSession"); test {
 				out, err = tq.Do(*_tq, _tq.Post.SessionCreateBusinessFacingSession , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("LoadOrder"); test {
@@ -4419,6 +5112,9 @@ var Post_SourceGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SourceGroupsCreate , []byte(args[0]))
 			if err == nil {
@@ -4437,6 +5133,9 @@ var Post_SpecialActivities_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SpecialActivitiesCreate , []byte(args[0]))
 			if err == nil {
@@ -4455,6 +5154,9 @@ var Post_SpecialActivityStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SpecialActivityStatusesCreate , []byte(args[0]))
 			if err == nil {
@@ -4473,6 +5175,9 @@ var Post_SpecialActivityTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SpecialActivityTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -4491,6 +5196,9 @@ var Post_States_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.StatesCreate , []byte(args[0]))
 			if err == nil {
@@ -4509,6 +5217,9 @@ var Post_StepTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.StepTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -4527,6 +5238,9 @@ var Post_Steps_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("AddDocument"); test {
 				out, err = tq.Do(*_tq, _tq.Post.StepsAddDocument , []byte(args[0]))
 			} else {
@@ -4548,6 +5262,9 @@ var Post_SubLineItemStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SubLineItemStatusesCreate , []byte(args[0]))
 			if err == nil {
@@ -4566,6 +5283,9 @@ var Post_Suffixes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SuffixesCreate , []byte(args[0]))
 			if err == nil {
@@ -4584,6 +5304,9 @@ var Post_SurveyQuestions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SurveyQuestionsCreate , []byte(args[0]))
 			if err == nil {
@@ -4602,6 +5325,9 @@ var Post_SurveyResponses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.SurveyResponsesCreate , []byte(args[0]))
 			if err == nil {
@@ -4620,6 +5346,9 @@ var Post_TemplateCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.TemplateCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -4638,6 +5367,9 @@ var Post_TemplatePriceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Batch"); test {
 				out, err = tq.Do(*_tq, _tq.Post.TemplatePriceTypesBatchCreate , []byte(args[0]))
 			} else {
@@ -4659,6 +5391,9 @@ var Post_TemplatePrices_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Batch"); test {
 				out, err = tq.Do(*_tq, _tq.Post.TemplatePricesBatchCreate , []byte(args[0]))
 			} else {
@@ -4680,6 +5415,9 @@ var Post_Templates_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("ConstituentInfo"); test {
 				out, err = tq.Do(*_tq, _tq.Post.TemplatesGetConstituentInfo , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("LoginCredentials"); test {
@@ -4715,6 +5453,9 @@ var Post_Theaters_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.TheatersCreate , []byte(args[0]))
 			if err == nil {
@@ -4733,6 +5474,9 @@ var Post_TimeSlots_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.TimeSlotsCreate , []byte(args[0]))
 			if err == nil {
@@ -4751,6 +5495,9 @@ var Post_TriPOSCloudConfigurations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.TriPOSCloudConfigurationsCreate , []byte(args[0]))
 			if err == nil {
@@ -4769,6 +5516,9 @@ var Post_UpgradeCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.UpgradeCategoriesCreate , []byte(args[0]))
 			if err == nil {
@@ -4787,6 +5537,9 @@ var Post_UpgradeLogs_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.UpgradeLogsCreate , []byte(args[0]))
 			if err == nil {
@@ -4805,6 +5558,9 @@ var Post_UserPreferences_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("SaveBatch"); test {
 				out, err = tq.Do(*_tq, _tq.Post.UserPreferencesSaveBatch , []byte(args[0]))
 			} else {
@@ -4826,6 +5582,9 @@ var Post_Users_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.UsersChangePassword , []byte(args[0]))
 			if err == nil {
@@ -4844,6 +5603,9 @@ var Post_ValidateWebLogin_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ValidateWebLoginCreate , []byte(args[0]))
 			if err == nil {
@@ -4862,6 +5624,9 @@ var Post_WebContentTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.WebContentTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -4880,6 +5645,9 @@ var Post_WebLogins_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.WebLoginsCreate , []byte(args[0]))
 			if err == nil {
@@ -4898,6 +5666,9 @@ var Post_WorkerQualifications_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.WorkerQualificationsCreate , []byte(args[0]))
 			if err == nil {
@@ -4916,6 +5687,9 @@ var Post_WorkerRoles_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.WorkerRolesCreate , []byte(args[0]))
 			if err == nil {
@@ -4934,6 +5708,9 @@ var Post_WorkerTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.WorkerTypesCreate , []byte(args[0]))
 			if err == nil {
@@ -4952,6 +5729,9 @@ var Post_Workers_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.WorkersCreate , []byte(args[0]))
 			if err == nil {
@@ -4970,6 +5750,9 @@ var Post_ZoneGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ZoneGroupsCreate , []byte(args[0]))
 			if err == nil {
@@ -4988,6 +5771,9 @@ var Post_ZoneMaps_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Post.ZoneMapsCreate , []byte(args[0]))
 			if err == nil {
@@ -5006,6 +5792,9 @@ var Post_Zones_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Search"); test {
 				out, err = tq.Do(*_tq, _tq.Post.ZonesSearch , []byte(args[0]))
 			} else {

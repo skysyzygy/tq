@@ -19,6 +19,9 @@ var Put_AccountTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.AccountTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -39,6 +42,9 @@ If tokenizing a non-tokenized card, PaymentMethodGroupId is required if one has 
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("DirectDebitAccount"); test {
 				out, err = tq.Do(*_tq, _tq.Put.AccountsUpdateDirectDebitAccount , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("SepaAccount"); test {
@@ -62,6 +68,9 @@ var Put_ActionTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ActionTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -80,6 +89,9 @@ var Put_Actions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ActionsUpdate , []byte(args[0]))
 			if err == nil {
@@ -98,6 +110,9 @@ var Put_ActivityCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ActivityCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -116,6 +131,9 @@ var Put_ActivityTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ActivityTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -134,6 +152,9 @@ var Put_AddressTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.AddressTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -152,6 +173,9 @@ var Put_Addresses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.AddressesUpdate , []byte(args[0]))
 			if err == nil {
@@ -170,6 +194,9 @@ var Put_AffiliationTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.AffiliationTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -188,6 +215,9 @@ var Put_Affiliations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.AffiliationsUpdate , []byte(args[0]))
 			if err == nil {
@@ -206,6 +236,9 @@ var Put_AliasTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.AliasTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -224,6 +257,9 @@ var Put_Aliases_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.AliasesUpdate , []byte(args[0]))
 			if err == nil {
@@ -242,6 +278,9 @@ var Put_AnalyticsReports_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.AnalyticsReportsUpdate , []byte(args[0]))
 			if err == nil {
@@ -260,6 +299,9 @@ var Put_AppScreenTexts_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.AppScreenTextsCreateOrUpdate , []byte(args[0]))
 			if err == nil {
@@ -278,6 +320,9 @@ var Put_AppealCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.AppealCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -296,6 +341,9 @@ var Put_Artists_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ArtistsUpdate , []byte(args[0]))
 			if err == nil {
@@ -314,6 +362,9 @@ var Put_AssetTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.AssetTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -332,6 +383,9 @@ var Put_Assets_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.AssetsUpdate , []byte(args[0]))
 			if err == nil {
@@ -350,6 +404,9 @@ var Put_AssociationTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.AssociationTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -368,6 +425,9 @@ var Put_Associations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.AssociationsUpdate , []byte(args[0]))
 			if err == nil {
@@ -386,6 +446,9 @@ var Put_Attributes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.AttributesUpdate , []byte(args[0]))
 			if err == nil {
@@ -405,6 +468,9 @@ Expire a payment link which has yet to be authorized or already expired.  For Te
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.AuthorizationExpirePayByLink , []byte(args[0]))
 			if err == nil {
@@ -423,6 +489,9 @@ var Put_BatchTypeGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.BatchTypeGroupsUpdate , []byte(args[0]))
 			if err == nil {
@@ -441,6 +510,9 @@ var Put_BatchTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.BatchTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -459,6 +531,9 @@ var Put_BillingSchedules_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.BillingSchedulesUpdate , []byte(args[0]))
 			if err == nil {
@@ -477,6 +552,9 @@ var Put_BillingTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.BillingTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -495,6 +573,9 @@ var Put_BookingCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.BookingCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -513,6 +594,9 @@ var Put_BookingTemplates_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.BookingTemplatesUpdate , []byte(args[0]))
 			if err == nil {
@@ -531,6 +615,9 @@ var Put_Bookings_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.BookingsUpdate , []byte(args[0]))
 			if err == nil {
@@ -549,6 +636,9 @@ var Put_BulkCopySets_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.BulkCopySetsUpdate , []byte(args[0]))
 			if err == nil {
@@ -567,6 +657,9 @@ var Put_BulkDailyCopyExclusions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.BulkDailyCopyExclusionsUpdate , []byte(args[0]))
 			if err == nil {
@@ -585,6 +678,9 @@ var Put_BusinessUnits_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.BusinessUnitsUpdate , []byte(args[0]))
 			if err == nil {
@@ -603,6 +699,9 @@ var Put_CampaignDesignations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.CampaignDesignationsUpdate , []byte(args[0]))
 			if err == nil {
@@ -621,6 +720,9 @@ var Put_CampaignFunds_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.CampaignFundsUpdate , []byte(args[0]))
 			if err == nil {
@@ -639,6 +741,9 @@ var Put_CardReaderTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.CardReaderTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -659,6 +764,9 @@ The status field in the response will return as S if the discount can be used or
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("ApplySubLineItemDiscount"); test {
 				out, err = tq.Do(*_tq, _tq.Put.CartApplySubLineItemDiscount , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("CartFlags"); test {
@@ -704,6 +812,9 @@ var Put_Colors_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ColorsUpdate , []byte(args[0]))
 			if err == nil {
@@ -722,6 +833,9 @@ var Put_Composers_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ComposersUpdate , []byte(args[0]))
 			if err == nil {
@@ -740,6 +854,9 @@ var Put_Constituencies_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ConstituenciesUpdate , []byte(args[0]))
 			if err == nil {
@@ -758,6 +875,9 @@ var Put_ConstituencyTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ConstituencyTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -776,6 +896,9 @@ var Put_ConstituentDocuments_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ConstituentDocumentsUpdate , []byte(args[0]))
 			if err == nil {
@@ -794,6 +917,9 @@ var Put_ConstituentGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ConstituentGroupsUpdate , []byte(args[0]))
 			if err == nil {
@@ -812,6 +938,9 @@ var Put_ConstituentInactives_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ConstituentInactivesUpdate , []byte(args[0]))
 			if err == nil {
@@ -830,6 +959,9 @@ var Put_ConstituentProtectionTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ConstituentProtectionTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -848,6 +980,9 @@ var Put_ConstituentTypeAffiliates_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ConstituentTypeAffiliatesUpdate , []byte(args[0]))
 			if err == nil {
@@ -866,6 +1001,9 @@ var Put_ConstituentTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ConstituentTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -884,6 +1022,9 @@ var Put_Constituents_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ConstituentsUpdate , []byte(args[0]))
 			if err == nil {
@@ -902,6 +1043,9 @@ var Put_ContactPermissionCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ContactPermissionCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -920,6 +1064,9 @@ var Put_ContactPermissionTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ContactPermissionTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -938,6 +1085,9 @@ var Put_ContactPermissions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ContactPermissionsUpdate , []byte(args[0]))
 			if err == nil {
@@ -956,6 +1106,9 @@ var Put_ContactPointCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ContactPointCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -974,6 +1127,9 @@ var Put_ContactPointCategoryPurposes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ContactPointCategoryPurposesUpdate , []byte(args[0]))
 			if err == nil {
@@ -992,6 +1148,9 @@ var Put_ContactPointPurposeCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ContactPointPurposeCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1010,6 +1169,9 @@ var Put_ContactPointPurposeMaps_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ContactPointPurposeMapsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1028,6 +1190,9 @@ var Put_ContactPointPurposes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ContactPointPurposesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1046,6 +1211,9 @@ var Put_ContactTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ContactTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1064,6 +1232,9 @@ var Put_ContributionDesignations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ContributionDesignationsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1082,6 +1253,9 @@ var Put_ContributionImportSets_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ContributionImportSetsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1100,6 +1274,9 @@ var Put_Contributions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ContributionsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1118,6 +1295,9 @@ var Put_ControlGroupUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ControlGroupUserGroupsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1136,6 +1316,9 @@ var Put_ControlGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ControlGroupsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1154,6 +1337,9 @@ var Put_Countries_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.CountriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1172,6 +1358,9 @@ var Put_CrediteeTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.CrediteeTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1190,6 +1379,9 @@ var Put_CurrencyTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.CurrencyTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1208,6 +1400,9 @@ var Put_Custom_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.CustomUpdate , []byte(args[0]))
 			if err == nil {
@@ -1226,6 +1421,9 @@ var Put_CustomDefaultCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.CustomDefaultCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1244,6 +1442,9 @@ var Put_CustomDefaults_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.CustomDefaultsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1262,6 +1463,9 @@ var Put_DeliveryMethods_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.DeliveryMethodsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1280,6 +1484,9 @@ var Put_DesignationCodes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.DesignationCodesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1298,6 +1505,9 @@ var Put_Diagnostics_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.DiagnosticsPut , []byte(args[0]))
 			if err == nil {
@@ -1316,6 +1526,9 @@ var Put_DirectDebitAccountTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.DirectDebitAccountTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1334,6 +1547,9 @@ var Put_DiscountTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.DiscountTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1352,6 +1568,9 @@ var Put_DocumentCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.DocumentCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1370,6 +1589,9 @@ var Put_DonationLevels_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.DonationLevelsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1388,6 +1610,9 @@ var Put_EMV_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.EMVSetIdleMessage , []byte(args[0]))
 			if err == nil {
@@ -1406,6 +1631,9 @@ var Put_ElectronicAddressTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ElectronicAddressTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1424,6 +1652,9 @@ var Put_ElectronicAddresses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ElectronicAddressesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1442,6 +1673,9 @@ var Put_EmailProfiles_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.EmailProfilesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1460,6 +1694,9 @@ var Put_EmarketIndicators_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.EmarketIndicatorsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1478,6 +1715,9 @@ var Put_Eras_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ErasUpdate , []byte(args[0]))
 			if err == nil {
@@ -1496,6 +1736,9 @@ var Put_Facilities_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.FacilitiesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1514,6 +1757,9 @@ var Put_Genders_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.GendersUpdate , []byte(args[0]))
 			if err == nil {
@@ -1532,6 +1778,9 @@ var Put_GiftAidContactMethods_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.GiftAidContactMethodsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1550,6 +1799,9 @@ var Put_GiftAidDeclarations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.GiftAidDeclarationsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1568,6 +1820,9 @@ var Put_GiftAidDocumentStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.GiftAidDocumentStatusesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1586,6 +1841,9 @@ var Put_GiftAidIneligibleReasons_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.GiftAidIneligibleReasonsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1604,6 +1862,9 @@ var Put_GiftAidRates_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.GiftAidRatesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1622,6 +1883,9 @@ var Put_GiftAidStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.GiftAidStatusesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1640,6 +1904,9 @@ var Put_GiftAidTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.GiftAidTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1658,6 +1925,9 @@ var Put_HoldCodeCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.HoldCodeCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1676,6 +1946,9 @@ var Put_HoldCodeUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.HoldCodeUserGroupsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1694,6 +1967,9 @@ var Put_HoldCodes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.HoldCodesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1712,6 +1988,9 @@ var Put_InactiveReasons_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.InactiveReasonsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1730,6 +2009,9 @@ var Put_IntegrationDefaults_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.IntegrationDefaultsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1748,6 +2030,9 @@ var Put_Integrations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.IntegrationsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1766,6 +2051,9 @@ var Put_InterestCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.InterestCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1784,6 +2072,9 @@ var Put_InterestTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.InterestTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1803,6 +2094,9 @@ For bulk interest edits, consider the CRM/Interests/CreateOrUpdate batching reso
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.InterestsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1821,6 +2115,9 @@ var Put_Internal_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.InternalUpdate , []byte(args[0]))
 			if err == nil {
@@ -1839,6 +2136,9 @@ var Put_InventoryContactPermissionTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.InventoryContactPermissionTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1857,6 +2157,9 @@ var Put_InventoryWebContents_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.InventoryWebContentsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1875,6 +2178,9 @@ var Put_Issues_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.IssuesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1893,6 +2199,9 @@ var Put_KeywordCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.KeywordCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1911,6 +2220,9 @@ var Put_Keywords_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.KeywordsUpdate , []byte(args[0]))
 			if err == nil {
@@ -1929,6 +2241,9 @@ var Put_Languages_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.LanguagesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1947,6 +2262,9 @@ var Put_ListCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ListCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -1965,6 +2283,9 @@ var Put_Lists_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Contents"); test {
 				out, err = tq.Do(*_tq, _tq.Put.ListsUpdateContents , []byte(args[0]))
 			} else {
@@ -1986,6 +2307,9 @@ var Put_LoginTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.LoginTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2004,6 +2328,9 @@ var Put_MachineSettings_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.MachineSettingsUpdate , []byte(args[0]))
 			if err == nil {
@@ -2022,6 +2349,9 @@ var Put_MailIndicators_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.MailIndicatorsUpdate , []byte(args[0]))
 			if err == nil {
@@ -2040,6 +2370,9 @@ var Put_MediaTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.MediaTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2058,6 +2391,9 @@ var Put_MembershipLevelCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.MembershipLevelCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2076,6 +2412,9 @@ var Put_ModeOfSaleCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ModeOfSaleCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2094,6 +2433,9 @@ var Put_ModeOfSaleOffers_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ModeOfSaleOffersUpdate , []byte(args[0]))
 			if err == nil {
@@ -2112,6 +2454,9 @@ var Put_ModeOfSalePriceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ModeOfSalePriceTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2130,6 +2475,9 @@ var Put_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ModeOfSaleSurveyQuestionsUpdate , []byte(args[0]))
 			if err == nil {
@@ -2148,6 +2496,9 @@ var Put_ModeOfSaleUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ModeOfSaleUserGroupsUpdate , []byte(args[0]))
 			if err == nil {
@@ -2166,6 +2517,9 @@ var Put_ModesOfSale_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ModesOfSaleUpdate , []byte(args[0]))
 			if err == nil {
@@ -2184,6 +2538,9 @@ var Put_NScanAccessAreas_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.NScanAccessAreasUpdate , []byte(args[0]))
 			if err == nil {
@@ -2202,6 +2559,9 @@ var Put_NameStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.NameStatusesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2220,6 +2580,9 @@ var Put_ObjectPermissions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ObjectPermissionsUpdate , []byte(args[0]))
 			if err == nil {
@@ -2238,6 +2601,9 @@ var Put_OrderCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.OrderCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2258,6 +2624,9 @@ This resource will be invoked from a cart checkout.`,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.OrdersUpdate , []byte(args[0]))
 			if err == nil {
@@ -2276,6 +2645,9 @@ var Put_Organizations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.OrganizationsUpdate , []byte(args[0]))
 			if err == nil {
@@ -2294,6 +2666,9 @@ var Put_OriginalSources_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.OriginalSourcesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2312,6 +2687,9 @@ var Put_Origins_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.OriginsUpdate , []byte(args[0]))
 			if err == nil {
@@ -2330,6 +2708,9 @@ var Put_OutputSets_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.OutputSetsUpdate , []byte(args[0]))
 			if err == nil {
@@ -2348,6 +2729,9 @@ var Put_PackagePriceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PackagePriceTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2366,6 +2750,9 @@ var Put_PackageTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PackageTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2384,6 +2771,9 @@ var Put_PackageWebContents_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PackageWebContentsUpdate , []byte(args[0]))
 			if err == nil {
@@ -2402,6 +2792,9 @@ var Put_PaymentGatewayActivities_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PaymentGatewayActivitiesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2420,6 +2813,9 @@ var Put_PaymentGatewayNotifications_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PaymentGatewayNotificationsUpdate , []byte(args[0]))
 			if err == nil {
@@ -2438,6 +2834,9 @@ var Put_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PaymentGatewayTransactionTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2456,6 +2855,9 @@ var Put_PaymentMethodGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PaymentMethodGroupsUpdate , []byte(args[0]))
 			if err == nil {
@@ -2474,6 +2876,9 @@ var Put_PaymentMethodUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PaymentMethodUserGroupsUpdate , []byte(args[0]))
 			if err == nil {
@@ -2492,6 +2897,9 @@ var Put_PaymentMethods_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PaymentMethodsUpdate , []byte(args[0]))
 			if err == nil {
@@ -2510,6 +2918,9 @@ var Put_PaymentSignatures_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PaymentSignaturesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2528,6 +2939,9 @@ var Put_PaymentTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PaymentTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2546,6 +2960,9 @@ var Put_PerformanceGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PerformanceGroupsUpdate , []byte(args[0]))
 			if err == nil {
@@ -2564,6 +2981,9 @@ var Put_PerformancePackageModeOfSales_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PerformancePackageModeOfSalesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2582,6 +3002,9 @@ var Put_PerformancePriceLayers_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Prices"); test {
 				out, err = tq.Do(*_tq, _tq.Put.PerformancePriceLayersUpdatePrices , []byte(args[0]))
 			} else {
@@ -2603,6 +3026,9 @@ var Put_PerformancePriceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Base"); test {
 				out, err = tq.Do(*_tq, _tq.Put.PerformancePriceTypesUpdateBase , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Bulk"); test {
@@ -2626,6 +3052,9 @@ var Put_PerformancePrices_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PerformancePricesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2644,6 +3073,9 @@ var Put_PerformanceStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PerformanceStatusesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2662,6 +3094,9 @@ var Put_PerformanceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PerformanceTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2680,6 +3115,9 @@ var Put_Performances_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PerformancesExpireSeatHolds , []byte(args[0]))
 			if err == nil {
@@ -2698,6 +3136,9 @@ var Put_Philanthropy_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PhilanthropyUpdate , []byte(args[0]))
 			if err == nil {
@@ -2716,6 +3157,9 @@ var Put_PhilanthropyTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PhilanthropyTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2734,6 +3178,9 @@ var Put_PhoneIndicators_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PhoneIndicatorsUpdate , []byte(args[0]))
 			if err == nil {
@@ -2752,6 +3199,9 @@ var Put_PhoneTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PhoneTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2770,6 +3220,9 @@ var Put_Phones_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PhonesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2788,6 +3241,9 @@ var Put_PlanPriorities_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PlanPrioritiesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2806,6 +3262,9 @@ var Put_PlanSources_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PlanSourcesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2824,6 +3283,9 @@ var Put_PlanStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PlanStatusesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2842,6 +3304,9 @@ var Put_PlanTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PlanTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2860,6 +3325,9 @@ var Put_PlanWorkers_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PlanWorkersUpdate , []byte(args[0]))
 			if err == nil {
@@ -2878,6 +3346,9 @@ var Put_Plans_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PlansUpdate , []byte(args[0]))
 			if err == nil {
@@ -2896,6 +3367,9 @@ var Put_PortfolioCustomElements_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PortfolioCustomElementsUpdate , []byte(args[0]))
 			if err == nil {
@@ -2914,6 +3388,9 @@ var Put_Prefixes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PrefixesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2932,6 +3409,9 @@ var Put_Premieres_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PremieresUpdate , []byte(args[0]))
 			if err == nil {
@@ -2950,6 +3430,9 @@ var Put_PriceCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PriceCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -2968,6 +3451,9 @@ var Put_PriceEvents_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PriceEventsMoveTo , []byte(args[0]))
 			if err == nil {
@@ -2986,6 +3472,9 @@ var Put_PriceLayerTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PriceLayerTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3004,6 +3493,9 @@ var Put_PriceTemplates_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PriceTemplatesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3022,6 +3514,9 @@ var Put_PriceTypeCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PriceTypeCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3040,6 +3535,9 @@ var Put_PriceTypeGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PriceTypeGroupsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3058,6 +3556,9 @@ var Put_PriceTypeReasons_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PriceTypeReasonsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3076,6 +3577,9 @@ var Put_PriceTypeUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PriceTypeUserGroupsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3094,6 +3598,9 @@ var Put_PriceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PriceTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3112,6 +3619,9 @@ var Put_PricingRuleCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PricingRuleCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3130,6 +3640,9 @@ var Put_PricingRuleMessageTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PricingRuleMessageTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3148,6 +3661,9 @@ var Put_PricingRuleSets_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PricingRuleSetsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3166,6 +3682,9 @@ var Put_PricingRules_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PricingRulesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3184,6 +3703,9 @@ var Put_Printers_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PrintersUpdate , []byte(args[0]))
 			if err == nil {
@@ -3202,6 +3724,9 @@ var Put_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ProductionSeasonMembershipOrganizationsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3220,6 +3745,9 @@ var Put_ProgramListings_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ProgramListingsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3238,6 +3766,9 @@ var Put_Programs_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ProgramsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3256,6 +3787,9 @@ var Put_Pronouns_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.PronounsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3274,6 +3808,9 @@ var Put_QualificationCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.QualificationCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3292,6 +3829,9 @@ var Put_Qualifications_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.QualificationsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3310,6 +3850,9 @@ var Put_QueryElementFilters_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.QueryElementFiltersUpdate , []byte(args[0]))
 			if err == nil {
@@ -3328,6 +3871,9 @@ var Put_QueryElementGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.QueryElementGroupsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3346,6 +3892,9 @@ var Put_QueryElements_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.QueryElementsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3364,6 +3913,9 @@ var Put_RankTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.RankTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3382,6 +3934,9 @@ var Put_Rankings_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.RankingsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3400,6 +3955,9 @@ var Put_ReceiptSettings_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ReceiptSettingsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3418,6 +3976,9 @@ var Put_ReferenceTableUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ReferenceTableUserGroupsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3436,6 +3997,9 @@ var Put_RelationshipCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.RelationshipCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3454,6 +4018,9 @@ var Put_ReportRequests_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("FlushIncomplete"); test {
 				out, err = tq.Do(*_tq, _tq.Put.ReportRequestsFlushIncomplete , []byte(args[0]))
 			} else {
@@ -3475,6 +4042,9 @@ var Put_ReportSchedules_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ReportSchedulesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3493,6 +4063,9 @@ var Put_ReportUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ReportUserGroupsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3511,6 +4084,9 @@ var Put_Research_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ResearchUpdate , []byte(args[0]))
 			if err == nil {
@@ -3529,6 +4105,9 @@ var Put_ResearchTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ResearchTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3547,6 +4126,9 @@ var Put_ResourceCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ResourceCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3565,6 +4147,9 @@ var Put_ResourceSchedules_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ResourceSchedulesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3583,6 +4168,9 @@ var Put_ResourceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ResourceTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3601,6 +4189,9 @@ var Put_Resources_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ResourcesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3619,6 +4210,9 @@ var Put_SalesChannels_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SalesChannelsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3637,6 +4231,9 @@ var Put_SalesLayoutButtonTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SalesLayoutButtonTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3655,6 +4252,9 @@ var Put_SalesLayouts_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SalesLayoutsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3673,6 +4273,9 @@ var Put_SalutationTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SalutationTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3691,6 +4294,9 @@ var Put_Salutations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SalutationsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3709,6 +4315,9 @@ var Put_SchedulePatternTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SchedulePatternTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3727,6 +4336,9 @@ var Put_ScheduleTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ScheduleTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3745,6 +4357,9 @@ var Put_SeasonTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SeasonTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3763,6 +4378,9 @@ var Put_Seasons_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SeasonsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3781,6 +4399,9 @@ var Put_SeatCodes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SeatCodesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3799,6 +4420,9 @@ var Put_SeatStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SeatStatusesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3817,6 +4441,9 @@ var Put_Sections_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SectionsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3835,6 +4462,9 @@ var Put_ServiceResourceUserGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ServiceResourceUserGroupsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3855,6 +4485,9 @@ If the default is set to "Prompt", both the household and individual are returne
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("SetExpiration"); test {
 				out, err = tq.Do(*_tq, _tq.Put.SessionSetExpiration , []byte(args[0]))
 			} else if test, _ := cmd.Flags().GetBool("Variable"); test {
@@ -3880,6 +4513,9 @@ var Put_SourceGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SourceGroupsUpdate , []byte(args[0]))
 			if err == nil {
@@ -3898,6 +4534,9 @@ var Put_SpecialActivities_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SpecialActivitiesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3916,6 +4555,9 @@ var Put_SpecialActivityStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SpecialActivityStatusesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3934,6 +4576,9 @@ var Put_SpecialActivityTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SpecialActivityTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3952,6 +4597,9 @@ var Put_States_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.StatesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3970,6 +4618,9 @@ var Put_StepTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.StepTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -3988,6 +4639,9 @@ var Put_Steps_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			if test, _ := cmd.Flags().GetBool("Document"); test {
 				out, err = tq.Do(*_tq, _tq.Put.StepsUpdateDocument , []byte(args[0]))
 			} else {
@@ -4009,6 +4663,9 @@ var Put_SubLineItemStatuses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SubLineItemStatusesUpdate , []byte(args[0]))
 			if err == nil {
@@ -4027,6 +4684,9 @@ var Put_Suffixes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SuffixesUpdate , []byte(args[0]))
 			if err == nil {
@@ -4045,6 +4705,9 @@ var Put_SurveyQuestions_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SurveyQuestionsUpdate , []byte(args[0]))
 			if err == nil {
@@ -4063,6 +4726,9 @@ var Put_SurveyResponses_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.SurveyResponsesUpdate , []byte(args[0]))
 			if err == nil {
@@ -4081,6 +4747,9 @@ var Put_TemplateCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.TemplateCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -4099,6 +4768,9 @@ var Put_TemplatePriceTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.TemplatePriceTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -4117,6 +4789,9 @@ var Put_TemplatePrices_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.TemplatePricesUpdate , []byte(args[0]))
 			if err == nil {
@@ -4135,6 +4810,9 @@ var Put_Templates_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.TemplatesUpdate , []byte(args[0]))
 			if err == nil {
@@ -4153,6 +4831,9 @@ var Put_Theaters_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.TheatersUpdate , []byte(args[0]))
 			if err == nil {
@@ -4171,6 +4852,9 @@ var Put_TimeSlots_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.TimeSlotsUpdate , []byte(args[0]))
 			if err == nil {
@@ -4189,6 +4873,9 @@ var Put_TriPOSCloudConfigurations_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.TriPOSCloudConfigurationsUpdate , []byte(args[0]))
 			if err == nil {
@@ -4207,6 +4894,9 @@ var Put_UpgradeCategories_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.UpgradeCategoriesUpdate , []byte(args[0]))
 			if err == nil {
@@ -4225,6 +4915,9 @@ var Put_UpgradeLogs_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.UpgradeLogsUpdate , []byte(args[0]))
 			if err == nil {
@@ -4243,6 +4936,9 @@ var Put_UserPreferences_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.UserPreferencesUpdate , []byte(args[0]))
 			if err == nil {
@@ -4261,6 +4957,9 @@ var Put_WebContentTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.WebContentTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -4279,6 +4978,9 @@ var Put_WebLogins_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.WebLoginsUpdate , []byte(args[0]))
 			if err == nil {
@@ -4297,6 +4999,9 @@ var Put_WorkerQualifications_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.WorkerQualificationsUpdate , []byte(args[0]))
 			if err == nil {
@@ -4315,6 +5020,9 @@ var Put_WorkerRoles_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.WorkerRolesUpdate , []byte(args[0]))
 			if err == nil {
@@ -4333,6 +5041,9 @@ var Put_WorkerTypes_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.WorkerTypesUpdate , []byte(args[0]))
 			if err == nil {
@@ -4351,6 +5062,9 @@ var Put_Workers_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.WorkersUpdate , []byte(args[0]))
 			if err == nil {
@@ -4369,6 +5083,9 @@ var Put_ZoneGroups_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ZoneGroupsUpdate , []byte(args[0]))
 			if err == nil {
@@ -4387,6 +5104,9 @@ var Put_ZoneMaps_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ZoneMapsUpdate , []byte(args[0]))
 			if err == nil {
@@ -4405,6 +5125,9 @@ var Put_Zones_cmd = &cobra.Command{
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
 			var err error
+			if len(args) == 0 {
+				args = make([]string,1)
+			}
 			
 			out, err = tq.Do(*_tq, _tq.Put.ZonesUpdate , []byte(args[0]))
 			if err == nil {
