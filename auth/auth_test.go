@@ -147,22 +147,22 @@ func TestAuth_Validate(t *testing.T) {
 
 	url := strings.Replace(server.URL, "https://", "", 1)
 
-	v, err := Auth{Hostname: "not-a-host.com",
+	v, err := Auth{hostname: "not-a-host.com",
 		username: "user", usergroup: "group", location: "location", password: []byte("password")}.Validate()
 	assert.False(t, v)
 	assert.ErrorContains(t, err, "no such host", "validation fails when server is unreachable and provides useful info")
 
-	v, err = Auth{Hostname: url + "/Not an endpoint/",
+	v, err = Auth{hostname: url + "/Not an endpoint/",
 		username: "user", usergroup: "group", location: "location", password: []byte("password")}.Validate()
 	assert.False(t, v)
 	assert.ErrorContains(t, err, "404 Not Found", "validation fails when endpoint is incorrect and provides useful info")
 
-	v, err = Auth{Hostname: url,
+	v, err = Auth{hostname: url,
 		username: "user", usergroup: "group", location: "location", password: []byte("password")}.Validate()
 	assert.True(t, v, "validation works when credentials are correct")
 	assert.NoError(t, err)
 
-	v, err = Auth{Hostname: url,
+	v, err = Auth{hostname: url,
 		username: "user", usergroup: "group", location: "location", password: []byte("wrongPass")}.Validate()
 	assert.False(t, v)
 	assert.ErrorContains(t, err, "bad credentials", "validation failes when credentials are incorrect")
@@ -180,13 +180,13 @@ func TestAuth_Validate_Integration(t *testing.T) {
 	a.Load()
 
 	a1 := a
-	a1.Hostname = "not-a-server.bam.org"
+	a1.hostname = "not-a-server.bam.org"
 	v, err := a1.Validate()
 	assert.False(t, v)
 	assert.ErrorContains(t, err, "no such host", "validation fails when server is unreachable and provides useful info")
 
 	a2 := a
-	a2.Hostname = strings.ReplaceAll(a2.Hostname, "/TessituraService", "")
+	a2.hostname = strings.ReplaceAll(a2.hostname, "/TessituraService", "")
 	v, err = a2.Validate()
 	assert.False(t, v)
 	assert.ErrorContains(t, err, "404 Not Found", "validation fails when endpoint is incorrect and provides useful info")

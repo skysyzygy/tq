@@ -68,7 +68,7 @@ func (tq *TqConfig) Login(a auth.Auth) error {
 		tq.basicAuth = basicAuth
 	}
 
-	host := append(strings.SplitN(a.Hostname, "/", 2), "")
+	host := append(strings.SplitN(a.Hostname(), "/", 2), "")
 	ignoreCerts, _ := httptransport.TLSClient(httptransport.TLSClientOptions{
 		InsecureSkipVerify: true,
 	})

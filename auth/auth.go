@@ -17,7 +17,7 @@ import (
 // Simple structure to hold authentication information
 type Auth struct {
 	// hostname and basepath without the leading https://
-	Hostname  string
+	hostname  string
 	username  string
 	usergroup string
 	location  string
@@ -38,15 +38,19 @@ func init() {
 	}
 }
 
+func (a Auth) Hostname() string {
+	return a.hostname
+}
+
 // Build the authentication string used for storing the password in the keystore
 func (a Auth) String() (string, error) {
-	if strings.Contains(a.Hostname, "|") ||
+	if strings.Contains(a.hostname, "|") ||
 		strings.Contains(a.username, "|") ||
 		strings.Contains(a.usergroup, "|") ||
 		strings.Contains(a.location, "|") {
 		return "", errors.New("authentication info can't contain the '|' character")
 	}
-	return fmt.Sprintf("%v|%v|%v|%v", a.Hostname, a.username, a.usergroup, a.location), nil
+	return fmt.Sprintf("%v|%v|%v|%v", a.hostname, a.username, a.usergroup, a.location), nil
 }
 
 // Build the authentication string used for basic http authentication
@@ -117,7 +121,7 @@ func List() ([]Auth, error) {
 
 // Validate authentication with the Tessitura API server at a.Hostname
 func (a Auth) Validate() (bool, error) {
-	host := append(strings.SplitN(a.Hostname, "/", 2), "")
+	host := append(strings.SplitN(a.hostname, "/", 2), "")
 	ignoreCerts, _ := httptransport.TLSClient(httptransport.TLSClientOptions{
 		InsecureSkipVerify: true,
 	})
