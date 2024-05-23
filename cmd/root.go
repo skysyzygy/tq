@@ -27,6 +27,7 @@ import (
 	"io"
 	"os"
 	"slices"
+	"strings"
 
 	"github.com/skysyzygy/tq/auth"
 	"github.com/skysyzygy/tq/tq"
@@ -81,7 +82,14 @@ func init() {
 	rootCmd.PersistentFlags().BoolVarP(&dryRun, "dryrun", "n", false, "don't actually do anything, just show what would have happened")
 
 	// Hide global flags from auth command
-	authenticateCmd.InheritedFlags().VisitAll(func(f *pflag.Flag) { f.Hidden = true })
+	authenticateCmd.SetHelpFunc(func(cmd *cobra.Command, args []string) {
+		authenticateCmd.InheritedFlags().VisitAll(func(f *pflag.Flag) { f.Hidden = true })
+		rootCmd.HelpFunc()(cmd, args)
+	})
+
+	rootCmd.SetUsageTemplate(
+		strings.NewReplacer("command", "verb", " Command", " Verb").
+			Replace(rootCmd.UsageTemplate()))
 
 }
 

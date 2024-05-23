@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"strings"
+
 	"github.com/spf13/cobra"
 )
 
@@ -31,5 +33,13 @@ func init() {
 	Get_cmd.Long = Get_cmd.Short + "\n" + longSuffix
 	Post_cmd.Long = Post_cmd.Short + "\n" + longSuffix
 	Put_cmd.Long = Put_cmd.Short + "\n" + longSuffix
+
+	usageTemplate := strings.NewReplacer("verb", "object", "Verb", "Object").
+		Replace(rootCmd.UsageTemplate())
+	Get_cmd.SetUsageTemplate(usageTemplate)
+	Post_cmd.SetUsageTemplate(usageTemplate)
+	Put_cmd.SetUsageTemplate(usageTemplate)
+
 	rootCmd.AddCommand(Get_cmd, Post_cmd, Put_cmd)
+
 }
