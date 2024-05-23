@@ -50,7 +50,7 @@ var rootCmd = &cobra.Command{
 		"It internally handles authentication, session creation and " +
 		"closure, and batch/concurrent processing so that humans like " +
 		"you can focus on the data and not the intricacies of the API.\n\n" +
-		"tq is basically a high-level 	API for common tasks in Tessi. "),
+		"tq is basically a high-level API for common tasks in Tessi. "),
 
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
