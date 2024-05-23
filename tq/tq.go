@@ -3,7 +3,6 @@ package tq
 import (
 	"errors"
 	"fmt"
-	"io"
 	"log/slog"
 	"os"
 	"reflect"
@@ -173,12 +172,9 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 	obj, err := function(params)
 
 	if apiErr, ok := err.(*runtime.APIError); ok {
-		body := reflect.ValueOf(apiErr.Response).FieldByName("Body")
-		if !body.IsZero() {
-			if body, ok := body.Interface().(io.ReadCloser); ok {
-				resBody, _ := io.ReadAll(body)
-				err = errors.Join(err, fmt.Errorf(string(resBody)))
-			}
+		if res, ok := apiErr.Response.(runtime.ClientResponse); ok {
+			body := res.Body()
+			err = errors.Join(err, fmt.Errorf(io.ReadAll(body)))
 		}
 	}
 
