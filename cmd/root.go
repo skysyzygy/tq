@@ -99,6 +99,7 @@ func initConfig() {
 		viper.AddConfigPath(home)
 		viper.SetConfigType("yaml")
 		viper.SetConfigName(".tq")
+		cfgFile = home + string(os.PathSeparator) + ".tq"
 	}
 
 	viper.AutomaticEnv() // read in environment variables that match
