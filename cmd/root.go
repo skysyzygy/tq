@@ -144,6 +144,7 @@ func tqInit(cmd *cobra.Command, args []string) (err error) {
 			err = errors.Join(fmt.Errorf("cannot open input file for reading"), _err, err)
 		}
 		input, _err := io.ReadAll(json)
+		json.Close()
 		if _err != nil {
 			err = errors.Join(fmt.Errorf("cannot read from input file"), _err, err)
 		}
