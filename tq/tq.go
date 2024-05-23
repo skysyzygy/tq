@@ -3,6 +3,7 @@ package tq
 import (
 	"errors"
 	"fmt"
+	"io"
 	"log/slog"
 	"os"
 	"reflect"
@@ -171,6 +172,16 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 	// Call the function
 	obj, err := function(params)
 
+	if apiErr, ok := err.(*runtime.APIError); ok {
+		body := reflect.ValueOf(apiErr.Response).FieldByName("Body")
+		if !body.IsZero() {
+			if body, ok := body.Interface().(io.ReadCloser); ok {
+				resBody, _ := io.ReadAll(body)
+				err = errors.Join(err, fmt.Errorf(string(resBody)))
+			}
+		}
+	}
+
 	if err != nil {
 		return nil, err
 	} else {
@@ -205,8 +216,8 @@ func unmarshallStructWithRemainder(query []byte, params any) (res map[string]any
 	typ := reflect.TypeOf(params).Elem()
 	for key := range res {
 		for i := 0; i < typ.NumField(); i++ {
-			if key == typ.Field(i).Name ||
-				key == strings.Split(typ.Field(i).Tag.Get("json"), ",")[0] {
+			if strings.EqualFold(key, typ.Field(i).Name) ||
+				strings.EqualFold(key, strings.Split(typ.Field(i).Tag.Get("json"), ",")[0]) {
 				// But only if they are set
 				field := reflect.ValueOf(params).Elem().Field(i)
 				if !(field.IsZero() || field.Kind() == reflect.Pointer &&
