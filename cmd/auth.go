@@ -87,6 +87,12 @@ var authenticateSelectCmd = &cobra.Command{
 	Aliases: []string{"s", "sel"},
 	Short:   `Select a Tessitura API authentication method`,
 	RunE: func(cmd *cobra.Command, args []string) error {
+		if *hostname == "" &&
+			*username == "" &&
+			*usergroup == "" &&
+			*location == "" {
+			return fmt.Errorf("no authentication information provided, nothing to select")
+		}
 		a := auth.New(*hostname, *username, *usergroup, *location, nil)
 		str, _ := a.String()
 		viper.Set("login", str)

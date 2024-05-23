@@ -81,6 +81,8 @@ func Test_authenticateDeleteCmd(t *testing.T) {
 
 func Test_authenticateSelectCmd(t *testing.T) {
 	cfgFile = "tq.yaml"
+	assert.NoFileExists(t, "tq.yaml")
+
 	// root command calls this to read in the config file
 	initConfig()
 	defer os.Remove("tq.yaml")
@@ -90,8 +92,8 @@ func Test_authenticateSelectCmd(t *testing.T) {
 	*usergroup = "group"
 	*location = "location"
 
-	assert.NoFileExists(t, "tq.yaml")
-	authenticateSelectCmd.RunE(authenticateSelectCmd, nil)
+	err := authenticateSelectCmd.RunE(authenticateSelectCmd, nil)
+	assert.NoError(t, err)
 	assert.FileExists(t, "tq.yaml")
 
 	configFile, _ := os.ReadFile("tq.yaml")
