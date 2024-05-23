@@ -15,7 +15,16 @@ import (
 	"golang.org/x/term"
 )
 
+func init() {
+	if term.IsTerminal(int(os.Stdin.Fd())) {
+		pr = termPasswordReader{}
+	} else {
+		pr = stdinPasswordReader{}
+	}
+}
+
 var hostname, username, usergroup, location *string
+var pr passwordReader
 
 // authenticateCmd represents the authenticate command
 var authenticateCmd = &cobra.Command{
@@ -23,6 +32,23 @@ var authenticateCmd = &cobra.Command{
 	Aliases: []string{"a", "auth"},
 	Short:   "Authenticate with the Tessitura API",
 	Long:    `Manage authentication with various Tessitura API servers, usernames and usergroups.`,
+}
+
+type passwordReader interface {
+	ReadPassword() ([]byte, error)
+}
+
+type (
+	termPasswordReader  struct{}
+	stdinPasswordReader struct{}
+)
+
+func (pr termPasswordReader) ReadPassword() ([]byte, error) {
+	return term.ReadPassword(int(os.Stdin.Fd()))
+}
+
+func (pr stdinPasswordReader) ReadPassword() ([]byte, error) {
+	return io.ReadAll(os.Stdin)
 }
 
 var authenticateAddCmd = &cobra.Command{
@@ -35,12 +61,7 @@ var authenticateAddCmd = &cobra.Command{
 			password []byte
 			err      error
 		)
-		inputFd := int(os.Stdin.Fd())
-		if term.IsTerminal(inputFd) {
-			password, err = term.ReadPassword(inputFd)
-		} else {
-			password, err = io.ReadAll(os.Stdin)
-		}
+		password, err = pr.ReadPassword()
 		if err != nil {
 			return err
 		}
