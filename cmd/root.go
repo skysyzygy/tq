@@ -82,9 +82,9 @@ func init() {
 	rootCmd.PersistentFlags().BoolVarP(&dryRun, "dryrun", "n", false, "don't actually do anything, just show what would have happened")
 
 	// Hide global flags from auth command
-	authenticateCmd.SetHelpFunc(func(cmd *cobra.Command, args []string) {
+	authenticateCmd.SetUsageFunc(func(cmd *cobra.Command) error {
 		authenticateCmd.InheritedFlags().VisitAll(func(f *pflag.Flag) { f.Hidden = true })
-		rootCmd.HelpFunc()(cmd, args)
+		return rootCmd.UsageFunc()(cmd)
 	})
 
 	rootCmd.SetUsageTemplate(
@@ -173,7 +173,10 @@ func tqInit(cmd *cobra.Command, args []string) (err error) {
 			"auth", a)
 		return err
 	}
-	err = _tq.Login(a)
 
-	return err
+	if len(args) == 0 {
+		cmd.SetArgs([]string{""})
+	}
+
+	return _tq.Login(a)
 }
