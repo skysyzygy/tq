@@ -25,12 +25,12 @@ type Auth struct {
 }
 
 var (
-	keys keyring.Keyring
+	Keys keyring.Keyring
 )
 
 func init() {
 	var err error
-	keys, err = keyring.Open(keyring.Config{
+	Keys, err = keyring.Open(keyring.Config{
 		ServiceName: "tq",
 	})
 	if err != nil {
@@ -79,7 +79,7 @@ func (a Auth) Save() error {
 	if authString, err := a.String(); err != nil {
 		return err
 	} else {
-		return keys.Set(keyring.Item{Key: authString, Data: a.password})
+		return Keys.Set(keyring.Item{Key: authString, Data: a.password})
 	}
 }
 
@@ -88,7 +88,7 @@ func (a *Auth) Load() error {
 	if authString, err := a.String(); err != nil {
 		return err
 	} else {
-		pass, err := keys.Get(authString)
+		pass, err := Keys.Get(authString)
 		a.password = pass.Data
 		return err
 	}
@@ -99,13 +99,13 @@ func (a Auth) Delete() error {
 	if authString, err := a.String(); err != nil {
 		return err
 	} else {
-		return keys.Remove(authString)
+		return Keys.Remove(authString)
 	}
 }
 
 // List all authentication keys in the keystore
 func List() ([]Auth, error) {
-	keys, err := keys.Keys()
+	keys, err := Keys.Keys()
 	auths := make([]Auth, len(keys))
 	for i, key := range keys {
 		var err2 error

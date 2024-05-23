@@ -7,12 +7,15 @@ import (
 	"os"
 	"reflect"
 	run "runtime"
+	"slices"
 	"strings"
+	"sync"
 
 	"encoding/json"
 
 	"github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
+	"github.com/go-openapi/strfmt"
 	"github.com/skysyzygy/tq/auth"
 	"github.com/skysyzygy/tq/client"
 )
@@ -30,10 +33,11 @@ type TqConfig struct {
 	// TODO: Bearer token for requests
 	// tokenAuth func(*runtime.ClientOperation)
 
-	// Logger
+	// Logger, exported so that logging can happen from within the
+	// command scripts
 	Log *slog.Logger
 
-	// some flags
+	// some flags, set by New
 	verbose bool
 	dryRun  bool
 }
@@ -84,24 +88,31 @@ func Do[P any, R any, O any, F func(*P, ...O) (*R, error)](
 ) ([]byte, error) {
 	tq.Log.Info(fmt.Sprint("calling swagger function: ",
 		run.FuncForPC(reflect.ValueOf(function).Pointer()).Name()))
+	if len(query) == 0 {
+		tq.Log.Info("query is empty, calling API endpoint once")
+		return DoOne(tq, function, query)
+	}
 	queries := new([]json.RawMessage)
 	err := json.Unmarshal(query, queries)
 	if _, ok := err.(*json.UnmarshalTypeError); ok {
-		tq.Log.Info("query is not an array, so calling API endpoint once")
+		tq.Log.Info("query is not an array, calling API endpoint once")
 		// it's not an array... so just call DoOne
 		return DoOne(tq, function, query)
 	} else if err == nil {
-		tq.Log.Info("query is an array, so calling API endpoint multiple times")
+		tq.Log.Info("query is an array, calling API endpoint multiple times")
 		// loop over queries and call DoOne for each
-		// TODO: Parallelize this!
 		out := make([]json.RawMessage, len(*queries))
-		errs := make([]error, 0, len(*queries))
+		errs := make([]error, len(*queries))
+		wait := new(sync.WaitGroup)
+		wait.Add(len(*queries))
 		for i, q := range *queries {
-			out[i], err = DoOne(tq, function, q)
-			if err != nil {
-				errs = append(errs, err)
-			}
+			go func(i int) {
+				out[i], errs[i] = DoOne(tq, function, q)
+				wait.Done()
+			}(i)
 		}
+		wait.Wait()
+		errs = slices.DeleteFunc(errs, func(e error) bool { return e == nil })
 		res, _ := json.Marshal(out)
 		if len(errs) > 0 {
 			err = errs[len(errs)-1]
@@ -122,20 +133,36 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 	tq TqConfig, function F, query []byte,
 ) ([]byte, error) {
 
+	var err error
+	var remainder map[string]any
 	params := new(P)
-	remainder, err := unmarshallStructWithRemainder(query, params)
 
-	// Is there a better way to determine failure?
-	if len(structFields(*params)) == 1 && len(mapFields(remainder)) > 0 {
-		remainder, err = unmarshallNestedStructWithRemainder(query, params)
+	if len(query) > 0 {
+		remainder, err = unmarshallStructWithRemainder(query, params)
+
+		// If there are fields left over...
+		if len(remainder) > 0 {
+			remainder, err = unmarshallNestedStructWithRemainder(query, params,
+				[]string{"timeout", "Context", "HTTPClient"})
+		}
+
+		if tq.verbose {
+			tq.Log.Info("query fields mapped:", "fields", fmt.Sprint(structFields(*params)))
+			tq.Log.Info("query fields ignored:", "fields", fmt.Sprint(mapFields(remainder)))
+			if err != nil {
+				tq.Log.Info("unmarshalling returned error:", "error", err)
+			}
+		}
 	}
 
-	if tq.verbose {
-		tq.Log.Info("structFields", "fields", fmt.Sprint(structFields(*params)))
-		tq.Log.Info("mapFields", "fields", fmt.Sprint(mapFields(remainder)))
-	}
-	if len(structFields(*params)) == 0 {
-		err = errors.Join(err, fmt.Errorf("query could not be parsed"))
+	if len(structFields(*params)) == 0 && len(remainder) > 0 {
+		if tq.verbose {
+			err = errors.Join(fmt.Errorf("query %v could not be parsed into %#v",
+				string(query),
+				params), err)
+		} else {
+			err = errors.Join(fmt.Errorf("query could not be parsed"), err)
+		}
 	}
 	if tq.dryRun || err != nil {
 		return nil, err
@@ -148,8 +175,9 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 		return nil, err
 	} else {
 		// Marshall the json response
-		if payload := reflect.ValueOf(obj).Elem().FieldByName("Payload"); !payload.IsZero() {
-			return json.Marshal(payload.Interface())
+		if !reflect.ValueOf(obj).Elem().IsZero() &&
+			!reflect.ValueOf(obj).Elem().FieldByName("Payload").IsZero() {
+			return json.Marshal(reflect.ValueOf(obj).Elem().FieldByName("Payload").Interface())
 		} else {
 			return json.Marshal(obj)
 		}
@@ -177,9 +205,14 @@ func unmarshallStructWithRemainder(query []byte, params any) (res map[string]any
 	typ := reflect.TypeOf(params).Elem()
 	for key := range res {
 		for i := 0; i < typ.NumField(); i++ {
-			// go's JSON is case insensitive and so should we
-			if strings.EqualFold(key, typ.Field(i).Name) {
-				delete(res, key)
+			if key == typ.Field(i).Name ||
+				key == strings.Split(typ.Field(i).Tag.Get("json"), ",")[0] {
+				// But only if they are set
+				field := reflect.ValueOf(params).Elem().Field(i)
+				if !(field.IsZero() || field.Kind() == reflect.Pointer &&
+					field.Elem().IsZero()) {
+					delete(res, key)
+				}
 			}
 		}
 	}
@@ -189,7 +222,7 @@ func unmarshallStructWithRemainder(query []byte, params any) (res map[string]any
 
 // Unmarshall into a nested struct from a flat query and return the remainder as a map
 // Errors if P is not a struct type
-func unmarshallNestedStructWithRemainder(query []byte, params any) (res map[string]any, err error) {
+func unmarshallNestedStructWithRemainder(query []byte, params any, except []string) (res map[string]any, err error) {
 	if reflect.TypeOf(params).Kind() != reflect.Pointer {
 		return nil, fmt.Errorf("params must be pointer to struct, got %v", reflect.TypeOf(params).Kind())
 	} else if reflect.TypeOf(params).Elem().Kind() != reflect.Struct {
@@ -198,21 +231,31 @@ func unmarshallNestedStructWithRemainder(query []byte, params any) (res map[stri
 
 	// First unmarshal the given struct so that those fields get mapped if possible
 	res, err = unmarshallStructWithRemainder(query, params)
-	if err != nil {
+
+	query, _ = json.Marshal(res)
+	if string(query) == "{}" {
 		return
 	}
-	query, _ = json.Marshal(res)
 
 	v := reflect.ValueOf(params).Elem()
 	for i := 0; i < v.NumField(); i++ {
-		if v.Field(i).Kind() == reflect.Struct && v.Field(i).IsZero() {
-			// Recurse if there's a struct field
-			res, err = unmarshallNestedStructWithRemainder(query, v.Field(i).Addr().Interface())
-			if err != nil {
-				return
+		field := v.Field(i)
+		// Don't overwrite existing fields or `except`ed fields
+		if (field.IsZero() || field.Kind() == reflect.Pointer &&
+			field.Elem().IsZero()) && !slices.Contains(except, v.Type().Field(i).Name) {
+			if field.Type().Kind() == reflect.Pointer {
+				// new struct if pointer is nil
+				field.Set(reflect.New(field.Type().Elem()))
+			} else {
+				field = field.Addr()
 			}
-			// Update the query with only unmatched fields
-			query, _ = json.Marshal(res)
+			if field.Type().Elem().Kind() == reflect.Struct &&
+				field.Type().Elem() != reflect.TypeOf(strfmt.DateTime{}) {
+				// recurse if there's a struct field
+				res, err = unmarshallNestedStructWithRemainder(query, field.Interface(), except)
+				// Update the query with only unmatched fields
+				query, _ = json.Marshal(res)
+			}
 		}
 	}
 

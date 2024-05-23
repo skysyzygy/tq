@@ -56,33 +56,68 @@ func Test_instantiateStructType(t *testing.T) {
 		P *test
 		O test
 	}
+	type arrayobj struct {
+		A  []test
+		AP *[]test
+	}
 	pointer := new(nest)
 	object := *pointer
-	j, _ := json.Marshal(instantiateStructType(reflect.TypeOf(object), 1))
+	arrays := new(arrayobj)
+	s, i := instantiateStructType(reflect.TypeOf(object), 1)
+	j, _ := json.Marshal(s)
 	assert.Equal(t,
-		`{"P":{"I":0,"F":0,"B":false,"S":"string","SP":"string"},"O":{"I":0,"F":0,"B":false,"S":"string","SP":"string"}}`,
+		`{"P":{"I":123,"F":123.456,"B":true,"S":"string","SP":"string"},"O":{"I":123,"F":123.456,"B":true,"S":"string","SP":"string"}}`,
 		string(j))
+	assert.Equal(t, i, 1)
 
-	j, _ = json.Marshal(instantiateStructType(reflect.TypeOf(pointer), 1))
+	s, i = instantiateStructType(reflect.TypeOf(pointer), 1)
+	j, _ = json.Marshal(s)
 	assert.Equal(t,
-		`{"P":{"I":0,"F":0,"B":false,"S":"string","SP":"string"},"O":{"I":0,"F":0,"B":false,"S":"string","SP":"string"}}`,
+		`{"P":{"I":123,"F":123.456,"B":true,"S":"string","SP":"string"},"O":{"I":123,"F":123.456,"B":true,"S":"string","SP":"string"}}`,
 		string(j))
+	assert.Equal(t, i, 1)
 
-	j, _ = json.Marshal(instantiateStructType(reflect.TypeOf(pointer), 0))
+	// only initialize the root object
+	s, i = instantiateStructType(reflect.TypeOf(pointer), 0)
+	j, _ = json.Marshal(s)
 	assert.Equal(t,
 		`{"P":null,"O":{"I":0,"F":0,"B":false,"S":"","SP":null}}`,
 		string(j))
+	assert.Equal(t, i, 0)
+
+	s, i = instantiateStructType(reflect.TypeOf(arrays), 0)
+	j, _ = json.Marshal(s)
+	assert.Equal(t,
+		`{"A":null,"AP":null}`,
+		string(j))
+	assert.Equal(t, i, 0)
+
+	s, i = instantiateStructType(reflect.TypeOf(arrays), 1)
+	j, _ = json.Marshal(s)
+	assert.Equal(t,
+		`{"A":[{"I":123,"F":123.456,"B":true,"S":"string","SP":"string"}],"AP":[{"I":123,"F":123.456,"B":true,"S":"string","SP":"string"}]}`,
+		string(j))
+	assert.Equal(t, i, 1)
 
 }
 
-func Test_usageInterface(t *testing.T) {
+func Test_usage(t *testing.T) {
 	client := client.New(nil, nil)
 	method, _ := reflect.TypeOf(client.Get).MethodByName("ConstituentsGet")
-	assert.Equal(t, `{"ConstituentID":"string"}`, string(usage(method)))
+	assert.Equal(t, `{"ConstituentID":"string"}`, usage(method))
+	//assert.Equal(t, 1, len(usage(method)))
 	method, _ = reflect.TypeOf(client.Put).MethodByName("ConstituentsUpdate")
-	assert.Equal(t, `{"Constituent":{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DisplayName":"string","FirstName":"string","LastActivityDate":"0001-01-01T00:00:00.000Z","LastGiftDate":"0001-01-01T00:00:00.000Z","LastName":"string","LastTicketDate":"0001-01-01T00:00:00.000Z","MiddleName":"string","SortName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"ConstituentID":"string"}`, string(usage(method)))
+	//assert.Equal(t, `{"Constituent":{"ConstituentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DisplayName":"string","EmarketIndicator":{"Id":123},"FirstName":"string","Gender":{"Id":123},"Id":123,"Inactive":{"Id":123},"InactiveReason":{"Id":123},"LastActivityDate":"2000-01-01T00:00:00.000Z","LastGiftDate":"2000-01-01T00:00:00.000Z","LastName":"string","LastTicketDate":"2000-01-01T00:00:00.000Z","MailIndicator":{"Id":123},"MiddleName":"string","NameStatus":{"Id":123},"OriginalSource":{"Id":123},"PhoneIndicator":{"Id":123},"Prefix":{"Id":123},"ProtectionType":{"Id":123},"SortName":"string","Suffix":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"},"ConstituentID":"string"}`, usage(method)[0])
+	assert.Equal(t, `{"ConstituentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DisplayName":"string","EmarketIndicator":{"Id":123},"FirstName":"string","Gender":{"Id":123},"Id":123,"Inactive":{"Id":123},"InactiveReason":{"Id":123},"LastActivityDate":"2000-01-01T00:00:00.000Z","LastGiftDate":"2000-01-01T00:00:00.000Z","LastName":"string","LastTicketDate":"2000-01-01T00:00:00.000Z","MailIndicator":{"Id":123},"MiddleName":"string","NameStatus":{"Id":123},"OriginalSource":{"Id":123},"PhoneIndicator":{"Id":123},"Prefix":{"Id":123},"ProtectionType":{"Id":123},"SortName":"string","Suffix":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ConstituentID":"string"}`, usage(method))
 	method, _ = reflect.TypeOf(client.Post).MethodByName("ConstituentsCreateConstituent")
-	assert.Equal(t, `{"Constituent":{"Addresses":[object],"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","DisplayName":"string","ElectronicAddresses":[object],"FirstName":"string","LastActivityDate":"0001-01-01T00:00:00.000Z","LastGiftDate":"0001-01-01T00:00:00.000Z","LastName":"string","LastTicketDate":"0001-01-01T00:00:00.000Z","MiddleName":"string","PhoneNumbers":[object],"Salutations":[object],"SortName":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"}}`, string(usage(method)))
+	//assert.Equal(t, `{"Constituent":{"Addresses":[{"Id":123},...],"ConstituentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DisplayName":"string","ElectronicAddresses":[{"Id":123},...],"EmarketIndicator":{"Id":123},"FirstName":"string","Gender":{"Id":123},"Id":123,"Inactive":{"Id":123},"InactiveReason":{"Id":123},"LastActivityDate":"2000-01-01T00:00:00.000Z","LastGiftDate":"2000-01-01T00:00:00.000Z","LastName":"string","LastTicketDate":"2000-01-01T00:00:00.000Z","MailIndicator":{"Id":123},"MiddleName":"string","NameStatus":{"Id":123},"OriginalSource":{"Id":123},"PhoneIndicator":{"Id":123},"PhoneNumbers":[{"Id":123},...],"Prefix":{"Id":123},"ProtectionType":{"Id":123},"Salutations":[{"Id":123},...],"SortName":"string","Suffix":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}}`, usage(method)[0])
+	assert.Equal(t, `{"Addresses":[{"Id":123},...],"ConstituentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DisplayName":"string","ElectronicAddresses":[{"Id":123},...],"EmarketIndicator":{"Id":123},"FirstName":"string","Gender":{"Id":123},"Id":123,"Inactive":{"Id":123},"InactiveReason":{"Id":123},"LastActivityDate":"2000-01-01T00:00:00.000Z","LastGiftDate":"2000-01-01T00:00:00.000Z","LastName":"string","LastTicketDate":"2000-01-01T00:00:00.000Z","MailIndicator":{"Id":123},"MiddleName":"string","NameStatus":{"Id":123},"OriginalSource":{"Id":123},"PhoneIndicator":{"Id":123},"PhoneNumbers":[{"Id":123},...],"Prefix":{"Id":123},"ProtectionType":{"Id":123},"Salutations":[{"Id":123},...],"SortName":"string","Suffix":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`, usage(method))
+	method, _ = reflect.TypeOf(client.Post).MethodByName("AccountTypesCreate")
+	//assert.Equal(t, `{"Data":{"CardLength":"string","CardPrefix":"string","CardtypeIndicator":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditMask":"string","Id":123,"Inactive":true,"Mod10Indicator":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}}`, usage(method)[0])
+	assert.Equal(t, `{"CardLength":"string","CardPrefix":"string","CardtypeIndicator":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditMask":"string","Id":123,"Inactive":true,"Mod10Indicator":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`, usage(method))
+	method, _ = reflect.TypeOf(client.Post).MethodByName("InterestsCreateOrUpdate")
+	//assert.Equal(t, `{"Data":{"CardLength":"string","CardPrefix":"string","CardtypeIndicator":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditMask":"string","Id":123,"Inactive":true,"Mod10Indicator":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}}`, usage(method)[0])
+	assert.Equal(t, `{"Interests":[{"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"InterestType":{"Id":123},"Selected":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Weight":123},...]}`, usage(method))
 }
 
 func Test_newCommandGet(t *testing.T) {

@@ -17,7 +17,7 @@ import (
 // Setup the test environment by making a separate keystore for testing
 func TestMain(m *testing.M) {
 	// setup code
-	keys, _ = keyring.Open(keyring.Config{
+	Keys, _ = keyring.Open(keyring.Config{
 		ServiceName: "tq_test",
 	})
 	code := m.Run()
@@ -75,7 +75,7 @@ func TestAuth_Save(t *testing.T) {
 	assert := assert.New(t)
 
 	err := Auth{"a", "b", "c", "d", []byte("e")}.Save()
-	pass, _ := keys.Get("a|b|c|d")
+	pass, _ := Keys.Get("a|b|c|d")
 	assert.Equal(pass.Data, []byte("e"), "saves Auth password to keystore")
 	assert.NoError(err)
 
@@ -97,12 +97,12 @@ func TestList(t *testing.T) {
 }
 
 func TestAuth_Delete(t *testing.T) {
-	k, _ := keys.Keys()
+	k, _ := Keys.Keys()
 	assert.Equal(t, len(k), 1, "there's a key in the keystore")
 
 	err := Auth{"a", "b", "c", "d", nil}.Delete()
 
-	k, _ = keys.Keys()
+	k, _ = Keys.Keys()
 	assert.Equal(t, len(k), 0, "deletes auth from keystore")
 	assert.NoError(t, err)
 }
@@ -171,7 +171,7 @@ func TestAuth_Validate(t *testing.T) {
 
 func TestAuth_Validate_Integration(t *testing.T) {
 
-	keys, _ = keyring.Open(keyring.Config{
+	Keys, _ = keyring.Open(keyring.Config{
 		ServiceName: "tq_test_integration",
 	})
 

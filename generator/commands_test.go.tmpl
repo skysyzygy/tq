@@ -5,9 +5,11 @@ package cmd
 import (
 	"testing"
     "regexp"
+    "strings"
 
 	"github.com/stretchr/testify/assert"
     "github.com/skysyzygy/tq/tq"
+    "github.com/spf13/viper"
 )
 
 {{ $op := .op }}
@@ -21,21 +23,29 @@ func Test_{{ print $op "_" $key "_" .Variant "_cmd" }}(t *testing.T) {
         flag := command.Flag("{{ .Variant }}")
         if flag != nil {
             flag.Value.Set("true")
+            defer flag.Value.Set("false")
             use = flag.Usage
         }
         {{ end -}}
 
-		input := regexp.MustCompile(`\{.+\}`).FindString(use)
+		input := regexp.MustCompile(`\{.+\}$`).FindString(
+                            strings.ReplaceAll(use,",...",""))
+
         out, err := tq.CaptureOutput(func(){
+            viper.Set("login",authString)
             // PreRun: tqInit
-            command.PreRun(command, nil)
-            {{`//Use: {{ print $key " " $command.Usage }},`}}
-            command.Run(command, []string{input})
+            if err := command.PreRunE(command, nil); err != nil {
+                panic(err)
+            }
+            {{`//Use: {{ print $key " " $command.Usage `}}
+            if err := command.RunE(command, []string{input}); err != nil {
+                _tq.Log.Error(err.Error())
+            }
         })
     
-        // Note these are backwards right now to ensure passing
-        assert.NotEmpty(t, string(err))
-        assert.Empty(t, string(out))
+        assert.Empty(t, string(err))
+        // Note need to test output better
+        assert.NotEmpty(t, string(out))
         
 }
 {{ end }}

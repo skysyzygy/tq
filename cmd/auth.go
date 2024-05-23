@@ -5,37 +5,110 @@ package cmd
 
 import (
 	"fmt"
+	"io"
+	"os"
+	"regexp"
 
+	"github.com/skysyzygy/tq/auth"
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
+	"golang.org/x/term"
 )
+
+var hostname, username, usergroup, location *string
 
 // authenticateCmd represents the authenticate command
 var authenticateCmd = &cobra.Command{
 	Use:     "authenticate",
-	Aliases: []string{"a", "au", "aut", "auth"},
+	Aliases: []string{"a", "auth"},
 	Short:   "Authenticate with the Tessitura API",
-	Long: helpParagraph(`A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
+	Long:    `Manage authentication with various Tessitura API servers, usernames and usergroups.`,
+}
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`),
+var authenticateAddCmd = &cobra.Command{
+	Use:     "add",
+	Aliases: []string{"a", "add"},
+	Short:   "Add an Tessitura API authentication method",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		fmt.Print("Password: ")
+		var (
+			password []byte
+			err      error
+		)
+		inputFd := int(os.Stdin.Fd())
+		if term.IsTerminal(inputFd) {
+			password, err = term.ReadPassword(inputFd)
+		} else {
+			password, err = io.ReadAll(os.Stdin)
+		}
+		if err != nil {
+			return err
+		}
+
+		// strip protocol from hostname if it exists
+		host := regexp.MustCompile("^.+//").ReplaceAllString(*hostname, "")
+
+		a := auth.New(host, *username, *usergroup, *location, password)
+		err = a.Save()
+		return err
+	},
+}
+
+var authenticateListCmd = &cobra.Command{
+	Use:     "list",
+	Aliases: []string{"l", "ls"},
+	Short:   `List all saved Tessitura API authentication methods`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("authenticate called")
+		if *hostname != "" ||
+			*username != "" ||
+			*usergroup != "" ||
+			*location != "" {
+			fmt.Println("Warning: parameters ignored")
+		}
+		auths, _ := auth.List()
+		for _, auth := range auths {
+			fmt.Printf("%s", auth)
+		}
+	},
+}
+
+var authenticateDeleteCmd = &cobra.Command{
+	Use:     "delete",
+	Aliases: []string{"d", "del", "rm"},
+	Short:   `Delete a Tessitura API authentication method`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		a := auth.New(*hostname, *username, *usergroup, *location, nil)
+		return a.Delete()
+	},
+}
+
+var authenticateSelectCmd = &cobra.Command{
+	Use:     "select",
+	Aliases: []string{"s", "sel"},
+	Short:   `Select a Tessitura API authentication method`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		if *hostname == "" &&
+			*username == "" &&
+			*usergroup == "" &&
+			*location == "" {
+			return fmt.Errorf("no authentication information provided, nothing to select")
+		}
+		a := auth.New(*hostname, *username, *usergroup, *location, nil)
+		str, _ := a.String()
+		viper.Set("login", str)
+		err := viper.WriteConfig()
+		return err
 	},
 }
 
 func init() {
-
 	rootCmd.AddCommand(authenticateCmd)
 
-	// Here you will define your flags and configuration settings.
+	hostname = authenticateCmd.PersistentFlags().StringP("host", "H", "", "hostname and base path of the API server")
+	username = authenticateCmd.PersistentFlags().StringP("user", "u", "", "username to authenticate")
+	usergroup = authenticateCmd.PersistentFlags().StringP("group", "g", "", "group to authenticate with")
+	location = authenticateCmd.PersistentFlags().StringP("location", "L", "", "machine location to authenticate with")
 
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// authenticateCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// authenticateCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	authenticateCmd.AddCommand(authenticateAddCmd, authenticateListCmd,
+		authenticateDeleteCmd, authenticateSelectCmd)
 }

@@ -22,19 +22,24 @@ THE SOFTWARE.
 package cmd
 
 import (
+	"errors"
 	"fmt"
+	"io"
 	"os"
+	"slices"
+	"strings"
 
 	"github.com/skysyzygy/tq/auth"
 	"github.com/skysyzygy/tq/tq"
 	"github.com/spf13/cobra"
+	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 )
 
 var (
-	cfgFile, jsonFile string
-	verbose, dryRun   bool
-	_tq               *tq.TqConfig
+	cfgFile, jsonFile, logFile string
+	verbose, dryRun            bool
+	_tq                        *tq.TqConfig
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -46,7 +51,7 @@ var rootCmd = &cobra.Command{
 		"It internally handles authentication, session creation and " +
 		"closure, and batch/concurrent processing so that humans like " +
 		"you can focus on the data and not the intricacies of the API.\n\n" +
-		"tq is basically a high-level 	API for common tasks in Tessi. "),
+		"tq is basically a high-level API for common tasks in Tessi. "),
 
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
@@ -58,6 +63,11 @@ var rootCmd = &cobra.Command{
 func Execute() {
 	err := rootCmd.Execute()
 	if err != nil {
+		if _tq != nil && _tq.Log != nil {
+			_tq.Log.Error(err.Error())
+		} else {
+			fmt.Println("Error: ", err.Error())
+		}
 		os.Exit(1)
 	}
 }
@@ -65,19 +75,22 @@ func Execute() {
 func init() {
 	cobra.OnInitialize(initConfig)
 
-	// Here you will define your flags and configuration settings.
-	// Cobra supports persistent flags, which, if defined here,
-	// will be global for your application.
-
 	//rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "", "config file (default is $HOME/.tq.yaml)")
 	rootCmd.PersistentFlags().StringVarP(&jsonFile, "file", "f", "", "JSON file to read (default is to read from stdin)")
-
+	rootCmd.PersistentFlags().StringVarP(&logFile, "log", "l", "", "log file to write to (default is no log)")
 	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "turns on additional diagnostic output")
 	rootCmd.PersistentFlags().BoolVarP(&dryRun, "dryrun", "n", false, "don't actually do anything, just show what would have happened")
 
-	// Cobra also supports local flags, which will only run
-	// when this action is called directly.
-	// rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// Hide global flags from auth command
+	authenticateCmd.SetHelpFunc(func(cmd *cobra.Command, args []string) {
+		authenticateCmd.InheritedFlags().VisitAll(func(f *pflag.Flag) { f.Hidden = true })
+		rootCmd.HelpFunc()(cmd, args)
+	})
+
+	rootCmd.SetUsageTemplate(
+		strings.NewReplacer("command", "verb", " Command", " Verb").
+			Replace(rootCmd.UsageTemplate()))
+
 }
 
 // initConfig reads in config file and ENV variables if set.
@@ -94,6 +107,7 @@ func initConfig() {
 		viper.AddConfigPath(home)
 		viper.SetConfigType("yaml")
 		viper.SetConfigName(".tq")
+		cfgFile = home + string(os.PathSeparator) + ".tq"
 	}
 
 	viper.AutomaticEnv() // read in environment variables that match
@@ -101,10 +115,60 @@ func initConfig() {
 	// If a config file is found, read it in.
 	if err := viper.ReadInConfig(); err == nil {
 		fmt.Fprintln(os.Stderr, "Using config file:", viper.ConfigFileUsed())
+	} else {
+		os.OpenFile(cfgFile, os.O_CREATE|os.O_WRONLY, 0644)
 	}
 }
 
-func tqInit(cmd *cobra.Command, args []string) {
-	_tq = tq.New(nil, verbose, dryRun)
-	_tq.Login(auth.New("", "", "", "", nil))
+// Initializes a tq instance with logger, verbosity, and dryness,
+// and logs it in using the default authentication method.
+// Defined here but shouldn't be called until the last minute in order to make sure
+// all flags are set and that we don't unnecessarily ping the server.
+func tqInit(cmd *cobra.Command, args []string) (err error) {
+	var log, json *os.File
+	var _err error
+
+	if logFile != "" {
+		// open log file for appending
+		log, _err = os.OpenFile(logFile, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
+		if _err != nil {
+			err = errors.Join(fmt.Errorf("cannot open log file for appending"), _err, err)
+		}
+	}
+	_tq = tq.New(log, verbose, dryRun)
+
+	if jsonFile != "" {
+		// open input file for reading
+		json, _err = os.OpenFile(jsonFile, os.O_RDONLY, 0644)
+		if _err != nil {
+			err = errors.Join(fmt.Errorf("cannot open input file for reading"), _err, err)
+		}
+		input, _err := io.ReadAll(json)
+		if _err != nil {
+			err = errors.Join(fmt.Errorf("cannot read from input file"), _err, err)
+		}
+		cmd.SetArgs(slices.Concat([]string{string(input)}, args))
+	}
+
+	a, _err := auth.FromString(viper.GetString("Login"))
+	if _err != nil {
+		err = errors.Join(fmt.Errorf("bad login string in config file"), _err, err)
+	}
+
+	a.Load()
+
+	if valid, _err := a.Validate(); !valid || _err != nil {
+		err = errors.Join(fmt.Errorf("invalid login"), _err, err)
+	}
+
+	if err != nil {
+		_tq.Log.Error(err.Error(),
+			"logFile", logFile,
+			"jsonFile", jsonFile,
+			"auth", a)
+		return err
+	}
+	err = _tq.Login(a)
+
+	return err
 }

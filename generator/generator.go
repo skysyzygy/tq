@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"reflect"
@@ -12,12 +13,21 @@ import (
 )
 
 func main() {
+	// add a new function to the template engine
+	funcs := template.FuncMap{"join": strings.Join}
+	templ, err := template.New("commands").Funcs(funcs).ParseFiles("commands.go.tmpl", "commands_test.go.tmpl")
+	if err != nil {
+		panic(err)
+	}
+
 	for _, op := range []string{"Get", "Put", "Post"} {
 		data := getDataForOperation(op)
-		if err := execTemplate("commands.go.tmpl", "../cmd/"+strings.ToLower(op)+".go", data); err != nil {
+		file, err := os.Create("../cmd/" + strings.ToLower(op) + ".go")
+		if err := errors.Join(templ.ExecuteTemplate(file, "commands.go.tmpl", data), err); err != nil {
 			panic(err)
 		}
-		if err := execTemplate("commands_test.go.tmpl", "../cmd/"+strings.ToLower(op)+"_test.go", data); err != nil {
+		file, err = os.Create("../cmd/" + strings.ToLower(op) + "_test.go")
+		if err := errors.Join(templ.ExecuteTemplate(file, "commands_test.go.tmpl", data), err); err != nil {
 			panic(err)
 		}
 	}
