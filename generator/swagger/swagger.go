@@ -10,4 +10,4 @@
 
 //go:generate sh -c "$(go env GOPATH)/bin/swagger generate client -f tessitura.json -t ../../"
 
-package main
+package swagger
