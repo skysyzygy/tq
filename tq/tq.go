@@ -205,8 +205,8 @@ func unmarshallStructWithRemainder(query []byte, params any) (res map[string]any
 	typ := reflect.TypeOf(params).Elem()
 	for key := range res {
 		for i := 0; i < typ.NumField(); i++ {
-			if strings.EqualFold(key, typ.Field(i).Name) ||
-				strings.EqualFold(key, strings.Split(typ.Field(i).Tag.Get("json"), ",")[0]) {
+			if key == typ.Field(i).Name ||
+				key == strings.Split(typ.Field(i).Tag.Get("json"), ",")[0] {
 				// But only if they are set
 				field := reflect.ValueOf(params).Elem().Field(i)
 				if !(field.IsZero() || field.Kind() == reflect.Pointer &&
