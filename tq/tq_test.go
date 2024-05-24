@@ -241,10 +241,16 @@ func testServer(t *testing.T) *httptest.Server {
 			LastName:  "User",
 		})
 
+		errBody, _ := json.Marshal([]models.ErrorMessage{{
+			Code:        "400",
+			Description: "ConstituentID 0 is not allowed",
+		}})
+
 		// return error because 0 is not allowed
 		if strings.Contains(r.URL.Path, "0") {
+			w.Header().Set("Content-Type", "application/json")
 			w.WriteHeader(400)
-			w.Write([]byte("ERROR: ConstituentID 0 is not allowed"))
+			w.Write(errBody)
 			return
 		}
 
@@ -273,7 +279,7 @@ func Test_DoOne(t *testing.T) {
 
 	res, err := DoOne(*tq, tq.Get.ConstituentsGet, query)
 	assert.Equal(t, []byte(nil), res)
-	assert.ErrorContains(t, err, "ERROR: ConstituentID 0 is not allowed")
+	assert.ErrorContains(t, err, "ConstituentID 0 is not allowed")
 
 	query = []byte(`{"ConstituentId": "1"}`)
 
