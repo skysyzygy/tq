@@ -21,7 +21,7 @@ import (
 type QueryElementFilterSummary struct {
 
 	// data type
-	// Enum: [0 10 20 40 50]
+	// Enum: [0,10,20,40,50]
 	DataType int32 `json:"DataType,omitempty"`
 
 	// description

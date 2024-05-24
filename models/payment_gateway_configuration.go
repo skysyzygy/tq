@@ -72,14 +72,14 @@ type PaymentGatewayConfiguration struct {
 	P2PeOnly bool `json:"P2PeOnly,omitempty"`
 
 	// provider
-	// Enum: [0 1 2 3 4 5 6]
+	// Enum: [0,1,2,3,4,5,6]
 	Provider int32 `json:"Provider,omitempty"`
 
 	// require token shopper reference
 	RequireTokenShopperReference bool `json:"RequireTokenShopperReference,omitempty"`
 
 	// store credit card option
-	// Enum: [0 1 2]
+	// Enum: [0,1,2]
 	StoreCreditCardOption int32 `json:"StoreCreditCardOption,omitempty"`
 
 	// supports pay by link

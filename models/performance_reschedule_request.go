@@ -31,33 +31,33 @@ type PerformanceRescheduleRequest struct {
 	DateTime strfmt.DateTime `json:"DateTime,omitempty"`
 
 	// default sale date option
-	// Enum: [0 1 2 3]
+	// Enum: [0,1,2,3]
 	DefaultSaleDateOption int32 `json:"DefaultSaleDateOption,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`
 
 	// mode of sale date option
-	// Enum: [0 1 2 3]
+	// Enum: [0,1,2,3]
 	ModeOfSaleDateOption int32 `json:"ModeOfSaleDateOption,omitempty"`
 
 	// offers date option
-	// Enum: [0 1 2 3]
+	// Enum: [0,1,2,3]
 	OffersDateOption int32 `json:"OffersDateOption,omitempty"`
 
 	// price event date option
-	// Enum: [0 1]
+	// Enum: [0,1]
 	PriceEventDateOption int32 `json:"PriceEventDateOption,omitempty"`
 
 	// price type date option
-	// Enum: [0 1 2 3]
+	// Enum: [0,1,2,3]
 	PriceTypeDateOption int32 `json:"PriceTypeDateOption,omitempty"`
 
 	// production season Id
 	ProductionSeasonID int32 `json:"ProductionSeasonId,omitempty"`
 
 	// publish date option
-	// Enum: [0 1 2 3]
+	// Enum: [0,1,2,3]
 	PublishDateOption int32 `json:"PublishDateOption,omitempty"`
 
 	// time slot Id

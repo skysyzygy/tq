@@ -24,7 +24,7 @@ type Owner struct {
 	ElementID int32 `json:"ElementId,omitempty"`
 
 	// type
-	// Enum: [0 1 2 3 4]
+	// Enum: [0,1,2,3,4]
 	Type int32 `json:"Type,omitempty"`
 }
 

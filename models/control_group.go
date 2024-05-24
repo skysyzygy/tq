@@ -37,7 +37,7 @@ type ControlGroup struct {
 	Inactive bool `json:"Inactive,omitempty"`
 
 	// permission
-	// Enum: [0 1]
+	// Enum: [0,1]
 	Permission int32 `json:"Permission,omitempty"`
 
 	// updated by

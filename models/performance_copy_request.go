@@ -46,29 +46,29 @@ type PerformanceCopyRequest struct {
 	DateTime strfmt.DateTime `json:"DateTime,omitempty"`
 
 	// default sale date option
-	// Enum: [0 1 2 3]
+	// Enum: [0,1,2,3]
 	DefaultSaleDateOption int32 `json:"DefaultSaleDateOption,omitempty"`
 
 	// description
 	Description string `json:"Description,omitempty"`
 
 	// mode of sale date option
-	// Enum: [0 1 2 3]
+	// Enum: [0,1,2,3]
 	ModeOfSaleDateOption int32 `json:"ModeOfSaleDateOption,omitempty"`
 
 	// price event date option
-	// Enum: [0 1]
+	// Enum: [0,1]
 	PriceEventDateOption int32 `json:"PriceEventDateOption,omitempty"`
 
 	// price type date option
-	// Enum: [0 1 2 3]
+	// Enum: [0,1,2,3]
 	PriceTypeDateOption int32 `json:"PriceTypeDateOption,omitempty"`
 
 	// production season Id
 	ProductionSeasonID int32 `json:"ProductionSeasonId,omitempty"`
 
 	// publish date option
-	// Enum: [0 1 2 3]
+	// Enum: [0,1,2,3]
 	PublishDateOption int32 `json:"PublishDateOption,omitempty"`
 
 	// short name
