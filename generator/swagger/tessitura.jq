@@ -4,7 +4,7 @@
         .responses += {"default": 
                         {"description": "Error", 
                          "schema": {
-                            "$ref": "#/definitions/Response/properties/ErrorMessages"
+                            "$ref": "#/definitions/ErrorMessage"
                             }
                         }
                     }
