@@ -6,6 +6,7 @@ import (
 	"io"
 	"log/slog"
 	"os"
+	"strings"
 )
 
 type logHandler struct {
@@ -32,13 +33,19 @@ func NewLogHandler(fileWriter io.Writer, level *slog.LevelVar) *logHandler {
 
 func (h *logHandler) Enabled(context.Context, slog.Level) bool { return true }
 func (h *logHandler) Handle(_ context.Context, record slog.Record) (err error) {
-	if h.fileLogger.Enabled(context.TODO(), record.Level) {
-		err = h.fileLogger.Handle(context.TODO(), record)
+	var fileErr, consoleErr error
+
+	messages := strings.Split(record.Message, "\n")
+	for _, message := range messages {
+
+		if h.fileLogger.Enabled(context.TODO(), record.Level) {
+			fileErr = h.fileLogger.Handle(context.TODO(), slog.NewRecord(record.Time, record.Level, message, record.PC))
+		}
+		if h.consoleLogger.Enabled(context.TODO(), record.Level) {
+			consoleErr = h.consoleLogger.Handle(context.TODO(), slog.NewRecord(record.Time, record.Level, message, record.PC))
+		}
 	}
-	if h.consoleLogger.Enabled(context.TODO(), record.Level) {
-		err = errors.Join(err, h.consoleLogger.Handle(context.TODO(), record))
-	}
-	return
+	return errors.Join(fileErr, consoleErr)
 }
 func (h *logHandler) WithAttrs(attrs []slog.Attr) slog.Handler {
 	return &logHandler{

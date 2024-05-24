@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log/slog"
 	"os"
+	"strings"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -90,4 +91,18 @@ func Test_LoggerErrors(t *testing.T) {
 	assert.NotContains(t, string(consoleOutput), "Info")
 	assert.NotContains(t, string(consoleOutput), "Debug")
 	assert.NotContains(t, string(consoleOutput), "source")
+}
+
+// test that logger splits up messages with newlines
+func Test_LoggerNewlines(t *testing.T) {
+	_, consoleOutput := CaptureOutput(func() {
+		log = slog.New(NewLogHandler(pipeW, level))
+		log.Error("Error\nAnother Error")
+	})
+
+	fileOutput := make([]byte, 1024)
+	pipeR.Read(fileOutput)
+
+	assert.Len(t, strings.Split(string(consoleOutput), "\n"), 3)
+	assert.Len(t, strings.Split(string(fileOutput), "\n"), 3)
 }
