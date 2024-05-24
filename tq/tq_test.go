@@ -240,6 +240,14 @@ func testServer(t *testing.T) *httptest.Server {
 			FirstName: "Test",
 			LastName:  "User",
 		})
+
+		// return error because 0 is not allowed
+		if strings.Contains(r.URL.Path, "0") {
+			w.WriteHeader(400)
+			w.Write([]byte("ERROR: ConstituentID 0 is not allowed"))
+			return
+		}
+
 		w.Header().Set("Content-Type", "application/json")
 		w.Write(resBody)
 	}))
@@ -248,7 +256,7 @@ func testServer(t *testing.T) *httptest.Server {
 // test that DoOne calls swagger API functions and returns a response
 func Test_DoOne(t *testing.T) {
 	oneConstituent := models.Constituent{
-		ID:        0,
+		ID:        1,
 		FirstName: "Test",
 		LastName:  "User",
 	}
@@ -264,6 +272,12 @@ func Test_DoOne(t *testing.T) {
 	tq.Login(auth.New(strings.Replace(server.URL, "https://", "", 1), "user", "", "", []byte("password")))
 
 	res, err := DoOne(*tq, tq.Get.ConstituentsGet, query)
+	assert.Equal(t, []byte(nil), res)
+	assert.ErrorContains(t, err, "ERROR: ConstituentID 0 is not allowed")
+
+	query = []byte(`{"ConstituentId": "1"}`)
+
+	res, err = DoOne(*tq, tq.Get.ConstituentsGet, query)
 	expectedJSON, _ := json.Marshal(oneConstituent)
 	assert.Equal(t, expectedJSON, res)
 	assert.NoError(t, err)

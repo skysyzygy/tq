@@ -172,9 +172,8 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 	obj, err := function(params)
 
 	if apiErr, ok := err.(*runtime.APIError); ok {
-		if res, ok := apiErr.Response.(runtime.ClientResponse); ok {
-			body := res.Body()
-			err = errors.Join(err, fmt.Errorf(io.ReadAll(body)))
+		if res, ok := apiErr.Response.([]byte); ok {
+			err = errors.Join(err, errors.New(string(res)))
 		}
 	}
 
