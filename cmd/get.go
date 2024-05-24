@@ -30,7 +30,7 @@ var Get_AccountTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AccountTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -54,7 +54,7 @@ var Get_Accounts_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AccountsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -80,7 +80,7 @@ var Get_ActionTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ActionTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -104,7 +104,7 @@ var Get_Actions_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ActionsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -130,7 +130,7 @@ var Get_ActivityCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ActivityCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -156,7 +156,7 @@ var Get_ActivityTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ActivityTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -182,7 +182,7 @@ var Get_AddressTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AddressTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -206,7 +206,7 @@ var Get_Addresses_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AddressesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -232,7 +232,7 @@ var Get_AffiliationTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AffiliationTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -256,7 +256,7 @@ var Get_Affiliations_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AffiliationsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -282,7 +282,7 @@ var Get_AliasTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AliasTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -306,7 +306,7 @@ var Get_Aliases_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AliasesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -330,7 +330,7 @@ var Get_AnalyticsCubes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AnalyticsCubesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -354,7 +354,7 @@ var Get_AnalyticsReports_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AnalyticsReportsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -380,7 +380,7 @@ var Get_AppScreenTexts_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AppScreenTextsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -406,7 +406,7 @@ var Get_AppealCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AppealCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -430,7 +430,7 @@ var Get_Appeals_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AppealsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -451,7 +451,7 @@ var Get_ApplicationObjects_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.ApplicationObjectsGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -475,7 +475,7 @@ var Get_Artists_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ArtistsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -501,7 +501,7 @@ var Get_AssetTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AssetTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -525,7 +525,7 @@ var Get_Assets_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AssetsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -551,7 +551,7 @@ var Get_AssociationTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AssociationTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -575,7 +575,7 @@ var Get_Associations_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AssociationsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -596,7 +596,7 @@ var Get_AttendanceHistory_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.AttendanceHistoryGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -620,7 +620,7 @@ var Get_Attributes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AttributesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -646,7 +646,7 @@ var Get_AuditLogs_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.AuditLogsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -667,7 +667,7 @@ var Get_Authenticate_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.AuthenticateWindowsAuthentication , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -691,7 +691,7 @@ var Get_BatchMaintenance_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.BatchMaintenanceGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -717,7 +717,7 @@ var Get_BatchTypeGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.BatchTypeGroupsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -738,7 +738,7 @@ var Get_BatchTypeUserGroup_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.BatchTypeUserGroupGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -764,7 +764,7 @@ var Get_BatchTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.BatchTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -790,7 +790,7 @@ var Get_BillingSchedules_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.BillingSchedulesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -816,7 +816,7 @@ var Get_BillingTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.BillingTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -842,7 +842,7 @@ var Get_BookingCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.BookingCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -866,7 +866,7 @@ var Get_BookingTemplates_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.BookingTemplatesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -896,7 +896,7 @@ var Get_Bookings_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.BookingsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -924,7 +924,7 @@ var Get_BulkCopySets_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.BulkCopySetsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -948,7 +948,7 @@ var Get_BulkDailyCopyExclusions_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.BulkDailyCopyExclusionsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -974,7 +974,7 @@ var Get_BusinessUnits_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.BusinessUnitsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -995,7 +995,7 @@ var Get_Cache_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.CacheInit , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1019,7 +1019,7 @@ var Get_CampaignDesignations_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.CampaignDesignationsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1043,7 +1043,7 @@ var Get_CampaignFunds_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.CampaignFundsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1067,7 +1067,7 @@ var Get_Campaigns_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.CampaignsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1093,7 +1093,7 @@ var Get_CardReaderTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.CardReaderTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1123,7 +1123,7 @@ var Get_Cart_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.CartGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1149,7 +1149,7 @@ var Get_Colors_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ColorsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1175,7 +1175,7 @@ var Get_Composers_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ComposersGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1199,7 +1199,7 @@ var Get_Constituencies_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ConstituenciesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1225,7 +1225,7 @@ var Get_ConstituencyTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ConstituencyTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1246,7 +1246,7 @@ var Get_ConstituentContributions_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.ConstituentContributionsGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1272,7 +1272,7 @@ var Get_ConstituentDocuments_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentDocumentsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1298,7 +1298,7 @@ var Get_ConstituentGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentGroupsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1324,7 +1324,7 @@ var Get_ConstituentInactives_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentInactivesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1350,7 +1350,7 @@ var Get_ConstituentProtectionTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentProtectionTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1376,7 +1376,7 @@ var Get_ConstituentTypeAffiliates_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentTypeAffiliatesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1402,7 +1402,7 @@ var Get_ConstituentTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1442,7 +1442,7 @@ var Get_Constituents_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ConstituentsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1468,7 +1468,7 @@ var Get_ContactPermissionCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ContactPermissionCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1496,7 +1496,7 @@ var Get_ContactPermissionTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ContactPermissionTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1520,7 +1520,7 @@ var Get_ContactPermissions_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ContactPermissionsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1546,7 +1546,7 @@ var Get_ContactPointCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ContactPointCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1572,7 +1572,7 @@ var Get_ContactPointCategoryPurposes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ContactPointCategoryPurposesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1598,7 +1598,7 @@ var Get_ContactPointPurposeCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposeCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1622,7 +1622,7 @@ var Get_ContactPointPurposeMaps_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposeMapsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1648,7 +1648,7 @@ var Get_ContactPointPurposes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ContactPointPurposesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1669,7 +1669,7 @@ var Get_ContactPoints_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.ContactPointsGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1695,7 +1695,7 @@ var Get_ContactTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ContactTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1716,7 +1716,7 @@ var Get_ContextInformation_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.ContextInformationGet , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1742,7 +1742,7 @@ var Get_ContributionDesignations_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ContributionDesignationsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1768,7 +1768,7 @@ var Get_ContributionImportSets_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ContributionImportSetsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1794,7 +1794,7 @@ var Get_ControlGroupUserGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ControlGroupUserGroupsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1820,7 +1820,7 @@ var Get_ControlGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ControlGroupsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1841,7 +1841,7 @@ var Get_CoreIdentity_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.CoreIdentityToken , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1867,7 +1867,7 @@ var Get_Countries_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.CountriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1893,7 +1893,7 @@ var Get_CrediteeTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.CrediteeTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1914,7 +1914,7 @@ var Get_Credits_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.CreditsGetCredits , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1940,7 +1940,7 @@ var Get_CriterionOperators_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.CriterionOperatorsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1966,7 +1966,7 @@ var Get_CumulativeGivingReceipts_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.CumulativeGivingReceiptsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -1992,7 +1992,7 @@ var Get_CurrencyTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.CurrencyTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2018,7 +2018,7 @@ var Get_Custom_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.CustomGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2044,7 +2044,7 @@ var Get_CustomDefaultCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.CustomDefaultCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2070,7 +2070,7 @@ var Get_CustomDefaults_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.CustomDefaultsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2096,7 +2096,7 @@ var Get_DeliveryMethods_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.DeliveryMethodsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2122,7 +2122,7 @@ var Get_DesignationCodes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.DesignationCodesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2148,7 +2148,7 @@ var Get_Designs_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.DesignsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2176,7 +2176,7 @@ var Get_Diagnostics_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.DiagnosticsEncryptionKeyCheck , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2202,7 +2202,7 @@ var Get_DirectDebitAccountTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.DirectDebitAccountTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2228,7 +2228,7 @@ var Get_DiscountTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.DiscountTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2252,7 +2252,7 @@ var Get_Divisions_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.DivisionsGetAll , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2278,7 +2278,7 @@ var Get_DocumentCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.DocumentCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2306,7 +2306,7 @@ var Get_Documents_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.DocumentsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2332,7 +2332,7 @@ var Get_DonationLevels_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.DonationLevelsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2362,7 +2362,7 @@ var Get_EMV_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.EMVGetAllLanes , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2388,7 +2388,7 @@ var Get_ElectronicAddressTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ElectronicAddressTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2414,7 +2414,7 @@ var Get_ElectronicAddresses_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ElectronicAddressesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2440,7 +2440,7 @@ var Get_EmailProfiles_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.EmailProfilesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2466,7 +2466,7 @@ var Get_EmarketIndicators_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.EmarketIndicatorsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2492,7 +2492,7 @@ var Get_Eras_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ErasGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2513,7 +2513,7 @@ var Get_EventControl_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.EventControlGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2541,7 +2541,7 @@ var Get_Facilities_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.FacilitiesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2567,7 +2567,7 @@ var Get_Fees_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.FeesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2591,7 +2591,7 @@ var Get_FinanceContributions_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.FinanceContributionsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2617,7 +2617,7 @@ var Get_Formats_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.FormatsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2641,7 +2641,7 @@ var Get_Funds_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.FundsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2667,7 +2667,7 @@ var Get_GLAccounts_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.GLAccountsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2693,7 +2693,7 @@ var Get_Genders_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.GendersGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2719,7 +2719,7 @@ var Get_GiftAidContactMethods_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidContactMethodsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2743,7 +2743,7 @@ var Get_GiftAidDeclarations_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidDeclarationsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2769,7 +2769,7 @@ var Get_GiftAidDocumentStatuses_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidDocumentStatusesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2795,7 +2795,7 @@ var Get_GiftAidIneligibleReasons_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidIneligibleReasonsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2821,7 +2821,7 @@ var Get_GiftAidRates_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidRatesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2847,7 +2847,7 @@ var Get_GiftAidStatuses_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidStatusesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2873,7 +2873,7 @@ var Get_GiftAidTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.GiftAidTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2895,7 +2895,7 @@ The original amount, amount used and balance are all returned.  Amounts applied 
 			
 			out, err = tq.Do(*_tq, _tq.Get.GiftCertificatesGet , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2921,7 +2921,7 @@ var Get_HoldCodeCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.HoldCodeCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2949,7 +2949,7 @@ var Get_HoldCodeUserGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.HoldCodeUserGroupsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2973,7 +2973,7 @@ var Get_HoldCodes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.HoldCodesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -2999,7 +2999,7 @@ var Get_InactiveReasons_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.InactiveReasonsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3025,7 +3025,7 @@ var Get_IntegrationDefaults_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.IntegrationDefaultsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3051,7 +3051,7 @@ var Get_Integrations_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.IntegrationsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3077,7 +3077,7 @@ var Get_InterestCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.InterestCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3103,7 +3103,7 @@ var Get_InterestTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.InterestTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3127,7 +3127,7 @@ var Get_Interests_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.InterestsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3153,7 +3153,7 @@ var Get_Internal_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.InternalGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3177,7 +3177,7 @@ var Get_InventoryContactPermissionTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.InventoryContactPermissionTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3203,7 +3203,7 @@ var Get_InventoryWebContents_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.InventoryWebContentsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3224,7 +3224,7 @@ var Get_InvoiceBilling_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.InvoiceBillingStatus , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3248,7 +3248,7 @@ var Get_Issues_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.IssuesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3274,7 +3274,7 @@ var Get_KeywordCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.KeywordCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3302,7 +3302,7 @@ var Get_Keywords_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.KeywordsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3328,7 +3328,7 @@ var Get_Languages_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.LanguagesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3354,7 +3354,7 @@ var Get_ListCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ListCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3384,7 +3384,7 @@ var Get_Lists_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ListsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3410,7 +3410,7 @@ var Get_LoginTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.LoginTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3436,7 +3436,7 @@ var Get_MachineSettings_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.MachineSettingsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3462,7 +3462,7 @@ var Get_MailIndicators_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.MailIndicatorsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3488,7 +3488,7 @@ var Get_MediaTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.MediaTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3514,7 +3514,7 @@ var Get_MembershipLevelCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.MembershipLevelCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3541,7 +3541,7 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 				out, err = tq.Do(*_tq, _tq.Get.MembershipLevelsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3568,7 +3568,7 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 				out, err = tq.Do(*_tq, _tq.Get.MembershipOrganizationsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3594,7 +3594,7 @@ var Get_MembershipStandings_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.MembershipStandingsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3616,7 +3616,7 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 			
 			out, err = tq.Do(*_tq, _tq.Get.MembershipsGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3637,7 +3637,7 @@ var Get_MerchantReferences_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.MerchantReferencesReference , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3658,7 +3658,7 @@ var Get_Merchants_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.MerchantsGetMerchants , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3682,7 +3682,7 @@ var Get_ModeOfSaleCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3706,7 +3706,7 @@ var Get_ModeOfSaleOffers_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleOffersGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3730,7 +3730,7 @@ var Get_ModeOfSalePriceTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ModeOfSalePriceTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3754,7 +3754,7 @@ var Get_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleSurveyQuestionsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3778,7 +3778,7 @@ var Get_ModeOfSaleUserGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ModeOfSaleUserGroupsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3804,7 +3804,7 @@ var Get_ModesOfSale_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ModesOfSaleGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3830,7 +3830,7 @@ var Get_NScanAccessAreas_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.NScanAccessAreasGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3856,7 +3856,7 @@ var Get_NameStatuses_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.NameStatusesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3882,7 +3882,7 @@ var Get_ObjectPermissions_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ObjectPermissionsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3906,7 +3906,7 @@ var Get_OrderBilling_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.OrderBillingReprint , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3932,7 +3932,7 @@ var Get_OrderCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.OrderCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3953,7 +3953,7 @@ var Get_Orders_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.OrdersGetProductsView , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -3979,7 +3979,7 @@ var Get_Organizations_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.OrganizationsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4005,7 +4005,7 @@ var Get_OriginalSources_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.OriginalSourcesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4031,7 +4031,7 @@ var Get_Origins_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.OriginsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4055,7 +4055,7 @@ var Get_OutputSets_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.OutputSetsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4076,7 +4076,7 @@ var Get_PackageHistory_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.PackageHistoryGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4100,7 +4100,7 @@ var Get_PackagePriceTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PackagePriceTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4126,7 +4126,7 @@ var Get_PackageTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PackageTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4152,7 +4152,7 @@ var Get_PackageWebContents_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PackageWebContentsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4190,7 +4190,7 @@ var Get_Packages_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PackagesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4214,7 +4214,7 @@ var Get_PaymentGatewayActivities_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayActivitiesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4235,7 +4235,7 @@ var Get_PaymentGatewayConfiguration_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayConfigurationGetConfiguration , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4263,7 +4263,7 @@ var Get_PaymentGatewayNotifications_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayNotificationsGetAllNotificationEvents , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4289,7 +4289,7 @@ var Get_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PaymentGatewayTransactionTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4310,7 +4310,7 @@ var Get_PaymentHistory_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.PaymentHistoryGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4336,7 +4336,7 @@ var Get_PaymentMethodGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PaymentMethodGroupsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4360,7 +4360,7 @@ var Get_PaymentMethodUserGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PaymentMethodUserGroupsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4388,7 +4388,7 @@ var Get_PaymentMethods_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PaymentMethodsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4412,7 +4412,7 @@ var Get_PaymentSignatures_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PaymentSignaturesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4438,7 +4438,7 @@ var Get_PaymentTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PaymentTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4466,7 +4466,7 @@ var Get_Payments_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PaymentsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4492,7 +4492,7 @@ var Get_PerformanceGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PerformanceGroupsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4516,7 +4516,7 @@ var Get_PerformancePackageModeOfSales_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PerformancePackageModeOfSalesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4542,7 +4542,7 @@ var Get_PerformancePriceLayers_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PerformancePriceLayersGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4566,7 +4566,7 @@ var Get_PerformancePriceTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PerformancePriceTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4594,7 +4594,7 @@ var Get_PerformancePrices_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PerformancePricesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4620,7 +4620,7 @@ var Get_PerformanceStatuses_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PerformanceStatusesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4646,7 +4646,7 @@ var Get_PerformanceTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PerformanceTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4688,7 +4688,7 @@ var Get_Performances_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PerformancesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4712,7 +4712,7 @@ var Get_Philanthropy_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PhilanthropyGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4738,7 +4738,7 @@ var Get_PhilanthropyTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PhilanthropyTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4764,7 +4764,7 @@ var Get_PhoneIndicators_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PhoneIndicatorsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4790,7 +4790,7 @@ var Get_PhoneTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PhoneTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4814,7 +4814,7 @@ var Get_Phones_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PhonesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4840,7 +4840,7 @@ var Get_PlanPriorities_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PlanPrioritiesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4866,7 +4866,7 @@ var Get_PlanSources_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PlanSourcesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4892,7 +4892,7 @@ var Get_PlanStatuses_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PlanStatusesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4918,7 +4918,7 @@ var Get_PlanTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PlanTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4942,7 +4942,7 @@ var Get_PlanWorkers_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PlanWorkersGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4966,7 +4966,7 @@ var Get_Plans_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PlansGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -4987,7 +4987,7 @@ var Get_PledgeBilling_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.PledgeBillingGetStatus , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5013,7 +5013,7 @@ var Get_PortfolioCustomElements_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PortfolioCustomElementsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5037,7 +5037,7 @@ var Get_Portfolios_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PortfoliosGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5063,7 +5063,7 @@ var Get_Prefixes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PrefixesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5089,7 +5089,7 @@ var Get_Premieres_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PremieresGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5115,7 +5115,7 @@ var Get_PriceCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PriceCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5141,7 +5141,7 @@ var Get_PriceEvents_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PriceEventsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5167,7 +5167,7 @@ var Get_PriceLayerTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PriceLayerTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5193,7 +5193,7 @@ var Get_PriceTemplates_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PriceTemplatesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5219,7 +5219,7 @@ var Get_PriceTypeCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PriceTypeCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5245,7 +5245,7 @@ var Get_PriceTypeGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PriceTypeGroupsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5271,7 +5271,7 @@ var Get_PriceTypeReasons_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PriceTypeReasonsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5295,7 +5295,7 @@ var Get_PriceTypeUserGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PriceTypeUserGroupsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5327,7 +5327,7 @@ var Get_PriceTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PriceTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5353,7 +5353,7 @@ var Get_PricingRuleCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PricingRuleCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5379,7 +5379,7 @@ var Get_PricingRuleMessageTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PricingRuleMessageTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5405,7 +5405,7 @@ var Get_PricingRuleSets_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PricingRuleSetsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5431,7 +5431,7 @@ var Get_PricingRuleTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PricingRuleTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5457,7 +5457,7 @@ var Get_PricingRules_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PricingRulesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5483,7 +5483,7 @@ var Get_Printers_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PrintersGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5506,7 +5506,7 @@ For Production Elements: If the keyword is found, returns the keyword and the lo
 			
 			out, err = tq.Do(*_tq, _tq.Get.ProductKeywordsGetKeywords , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5532,7 +5532,7 @@ var Get_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ProductionSeasonMembershipOrganizationsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5559,7 +5559,7 @@ Returns the full details for a single production season, including description a
 				out, err = tq.Do(*_tq, _tq.Get.ProductionSeasonsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5585,7 +5585,7 @@ var Get_Productions_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ProductionsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5609,7 +5609,7 @@ var Get_ProgramListings_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ProgramListingsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5635,7 +5635,7 @@ var Get_Programs_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ProgramsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5661,7 +5661,7 @@ var Get_Pronouns_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.PronounsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5687,7 +5687,7 @@ var Get_QualificationCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.QualificationCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5713,7 +5713,7 @@ var Get_Qualifications_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.QualificationsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5741,7 +5741,7 @@ var Get_QueryElementFilters_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.QueryElementFiltersGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5765,7 +5765,7 @@ var Get_QueryElementGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.QueryElementGroupsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5791,7 +5791,7 @@ var Get_QueryElements_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.QueryElementsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5817,7 +5817,7 @@ var Get_RankTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.RankTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5841,7 +5841,7 @@ var Get_Rankings_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.RankingsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5867,7 +5867,7 @@ var Get_ReceiptSettings_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ReceiptSettingsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5891,7 +5891,7 @@ var Get_ReferenceColumns_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ReferenceColumnsGetAll , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5917,7 +5917,7 @@ var Get_ReferenceTableUserGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ReferenceTableUserGroupsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5943,7 +5943,7 @@ var Get_ReferenceTables_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ReferenceTablesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5969,7 +5969,7 @@ var Get_RelationshipCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.RelationshipCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -5990,7 +5990,7 @@ var Get_Relationships_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.RelationshipsGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6018,7 +6018,7 @@ var Get_ReportRequests_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ReportRequestsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6042,7 +6042,7 @@ var Get_ReportSchedules_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ReportSchedulesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6068,7 +6068,7 @@ var Get_ReportUserGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ReportUserGroupsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6100,7 +6100,7 @@ var Get_Reports_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ReportsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6124,7 +6124,7 @@ var Get_Research_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ResearchGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6150,7 +6150,7 @@ var Get_ResearchTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ResearchTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6176,7 +6176,7 @@ var Get_ResourceCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ResourceCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6200,7 +6200,7 @@ var Get_ResourceSchedules_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ResourceSchedulesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6226,7 +6226,7 @@ var Get_ResourceTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ResourceTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6256,7 +6256,7 @@ var Get_Resources_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ResourcesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6282,7 +6282,7 @@ var Get_SalesChannels_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SalesChannelsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6308,7 +6308,7 @@ var Get_SalesLayoutButtonTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SalesLayoutButtonTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6334,7 +6334,7 @@ var Get_SalesLayouts_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SalesLayoutsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6360,7 +6360,7 @@ var Get_SalutationTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SalutationTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6386,7 +6386,7 @@ var Get_Salutations_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SalutationsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6412,7 +6412,7 @@ var Get_SchedulePatternTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SchedulePatternTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6438,7 +6438,7 @@ var Get_ScheduleTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ScheduleTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6464,7 +6464,7 @@ var Get_SeasonTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SeasonTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6490,7 +6490,7 @@ var Get_Seasons_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SeasonsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6516,7 +6516,7 @@ var Get_SeatCodes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SeatCodesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6542,7 +6542,7 @@ var Get_SeatStatuses_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SeatStatusesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6568,7 +6568,7 @@ var Get_Sections_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SectionsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6589,7 +6589,7 @@ var Get_SecurityBatchTypes_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityBatchTypesGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6610,7 +6610,7 @@ var Get_SecurityControlGroups_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityControlGroupsGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6631,7 +6631,7 @@ var Get_SecurityHoldCodes_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityHoldCodesGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6652,7 +6652,7 @@ var Get_SecurityModesOfSale_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityModesOfSaleGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6673,7 +6673,7 @@ var Get_SecurityObjectPermissions_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityObjectPermissionsGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6694,7 +6694,7 @@ var Get_SecurityPaymentMethods_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityPaymentMethodsGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6715,7 +6715,7 @@ var Get_SecurityPriceTypes_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityPriceTypesGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6736,7 +6736,7 @@ var Get_SecurityReferenceTables_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityReferenceTablesGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6757,7 +6757,7 @@ var Get_SecurityReports_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityReportsGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6778,7 +6778,7 @@ var Get_SecurityServiceResources_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.SecurityServiceResourcesGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6804,7 +6804,7 @@ var Get_SecurityUserGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SecurityUserGroupsGetAll , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6830,7 +6830,7 @@ var Get_ServiceResourceUserGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ServiceResourceUserGroupsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6854,7 +6854,7 @@ var Get_ServiceResources_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ServiceResourcesGetAll , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6891,7 +6891,7 @@ Includes counts of cart products, the login status, MOS and Source`,
 				out, err = tq.Do(*_tq, _tq.Get.SessionGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6917,7 +6917,7 @@ var Get_SourceGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SourceGroupsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6943,7 +6943,7 @@ var Get_Sources_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SourcesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6967,7 +6967,7 @@ var Get_SpecialActivities_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SpecialActivitiesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -6993,7 +6993,7 @@ var Get_SpecialActivityStatuses_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SpecialActivityStatusesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7019,7 +7019,7 @@ var Get_SpecialActivityTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SpecialActivityTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7045,7 +7045,7 @@ var Get_States_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.StatesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7071,7 +7071,7 @@ var Get_StepTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.StepTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7099,7 +7099,7 @@ var Get_Steps_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.StepsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7125,7 +7125,7 @@ var Get_SubLineItemStatuses_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SubLineItemStatusesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7146,7 +7146,7 @@ var Get_SubLineItems_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.SubLineItemsGetSubLineItemSummaries , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7172,7 +7172,7 @@ var Get_Suffixes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SuffixesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7200,7 +7200,7 @@ var Get_SurveyQuestions_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SurveyQuestionsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7224,7 +7224,7 @@ var Get_SurveyResponses_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SurveyResponsesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7250,7 +7250,7 @@ var Get_SystemDefaults_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.SystemDefaultsGetAll , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7276,7 +7276,7 @@ var Get_TemplateCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.TemplateCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7300,7 +7300,7 @@ var Get_TemplatePriceTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.TemplatePriceTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7324,7 +7324,7 @@ var Get_TemplatePrices_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.TemplatePricesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7350,7 +7350,7 @@ var Get_TemplateTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.TemplateTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7376,7 +7376,7 @@ var Get_Templates_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.TemplatesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7402,7 +7402,7 @@ var Get_Theaters_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.TheatersGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7423,7 +7423,7 @@ var Get_TicketHistory_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.TicketHistoryGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7449,7 +7449,7 @@ var Get_TimeSlots_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.TimeSlotsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7475,7 +7475,7 @@ var Get_Titles_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.TitlesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7496,7 +7496,7 @@ var Get_TransactionHistory_cmd = &cobra.Command{
 			
 			out, err = tq.Do(*_tq, _tq.Get.TransactionHistoryGetAll , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7522,7 +7522,7 @@ var Get_TriPOSCloudConfigurations_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.TriPOSCloudConfigurationsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7548,7 +7548,7 @@ var Get_UpgradeCategories_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.UpgradeCategoriesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7572,7 +7572,7 @@ var Get_UpgradeLogs_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.UpgradeLogsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7598,7 +7598,7 @@ var Get_UserGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.UserGroupsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7622,7 +7622,7 @@ var Get_UserPreferences_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.UserPreferencesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7650,7 +7650,7 @@ var Get_Users_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.UsersGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7678,7 +7678,7 @@ var Get_WebContentTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.WebContentTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7701,7 +7701,7 @@ If the content type is found, returns the content value at the lowest level at w
 			
 			out, err = tq.Do(*_tq, _tq.Get.WebContentsGetWebContents , []byte(args[0]))
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7729,7 +7729,7 @@ var Get_WebLogins_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.WebLoginsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7753,7 +7753,7 @@ var Get_WorkerQualifications_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.WorkerQualificationsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7779,7 +7779,7 @@ var Get_WorkerRoles_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.WorkerRolesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7805,7 +7805,7 @@ var Get_WorkerTypes_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.WorkerTypesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7831,7 +7831,7 @@ var Get_Workers_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.WorkersGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7857,7 +7857,7 @@ var Get_ZoneGroups_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ZoneGroupsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7883,7 +7883,7 @@ var Get_ZoneMaps_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ZoneMapsGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
@@ -7909,7 +7909,7 @@ var Get_Zones_cmd = &cobra.Command{
 				out, err = tq.Do(*_tq, _tq.Get.ZonesGet , []byte(args[0]))
 			}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},

@@ -39,7 +39,7 @@ var {{ print $op "_" $key "_cmd" }} = &cobra.Command{
 			out, err = tq.Do(*_tq, {{ print "_tq." $op "." $command.Name }} , []byte(args[0]))
 			{{- end }}
 			if err == nil {
-				fmt.Println(out)
+				fmt.Println(string(out))
 			} 
 			return err
 		},
