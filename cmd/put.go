@@ -1391,27 +1391,6 @@ var Put_CurrencyTypes_cmd = &cobra.Command{
 		},
 	}
 
-var Put_Custom_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "custom",  },
-		Use: `Custom {"ID":"string","Request":"string","ResourceName":"string"}`,
-		Short: `Update the details of an entry in the table for the resource as defined by {resourceName} in TR_DATASERVICE_TABLES with the given id {Id}`,
-		Long:  `Update the details of an entry in the table for the resource as defined by {resourceName} in TR_DATASERVICE_TABLES with the given id {Id}.`,
-		PreRunE: tqInit,
-		RunE: func(cmd *cobra.Command, args []string) error {
-			var out []byte
-			var err error
-			if len(args) == 0 {
-				args = make([]string,1)
-			}
-			
-			out, err = tq.Do(*_tq, _tq.Put.CustomUpdate , []byte(args[0]))
-			if err == nil {
-				fmt.Println(string(out))
-			} 
-			return err
-		},
-	}
-
 var Put_CustomDefaultCategories_cmd = &cobra.Command{
 		Aliases: []string{  "CDC",  "cdc",  "customdefaultcategories",  },
 		Use: `CustomDefaultCategories {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
@@ -5324,8 +5303,6 @@ The status field in the response will return as S if the price can be applied or
 		Put_cmd.AddCommand(Put_CrediteeTypes_cmd)
 	
 		Put_cmd.AddCommand(Put_CurrencyTypes_cmd)
-	
-		Put_cmd.AddCommand(Put_Custom_cmd)
 	
 		Put_cmd.AddCommand(Put_CustomDefaultCategories_cmd)
 	

@@ -984,37 +984,6 @@ func Test_Post_Authorization_Reverse_cmd(t *testing.T) {
         
 }
 
-func Test_Post_Batch_Post_cmd(t *testing.T) {
-        command := Post_Batch_cmd
-        use := command.Use
-
-        flag := command.Flag("Post")
-        if flag != nil {
-            flag.Value.Set("true")
-            defer flag.Value.Set("false")
-            use = flag.Usage
-        }
-        input := regexp.MustCompile(`\{.+\}$`).FindString(
-                            strings.ReplaceAll(use,",...",""))
-
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
-    
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
-        
-}
-
 func Test_Post_Batch_Sample_cmd(t *testing.T) {
         command := Post_Batch_cmd
         use := command.Use
@@ -3505,31 +3474,6 @@ func Test_Post_CrediteeTypes__cmd(t *testing.T) {
 
 func Test_Post_CurrencyTypes__cmd(t *testing.T) {
         command := Post_CurrencyTypes_cmd
-        use := command.Use
-
-        input := regexp.MustCompile(`\{.+\}$`).FindString(
-                            strings.ReplaceAll(use,",...",""))
-
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
-    
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
-        
-}
-
-func Test_Post_Custom__cmd(t *testing.T) {
-        command := Post_Custom_cmd
         use := command.Use
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(

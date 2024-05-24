@@ -522,9 +522,9 @@ var Post_Authorization_cmd = &cobra.Command{
 
 var Post_Batch_cmd = &cobra.Command{
 		Aliases: []string{  "B",  "b",  "batch",  },
-		Use: `Batch {"RequestMessage":"string"}`,
-		Short: `Post multiple requests with method type along with the payload (for the put and post) and get the responses for all the specified request in one call`,
-		Long:  `Post multiple requests with method type along with the payload (for the put and post) and get the responses for all the specified request in one call.`,
+		Use: `Batch {"Requests":[{"Id":123},...]}`,
+		Short: ``,
+		Long:  ``,
 		PreRunE: tqInit,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
@@ -532,11 +532,8 @@ var Post_Batch_cmd = &cobra.Command{
 			if len(args) == 0 {
 				args = make([]string,1)
 			}
-			if test, _ := cmd.Flags().GetBool("Sample"); test {
-				out, err = tq.Do(*_tq, _tq.Post.BatchSample , []byte(args[0]))
-			} else {
-				out, err = tq.Do(*_tq, _tq.Post.BatchPost , []byte(args[0]))
-			}
+			
+			out, err = tq.Do(*_tq, _tq.Post.BatchSample , []byte(args[0]))
 			if err == nil {
 				fmt.Println(string(out))
 			} 
@@ -1563,9 +1560,9 @@ var Post_CurrencyTypes_cmd = &cobra.Command{
 
 var Post_Custom_cmd = &cobra.Command{
 		Aliases: []string{  "C",  "c",  "custom",  },
-		Use: `Custom {"Request":"string","ResourceName":"string"}`,
-		Short: `Create an entry with the given data for the table as defined by the {resourceName} in TR_DATASERVICE_TABLES`,
-		Long:  `Create an entry with the given data for the table as defined by the {resourceName} in TR_DATASERVICE_TABLES.`,
+		Use: `Custom {"ParameterValues":[{"Name":"string","Value":"string"},...],"Parameters":"string","ProcedureId":123,"ProcedureName":"string"}`,
+		Short: `Executes a local procedure defined in TR_LOCAL_PROCEDURE`,
+		Long:  `Executes a local procedure defined in TR_LOCAL_PROCEDURE. This will only return a collection of the first result set in a registered procedure.  For the result set, null values in each data row are not returned as properties.`,
 		PreRunE: tqInit,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
@@ -1573,12 +1570,10 @@ var Post_Custom_cmd = &cobra.Command{
 			if len(args) == 0 {
 				args = make([]string,1)
 			}
-			if test, _ := cmd.Flags().GetBool("ExecuteLocalProcedure"); test {
-				out, err = tq.Do(*_tq, _tq.Post.CustomExecuteLocalProcedure , []byte(args[0]))
-			} else if test, _ := cmd.Flags().GetBool("ExecuteLocalProcedureWithMultipleResultSets"); test {
+			if test, _ := cmd.Flags().GetBool("ExecuteLocalProcedureWithMultipleResultSets"); test {
 				out, err = tq.Do(*_tq, _tq.Post.CustomExecuteLocalProcedureWithMultipleResultSets , []byte(args[0]))
 			} else {
-				out, err = tq.Do(*_tq, _tq.Post.CustomCreate , []byte(args[0]))
+				out, err = tq.Do(*_tq, _tq.Post.CustomExecuteLocalProcedure , []byte(args[0]))
 			}
 			if err == nil {
 				fmt.Println(string(out))
@@ -5893,10 +5888,7 @@ Create a payment link to a hosted payment form where shoppers can pay.  For Tess
 					`Reverse a payment authorization using its reference number.
 {"ReferenceNumber":"string","Amount":123.456,"Card":{"AccountId":123,"CardHolderName":"string","CardNumber":"string","Cvv2":"string","ExpirationDate":"string","TessituraMerchantServicesData":"string","Track1":"string","Track2":"string"},"ConstituentId":123,"IsECommerce":true,"IsElementDebit":true,"IsSwiped":true,"PaymentId":123,"PaymentMethodId":123,"TransactionOrigin":"string","UserData":"string"}`)
 	
-		Post_cmd.AddCommand(Post_Batch_cmd) 
-				Post_Batch_cmd.Flags().Bool("Sample", false, 
-					`
-{"Requests":[{"Id":123},...]}`)
+		Post_cmd.AddCommand(Post_Batch_cmd)
 	
 		Post_cmd.AddCommand(Post_BatchMaintenance_cmd)
 	
@@ -6172,9 +6164,6 @@ To enable ticket limit validation, add the Field Name "ENFORCE_SEAT_LIMIT_FOR_OR
 		Post_cmd.AddCommand(Post_CurrencyTypes_cmd)
 	
 		Post_cmd.AddCommand(Post_Custom_cmd) 
-				Post_Custom_cmd.Flags().Bool("ExecuteLocalProcedure", false, 
-					`Executes a local procedure defined in TR_LOCAL_PROCEDURE. This will only return a collection of the first result set in a registered procedure.  For the result set, null values in each data row are not returned as properties.
-{"ParameterValues":[{"Name":"string","Value":"string"},...],"Parameters":"string","ProcedureId":123,"ProcedureName":"string"}`) 
 				Post_Custom_cmd.Flags().Bool("ExecuteLocalProcedureWithMultipleResultSets", false, 
 					`Executes a local procedure defined in TR_LOCAL_PROCEDURE.  This resource supports multiple result sets in a registered procedure. The response object is different from Custom/Execute. For each result set, null values are not returned as properties.
 {"ParameterValues":[{"Name":"string","Value":"string"},...],"Parameters":"string","ProcedureId":123,"ProcedureName":"string"}`)

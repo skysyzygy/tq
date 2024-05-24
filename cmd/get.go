@@ -2000,9 +2000,9 @@ var Get_CurrencyTypes_cmd = &cobra.Command{
 
 var Get_Custom_cmd = &cobra.Command{
 		Aliases: []string{  "C",  "c",  "custom",  },
-		Use: `Custom {"ID":"string","ResourceName":"string"}`,
-		Short: `Get details of an entry in the table for the resource as defined by {resourceName} in TR_DATASERVICE_TABLES with the given id {Id}`,
-		Long:  `Get details of an entry in the table for the resource as defined by {resourceName} in TR_DATASERVICE_TABLES with the given id {Id}.`,
+		Use: `Custom `,
+		Short: `Get the metadata information of a custom table as defined by TR_DATASERVICE_TABLES and TR_DATASERVICE_COLUMNS`,
+		Long:  `Get the metadata information of a custom table as defined by TR_DATASERVICE_TABLES and TR_DATASERVICE_COLUMNS.`,
 		PreRunE: tqInit,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var out []byte
@@ -2010,13 +2010,8 @@ var Get_Custom_cmd = &cobra.Command{
 			if len(args) == 0 {
 				args = make([]string,1)
 			}
-			if test, _ := cmd.Flags().GetBool("All"); test {
-				out, err = tq.Do(*_tq, _tq.Get.CustomGetAll , []byte(args[0]))
-			} else if test, _ := cmd.Flags().GetBool("Metadata"); test {
-				out, err = tq.Do(*_tq, _tq.Get.CustomGetMetadata , []byte(args[0]))
-			} else {
-				out, err = tq.Do(*_tq, _tq.Get.CustomGet , []byte(args[0]))
-			}
+			
+			out, err = tq.Do(*_tq, _tq.Get.CustomGetMetadata , []byte(args[0]))
 			if err == nil {
 				fmt.Println(string(out))
 			} 
@@ -8482,14 +8477,7 @@ Attribute search type permits parameters key, op, value. Sample URL:  CRM/Consti
 					`Get a summary representation of all currency types.
 `)
 	
-		Get_cmd.AddCommand(Get_Custom_cmd) 
-				Get_Custom_cmd.Flags().Bool("All", false, 
-					`Get all data for the resource configured in TR_DATASERVICE_TABLES. The {resourceName} in the URL should be replaced by the name of the resource as configured in TR_DATASERVICE_TABLES. The data can be filtered by using a set of query parameters. The format for the filter query parameters is ?column1=value1&amp;column2=value2, where column1 can either be the name of the column in the table or a formatted name for the column as defined in TR_DATASERVICE_COLUMNS.
-For more information about Custom resources including setup and use, please look at the <a href="~/CustomData">Custom Data</a> help page.
-{"ResourceName":"string"}`) 
-				Get_Custom_cmd.Flags().Bool("Metadata", false, 
-					`Get the metadata information of a custom table as defined by TR_DATASERVICE_TABLES and TR_DATASERVICE_COLUMNS.
-`)
+		Get_cmd.AddCommand(Get_Custom_cmd)
 	
 		Get_cmd.AddCommand(Get_CustomDefaultCategories_cmd) 
 				Get_CustomDefaultCategories_cmd.Flags().Bool("All", false, 

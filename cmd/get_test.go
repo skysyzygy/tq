@@ -6072,62 +6072,6 @@ func Test_Get_CurrencyTypes_Summaries_cmd(t *testing.T) {
         
 }
 
-func Test_Get_Custom__cmd(t *testing.T) {
-        command := Get_Custom_cmd
-        use := command.Use
-
-        input := regexp.MustCompile(`\{.+\}$`).FindString(
-                            strings.ReplaceAll(use,",...",""))
-
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
-    
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
-        
-}
-
-func Test_Get_Custom_All_cmd(t *testing.T) {
-        command := Get_Custom_cmd
-        use := command.Use
-
-        flag := command.Flag("All")
-        if flag != nil {
-            flag.Value.Set("true")
-            defer flag.Value.Set("false")
-            use = flag.Usage
-        }
-        input := regexp.MustCompile(`\{.+\}$`).FindString(
-                            strings.ReplaceAll(use,",...",""))
-
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
-    
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
-        
-}
-
 func Test_Get_Custom_Metadata_cmd(t *testing.T) {
         command := Get_Custom_cmd
         use := command.Use
