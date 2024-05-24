@@ -15,9 +15,9 @@ Then clone this repository and build:
 ```
 git clone github.com/skysyzygy/tq
 cd tq
-go build .
+go build -o bin/tq .
 ```
-The build command will create an executable file in the `tq` directory.
+The build command will create an executable file `bin/tq` in the project directory.
 
 ### authentication:
 
