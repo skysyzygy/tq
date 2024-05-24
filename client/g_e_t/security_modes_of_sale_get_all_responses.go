@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SecurityModesOfSaleGetAllReader) ReadResponse(response runtime.ClientRe
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Security/ModesOfSale] SecurityModesOfSale_GetAll", response, response.Code())
+		result := NewSecurityModesOfSaleGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SecurityModesOfSaleGetAllOK) Code() int {
 }
 
 func (o *SecurityModesOfSaleGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /Security/ModesOfSale][%d] securityModesOfSaleGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Security/ModesOfSale][%d] securityModesOfSaleGetAllOK %s", 200, payload)
 }
 
 func (o *SecurityModesOfSaleGetAllOK) String() string {
-	return fmt.Sprintf("[GET /Security/ModesOfSale][%d] securityModesOfSaleGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Security/ModesOfSale][%d] securityModesOfSaleGetAllOK %s", 200, payload)
 }
 
 func (o *SecurityModesOfSaleGetAllOK) GetPayload() []*models.ModeOfSaleUserGroup {
@@ -94,6 +104,80 @@ func (o *SecurityModesOfSaleGetAllOK) readResponse(response runtime.ClientRespon
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSecurityModesOfSaleGetAllDefault creates a SecurityModesOfSaleGetAllDefault with default headers values
+func NewSecurityModesOfSaleGetAllDefault(code int) *SecurityModesOfSaleGetAllDefault {
+	return &SecurityModesOfSaleGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SecurityModesOfSaleGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SecurityModesOfSaleGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this security modes of sale get all default response has a 2xx status code
+func (o *SecurityModesOfSaleGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this security modes of sale get all default response has a 3xx status code
+func (o *SecurityModesOfSaleGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this security modes of sale get all default response has a 4xx status code
+func (o *SecurityModesOfSaleGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this security modes of sale get all default response has a 5xx status code
+func (o *SecurityModesOfSaleGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this security modes of sale get all default response a status code equal to that given
+func (o *SecurityModesOfSaleGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the security modes of sale get all default response
+func (o *SecurityModesOfSaleGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SecurityModesOfSaleGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Security/ModesOfSale][%d] SecurityModesOfSale_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *SecurityModesOfSaleGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Security/ModesOfSale][%d] SecurityModesOfSale_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *SecurityModesOfSaleGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SecurityModesOfSaleGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

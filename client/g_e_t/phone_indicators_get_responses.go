@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PhoneIndicatorsGetReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/PhoneIndicators/{id}] PhoneIndicators_Get", response, response.Code())
+		result := NewPhoneIndicatorsGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PhoneIndicatorsGetOK) Code() int {
 }
 
 func (o *PhoneIndicatorsGetOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/PhoneIndicators/{id}][%d] phoneIndicatorsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PhoneIndicators/{id}][%d] phoneIndicatorsGetOK %s", 200, payload)
 }
 
 func (o *PhoneIndicatorsGetOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/PhoneIndicators/{id}][%d] phoneIndicatorsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PhoneIndicators/{id}][%d] phoneIndicatorsGetOK %s", 200, payload)
 }
 
 func (o *PhoneIndicatorsGetOK) GetPayload() *models.PhoneIndicator {
@@ -93,6 +103,80 @@ func (o *PhoneIndicatorsGetOK) GetPayload() *models.PhoneIndicator {
 func (o *PhoneIndicatorsGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.PhoneIndicator)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPhoneIndicatorsGetDefault creates a PhoneIndicatorsGetDefault with default headers values
+func NewPhoneIndicatorsGetDefault(code int) *PhoneIndicatorsGetDefault {
+	return &PhoneIndicatorsGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PhoneIndicatorsGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PhoneIndicatorsGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this phone indicators get default response has a 2xx status code
+func (o *PhoneIndicatorsGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this phone indicators get default response has a 3xx status code
+func (o *PhoneIndicatorsGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this phone indicators get default response has a 4xx status code
+func (o *PhoneIndicatorsGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this phone indicators get default response has a 5xx status code
+func (o *PhoneIndicatorsGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this phone indicators get default response a status code equal to that given
+func (o *PhoneIndicatorsGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the phone indicators get default response
+func (o *PhoneIndicatorsGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PhoneIndicatorsGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PhoneIndicators/{id}][%d] PhoneIndicators_Get default %s", o._statusCode, payload)
+}
+
+func (o *PhoneIndicatorsGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PhoneIndicators/{id}][%d] PhoneIndicators_Get default %s", o._statusCode, payload)
+}
+
+func (o *PhoneIndicatorsGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PhoneIndicatorsGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,11 +6,14 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // ListsResultsReader is a Reader for the ListsResults structure.
@@ -28,7 +31,14 @@ func (o *ListsResultsReader) ReadResponse(response runtime.ClientResponse, consu
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Reporting/Lists/{listId}/Results] Lists_Results", response, response.Code())
+		result := NewListsResultsDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -77,11 +87,13 @@ func (o *ListsResultsOK) Code() int {
 }
 
 func (o *ListsResultsOK) Error() string {
-	return fmt.Sprintf("[POST /Reporting/Lists/{listId}/Results][%d] listsResultsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Reporting/Lists/{listId}/Results][%d] listsResultsOK %s", 200, payload)
 }
 
 func (o *ListsResultsOK) String() string {
-	return fmt.Sprintf("[POST /Reporting/Lists/{listId}/Results][%d] listsResultsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Reporting/Lists/{listId}/Results][%d] listsResultsOK %s", 200, payload)
 }
 
 func (o *ListsResultsOK) GetPayload() interface{} {
@@ -92,6 +104,80 @@ func (o *ListsResultsOK) readResponse(response runtime.ClientResponse, consumer 
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewListsResultsDefault creates a ListsResultsDefault with default headers values
+func NewListsResultsDefault(code int) *ListsResultsDefault {
+	return &ListsResultsDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ListsResultsDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ListsResultsDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this lists results default response has a 2xx status code
+func (o *ListsResultsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this lists results default response has a 3xx status code
+func (o *ListsResultsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this lists results default response has a 4xx status code
+func (o *ListsResultsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this lists results default response has a 5xx status code
+func (o *ListsResultsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this lists results default response a status code equal to that given
+func (o *ListsResultsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the lists results default response
+func (o *ListsResultsDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ListsResultsDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Reporting/Lists/{listId}/Results][%d] Lists_Results default %s", o._statusCode, payload)
+}
+
+func (o *ListsResultsDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Reporting/Lists/{listId}/Results][%d] Lists_Results default %s", o._statusCode, payload)
+}
+
+func (o *ListsResultsDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ListsResultsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

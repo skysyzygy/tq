@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PlansUpdateReader) ReadResponse(response runtime.ClientResponse, consum
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /Finance/Plans/{planId}] Plans_Update", response, response.Code())
+		result := NewPlansUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PlansUpdateOK) Code() int {
 }
 
 func (o *PlansUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /Finance/Plans/{planId}][%d] plansUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Finance/Plans/{planId}][%d] plansUpdateOK %s", 200, payload)
 }
 
 func (o *PlansUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /Finance/Plans/{planId}][%d] plansUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Finance/Plans/{planId}][%d] plansUpdateOK %s", 200, payload)
 }
 
 func (o *PlansUpdateOK) GetPayload() *models.Plan {
@@ -93,6 +103,80 @@ func (o *PlansUpdateOK) GetPayload() *models.Plan {
 func (o *PlansUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Plan)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPlansUpdateDefault creates a PlansUpdateDefault with default headers values
+func NewPlansUpdateDefault(code int) *PlansUpdateDefault {
+	return &PlansUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PlansUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PlansUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this plans update default response has a 2xx status code
+func (o *PlansUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this plans update default response has a 3xx status code
+func (o *PlansUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this plans update default response has a 4xx status code
+func (o *PlansUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this plans update default response has a 5xx status code
+func (o *PlansUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this plans update default response a status code equal to that given
+func (o *PlansUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the plans update default response
+func (o *PlansUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PlansUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Finance/Plans/{planId}][%d] Plans_Update default %s", o._statusCode, payload)
+}
+
+func (o *PlansUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Finance/Plans/{planId}][%d] Plans_Update default %s", o._statusCode, payload)
+}
+
+func (o *PlansUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PlansUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

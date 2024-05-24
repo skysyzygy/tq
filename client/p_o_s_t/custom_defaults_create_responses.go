@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *CustomDefaultsCreateReader) ReadResponse(response runtime.ClientRespons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /ReferenceData/CustomDefaults] CustomDefaults_Create", response, response.Code())
+		result := NewCustomDefaultsCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *CustomDefaultsCreateOK) Code() int {
 }
 
 func (o *CustomDefaultsCreateOK) Error() string {
-	return fmt.Sprintf("[POST /ReferenceData/CustomDefaults][%d] customDefaultsCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/CustomDefaults][%d] customDefaultsCreateOK %s", 200, payload)
 }
 
 func (o *CustomDefaultsCreateOK) String() string {
-	return fmt.Sprintf("[POST /ReferenceData/CustomDefaults][%d] customDefaultsCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/CustomDefaults][%d] customDefaultsCreateOK %s", 200, payload)
 }
 
 func (o *CustomDefaultsCreateOK) GetPayload() *models.CustomDefault {
@@ -93,6 +103,80 @@ func (o *CustomDefaultsCreateOK) GetPayload() *models.CustomDefault {
 func (o *CustomDefaultsCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.CustomDefault)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCustomDefaultsCreateDefault creates a CustomDefaultsCreateDefault with default headers values
+func NewCustomDefaultsCreateDefault(code int) *CustomDefaultsCreateDefault {
+	return &CustomDefaultsCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CustomDefaultsCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CustomDefaultsCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this custom defaults create default response has a 2xx status code
+func (o *CustomDefaultsCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this custom defaults create default response has a 3xx status code
+func (o *CustomDefaultsCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this custom defaults create default response has a 4xx status code
+func (o *CustomDefaultsCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this custom defaults create default response has a 5xx status code
+func (o *CustomDefaultsCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this custom defaults create default response a status code equal to that given
+func (o *CustomDefaultsCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the custom defaults create default response
+func (o *CustomDefaultsCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CustomDefaultsCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/CustomDefaults][%d] CustomDefaults_Create default %s", o._statusCode, payload)
+}
+
+func (o *CustomDefaultsCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/CustomDefaults][%d] CustomDefaults_Create default %s", o._statusCode, payload)
+}
+
+func (o *CustomDefaultsCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CustomDefaultsCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

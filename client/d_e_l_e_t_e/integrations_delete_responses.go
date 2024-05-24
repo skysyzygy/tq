@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // IntegrationsDeleteReader is a Reader for the IntegrationsDelete structure.
@@ -27,7 +31,14 @@ func (o *IntegrationsDeleteReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /ReferenceData/Integrations/{id}] Integrations_Delete", response, response.Code())
+		result := NewIntegrationsDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *IntegrationsDeleteNoContent) Code() int {
 }
 
 func (o *IntegrationsDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/Integrations/{id}][%d] integrationsDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/Integrations/{id}][%d] integrationsDeleteNoContent", 204)
 }
 
 func (o *IntegrationsDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/Integrations/{id}][%d] integrationsDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/Integrations/{id}][%d] integrationsDeleteNoContent", 204)
 }
 
 func (o *IntegrationsDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewIntegrationsDeleteDefault creates a IntegrationsDeleteDefault with default headers values
+func NewIntegrationsDeleteDefault(code int) *IntegrationsDeleteDefault {
+	return &IntegrationsDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+IntegrationsDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type IntegrationsDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this integrations delete default response has a 2xx status code
+func (o *IntegrationsDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this integrations delete default response has a 3xx status code
+func (o *IntegrationsDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this integrations delete default response has a 4xx status code
+func (o *IntegrationsDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this integrations delete default response has a 5xx status code
+func (o *IntegrationsDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this integrations delete default response a status code equal to that given
+func (o *IntegrationsDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the integrations delete default response
+func (o *IntegrationsDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *IntegrationsDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/Integrations/{id}][%d] Integrations_Delete default %s", o._statusCode, payload)
+}
+
+func (o *IntegrationsDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/Integrations/{id}][%d] Integrations_Delete default %s", o._statusCode, payload)
+}
+
+func (o *IntegrationsDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *IntegrationsDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

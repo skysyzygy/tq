@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *AttributesGetReader) ReadResponse(response runtime.ClientResponse, cons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /CRM/Attributes/{attributeId}] Attributes_Get", response, response.Code())
+		result := NewAttributesGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *AttributesGetOK) Code() int {
 }
 
 func (o *AttributesGetOK) Error() string {
-	return fmt.Sprintf("[GET /CRM/Attributes/{attributeId}][%d] attributesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Attributes/{attributeId}][%d] attributesGetOK %s", 200, payload)
 }
 
 func (o *AttributesGetOK) String() string {
-	return fmt.Sprintf("[GET /CRM/Attributes/{attributeId}][%d] attributesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Attributes/{attributeId}][%d] attributesGetOK %s", 200, payload)
 }
 
 func (o *AttributesGetOK) GetPayload() *models.Attribute {
@@ -93,6 +103,80 @@ func (o *AttributesGetOK) GetPayload() *models.Attribute {
 func (o *AttributesGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Attribute)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAttributesGetDefault creates a AttributesGetDefault with default headers values
+func NewAttributesGetDefault(code int) *AttributesGetDefault {
+	return &AttributesGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+AttributesGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type AttributesGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this attributes get default response has a 2xx status code
+func (o *AttributesGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this attributes get default response has a 3xx status code
+func (o *AttributesGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this attributes get default response has a 4xx status code
+func (o *AttributesGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this attributes get default response has a 5xx status code
+func (o *AttributesGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this attributes get default response a status code equal to that given
+func (o *AttributesGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the attributes get default response
+func (o *AttributesGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *AttributesGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Attributes/{attributeId}][%d] Attributes_Get default %s", o._statusCode, payload)
+}
+
+func (o *AttributesGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Attributes/{attributeId}][%d] Attributes_Get default %s", o._statusCode, payload)
+}
+
+func (o *AttributesGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *AttributesGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

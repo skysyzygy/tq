@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *OrganizationsGetAllReader) ReadResponse(response runtime.ClientResponse
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/Organizations] Organizations_GetAll", response, response.Code())
+		result := NewOrganizationsGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *OrganizationsGetAllOK) Code() int {
 }
 
 func (o *OrganizationsGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/Organizations][%d] organizationsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Organizations][%d] organizationsGetAllOK %s", 200, payload)
 }
 
 func (o *OrganizationsGetAllOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/Organizations][%d] organizationsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Organizations][%d] organizationsGetAllOK %s", 200, payload)
 }
 
 func (o *OrganizationsGetAllOK) GetPayload() []*models.Organization {
@@ -94,6 +104,80 @@ func (o *OrganizationsGetAllOK) readResponse(response runtime.ClientResponse, co
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewOrganizationsGetAllDefault creates a OrganizationsGetAllDefault with default headers values
+func NewOrganizationsGetAllDefault(code int) *OrganizationsGetAllDefault {
+	return &OrganizationsGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+OrganizationsGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type OrganizationsGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this organizations get all default response has a 2xx status code
+func (o *OrganizationsGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this organizations get all default response has a 3xx status code
+func (o *OrganizationsGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this organizations get all default response has a 4xx status code
+func (o *OrganizationsGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this organizations get all default response has a 5xx status code
+func (o *OrganizationsGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this organizations get all default response a status code equal to that given
+func (o *OrganizationsGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the organizations get all default response
+func (o *OrganizationsGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *OrganizationsGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Organizations][%d] Organizations_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *OrganizationsGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Organizations][%d] Organizations_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *OrganizationsGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *OrganizationsGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

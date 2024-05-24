@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ContactPointPurposeCategoriesGetAllReader) ReadResponse(response runtim
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/ContactPointPurposeCategories] ContactPointPurposeCategories_GetAll", response, response.Code())
+		result := NewContactPointPurposeCategoriesGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ContactPointPurposeCategoriesGetAllOK) Code() int {
 }
 
 func (o *ContactPointPurposeCategoriesGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/ContactPointPurposeCategories][%d] contactPointPurposeCategoriesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ContactPointPurposeCategories][%d] contactPointPurposeCategoriesGetAllOK %s", 200, payload)
 }
 
 func (o *ContactPointPurposeCategoriesGetAllOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/ContactPointPurposeCategories][%d] contactPointPurposeCategoriesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ContactPointPurposeCategories][%d] contactPointPurposeCategoriesGetAllOK %s", 200, payload)
 }
 
 func (o *ContactPointPurposeCategoriesGetAllOK) GetPayload() []*models.PurposeCategory {
@@ -94,6 +104,80 @@ func (o *ContactPointPurposeCategoriesGetAllOK) readResponse(response runtime.Cl
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewContactPointPurposeCategoriesGetAllDefault creates a ContactPointPurposeCategoriesGetAllDefault with default headers values
+func NewContactPointPurposeCategoriesGetAllDefault(code int) *ContactPointPurposeCategoriesGetAllDefault {
+	return &ContactPointPurposeCategoriesGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ContactPointPurposeCategoriesGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ContactPointPurposeCategoriesGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this contact point purpose categories get all default response has a 2xx status code
+func (o *ContactPointPurposeCategoriesGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this contact point purpose categories get all default response has a 3xx status code
+func (o *ContactPointPurposeCategoriesGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this contact point purpose categories get all default response has a 4xx status code
+func (o *ContactPointPurposeCategoriesGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this contact point purpose categories get all default response has a 5xx status code
+func (o *ContactPointPurposeCategoriesGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this contact point purpose categories get all default response a status code equal to that given
+func (o *ContactPointPurposeCategoriesGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the contact point purpose categories get all default response
+func (o *ContactPointPurposeCategoriesGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ContactPointPurposeCategoriesGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ContactPointPurposeCategories][%d] ContactPointPurposeCategories_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *ContactPointPurposeCategoriesGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ContactPointPurposeCategories][%d] ContactPointPurposeCategories_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *ContactPointPurposeCategoriesGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ContactPointPurposeCategoriesGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

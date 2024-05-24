@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ListsGenerateReader) ReadResponse(response runtime.ClientResponse, cons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Reporting/Lists/{listId}/Generate] Lists_Generate", response, response.Code())
+		result := NewListsGenerateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ListsGenerateOK) Code() int {
 }
 
 func (o *ListsGenerateOK) Error() string {
-	return fmt.Sprintf("[POST /Reporting/Lists/{listId}/Generate][%d] listsGenerateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Reporting/Lists/{listId}/Generate][%d] listsGenerateOK %s", 200, payload)
 }
 
 func (o *ListsGenerateOK) String() string {
-	return fmt.Sprintf("[POST /Reporting/Lists/{listId}/Generate][%d] listsGenerateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Reporting/Lists/{listId}/Generate][%d] listsGenerateOK %s", 200, payload)
 }
 
 func (o *ListsGenerateOK) GetPayload() *models.List {
@@ -93,6 +103,80 @@ func (o *ListsGenerateOK) GetPayload() *models.List {
 func (o *ListsGenerateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.List)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewListsGenerateDefault creates a ListsGenerateDefault with default headers values
+func NewListsGenerateDefault(code int) *ListsGenerateDefault {
+	return &ListsGenerateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ListsGenerateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ListsGenerateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this lists generate default response has a 2xx status code
+func (o *ListsGenerateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this lists generate default response has a 3xx status code
+func (o *ListsGenerateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this lists generate default response has a 4xx status code
+func (o *ListsGenerateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this lists generate default response has a 5xx status code
+func (o *ListsGenerateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this lists generate default response a status code equal to that given
+func (o *ListsGenerateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the lists generate default response
+func (o *ListsGenerateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ListsGenerateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Reporting/Lists/{listId}/Generate][%d] Lists_Generate default %s", o._statusCode, payload)
+}
+
+func (o *ListsGenerateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Reporting/Lists/{listId}/Generate][%d] Lists_Generate default %s", o._statusCode, payload)
+}
+
+func (o *ListsGenerateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ListsGenerateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

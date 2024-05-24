@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ContributionImportSetsUpdateReader) ReadResponse(response runtime.Clien
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/ContributionImportSets/{id}] ContributionImportSets_Update", response, response.Code())
+		result := NewContributionImportSetsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ContributionImportSetsUpdateOK) Code() int {
 }
 
 func (o *ContributionImportSetsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/ContributionImportSets/{id}][%d] contributionImportSetsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ContributionImportSets/{id}][%d] contributionImportSetsUpdateOK %s", 200, payload)
 }
 
 func (o *ContributionImportSetsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/ContributionImportSets/{id}][%d] contributionImportSetsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ContributionImportSets/{id}][%d] contributionImportSetsUpdateOK %s", 200, payload)
 }
 
 func (o *ContributionImportSetsUpdateOK) GetPayload() *models.ContributionImportSet {
@@ -93,6 +103,80 @@ func (o *ContributionImportSetsUpdateOK) GetPayload() *models.ContributionImport
 func (o *ContributionImportSetsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ContributionImportSet)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewContributionImportSetsUpdateDefault creates a ContributionImportSetsUpdateDefault with default headers values
+func NewContributionImportSetsUpdateDefault(code int) *ContributionImportSetsUpdateDefault {
+	return &ContributionImportSetsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ContributionImportSetsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ContributionImportSetsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this contribution import sets update default response has a 2xx status code
+func (o *ContributionImportSetsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this contribution import sets update default response has a 3xx status code
+func (o *ContributionImportSetsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this contribution import sets update default response has a 4xx status code
+func (o *ContributionImportSetsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this contribution import sets update default response has a 5xx status code
+func (o *ContributionImportSetsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this contribution import sets update default response a status code equal to that given
+func (o *ContributionImportSetsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the contribution import sets update default response
+func (o *ContributionImportSetsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ContributionImportSetsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ContributionImportSets/{id}][%d] ContributionImportSets_Update default %s", o._statusCode, payload)
+}
+
+func (o *ContributionImportSetsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ContributionImportSets/{id}][%d] ContributionImportSets_Update default %s", o._statusCode, payload)
+}
+
+func (o *ContributionImportSetsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ContributionImportSetsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

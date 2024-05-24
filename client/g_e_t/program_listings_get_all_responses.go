@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ProgramListingsGetAllReader) ReadResponse(response runtime.ClientRespon
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /CRM/ProgramListings] ProgramListings_GetAll", response, response.Code())
+		result := NewProgramListingsGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ProgramListingsGetAllOK) Code() int {
 }
 
 func (o *ProgramListingsGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /CRM/ProgramListings][%d] programListingsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/ProgramListings][%d] programListingsGetAllOK %s", 200, payload)
 }
 
 func (o *ProgramListingsGetAllOK) String() string {
-	return fmt.Sprintf("[GET /CRM/ProgramListings][%d] programListingsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/ProgramListings][%d] programListingsGetAllOK %s", 200, payload)
 }
 
 func (o *ProgramListingsGetAllOK) GetPayload() []*models.ProgramListing {
@@ -94,6 +104,80 @@ func (o *ProgramListingsGetAllOK) readResponse(response runtime.ClientResponse, 
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewProgramListingsGetAllDefault creates a ProgramListingsGetAllDefault with default headers values
+func NewProgramListingsGetAllDefault(code int) *ProgramListingsGetAllDefault {
+	return &ProgramListingsGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ProgramListingsGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ProgramListingsGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this program listings get all default response has a 2xx status code
+func (o *ProgramListingsGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this program listings get all default response has a 3xx status code
+func (o *ProgramListingsGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this program listings get all default response has a 4xx status code
+func (o *ProgramListingsGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this program listings get all default response has a 5xx status code
+func (o *ProgramListingsGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this program listings get all default response a status code equal to that given
+func (o *ProgramListingsGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the program listings get all default response
+func (o *ProgramListingsGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ProgramListingsGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/ProgramListings][%d] ProgramListings_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *ProgramListingsGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/ProgramListings][%d] ProgramListings_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *ProgramListingsGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ProgramListingsGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

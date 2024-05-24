@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *BillingSchedulesCreateReader) ReadResponse(response runtime.ClientRespo
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /ReferenceData/BillingSchedules] BillingSchedules_Create", response, response.Code())
+		result := NewBillingSchedulesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *BillingSchedulesCreateOK) Code() int {
 }
 
 func (o *BillingSchedulesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /ReferenceData/BillingSchedules][%d] billingSchedulesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/BillingSchedules][%d] billingSchedulesCreateOK %s", 200, payload)
 }
 
 func (o *BillingSchedulesCreateOK) String() string {
-	return fmt.Sprintf("[POST /ReferenceData/BillingSchedules][%d] billingSchedulesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/BillingSchedules][%d] billingSchedulesCreateOK %s", 200, payload)
 }
 
 func (o *BillingSchedulesCreateOK) GetPayload() *models.BillingSchedule {
@@ -93,6 +103,80 @@ func (o *BillingSchedulesCreateOK) GetPayload() *models.BillingSchedule {
 func (o *BillingSchedulesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.BillingSchedule)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewBillingSchedulesCreateDefault creates a BillingSchedulesCreateDefault with default headers values
+func NewBillingSchedulesCreateDefault(code int) *BillingSchedulesCreateDefault {
+	return &BillingSchedulesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+BillingSchedulesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type BillingSchedulesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this billing schedules create default response has a 2xx status code
+func (o *BillingSchedulesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this billing schedules create default response has a 3xx status code
+func (o *BillingSchedulesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this billing schedules create default response has a 4xx status code
+func (o *BillingSchedulesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this billing schedules create default response has a 5xx status code
+func (o *BillingSchedulesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this billing schedules create default response a status code equal to that given
+func (o *BillingSchedulesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the billing schedules create default response
+func (o *BillingSchedulesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *BillingSchedulesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/BillingSchedules][%d] BillingSchedules_Create default %s", o._statusCode, payload)
+}
+
+func (o *BillingSchedulesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/BillingSchedules][%d] BillingSchedules_Create default %s", o._statusCode, payload)
+}
+
+func (o *BillingSchedulesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *BillingSchedulesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

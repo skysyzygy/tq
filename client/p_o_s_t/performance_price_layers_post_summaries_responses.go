@@ -6,10 +6,14 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // PerformancePriceLayersPostSummariesReader is a Reader for the PerformancePriceLayersPostSummaries structure.
@@ -27,7 +31,14 @@ func (o *PerformancePriceLayersPostSummariesReader) ReadResponse(response runtim
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /TXN/PerformancePriceLayers/Summaries] PerformancePriceLayers_PostSummaries", response, response.Code())
+		result := NewPerformancePriceLayersPostSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *PerformancePriceLayersPostSummariesNoContent) Code() int {
 }
 
 func (o *PerformancePriceLayersPostSummariesNoContent) Error() string {
-	return fmt.Sprintf("[POST /TXN/PerformancePriceLayers/Summaries][%d] performancePriceLayersPostSummariesNoContent ", 204)
+	return fmt.Sprintf("[POST /TXN/PerformancePriceLayers/Summaries][%d] performancePriceLayersPostSummariesNoContent", 204)
 }
 
 func (o *PerformancePriceLayersPostSummariesNoContent) String() string {
-	return fmt.Sprintf("[POST /TXN/PerformancePriceLayers/Summaries][%d] performancePriceLayersPostSummariesNoContent ", 204)
+	return fmt.Sprintf("[POST /TXN/PerformancePriceLayers/Summaries][%d] performancePriceLayersPostSummariesNoContent", 204)
 }
 
 func (o *PerformancePriceLayersPostSummariesNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewPerformancePriceLayersPostSummariesDefault creates a PerformancePriceLayersPostSummariesDefault with default headers values
+func NewPerformancePriceLayersPostSummariesDefault(code int) *PerformancePriceLayersPostSummariesDefault {
+	return &PerformancePriceLayersPostSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PerformancePriceLayersPostSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PerformancePriceLayersPostSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this performance price layers post summaries default response has a 2xx status code
+func (o *PerformancePriceLayersPostSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this performance price layers post summaries default response has a 3xx status code
+func (o *PerformancePriceLayersPostSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this performance price layers post summaries default response has a 4xx status code
+func (o *PerformancePriceLayersPostSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this performance price layers post summaries default response has a 5xx status code
+func (o *PerformancePriceLayersPostSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this performance price layers post summaries default response a status code equal to that given
+func (o *PerformancePriceLayersPostSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the performance price layers post summaries default response
+func (o *PerformancePriceLayersPostSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PerformancePriceLayersPostSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/PerformancePriceLayers/Summaries][%d] PerformancePriceLayers_PostSummaries default %s", o._statusCode, payload)
+}
+
+func (o *PerformancePriceLayersPostSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/PerformancePriceLayers/Summaries][%d] PerformancePriceLayers_PostSummaries default %s", o._statusCode, payload)
+}
+
+func (o *PerformancePriceLayersPostSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PerformancePriceLayersPostSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

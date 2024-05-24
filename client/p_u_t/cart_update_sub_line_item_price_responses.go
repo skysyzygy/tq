@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *CartUpdateSubLineItemPriceReader) ReadResponse(response runtime.ClientR
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /Web/Cart/{sessionKey}/SubLineItems/{subLineItemId}/Price] Cart_UpdateSubLineItemPrice", response, response.Code())
+		result := NewCartUpdateSubLineItemPriceDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *CartUpdateSubLineItemPriceOK) Code() int {
 }
 
 func (o *CartUpdateSubLineItemPriceOK) Error() string {
-	return fmt.Sprintf("[PUT /Web/Cart/{sessionKey}/SubLineItems/{subLineItemId}/Price][%d] cartUpdateSubLineItemPriceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Web/Cart/{sessionKey}/SubLineItems/{subLineItemId}/Price][%d] cartUpdateSubLineItemPriceOK %s", 200, payload)
 }
 
 func (o *CartUpdateSubLineItemPriceOK) String() string {
-	return fmt.Sprintf("[PUT /Web/Cart/{sessionKey}/SubLineItems/{subLineItemId}/Price][%d] cartUpdateSubLineItemPriceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Web/Cart/{sessionKey}/SubLineItems/{subLineItemId}/Price][%d] cartUpdateSubLineItemPriceOK %s", 200, payload)
 }
 
 func (o *CartUpdateSubLineItemPriceOK) GetPayload() *models.UpdatePriceResponse {
@@ -93,6 +103,80 @@ func (o *CartUpdateSubLineItemPriceOK) GetPayload() *models.UpdatePriceResponse 
 func (o *CartUpdateSubLineItemPriceOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.UpdatePriceResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCartUpdateSubLineItemPriceDefault creates a CartUpdateSubLineItemPriceDefault with default headers values
+func NewCartUpdateSubLineItemPriceDefault(code int) *CartUpdateSubLineItemPriceDefault {
+	return &CartUpdateSubLineItemPriceDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CartUpdateSubLineItemPriceDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CartUpdateSubLineItemPriceDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this cart update sub line item price default response has a 2xx status code
+func (o *CartUpdateSubLineItemPriceDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this cart update sub line item price default response has a 3xx status code
+func (o *CartUpdateSubLineItemPriceDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this cart update sub line item price default response has a 4xx status code
+func (o *CartUpdateSubLineItemPriceDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this cart update sub line item price default response has a 5xx status code
+func (o *CartUpdateSubLineItemPriceDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this cart update sub line item price default response a status code equal to that given
+func (o *CartUpdateSubLineItemPriceDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the cart update sub line item price default response
+func (o *CartUpdateSubLineItemPriceDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CartUpdateSubLineItemPriceDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Web/Cart/{sessionKey}/SubLineItems/{subLineItemId}/Price][%d] Cart_UpdateSubLineItemPrice default %s", o._statusCode, payload)
+}
+
+func (o *CartUpdateSubLineItemPriceDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Web/Cart/{sessionKey}/SubLineItems/{subLineItemId}/Price][%d] Cart_UpdateSubLineItemPrice default %s", o._statusCode, payload)
+}
+
+func (o *CartUpdateSubLineItemPriceDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CartUpdateSubLineItemPriceDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

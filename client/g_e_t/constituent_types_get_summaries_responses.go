@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ConstituentTypesGetSummariesReader) ReadResponse(response runtime.Clien
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/ConstituentTypes/Summary] ConstituentTypes_GetSummaries", response, response.Code())
+		result := NewConstituentTypesGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ConstituentTypesGetSummariesOK) Code() int {
 }
 
 func (o *ConstituentTypesGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/ConstituentTypes/Summary][%d] constituentTypesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ConstituentTypes/Summary][%d] constituentTypesGetSummariesOK %s", 200, payload)
 }
 
 func (o *ConstituentTypesGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/ConstituentTypes/Summary][%d] constituentTypesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ConstituentTypes/Summary][%d] constituentTypesGetSummariesOK %s", 200, payload)
 }
 
 func (o *ConstituentTypesGetSummariesOK) GetPayload() []*models.ConstituentTypeSummary {
@@ -94,6 +104,80 @@ func (o *ConstituentTypesGetSummariesOK) readResponse(response runtime.ClientRes
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewConstituentTypesGetSummariesDefault creates a ConstituentTypesGetSummariesDefault with default headers values
+func NewConstituentTypesGetSummariesDefault(code int) *ConstituentTypesGetSummariesDefault {
+	return &ConstituentTypesGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ConstituentTypesGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ConstituentTypesGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this constituent types get summaries default response has a 2xx status code
+func (o *ConstituentTypesGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this constituent types get summaries default response has a 3xx status code
+func (o *ConstituentTypesGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this constituent types get summaries default response has a 4xx status code
+func (o *ConstituentTypesGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this constituent types get summaries default response has a 5xx status code
+func (o *ConstituentTypesGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this constituent types get summaries default response a status code equal to that given
+func (o *ConstituentTypesGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the constituent types get summaries default response
+func (o *ConstituentTypesGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ConstituentTypesGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ConstituentTypes/Summary][%d] ConstituentTypes_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *ConstituentTypesGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ConstituentTypes/Summary][%d] ConstituentTypes_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *ConstituentTypesGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ConstituentTypesGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

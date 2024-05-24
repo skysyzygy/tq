@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // PriceLayerTypesDeleteReader is a Reader for the PriceLayerTypesDelete structure.
@@ -27,7 +31,14 @@ func (o *PriceLayerTypesDeleteReader) ReadResponse(response runtime.ClientRespon
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /ReferenceData/PriceLayerTypes/{id}] PriceLayerTypes_Delete", response, response.Code())
+		result := NewPriceLayerTypesDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *PriceLayerTypesDeleteNoContent) Code() int {
 }
 
 func (o *PriceLayerTypesDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/PriceLayerTypes/{id}][%d] priceLayerTypesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/PriceLayerTypes/{id}][%d] priceLayerTypesDeleteNoContent", 204)
 }
 
 func (o *PriceLayerTypesDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/PriceLayerTypes/{id}][%d] priceLayerTypesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/PriceLayerTypes/{id}][%d] priceLayerTypesDeleteNoContent", 204)
 }
 
 func (o *PriceLayerTypesDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewPriceLayerTypesDeleteDefault creates a PriceLayerTypesDeleteDefault with default headers values
+func NewPriceLayerTypesDeleteDefault(code int) *PriceLayerTypesDeleteDefault {
+	return &PriceLayerTypesDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PriceLayerTypesDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PriceLayerTypesDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this price layer types delete default response has a 2xx status code
+func (o *PriceLayerTypesDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this price layer types delete default response has a 3xx status code
+func (o *PriceLayerTypesDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this price layer types delete default response has a 4xx status code
+func (o *PriceLayerTypesDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this price layer types delete default response has a 5xx status code
+func (o *PriceLayerTypesDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this price layer types delete default response a status code equal to that given
+func (o *PriceLayerTypesDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the price layer types delete default response
+func (o *PriceLayerTypesDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PriceLayerTypesDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/PriceLayerTypes/{id}][%d] PriceLayerTypes_Delete default %s", o._statusCode, payload)
+}
+
+func (o *PriceLayerTypesDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/PriceLayerTypes/{id}][%d] PriceLayerTypes_Delete default %s", o._statusCode, payload)
+}
+
+func (o *PriceLayerTypesDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PriceLayerTypesDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

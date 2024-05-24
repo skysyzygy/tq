@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // OriginalSourcesDeleteReader is a Reader for the OriginalSourcesDelete structure.
@@ -27,7 +31,14 @@ func (o *OriginalSourcesDeleteReader) ReadResponse(response runtime.ClientRespon
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /ReferenceData/OriginalSources/{id}] OriginalSources_Delete", response, response.Code())
+		result := NewOriginalSourcesDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *OriginalSourcesDeleteNoContent) Code() int {
 }
 
 func (o *OriginalSourcesDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/OriginalSources/{id}][%d] originalSourcesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/OriginalSources/{id}][%d] originalSourcesDeleteNoContent", 204)
 }
 
 func (o *OriginalSourcesDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/OriginalSources/{id}][%d] originalSourcesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/OriginalSources/{id}][%d] originalSourcesDeleteNoContent", 204)
 }
 
 func (o *OriginalSourcesDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewOriginalSourcesDeleteDefault creates a OriginalSourcesDeleteDefault with default headers values
+func NewOriginalSourcesDeleteDefault(code int) *OriginalSourcesDeleteDefault {
+	return &OriginalSourcesDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+OriginalSourcesDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type OriginalSourcesDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this original sources delete default response has a 2xx status code
+func (o *OriginalSourcesDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this original sources delete default response has a 3xx status code
+func (o *OriginalSourcesDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this original sources delete default response has a 4xx status code
+func (o *OriginalSourcesDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this original sources delete default response has a 5xx status code
+func (o *OriginalSourcesDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this original sources delete default response a status code equal to that given
+func (o *OriginalSourcesDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the original sources delete default response
+func (o *OriginalSourcesDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *OriginalSourcesDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/OriginalSources/{id}][%d] OriginalSources_Delete default %s", o._statusCode, payload)
+}
+
+func (o *OriginalSourcesDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/OriginalSources/{id}][%d] OriginalSources_Delete default %s", o._statusCode, payload)
+}
+
+func (o *OriginalSourcesDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *OriginalSourcesDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

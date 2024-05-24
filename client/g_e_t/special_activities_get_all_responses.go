@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SpecialActivitiesGetAllReader) ReadResponse(response runtime.ClientResp
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /CRM/SpecialActivities] SpecialActivities_GetAll", response, response.Code())
+		result := NewSpecialActivitiesGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SpecialActivitiesGetAllOK) Code() int {
 }
 
 func (o *SpecialActivitiesGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /CRM/SpecialActivities][%d] specialActivitiesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/SpecialActivities][%d] specialActivitiesGetAllOK %s", 200, payload)
 }
 
 func (o *SpecialActivitiesGetAllOK) String() string {
-	return fmt.Sprintf("[GET /CRM/SpecialActivities][%d] specialActivitiesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/SpecialActivities][%d] specialActivitiesGetAllOK %s", 200, payload)
 }
 
 func (o *SpecialActivitiesGetAllOK) GetPayload() []*models.SpecialActivity {
@@ -94,6 +104,80 @@ func (o *SpecialActivitiesGetAllOK) readResponse(response runtime.ClientResponse
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSpecialActivitiesGetAllDefault creates a SpecialActivitiesGetAllDefault with default headers values
+func NewSpecialActivitiesGetAllDefault(code int) *SpecialActivitiesGetAllDefault {
+	return &SpecialActivitiesGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SpecialActivitiesGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SpecialActivitiesGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this special activities get all default response has a 2xx status code
+func (o *SpecialActivitiesGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this special activities get all default response has a 3xx status code
+func (o *SpecialActivitiesGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this special activities get all default response has a 4xx status code
+func (o *SpecialActivitiesGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this special activities get all default response has a 5xx status code
+func (o *SpecialActivitiesGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this special activities get all default response a status code equal to that given
+func (o *SpecialActivitiesGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the special activities get all default response
+func (o *SpecialActivitiesGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SpecialActivitiesGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/SpecialActivities][%d] SpecialActivities_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *SpecialActivitiesGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/SpecialActivities][%d] SpecialActivities_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *SpecialActivitiesGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SpecialActivitiesGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

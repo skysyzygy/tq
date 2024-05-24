@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SessionGetOnAccountBalancesReader) ReadResponse(response runtime.Client
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Web/Session/{sessionKey}/Constituent/OnAccount] Session_GetOnAccountBalances", response, response.Code())
+		result := NewSessionGetOnAccountBalancesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SessionGetOnAccountBalancesOK) Code() int {
 }
 
 func (o *SessionGetOnAccountBalancesOK) Error() string {
-	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Constituent/OnAccount][%d] sessionGetOnAccountBalancesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Constituent/OnAccount][%d] sessionGetOnAccountBalancesOK %s", 200, payload)
 }
 
 func (o *SessionGetOnAccountBalancesOK) String() string {
-	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Constituent/OnAccount][%d] sessionGetOnAccountBalancesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Constituent/OnAccount][%d] sessionGetOnAccountBalancesOK %s", 200, payload)
 }
 
 func (o *SessionGetOnAccountBalancesOK) GetPayload() []*models.OnAccountBalance {
@@ -94,6 +104,80 @@ func (o *SessionGetOnAccountBalancesOK) readResponse(response runtime.ClientResp
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSessionGetOnAccountBalancesDefault creates a SessionGetOnAccountBalancesDefault with default headers values
+func NewSessionGetOnAccountBalancesDefault(code int) *SessionGetOnAccountBalancesDefault {
+	return &SessionGetOnAccountBalancesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SessionGetOnAccountBalancesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SessionGetOnAccountBalancesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this session get on account balances default response has a 2xx status code
+func (o *SessionGetOnAccountBalancesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this session get on account balances default response has a 3xx status code
+func (o *SessionGetOnAccountBalancesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this session get on account balances default response has a 4xx status code
+func (o *SessionGetOnAccountBalancesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this session get on account balances default response has a 5xx status code
+func (o *SessionGetOnAccountBalancesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this session get on account balances default response a status code equal to that given
+func (o *SessionGetOnAccountBalancesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the session get on account balances default response
+func (o *SessionGetOnAccountBalancesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SessionGetOnAccountBalancesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Constituent/OnAccount][%d] Session_GetOnAccountBalances default %s", o._statusCode, payload)
+}
+
+func (o *SessionGetOnAccountBalancesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Constituent/OnAccount][%d] Session_GetOnAccountBalances default %s", o._statusCode, payload)
+}
+
+func (o *SessionGetOnAccountBalancesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SessionGetOnAccountBalancesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

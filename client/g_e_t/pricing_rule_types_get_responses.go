@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PricingRuleTypesGetReader) ReadResponse(response runtime.ClientResponse
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/PricingRuleTypes/{id}] PricingRuleTypes_Get", response, response.Code())
+		result := NewPricingRuleTypesGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PricingRuleTypesGetOK) Code() int {
 }
 
 func (o *PricingRuleTypesGetOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/PricingRuleTypes/{id}][%d] pricingRuleTypesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PricingRuleTypes/{id}][%d] pricingRuleTypesGetOK %s", 200, payload)
 }
 
 func (o *PricingRuleTypesGetOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/PricingRuleTypes/{id}][%d] pricingRuleTypesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PricingRuleTypes/{id}][%d] pricingRuleTypesGetOK %s", 200, payload)
 }
 
 func (o *PricingRuleTypesGetOK) GetPayload() *models.PricingRuleType {
@@ -93,6 +103,80 @@ func (o *PricingRuleTypesGetOK) GetPayload() *models.PricingRuleType {
 func (o *PricingRuleTypesGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.PricingRuleType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPricingRuleTypesGetDefault creates a PricingRuleTypesGetDefault with default headers values
+func NewPricingRuleTypesGetDefault(code int) *PricingRuleTypesGetDefault {
+	return &PricingRuleTypesGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PricingRuleTypesGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PricingRuleTypesGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this pricing rule types get default response has a 2xx status code
+func (o *PricingRuleTypesGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this pricing rule types get default response has a 3xx status code
+func (o *PricingRuleTypesGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this pricing rule types get default response has a 4xx status code
+func (o *PricingRuleTypesGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this pricing rule types get default response has a 5xx status code
+func (o *PricingRuleTypesGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this pricing rule types get default response a status code equal to that given
+func (o *PricingRuleTypesGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the pricing rule types get default response
+func (o *PricingRuleTypesGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PricingRuleTypesGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PricingRuleTypes/{id}][%d] PricingRuleTypes_Get default %s", o._statusCode, payload)
+}
+
+func (o *PricingRuleTypesGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PricingRuleTypes/{id}][%d] PricingRuleTypes_Get default %s", o._statusCode, payload)
+}
+
+func (o *PricingRuleTypesGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PricingRuleTypesGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

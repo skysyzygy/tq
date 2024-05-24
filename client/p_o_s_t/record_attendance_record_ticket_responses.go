@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *RecordAttendanceRecordTicketReader) ReadResponse(response runtime.Clien
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /AccessControl/RecordAttendance/Ticket] RecordAttendance_RecordTicket", response, response.Code())
+		result := NewRecordAttendanceRecordTicketDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *RecordAttendanceRecordTicketOK) Code() int {
 }
 
 func (o *RecordAttendanceRecordTicketOK) Error() string {
-	return fmt.Sprintf("[POST /AccessControl/RecordAttendance/Ticket][%d] recordAttendanceRecordTicketOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /AccessControl/RecordAttendance/Ticket][%d] recordAttendanceRecordTicketOK %s", 200, payload)
 }
 
 func (o *RecordAttendanceRecordTicketOK) String() string {
-	return fmt.Sprintf("[POST /AccessControl/RecordAttendance/Ticket][%d] recordAttendanceRecordTicketOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /AccessControl/RecordAttendance/Ticket][%d] recordAttendanceRecordTicketOK %s", 200, payload)
 }
 
 func (o *RecordAttendanceRecordTicketOK) GetPayload() *models.RecordAttendanceResponse {
@@ -93,6 +103,80 @@ func (o *RecordAttendanceRecordTicketOK) GetPayload() *models.RecordAttendanceRe
 func (o *RecordAttendanceRecordTicketOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.RecordAttendanceResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewRecordAttendanceRecordTicketDefault creates a RecordAttendanceRecordTicketDefault with default headers values
+func NewRecordAttendanceRecordTicketDefault(code int) *RecordAttendanceRecordTicketDefault {
+	return &RecordAttendanceRecordTicketDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+RecordAttendanceRecordTicketDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type RecordAttendanceRecordTicketDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this record attendance record ticket default response has a 2xx status code
+func (o *RecordAttendanceRecordTicketDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this record attendance record ticket default response has a 3xx status code
+func (o *RecordAttendanceRecordTicketDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this record attendance record ticket default response has a 4xx status code
+func (o *RecordAttendanceRecordTicketDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this record attendance record ticket default response has a 5xx status code
+func (o *RecordAttendanceRecordTicketDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this record attendance record ticket default response a status code equal to that given
+func (o *RecordAttendanceRecordTicketDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the record attendance record ticket default response
+func (o *RecordAttendanceRecordTicketDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *RecordAttendanceRecordTicketDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /AccessControl/RecordAttendance/Ticket][%d] RecordAttendance_RecordTicket default %s", o._statusCode, payload)
+}
+
+func (o *RecordAttendanceRecordTicketDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /AccessControl/RecordAttendance/Ticket][%d] RecordAttendance_RecordTicket default %s", o._statusCode, payload)
+}
+
+func (o *RecordAttendanceRecordTicketDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *RecordAttendanceRecordTicketDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

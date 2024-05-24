@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *KeywordCategoriesUpdateReader) ReadResponse(response runtime.ClientResp
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/KeywordCategories/{id}] KeywordCategories_Update", response, response.Code())
+		result := NewKeywordCategoriesUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *KeywordCategoriesUpdateOK) Code() int {
 }
 
 func (o *KeywordCategoriesUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/KeywordCategories/{id}][%d] keywordCategoriesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/KeywordCategories/{id}][%d] keywordCategoriesUpdateOK %s", 200, payload)
 }
 
 func (o *KeywordCategoriesUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/KeywordCategories/{id}][%d] keywordCategoriesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/KeywordCategories/{id}][%d] keywordCategoriesUpdateOK %s", 200, payload)
 }
 
 func (o *KeywordCategoriesUpdateOK) GetPayload() *models.KeywordCategory {
@@ -93,6 +103,80 @@ func (o *KeywordCategoriesUpdateOK) GetPayload() *models.KeywordCategory {
 func (o *KeywordCategoriesUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.KeywordCategory)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewKeywordCategoriesUpdateDefault creates a KeywordCategoriesUpdateDefault with default headers values
+func NewKeywordCategoriesUpdateDefault(code int) *KeywordCategoriesUpdateDefault {
+	return &KeywordCategoriesUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+KeywordCategoriesUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type KeywordCategoriesUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this keyword categories update default response has a 2xx status code
+func (o *KeywordCategoriesUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this keyword categories update default response has a 3xx status code
+func (o *KeywordCategoriesUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this keyword categories update default response has a 4xx status code
+func (o *KeywordCategoriesUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this keyword categories update default response has a 5xx status code
+func (o *KeywordCategoriesUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this keyword categories update default response a status code equal to that given
+func (o *KeywordCategoriesUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the keyword categories update default response
+func (o *KeywordCategoriesUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *KeywordCategoriesUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/KeywordCategories/{id}][%d] KeywordCategories_Update default %s", o._statusCode, payload)
+}
+
+func (o *KeywordCategoriesUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/KeywordCategories/{id}][%d] KeywordCategories_Update default %s", o._statusCode, payload)
+}
+
+func (o *KeywordCategoriesUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *KeywordCategoriesUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

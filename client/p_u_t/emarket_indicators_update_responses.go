@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *EmarketIndicatorsUpdateReader) ReadResponse(response runtime.ClientResp
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/EmarketIndicators/{id}] EmarketIndicators_Update", response, response.Code())
+		result := NewEmarketIndicatorsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *EmarketIndicatorsUpdateOK) Code() int {
 }
 
 func (o *EmarketIndicatorsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/EmarketIndicators/{id}][%d] emarketIndicatorsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/EmarketIndicators/{id}][%d] emarketIndicatorsUpdateOK %s", 200, payload)
 }
 
 func (o *EmarketIndicatorsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/EmarketIndicators/{id}][%d] emarketIndicatorsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/EmarketIndicators/{id}][%d] emarketIndicatorsUpdateOK %s", 200, payload)
 }
 
 func (o *EmarketIndicatorsUpdateOK) GetPayload() *models.EmarketIndicator {
@@ -93,6 +103,80 @@ func (o *EmarketIndicatorsUpdateOK) GetPayload() *models.EmarketIndicator {
 func (o *EmarketIndicatorsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.EmarketIndicator)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEmarketIndicatorsUpdateDefault creates a EmarketIndicatorsUpdateDefault with default headers values
+func NewEmarketIndicatorsUpdateDefault(code int) *EmarketIndicatorsUpdateDefault {
+	return &EmarketIndicatorsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+EmarketIndicatorsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type EmarketIndicatorsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this emarket indicators update default response has a 2xx status code
+func (o *EmarketIndicatorsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this emarket indicators update default response has a 3xx status code
+func (o *EmarketIndicatorsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this emarket indicators update default response has a 4xx status code
+func (o *EmarketIndicatorsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this emarket indicators update default response has a 5xx status code
+func (o *EmarketIndicatorsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this emarket indicators update default response a status code equal to that given
+func (o *EmarketIndicatorsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the emarket indicators update default response
+func (o *EmarketIndicatorsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *EmarketIndicatorsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/EmarketIndicators/{id}][%d] EmarketIndicators_Update default %s", o._statusCode, payload)
+}
+
+func (o *EmarketIndicatorsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/EmarketIndicators/{id}][%d] EmarketIndicators_Update default %s", o._statusCode, payload)
+}
+
+func (o *EmarketIndicatorsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *EmarketIndicatorsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *EMVGetIdleMessageReader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /PaymentGateway/EMV/TriPosLanes/{laneId}/Profiles/Idle] EMV_GetIdleMessage", response, response.Code())
+		result := NewEMVGetIdleMessageDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *EMVGetIdleMessageOK) Code() int {
 }
 
 func (o *EMVGetIdleMessageOK) Error() string {
-	return fmt.Sprintf("[GET /PaymentGateway/EMV/TriPosLanes/{laneId}/Profiles/Idle][%d] eMVGetIdleMessageOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /PaymentGateway/EMV/TriPosLanes/{laneId}/Profiles/Idle][%d] eMVGetIdleMessageOK %s", 200, payload)
 }
 
 func (o *EMVGetIdleMessageOK) String() string {
-	return fmt.Sprintf("[GET /PaymentGateway/EMV/TriPosLanes/{laneId}/Profiles/Idle][%d] eMVGetIdleMessageOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /PaymentGateway/EMV/TriPosLanes/{laneId}/Profiles/Idle][%d] eMVGetIdleMessageOK %s", 200, payload)
 }
 
 func (o *EMVGetIdleMessageOK) GetPayload() *models.Profile {
@@ -93,6 +103,80 @@ func (o *EMVGetIdleMessageOK) GetPayload() *models.Profile {
 func (o *EMVGetIdleMessageOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Profile)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEMVGetIdleMessageDefault creates a EMVGetIdleMessageDefault with default headers values
+func NewEMVGetIdleMessageDefault(code int) *EMVGetIdleMessageDefault {
+	return &EMVGetIdleMessageDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+EMVGetIdleMessageDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type EMVGetIdleMessageDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this e m v get idle message default response has a 2xx status code
+func (o *EMVGetIdleMessageDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this e m v get idle message default response has a 3xx status code
+func (o *EMVGetIdleMessageDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this e m v get idle message default response has a 4xx status code
+func (o *EMVGetIdleMessageDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this e m v get idle message default response has a 5xx status code
+func (o *EMVGetIdleMessageDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this e m v get idle message default response a status code equal to that given
+func (o *EMVGetIdleMessageDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the e m v get idle message default response
+func (o *EMVGetIdleMessageDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *EMVGetIdleMessageDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /PaymentGateway/EMV/TriPosLanes/{laneId}/Profiles/Idle][%d] EMV_GetIdleMessage default %s", o._statusCode, payload)
+}
+
+func (o *EMVGetIdleMessageDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /PaymentGateway/EMV/TriPosLanes/{laneId}/Profiles/Idle][%d] EMV_GetIdleMessage default %s", o._statusCode, payload)
+}
+
+func (o *EMVGetIdleMessageDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *EMVGetIdleMessageDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

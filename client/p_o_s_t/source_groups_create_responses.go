@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SourceGroupsCreateReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /ReferenceData/SourceGroups] SourceGroups_Create", response, response.Code())
+		result := NewSourceGroupsCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SourceGroupsCreateOK) Code() int {
 }
 
 func (o *SourceGroupsCreateOK) Error() string {
-	return fmt.Sprintf("[POST /ReferenceData/SourceGroups][%d] sourceGroupsCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/SourceGroups][%d] sourceGroupsCreateOK %s", 200, payload)
 }
 
 func (o *SourceGroupsCreateOK) String() string {
-	return fmt.Sprintf("[POST /ReferenceData/SourceGroups][%d] sourceGroupsCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/SourceGroups][%d] sourceGroupsCreateOK %s", 200, payload)
 }
 
 func (o *SourceGroupsCreateOK) GetPayload() *models.SourceGroup {
@@ -93,6 +103,80 @@ func (o *SourceGroupsCreateOK) GetPayload() *models.SourceGroup {
 func (o *SourceGroupsCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.SourceGroup)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSourceGroupsCreateDefault creates a SourceGroupsCreateDefault with default headers values
+func NewSourceGroupsCreateDefault(code int) *SourceGroupsCreateDefault {
+	return &SourceGroupsCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SourceGroupsCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SourceGroupsCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this source groups create default response has a 2xx status code
+func (o *SourceGroupsCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this source groups create default response has a 3xx status code
+func (o *SourceGroupsCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this source groups create default response has a 4xx status code
+func (o *SourceGroupsCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this source groups create default response has a 5xx status code
+func (o *SourceGroupsCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this source groups create default response a status code equal to that given
+func (o *SourceGroupsCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the source groups create default response
+func (o *SourceGroupsCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SourceGroupsCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/SourceGroups][%d] SourceGroups_Create default %s", o._statusCode, payload)
+}
+
+func (o *SourceGroupsCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/SourceGroups][%d] SourceGroups_Create default %s", o._statusCode, payload)
+}
+
+func (o *SourceGroupsCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SourceGroupsCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

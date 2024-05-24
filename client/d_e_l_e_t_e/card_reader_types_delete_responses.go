@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // CardReaderTypesDeleteReader is a Reader for the CardReaderTypesDelete structure.
@@ -27,7 +31,14 @@ func (o *CardReaderTypesDeleteReader) ReadResponse(response runtime.ClientRespon
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /ReferenceData/CardReaderTypes/{id}] CardReaderTypes_Delete", response, response.Code())
+		result := NewCardReaderTypesDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *CardReaderTypesDeleteNoContent) Code() int {
 }
 
 func (o *CardReaderTypesDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/CardReaderTypes/{id}][%d] cardReaderTypesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/CardReaderTypes/{id}][%d] cardReaderTypesDeleteNoContent", 204)
 }
 
 func (o *CardReaderTypesDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/CardReaderTypes/{id}][%d] cardReaderTypesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/CardReaderTypes/{id}][%d] cardReaderTypesDeleteNoContent", 204)
 }
 
 func (o *CardReaderTypesDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewCardReaderTypesDeleteDefault creates a CardReaderTypesDeleteDefault with default headers values
+func NewCardReaderTypesDeleteDefault(code int) *CardReaderTypesDeleteDefault {
+	return &CardReaderTypesDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CardReaderTypesDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CardReaderTypesDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this card reader types delete default response has a 2xx status code
+func (o *CardReaderTypesDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this card reader types delete default response has a 3xx status code
+func (o *CardReaderTypesDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this card reader types delete default response has a 4xx status code
+func (o *CardReaderTypesDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this card reader types delete default response has a 5xx status code
+func (o *CardReaderTypesDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this card reader types delete default response a status code equal to that given
+func (o *CardReaderTypesDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the card reader types delete default response
+func (o *CardReaderTypesDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CardReaderTypesDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/CardReaderTypes/{id}][%d] CardReaderTypes_Delete default %s", o._statusCode, payload)
+}
+
+func (o *CardReaderTypesDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/CardReaderTypes/{id}][%d] CardReaderTypes_Delete default %s", o._statusCode, payload)
+}
+
+func (o *CardReaderTypesDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CardReaderTypesDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

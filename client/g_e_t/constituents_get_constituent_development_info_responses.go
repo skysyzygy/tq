@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ConstituentsGetConstituentDevelopmentInfoReader) ReadResponse(response 
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /CRM/Constituents/{constituentId}/DevelopmentInfo] Constituents_GetConstituentDevelopmentInfo", response, response.Code())
+		result := NewConstituentsGetConstituentDevelopmentInfoDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ConstituentsGetConstituentDevelopmentInfoOK) Code() int {
 }
 
 func (o *ConstituentsGetConstituentDevelopmentInfoOK) Error() string {
-	return fmt.Sprintf("[GET /CRM/Constituents/{constituentId}/DevelopmentInfo][%d] constituentsGetConstituentDevelopmentInfoOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Constituents/{constituentId}/DevelopmentInfo][%d] constituentsGetConstituentDevelopmentInfoOK %s", 200, payload)
 }
 
 func (o *ConstituentsGetConstituentDevelopmentInfoOK) String() string {
-	return fmt.Sprintf("[GET /CRM/Constituents/{constituentId}/DevelopmentInfo][%d] constituentsGetConstituentDevelopmentInfoOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Constituents/{constituentId}/DevelopmentInfo][%d] constituentsGetConstituentDevelopmentInfoOK %s", 200, payload)
 }
 
 func (o *ConstituentsGetConstituentDevelopmentInfoOK) GetPayload() *models.ConstituentDevelopmentInfo {
@@ -93,6 +103,80 @@ func (o *ConstituentsGetConstituentDevelopmentInfoOK) GetPayload() *models.Const
 func (o *ConstituentsGetConstituentDevelopmentInfoOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ConstituentDevelopmentInfo)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewConstituentsGetConstituentDevelopmentInfoDefault creates a ConstituentsGetConstituentDevelopmentInfoDefault with default headers values
+func NewConstituentsGetConstituentDevelopmentInfoDefault(code int) *ConstituentsGetConstituentDevelopmentInfoDefault {
+	return &ConstituentsGetConstituentDevelopmentInfoDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ConstituentsGetConstituentDevelopmentInfoDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ConstituentsGetConstituentDevelopmentInfoDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this constituents get constituent development info default response has a 2xx status code
+func (o *ConstituentsGetConstituentDevelopmentInfoDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this constituents get constituent development info default response has a 3xx status code
+func (o *ConstituentsGetConstituentDevelopmentInfoDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this constituents get constituent development info default response has a 4xx status code
+func (o *ConstituentsGetConstituentDevelopmentInfoDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this constituents get constituent development info default response has a 5xx status code
+func (o *ConstituentsGetConstituentDevelopmentInfoDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this constituents get constituent development info default response a status code equal to that given
+func (o *ConstituentsGetConstituentDevelopmentInfoDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the constituents get constituent development info default response
+func (o *ConstituentsGetConstituentDevelopmentInfoDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ConstituentsGetConstituentDevelopmentInfoDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Constituents/{constituentId}/DevelopmentInfo][%d] Constituents_GetConstituentDevelopmentInfo default %s", o._statusCode, payload)
+}
+
+func (o *ConstituentsGetConstituentDevelopmentInfoDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Constituents/{constituentId}/DevelopmentInfo][%d] Constituents_GetConstituentDevelopmentInfo default %s", o._statusCode, payload)
+}
+
+func (o *ConstituentsGetConstituentDevelopmentInfoDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ConstituentsGetConstituentDevelopmentInfoDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

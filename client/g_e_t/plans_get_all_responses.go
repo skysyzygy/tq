@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PlansGetAllReader) ReadResponse(response runtime.ClientResponse, consum
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Finance/Plans] Plans_GetAll", response, response.Code())
+		result := NewPlansGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PlansGetAllOK) Code() int {
 }
 
 func (o *PlansGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /Finance/Plans][%d] plansGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/Plans][%d] plansGetAllOK %s", 200, payload)
 }
 
 func (o *PlansGetAllOK) String() string {
-	return fmt.Sprintf("[GET /Finance/Plans][%d] plansGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/Plans][%d] plansGetAllOK %s", 200, payload)
 }
 
 func (o *PlansGetAllOK) GetPayload() []*models.Plan {
@@ -94,6 +104,80 @@ func (o *PlansGetAllOK) readResponse(response runtime.ClientResponse, consumer r
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPlansGetAllDefault creates a PlansGetAllDefault with default headers values
+func NewPlansGetAllDefault(code int) *PlansGetAllDefault {
+	return &PlansGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PlansGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PlansGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this plans get all default response has a 2xx status code
+func (o *PlansGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this plans get all default response has a 3xx status code
+func (o *PlansGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this plans get all default response has a 4xx status code
+func (o *PlansGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this plans get all default response has a 5xx status code
+func (o *PlansGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this plans get all default response a status code equal to that given
+func (o *PlansGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the plans get all default response
+func (o *PlansGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PlansGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/Plans][%d] Plans_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *PlansGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/Plans][%d] Plans_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *PlansGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PlansGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ControlGroupUserGroupsUpdateReader) ReadResponse(response runtime.Clien
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/ControlGroupUserGroups/{id}] ControlGroupUserGroups_Update", response, response.Code())
+		result := NewControlGroupUserGroupsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ControlGroupUserGroupsUpdateOK) Code() int {
 }
 
 func (o *ControlGroupUserGroupsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/ControlGroupUserGroups/{id}][%d] controlGroupUserGroupsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ControlGroupUserGroups/{id}][%d] controlGroupUserGroupsUpdateOK %s", 200, payload)
 }
 
 func (o *ControlGroupUserGroupsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/ControlGroupUserGroups/{id}][%d] controlGroupUserGroupsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ControlGroupUserGroups/{id}][%d] controlGroupUserGroupsUpdateOK %s", 200, payload)
 }
 
 func (o *ControlGroupUserGroupsUpdateOK) GetPayload() *models.ControlGroupUserGroup {
@@ -93,6 +103,80 @@ func (o *ControlGroupUserGroupsUpdateOK) GetPayload() *models.ControlGroupUserGr
 func (o *ControlGroupUserGroupsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ControlGroupUserGroup)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewControlGroupUserGroupsUpdateDefault creates a ControlGroupUserGroupsUpdateDefault with default headers values
+func NewControlGroupUserGroupsUpdateDefault(code int) *ControlGroupUserGroupsUpdateDefault {
+	return &ControlGroupUserGroupsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ControlGroupUserGroupsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ControlGroupUserGroupsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this control group user groups update default response has a 2xx status code
+func (o *ControlGroupUserGroupsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this control group user groups update default response has a 3xx status code
+func (o *ControlGroupUserGroupsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this control group user groups update default response has a 4xx status code
+func (o *ControlGroupUserGroupsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this control group user groups update default response has a 5xx status code
+func (o *ControlGroupUserGroupsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this control group user groups update default response a status code equal to that given
+func (o *ControlGroupUserGroupsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the control group user groups update default response
+func (o *ControlGroupUserGroupsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ControlGroupUserGroupsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ControlGroupUserGroups/{id}][%d] ControlGroupUserGroups_Update default %s", o._statusCode, payload)
+}
+
+func (o *ControlGroupUserGroupsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ControlGroupUserGroups/{id}][%d] ControlGroupUserGroups_Update default %s", o._statusCode, payload)
+}
+
+func (o *ControlGroupUserGroupsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ControlGroupUserGroupsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

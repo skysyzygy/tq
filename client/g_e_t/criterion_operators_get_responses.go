@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *CriterionOperatorsGetReader) ReadResponse(response runtime.ClientRespon
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/CriterionOperators/{id}] CriterionOperators_Get", response, response.Code())
+		result := NewCriterionOperatorsGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *CriterionOperatorsGetOK) Code() int {
 }
 
 func (o *CriterionOperatorsGetOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/CriterionOperators/{id}][%d] criterionOperatorsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/CriterionOperators/{id}][%d] criterionOperatorsGetOK %s", 200, payload)
 }
 
 func (o *CriterionOperatorsGetOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/CriterionOperators/{id}][%d] criterionOperatorsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/CriterionOperators/{id}][%d] criterionOperatorsGetOK %s", 200, payload)
 }
 
 func (o *CriterionOperatorsGetOK) GetPayload() *models.CriterionOperator {
@@ -93,6 +103,80 @@ func (o *CriterionOperatorsGetOK) GetPayload() *models.CriterionOperator {
 func (o *CriterionOperatorsGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.CriterionOperator)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCriterionOperatorsGetDefault creates a CriterionOperatorsGetDefault with default headers values
+func NewCriterionOperatorsGetDefault(code int) *CriterionOperatorsGetDefault {
+	return &CriterionOperatorsGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CriterionOperatorsGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CriterionOperatorsGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this criterion operators get default response has a 2xx status code
+func (o *CriterionOperatorsGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this criterion operators get default response has a 3xx status code
+func (o *CriterionOperatorsGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this criterion operators get default response has a 4xx status code
+func (o *CriterionOperatorsGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this criterion operators get default response has a 5xx status code
+func (o *CriterionOperatorsGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this criterion operators get default response a status code equal to that given
+func (o *CriterionOperatorsGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the criterion operators get default response
+func (o *CriterionOperatorsGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CriterionOperatorsGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/CriterionOperators/{id}][%d] CriterionOperators_Get default %s", o._statusCode, payload)
+}
+
+func (o *CriterionOperatorsGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/CriterionOperators/{id}][%d] CriterionOperators_Get default %s", o._statusCode, payload)
+}
+
+func (o *CriterionOperatorsGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CriterionOperatorsGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

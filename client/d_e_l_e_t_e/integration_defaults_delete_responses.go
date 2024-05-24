@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // IntegrationDefaultsDeleteReader is a Reader for the IntegrationDefaultsDelete structure.
@@ -27,7 +31,14 @@ func (o *IntegrationDefaultsDeleteReader) ReadResponse(response runtime.ClientRe
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /ReferenceData/IntegrationDefaults/{id}] IntegrationDefaults_Delete", response, response.Code())
+		result := NewIntegrationDefaultsDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *IntegrationDefaultsDeleteNoContent) Code() int {
 }
 
 func (o *IntegrationDefaultsDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/IntegrationDefaults/{id}][%d] integrationDefaultsDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/IntegrationDefaults/{id}][%d] integrationDefaultsDeleteNoContent", 204)
 }
 
 func (o *IntegrationDefaultsDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/IntegrationDefaults/{id}][%d] integrationDefaultsDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/IntegrationDefaults/{id}][%d] integrationDefaultsDeleteNoContent", 204)
 }
 
 func (o *IntegrationDefaultsDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewIntegrationDefaultsDeleteDefault creates a IntegrationDefaultsDeleteDefault with default headers values
+func NewIntegrationDefaultsDeleteDefault(code int) *IntegrationDefaultsDeleteDefault {
+	return &IntegrationDefaultsDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+IntegrationDefaultsDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type IntegrationDefaultsDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this integration defaults delete default response has a 2xx status code
+func (o *IntegrationDefaultsDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this integration defaults delete default response has a 3xx status code
+func (o *IntegrationDefaultsDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this integration defaults delete default response has a 4xx status code
+func (o *IntegrationDefaultsDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this integration defaults delete default response has a 5xx status code
+func (o *IntegrationDefaultsDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this integration defaults delete default response a status code equal to that given
+func (o *IntegrationDefaultsDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the integration defaults delete default response
+func (o *IntegrationDefaultsDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *IntegrationDefaultsDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/IntegrationDefaults/{id}][%d] IntegrationDefaults_Delete default %s", o._statusCode, payload)
+}
+
+func (o *IntegrationDefaultsDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/IntegrationDefaults/{id}][%d] IntegrationDefaults_Delete default %s", o._statusCode, payload)
+}
+
+func (o *IntegrationDefaultsDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *IntegrationDefaultsDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

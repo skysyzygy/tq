@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SessionOrderSearchReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Web/Session/{sessionKey}/Orders/Search] Session_OrderSearch", response, response.Code())
+		result := NewSessionOrderSearchDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SessionOrderSearchOK) Code() int {
 }
 
 func (o *SessionOrderSearchOK) Error() string {
-	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Orders/Search][%d] sessionOrderSearchOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Orders/Search][%d] sessionOrderSearchOK %s", 200, payload)
 }
 
 func (o *SessionOrderSearchOK) String() string {
-	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Orders/Search][%d] sessionOrderSearchOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Orders/Search][%d] sessionOrderSearchOK %s", 200, payload)
 }
 
 func (o *SessionOrderSearchOK) GetPayload() []*models.WebOrderSearchResponse {
@@ -94,6 +104,80 @@ func (o *SessionOrderSearchOK) readResponse(response runtime.ClientResponse, con
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSessionOrderSearchDefault creates a SessionOrderSearchDefault with default headers values
+func NewSessionOrderSearchDefault(code int) *SessionOrderSearchDefault {
+	return &SessionOrderSearchDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SessionOrderSearchDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SessionOrderSearchDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this session order search default response has a 2xx status code
+func (o *SessionOrderSearchDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this session order search default response has a 3xx status code
+func (o *SessionOrderSearchDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this session order search default response has a 4xx status code
+func (o *SessionOrderSearchDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this session order search default response has a 5xx status code
+func (o *SessionOrderSearchDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this session order search default response a status code equal to that given
+func (o *SessionOrderSearchDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the session order search default response
+func (o *SessionOrderSearchDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SessionOrderSearchDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Orders/Search][%d] Session_OrderSearch default %s", o._statusCode, payload)
+}
+
+func (o *SessionOrderSearchDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Orders/Search][%d] Session_OrderSearch default %s", o._statusCode, payload)
+}
+
+func (o *SessionOrderSearchDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SessionOrderSearchDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

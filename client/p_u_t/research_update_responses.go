@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ResearchUpdateReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /CRM/Research/{researchEntryId}] Research_Update", response, response.Code())
+		result := NewResearchUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ResearchUpdateOK) Code() int {
 }
 
 func (o *ResearchUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /CRM/Research/{researchEntryId}][%d] researchUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/Research/{researchEntryId}][%d] researchUpdateOK %s", 200, payload)
 }
 
 func (o *ResearchUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /CRM/Research/{researchEntryId}][%d] researchUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/Research/{researchEntryId}][%d] researchUpdateOK %s", 200, payload)
 }
 
 func (o *ResearchUpdateOK) GetPayload() *models.ResearchEntry {
@@ -93,6 +103,80 @@ func (o *ResearchUpdateOK) GetPayload() *models.ResearchEntry {
 func (o *ResearchUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ResearchEntry)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewResearchUpdateDefault creates a ResearchUpdateDefault with default headers values
+func NewResearchUpdateDefault(code int) *ResearchUpdateDefault {
+	return &ResearchUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ResearchUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ResearchUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this research update default response has a 2xx status code
+func (o *ResearchUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this research update default response has a 3xx status code
+func (o *ResearchUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this research update default response has a 4xx status code
+func (o *ResearchUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this research update default response has a 5xx status code
+func (o *ResearchUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this research update default response a status code equal to that given
+func (o *ResearchUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the research update default response
+func (o *ResearchUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ResearchUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/Research/{researchEntryId}][%d] Research_Update default %s", o._statusCode, payload)
+}
+
+func (o *ResearchUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/Research/{researchEntryId}][%d] Research_Update default %s", o._statusCode, payload)
+}
+
+func (o *ResearchUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ResearchUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

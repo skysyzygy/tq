@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *LoginTypesGetReader) ReadResponse(response runtime.ClientResponse, cons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/LoginTypes/{id}] LoginTypes_Get", response, response.Code())
+		result := NewLoginTypesGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *LoginTypesGetOK) Code() int {
 }
 
 func (o *LoginTypesGetOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/LoginTypes/{id}][%d] loginTypesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/LoginTypes/{id}][%d] loginTypesGetOK %s", 200, payload)
 }
 
 func (o *LoginTypesGetOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/LoginTypes/{id}][%d] loginTypesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/LoginTypes/{id}][%d] loginTypesGetOK %s", 200, payload)
 }
 
 func (o *LoginTypesGetOK) GetPayload() *models.LoginType {
@@ -93,6 +103,80 @@ func (o *LoginTypesGetOK) GetPayload() *models.LoginType {
 func (o *LoginTypesGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.LoginType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewLoginTypesGetDefault creates a LoginTypesGetDefault with default headers values
+func NewLoginTypesGetDefault(code int) *LoginTypesGetDefault {
+	return &LoginTypesGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+LoginTypesGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type LoginTypesGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this login types get default response has a 2xx status code
+func (o *LoginTypesGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this login types get default response has a 3xx status code
+func (o *LoginTypesGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this login types get default response has a 4xx status code
+func (o *LoginTypesGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this login types get default response has a 5xx status code
+func (o *LoginTypesGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this login types get default response a status code equal to that given
+func (o *LoginTypesGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the login types get default response
+func (o *LoginTypesGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *LoginTypesGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/LoginTypes/{id}][%d] LoginTypes_Get default %s", o._statusCode, payload)
+}
+
+func (o *LoginTypesGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/LoginTypes/{id}][%d] LoginTypes_Get default %s", o._statusCode, payload)
+}
+
+func (o *LoginTypesGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *LoginTypesGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

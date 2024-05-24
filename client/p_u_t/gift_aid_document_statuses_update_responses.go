@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *GiftAidDocumentStatusesUpdateReader) ReadResponse(response runtime.Clie
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/GiftAidDocumentStatuses/{id}] GiftAidDocumentStatuses_Update", response, response.Code())
+		result := NewGiftAidDocumentStatusesUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *GiftAidDocumentStatusesUpdateOK) Code() int {
 }
 
 func (o *GiftAidDocumentStatusesUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/GiftAidDocumentStatuses/{id}][%d] giftAidDocumentStatusesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/GiftAidDocumentStatuses/{id}][%d] giftAidDocumentStatusesUpdateOK %s", 200, payload)
 }
 
 func (o *GiftAidDocumentStatusesUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/GiftAidDocumentStatuses/{id}][%d] giftAidDocumentStatusesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/GiftAidDocumentStatuses/{id}][%d] giftAidDocumentStatusesUpdateOK %s", 200, payload)
 }
 
 func (o *GiftAidDocumentStatusesUpdateOK) GetPayload() *models.GiftAidDocumentStatus {
@@ -93,6 +103,80 @@ func (o *GiftAidDocumentStatusesUpdateOK) GetPayload() *models.GiftAidDocumentSt
 func (o *GiftAidDocumentStatusesUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.GiftAidDocumentStatus)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGiftAidDocumentStatusesUpdateDefault creates a GiftAidDocumentStatusesUpdateDefault with default headers values
+func NewGiftAidDocumentStatusesUpdateDefault(code int) *GiftAidDocumentStatusesUpdateDefault {
+	return &GiftAidDocumentStatusesUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+GiftAidDocumentStatusesUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type GiftAidDocumentStatusesUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this gift aid document statuses update default response has a 2xx status code
+func (o *GiftAidDocumentStatusesUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this gift aid document statuses update default response has a 3xx status code
+func (o *GiftAidDocumentStatusesUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this gift aid document statuses update default response has a 4xx status code
+func (o *GiftAidDocumentStatusesUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this gift aid document statuses update default response has a 5xx status code
+func (o *GiftAidDocumentStatusesUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this gift aid document statuses update default response a status code equal to that given
+func (o *GiftAidDocumentStatusesUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the gift aid document statuses update default response
+func (o *GiftAidDocumentStatusesUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *GiftAidDocumentStatusesUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/GiftAidDocumentStatuses/{id}][%d] GiftAidDocumentStatuses_Update default %s", o._statusCode, payload)
+}
+
+func (o *GiftAidDocumentStatusesUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/GiftAidDocumentStatuses/{id}][%d] GiftAidDocumentStatuses_Update default %s", o._statusCode, payload)
+}
+
+func (o *GiftAidDocumentStatusesUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *GiftAidDocumentStatusesUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

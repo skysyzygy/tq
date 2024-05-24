@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *QueryElementGroupsCreateReader) ReadResponse(response runtime.ClientRes
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Reporting/QueryElementGroups] QueryElementGroups_Create", response, response.Code())
+		result := NewQueryElementGroupsCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *QueryElementGroupsCreateOK) Code() int {
 }
 
 func (o *QueryElementGroupsCreateOK) Error() string {
-	return fmt.Sprintf("[POST /Reporting/QueryElementGroups][%d] queryElementGroupsCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Reporting/QueryElementGroups][%d] queryElementGroupsCreateOK %s", 200, payload)
 }
 
 func (o *QueryElementGroupsCreateOK) String() string {
-	return fmt.Sprintf("[POST /Reporting/QueryElementGroups][%d] queryElementGroupsCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Reporting/QueryElementGroups][%d] queryElementGroupsCreateOK %s", 200, payload)
 }
 
 func (o *QueryElementGroupsCreateOK) GetPayload() *models.QueryElementGroup {
@@ -93,6 +103,80 @@ func (o *QueryElementGroupsCreateOK) GetPayload() *models.QueryElementGroup {
 func (o *QueryElementGroupsCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.QueryElementGroup)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewQueryElementGroupsCreateDefault creates a QueryElementGroupsCreateDefault with default headers values
+func NewQueryElementGroupsCreateDefault(code int) *QueryElementGroupsCreateDefault {
+	return &QueryElementGroupsCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+QueryElementGroupsCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type QueryElementGroupsCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this query element groups create default response has a 2xx status code
+func (o *QueryElementGroupsCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query element groups create default response has a 3xx status code
+func (o *QueryElementGroupsCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query element groups create default response has a 4xx status code
+func (o *QueryElementGroupsCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query element groups create default response has a 5xx status code
+func (o *QueryElementGroupsCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query element groups create default response a status code equal to that given
+func (o *QueryElementGroupsCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the query element groups create default response
+func (o *QueryElementGroupsCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *QueryElementGroupsCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Reporting/QueryElementGroups][%d] QueryElementGroups_Create default %s", o._statusCode, payload)
+}
+
+func (o *QueryElementGroupsCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Reporting/QueryElementGroups][%d] QueryElementGroups_Create default %s", o._statusCode, payload)
+}
+
+func (o *QueryElementGroupsCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *QueryElementGroupsCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

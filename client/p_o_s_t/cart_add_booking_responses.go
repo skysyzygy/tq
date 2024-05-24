@@ -6,10 +6,14 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // CartAddBookingReader is a Reader for the CartAddBooking structure.
@@ -27,7 +31,14 @@ func (o *CartAddBookingReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Web/Cart/{sessionKey}/Bookings] Cart_AddBooking", response, response.Code())
+		result := NewCartAddBookingDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *CartAddBookingNoContent) Code() int {
 }
 
 func (o *CartAddBookingNoContent) Error() string {
-	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Bookings][%d] cartAddBookingNoContent ", 204)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Bookings][%d] cartAddBookingNoContent", 204)
 }
 
 func (o *CartAddBookingNoContent) String() string {
-	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Bookings][%d] cartAddBookingNoContent ", 204)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Bookings][%d] cartAddBookingNoContent", 204)
 }
 
 func (o *CartAddBookingNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewCartAddBookingDefault creates a CartAddBookingDefault with default headers values
+func NewCartAddBookingDefault(code int) *CartAddBookingDefault {
+	return &CartAddBookingDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CartAddBookingDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CartAddBookingDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this cart add booking default response has a 2xx status code
+func (o *CartAddBookingDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this cart add booking default response has a 3xx status code
+func (o *CartAddBookingDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this cart add booking default response has a 4xx status code
+func (o *CartAddBookingDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this cart add booking default response has a 5xx status code
+func (o *CartAddBookingDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this cart add booking default response a status code equal to that given
+func (o *CartAddBookingDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the cart add booking default response
+func (o *CartAddBookingDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CartAddBookingDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Bookings][%d] Cart_AddBooking default %s", o._statusCode, payload)
+}
+
+func (o *CartAddBookingDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Bookings][%d] Cart_AddBooking default %s", o._statusCode, payload)
+}
+
+func (o *CartAddBookingDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CartAddBookingDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

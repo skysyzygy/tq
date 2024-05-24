@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SectionsGetReader) ReadResponse(response runtime.ClientResponse, consum
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/Sections/{id}] Sections_Get", response, response.Code())
+		result := NewSectionsGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SectionsGetOK) Code() int {
 }
 
 func (o *SectionsGetOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/Sections/{id}][%d] sectionsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Sections/{id}][%d] sectionsGetOK %s", 200, payload)
 }
 
 func (o *SectionsGetOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/Sections/{id}][%d] sectionsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Sections/{id}][%d] sectionsGetOK %s", 200, payload)
 }
 
 func (o *SectionsGetOK) GetPayload() *models.Section {
@@ -93,6 +103,80 @@ func (o *SectionsGetOK) GetPayload() *models.Section {
 func (o *SectionsGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Section)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSectionsGetDefault creates a SectionsGetDefault with default headers values
+func NewSectionsGetDefault(code int) *SectionsGetDefault {
+	return &SectionsGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SectionsGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SectionsGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this sections get default response has a 2xx status code
+func (o *SectionsGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this sections get default response has a 3xx status code
+func (o *SectionsGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this sections get default response has a 4xx status code
+func (o *SectionsGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this sections get default response has a 5xx status code
+func (o *SectionsGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this sections get default response a status code equal to that given
+func (o *SectionsGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the sections get default response
+func (o *SectionsGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SectionsGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Sections/{id}][%d] Sections_Get default %s", o._statusCode, payload)
+}
+
+func (o *SectionsGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Sections/{id}][%d] Sections_Get default %s", o._statusCode, payload)
+}
+
+func (o *SectionsGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SectionsGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

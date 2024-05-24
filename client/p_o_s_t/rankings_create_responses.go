@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *RankingsCreateReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /CRM/Rankings] Rankings_Create", response, response.Code())
+		result := NewRankingsCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *RankingsCreateOK) Code() int {
 }
 
 func (o *RankingsCreateOK) Error() string {
-	return fmt.Sprintf("[POST /CRM/Rankings][%d] rankingsCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Rankings][%d] rankingsCreateOK %s", 200, payload)
 }
 
 func (o *RankingsCreateOK) String() string {
-	return fmt.Sprintf("[POST /CRM/Rankings][%d] rankingsCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Rankings][%d] rankingsCreateOK %s", 200, payload)
 }
 
 func (o *RankingsCreateOK) GetPayload() *models.Ranking {
@@ -93,6 +103,80 @@ func (o *RankingsCreateOK) GetPayload() *models.Ranking {
 func (o *RankingsCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Ranking)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewRankingsCreateDefault creates a RankingsCreateDefault with default headers values
+func NewRankingsCreateDefault(code int) *RankingsCreateDefault {
+	return &RankingsCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+RankingsCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type RankingsCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this rankings create default response has a 2xx status code
+func (o *RankingsCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this rankings create default response has a 3xx status code
+func (o *RankingsCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this rankings create default response has a 4xx status code
+func (o *RankingsCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this rankings create default response has a 5xx status code
+func (o *RankingsCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this rankings create default response a status code equal to that given
+func (o *RankingsCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the rankings create default response
+func (o *RankingsCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *RankingsCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Rankings][%d] Rankings_Create default %s", o._statusCode, payload)
+}
+
+func (o *RankingsCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Rankings][%d] Rankings_Create default %s", o._statusCode, payload)
+}
+
+func (o *RankingsCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *RankingsCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

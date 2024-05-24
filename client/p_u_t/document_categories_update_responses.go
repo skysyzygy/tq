@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *DocumentCategoriesUpdateReader) ReadResponse(response runtime.ClientRes
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/DocumentCategories/{id}] DocumentCategories_Update", response, response.Code())
+		result := NewDocumentCategoriesUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *DocumentCategoriesUpdateOK) Code() int {
 }
 
 func (o *DocumentCategoriesUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/DocumentCategories/{id}][%d] documentCategoriesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/DocumentCategories/{id}][%d] documentCategoriesUpdateOK %s", 200, payload)
 }
 
 func (o *DocumentCategoriesUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/DocumentCategories/{id}][%d] documentCategoriesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/DocumentCategories/{id}][%d] documentCategoriesUpdateOK %s", 200, payload)
 }
 
 func (o *DocumentCategoriesUpdateOK) GetPayload() *models.DocumentCategory {
@@ -93,6 +103,80 @@ func (o *DocumentCategoriesUpdateOK) GetPayload() *models.DocumentCategory {
 func (o *DocumentCategoriesUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.DocumentCategory)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewDocumentCategoriesUpdateDefault creates a DocumentCategoriesUpdateDefault with default headers values
+func NewDocumentCategoriesUpdateDefault(code int) *DocumentCategoriesUpdateDefault {
+	return &DocumentCategoriesUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+DocumentCategoriesUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type DocumentCategoriesUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this document categories update default response has a 2xx status code
+func (o *DocumentCategoriesUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this document categories update default response has a 3xx status code
+func (o *DocumentCategoriesUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this document categories update default response has a 4xx status code
+func (o *DocumentCategoriesUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this document categories update default response has a 5xx status code
+func (o *DocumentCategoriesUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this document categories update default response a status code equal to that given
+func (o *DocumentCategoriesUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the document categories update default response
+func (o *DocumentCategoriesUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *DocumentCategoriesUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/DocumentCategories/{id}][%d] DocumentCategories_Update default %s", o._statusCode, payload)
+}
+
+func (o *DocumentCategoriesUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/DocumentCategories/{id}][%d] DocumentCategories_Update default %s", o._statusCode, payload)
+}
+
+func (o *DocumentCategoriesUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *DocumentCategoriesUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *TemplatePricesBatchCreateReader) ReadResponse(response runtime.ClientRe
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /TXN/TemplatePrices/Batch] TemplatePrices_BatchCreate", response, response.Code())
+		result := NewTemplatePricesBatchCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *TemplatePricesBatchCreateOK) Code() int {
 }
 
 func (o *TemplatePricesBatchCreateOK) Error() string {
-	return fmt.Sprintf("[POST /TXN/TemplatePrices/Batch][%d] templatePricesBatchCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/TemplatePrices/Batch][%d] templatePricesBatchCreateOK %s", 200, payload)
 }
 
 func (o *TemplatePricesBatchCreateOK) String() string {
-	return fmt.Sprintf("[POST /TXN/TemplatePrices/Batch][%d] templatePricesBatchCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/TemplatePrices/Batch][%d] templatePricesBatchCreateOK %s", 200, payload)
 }
 
 func (o *TemplatePricesBatchCreateOK) GetPayload() []*models.TemplatePrice {
@@ -94,6 +104,80 @@ func (o *TemplatePricesBatchCreateOK) readResponse(response runtime.ClientRespon
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewTemplatePricesBatchCreateDefault creates a TemplatePricesBatchCreateDefault with default headers values
+func NewTemplatePricesBatchCreateDefault(code int) *TemplatePricesBatchCreateDefault {
+	return &TemplatePricesBatchCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+TemplatePricesBatchCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type TemplatePricesBatchCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this template prices batch create default response has a 2xx status code
+func (o *TemplatePricesBatchCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this template prices batch create default response has a 3xx status code
+func (o *TemplatePricesBatchCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this template prices batch create default response has a 4xx status code
+func (o *TemplatePricesBatchCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this template prices batch create default response has a 5xx status code
+func (o *TemplatePricesBatchCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this template prices batch create default response a status code equal to that given
+func (o *TemplatePricesBatchCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the template prices batch create default response
+func (o *TemplatePricesBatchCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *TemplatePricesBatchCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/TemplatePrices/Batch][%d] TemplatePrices_BatchCreate default %s", o._statusCode, payload)
+}
+
+func (o *TemplatePricesBatchCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/TemplatePrices/Batch][%d] TemplatePrices_BatchCreate default %s", o._statusCode, payload)
+}
+
+func (o *TemplatePricesBatchCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *TemplatePricesBatchCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

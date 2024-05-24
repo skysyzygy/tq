@@ -6,10 +6,14 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // CartUpdateCartPropertiesCustomDataReader is a Reader for the CartUpdateCartPropertiesCustomData structure.
@@ -27,7 +31,14 @@ func (o *CartUpdateCartPropertiesCustomDataReader) ReadResponse(response runtime
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /Web/Cart/{sessionKey}/CustomData/{customId}] Cart_UpdateCartPropertiesCustomData", response, response.Code())
+		result := NewCartUpdateCartPropertiesCustomDataDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *CartUpdateCartPropertiesCustomDataNoContent) Code() int {
 }
 
 func (o *CartUpdateCartPropertiesCustomDataNoContent) Error() string {
-	return fmt.Sprintf("[PUT /Web/Cart/{sessionKey}/CustomData/{customId}][%d] cartUpdateCartPropertiesCustomDataNoContent ", 204)
+	return fmt.Sprintf("[PUT /Web/Cart/{sessionKey}/CustomData/{customId}][%d] cartUpdateCartPropertiesCustomDataNoContent", 204)
 }
 
 func (o *CartUpdateCartPropertiesCustomDataNoContent) String() string {
-	return fmt.Sprintf("[PUT /Web/Cart/{sessionKey}/CustomData/{customId}][%d] cartUpdateCartPropertiesCustomDataNoContent ", 204)
+	return fmt.Sprintf("[PUT /Web/Cart/{sessionKey}/CustomData/{customId}][%d] cartUpdateCartPropertiesCustomDataNoContent", 204)
 }
 
 func (o *CartUpdateCartPropertiesCustomDataNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewCartUpdateCartPropertiesCustomDataDefault creates a CartUpdateCartPropertiesCustomDataDefault with default headers values
+func NewCartUpdateCartPropertiesCustomDataDefault(code int) *CartUpdateCartPropertiesCustomDataDefault {
+	return &CartUpdateCartPropertiesCustomDataDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CartUpdateCartPropertiesCustomDataDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CartUpdateCartPropertiesCustomDataDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this cart update cart properties custom data default response has a 2xx status code
+func (o *CartUpdateCartPropertiesCustomDataDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this cart update cart properties custom data default response has a 3xx status code
+func (o *CartUpdateCartPropertiesCustomDataDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this cart update cart properties custom data default response has a 4xx status code
+func (o *CartUpdateCartPropertiesCustomDataDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this cart update cart properties custom data default response has a 5xx status code
+func (o *CartUpdateCartPropertiesCustomDataDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this cart update cart properties custom data default response a status code equal to that given
+func (o *CartUpdateCartPropertiesCustomDataDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the cart update cart properties custom data default response
+func (o *CartUpdateCartPropertiesCustomDataDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CartUpdateCartPropertiesCustomDataDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Web/Cart/{sessionKey}/CustomData/{customId}][%d] Cart_UpdateCartPropertiesCustomData default %s", o._statusCode, payload)
+}
+
+func (o *CartUpdateCartPropertiesCustomDataDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Web/Cart/{sessionKey}/CustomData/{customId}][%d] Cart_UpdateCartPropertiesCustomData default %s", o._statusCode, payload)
+}
+
+func (o *CartUpdateCartPropertiesCustomDataDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CartUpdateCartPropertiesCustomDataDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // ContributionDesignationsDeleteReader is a Reader for the ContributionDesignationsDelete structure.
@@ -27,7 +31,14 @@ func (o *ContributionDesignationsDeleteReader) ReadResponse(response runtime.Cli
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /ReferenceData/ContributionDesignations/{id}] ContributionDesignations_Delete", response, response.Code())
+		result := NewContributionDesignationsDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *ContributionDesignationsDeleteNoContent) Code() int {
 }
 
 func (o *ContributionDesignationsDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/ContributionDesignations/{id}][%d] contributionDesignationsDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/ContributionDesignations/{id}][%d] contributionDesignationsDeleteNoContent", 204)
 }
 
 func (o *ContributionDesignationsDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/ContributionDesignations/{id}][%d] contributionDesignationsDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/ContributionDesignations/{id}][%d] contributionDesignationsDeleteNoContent", 204)
 }
 
 func (o *ContributionDesignationsDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewContributionDesignationsDeleteDefault creates a ContributionDesignationsDeleteDefault with default headers values
+func NewContributionDesignationsDeleteDefault(code int) *ContributionDesignationsDeleteDefault {
+	return &ContributionDesignationsDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ContributionDesignationsDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ContributionDesignationsDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this contribution designations delete default response has a 2xx status code
+func (o *ContributionDesignationsDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this contribution designations delete default response has a 3xx status code
+func (o *ContributionDesignationsDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this contribution designations delete default response has a 4xx status code
+func (o *ContributionDesignationsDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this contribution designations delete default response has a 5xx status code
+func (o *ContributionDesignationsDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this contribution designations delete default response a status code equal to that given
+func (o *ContributionDesignationsDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the contribution designations delete default response
+func (o *ContributionDesignationsDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ContributionDesignationsDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/ContributionDesignations/{id}][%d] ContributionDesignations_Delete default %s", o._statusCode, payload)
+}
+
+func (o *ContributionDesignationsDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/ContributionDesignations/{id}][%d] ContributionDesignations_Delete default %s", o._statusCode, payload)
+}
+
+func (o *ContributionDesignationsDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ContributionDesignationsDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *AppealCategoriesGetAllReader) ReadResponse(response runtime.ClientRespo
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/AppealCategories] AppealCategories_GetAll", response, response.Code())
+		result := NewAppealCategoriesGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *AppealCategoriesGetAllOK) Code() int {
 }
 
 func (o *AppealCategoriesGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/AppealCategories][%d] appealCategoriesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/AppealCategories][%d] appealCategoriesGetAllOK %s", 200, payload)
 }
 
 func (o *AppealCategoriesGetAllOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/AppealCategories][%d] appealCategoriesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/AppealCategories][%d] appealCategoriesGetAllOK %s", 200, payload)
 }
 
 func (o *AppealCategoriesGetAllOK) GetPayload() []*models.AppealCategory {
@@ -94,6 +104,80 @@ func (o *AppealCategoriesGetAllOK) readResponse(response runtime.ClientResponse,
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAppealCategoriesGetAllDefault creates a AppealCategoriesGetAllDefault with default headers values
+func NewAppealCategoriesGetAllDefault(code int) *AppealCategoriesGetAllDefault {
+	return &AppealCategoriesGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+AppealCategoriesGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type AppealCategoriesGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this appeal categories get all default response has a 2xx status code
+func (o *AppealCategoriesGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this appeal categories get all default response has a 3xx status code
+func (o *AppealCategoriesGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this appeal categories get all default response has a 4xx status code
+func (o *AppealCategoriesGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this appeal categories get all default response has a 5xx status code
+func (o *AppealCategoriesGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this appeal categories get all default response a status code equal to that given
+func (o *AppealCategoriesGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the appeal categories get all default response
+func (o *AppealCategoriesGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *AppealCategoriesGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/AppealCategories][%d] AppealCategories_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *AppealCategoriesGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/AppealCategories][%d] AppealCategories_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *AppealCategoriesGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *AppealCategoriesGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

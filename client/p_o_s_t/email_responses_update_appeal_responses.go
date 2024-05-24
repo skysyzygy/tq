@@ -6,10 +6,14 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // EmailResponsesUpdateAppealReader is a Reader for the EmailResponsesUpdateAppeal structure.
@@ -27,7 +31,14 @@ func (o *EmailResponsesUpdateAppealReader) ReadResponse(response runtime.ClientR
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /TXN/EmailResponses] EmailResponses_UpdateAppeal", response, response.Code())
+		result := NewEmailResponsesUpdateAppealDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *EmailResponsesUpdateAppealNoContent) Code() int {
 }
 
 func (o *EmailResponsesUpdateAppealNoContent) Error() string {
-	return fmt.Sprintf("[POST /TXN/EmailResponses][%d] emailResponsesUpdateAppealNoContent ", 204)
+	return fmt.Sprintf("[POST /TXN/EmailResponses][%d] emailResponsesUpdateAppealNoContent", 204)
 }
 
 func (o *EmailResponsesUpdateAppealNoContent) String() string {
-	return fmt.Sprintf("[POST /TXN/EmailResponses][%d] emailResponsesUpdateAppealNoContent ", 204)
+	return fmt.Sprintf("[POST /TXN/EmailResponses][%d] emailResponsesUpdateAppealNoContent", 204)
 }
 
 func (o *EmailResponsesUpdateAppealNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewEmailResponsesUpdateAppealDefault creates a EmailResponsesUpdateAppealDefault with default headers values
+func NewEmailResponsesUpdateAppealDefault(code int) *EmailResponsesUpdateAppealDefault {
+	return &EmailResponsesUpdateAppealDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+EmailResponsesUpdateAppealDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type EmailResponsesUpdateAppealDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this email responses update appeal default response has a 2xx status code
+func (o *EmailResponsesUpdateAppealDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this email responses update appeal default response has a 3xx status code
+func (o *EmailResponsesUpdateAppealDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this email responses update appeal default response has a 4xx status code
+func (o *EmailResponsesUpdateAppealDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this email responses update appeal default response has a 5xx status code
+func (o *EmailResponsesUpdateAppealDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this email responses update appeal default response a status code equal to that given
+func (o *EmailResponsesUpdateAppealDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the email responses update appeal default response
+func (o *EmailResponsesUpdateAppealDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *EmailResponsesUpdateAppealDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/EmailResponses][%d] EmailResponses_UpdateAppeal default %s", o._statusCode, payload)
+}
+
+func (o *EmailResponsesUpdateAppealDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/EmailResponses][%d] EmailResponses_UpdateAppeal default %s", o._statusCode, payload)
+}
+
+func (o *EmailResponsesUpdateAppealDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *EmailResponsesUpdateAppealDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

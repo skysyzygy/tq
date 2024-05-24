@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // ZoneGroupsDeleteReader is a Reader for the ZoneGroupsDelete structure.
@@ -27,7 +31,14 @@ func (o *ZoneGroupsDeleteReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /ReferenceData/ZoneGroups/{id}] ZoneGroups_Delete", response, response.Code())
+		result := NewZoneGroupsDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *ZoneGroupsDeleteNoContent) Code() int {
 }
 
 func (o *ZoneGroupsDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/ZoneGroups/{id}][%d] zoneGroupsDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/ZoneGroups/{id}][%d] zoneGroupsDeleteNoContent", 204)
 }
 
 func (o *ZoneGroupsDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/ZoneGroups/{id}][%d] zoneGroupsDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/ZoneGroups/{id}][%d] zoneGroupsDeleteNoContent", 204)
 }
 
 func (o *ZoneGroupsDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewZoneGroupsDeleteDefault creates a ZoneGroupsDeleteDefault with default headers values
+func NewZoneGroupsDeleteDefault(code int) *ZoneGroupsDeleteDefault {
+	return &ZoneGroupsDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ZoneGroupsDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ZoneGroupsDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this zone groups delete default response has a 2xx status code
+func (o *ZoneGroupsDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this zone groups delete default response has a 3xx status code
+func (o *ZoneGroupsDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this zone groups delete default response has a 4xx status code
+func (o *ZoneGroupsDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this zone groups delete default response has a 5xx status code
+func (o *ZoneGroupsDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this zone groups delete default response a status code equal to that given
+func (o *ZoneGroupsDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the zone groups delete default response
+func (o *ZoneGroupsDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ZoneGroupsDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/ZoneGroups/{id}][%d] ZoneGroups_Delete default %s", o._statusCode, payload)
+}
+
+func (o *ZoneGroupsDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/ZoneGroups/{id}][%d] ZoneGroups_Delete default %s", o._statusCode, payload)
+}
+
+func (o *ZoneGroupsDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ZoneGroupsDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

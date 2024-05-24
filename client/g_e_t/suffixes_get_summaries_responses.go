@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SuffixesGetSummariesReader) ReadResponse(response runtime.ClientRespons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/Suffixes/Summary] Suffixes_GetSummaries", response, response.Code())
+		result := NewSuffixesGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SuffixesGetSummariesOK) Code() int {
 }
 
 func (o *SuffixesGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/Suffixes/Summary][%d] suffixesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Suffixes/Summary][%d] suffixesGetSummariesOK %s", 200, payload)
 }
 
 func (o *SuffixesGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/Suffixes/Summary][%d] suffixesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Suffixes/Summary][%d] suffixesGetSummariesOK %s", 200, payload)
 }
 
 func (o *SuffixesGetSummariesOK) GetPayload() []*models.SuffixSummary {
@@ -94,6 +104,80 @@ func (o *SuffixesGetSummariesOK) readResponse(response runtime.ClientResponse, c
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSuffixesGetSummariesDefault creates a SuffixesGetSummariesDefault with default headers values
+func NewSuffixesGetSummariesDefault(code int) *SuffixesGetSummariesDefault {
+	return &SuffixesGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SuffixesGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SuffixesGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this suffixes get summaries default response has a 2xx status code
+func (o *SuffixesGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this suffixes get summaries default response has a 3xx status code
+func (o *SuffixesGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this suffixes get summaries default response has a 4xx status code
+func (o *SuffixesGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this suffixes get summaries default response has a 5xx status code
+func (o *SuffixesGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this suffixes get summaries default response a status code equal to that given
+func (o *SuffixesGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the suffixes get summaries default response
+func (o *SuffixesGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SuffixesGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Suffixes/Summary][%d] Suffixes_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *SuffixesGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Suffixes/Summary][%d] Suffixes_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *SuffixesGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SuffixesGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

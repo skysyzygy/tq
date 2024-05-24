@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ContributionDesignationsUpdateReader) ReadResponse(response runtime.Cli
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/ContributionDesignations/{id}] ContributionDesignations_Update", response, response.Code())
+		result := NewContributionDesignationsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ContributionDesignationsUpdateOK) Code() int {
 }
 
 func (o *ContributionDesignationsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/ContributionDesignations/{id}][%d] contributionDesignationsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ContributionDesignations/{id}][%d] contributionDesignationsUpdateOK %s", 200, payload)
 }
 
 func (o *ContributionDesignationsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/ContributionDesignations/{id}][%d] contributionDesignationsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ContributionDesignations/{id}][%d] contributionDesignationsUpdateOK %s", 200, payload)
 }
 
 func (o *ContributionDesignationsUpdateOK) GetPayload() *models.ContributionDesignation {
@@ -93,6 +103,80 @@ func (o *ContributionDesignationsUpdateOK) GetPayload() *models.ContributionDesi
 func (o *ContributionDesignationsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ContributionDesignation)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewContributionDesignationsUpdateDefault creates a ContributionDesignationsUpdateDefault with default headers values
+func NewContributionDesignationsUpdateDefault(code int) *ContributionDesignationsUpdateDefault {
+	return &ContributionDesignationsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ContributionDesignationsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ContributionDesignationsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this contribution designations update default response has a 2xx status code
+func (o *ContributionDesignationsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this contribution designations update default response has a 3xx status code
+func (o *ContributionDesignationsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this contribution designations update default response has a 4xx status code
+func (o *ContributionDesignationsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this contribution designations update default response has a 5xx status code
+func (o *ContributionDesignationsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this contribution designations update default response a status code equal to that given
+func (o *ContributionDesignationsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the contribution designations update default response
+func (o *ContributionDesignationsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ContributionDesignationsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ContributionDesignations/{id}][%d] ContributionDesignations_Update default %s", o._statusCode, payload)
+}
+
+func (o *ContributionDesignationsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ContributionDesignations/{id}][%d] ContributionDesignations_Update default %s", o._statusCode, payload)
+}
+
+func (o *ContributionDesignationsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ContributionDesignationsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

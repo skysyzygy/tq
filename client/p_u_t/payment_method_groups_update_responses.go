@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PaymentMethodGroupsUpdateReader) ReadResponse(response runtime.ClientRe
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/PaymentMethodGroups/{id}] PaymentMethodGroups_Update", response, response.Code())
+		result := NewPaymentMethodGroupsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PaymentMethodGroupsUpdateOK) Code() int {
 }
 
 func (o *PaymentMethodGroupsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/PaymentMethodGroups/{id}][%d] paymentMethodGroupsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/PaymentMethodGroups/{id}][%d] paymentMethodGroupsUpdateOK %s", 200, payload)
 }
 
 func (o *PaymentMethodGroupsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/PaymentMethodGroups/{id}][%d] paymentMethodGroupsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/PaymentMethodGroups/{id}][%d] paymentMethodGroupsUpdateOK %s", 200, payload)
 }
 
 func (o *PaymentMethodGroupsUpdateOK) GetPayload() *models.PaymentMethodGroup {
@@ -93,6 +103,80 @@ func (o *PaymentMethodGroupsUpdateOK) GetPayload() *models.PaymentMethodGroup {
 func (o *PaymentMethodGroupsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.PaymentMethodGroup)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPaymentMethodGroupsUpdateDefault creates a PaymentMethodGroupsUpdateDefault with default headers values
+func NewPaymentMethodGroupsUpdateDefault(code int) *PaymentMethodGroupsUpdateDefault {
+	return &PaymentMethodGroupsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PaymentMethodGroupsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PaymentMethodGroupsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this payment method groups update default response has a 2xx status code
+func (o *PaymentMethodGroupsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this payment method groups update default response has a 3xx status code
+func (o *PaymentMethodGroupsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this payment method groups update default response has a 4xx status code
+func (o *PaymentMethodGroupsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this payment method groups update default response has a 5xx status code
+func (o *PaymentMethodGroupsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this payment method groups update default response a status code equal to that given
+func (o *PaymentMethodGroupsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the payment method groups update default response
+func (o *PaymentMethodGroupsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PaymentMethodGroupsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/PaymentMethodGroups/{id}][%d] PaymentMethodGroups_Update default %s", o._statusCode, payload)
+}
+
+func (o *PaymentMethodGroupsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/PaymentMethodGroups/{id}][%d] PaymentMethodGroups_Update default %s", o._statusCode, payload)
+}
+
+func (o *PaymentMethodGroupsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PaymentMethodGroupsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *FormatsGetAllReader) ReadResponse(response runtime.ClientResponse, cons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/Formats] Formats_GetAll", response, response.Code())
+		result := NewFormatsGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *FormatsGetAllOK) Code() int {
 }
 
 func (o *FormatsGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/Formats][%d] formatsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Formats][%d] formatsGetAllOK %s", 200, payload)
 }
 
 func (o *FormatsGetAllOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/Formats][%d] formatsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Formats][%d] formatsGetAllOK %s", 200, payload)
 }
 
 func (o *FormatsGetAllOK) GetPayload() []*models.Format {
@@ -94,6 +104,80 @@ func (o *FormatsGetAllOK) readResponse(response runtime.ClientResponse, consumer
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewFormatsGetAllDefault creates a FormatsGetAllDefault with default headers values
+func NewFormatsGetAllDefault(code int) *FormatsGetAllDefault {
+	return &FormatsGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+FormatsGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type FormatsGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this formats get all default response has a 2xx status code
+func (o *FormatsGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this formats get all default response has a 3xx status code
+func (o *FormatsGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this formats get all default response has a 4xx status code
+func (o *FormatsGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this formats get all default response has a 5xx status code
+func (o *FormatsGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this formats get all default response a status code equal to that given
+func (o *FormatsGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the formats get all default response
+func (o *FormatsGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *FormatsGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Formats][%d] Formats_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *FormatsGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Formats][%d] Formats_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *FormatsGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *FormatsGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PackagesSearchReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /TXN/Packages/Search] Packages_Search", response, response.Code())
+		result := NewPackagesSearchDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PackagesSearchOK) Code() int {
 }
 
 func (o *PackagesSearchOK) Error() string {
-	return fmt.Sprintf("[POST /TXN/Packages/Search][%d] packagesSearchOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/Packages/Search][%d] packagesSearchOK %s", 200, payload)
 }
 
 func (o *PackagesSearchOK) String() string {
-	return fmt.Sprintf("[POST /TXN/Packages/Search][%d] packagesSearchOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/Packages/Search][%d] packagesSearchOK %s", 200, payload)
 }
 
 func (o *PackagesSearchOK) GetPayload() []*models.PackageSearchResponse {
@@ -94,6 +104,80 @@ func (o *PackagesSearchOK) readResponse(response runtime.ClientResponse, consume
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPackagesSearchDefault creates a PackagesSearchDefault with default headers values
+func NewPackagesSearchDefault(code int) *PackagesSearchDefault {
+	return &PackagesSearchDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PackagesSearchDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PackagesSearchDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this packages search default response has a 2xx status code
+func (o *PackagesSearchDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this packages search default response has a 3xx status code
+func (o *PackagesSearchDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this packages search default response has a 4xx status code
+func (o *PackagesSearchDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this packages search default response has a 5xx status code
+func (o *PackagesSearchDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this packages search default response a status code equal to that given
+func (o *PackagesSearchDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the packages search default response
+func (o *PackagesSearchDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PackagesSearchDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/Packages/Search][%d] Packages_Search default %s", o._statusCode, payload)
+}
+
+func (o *PackagesSearchDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/Packages/Search][%d] Packages_Search default %s", o._statusCode, payload)
+}
+
+func (o *PackagesSearchDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PackagesSearchDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SalesLayoutButtonTypesGetAllReader) ReadResponse(response runtime.Clien
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/SalesLayoutButtonTypes] SalesLayoutButtonTypes_GetAll", response, response.Code())
+		result := NewSalesLayoutButtonTypesGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SalesLayoutButtonTypesGetAllOK) Code() int {
 }
 
 func (o *SalesLayoutButtonTypesGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/SalesLayoutButtonTypes][%d] salesLayoutButtonTypesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SalesLayoutButtonTypes][%d] salesLayoutButtonTypesGetAllOK %s", 200, payload)
 }
 
 func (o *SalesLayoutButtonTypesGetAllOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/SalesLayoutButtonTypes][%d] salesLayoutButtonTypesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SalesLayoutButtonTypes][%d] salesLayoutButtonTypesGetAllOK %s", 200, payload)
 }
 
 func (o *SalesLayoutButtonTypesGetAllOK) GetPayload() []*models.SalesLayoutButtonType {
@@ -94,6 +104,80 @@ func (o *SalesLayoutButtonTypesGetAllOK) readResponse(response runtime.ClientRes
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSalesLayoutButtonTypesGetAllDefault creates a SalesLayoutButtonTypesGetAllDefault with default headers values
+func NewSalesLayoutButtonTypesGetAllDefault(code int) *SalesLayoutButtonTypesGetAllDefault {
+	return &SalesLayoutButtonTypesGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SalesLayoutButtonTypesGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SalesLayoutButtonTypesGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this sales layout button types get all default response has a 2xx status code
+func (o *SalesLayoutButtonTypesGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this sales layout button types get all default response has a 3xx status code
+func (o *SalesLayoutButtonTypesGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this sales layout button types get all default response has a 4xx status code
+func (o *SalesLayoutButtonTypesGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this sales layout button types get all default response has a 5xx status code
+func (o *SalesLayoutButtonTypesGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this sales layout button types get all default response a status code equal to that given
+func (o *SalesLayoutButtonTypesGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the sales layout button types get all default response
+func (o *SalesLayoutButtonTypesGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SalesLayoutButtonTypesGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SalesLayoutButtonTypes][%d] SalesLayoutButtonTypes_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *SalesLayoutButtonTypesGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SalesLayoutButtonTypes][%d] SalesLayoutButtonTypes_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *SalesLayoutButtonTypesGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SalesLayoutButtonTypesGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

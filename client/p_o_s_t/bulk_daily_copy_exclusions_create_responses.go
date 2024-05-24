@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *BulkDailyCopyExclusionsCreateReader) ReadResponse(response runtime.Clie
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /TXN/BulkDailyCopyExclusions] BulkDailyCopyExclusions_Create", response, response.Code())
+		result := NewBulkDailyCopyExclusionsCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *BulkDailyCopyExclusionsCreateOK) Code() int {
 }
 
 func (o *BulkDailyCopyExclusionsCreateOK) Error() string {
-	return fmt.Sprintf("[POST /TXN/BulkDailyCopyExclusions][%d] bulkDailyCopyExclusionsCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/BulkDailyCopyExclusions][%d] bulkDailyCopyExclusionsCreateOK %s", 200, payload)
 }
 
 func (o *BulkDailyCopyExclusionsCreateOK) String() string {
-	return fmt.Sprintf("[POST /TXN/BulkDailyCopyExclusions][%d] bulkDailyCopyExclusionsCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/BulkDailyCopyExclusions][%d] bulkDailyCopyExclusionsCreateOK %s", 200, payload)
 }
 
 func (o *BulkDailyCopyExclusionsCreateOK) GetPayload() *models.BulkDailyCopyExclusion {
@@ -93,6 +103,80 @@ func (o *BulkDailyCopyExclusionsCreateOK) GetPayload() *models.BulkDailyCopyExcl
 func (o *BulkDailyCopyExclusionsCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.BulkDailyCopyExclusion)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewBulkDailyCopyExclusionsCreateDefault creates a BulkDailyCopyExclusionsCreateDefault with default headers values
+func NewBulkDailyCopyExclusionsCreateDefault(code int) *BulkDailyCopyExclusionsCreateDefault {
+	return &BulkDailyCopyExclusionsCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+BulkDailyCopyExclusionsCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type BulkDailyCopyExclusionsCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this bulk daily copy exclusions create default response has a 2xx status code
+func (o *BulkDailyCopyExclusionsCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this bulk daily copy exclusions create default response has a 3xx status code
+func (o *BulkDailyCopyExclusionsCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this bulk daily copy exclusions create default response has a 4xx status code
+func (o *BulkDailyCopyExclusionsCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this bulk daily copy exclusions create default response has a 5xx status code
+func (o *BulkDailyCopyExclusionsCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this bulk daily copy exclusions create default response a status code equal to that given
+func (o *BulkDailyCopyExclusionsCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the bulk daily copy exclusions create default response
+func (o *BulkDailyCopyExclusionsCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *BulkDailyCopyExclusionsCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/BulkDailyCopyExclusions][%d] BulkDailyCopyExclusions_Create default %s", o._statusCode, payload)
+}
+
+func (o *BulkDailyCopyExclusionsCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/BulkDailyCopyExclusions][%d] BulkDailyCopyExclusions_Create default %s", o._statusCode, payload)
+}
+
+func (o *BulkDailyCopyExclusionsCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *BulkDailyCopyExclusionsCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

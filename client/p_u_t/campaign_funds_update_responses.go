@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *CampaignFundsUpdateReader) ReadResponse(response runtime.ClientResponse
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /Finance/CampaignFunds/{campaignFundId}] CampaignFunds_Update", response, response.Code())
+		result := NewCampaignFundsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *CampaignFundsUpdateOK) Code() int {
 }
 
 func (o *CampaignFundsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /Finance/CampaignFunds/{campaignFundId}][%d] campaignFundsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Finance/CampaignFunds/{campaignFundId}][%d] campaignFundsUpdateOK %s", 200, payload)
 }
 
 func (o *CampaignFundsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /Finance/CampaignFunds/{campaignFundId}][%d] campaignFundsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Finance/CampaignFunds/{campaignFundId}][%d] campaignFundsUpdateOK %s", 200, payload)
 }
 
 func (o *CampaignFundsUpdateOK) GetPayload() *models.CampaignFund {
@@ -93,6 +103,80 @@ func (o *CampaignFundsUpdateOK) GetPayload() *models.CampaignFund {
 func (o *CampaignFundsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.CampaignFund)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCampaignFundsUpdateDefault creates a CampaignFundsUpdateDefault with default headers values
+func NewCampaignFundsUpdateDefault(code int) *CampaignFundsUpdateDefault {
+	return &CampaignFundsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CampaignFundsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CampaignFundsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this campaign funds update default response has a 2xx status code
+func (o *CampaignFundsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this campaign funds update default response has a 3xx status code
+func (o *CampaignFundsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this campaign funds update default response has a 4xx status code
+func (o *CampaignFundsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this campaign funds update default response has a 5xx status code
+func (o *CampaignFundsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this campaign funds update default response a status code equal to that given
+func (o *CampaignFundsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the campaign funds update default response
+func (o *CampaignFundsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CampaignFundsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Finance/CampaignFunds/{campaignFundId}][%d] CampaignFunds_Update default %s", o._statusCode, payload)
+}
+
+func (o *CampaignFundsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Finance/CampaignFunds/{campaignFundId}][%d] CampaignFunds_Update default %s", o._statusCode, payload)
+}
+
+func (o *CampaignFundsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CampaignFundsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

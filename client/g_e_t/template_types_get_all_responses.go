@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *TemplateTypesGetAllReader) ReadResponse(response runtime.ClientResponse
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/TemplateTypes] TemplateTypes_GetAll", response, response.Code())
+		result := NewTemplateTypesGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *TemplateTypesGetAllOK) Code() int {
 }
 
 func (o *TemplateTypesGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/TemplateTypes][%d] templateTypesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/TemplateTypes][%d] templateTypesGetAllOK %s", 200, payload)
 }
 
 func (o *TemplateTypesGetAllOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/TemplateTypes][%d] templateTypesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/TemplateTypes][%d] templateTypesGetAllOK %s", 200, payload)
 }
 
 func (o *TemplateTypesGetAllOK) GetPayload() []*models.TemplateType {
@@ -94,6 +104,80 @@ func (o *TemplateTypesGetAllOK) readResponse(response runtime.ClientResponse, co
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewTemplateTypesGetAllDefault creates a TemplateTypesGetAllDefault with default headers values
+func NewTemplateTypesGetAllDefault(code int) *TemplateTypesGetAllDefault {
+	return &TemplateTypesGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+TemplateTypesGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type TemplateTypesGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this template types get all default response has a 2xx status code
+func (o *TemplateTypesGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this template types get all default response has a 3xx status code
+func (o *TemplateTypesGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this template types get all default response has a 4xx status code
+func (o *TemplateTypesGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this template types get all default response has a 5xx status code
+func (o *TemplateTypesGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this template types get all default response a status code equal to that given
+func (o *TemplateTypesGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the template types get all default response
+func (o *TemplateTypesGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *TemplateTypesGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/TemplateTypes][%d] TemplateTypes_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *TemplateTypesGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/TemplateTypes][%d] TemplateTypes_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *TemplateTypesGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *TemplateTypesGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

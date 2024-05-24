@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PlanPrioritiesGetSummariesReader) ReadResponse(response runtime.ClientR
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/PlanPriorities/Summary] PlanPriorities_GetSummaries", response, response.Code())
+		result := NewPlanPrioritiesGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PlanPrioritiesGetSummariesOK) Code() int {
 }
 
 func (o *PlanPrioritiesGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/PlanPriorities/Summary][%d] planPrioritiesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PlanPriorities/Summary][%d] planPrioritiesGetSummariesOK %s", 200, payload)
 }
 
 func (o *PlanPrioritiesGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/PlanPriorities/Summary][%d] planPrioritiesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PlanPriorities/Summary][%d] planPrioritiesGetSummariesOK %s", 200, payload)
 }
 
 func (o *PlanPrioritiesGetSummariesOK) GetPayload() []*models.PlanPrioritySummary {
@@ -94,6 +104,80 @@ func (o *PlanPrioritiesGetSummariesOK) readResponse(response runtime.ClientRespo
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPlanPrioritiesGetSummariesDefault creates a PlanPrioritiesGetSummariesDefault with default headers values
+func NewPlanPrioritiesGetSummariesDefault(code int) *PlanPrioritiesGetSummariesDefault {
+	return &PlanPrioritiesGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PlanPrioritiesGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PlanPrioritiesGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this plan priorities get summaries default response has a 2xx status code
+func (o *PlanPrioritiesGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this plan priorities get summaries default response has a 3xx status code
+func (o *PlanPrioritiesGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this plan priorities get summaries default response has a 4xx status code
+func (o *PlanPrioritiesGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this plan priorities get summaries default response has a 5xx status code
+func (o *PlanPrioritiesGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this plan priorities get summaries default response a status code equal to that given
+func (o *PlanPrioritiesGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the plan priorities get summaries default response
+func (o *PlanPrioritiesGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PlanPrioritiesGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PlanPriorities/Summary][%d] PlanPriorities_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *PlanPrioritiesGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PlanPriorities/Summary][%d] PlanPriorities_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *PlanPrioritiesGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PlanPrioritiesGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

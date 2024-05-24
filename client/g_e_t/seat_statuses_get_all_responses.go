@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SeatStatusesGetAllReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/SeatStatuses] SeatStatuses_GetAll", response, response.Code())
+		result := NewSeatStatusesGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SeatStatusesGetAllOK) Code() int {
 }
 
 func (o *SeatStatusesGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/SeatStatuses][%d] seatStatusesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SeatStatuses][%d] seatStatusesGetAllOK %s", 200, payload)
 }
 
 func (o *SeatStatusesGetAllOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/SeatStatuses][%d] seatStatusesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SeatStatuses][%d] seatStatusesGetAllOK %s", 200, payload)
 }
 
 func (o *SeatStatusesGetAllOK) GetPayload() []*models.SeatStatus {
@@ -94,6 +104,80 @@ func (o *SeatStatusesGetAllOK) readResponse(response runtime.ClientResponse, con
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSeatStatusesGetAllDefault creates a SeatStatusesGetAllDefault with default headers values
+func NewSeatStatusesGetAllDefault(code int) *SeatStatusesGetAllDefault {
+	return &SeatStatusesGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SeatStatusesGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SeatStatusesGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this seat statuses get all default response has a 2xx status code
+func (o *SeatStatusesGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this seat statuses get all default response has a 3xx status code
+func (o *SeatStatusesGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this seat statuses get all default response has a 4xx status code
+func (o *SeatStatusesGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this seat statuses get all default response has a 5xx status code
+func (o *SeatStatusesGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this seat statuses get all default response a status code equal to that given
+func (o *SeatStatusesGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the seat statuses get all default response
+func (o *SeatStatusesGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SeatStatusesGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SeatStatuses][%d] SeatStatuses_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *SeatStatusesGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SeatStatuses][%d] SeatStatuses_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *SeatStatusesGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SeatStatusesGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

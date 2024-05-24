@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SubLineItemStatusesUpdateReader) ReadResponse(response runtime.ClientRe
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/SubLineItemStatuses/{id}] SubLineItemStatuses_Update", response, response.Code())
+		result := NewSubLineItemStatusesUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SubLineItemStatusesUpdateOK) Code() int {
 }
 
 func (o *SubLineItemStatusesUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/SubLineItemStatuses/{id}][%d] subLineItemStatusesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/SubLineItemStatuses/{id}][%d] subLineItemStatusesUpdateOK %s", 200, payload)
 }
 
 func (o *SubLineItemStatusesUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/SubLineItemStatuses/{id}][%d] subLineItemStatusesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/SubLineItemStatuses/{id}][%d] subLineItemStatusesUpdateOK %s", 200, payload)
 }
 
 func (o *SubLineItemStatusesUpdateOK) GetPayload() *models.SubLineItemStatus {
@@ -93,6 +103,80 @@ func (o *SubLineItemStatusesUpdateOK) GetPayload() *models.SubLineItemStatus {
 func (o *SubLineItemStatusesUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.SubLineItemStatus)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSubLineItemStatusesUpdateDefault creates a SubLineItemStatusesUpdateDefault with default headers values
+func NewSubLineItemStatusesUpdateDefault(code int) *SubLineItemStatusesUpdateDefault {
+	return &SubLineItemStatusesUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SubLineItemStatusesUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SubLineItemStatusesUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this sub line item statuses update default response has a 2xx status code
+func (o *SubLineItemStatusesUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this sub line item statuses update default response has a 3xx status code
+func (o *SubLineItemStatusesUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this sub line item statuses update default response has a 4xx status code
+func (o *SubLineItemStatusesUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this sub line item statuses update default response has a 5xx status code
+func (o *SubLineItemStatusesUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this sub line item statuses update default response a status code equal to that given
+func (o *SubLineItemStatusesUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the sub line item statuses update default response
+func (o *SubLineItemStatusesUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SubLineItemStatusesUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/SubLineItemStatuses/{id}][%d] SubLineItemStatuses_Update default %s", o._statusCode, payload)
+}
+
+func (o *SubLineItemStatusesUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/SubLineItemStatuses/{id}][%d] SubLineItemStatuses_Update default %s", o._statusCode, payload)
+}
+
+func (o *SubLineItemStatusesUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SubLineItemStatusesUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

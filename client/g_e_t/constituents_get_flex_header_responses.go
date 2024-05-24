@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ConstituentsGetFlexHeaderReader) ReadResponse(response runtime.ClientRe
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /CRM/Constituents/{constituentId}/Header/Flex/{headerId}] Constituents_GetFlexHeader", response, response.Code())
+		result := NewConstituentsGetFlexHeaderDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ConstituentsGetFlexHeaderOK) Code() int {
 }
 
 func (o *ConstituentsGetFlexHeaderOK) Error() string {
-	return fmt.Sprintf("[GET /CRM/Constituents/{constituentId}/Header/Flex/{headerId}][%d] constituentsGetFlexHeaderOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Constituents/{constituentId}/Header/Flex/{headerId}][%d] constituentsGetFlexHeaderOK %s", 200, payload)
 }
 
 func (o *ConstituentsGetFlexHeaderOK) String() string {
-	return fmt.Sprintf("[GET /CRM/Constituents/{constituentId}/Header/Flex/{headerId}][%d] constituentsGetFlexHeaderOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Constituents/{constituentId}/Header/Flex/{headerId}][%d] constituentsGetFlexHeaderOK %s", 200, payload)
 }
 
 func (o *ConstituentsGetFlexHeaderOK) GetPayload() *models.FlexHeader {
@@ -93,6 +103,80 @@ func (o *ConstituentsGetFlexHeaderOK) GetPayload() *models.FlexHeader {
 func (o *ConstituentsGetFlexHeaderOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.FlexHeader)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewConstituentsGetFlexHeaderDefault creates a ConstituentsGetFlexHeaderDefault with default headers values
+func NewConstituentsGetFlexHeaderDefault(code int) *ConstituentsGetFlexHeaderDefault {
+	return &ConstituentsGetFlexHeaderDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ConstituentsGetFlexHeaderDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ConstituentsGetFlexHeaderDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this constituents get flex header default response has a 2xx status code
+func (o *ConstituentsGetFlexHeaderDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this constituents get flex header default response has a 3xx status code
+func (o *ConstituentsGetFlexHeaderDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this constituents get flex header default response has a 4xx status code
+func (o *ConstituentsGetFlexHeaderDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this constituents get flex header default response has a 5xx status code
+func (o *ConstituentsGetFlexHeaderDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this constituents get flex header default response a status code equal to that given
+func (o *ConstituentsGetFlexHeaderDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the constituents get flex header default response
+func (o *ConstituentsGetFlexHeaderDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ConstituentsGetFlexHeaderDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Constituents/{constituentId}/Header/Flex/{headerId}][%d] Constituents_GetFlexHeader default %s", o._statusCode, payload)
+}
+
+func (o *ConstituentsGetFlexHeaderDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Constituents/{constituentId}/Header/Flex/{headerId}][%d] Constituents_GetFlexHeader default %s", o._statusCode, payload)
+}
+
+func (o *ConstituentsGetFlexHeaderDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ConstituentsGetFlexHeaderDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

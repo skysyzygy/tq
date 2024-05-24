@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PriceLayerTypesCreateReader) ReadResponse(response runtime.ClientRespon
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /ReferenceData/PriceLayerTypes] PriceLayerTypes_Create", response, response.Code())
+		result := NewPriceLayerTypesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PriceLayerTypesCreateOK) Code() int {
 }
 
 func (o *PriceLayerTypesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /ReferenceData/PriceLayerTypes][%d] priceLayerTypesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/PriceLayerTypes][%d] priceLayerTypesCreateOK %s", 200, payload)
 }
 
 func (o *PriceLayerTypesCreateOK) String() string {
-	return fmt.Sprintf("[POST /ReferenceData/PriceLayerTypes][%d] priceLayerTypesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/PriceLayerTypes][%d] priceLayerTypesCreateOK %s", 200, payload)
 }
 
 func (o *PriceLayerTypesCreateOK) GetPayload() *models.PriceLayerType {
@@ -93,6 +103,80 @@ func (o *PriceLayerTypesCreateOK) GetPayload() *models.PriceLayerType {
 func (o *PriceLayerTypesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.PriceLayerType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPriceLayerTypesCreateDefault creates a PriceLayerTypesCreateDefault with default headers values
+func NewPriceLayerTypesCreateDefault(code int) *PriceLayerTypesCreateDefault {
+	return &PriceLayerTypesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PriceLayerTypesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PriceLayerTypesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this price layer types create default response has a 2xx status code
+func (o *PriceLayerTypesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this price layer types create default response has a 3xx status code
+func (o *PriceLayerTypesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this price layer types create default response has a 4xx status code
+func (o *PriceLayerTypesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this price layer types create default response has a 5xx status code
+func (o *PriceLayerTypesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this price layer types create default response a status code equal to that given
+func (o *PriceLayerTypesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the price layer types create default response
+func (o *PriceLayerTypesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PriceLayerTypesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/PriceLayerTypes][%d] PriceLayerTypes_Create default %s", o._statusCode, payload)
+}
+
+func (o *PriceLayerTypesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/PriceLayerTypes][%d] PriceLayerTypes_Create default %s", o._statusCode, payload)
+}
+
+func (o *PriceLayerTypesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PriceLayerTypesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

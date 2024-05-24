@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PerformancePriceLayersGetCountsReader) ReadResponse(response runtime.Cl
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /TXN/PerformancePriceLayers/Count] PerformancePriceLayers_GetCounts", response, response.Code())
+		result := NewPerformancePriceLayersGetCountsDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PerformancePriceLayersGetCountsOK) Code() int {
 }
 
 func (o *PerformancePriceLayersGetCountsOK) Error() string {
-	return fmt.Sprintf("[GET /TXN/PerformancePriceLayers/Count][%d] performancePriceLayersGetCountsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PerformancePriceLayers/Count][%d] performancePriceLayersGetCountsOK %s", 200, payload)
 }
 
 func (o *PerformancePriceLayersGetCountsOK) String() string {
-	return fmt.Sprintf("[GET /TXN/PerformancePriceLayers/Count][%d] performancePriceLayersGetCountsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PerformancePriceLayers/Count][%d] performancePriceLayersGetCountsOK %s", 200, payload)
 }
 
 func (o *PerformancePriceLayersGetCountsOK) GetPayload() []*models.PerformancePriceLayerCount {
@@ -94,6 +104,80 @@ func (o *PerformancePriceLayersGetCountsOK) readResponse(response runtime.Client
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPerformancePriceLayersGetCountsDefault creates a PerformancePriceLayersGetCountsDefault with default headers values
+func NewPerformancePriceLayersGetCountsDefault(code int) *PerformancePriceLayersGetCountsDefault {
+	return &PerformancePriceLayersGetCountsDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PerformancePriceLayersGetCountsDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PerformancePriceLayersGetCountsDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this performance price layers get counts default response has a 2xx status code
+func (o *PerformancePriceLayersGetCountsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this performance price layers get counts default response has a 3xx status code
+func (o *PerformancePriceLayersGetCountsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this performance price layers get counts default response has a 4xx status code
+func (o *PerformancePriceLayersGetCountsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this performance price layers get counts default response has a 5xx status code
+func (o *PerformancePriceLayersGetCountsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this performance price layers get counts default response a status code equal to that given
+func (o *PerformancePriceLayersGetCountsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the performance price layers get counts default response
+func (o *PerformancePriceLayersGetCountsDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PerformancePriceLayersGetCountsDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PerformancePriceLayers/Count][%d] PerformancePriceLayers_GetCounts default %s", o._statusCode, payload)
+}
+
+func (o *PerformancePriceLayersGetCountsDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PerformancePriceLayers/Count][%d] PerformancePriceLayers_GetCounts default %s", o._statusCode, payload)
+}
+
+func (o *PerformancePriceLayersGetCountsDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PerformancePriceLayersGetCountsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

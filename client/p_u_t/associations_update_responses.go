@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *AssociationsUpdateReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /CRM/Associations/{associationId}] Associations_Update", response, response.Code())
+		result := NewAssociationsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *AssociationsUpdateOK) Code() int {
 }
 
 func (o *AssociationsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /CRM/Associations/{associationId}][%d] associationsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/Associations/{associationId}][%d] associationsUpdateOK %s", 200, payload)
 }
 
 func (o *AssociationsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /CRM/Associations/{associationId}][%d] associationsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/Associations/{associationId}][%d] associationsUpdateOK %s", 200, payload)
 }
 
 func (o *AssociationsUpdateOK) GetPayload() *models.Association {
@@ -93,6 +103,80 @@ func (o *AssociationsUpdateOK) GetPayload() *models.Association {
 func (o *AssociationsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Association)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAssociationsUpdateDefault creates a AssociationsUpdateDefault with default headers values
+func NewAssociationsUpdateDefault(code int) *AssociationsUpdateDefault {
+	return &AssociationsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+AssociationsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type AssociationsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this associations update default response has a 2xx status code
+func (o *AssociationsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this associations update default response has a 3xx status code
+func (o *AssociationsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this associations update default response has a 4xx status code
+func (o *AssociationsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this associations update default response has a 5xx status code
+func (o *AssociationsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this associations update default response a status code equal to that given
+func (o *AssociationsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the associations update default response
+func (o *AssociationsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *AssociationsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/Associations/{associationId}][%d] Associations_Update default %s", o._statusCode, payload)
+}
+
+func (o *AssociationsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/Associations/{associationId}][%d] Associations_Update default %s", o._statusCode, payload)
+}
+
+func (o *AssociationsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *AssociationsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

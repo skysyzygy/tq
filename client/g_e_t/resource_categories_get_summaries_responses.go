@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ResourceCategoriesGetSummariesReader) ReadResponse(response runtime.Cli
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/ResourceCategories/Summary] ResourceCategories_GetSummaries", response, response.Code())
+		result := NewResourceCategoriesGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ResourceCategoriesGetSummariesOK) Code() int {
 }
 
 func (o *ResourceCategoriesGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/ResourceCategories/Summary][%d] resourceCategoriesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ResourceCategories/Summary][%d] resourceCategoriesGetSummariesOK %s", 200, payload)
 }
 
 func (o *ResourceCategoriesGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/ResourceCategories/Summary][%d] resourceCategoriesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ResourceCategories/Summary][%d] resourceCategoriesGetSummariesOK %s", 200, payload)
 }
 
 func (o *ResourceCategoriesGetSummariesOK) GetPayload() []*models.ResourceCategorySummary {
@@ -94,6 +104,80 @@ func (o *ResourceCategoriesGetSummariesOK) readResponse(response runtime.ClientR
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewResourceCategoriesGetSummariesDefault creates a ResourceCategoriesGetSummariesDefault with default headers values
+func NewResourceCategoriesGetSummariesDefault(code int) *ResourceCategoriesGetSummariesDefault {
+	return &ResourceCategoriesGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ResourceCategoriesGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ResourceCategoriesGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this resource categories get summaries default response has a 2xx status code
+func (o *ResourceCategoriesGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this resource categories get summaries default response has a 3xx status code
+func (o *ResourceCategoriesGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this resource categories get summaries default response has a 4xx status code
+func (o *ResourceCategoriesGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this resource categories get summaries default response has a 5xx status code
+func (o *ResourceCategoriesGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this resource categories get summaries default response a status code equal to that given
+func (o *ResourceCategoriesGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the resource categories get summaries default response
+func (o *ResourceCategoriesGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ResourceCategoriesGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ResourceCategories/Summary][%d] ResourceCategories_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *ResourceCategoriesGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ResourceCategories/Summary][%d] ResourceCategories_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *ResourceCategoriesGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ResourceCategoriesGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

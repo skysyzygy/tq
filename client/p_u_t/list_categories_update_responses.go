@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ListCategoriesUpdateReader) ReadResponse(response runtime.ClientRespons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/ListCategories/{id}] ListCategories_Update", response, response.Code())
+		result := NewListCategoriesUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ListCategoriesUpdateOK) Code() int {
 }
 
 func (o *ListCategoriesUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/ListCategories/{id}][%d] listCategoriesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ListCategories/{id}][%d] listCategoriesUpdateOK %s", 200, payload)
 }
 
 func (o *ListCategoriesUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/ListCategories/{id}][%d] listCategoriesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ListCategories/{id}][%d] listCategoriesUpdateOK %s", 200, payload)
 }
 
 func (o *ListCategoriesUpdateOK) GetPayload() *models.ListCategory {
@@ -93,6 +103,80 @@ func (o *ListCategoriesUpdateOK) GetPayload() *models.ListCategory {
 func (o *ListCategoriesUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ListCategory)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewListCategoriesUpdateDefault creates a ListCategoriesUpdateDefault with default headers values
+func NewListCategoriesUpdateDefault(code int) *ListCategoriesUpdateDefault {
+	return &ListCategoriesUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ListCategoriesUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ListCategoriesUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this list categories update default response has a 2xx status code
+func (o *ListCategoriesUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this list categories update default response has a 3xx status code
+func (o *ListCategoriesUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this list categories update default response has a 4xx status code
+func (o *ListCategoriesUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this list categories update default response has a 5xx status code
+func (o *ListCategoriesUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this list categories update default response a status code equal to that given
+func (o *ListCategoriesUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the list categories update default response
+func (o *ListCategoriesUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ListCategoriesUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ListCategories/{id}][%d] ListCategories_Update default %s", o._statusCode, payload)
+}
+
+func (o *ListCategoriesUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ListCategories/{id}][%d] ListCategories_Update default %s", o._statusCode, payload)
+}
+
+func (o *ListCategoriesUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ListCategoriesUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

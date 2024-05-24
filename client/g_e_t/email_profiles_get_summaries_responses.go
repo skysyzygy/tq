@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *EmailProfilesGetSummariesReader) ReadResponse(response runtime.ClientRe
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/EmailProfiles/Summary] EmailProfiles_GetSummaries", response, response.Code())
+		result := NewEmailProfilesGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *EmailProfilesGetSummariesOK) Code() int {
 }
 
 func (o *EmailProfilesGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/EmailProfiles/Summary][%d] emailProfilesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/EmailProfiles/Summary][%d] emailProfilesGetSummariesOK %s", 200, payload)
 }
 
 func (o *EmailProfilesGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/EmailProfiles/Summary][%d] emailProfilesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/EmailProfiles/Summary][%d] emailProfilesGetSummariesOK %s", 200, payload)
 }
 
 func (o *EmailProfilesGetSummariesOK) GetPayload() []*models.EmailProfileSummary {
@@ -94,6 +104,80 @@ func (o *EmailProfilesGetSummariesOK) readResponse(response runtime.ClientRespon
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEmailProfilesGetSummariesDefault creates a EmailProfilesGetSummariesDefault with default headers values
+func NewEmailProfilesGetSummariesDefault(code int) *EmailProfilesGetSummariesDefault {
+	return &EmailProfilesGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+EmailProfilesGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type EmailProfilesGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this email profiles get summaries default response has a 2xx status code
+func (o *EmailProfilesGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this email profiles get summaries default response has a 3xx status code
+func (o *EmailProfilesGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this email profiles get summaries default response has a 4xx status code
+func (o *EmailProfilesGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this email profiles get summaries default response has a 5xx status code
+func (o *EmailProfilesGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this email profiles get summaries default response a status code equal to that given
+func (o *EmailProfilesGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the email profiles get summaries default response
+func (o *EmailProfilesGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *EmailProfilesGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/EmailProfiles/Summary][%d] EmailProfiles_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *EmailProfilesGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/EmailProfiles/Summary][%d] EmailProfiles_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *EmailProfilesGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *EmailProfilesGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

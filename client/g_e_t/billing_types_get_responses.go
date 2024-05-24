@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *BillingTypesGetReader) ReadResponse(response runtime.ClientResponse, co
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/BillingTypes/{id}] BillingTypes_Get", response, response.Code())
+		result := NewBillingTypesGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *BillingTypesGetOK) Code() int {
 }
 
 func (o *BillingTypesGetOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/BillingTypes/{id}][%d] billingTypesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/BillingTypes/{id}][%d] billingTypesGetOK %s", 200, payload)
 }
 
 func (o *BillingTypesGetOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/BillingTypes/{id}][%d] billingTypesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/BillingTypes/{id}][%d] billingTypesGetOK %s", 200, payload)
 }
 
 func (o *BillingTypesGetOK) GetPayload() *models.BillingType {
@@ -93,6 +103,80 @@ func (o *BillingTypesGetOK) GetPayload() *models.BillingType {
 func (o *BillingTypesGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.BillingType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewBillingTypesGetDefault creates a BillingTypesGetDefault with default headers values
+func NewBillingTypesGetDefault(code int) *BillingTypesGetDefault {
+	return &BillingTypesGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+BillingTypesGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type BillingTypesGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this billing types get default response has a 2xx status code
+func (o *BillingTypesGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this billing types get default response has a 3xx status code
+func (o *BillingTypesGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this billing types get default response has a 4xx status code
+func (o *BillingTypesGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this billing types get default response has a 5xx status code
+func (o *BillingTypesGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this billing types get default response a status code equal to that given
+func (o *BillingTypesGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the billing types get default response
+func (o *BillingTypesGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *BillingTypesGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/BillingTypes/{id}][%d] BillingTypes_Get default %s", o._statusCode, payload)
+}
+
+func (o *BillingTypesGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/BillingTypes/{id}][%d] BillingTypes_Get default %s", o._statusCode, payload)
+}
+
+func (o *BillingTypesGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *BillingTypesGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

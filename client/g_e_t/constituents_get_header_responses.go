@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ConstituentsGetHeaderReader) ReadResponse(response runtime.ClientRespon
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /CRM/Constituents/{constituentId}/Header/{headerId}] Constituents_GetHeader", response, response.Code())
+		result := NewConstituentsGetHeaderDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ConstituentsGetHeaderOK) Code() int {
 }
 
 func (o *ConstituentsGetHeaderOK) Error() string {
-	return fmt.Sprintf("[GET /CRM/Constituents/{constituentId}/Header/{headerId}][%d] constituentsGetHeaderOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Constituents/{constituentId}/Header/{headerId}][%d] constituentsGetHeaderOK %s", 200, payload)
 }
 
 func (o *ConstituentsGetHeaderOK) String() string {
-	return fmt.Sprintf("[GET /CRM/Constituents/{constituentId}/Header/{headerId}][%d] constituentsGetHeaderOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Constituents/{constituentId}/Header/{headerId}][%d] constituentsGetHeaderOK %s", 200, payload)
 }
 
 func (o *ConstituentsGetHeaderOK) GetPayload() *models.ConstituentHeader {
@@ -93,6 +103,80 @@ func (o *ConstituentsGetHeaderOK) GetPayload() *models.ConstituentHeader {
 func (o *ConstituentsGetHeaderOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ConstituentHeader)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewConstituentsGetHeaderDefault creates a ConstituentsGetHeaderDefault with default headers values
+func NewConstituentsGetHeaderDefault(code int) *ConstituentsGetHeaderDefault {
+	return &ConstituentsGetHeaderDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ConstituentsGetHeaderDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ConstituentsGetHeaderDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this constituents get header default response has a 2xx status code
+func (o *ConstituentsGetHeaderDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this constituents get header default response has a 3xx status code
+func (o *ConstituentsGetHeaderDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this constituents get header default response has a 4xx status code
+func (o *ConstituentsGetHeaderDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this constituents get header default response has a 5xx status code
+func (o *ConstituentsGetHeaderDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this constituents get header default response a status code equal to that given
+func (o *ConstituentsGetHeaderDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the constituents get header default response
+func (o *ConstituentsGetHeaderDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ConstituentsGetHeaderDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Constituents/{constituentId}/Header/{headerId}][%d] Constituents_GetHeader default %s", o._statusCode, payload)
+}
+
+func (o *ConstituentsGetHeaderDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Constituents/{constituentId}/Header/{headerId}][%d] Constituents_GetHeader default %s", o._statusCode, payload)
+}
+
+func (o *ConstituentsGetHeaderDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ConstituentsGetHeaderDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

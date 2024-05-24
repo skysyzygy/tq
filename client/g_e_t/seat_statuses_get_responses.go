@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SeatStatusesGetReader) ReadResponse(response runtime.ClientResponse, co
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/SeatStatuses/{id}] SeatStatuses_Get", response, response.Code())
+		result := NewSeatStatusesGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SeatStatusesGetOK) Code() int {
 }
 
 func (o *SeatStatusesGetOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/SeatStatuses/{id}][%d] seatStatusesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SeatStatuses/{id}][%d] seatStatusesGetOK %s", 200, payload)
 }
 
 func (o *SeatStatusesGetOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/SeatStatuses/{id}][%d] seatStatusesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SeatStatuses/{id}][%d] seatStatusesGetOK %s", 200, payload)
 }
 
 func (o *SeatStatusesGetOK) GetPayload() *models.SeatStatus {
@@ -93,6 +103,80 @@ func (o *SeatStatusesGetOK) GetPayload() *models.SeatStatus {
 func (o *SeatStatusesGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.SeatStatus)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSeatStatusesGetDefault creates a SeatStatusesGetDefault with default headers values
+func NewSeatStatusesGetDefault(code int) *SeatStatusesGetDefault {
+	return &SeatStatusesGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SeatStatusesGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SeatStatusesGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this seat statuses get default response has a 2xx status code
+func (o *SeatStatusesGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this seat statuses get default response has a 3xx status code
+func (o *SeatStatusesGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this seat statuses get default response has a 4xx status code
+func (o *SeatStatusesGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this seat statuses get default response has a 5xx status code
+func (o *SeatStatusesGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this seat statuses get default response a status code equal to that given
+func (o *SeatStatusesGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the seat statuses get default response
+func (o *SeatStatusesGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SeatStatusesGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SeatStatuses/{id}][%d] SeatStatuses_Get default %s", o._statusCode, payload)
+}
+
+func (o *SeatStatusesGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SeatStatuses/{id}][%d] SeatStatuses_Get default %s", o._statusCode, payload)
+}
+
+func (o *SeatStatusesGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SeatStatusesGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

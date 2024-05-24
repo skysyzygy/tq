@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PaymentMethodGroupsGetSummariesReader) ReadResponse(response runtime.Cl
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/PaymentMethodGroups/Summary] PaymentMethodGroups_GetSummaries", response, response.Code())
+		result := NewPaymentMethodGroupsGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PaymentMethodGroupsGetSummariesOK) Code() int {
 }
 
 func (o *PaymentMethodGroupsGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/PaymentMethodGroups/Summary][%d] paymentMethodGroupsGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PaymentMethodGroups/Summary][%d] paymentMethodGroupsGetSummariesOK %s", 200, payload)
 }
 
 func (o *PaymentMethodGroupsGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/PaymentMethodGroups/Summary][%d] paymentMethodGroupsGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PaymentMethodGroups/Summary][%d] paymentMethodGroupsGetSummariesOK %s", 200, payload)
 }
 
 func (o *PaymentMethodGroupsGetSummariesOK) GetPayload() []*models.PaymentMethodGroupSummary {
@@ -94,6 +104,80 @@ func (o *PaymentMethodGroupsGetSummariesOK) readResponse(response runtime.Client
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPaymentMethodGroupsGetSummariesDefault creates a PaymentMethodGroupsGetSummariesDefault with default headers values
+func NewPaymentMethodGroupsGetSummariesDefault(code int) *PaymentMethodGroupsGetSummariesDefault {
+	return &PaymentMethodGroupsGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PaymentMethodGroupsGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PaymentMethodGroupsGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this payment method groups get summaries default response has a 2xx status code
+func (o *PaymentMethodGroupsGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this payment method groups get summaries default response has a 3xx status code
+func (o *PaymentMethodGroupsGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this payment method groups get summaries default response has a 4xx status code
+func (o *PaymentMethodGroupsGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this payment method groups get summaries default response has a 5xx status code
+func (o *PaymentMethodGroupsGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this payment method groups get summaries default response a status code equal to that given
+func (o *PaymentMethodGroupsGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the payment method groups get summaries default response
+func (o *PaymentMethodGroupsGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PaymentMethodGroupsGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PaymentMethodGroups/Summary][%d] PaymentMethodGroups_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *PaymentMethodGroupsGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PaymentMethodGroups/Summary][%d] PaymentMethodGroups_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *PaymentMethodGroupsGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PaymentMethodGroupsGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

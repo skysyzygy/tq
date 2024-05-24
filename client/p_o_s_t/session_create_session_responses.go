@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SessionCreateSessionReader) ReadResponse(response runtime.ClientRespons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Web/Session] Session_CreateSession", response, response.Code())
+		result := NewSessionCreateSessionDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SessionCreateSessionOK) Code() int {
 }
 
 func (o *SessionCreateSessionOK) Error() string {
-	return fmt.Sprintf("[POST /Web/Session][%d] sessionCreateSessionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Session][%d] sessionCreateSessionOK %s", 200, payload)
 }
 
 func (o *SessionCreateSessionOK) String() string {
-	return fmt.Sprintf("[POST /Web/Session][%d] sessionCreateSessionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Session][%d] sessionCreateSessionOK %s", 200, payload)
 }
 
 func (o *SessionCreateSessionOK) GetPayload() *models.SessionResponse {
@@ -93,6 +103,80 @@ func (o *SessionCreateSessionOK) GetPayload() *models.SessionResponse {
 func (o *SessionCreateSessionOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.SessionResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSessionCreateSessionDefault creates a SessionCreateSessionDefault with default headers values
+func NewSessionCreateSessionDefault(code int) *SessionCreateSessionDefault {
+	return &SessionCreateSessionDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SessionCreateSessionDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SessionCreateSessionDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this session create session default response has a 2xx status code
+func (o *SessionCreateSessionDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this session create session default response has a 3xx status code
+func (o *SessionCreateSessionDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this session create session default response has a 4xx status code
+func (o *SessionCreateSessionDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this session create session default response has a 5xx status code
+func (o *SessionCreateSessionDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this session create session default response a status code equal to that given
+func (o *SessionCreateSessionDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the session create session default response
+func (o *SessionCreateSessionDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SessionCreateSessionDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Session][%d] Session_CreateSession default %s", o._statusCode, payload)
+}
+
+func (o *SessionCreateSessionDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Session][%d] Session_CreateSession default %s", o._statusCode, payload)
+}
+
+func (o *SessionCreateSessionDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SessionCreateSessionDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

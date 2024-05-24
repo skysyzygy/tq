@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *MediaTypesUpdateReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/MediaTypes/{id}] MediaTypes_Update", response, response.Code())
+		result := NewMediaTypesUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *MediaTypesUpdateOK) Code() int {
 }
 
 func (o *MediaTypesUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/MediaTypes/{id}][%d] mediaTypesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/MediaTypes/{id}][%d] mediaTypesUpdateOK %s", 200, payload)
 }
 
 func (o *MediaTypesUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/MediaTypes/{id}][%d] mediaTypesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/MediaTypes/{id}][%d] mediaTypesUpdateOK %s", 200, payload)
 }
 
 func (o *MediaTypesUpdateOK) GetPayload() *models.MediaType {
@@ -93,6 +103,80 @@ func (o *MediaTypesUpdateOK) GetPayload() *models.MediaType {
 func (o *MediaTypesUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MediaType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewMediaTypesUpdateDefault creates a MediaTypesUpdateDefault with default headers values
+func NewMediaTypesUpdateDefault(code int) *MediaTypesUpdateDefault {
+	return &MediaTypesUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+MediaTypesUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type MediaTypesUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this media types update default response has a 2xx status code
+func (o *MediaTypesUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this media types update default response has a 3xx status code
+func (o *MediaTypesUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this media types update default response has a 4xx status code
+func (o *MediaTypesUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this media types update default response has a 5xx status code
+func (o *MediaTypesUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this media types update default response a status code equal to that given
+func (o *MediaTypesUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the media types update default response
+func (o *MediaTypesUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *MediaTypesUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/MediaTypes/{id}][%d] MediaTypes_Update default %s", o._statusCode, payload)
+}
+
+func (o *MediaTypesUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/MediaTypes/{id}][%d] MediaTypes_Update default %s", o._statusCode, payload)
+}
+
+func (o *MediaTypesUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *MediaTypesUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

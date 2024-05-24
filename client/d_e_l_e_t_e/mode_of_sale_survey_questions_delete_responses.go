@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // ModeOfSaleSurveyQuestionsDeleteReader is a Reader for the ModeOfSaleSurveyQuestionsDelete structure.
@@ -27,7 +31,14 @@ func (o *ModeOfSaleSurveyQuestionsDeleteReader) ReadResponse(response runtime.Cl
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /TXN/ModeOfSaleSurveyQuestions/{modeOfSaleSurveyQuestionId}] ModeOfSaleSurveyQuestions_Delete", response, response.Code())
+		result := NewModeOfSaleSurveyQuestionsDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *ModeOfSaleSurveyQuestionsDeleteNoContent) Code() int {
 }
 
 func (o *ModeOfSaleSurveyQuestionsDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /TXN/ModeOfSaleSurveyQuestions/{modeOfSaleSurveyQuestionId}][%d] modeOfSaleSurveyQuestionsDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /TXN/ModeOfSaleSurveyQuestions/{modeOfSaleSurveyQuestionId}][%d] modeOfSaleSurveyQuestionsDeleteNoContent", 204)
 }
 
 func (o *ModeOfSaleSurveyQuestionsDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /TXN/ModeOfSaleSurveyQuestions/{modeOfSaleSurveyQuestionId}][%d] modeOfSaleSurveyQuestionsDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /TXN/ModeOfSaleSurveyQuestions/{modeOfSaleSurveyQuestionId}][%d] modeOfSaleSurveyQuestionsDeleteNoContent", 204)
 }
 
 func (o *ModeOfSaleSurveyQuestionsDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewModeOfSaleSurveyQuestionsDeleteDefault creates a ModeOfSaleSurveyQuestionsDeleteDefault with default headers values
+func NewModeOfSaleSurveyQuestionsDeleteDefault(code int) *ModeOfSaleSurveyQuestionsDeleteDefault {
+	return &ModeOfSaleSurveyQuestionsDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ModeOfSaleSurveyQuestionsDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ModeOfSaleSurveyQuestionsDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this mode of sale survey questions delete default response has a 2xx status code
+func (o *ModeOfSaleSurveyQuestionsDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this mode of sale survey questions delete default response has a 3xx status code
+func (o *ModeOfSaleSurveyQuestionsDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this mode of sale survey questions delete default response has a 4xx status code
+func (o *ModeOfSaleSurveyQuestionsDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this mode of sale survey questions delete default response has a 5xx status code
+func (o *ModeOfSaleSurveyQuestionsDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this mode of sale survey questions delete default response a status code equal to that given
+func (o *ModeOfSaleSurveyQuestionsDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the mode of sale survey questions delete default response
+func (o *ModeOfSaleSurveyQuestionsDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ModeOfSaleSurveyQuestionsDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /TXN/ModeOfSaleSurveyQuestions/{modeOfSaleSurveyQuestionId}][%d] ModeOfSaleSurveyQuestions_Delete default %s", o._statusCode, payload)
+}
+
+func (o *ModeOfSaleSurveyQuestionsDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /TXN/ModeOfSaleSurveyQuestions/{modeOfSaleSurveyQuestionId}][%d] ModeOfSaleSurveyQuestions_Delete default %s", o._statusCode, payload)
+}
+
+func (o *ModeOfSaleSurveyQuestionsDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ModeOfSaleSurveyQuestionsDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

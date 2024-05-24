@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *HoldCodeUserGroupsGetSummaryReader) ReadResponse(response runtime.Clien
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /TXN/HoldCodeUserGroups/Summary/{holdCodeUserGroupId}] HoldCodeUserGroups_GetSummary", response, response.Code())
+		result := NewHoldCodeUserGroupsGetSummaryDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *HoldCodeUserGroupsGetSummaryOK) Code() int {
 }
 
 func (o *HoldCodeUserGroupsGetSummaryOK) Error() string {
-	return fmt.Sprintf("[GET /TXN/HoldCodeUserGroups/Summary/{holdCodeUserGroupId}][%d] holdCodeUserGroupsGetSummaryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/HoldCodeUserGroups/Summary/{holdCodeUserGroupId}][%d] holdCodeUserGroupsGetSummaryOK %s", 200, payload)
 }
 
 func (o *HoldCodeUserGroupsGetSummaryOK) String() string {
-	return fmt.Sprintf("[GET /TXN/HoldCodeUserGroups/Summary/{holdCodeUserGroupId}][%d] holdCodeUserGroupsGetSummaryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/HoldCodeUserGroups/Summary/{holdCodeUserGroupId}][%d] holdCodeUserGroupsGetSummaryOK %s", 200, payload)
 }
 
 func (o *HoldCodeUserGroupsGetSummaryOK) GetPayload() *models.HoldCodeUserGroupSummary {
@@ -93,6 +103,80 @@ func (o *HoldCodeUserGroupsGetSummaryOK) GetPayload() *models.HoldCodeUserGroupS
 func (o *HoldCodeUserGroupsGetSummaryOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.HoldCodeUserGroupSummary)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewHoldCodeUserGroupsGetSummaryDefault creates a HoldCodeUserGroupsGetSummaryDefault with default headers values
+func NewHoldCodeUserGroupsGetSummaryDefault(code int) *HoldCodeUserGroupsGetSummaryDefault {
+	return &HoldCodeUserGroupsGetSummaryDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+HoldCodeUserGroupsGetSummaryDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type HoldCodeUserGroupsGetSummaryDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this hold code user groups get summary default response has a 2xx status code
+func (o *HoldCodeUserGroupsGetSummaryDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this hold code user groups get summary default response has a 3xx status code
+func (o *HoldCodeUserGroupsGetSummaryDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this hold code user groups get summary default response has a 4xx status code
+func (o *HoldCodeUserGroupsGetSummaryDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this hold code user groups get summary default response has a 5xx status code
+func (o *HoldCodeUserGroupsGetSummaryDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this hold code user groups get summary default response a status code equal to that given
+func (o *HoldCodeUserGroupsGetSummaryDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the hold code user groups get summary default response
+func (o *HoldCodeUserGroupsGetSummaryDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *HoldCodeUserGroupsGetSummaryDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/HoldCodeUserGroups/Summary/{holdCodeUserGroupId}][%d] HoldCodeUserGroups_GetSummary default %s", o._statusCode, payload)
+}
+
+func (o *HoldCodeUserGroupsGetSummaryDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/HoldCodeUserGroups/Summary/{holdCodeUserGroupId}][%d] HoldCodeUserGroups_GetSummary default %s", o._statusCode, payload)
+}
+
+func (o *HoldCodeUserGroupsGetSummaryDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *HoldCodeUserGroupsGetSummaryDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

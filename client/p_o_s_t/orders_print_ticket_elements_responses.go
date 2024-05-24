@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *OrdersPrintTicketElementsReader) ReadResponse(response runtime.ClientRe
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /TXN/Orders/{orderId}/PrintTicketElements] Orders_PrintTicketElements", response, response.Code())
+		result := NewOrdersPrintTicketElementsDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *OrdersPrintTicketElementsOK) Code() int {
 }
 
 func (o *OrdersPrintTicketElementsOK) Error() string {
-	return fmt.Sprintf("[POST /TXN/Orders/{orderId}/PrintTicketElements][%d] ordersPrintTicketElementsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/Orders/{orderId}/PrintTicketElements][%d] ordersPrintTicketElementsOK %s", 200, payload)
 }
 
 func (o *OrdersPrintTicketElementsOK) String() string {
-	return fmt.Sprintf("[POST /TXN/Orders/{orderId}/PrintTicketElements][%d] ordersPrintTicketElementsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/Orders/{orderId}/PrintTicketElements][%d] ordersPrintTicketElementsOK %s", 200, payload)
 }
 
 func (o *OrdersPrintTicketElementsOK) GetPayload() *models.PrintOrderTicketsResponse {
@@ -93,6 +103,80 @@ func (o *OrdersPrintTicketElementsOK) GetPayload() *models.PrintOrderTicketsResp
 func (o *OrdersPrintTicketElementsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.PrintOrderTicketsResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewOrdersPrintTicketElementsDefault creates a OrdersPrintTicketElementsDefault with default headers values
+func NewOrdersPrintTicketElementsDefault(code int) *OrdersPrintTicketElementsDefault {
+	return &OrdersPrintTicketElementsDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+OrdersPrintTicketElementsDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type OrdersPrintTicketElementsDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this orders print ticket elements default response has a 2xx status code
+func (o *OrdersPrintTicketElementsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this orders print ticket elements default response has a 3xx status code
+func (o *OrdersPrintTicketElementsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this orders print ticket elements default response has a 4xx status code
+func (o *OrdersPrintTicketElementsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this orders print ticket elements default response has a 5xx status code
+func (o *OrdersPrintTicketElementsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this orders print ticket elements default response a status code equal to that given
+func (o *OrdersPrintTicketElementsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the orders print ticket elements default response
+func (o *OrdersPrintTicketElementsDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *OrdersPrintTicketElementsDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/Orders/{orderId}/PrintTicketElements][%d] Orders_PrintTicketElements default %s", o._statusCode, payload)
+}
+
+func (o *OrdersPrintTicketElementsDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/Orders/{orderId}/PrintTicketElements][%d] Orders_PrintTicketElements default %s", o._statusCode, payload)
+}
+
+func (o *OrdersPrintTicketElementsDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *OrdersPrintTicketElementsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

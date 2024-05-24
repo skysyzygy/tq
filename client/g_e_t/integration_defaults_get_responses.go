@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *IntegrationDefaultsGetReader) ReadResponse(response runtime.ClientRespo
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/IntegrationDefaults/{id}] IntegrationDefaults_Get", response, response.Code())
+		result := NewIntegrationDefaultsGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *IntegrationDefaultsGetOK) Code() int {
 }
 
 func (o *IntegrationDefaultsGetOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/IntegrationDefaults/{id}][%d] integrationDefaultsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/IntegrationDefaults/{id}][%d] integrationDefaultsGetOK %s", 200, payload)
 }
 
 func (o *IntegrationDefaultsGetOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/IntegrationDefaults/{id}][%d] integrationDefaultsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/IntegrationDefaults/{id}][%d] integrationDefaultsGetOK %s", 200, payload)
 }
 
 func (o *IntegrationDefaultsGetOK) GetPayload() *models.IntegrationDefault {
@@ -93,6 +103,80 @@ func (o *IntegrationDefaultsGetOK) GetPayload() *models.IntegrationDefault {
 func (o *IntegrationDefaultsGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.IntegrationDefault)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewIntegrationDefaultsGetDefault creates a IntegrationDefaultsGetDefault with default headers values
+func NewIntegrationDefaultsGetDefault(code int) *IntegrationDefaultsGetDefault {
+	return &IntegrationDefaultsGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+IntegrationDefaultsGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type IntegrationDefaultsGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this integration defaults get default response has a 2xx status code
+func (o *IntegrationDefaultsGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this integration defaults get default response has a 3xx status code
+func (o *IntegrationDefaultsGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this integration defaults get default response has a 4xx status code
+func (o *IntegrationDefaultsGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this integration defaults get default response has a 5xx status code
+func (o *IntegrationDefaultsGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this integration defaults get default response a status code equal to that given
+func (o *IntegrationDefaultsGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the integration defaults get default response
+func (o *IntegrationDefaultsGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *IntegrationDefaultsGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/IntegrationDefaults/{id}][%d] IntegrationDefaults_Get default %s", o._statusCode, payload)
+}
+
+func (o *IntegrationDefaultsGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/IntegrationDefaults/{id}][%d] IntegrationDefaults_Get default %s", o._statusCode, payload)
+}
+
+func (o *IntegrationDefaultsGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *IntegrationDefaultsGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

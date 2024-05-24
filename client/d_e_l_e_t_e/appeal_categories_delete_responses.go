@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // AppealCategoriesDeleteReader is a Reader for the AppealCategoriesDelete structure.
@@ -27,7 +31,14 @@ func (o *AppealCategoriesDeleteReader) ReadResponse(response runtime.ClientRespo
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /ReferenceData/AppealCategories/{id}] AppealCategories_Delete", response, response.Code())
+		result := NewAppealCategoriesDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *AppealCategoriesDeleteNoContent) Code() int {
 }
 
 func (o *AppealCategoriesDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/AppealCategories/{id}][%d] appealCategoriesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/AppealCategories/{id}][%d] appealCategoriesDeleteNoContent", 204)
 }
 
 func (o *AppealCategoriesDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/AppealCategories/{id}][%d] appealCategoriesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/AppealCategories/{id}][%d] appealCategoriesDeleteNoContent", 204)
 }
 
 func (o *AppealCategoriesDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewAppealCategoriesDeleteDefault creates a AppealCategoriesDeleteDefault with default headers values
+func NewAppealCategoriesDeleteDefault(code int) *AppealCategoriesDeleteDefault {
+	return &AppealCategoriesDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+AppealCategoriesDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type AppealCategoriesDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this appeal categories delete default response has a 2xx status code
+func (o *AppealCategoriesDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this appeal categories delete default response has a 3xx status code
+func (o *AppealCategoriesDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this appeal categories delete default response has a 4xx status code
+func (o *AppealCategoriesDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this appeal categories delete default response has a 5xx status code
+func (o *AppealCategoriesDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this appeal categories delete default response a status code equal to that given
+func (o *AppealCategoriesDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the appeal categories delete default response
+func (o *AppealCategoriesDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *AppealCategoriesDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/AppealCategories/{id}][%d] AppealCategories_Delete default %s", o._statusCode, payload)
+}
+
+func (o *AppealCategoriesDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/AppealCategories/{id}][%d] AppealCategories_Delete default %s", o._statusCode, payload)
+}
+
+func (o *AppealCategoriesDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *AppealCategoriesDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

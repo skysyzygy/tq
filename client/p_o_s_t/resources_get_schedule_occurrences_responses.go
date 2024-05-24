@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ResourcesGetScheduleOccurrencesReader) ReadResponse(response runtime.Cl
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /EventsManagement/Resources/ScheduleOccurrences] Resources_GetScheduleOccurrences", response, response.Code())
+		result := NewResourcesGetScheduleOccurrencesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ResourcesGetScheduleOccurrencesOK) Code() int {
 }
 
 func (o *ResourcesGetScheduleOccurrencesOK) Error() string {
-	return fmt.Sprintf("[POST /EventsManagement/Resources/ScheduleOccurrences][%d] resourcesGetScheduleOccurrencesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /EventsManagement/Resources/ScheduleOccurrences][%d] resourcesGetScheduleOccurrencesOK %s", 200, payload)
 }
 
 func (o *ResourcesGetScheduleOccurrencesOK) String() string {
-	return fmt.Sprintf("[POST /EventsManagement/Resources/ScheduleOccurrences][%d] resourcesGetScheduleOccurrencesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /EventsManagement/Resources/ScheduleOccurrences][%d] resourcesGetScheduleOccurrencesOK %s", 200, payload)
 }
 
 func (o *ResourcesGetScheduleOccurrencesOK) GetPayload() []*models.ScheduleOccurrence {
@@ -94,6 +104,80 @@ func (o *ResourcesGetScheduleOccurrencesOK) readResponse(response runtime.Client
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewResourcesGetScheduleOccurrencesDefault creates a ResourcesGetScheduleOccurrencesDefault with default headers values
+func NewResourcesGetScheduleOccurrencesDefault(code int) *ResourcesGetScheduleOccurrencesDefault {
+	return &ResourcesGetScheduleOccurrencesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ResourcesGetScheduleOccurrencesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ResourcesGetScheduleOccurrencesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this resources get schedule occurrences default response has a 2xx status code
+func (o *ResourcesGetScheduleOccurrencesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this resources get schedule occurrences default response has a 3xx status code
+func (o *ResourcesGetScheduleOccurrencesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this resources get schedule occurrences default response has a 4xx status code
+func (o *ResourcesGetScheduleOccurrencesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this resources get schedule occurrences default response has a 5xx status code
+func (o *ResourcesGetScheduleOccurrencesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this resources get schedule occurrences default response a status code equal to that given
+func (o *ResourcesGetScheduleOccurrencesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the resources get schedule occurrences default response
+func (o *ResourcesGetScheduleOccurrencesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ResourcesGetScheduleOccurrencesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /EventsManagement/Resources/ScheduleOccurrences][%d] Resources_GetScheduleOccurrences default %s", o._statusCode, payload)
+}
+
+func (o *ResourcesGetScheduleOccurrencesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /EventsManagement/Resources/ScheduleOccurrences][%d] Resources_GetScheduleOccurrences default %s", o._statusCode, payload)
+}
+
+func (o *ResourcesGetScheduleOccurrencesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ResourcesGetScheduleOccurrencesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

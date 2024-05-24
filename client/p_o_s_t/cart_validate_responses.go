@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *CartValidateReader) ReadResponse(response runtime.ClientResponse, consu
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Web/Cart/{sessionKey}/Validate] Cart_Validate", response, response.Code())
+		result := NewCartValidateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *CartValidateOK) Code() int {
 }
 
 func (o *CartValidateOK) Error() string {
-	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Validate][%d] cartValidateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Validate][%d] cartValidateOK %s", 200, payload)
 }
 
 func (o *CartValidateOK) String() string {
-	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Validate][%d] cartValidateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Validate][%d] cartValidateOK %s", 200, payload)
 }
 
 func (o *CartValidateOK) GetPayload() *models.CartValidationResponse {
@@ -93,6 +103,80 @@ func (o *CartValidateOK) GetPayload() *models.CartValidationResponse {
 func (o *CartValidateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.CartValidationResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCartValidateDefault creates a CartValidateDefault with default headers values
+func NewCartValidateDefault(code int) *CartValidateDefault {
+	return &CartValidateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CartValidateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CartValidateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this cart validate default response has a 2xx status code
+func (o *CartValidateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this cart validate default response has a 3xx status code
+func (o *CartValidateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this cart validate default response has a 4xx status code
+func (o *CartValidateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this cart validate default response has a 5xx status code
+func (o *CartValidateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this cart validate default response a status code equal to that given
+func (o *CartValidateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the cart validate default response
+func (o *CartValidateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CartValidateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Validate][%d] Cart_Validate default %s", o._statusCode, payload)
+}
+
+func (o *CartValidateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Validate][%d] Cart_Validate default %s", o._statusCode, payload)
+}
+
+func (o *CartValidateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CartValidateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

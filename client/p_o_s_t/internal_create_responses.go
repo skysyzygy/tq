@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *InternalCreateReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /CRM/Internal/AddressDetails] Internal_Create", response, response.Code())
+		result := NewInternalCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *InternalCreateOK) Code() int {
 }
 
 func (o *InternalCreateOK) Error() string {
-	return fmt.Sprintf("[POST /CRM/Internal/AddressDetails][%d] internalCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Internal/AddressDetails][%d] internalCreateOK %s", 200, payload)
 }
 
 func (o *InternalCreateOK) String() string {
-	return fmt.Sprintf("[POST /CRM/Internal/AddressDetails][%d] internalCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Internal/AddressDetails][%d] internalCreateOK %s", 200, payload)
 }
 
 func (o *InternalCreateOK) GetPayload() *models.AddressDetail {
@@ -93,6 +103,80 @@ func (o *InternalCreateOK) GetPayload() *models.AddressDetail {
 func (o *InternalCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.AddressDetail)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewInternalCreateDefault creates a InternalCreateDefault with default headers values
+func NewInternalCreateDefault(code int) *InternalCreateDefault {
+	return &InternalCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+InternalCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type InternalCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this internal create default response has a 2xx status code
+func (o *InternalCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this internal create default response has a 3xx status code
+func (o *InternalCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this internal create default response has a 4xx status code
+func (o *InternalCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this internal create default response has a 5xx status code
+func (o *InternalCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this internal create default response a status code equal to that given
+func (o *InternalCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the internal create default response
+func (o *InternalCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *InternalCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Internal/AddressDetails][%d] Internal_Create default %s", o._statusCode, payload)
+}
+
+func (o *InternalCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Internal/AddressDetails][%d] Internal_Create default %s", o._statusCode, payload)
+}
+
+func (o *InternalCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *InternalCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

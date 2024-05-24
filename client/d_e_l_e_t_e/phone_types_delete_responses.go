@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // PhoneTypesDeleteReader is a Reader for the PhoneTypesDelete structure.
@@ -27,7 +31,14 @@ func (o *PhoneTypesDeleteReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /ReferenceData/PhoneTypes/{id}] PhoneTypes_Delete", response, response.Code())
+		result := NewPhoneTypesDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *PhoneTypesDeleteNoContent) Code() int {
 }
 
 func (o *PhoneTypesDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/PhoneTypes/{id}][%d] phoneTypesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/PhoneTypes/{id}][%d] phoneTypesDeleteNoContent", 204)
 }
 
 func (o *PhoneTypesDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/PhoneTypes/{id}][%d] phoneTypesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/PhoneTypes/{id}][%d] phoneTypesDeleteNoContent", 204)
 }
 
 func (o *PhoneTypesDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewPhoneTypesDeleteDefault creates a PhoneTypesDeleteDefault with default headers values
+func NewPhoneTypesDeleteDefault(code int) *PhoneTypesDeleteDefault {
+	return &PhoneTypesDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PhoneTypesDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PhoneTypesDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this phone types delete default response has a 2xx status code
+func (o *PhoneTypesDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this phone types delete default response has a 3xx status code
+func (o *PhoneTypesDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this phone types delete default response has a 4xx status code
+func (o *PhoneTypesDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this phone types delete default response has a 5xx status code
+func (o *PhoneTypesDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this phone types delete default response a status code equal to that given
+func (o *PhoneTypesDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the phone types delete default response
+func (o *PhoneTypesDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PhoneTypesDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/PhoneTypes/{id}][%d] PhoneTypes_Delete default %s", o._statusCode, payload)
+}
+
+func (o *PhoneTypesDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/PhoneTypes/{id}][%d] PhoneTypes_Delete default %s", o._statusCode, payload)
+}
+
+func (o *PhoneTypesDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PhoneTypesDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

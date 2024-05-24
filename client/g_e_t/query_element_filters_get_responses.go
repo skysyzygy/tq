@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *QueryElementFiltersGetReader) ReadResponse(response runtime.ClientRespo
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Reporting/QueryElementFilters/{queryElementFilterId}] QueryElementFilters_Get", response, response.Code())
+		result := NewQueryElementFiltersGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *QueryElementFiltersGetOK) Code() int {
 }
 
 func (o *QueryElementFiltersGetOK) Error() string {
-	return fmt.Sprintf("[GET /Reporting/QueryElementFilters/{queryElementFilterId}][%d] queryElementFiltersGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Reporting/QueryElementFilters/{queryElementFilterId}][%d] queryElementFiltersGetOK %s", 200, payload)
 }
 
 func (o *QueryElementFiltersGetOK) String() string {
-	return fmt.Sprintf("[GET /Reporting/QueryElementFilters/{queryElementFilterId}][%d] queryElementFiltersGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Reporting/QueryElementFilters/{queryElementFilterId}][%d] queryElementFiltersGetOK %s", 200, payload)
 }
 
 func (o *QueryElementFiltersGetOK) GetPayload() *models.QueryElementFilter {
@@ -93,6 +103,80 @@ func (o *QueryElementFiltersGetOK) GetPayload() *models.QueryElementFilter {
 func (o *QueryElementFiltersGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.QueryElementFilter)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewQueryElementFiltersGetDefault creates a QueryElementFiltersGetDefault with default headers values
+func NewQueryElementFiltersGetDefault(code int) *QueryElementFiltersGetDefault {
+	return &QueryElementFiltersGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+QueryElementFiltersGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type QueryElementFiltersGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this query element filters get default response has a 2xx status code
+func (o *QueryElementFiltersGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query element filters get default response has a 3xx status code
+func (o *QueryElementFiltersGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query element filters get default response has a 4xx status code
+func (o *QueryElementFiltersGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query element filters get default response has a 5xx status code
+func (o *QueryElementFiltersGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query element filters get default response a status code equal to that given
+func (o *QueryElementFiltersGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the query element filters get default response
+func (o *QueryElementFiltersGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *QueryElementFiltersGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Reporting/QueryElementFilters/{queryElementFilterId}][%d] QueryElementFilters_Get default %s", o._statusCode, payload)
+}
+
+func (o *QueryElementFiltersGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Reporting/QueryElementFilters/{queryElementFilterId}][%d] QueryElementFilters_Get default %s", o._statusCode, payload)
+}
+
+func (o *QueryElementFiltersGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *QueryElementFiltersGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

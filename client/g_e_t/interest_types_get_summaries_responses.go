@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *InterestTypesGetSummariesReader) ReadResponse(response runtime.ClientRe
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/InterestTypes/Summary] InterestTypes_GetSummaries", response, response.Code())
+		result := NewInterestTypesGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *InterestTypesGetSummariesOK) Code() int {
 }
 
 func (o *InterestTypesGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/InterestTypes/Summary][%d] interestTypesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/InterestTypes/Summary][%d] interestTypesGetSummariesOK %s", 200, payload)
 }
 
 func (o *InterestTypesGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/InterestTypes/Summary][%d] interestTypesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/InterestTypes/Summary][%d] interestTypesGetSummariesOK %s", 200, payload)
 }
 
 func (o *InterestTypesGetSummariesOK) GetPayload() []*models.InterestTypeSummary {
@@ -94,6 +104,80 @@ func (o *InterestTypesGetSummariesOK) readResponse(response runtime.ClientRespon
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewInterestTypesGetSummariesDefault creates a InterestTypesGetSummariesDefault with default headers values
+func NewInterestTypesGetSummariesDefault(code int) *InterestTypesGetSummariesDefault {
+	return &InterestTypesGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+InterestTypesGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type InterestTypesGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this interest types get summaries default response has a 2xx status code
+func (o *InterestTypesGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this interest types get summaries default response has a 3xx status code
+func (o *InterestTypesGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this interest types get summaries default response has a 4xx status code
+func (o *InterestTypesGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this interest types get summaries default response has a 5xx status code
+func (o *InterestTypesGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this interest types get summaries default response a status code equal to that given
+func (o *InterestTypesGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the interest types get summaries default response
+func (o *InterestTypesGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *InterestTypesGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/InterestTypes/Summary][%d] InterestTypes_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *InterestTypesGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/InterestTypes/Summary][%d] InterestTypes_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *InterestTypesGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *InterestTypesGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PlanTypesGetSummariesReader) ReadResponse(response runtime.ClientRespon
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/PlanTypes/Summary] PlanTypes_GetSummaries", response, response.Code())
+		result := NewPlanTypesGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PlanTypesGetSummariesOK) Code() int {
 }
 
 func (o *PlanTypesGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/PlanTypes/Summary][%d] planTypesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PlanTypes/Summary][%d] planTypesGetSummariesOK %s", 200, payload)
 }
 
 func (o *PlanTypesGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/PlanTypes/Summary][%d] planTypesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PlanTypes/Summary][%d] planTypesGetSummariesOK %s", 200, payload)
 }
 
 func (o *PlanTypesGetSummariesOK) GetPayload() []*models.PlanTypeSummary {
@@ -94,6 +104,80 @@ func (o *PlanTypesGetSummariesOK) readResponse(response runtime.ClientResponse, 
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPlanTypesGetSummariesDefault creates a PlanTypesGetSummariesDefault with default headers values
+func NewPlanTypesGetSummariesDefault(code int) *PlanTypesGetSummariesDefault {
+	return &PlanTypesGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PlanTypesGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PlanTypesGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this plan types get summaries default response has a 2xx status code
+func (o *PlanTypesGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this plan types get summaries default response has a 3xx status code
+func (o *PlanTypesGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this plan types get summaries default response has a 4xx status code
+func (o *PlanTypesGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this plan types get summaries default response has a 5xx status code
+func (o *PlanTypesGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this plan types get summaries default response a status code equal to that given
+func (o *PlanTypesGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the plan types get summaries default response
+func (o *PlanTypesGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PlanTypesGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PlanTypes/Summary][%d] PlanTypes_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *PlanTypesGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PlanTypes/Summary][%d] PlanTypes_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *PlanTypesGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PlanTypesGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

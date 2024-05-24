@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *RankTypesCreateReader) ReadResponse(response runtime.ClientResponse, co
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /ReferenceData/RankTypes] RankTypes_Create", response, response.Code())
+		result := NewRankTypesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *RankTypesCreateOK) Code() int {
 }
 
 func (o *RankTypesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /ReferenceData/RankTypes][%d] rankTypesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/RankTypes][%d] rankTypesCreateOK %s", 200, payload)
 }
 
 func (o *RankTypesCreateOK) String() string {
-	return fmt.Sprintf("[POST /ReferenceData/RankTypes][%d] rankTypesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/RankTypes][%d] rankTypesCreateOK %s", 200, payload)
 }
 
 func (o *RankTypesCreateOK) GetPayload() *models.RankType {
@@ -93,6 +103,80 @@ func (o *RankTypesCreateOK) GetPayload() *models.RankType {
 func (o *RankTypesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.RankType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewRankTypesCreateDefault creates a RankTypesCreateDefault with default headers values
+func NewRankTypesCreateDefault(code int) *RankTypesCreateDefault {
+	return &RankTypesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+RankTypesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type RankTypesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this rank types create default response has a 2xx status code
+func (o *RankTypesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this rank types create default response has a 3xx status code
+func (o *RankTypesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this rank types create default response has a 4xx status code
+func (o *RankTypesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this rank types create default response has a 5xx status code
+func (o *RankTypesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this rank types create default response a status code equal to that given
+func (o *RankTypesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the rank types create default response
+func (o *RankTypesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *RankTypesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/RankTypes][%d] RankTypes_Create default %s", o._statusCode, payload)
+}
+
+func (o *RankTypesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/RankTypes][%d] RankTypes_Create default %s", o._statusCode, payload)
+}
+
+func (o *RankTypesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *RankTypesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

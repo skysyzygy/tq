@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *AssetsGetAllReader) ReadResponse(response runtime.ClientResponse, consu
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /CRM/Assets] Assets_GetAll", response, response.Code())
+		result := NewAssetsGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *AssetsGetAllOK) Code() int {
 }
 
 func (o *AssetsGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /CRM/Assets][%d] assetsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Assets][%d] assetsGetAllOK %s", 200, payload)
 }
 
 func (o *AssetsGetAllOK) String() string {
-	return fmt.Sprintf("[GET /CRM/Assets][%d] assetsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Assets][%d] assetsGetAllOK %s", 200, payload)
 }
 
 func (o *AssetsGetAllOK) GetPayload() []*models.Asset {
@@ -94,6 +104,80 @@ func (o *AssetsGetAllOK) readResponse(response runtime.ClientResponse, consumer 
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAssetsGetAllDefault creates a AssetsGetAllDefault with default headers values
+func NewAssetsGetAllDefault(code int) *AssetsGetAllDefault {
+	return &AssetsGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+AssetsGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type AssetsGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this assets get all default response has a 2xx status code
+func (o *AssetsGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this assets get all default response has a 3xx status code
+func (o *AssetsGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this assets get all default response has a 4xx status code
+func (o *AssetsGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this assets get all default response has a 5xx status code
+func (o *AssetsGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this assets get all default response a status code equal to that given
+func (o *AssetsGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the assets get all default response
+func (o *AssetsGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *AssetsGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Assets][%d] Assets_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *AssetsGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Assets][%d] Assets_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *AssetsGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *AssetsGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

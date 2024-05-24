@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // PlanStatusesDeleteReader is a Reader for the PlanStatusesDelete structure.
@@ -27,7 +31,14 @@ func (o *PlanStatusesDeleteReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /ReferenceData/PlanStatuses/{id}] PlanStatuses_Delete", response, response.Code())
+		result := NewPlanStatusesDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *PlanStatusesDeleteNoContent) Code() int {
 }
 
 func (o *PlanStatusesDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/PlanStatuses/{id}][%d] planStatusesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/PlanStatuses/{id}][%d] planStatusesDeleteNoContent", 204)
 }
 
 func (o *PlanStatusesDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/PlanStatuses/{id}][%d] planStatusesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/PlanStatuses/{id}][%d] planStatusesDeleteNoContent", 204)
 }
 
 func (o *PlanStatusesDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewPlanStatusesDeleteDefault creates a PlanStatusesDeleteDefault with default headers values
+func NewPlanStatusesDeleteDefault(code int) *PlanStatusesDeleteDefault {
+	return &PlanStatusesDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PlanStatusesDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PlanStatusesDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this plan statuses delete default response has a 2xx status code
+func (o *PlanStatusesDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this plan statuses delete default response has a 3xx status code
+func (o *PlanStatusesDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this plan statuses delete default response has a 4xx status code
+func (o *PlanStatusesDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this plan statuses delete default response has a 5xx status code
+func (o *PlanStatusesDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this plan statuses delete default response a status code equal to that given
+func (o *PlanStatusesDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the plan statuses delete default response
+func (o *PlanStatusesDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PlanStatusesDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/PlanStatuses/{id}][%d] PlanStatuses_Delete default %s", o._statusCode, payload)
+}
+
+func (o *PlanStatusesDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/PlanStatuses/{id}][%d] PlanStatuses_Delete default %s", o._statusCode, payload)
+}
+
+func (o *PlanStatusesDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PlanStatusesDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

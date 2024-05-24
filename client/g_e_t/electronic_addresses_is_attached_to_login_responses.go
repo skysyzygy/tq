@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ElectronicAddressesIsAttachedToLoginReader) ReadResponse(response runti
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /CRM/ElectronicAddresses/{electronicAddressId}/IsAttachedToLogin] ElectronicAddresses_IsAttachedToLogin", response, response.Code())
+		result := NewElectronicAddressesIsAttachedToLoginDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ElectronicAddressesIsAttachedToLoginOK) Code() int {
 }
 
 func (o *ElectronicAddressesIsAttachedToLoginOK) Error() string {
-	return fmt.Sprintf("[GET /CRM/ElectronicAddresses/{electronicAddressId}/IsAttachedToLogin][%d] electronicAddressesIsAttachedToLoginOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/ElectronicAddresses/{electronicAddressId}/IsAttachedToLogin][%d] electronicAddressesIsAttachedToLoginOK %s", 200, payload)
 }
 
 func (o *ElectronicAddressesIsAttachedToLoginOK) String() string {
-	return fmt.Sprintf("[GET /CRM/ElectronicAddresses/{electronicAddressId}/IsAttachedToLogin][%d] electronicAddressesIsAttachedToLoginOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/ElectronicAddresses/{electronicAddressId}/IsAttachedToLogin][%d] electronicAddressesIsAttachedToLoginOK %s", 200, payload)
 }
 
 func (o *ElectronicAddressesIsAttachedToLoginOK) GetPayload() *models.AttachedToLogin {
@@ -93,6 +103,80 @@ func (o *ElectronicAddressesIsAttachedToLoginOK) GetPayload() *models.AttachedTo
 func (o *ElectronicAddressesIsAttachedToLoginOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.AttachedToLogin)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewElectronicAddressesIsAttachedToLoginDefault creates a ElectronicAddressesIsAttachedToLoginDefault with default headers values
+func NewElectronicAddressesIsAttachedToLoginDefault(code int) *ElectronicAddressesIsAttachedToLoginDefault {
+	return &ElectronicAddressesIsAttachedToLoginDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ElectronicAddressesIsAttachedToLoginDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ElectronicAddressesIsAttachedToLoginDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this electronic addresses is attached to login default response has a 2xx status code
+func (o *ElectronicAddressesIsAttachedToLoginDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this electronic addresses is attached to login default response has a 3xx status code
+func (o *ElectronicAddressesIsAttachedToLoginDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this electronic addresses is attached to login default response has a 4xx status code
+func (o *ElectronicAddressesIsAttachedToLoginDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this electronic addresses is attached to login default response has a 5xx status code
+func (o *ElectronicAddressesIsAttachedToLoginDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this electronic addresses is attached to login default response a status code equal to that given
+func (o *ElectronicAddressesIsAttachedToLoginDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the electronic addresses is attached to login default response
+func (o *ElectronicAddressesIsAttachedToLoginDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ElectronicAddressesIsAttachedToLoginDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/ElectronicAddresses/{electronicAddressId}/IsAttachedToLogin][%d] ElectronicAddresses_IsAttachedToLogin default %s", o._statusCode, payload)
+}
+
+func (o *ElectronicAddressesIsAttachedToLoginDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/ElectronicAddresses/{electronicAddressId}/IsAttachedToLogin][%d] ElectronicAddresses_IsAttachedToLogin default %s", o._statusCode, payload)
+}
+
+func (o *ElectronicAddressesIsAttachedToLoginDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ElectronicAddressesIsAttachedToLoginDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

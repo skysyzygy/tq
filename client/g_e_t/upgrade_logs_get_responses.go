@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *UpgradeLogsGetReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Admin/UpgradeLogs/{upgradeLogId}] UpgradeLogs_Get", response, response.Code())
+		result := NewUpgradeLogsGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *UpgradeLogsGetOK) Code() int {
 }
 
 func (o *UpgradeLogsGetOK) Error() string {
-	return fmt.Sprintf("[GET /Admin/UpgradeLogs/{upgradeLogId}][%d] upgradeLogsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Admin/UpgradeLogs/{upgradeLogId}][%d] upgradeLogsGetOK %s", 200, payload)
 }
 
 func (o *UpgradeLogsGetOK) String() string {
-	return fmt.Sprintf("[GET /Admin/UpgradeLogs/{upgradeLogId}][%d] upgradeLogsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Admin/UpgradeLogs/{upgradeLogId}][%d] upgradeLogsGetOK %s", 200, payload)
 }
 
 func (o *UpgradeLogsGetOK) GetPayload() *models.UpgradeLog {
@@ -93,6 +103,80 @@ func (o *UpgradeLogsGetOK) GetPayload() *models.UpgradeLog {
 func (o *UpgradeLogsGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.UpgradeLog)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewUpgradeLogsGetDefault creates a UpgradeLogsGetDefault with default headers values
+func NewUpgradeLogsGetDefault(code int) *UpgradeLogsGetDefault {
+	return &UpgradeLogsGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+UpgradeLogsGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type UpgradeLogsGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this upgrade logs get default response has a 2xx status code
+func (o *UpgradeLogsGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this upgrade logs get default response has a 3xx status code
+func (o *UpgradeLogsGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this upgrade logs get default response has a 4xx status code
+func (o *UpgradeLogsGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this upgrade logs get default response has a 5xx status code
+func (o *UpgradeLogsGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this upgrade logs get default response a status code equal to that given
+func (o *UpgradeLogsGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the upgrade logs get default response
+func (o *UpgradeLogsGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *UpgradeLogsGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Admin/UpgradeLogs/{upgradeLogId}][%d] UpgradeLogs_Get default %s", o._statusCode, payload)
+}
+
+func (o *UpgradeLogsGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Admin/UpgradeLogs/{upgradeLogId}][%d] UpgradeLogs_Get default %s", o._statusCode, payload)
+}
+
+func (o *UpgradeLogsGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *UpgradeLogsGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SurveyQuestionsUpdateReader) ReadResponse(response runtime.ClientRespon
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/SurveyQuestions/{id}] SurveyQuestions_Update", response, response.Code())
+		result := NewSurveyQuestionsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SurveyQuestionsUpdateOK) Code() int {
 }
 
 func (o *SurveyQuestionsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/SurveyQuestions/{id}][%d] surveyQuestionsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/SurveyQuestions/{id}][%d] surveyQuestionsUpdateOK %s", 200, payload)
 }
 
 func (o *SurveyQuestionsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/SurveyQuestions/{id}][%d] surveyQuestionsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/SurveyQuestions/{id}][%d] surveyQuestionsUpdateOK %s", 200, payload)
 }
 
 func (o *SurveyQuestionsUpdateOK) GetPayload() *models.SurveyQuestion {
@@ -93,6 +103,80 @@ func (o *SurveyQuestionsUpdateOK) GetPayload() *models.SurveyQuestion {
 func (o *SurveyQuestionsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.SurveyQuestion)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSurveyQuestionsUpdateDefault creates a SurveyQuestionsUpdateDefault with default headers values
+func NewSurveyQuestionsUpdateDefault(code int) *SurveyQuestionsUpdateDefault {
+	return &SurveyQuestionsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SurveyQuestionsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SurveyQuestionsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this survey questions update default response has a 2xx status code
+func (o *SurveyQuestionsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this survey questions update default response has a 3xx status code
+func (o *SurveyQuestionsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this survey questions update default response has a 4xx status code
+func (o *SurveyQuestionsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this survey questions update default response has a 5xx status code
+func (o *SurveyQuestionsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this survey questions update default response a status code equal to that given
+func (o *SurveyQuestionsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the survey questions update default response
+func (o *SurveyQuestionsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SurveyQuestionsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/SurveyQuestions/{id}][%d] SurveyQuestions_Update default %s", o._statusCode, payload)
+}
+
+func (o *SurveyQuestionsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/SurveyQuestions/{id}][%d] SurveyQuestions_Update default %s", o._statusCode, payload)
+}
+
+func (o *SurveyQuestionsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SurveyQuestionsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

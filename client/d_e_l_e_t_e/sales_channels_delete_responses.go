@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // SalesChannelsDeleteReader is a Reader for the SalesChannelsDelete structure.
@@ -27,7 +31,14 @@ func (o *SalesChannelsDeleteReader) ReadResponse(response runtime.ClientResponse
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /ReferenceData/SalesChannels/{id}] SalesChannels_Delete", response, response.Code())
+		result := NewSalesChannelsDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *SalesChannelsDeleteNoContent) Code() int {
 }
 
 func (o *SalesChannelsDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/SalesChannels/{id}][%d] salesChannelsDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/SalesChannels/{id}][%d] salesChannelsDeleteNoContent", 204)
 }
 
 func (o *SalesChannelsDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/SalesChannels/{id}][%d] salesChannelsDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/SalesChannels/{id}][%d] salesChannelsDeleteNoContent", 204)
 }
 
 func (o *SalesChannelsDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewSalesChannelsDeleteDefault creates a SalesChannelsDeleteDefault with default headers values
+func NewSalesChannelsDeleteDefault(code int) *SalesChannelsDeleteDefault {
+	return &SalesChannelsDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SalesChannelsDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SalesChannelsDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this sales channels delete default response has a 2xx status code
+func (o *SalesChannelsDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this sales channels delete default response has a 3xx status code
+func (o *SalesChannelsDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this sales channels delete default response has a 4xx status code
+func (o *SalesChannelsDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this sales channels delete default response has a 5xx status code
+func (o *SalesChannelsDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this sales channels delete default response a status code equal to that given
+func (o *SalesChannelsDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the sales channels delete default response
+func (o *SalesChannelsDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SalesChannelsDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/SalesChannels/{id}][%d] SalesChannels_Delete default %s", o._statusCode, payload)
+}
+
+func (o *SalesChannelsDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/SalesChannels/{id}][%d] SalesChannels_Delete default %s", o._statusCode, payload)
+}
+
+func (o *SalesChannelsDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SalesChannelsDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

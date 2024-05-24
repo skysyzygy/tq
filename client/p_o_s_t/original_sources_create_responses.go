@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *OriginalSourcesCreateReader) ReadResponse(response runtime.ClientRespon
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /ReferenceData/OriginalSources] OriginalSources_Create", response, response.Code())
+		result := NewOriginalSourcesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *OriginalSourcesCreateOK) Code() int {
 }
 
 func (o *OriginalSourcesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /ReferenceData/OriginalSources][%d] originalSourcesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/OriginalSources][%d] originalSourcesCreateOK %s", 200, payload)
 }
 
 func (o *OriginalSourcesCreateOK) String() string {
-	return fmt.Sprintf("[POST /ReferenceData/OriginalSources][%d] originalSourcesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/OriginalSources][%d] originalSourcesCreateOK %s", 200, payload)
 }
 
 func (o *OriginalSourcesCreateOK) GetPayload() *models.OriginalSource {
@@ -93,6 +103,80 @@ func (o *OriginalSourcesCreateOK) GetPayload() *models.OriginalSource {
 func (o *OriginalSourcesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.OriginalSource)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewOriginalSourcesCreateDefault creates a OriginalSourcesCreateDefault with default headers values
+func NewOriginalSourcesCreateDefault(code int) *OriginalSourcesCreateDefault {
+	return &OriginalSourcesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+OriginalSourcesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type OriginalSourcesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this original sources create default response has a 2xx status code
+func (o *OriginalSourcesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this original sources create default response has a 3xx status code
+func (o *OriginalSourcesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this original sources create default response has a 4xx status code
+func (o *OriginalSourcesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this original sources create default response has a 5xx status code
+func (o *OriginalSourcesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this original sources create default response a status code equal to that given
+func (o *OriginalSourcesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the original sources create default response
+func (o *OriginalSourcesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *OriginalSourcesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/OriginalSources][%d] OriginalSources_Create default %s", o._statusCode, payload)
+}
+
+func (o *OriginalSourcesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/OriginalSources][%d] OriginalSources_Create default %s", o._statusCode, payload)
+}
+
+func (o *OriginalSourcesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *OriginalSourcesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

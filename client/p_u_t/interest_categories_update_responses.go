@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *InterestCategoriesUpdateReader) ReadResponse(response runtime.ClientRes
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/InterestCategories/{id}] InterestCategories_Update", response, response.Code())
+		result := NewInterestCategoriesUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *InterestCategoriesUpdateOK) Code() int {
 }
 
 func (o *InterestCategoriesUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/InterestCategories/{id}][%d] interestCategoriesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/InterestCategories/{id}][%d] interestCategoriesUpdateOK %s", 200, payload)
 }
 
 func (o *InterestCategoriesUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/InterestCategories/{id}][%d] interestCategoriesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/InterestCategories/{id}][%d] interestCategoriesUpdateOK %s", 200, payload)
 }
 
 func (o *InterestCategoriesUpdateOK) GetPayload() *models.InterestCategory {
@@ -93,6 +103,80 @@ func (o *InterestCategoriesUpdateOK) GetPayload() *models.InterestCategory {
 func (o *InterestCategoriesUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.InterestCategory)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewInterestCategoriesUpdateDefault creates a InterestCategoriesUpdateDefault with default headers values
+func NewInterestCategoriesUpdateDefault(code int) *InterestCategoriesUpdateDefault {
+	return &InterestCategoriesUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+InterestCategoriesUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type InterestCategoriesUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this interest categories update default response has a 2xx status code
+func (o *InterestCategoriesUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this interest categories update default response has a 3xx status code
+func (o *InterestCategoriesUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this interest categories update default response has a 4xx status code
+func (o *InterestCategoriesUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this interest categories update default response has a 5xx status code
+func (o *InterestCategoriesUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this interest categories update default response a status code equal to that given
+func (o *InterestCategoriesUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the interest categories update default response
+func (o *InterestCategoriesUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *InterestCategoriesUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/InterestCategories/{id}][%d] InterestCategories_Update default %s", o._statusCode, payload)
+}
+
+func (o *InterestCategoriesUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/InterestCategories/{id}][%d] InterestCategories_Update default %s", o._statusCode, payload)
+}
+
+func (o *InterestCategoriesUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *InterestCategoriesUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

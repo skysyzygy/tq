@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *MembershipsCalculateReader) ReadResponse(response runtime.ClientRespons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /CRM/Memberships/Calculate] Memberships_Calculate", response, response.Code())
+		result := NewMembershipsCalculateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *MembershipsCalculateOK) Code() int {
 }
 
 func (o *MembershipsCalculateOK) Error() string {
-	return fmt.Sprintf("[POST /CRM/Memberships/Calculate][%d] membershipsCalculateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Memberships/Calculate][%d] membershipsCalculateOK %s", 200, payload)
 }
 
 func (o *MembershipsCalculateOK) String() string {
-	return fmt.Sprintf("[POST /CRM/Memberships/Calculate][%d] membershipsCalculateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Memberships/Calculate][%d] membershipsCalculateOK %s", 200, payload)
 }
 
 func (o *MembershipsCalculateOK) GetPayload() *models.CalculateMembershipResponse {
@@ -93,6 +103,80 @@ func (o *MembershipsCalculateOK) GetPayload() *models.CalculateMembershipRespons
 func (o *MembershipsCalculateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.CalculateMembershipResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewMembershipsCalculateDefault creates a MembershipsCalculateDefault with default headers values
+func NewMembershipsCalculateDefault(code int) *MembershipsCalculateDefault {
+	return &MembershipsCalculateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+MembershipsCalculateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type MembershipsCalculateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this memberships calculate default response has a 2xx status code
+func (o *MembershipsCalculateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this memberships calculate default response has a 3xx status code
+func (o *MembershipsCalculateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this memberships calculate default response has a 4xx status code
+func (o *MembershipsCalculateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this memberships calculate default response has a 5xx status code
+func (o *MembershipsCalculateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this memberships calculate default response a status code equal to that given
+func (o *MembershipsCalculateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the memberships calculate default response
+func (o *MembershipsCalculateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *MembershipsCalculateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Memberships/Calculate][%d] Memberships_Calculate default %s", o._statusCode, payload)
+}
+
+func (o *MembershipsCalculateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Memberships/Calculate][%d] Memberships_Calculate default %s", o._statusCode, payload)
+}
+
+func (o *MembershipsCalculateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *MembershipsCalculateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

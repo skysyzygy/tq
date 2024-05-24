@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *CartApplyCashPaymentReader) ReadResponse(response runtime.ClientRespons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Web/Cart/{sessionKey}/Payments/Cash] Cart_ApplyCashPayment", response, response.Code())
+		result := NewCartApplyCashPaymentDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *CartApplyCashPaymentOK) Code() int {
 }
 
 func (o *CartApplyCashPaymentOK) Error() string {
-	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/Cash][%d] cartApplyCashPaymentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/Cash][%d] cartApplyCashPaymentOK %s", 200, payload)
 }
 
 func (o *CartApplyCashPaymentOK) String() string {
-	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/Cash][%d] cartApplyCashPaymentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/Cash][%d] cartApplyCashPaymentOK %s", 200, payload)
 }
 
 func (o *CartApplyCashPaymentOK) GetPayload() *models.ApplyPaymentResponse {
@@ -93,6 +103,80 @@ func (o *CartApplyCashPaymentOK) GetPayload() *models.ApplyPaymentResponse {
 func (o *CartApplyCashPaymentOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ApplyPaymentResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCartApplyCashPaymentDefault creates a CartApplyCashPaymentDefault with default headers values
+func NewCartApplyCashPaymentDefault(code int) *CartApplyCashPaymentDefault {
+	return &CartApplyCashPaymentDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CartApplyCashPaymentDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CartApplyCashPaymentDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this cart apply cash payment default response has a 2xx status code
+func (o *CartApplyCashPaymentDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this cart apply cash payment default response has a 3xx status code
+func (o *CartApplyCashPaymentDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this cart apply cash payment default response has a 4xx status code
+func (o *CartApplyCashPaymentDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this cart apply cash payment default response has a 5xx status code
+func (o *CartApplyCashPaymentDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this cart apply cash payment default response a status code equal to that given
+func (o *CartApplyCashPaymentDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the cart apply cash payment default response
+func (o *CartApplyCashPaymentDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CartApplyCashPaymentDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/Cash][%d] Cart_ApplyCashPayment default %s", o._statusCode, payload)
+}
+
+func (o *CartApplyCashPaymentDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/Cash][%d] Cart_ApplyCashPayment default %s", o._statusCode, payload)
+}
+
+func (o *CartApplyCashPaymentDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CartApplyCashPaymentDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

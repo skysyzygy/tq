@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SpecialActivityStatusesGetReader) ReadResponse(response runtime.ClientR
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/SpecialActivityStatuses/{id}] SpecialActivityStatuses_Get", response, response.Code())
+		result := NewSpecialActivityStatusesGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SpecialActivityStatusesGetOK) Code() int {
 }
 
 func (o *SpecialActivityStatusesGetOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/SpecialActivityStatuses/{id}][%d] specialActivityStatusesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SpecialActivityStatuses/{id}][%d] specialActivityStatusesGetOK %s", 200, payload)
 }
 
 func (o *SpecialActivityStatusesGetOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/SpecialActivityStatuses/{id}][%d] specialActivityStatusesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SpecialActivityStatuses/{id}][%d] specialActivityStatusesGetOK %s", 200, payload)
 }
 
 func (o *SpecialActivityStatusesGetOK) GetPayload() *models.SpecialActivityStatus {
@@ -93,6 +103,80 @@ func (o *SpecialActivityStatusesGetOK) GetPayload() *models.SpecialActivityStatu
 func (o *SpecialActivityStatusesGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.SpecialActivityStatus)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSpecialActivityStatusesGetDefault creates a SpecialActivityStatusesGetDefault with default headers values
+func NewSpecialActivityStatusesGetDefault(code int) *SpecialActivityStatusesGetDefault {
+	return &SpecialActivityStatusesGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SpecialActivityStatusesGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SpecialActivityStatusesGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this special activity statuses get default response has a 2xx status code
+func (o *SpecialActivityStatusesGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this special activity statuses get default response has a 3xx status code
+func (o *SpecialActivityStatusesGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this special activity statuses get default response has a 4xx status code
+func (o *SpecialActivityStatusesGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this special activity statuses get default response has a 5xx status code
+func (o *SpecialActivityStatusesGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this special activity statuses get default response a status code equal to that given
+func (o *SpecialActivityStatusesGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the special activity statuses get default response
+func (o *SpecialActivityStatusesGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SpecialActivityStatusesGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SpecialActivityStatuses/{id}][%d] SpecialActivityStatuses_Get default %s", o._statusCode, payload)
+}
+
+func (o *SpecialActivityStatusesGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SpecialActivityStatuses/{id}][%d] SpecialActivityStatuses_Get default %s", o._statusCode, payload)
+}
+
+func (o *SpecialActivityStatusesGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SpecialActivityStatusesGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

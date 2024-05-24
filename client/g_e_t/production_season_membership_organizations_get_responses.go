@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ProductionSeasonMembershipOrganizationsGetReader) ReadResponse(response
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /TXN/ProductionSeasonMembershipOrganizations/{id}] ProductionSeasonMembershipOrganizations_Get", response, response.Code())
+		result := NewProductionSeasonMembershipOrganizationsGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ProductionSeasonMembershipOrganizationsGetOK) Code() int {
 }
 
 func (o *ProductionSeasonMembershipOrganizationsGetOK) Error() string {
-	return fmt.Sprintf("[GET /TXN/ProductionSeasonMembershipOrganizations/{id}][%d] productionSeasonMembershipOrganizationsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/ProductionSeasonMembershipOrganizations/{id}][%d] productionSeasonMembershipOrganizationsGetOK %s", 200, payload)
 }
 
 func (o *ProductionSeasonMembershipOrganizationsGetOK) String() string {
-	return fmt.Sprintf("[GET /TXN/ProductionSeasonMembershipOrganizations/{id}][%d] productionSeasonMembershipOrganizationsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/ProductionSeasonMembershipOrganizations/{id}][%d] productionSeasonMembershipOrganizationsGetOK %s", 200, payload)
 }
 
 func (o *ProductionSeasonMembershipOrganizationsGetOK) GetPayload() *models.ProductionSeasonMembershipOrganization {
@@ -93,6 +103,80 @@ func (o *ProductionSeasonMembershipOrganizationsGetOK) GetPayload() *models.Prod
 func (o *ProductionSeasonMembershipOrganizationsGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ProductionSeasonMembershipOrganization)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewProductionSeasonMembershipOrganizationsGetDefault creates a ProductionSeasonMembershipOrganizationsGetDefault with default headers values
+func NewProductionSeasonMembershipOrganizationsGetDefault(code int) *ProductionSeasonMembershipOrganizationsGetDefault {
+	return &ProductionSeasonMembershipOrganizationsGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ProductionSeasonMembershipOrganizationsGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ProductionSeasonMembershipOrganizationsGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this production season membership organizations get default response has a 2xx status code
+func (o *ProductionSeasonMembershipOrganizationsGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this production season membership organizations get default response has a 3xx status code
+func (o *ProductionSeasonMembershipOrganizationsGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this production season membership organizations get default response has a 4xx status code
+func (o *ProductionSeasonMembershipOrganizationsGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this production season membership organizations get default response has a 5xx status code
+func (o *ProductionSeasonMembershipOrganizationsGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this production season membership organizations get default response a status code equal to that given
+func (o *ProductionSeasonMembershipOrganizationsGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the production season membership organizations get default response
+func (o *ProductionSeasonMembershipOrganizationsGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ProductionSeasonMembershipOrganizationsGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/ProductionSeasonMembershipOrganizations/{id}][%d] ProductionSeasonMembershipOrganizations_Get default %s", o._statusCode, payload)
+}
+
+func (o *ProductionSeasonMembershipOrganizationsGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/ProductionSeasonMembershipOrganizations/{id}][%d] ProductionSeasonMembershipOrganizations_Get default %s", o._statusCode, payload)
+}
+
+func (o *ProductionSeasonMembershipOrganizationsGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ProductionSeasonMembershipOrganizationsGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

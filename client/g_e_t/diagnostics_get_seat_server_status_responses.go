@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *DiagnosticsGetSeatServerStatusReader) ReadResponse(response runtime.Cli
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Diagnostics/SeatServerStatus] Diagnostics_GetSeatServerStatus", response, response.Code())
+		result := NewDiagnosticsGetSeatServerStatusDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *DiagnosticsGetSeatServerStatusOK) Code() int {
 }
 
 func (o *DiagnosticsGetSeatServerStatusOK) Error() string {
-	return fmt.Sprintf("[GET /Diagnostics/SeatServerStatus][%d] diagnosticsGetSeatServerStatusOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Diagnostics/SeatServerStatus][%d] diagnosticsGetSeatServerStatusOK %s", 200, payload)
 }
 
 func (o *DiagnosticsGetSeatServerStatusOK) String() string {
-	return fmt.Sprintf("[GET /Diagnostics/SeatServerStatus][%d] diagnosticsGetSeatServerStatusOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Diagnostics/SeatServerStatus][%d] diagnosticsGetSeatServerStatusOK %s", 200, payload)
 }
 
 func (o *DiagnosticsGetSeatServerStatusOK) GetPayload() *models.SeatServerStatus {
@@ -93,6 +103,80 @@ func (o *DiagnosticsGetSeatServerStatusOK) GetPayload() *models.SeatServerStatus
 func (o *DiagnosticsGetSeatServerStatusOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.SeatServerStatus)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewDiagnosticsGetSeatServerStatusDefault creates a DiagnosticsGetSeatServerStatusDefault with default headers values
+func NewDiagnosticsGetSeatServerStatusDefault(code int) *DiagnosticsGetSeatServerStatusDefault {
+	return &DiagnosticsGetSeatServerStatusDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+DiagnosticsGetSeatServerStatusDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type DiagnosticsGetSeatServerStatusDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this diagnostics get seat server status default response has a 2xx status code
+func (o *DiagnosticsGetSeatServerStatusDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this diagnostics get seat server status default response has a 3xx status code
+func (o *DiagnosticsGetSeatServerStatusDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this diagnostics get seat server status default response has a 4xx status code
+func (o *DiagnosticsGetSeatServerStatusDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this diagnostics get seat server status default response has a 5xx status code
+func (o *DiagnosticsGetSeatServerStatusDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this diagnostics get seat server status default response a status code equal to that given
+func (o *DiagnosticsGetSeatServerStatusDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the diagnostics get seat server status default response
+func (o *DiagnosticsGetSeatServerStatusDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *DiagnosticsGetSeatServerStatusDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Diagnostics/SeatServerStatus][%d] Diagnostics_GetSeatServerStatus default %s", o._statusCode, payload)
+}
+
+func (o *DiagnosticsGetSeatServerStatusDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Diagnostics/SeatServerStatus][%d] Diagnostics_GetSeatServerStatus default %s", o._statusCode, payload)
+}
+
+func (o *DiagnosticsGetSeatServerStatusDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *DiagnosticsGetSeatServerStatusDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *AssetTypesUpdateReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/AssetTypes/{id}] AssetTypes_Update", response, response.Code())
+		result := NewAssetTypesUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *AssetTypesUpdateOK) Code() int {
 }
 
 func (o *AssetTypesUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/AssetTypes/{id}][%d] assetTypesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/AssetTypes/{id}][%d] assetTypesUpdateOK %s", 200, payload)
 }
 
 func (o *AssetTypesUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/AssetTypes/{id}][%d] assetTypesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/AssetTypes/{id}][%d] assetTypesUpdateOK %s", 200, payload)
 }
 
 func (o *AssetTypesUpdateOK) GetPayload() *models.AssetType {
@@ -93,6 +103,80 @@ func (o *AssetTypesUpdateOK) GetPayload() *models.AssetType {
 func (o *AssetTypesUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.AssetType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAssetTypesUpdateDefault creates a AssetTypesUpdateDefault with default headers values
+func NewAssetTypesUpdateDefault(code int) *AssetTypesUpdateDefault {
+	return &AssetTypesUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+AssetTypesUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type AssetTypesUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this asset types update default response has a 2xx status code
+func (o *AssetTypesUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this asset types update default response has a 3xx status code
+func (o *AssetTypesUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this asset types update default response has a 4xx status code
+func (o *AssetTypesUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this asset types update default response has a 5xx status code
+func (o *AssetTypesUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this asset types update default response a status code equal to that given
+func (o *AssetTypesUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the asset types update default response
+func (o *AssetTypesUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *AssetTypesUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/AssetTypes/{id}][%d] AssetTypes_Update default %s", o._statusCode, payload)
+}
+
+func (o *AssetTypesUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/AssetTypes/{id}][%d] AssetTypes_Update default %s", o._statusCode, payload)
+}
+
+func (o *AssetTypesUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *AssetTypesUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

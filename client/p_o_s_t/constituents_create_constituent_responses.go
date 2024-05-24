@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ConstituentsCreateConstituentReader) ReadResponse(response runtime.Clie
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /CRM/Constituents/Detail] Constituents_CreateConstituent", response, response.Code())
+		result := NewConstituentsCreateConstituentDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ConstituentsCreateConstituentOK) Code() int {
 }
 
 func (o *ConstituentsCreateConstituentOK) Error() string {
-	return fmt.Sprintf("[POST /CRM/Constituents/Detail][%d] constituentsCreateConstituentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Constituents/Detail][%d] constituentsCreateConstituentOK %s", 200, payload)
 }
 
 func (o *ConstituentsCreateConstituentOK) String() string {
-	return fmt.Sprintf("[POST /CRM/Constituents/Detail][%d] constituentsCreateConstituentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Constituents/Detail][%d] constituentsCreateConstituentOK %s", 200, payload)
 }
 
 func (o *ConstituentsCreateConstituentOK) GetPayload() *models.ConstituentDetail {
@@ -93,6 +103,80 @@ func (o *ConstituentsCreateConstituentOK) GetPayload() *models.ConstituentDetail
 func (o *ConstituentsCreateConstituentOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ConstituentDetail)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewConstituentsCreateConstituentDefault creates a ConstituentsCreateConstituentDefault with default headers values
+func NewConstituentsCreateConstituentDefault(code int) *ConstituentsCreateConstituentDefault {
+	return &ConstituentsCreateConstituentDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ConstituentsCreateConstituentDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ConstituentsCreateConstituentDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this constituents create constituent default response has a 2xx status code
+func (o *ConstituentsCreateConstituentDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this constituents create constituent default response has a 3xx status code
+func (o *ConstituentsCreateConstituentDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this constituents create constituent default response has a 4xx status code
+func (o *ConstituentsCreateConstituentDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this constituents create constituent default response has a 5xx status code
+func (o *ConstituentsCreateConstituentDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this constituents create constituent default response a status code equal to that given
+func (o *ConstituentsCreateConstituentDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the constituents create constituent default response
+func (o *ConstituentsCreateConstituentDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ConstituentsCreateConstituentDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Constituents/Detail][%d] Constituents_CreateConstituent default %s", o._statusCode, payload)
+}
+
+func (o *ConstituentsCreateConstituentDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Constituents/Detail][%d] Constituents_CreateConstituent default %s", o._statusCode, payload)
+}
+
+func (o *ConstituentsCreateConstituentDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ConstituentsCreateConstituentDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

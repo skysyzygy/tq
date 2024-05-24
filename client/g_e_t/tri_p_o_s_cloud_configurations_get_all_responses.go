@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *TriPOSCloudConfigurationsGetAllReader) ReadResponse(response runtime.Cl
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/TriPOSCloudConfigurations] TriPOSCloudConfigurations_GetAll", response, response.Code())
+		result := NewTriPOSCloudConfigurationsGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *TriPOSCloudConfigurationsGetAllOK) Code() int {
 }
 
 func (o *TriPOSCloudConfigurationsGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/TriPOSCloudConfigurations][%d] triPOSCloudConfigurationsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/TriPOSCloudConfigurations][%d] triPOSCloudConfigurationsGetAllOK %s", 200, payload)
 }
 
 func (o *TriPOSCloudConfigurationsGetAllOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/TriPOSCloudConfigurations][%d] triPOSCloudConfigurationsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/TriPOSCloudConfigurations][%d] triPOSCloudConfigurationsGetAllOK %s", 200, payload)
 }
 
 func (o *TriPOSCloudConfigurationsGetAllOK) GetPayload() []*models.TriPOSCloudConfiguration {
@@ -94,6 +104,80 @@ func (o *TriPOSCloudConfigurationsGetAllOK) readResponse(response runtime.Client
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewTriPOSCloudConfigurationsGetAllDefault creates a TriPOSCloudConfigurationsGetAllDefault with default headers values
+func NewTriPOSCloudConfigurationsGetAllDefault(code int) *TriPOSCloudConfigurationsGetAllDefault {
+	return &TriPOSCloudConfigurationsGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+TriPOSCloudConfigurationsGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type TriPOSCloudConfigurationsGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this tri p o s cloud configurations get all default response has a 2xx status code
+func (o *TriPOSCloudConfigurationsGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this tri p o s cloud configurations get all default response has a 3xx status code
+func (o *TriPOSCloudConfigurationsGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this tri p o s cloud configurations get all default response has a 4xx status code
+func (o *TriPOSCloudConfigurationsGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this tri p o s cloud configurations get all default response has a 5xx status code
+func (o *TriPOSCloudConfigurationsGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this tri p o s cloud configurations get all default response a status code equal to that given
+func (o *TriPOSCloudConfigurationsGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the tri p o s cloud configurations get all default response
+func (o *TriPOSCloudConfigurationsGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *TriPOSCloudConfigurationsGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/TriPOSCloudConfigurations][%d] TriPOSCloudConfigurations_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *TriPOSCloudConfigurationsGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/TriPOSCloudConfigurations][%d] TriPOSCloudConfigurations_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *TriPOSCloudConfigurationsGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *TriPOSCloudConfigurationsGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

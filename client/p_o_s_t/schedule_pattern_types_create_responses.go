@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SchedulePatternTypesCreateReader) ReadResponse(response runtime.ClientR
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /ReferenceData/SchedulePatternTypes] SchedulePatternTypes_Create", response, response.Code())
+		result := NewSchedulePatternTypesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SchedulePatternTypesCreateOK) Code() int {
 }
 
 func (o *SchedulePatternTypesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /ReferenceData/SchedulePatternTypes][%d] schedulePatternTypesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/SchedulePatternTypes][%d] schedulePatternTypesCreateOK %s", 200, payload)
 }
 
 func (o *SchedulePatternTypesCreateOK) String() string {
-	return fmt.Sprintf("[POST /ReferenceData/SchedulePatternTypes][%d] schedulePatternTypesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/SchedulePatternTypes][%d] schedulePatternTypesCreateOK %s", 200, payload)
 }
 
 func (o *SchedulePatternTypesCreateOK) GetPayload() *models.SchedulePatternType {
@@ -93,6 +103,80 @@ func (o *SchedulePatternTypesCreateOK) GetPayload() *models.SchedulePatternType 
 func (o *SchedulePatternTypesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.SchedulePatternType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSchedulePatternTypesCreateDefault creates a SchedulePatternTypesCreateDefault with default headers values
+func NewSchedulePatternTypesCreateDefault(code int) *SchedulePatternTypesCreateDefault {
+	return &SchedulePatternTypesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SchedulePatternTypesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SchedulePatternTypesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this schedule pattern types create default response has a 2xx status code
+func (o *SchedulePatternTypesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this schedule pattern types create default response has a 3xx status code
+func (o *SchedulePatternTypesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this schedule pattern types create default response has a 4xx status code
+func (o *SchedulePatternTypesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this schedule pattern types create default response has a 5xx status code
+func (o *SchedulePatternTypesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this schedule pattern types create default response a status code equal to that given
+func (o *SchedulePatternTypesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the schedule pattern types create default response
+func (o *SchedulePatternTypesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SchedulePatternTypesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/SchedulePatternTypes][%d] SchedulePatternTypes_Create default %s", o._statusCode, payload)
+}
+
+func (o *SchedulePatternTypesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/SchedulePatternTypes][%d] SchedulePatternTypes_Create default %s", o._statusCode, payload)
+}
+
+func (o *SchedulePatternTypesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SchedulePatternTypesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

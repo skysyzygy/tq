@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // PronounsDeleteReader is a Reader for the PronounsDelete structure.
@@ -27,7 +31,14 @@ func (o *PronounsDeleteReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /ReferenceData/Pronouns/{id}] Pronouns_Delete", response, response.Code())
+		result := NewPronounsDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *PronounsDeleteNoContent) Code() int {
 }
 
 func (o *PronounsDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/Pronouns/{id}][%d] pronounsDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/Pronouns/{id}][%d] pronounsDeleteNoContent", 204)
 }
 
 func (o *PronounsDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/Pronouns/{id}][%d] pronounsDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/Pronouns/{id}][%d] pronounsDeleteNoContent", 204)
 }
 
 func (o *PronounsDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewPronounsDeleteDefault creates a PronounsDeleteDefault with default headers values
+func NewPronounsDeleteDefault(code int) *PronounsDeleteDefault {
+	return &PronounsDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PronounsDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PronounsDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this pronouns delete default response has a 2xx status code
+func (o *PronounsDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this pronouns delete default response has a 3xx status code
+func (o *PronounsDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this pronouns delete default response has a 4xx status code
+func (o *PronounsDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this pronouns delete default response has a 5xx status code
+func (o *PronounsDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this pronouns delete default response a status code equal to that given
+func (o *PronounsDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the pronouns delete default response
+func (o *PronounsDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PronounsDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/Pronouns/{id}][%d] Pronouns_Delete default %s", o._statusCode, payload)
+}
+
+func (o *PronounsDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/Pronouns/{id}][%d] Pronouns_Delete default %s", o._statusCode, payload)
+}
+
+func (o *PronounsDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PronounsDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

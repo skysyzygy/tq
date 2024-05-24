@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *OriginsGetReader) ReadResponse(response runtime.ClientResponse, consume
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/Origins/{id}] Origins_Get", response, response.Code())
+		result := NewOriginsGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *OriginsGetOK) Code() int {
 }
 
 func (o *OriginsGetOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/Origins/{id}][%d] originsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Origins/{id}][%d] originsGetOK %s", 200, payload)
 }
 
 func (o *OriginsGetOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/Origins/{id}][%d] originsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Origins/{id}][%d] originsGetOK %s", 200, payload)
 }
 
 func (o *OriginsGetOK) GetPayload() *models.Origin {
@@ -93,6 +103,80 @@ func (o *OriginsGetOK) GetPayload() *models.Origin {
 func (o *OriginsGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Origin)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewOriginsGetDefault creates a OriginsGetDefault with default headers values
+func NewOriginsGetDefault(code int) *OriginsGetDefault {
+	return &OriginsGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+OriginsGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type OriginsGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this origins get default response has a 2xx status code
+func (o *OriginsGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this origins get default response has a 3xx status code
+func (o *OriginsGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this origins get default response has a 4xx status code
+func (o *OriginsGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this origins get default response has a 5xx status code
+func (o *OriginsGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this origins get default response a status code equal to that given
+func (o *OriginsGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the origins get default response
+func (o *OriginsGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *OriginsGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Origins/{id}][%d] Origins_Get default %s", o._statusCode, payload)
+}
+
+func (o *OriginsGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Origins/{id}][%d] Origins_Get default %s", o._statusCode, payload)
+}
+
+func (o *OriginsGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *OriginsGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

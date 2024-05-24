@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SessionGetDeliveryMethodsReader) ReadResponse(response runtime.ClientRe
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Web/Session/{sessionKey}/DeliveryMethods] Session_GetDeliveryMethods", response, response.Code())
+		result := NewSessionGetDeliveryMethodsDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SessionGetDeliveryMethodsOK) Code() int {
 }
 
 func (o *SessionGetDeliveryMethodsOK) Error() string {
-	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/DeliveryMethods][%d] sessionGetDeliveryMethodsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/DeliveryMethods][%d] sessionGetDeliveryMethodsOK %s", 200, payload)
 }
 
 func (o *SessionGetDeliveryMethodsOK) String() string {
-	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/DeliveryMethods][%d] sessionGetDeliveryMethodsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/DeliveryMethods][%d] sessionGetDeliveryMethodsOK %s", 200, payload)
 }
 
 func (o *SessionGetDeliveryMethodsOK) GetPayload() []*models.WebDeliveryMethod {
@@ -94,6 +104,80 @@ func (o *SessionGetDeliveryMethodsOK) readResponse(response runtime.ClientRespon
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSessionGetDeliveryMethodsDefault creates a SessionGetDeliveryMethodsDefault with default headers values
+func NewSessionGetDeliveryMethodsDefault(code int) *SessionGetDeliveryMethodsDefault {
+	return &SessionGetDeliveryMethodsDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SessionGetDeliveryMethodsDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SessionGetDeliveryMethodsDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this session get delivery methods default response has a 2xx status code
+func (o *SessionGetDeliveryMethodsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this session get delivery methods default response has a 3xx status code
+func (o *SessionGetDeliveryMethodsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this session get delivery methods default response has a 4xx status code
+func (o *SessionGetDeliveryMethodsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this session get delivery methods default response has a 5xx status code
+func (o *SessionGetDeliveryMethodsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this session get delivery methods default response a status code equal to that given
+func (o *SessionGetDeliveryMethodsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the session get delivery methods default response
+func (o *SessionGetDeliveryMethodsDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SessionGetDeliveryMethodsDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/DeliveryMethods][%d] Session_GetDeliveryMethods default %s", o._statusCode, payload)
+}
+
+func (o *SessionGetDeliveryMethodsDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/DeliveryMethods][%d] Session_GetDeliveryMethods default %s", o._statusCode, payload)
+}
+
+func (o *SessionGetDeliveryMethodsDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SessionGetDeliveryMethodsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

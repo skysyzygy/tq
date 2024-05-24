@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *WorkerQualificationsUpdateReader) ReadResponse(response runtime.ClientR
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /CRM/WorkerQualifications/{workerQualificationId}] WorkerQualifications_Update", response, response.Code())
+		result := NewWorkerQualificationsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *WorkerQualificationsUpdateOK) Code() int {
 }
 
 func (o *WorkerQualificationsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /CRM/WorkerQualifications/{workerQualificationId}][%d] workerQualificationsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/WorkerQualifications/{workerQualificationId}][%d] workerQualificationsUpdateOK %s", 200, payload)
 }
 
 func (o *WorkerQualificationsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /CRM/WorkerQualifications/{workerQualificationId}][%d] workerQualificationsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/WorkerQualifications/{workerQualificationId}][%d] workerQualificationsUpdateOK %s", 200, payload)
 }
 
 func (o *WorkerQualificationsUpdateOK) GetPayload() *models.WorkerQualification {
@@ -93,6 +103,80 @@ func (o *WorkerQualificationsUpdateOK) GetPayload() *models.WorkerQualification 
 func (o *WorkerQualificationsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.WorkerQualification)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewWorkerQualificationsUpdateDefault creates a WorkerQualificationsUpdateDefault with default headers values
+func NewWorkerQualificationsUpdateDefault(code int) *WorkerQualificationsUpdateDefault {
+	return &WorkerQualificationsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+WorkerQualificationsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type WorkerQualificationsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this worker qualifications update default response has a 2xx status code
+func (o *WorkerQualificationsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this worker qualifications update default response has a 3xx status code
+func (o *WorkerQualificationsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this worker qualifications update default response has a 4xx status code
+func (o *WorkerQualificationsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this worker qualifications update default response has a 5xx status code
+func (o *WorkerQualificationsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this worker qualifications update default response a status code equal to that given
+func (o *WorkerQualificationsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the worker qualifications update default response
+func (o *WorkerQualificationsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *WorkerQualificationsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/WorkerQualifications/{workerQualificationId}][%d] WorkerQualifications_Update default %s", o._statusCode, payload)
+}
+
+func (o *WorkerQualificationsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/WorkerQualifications/{workerQualificationId}][%d] WorkerQualifications_Update default %s", o._statusCode, payload)
+}
+
+func (o *WorkerQualificationsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *WorkerQualificationsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

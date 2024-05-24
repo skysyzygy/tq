@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SurveyResponsesGetReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /TXN/SurveyResponses/{surveyResponseId}] SurveyResponses_Get", response, response.Code())
+		result := NewSurveyResponsesGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SurveyResponsesGetOK) Code() int {
 }
 
 func (o *SurveyResponsesGetOK) Error() string {
-	return fmt.Sprintf("[GET /TXN/SurveyResponses/{surveyResponseId}][%d] surveyResponsesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/SurveyResponses/{surveyResponseId}][%d] surveyResponsesGetOK %s", 200, payload)
 }
 
 func (o *SurveyResponsesGetOK) String() string {
-	return fmt.Sprintf("[GET /TXN/SurveyResponses/{surveyResponseId}][%d] surveyResponsesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/SurveyResponses/{surveyResponseId}][%d] surveyResponsesGetOK %s", 200, payload)
 }
 
 func (o *SurveyResponsesGetOK) GetPayload() *models.SurveyResponse {
@@ -93,6 +103,80 @@ func (o *SurveyResponsesGetOK) GetPayload() *models.SurveyResponse {
 func (o *SurveyResponsesGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.SurveyResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSurveyResponsesGetDefault creates a SurveyResponsesGetDefault with default headers values
+func NewSurveyResponsesGetDefault(code int) *SurveyResponsesGetDefault {
+	return &SurveyResponsesGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SurveyResponsesGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SurveyResponsesGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this survey responses get default response has a 2xx status code
+func (o *SurveyResponsesGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this survey responses get default response has a 3xx status code
+func (o *SurveyResponsesGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this survey responses get default response has a 4xx status code
+func (o *SurveyResponsesGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this survey responses get default response has a 5xx status code
+func (o *SurveyResponsesGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this survey responses get default response a status code equal to that given
+func (o *SurveyResponsesGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the survey responses get default response
+func (o *SurveyResponsesGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SurveyResponsesGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/SurveyResponses/{surveyResponseId}][%d] SurveyResponses_Get default %s", o._statusCode, payload)
+}
+
+func (o *SurveyResponsesGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/SurveyResponses/{surveyResponseId}][%d] SurveyResponses_Get default %s", o._statusCode, payload)
+}
+
+func (o *SurveyResponsesGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SurveyResponsesGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PaymentGatewayTransactionTypesGetAllReader) ReadResponse(response runti
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/PaymentGatewayTransactionTypes] PaymentGatewayTransactionTypes_GetAll", response, response.Code())
+		result := NewPaymentGatewayTransactionTypesGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PaymentGatewayTransactionTypesGetAllOK) Code() int {
 }
 
 func (o *PaymentGatewayTransactionTypesGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/PaymentGatewayTransactionTypes][%d] paymentGatewayTransactionTypesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PaymentGatewayTransactionTypes][%d] paymentGatewayTransactionTypesGetAllOK %s", 200, payload)
 }
 
 func (o *PaymentGatewayTransactionTypesGetAllOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/PaymentGatewayTransactionTypes][%d] paymentGatewayTransactionTypesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PaymentGatewayTransactionTypes][%d] paymentGatewayTransactionTypesGetAllOK %s", 200, payload)
 }
 
 func (o *PaymentGatewayTransactionTypesGetAllOK) GetPayload() []*models.PaymentGatewayTransactionType {
@@ -94,6 +104,80 @@ func (o *PaymentGatewayTransactionTypesGetAllOK) readResponse(response runtime.C
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPaymentGatewayTransactionTypesGetAllDefault creates a PaymentGatewayTransactionTypesGetAllDefault with default headers values
+func NewPaymentGatewayTransactionTypesGetAllDefault(code int) *PaymentGatewayTransactionTypesGetAllDefault {
+	return &PaymentGatewayTransactionTypesGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PaymentGatewayTransactionTypesGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PaymentGatewayTransactionTypesGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this payment gateway transaction types get all default response has a 2xx status code
+func (o *PaymentGatewayTransactionTypesGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this payment gateway transaction types get all default response has a 3xx status code
+func (o *PaymentGatewayTransactionTypesGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this payment gateway transaction types get all default response has a 4xx status code
+func (o *PaymentGatewayTransactionTypesGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this payment gateway transaction types get all default response has a 5xx status code
+func (o *PaymentGatewayTransactionTypesGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this payment gateway transaction types get all default response a status code equal to that given
+func (o *PaymentGatewayTransactionTypesGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the payment gateway transaction types get all default response
+func (o *PaymentGatewayTransactionTypesGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PaymentGatewayTransactionTypesGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PaymentGatewayTransactionTypes][%d] PaymentGatewayTransactionTypes_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *PaymentGatewayTransactionTypesGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PaymentGatewayTransactionTypes][%d] PaymentGatewayTransactionTypes_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *PaymentGatewayTransactionTypesGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PaymentGatewayTransactionTypesGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

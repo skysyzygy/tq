@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *QueryElementsUpdateReader) ReadResponse(response runtime.ClientResponse
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /Reporting/QueryElements/{id}] QueryElements_Update", response, response.Code())
+		result := NewQueryElementsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *QueryElementsUpdateOK) Code() int {
 }
 
 func (o *QueryElementsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /Reporting/QueryElements/{id}][%d] queryElementsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Reporting/QueryElements/{id}][%d] queryElementsUpdateOK %s", 200, payload)
 }
 
 func (o *QueryElementsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /Reporting/QueryElements/{id}][%d] queryElementsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Reporting/QueryElements/{id}][%d] queryElementsUpdateOK %s", 200, payload)
 }
 
 func (o *QueryElementsUpdateOK) GetPayload() *models.QueryElement {
@@ -93,6 +103,80 @@ func (o *QueryElementsUpdateOK) GetPayload() *models.QueryElement {
 func (o *QueryElementsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.QueryElement)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewQueryElementsUpdateDefault creates a QueryElementsUpdateDefault with default headers values
+func NewQueryElementsUpdateDefault(code int) *QueryElementsUpdateDefault {
+	return &QueryElementsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+QueryElementsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type QueryElementsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this query elements update default response has a 2xx status code
+func (o *QueryElementsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query elements update default response has a 3xx status code
+func (o *QueryElementsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query elements update default response has a 4xx status code
+func (o *QueryElementsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query elements update default response has a 5xx status code
+func (o *QueryElementsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query elements update default response a status code equal to that given
+func (o *QueryElementsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the query elements update default response
+func (o *QueryElementsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *QueryElementsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Reporting/QueryElements/{id}][%d] QueryElements_Update default %s", o._statusCode, payload)
+}
+
+func (o *QueryElementsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Reporting/QueryElements/{id}][%d] QueryElements_Update default %s", o._statusCode, payload)
+}
+
+func (o *QueryElementsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *QueryElementsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

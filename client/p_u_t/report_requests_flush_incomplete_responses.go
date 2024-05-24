@@ -6,10 +6,14 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // ReportRequestsFlushIncompleteReader is a Reader for the ReportRequestsFlushIncomplete structure.
@@ -27,7 +31,14 @@ func (o *ReportRequestsFlushIncompleteReader) ReadResponse(response runtime.Clie
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /Reporting/ReportRequests/FlushIncomplete] ReportRequests_FlushIncomplete", response, response.Code())
+		result := NewReportRequestsFlushIncompleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *ReportRequestsFlushIncompleteNoContent) Code() int {
 }
 
 func (o *ReportRequestsFlushIncompleteNoContent) Error() string {
-	return fmt.Sprintf("[PUT /Reporting/ReportRequests/FlushIncomplete][%d] reportRequestsFlushIncompleteNoContent ", 204)
+	return fmt.Sprintf("[PUT /Reporting/ReportRequests/FlushIncomplete][%d] reportRequestsFlushIncompleteNoContent", 204)
 }
 
 func (o *ReportRequestsFlushIncompleteNoContent) String() string {
-	return fmt.Sprintf("[PUT /Reporting/ReportRequests/FlushIncomplete][%d] reportRequestsFlushIncompleteNoContent ", 204)
+	return fmt.Sprintf("[PUT /Reporting/ReportRequests/FlushIncomplete][%d] reportRequestsFlushIncompleteNoContent", 204)
 }
 
 func (o *ReportRequestsFlushIncompleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewReportRequestsFlushIncompleteDefault creates a ReportRequestsFlushIncompleteDefault with default headers values
+func NewReportRequestsFlushIncompleteDefault(code int) *ReportRequestsFlushIncompleteDefault {
+	return &ReportRequestsFlushIncompleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ReportRequestsFlushIncompleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ReportRequestsFlushIncompleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this report requests flush incomplete default response has a 2xx status code
+func (o *ReportRequestsFlushIncompleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this report requests flush incomplete default response has a 3xx status code
+func (o *ReportRequestsFlushIncompleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this report requests flush incomplete default response has a 4xx status code
+func (o *ReportRequestsFlushIncompleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this report requests flush incomplete default response has a 5xx status code
+func (o *ReportRequestsFlushIncompleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this report requests flush incomplete default response a status code equal to that given
+func (o *ReportRequestsFlushIncompleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the report requests flush incomplete default response
+func (o *ReportRequestsFlushIncompleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ReportRequestsFlushIncompleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Reporting/ReportRequests/FlushIncomplete][%d] ReportRequests_FlushIncomplete default %s", o._statusCode, payload)
+}
+
+func (o *ReportRequestsFlushIncompleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Reporting/ReportRequests/FlushIncomplete][%d] ReportRequests_FlushIncomplete default %s", o._statusCode, payload)
+}
+
+func (o *ReportRequestsFlushIncompleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ReportRequestsFlushIncompleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

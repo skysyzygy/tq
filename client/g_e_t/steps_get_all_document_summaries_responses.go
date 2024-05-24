@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *StepsGetAllDocumentSummariesReader) ReadResponse(response runtime.Clien
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Finance/Steps/{stepId}/Documents/Summary] Steps_GetAllDocumentSummaries", response, response.Code())
+		result := NewStepsGetAllDocumentSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *StepsGetAllDocumentSummariesOK) Code() int {
 }
 
 func (o *StepsGetAllDocumentSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /Finance/Steps/{stepId}/Documents/Summary][%d] stepsGetAllDocumentSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/Steps/{stepId}/Documents/Summary][%d] stepsGetAllDocumentSummariesOK %s", 200, payload)
 }
 
 func (o *StepsGetAllDocumentSummariesOK) String() string {
-	return fmt.Sprintf("[GET /Finance/Steps/{stepId}/Documents/Summary][%d] stepsGetAllDocumentSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/Steps/{stepId}/Documents/Summary][%d] stepsGetAllDocumentSummariesOK %s", 200, payload)
 }
 
 func (o *StepsGetAllDocumentSummariesOK) GetPayload() []*models.DocumentSummary {
@@ -94,6 +104,80 @@ func (o *StepsGetAllDocumentSummariesOK) readResponse(response runtime.ClientRes
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewStepsGetAllDocumentSummariesDefault creates a StepsGetAllDocumentSummariesDefault with default headers values
+func NewStepsGetAllDocumentSummariesDefault(code int) *StepsGetAllDocumentSummariesDefault {
+	return &StepsGetAllDocumentSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+StepsGetAllDocumentSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type StepsGetAllDocumentSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this steps get all document summaries default response has a 2xx status code
+func (o *StepsGetAllDocumentSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this steps get all document summaries default response has a 3xx status code
+func (o *StepsGetAllDocumentSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this steps get all document summaries default response has a 4xx status code
+func (o *StepsGetAllDocumentSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this steps get all document summaries default response has a 5xx status code
+func (o *StepsGetAllDocumentSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this steps get all document summaries default response a status code equal to that given
+func (o *StepsGetAllDocumentSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the steps get all document summaries default response
+func (o *StepsGetAllDocumentSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *StepsGetAllDocumentSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/Steps/{stepId}/Documents/Summary][%d] Steps_GetAllDocumentSummaries default %s", o._statusCode, payload)
+}
+
+func (o *StepsGetAllDocumentSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/Steps/{stepId}/Documents/Summary][%d] Steps_GetAllDocumentSummaries default %s", o._statusCode, payload)
+}
+
+func (o *StepsGetAllDocumentSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *StepsGetAllDocumentSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

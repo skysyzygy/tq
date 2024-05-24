@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SpecialActivityTypesGetReader) ReadResponse(response runtime.ClientResp
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/SpecialActivityTypes/{id}] SpecialActivityTypes_Get", response, response.Code())
+		result := NewSpecialActivityTypesGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SpecialActivityTypesGetOK) Code() int {
 }
 
 func (o *SpecialActivityTypesGetOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/SpecialActivityTypes/{id}][%d] specialActivityTypesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SpecialActivityTypes/{id}][%d] specialActivityTypesGetOK %s", 200, payload)
 }
 
 func (o *SpecialActivityTypesGetOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/SpecialActivityTypes/{id}][%d] specialActivityTypesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SpecialActivityTypes/{id}][%d] specialActivityTypesGetOK %s", 200, payload)
 }
 
 func (o *SpecialActivityTypesGetOK) GetPayload() *models.SpecialActivityType {
@@ -93,6 +103,80 @@ func (o *SpecialActivityTypesGetOK) GetPayload() *models.SpecialActivityType {
 func (o *SpecialActivityTypesGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.SpecialActivityType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSpecialActivityTypesGetDefault creates a SpecialActivityTypesGetDefault with default headers values
+func NewSpecialActivityTypesGetDefault(code int) *SpecialActivityTypesGetDefault {
+	return &SpecialActivityTypesGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SpecialActivityTypesGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SpecialActivityTypesGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this special activity types get default response has a 2xx status code
+func (o *SpecialActivityTypesGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this special activity types get default response has a 3xx status code
+func (o *SpecialActivityTypesGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this special activity types get default response has a 4xx status code
+func (o *SpecialActivityTypesGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this special activity types get default response has a 5xx status code
+func (o *SpecialActivityTypesGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this special activity types get default response a status code equal to that given
+func (o *SpecialActivityTypesGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the special activity types get default response
+func (o *SpecialActivityTypesGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SpecialActivityTypesGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SpecialActivityTypes/{id}][%d] SpecialActivityTypes_Get default %s", o._statusCode, payload)
+}
+
+func (o *SpecialActivityTypesGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SpecialActivityTypes/{id}][%d] SpecialActivityTypes_Get default %s", o._statusCode, payload)
+}
+
+func (o *SpecialActivityTypesGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SpecialActivityTypesGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

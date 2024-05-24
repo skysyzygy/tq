@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *RankingsUpdateReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /CRM/Rankings/{rankingId}] Rankings_Update", response, response.Code())
+		result := NewRankingsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *RankingsUpdateOK) Code() int {
 }
 
 func (o *RankingsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /CRM/Rankings/{rankingId}][%d] rankingsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/Rankings/{rankingId}][%d] rankingsUpdateOK %s", 200, payload)
 }
 
 func (o *RankingsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /CRM/Rankings/{rankingId}][%d] rankingsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/Rankings/{rankingId}][%d] rankingsUpdateOK %s", 200, payload)
 }
 
 func (o *RankingsUpdateOK) GetPayload() *models.Ranking {
@@ -93,6 +103,80 @@ func (o *RankingsUpdateOK) GetPayload() *models.Ranking {
 func (o *RankingsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Ranking)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewRankingsUpdateDefault creates a RankingsUpdateDefault with default headers values
+func NewRankingsUpdateDefault(code int) *RankingsUpdateDefault {
+	return &RankingsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+RankingsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type RankingsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this rankings update default response has a 2xx status code
+func (o *RankingsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this rankings update default response has a 3xx status code
+func (o *RankingsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this rankings update default response has a 4xx status code
+func (o *RankingsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this rankings update default response has a 5xx status code
+func (o *RankingsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this rankings update default response a status code equal to that given
+func (o *RankingsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the rankings update default response
+func (o *RankingsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *RankingsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/Rankings/{rankingId}][%d] Rankings_Update default %s", o._statusCode, payload)
+}
+
+func (o *RankingsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/Rankings/{rankingId}][%d] Rankings_Update default %s", o._statusCode, payload)
+}
+
+func (o *RankingsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *RankingsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *BookingsGetReader) ReadResponse(response runtime.ClientResponse, consum
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /EventsManagement/Bookings/{bookingId}] Bookings_Get", response, response.Code())
+		result := NewBookingsGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *BookingsGetOK) Code() int {
 }
 
 func (o *BookingsGetOK) Error() string {
-	return fmt.Sprintf("[GET /EventsManagement/Bookings/{bookingId}][%d] bookingsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /EventsManagement/Bookings/{bookingId}][%d] bookingsGetOK %s", 200, payload)
 }
 
 func (o *BookingsGetOK) String() string {
-	return fmt.Sprintf("[GET /EventsManagement/Bookings/{bookingId}][%d] bookingsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /EventsManagement/Bookings/{bookingId}][%d] bookingsGetOK %s", 200, payload)
 }
 
 func (o *BookingsGetOK) GetPayload() *models.Booking {
@@ -93,6 +103,80 @@ func (o *BookingsGetOK) GetPayload() *models.Booking {
 func (o *BookingsGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Booking)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewBookingsGetDefault creates a BookingsGetDefault with default headers values
+func NewBookingsGetDefault(code int) *BookingsGetDefault {
+	return &BookingsGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+BookingsGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type BookingsGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this bookings get default response has a 2xx status code
+func (o *BookingsGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this bookings get default response has a 3xx status code
+func (o *BookingsGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this bookings get default response has a 4xx status code
+func (o *BookingsGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this bookings get default response has a 5xx status code
+func (o *BookingsGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this bookings get default response a status code equal to that given
+func (o *BookingsGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the bookings get default response
+func (o *BookingsGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *BookingsGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /EventsManagement/Bookings/{bookingId}][%d] Bookings_Get default %s", o._statusCode, payload)
+}
+
+func (o *BookingsGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /EventsManagement/Bookings/{bookingId}][%d] Bookings_Get default %s", o._statusCode, payload)
+}
+
+func (o *BookingsGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *BookingsGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

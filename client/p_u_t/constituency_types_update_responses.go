@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ConstituencyTypesUpdateReader) ReadResponse(response runtime.ClientResp
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/ConstituencyTypes/{id}] ConstituencyTypes_Update", response, response.Code())
+		result := NewConstituencyTypesUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ConstituencyTypesUpdateOK) Code() int {
 }
 
 func (o *ConstituencyTypesUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/ConstituencyTypes/{id}][%d] constituencyTypesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ConstituencyTypes/{id}][%d] constituencyTypesUpdateOK %s", 200, payload)
 }
 
 func (o *ConstituencyTypesUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/ConstituencyTypes/{id}][%d] constituencyTypesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ConstituencyTypes/{id}][%d] constituencyTypesUpdateOK %s", 200, payload)
 }
 
 func (o *ConstituencyTypesUpdateOK) GetPayload() *models.ConstituencyType {
@@ -93,6 +103,80 @@ func (o *ConstituencyTypesUpdateOK) GetPayload() *models.ConstituencyType {
 func (o *ConstituencyTypesUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ConstituencyType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewConstituencyTypesUpdateDefault creates a ConstituencyTypesUpdateDefault with default headers values
+func NewConstituencyTypesUpdateDefault(code int) *ConstituencyTypesUpdateDefault {
+	return &ConstituencyTypesUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ConstituencyTypesUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ConstituencyTypesUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this constituency types update default response has a 2xx status code
+func (o *ConstituencyTypesUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this constituency types update default response has a 3xx status code
+func (o *ConstituencyTypesUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this constituency types update default response has a 4xx status code
+func (o *ConstituencyTypesUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this constituency types update default response has a 5xx status code
+func (o *ConstituencyTypesUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this constituency types update default response a status code equal to that given
+func (o *ConstituencyTypesUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the constituency types update default response
+func (o *ConstituencyTypesUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ConstituencyTypesUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ConstituencyTypes/{id}][%d] ConstituencyTypes_Update default %s", o._statusCode, payload)
+}
+
+func (o *ConstituencyTypesUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ConstituencyTypes/{id}][%d] ConstituencyTypes_Update default %s", o._statusCode, payload)
+}
+
+func (o *ConstituencyTypesUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ConstituencyTypesUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

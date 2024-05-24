@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // SurveyResponsesDeleteReader is a Reader for the SurveyResponsesDelete structure.
@@ -27,7 +31,14 @@ func (o *SurveyResponsesDeleteReader) ReadResponse(response runtime.ClientRespon
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /TXN/SurveyResponses/{surveyResponseId}] SurveyResponses_Delete", response, response.Code())
+		result := NewSurveyResponsesDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *SurveyResponsesDeleteNoContent) Code() int {
 }
 
 func (o *SurveyResponsesDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /TXN/SurveyResponses/{surveyResponseId}][%d] surveyResponsesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /TXN/SurveyResponses/{surveyResponseId}][%d] surveyResponsesDeleteNoContent", 204)
 }
 
 func (o *SurveyResponsesDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /TXN/SurveyResponses/{surveyResponseId}][%d] surveyResponsesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /TXN/SurveyResponses/{surveyResponseId}][%d] surveyResponsesDeleteNoContent", 204)
 }
 
 func (o *SurveyResponsesDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewSurveyResponsesDeleteDefault creates a SurveyResponsesDeleteDefault with default headers values
+func NewSurveyResponsesDeleteDefault(code int) *SurveyResponsesDeleteDefault {
+	return &SurveyResponsesDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SurveyResponsesDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SurveyResponsesDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this survey responses delete default response has a 2xx status code
+func (o *SurveyResponsesDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this survey responses delete default response has a 3xx status code
+func (o *SurveyResponsesDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this survey responses delete default response has a 4xx status code
+func (o *SurveyResponsesDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this survey responses delete default response has a 5xx status code
+func (o *SurveyResponsesDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this survey responses delete default response a status code equal to that given
+func (o *SurveyResponsesDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the survey responses delete default response
+func (o *SurveyResponsesDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SurveyResponsesDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /TXN/SurveyResponses/{surveyResponseId}][%d] SurveyResponses_Delete default %s", o._statusCode, payload)
+}
+
+func (o *SurveyResponsesDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /TXN/SurveyResponses/{surveyResponseId}][%d] SurveyResponses_Delete default %s", o._statusCode, payload)
+}
+
+func (o *SurveyResponsesDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SurveyResponsesDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

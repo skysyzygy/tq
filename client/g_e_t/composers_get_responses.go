@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ComposersGetReader) ReadResponse(response runtime.ClientResponse, consu
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/Composers/{id}] Composers_Get", response, response.Code())
+		result := NewComposersGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ComposersGetOK) Code() int {
 }
 
 func (o *ComposersGetOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/Composers/{id}][%d] composersGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Composers/{id}][%d] composersGetOK %s", 200, payload)
 }
 
 func (o *ComposersGetOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/Composers/{id}][%d] composersGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Composers/{id}][%d] composersGetOK %s", 200, payload)
 }
 
 func (o *ComposersGetOK) GetPayload() *models.Composer {
@@ -93,6 +103,80 @@ func (o *ComposersGetOK) GetPayload() *models.Composer {
 func (o *ComposersGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Composer)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewComposersGetDefault creates a ComposersGetDefault with default headers values
+func NewComposersGetDefault(code int) *ComposersGetDefault {
+	return &ComposersGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ComposersGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ComposersGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this composers get default response has a 2xx status code
+func (o *ComposersGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this composers get default response has a 3xx status code
+func (o *ComposersGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this composers get default response has a 4xx status code
+func (o *ComposersGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this composers get default response has a 5xx status code
+func (o *ComposersGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this composers get default response a status code equal to that given
+func (o *ComposersGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the composers get default response
+func (o *ComposersGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ComposersGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Composers/{id}][%d] Composers_Get default %s", o._statusCode, payload)
+}
+
+func (o *ComposersGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Composers/{id}][%d] Composers_Get default %s", o._statusCode, payload)
+}
+
+func (o *ComposersGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ComposersGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *RankTypesGetAllReader) ReadResponse(response runtime.ClientResponse, co
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/RankTypes] RankTypes_GetAll", response, response.Code())
+		result := NewRankTypesGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *RankTypesGetAllOK) Code() int {
 }
 
 func (o *RankTypesGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/RankTypes][%d] rankTypesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/RankTypes][%d] rankTypesGetAllOK %s", 200, payload)
 }
 
 func (o *RankTypesGetAllOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/RankTypes][%d] rankTypesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/RankTypes][%d] rankTypesGetAllOK %s", 200, payload)
 }
 
 func (o *RankTypesGetAllOK) GetPayload() []*models.RankType {
@@ -94,6 +104,80 @@ func (o *RankTypesGetAllOK) readResponse(response runtime.ClientResponse, consum
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewRankTypesGetAllDefault creates a RankTypesGetAllDefault with default headers values
+func NewRankTypesGetAllDefault(code int) *RankTypesGetAllDefault {
+	return &RankTypesGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+RankTypesGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type RankTypesGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this rank types get all default response has a 2xx status code
+func (o *RankTypesGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this rank types get all default response has a 3xx status code
+func (o *RankTypesGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this rank types get all default response has a 4xx status code
+func (o *RankTypesGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this rank types get all default response has a 5xx status code
+func (o *RankTypesGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this rank types get all default response a status code equal to that given
+func (o *RankTypesGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the rank types get all default response
+func (o *RankTypesGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *RankTypesGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/RankTypes][%d] RankTypes_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *RankTypesGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/RankTypes][%d] RankTypes_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *RankTypesGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *RankTypesGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

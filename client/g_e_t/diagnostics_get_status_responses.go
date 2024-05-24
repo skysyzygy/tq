@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *DiagnosticsGetStatusReader) ReadResponse(response runtime.ClientRespons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Diagnostics/Status] Diagnostics_GetStatus", response, response.Code())
+		result := NewDiagnosticsGetStatusDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *DiagnosticsGetStatusOK) Code() int {
 }
 
 func (o *DiagnosticsGetStatusOK) Error() string {
-	return fmt.Sprintf("[GET /Diagnostics/Status][%d] diagnosticsGetStatusOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Diagnostics/Status][%d] diagnosticsGetStatusOK %s", 200, payload)
 }
 
 func (o *DiagnosticsGetStatusOK) String() string {
-	return fmt.Sprintf("[GET /Diagnostics/Status][%d] diagnosticsGetStatusOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Diagnostics/Status][%d] diagnosticsGetStatusOK %s", 200, payload)
 }
 
 func (o *DiagnosticsGetStatusOK) GetPayload() *models.Status {
@@ -93,6 +103,80 @@ func (o *DiagnosticsGetStatusOK) GetPayload() *models.Status {
 func (o *DiagnosticsGetStatusOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Status)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewDiagnosticsGetStatusDefault creates a DiagnosticsGetStatusDefault with default headers values
+func NewDiagnosticsGetStatusDefault(code int) *DiagnosticsGetStatusDefault {
+	return &DiagnosticsGetStatusDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+DiagnosticsGetStatusDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type DiagnosticsGetStatusDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this diagnostics get status default response has a 2xx status code
+func (o *DiagnosticsGetStatusDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this diagnostics get status default response has a 3xx status code
+func (o *DiagnosticsGetStatusDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this diagnostics get status default response has a 4xx status code
+func (o *DiagnosticsGetStatusDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this diagnostics get status default response has a 5xx status code
+func (o *DiagnosticsGetStatusDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this diagnostics get status default response a status code equal to that given
+func (o *DiagnosticsGetStatusDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the diagnostics get status default response
+func (o *DiagnosticsGetStatusDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *DiagnosticsGetStatusDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Diagnostics/Status][%d] Diagnostics_GetStatus default %s", o._statusCode, payload)
+}
+
+func (o *DiagnosticsGetStatusDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Diagnostics/Status][%d] Diagnostics_GetStatus default %s", o._statusCode, payload)
+}
+
+func (o *DiagnosticsGetStatusDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *DiagnosticsGetStatusDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

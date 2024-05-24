@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // CartClearCartReader is a Reader for the CartClearCart structure.
@@ -27,7 +31,14 @@ func (o *CartClearCartReader) ReadResponse(response runtime.ClientResponse, cons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /Web/Cart/{sessionKey}] Cart_ClearCart", response, response.Code())
+		result := NewCartClearCartDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *CartClearCartNoContent) Code() int {
 }
 
 func (o *CartClearCartNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /Web/Cart/{sessionKey}][%d] cartClearCartNoContent ", 204)
+	return fmt.Sprintf("[DELETE /Web/Cart/{sessionKey}][%d] cartClearCartNoContent", 204)
 }
 
 func (o *CartClearCartNoContent) String() string {
-	return fmt.Sprintf("[DELETE /Web/Cart/{sessionKey}][%d] cartClearCartNoContent ", 204)
+	return fmt.Sprintf("[DELETE /Web/Cart/{sessionKey}][%d] cartClearCartNoContent", 204)
 }
 
 func (o *CartClearCartNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewCartClearCartDefault creates a CartClearCartDefault with default headers values
+func NewCartClearCartDefault(code int) *CartClearCartDefault {
+	return &CartClearCartDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CartClearCartDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CartClearCartDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this cart clear cart default response has a 2xx status code
+func (o *CartClearCartDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this cart clear cart default response has a 3xx status code
+func (o *CartClearCartDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this cart clear cart default response has a 4xx status code
+func (o *CartClearCartDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this cart clear cart default response has a 5xx status code
+func (o *CartClearCartDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this cart clear cart default response a status code equal to that given
+func (o *CartClearCartDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the cart clear cart default response
+func (o *CartClearCartDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CartClearCartDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /Web/Cart/{sessionKey}][%d] Cart_ClearCart default %s", o._statusCode, payload)
+}
+
+func (o *CartClearCartDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /Web/Cart/{sessionKey}][%d] Cart_ClearCart default %s", o._statusCode, payload)
+}
+
+func (o *CartClearCartDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CartClearCartDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

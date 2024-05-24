@@ -6,10 +6,14 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // PerformancePriceLayersUpdatePricesReader is a Reader for the PerformancePriceLayersUpdatePrices structure.
@@ -27,7 +31,14 @@ func (o *PerformancePriceLayersUpdatePricesReader) ReadResponse(response runtime
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /TXN/PerformancePriceLayers/Prices] PerformancePriceLayers_UpdatePrices", response, response.Code())
+		result := NewPerformancePriceLayersUpdatePricesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *PerformancePriceLayersUpdatePricesNoContent) Code() int {
 }
 
 func (o *PerformancePriceLayersUpdatePricesNoContent) Error() string {
-	return fmt.Sprintf("[PUT /TXN/PerformancePriceLayers/Prices][%d] performancePriceLayersUpdatePricesNoContent ", 204)
+	return fmt.Sprintf("[PUT /TXN/PerformancePriceLayers/Prices][%d] performancePriceLayersUpdatePricesNoContent", 204)
 }
 
 func (o *PerformancePriceLayersUpdatePricesNoContent) String() string {
-	return fmt.Sprintf("[PUT /TXN/PerformancePriceLayers/Prices][%d] performancePriceLayersUpdatePricesNoContent ", 204)
+	return fmt.Sprintf("[PUT /TXN/PerformancePriceLayers/Prices][%d] performancePriceLayersUpdatePricesNoContent", 204)
 }
 
 func (o *PerformancePriceLayersUpdatePricesNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewPerformancePriceLayersUpdatePricesDefault creates a PerformancePriceLayersUpdatePricesDefault with default headers values
+func NewPerformancePriceLayersUpdatePricesDefault(code int) *PerformancePriceLayersUpdatePricesDefault {
+	return &PerformancePriceLayersUpdatePricesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PerformancePriceLayersUpdatePricesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PerformancePriceLayersUpdatePricesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this performance price layers update prices default response has a 2xx status code
+func (o *PerformancePriceLayersUpdatePricesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this performance price layers update prices default response has a 3xx status code
+func (o *PerformancePriceLayersUpdatePricesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this performance price layers update prices default response has a 4xx status code
+func (o *PerformancePriceLayersUpdatePricesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this performance price layers update prices default response has a 5xx status code
+func (o *PerformancePriceLayersUpdatePricesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this performance price layers update prices default response a status code equal to that given
+func (o *PerformancePriceLayersUpdatePricesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the performance price layers update prices default response
+func (o *PerformancePriceLayersUpdatePricesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PerformancePriceLayersUpdatePricesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /TXN/PerformancePriceLayers/Prices][%d] PerformancePriceLayers_UpdatePrices default %s", o._statusCode, payload)
+}
+
+func (o *PerformancePriceLayersUpdatePricesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /TXN/PerformancePriceLayers/Prices][%d] PerformancePriceLayers_UpdatePrices default %s", o._statusCode, payload)
+}
+
+func (o *PerformancePriceLayersUpdatePricesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PerformancePriceLayersUpdatePricesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

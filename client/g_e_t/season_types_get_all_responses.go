@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SeasonTypesGetAllReader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/SeasonTypes] SeasonTypes_GetAll", response, response.Code())
+		result := NewSeasonTypesGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SeasonTypesGetAllOK) Code() int {
 }
 
 func (o *SeasonTypesGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/SeasonTypes][%d] seasonTypesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SeasonTypes][%d] seasonTypesGetAllOK %s", 200, payload)
 }
 
 func (o *SeasonTypesGetAllOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/SeasonTypes][%d] seasonTypesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SeasonTypes][%d] seasonTypesGetAllOK %s", 200, payload)
 }
 
 func (o *SeasonTypesGetAllOK) GetPayload() []*models.SeasonType {
@@ -94,6 +104,80 @@ func (o *SeasonTypesGetAllOK) readResponse(response runtime.ClientResponse, cons
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSeasonTypesGetAllDefault creates a SeasonTypesGetAllDefault with default headers values
+func NewSeasonTypesGetAllDefault(code int) *SeasonTypesGetAllDefault {
+	return &SeasonTypesGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SeasonTypesGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SeasonTypesGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this season types get all default response has a 2xx status code
+func (o *SeasonTypesGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this season types get all default response has a 3xx status code
+func (o *SeasonTypesGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this season types get all default response has a 4xx status code
+func (o *SeasonTypesGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this season types get all default response has a 5xx status code
+func (o *SeasonTypesGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this season types get all default response a status code equal to that given
+func (o *SeasonTypesGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the season types get all default response
+func (o *SeasonTypesGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SeasonTypesGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SeasonTypes][%d] SeasonTypes_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *SeasonTypesGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SeasonTypes][%d] SeasonTypes_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *SeasonTypesGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SeasonTypesGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

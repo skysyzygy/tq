@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PriceTypesCreateReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /TXN/PriceTypes] PriceTypes_Create", response, response.Code())
+		result := NewPriceTypesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PriceTypesCreateOK) Code() int {
 }
 
 func (o *PriceTypesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /TXN/PriceTypes][%d] priceTypesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/PriceTypes][%d] priceTypesCreateOK %s", 200, payload)
 }
 
 func (o *PriceTypesCreateOK) String() string {
-	return fmt.Sprintf("[POST /TXN/PriceTypes][%d] priceTypesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/PriceTypes][%d] priceTypesCreateOK %s", 200, payload)
 }
 
 func (o *PriceTypesCreateOK) GetPayload() *models.PriceType {
@@ -93,6 +103,80 @@ func (o *PriceTypesCreateOK) GetPayload() *models.PriceType {
 func (o *PriceTypesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.PriceType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPriceTypesCreateDefault creates a PriceTypesCreateDefault with default headers values
+func NewPriceTypesCreateDefault(code int) *PriceTypesCreateDefault {
+	return &PriceTypesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PriceTypesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PriceTypesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this price types create default response has a 2xx status code
+func (o *PriceTypesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this price types create default response has a 3xx status code
+func (o *PriceTypesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this price types create default response has a 4xx status code
+func (o *PriceTypesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this price types create default response has a 5xx status code
+func (o *PriceTypesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this price types create default response a status code equal to that given
+func (o *PriceTypesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the price types create default response
+func (o *PriceTypesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PriceTypesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/PriceTypes][%d] PriceTypes_Create default %s", o._statusCode, payload)
+}
+
+func (o *PriceTypesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/PriceTypes][%d] PriceTypes_Create default %s", o._statusCode, payload)
+}
+
+func (o *PriceTypesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PriceTypesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

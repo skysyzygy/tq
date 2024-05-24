@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SalutationsGetAllReader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /CRM/Salutations] Salutations_GetAll", response, response.Code())
+		result := NewSalutationsGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SalutationsGetAllOK) Code() int {
 }
 
 func (o *SalutationsGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /CRM/Salutations][%d] salutationsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Salutations][%d] salutationsGetAllOK %s", 200, payload)
 }
 
 func (o *SalutationsGetAllOK) String() string {
-	return fmt.Sprintf("[GET /CRM/Salutations][%d] salutationsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Salutations][%d] salutationsGetAllOK %s", 200, payload)
 }
 
 func (o *SalutationsGetAllOK) GetPayload() []*models.Salutation {
@@ -94,6 +104,80 @@ func (o *SalutationsGetAllOK) readResponse(response runtime.ClientResponse, cons
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSalutationsGetAllDefault creates a SalutationsGetAllDefault with default headers values
+func NewSalutationsGetAllDefault(code int) *SalutationsGetAllDefault {
+	return &SalutationsGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SalutationsGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SalutationsGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this salutations get all default response has a 2xx status code
+func (o *SalutationsGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this salutations get all default response has a 3xx status code
+func (o *SalutationsGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this salutations get all default response has a 4xx status code
+func (o *SalutationsGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this salutations get all default response has a 5xx status code
+func (o *SalutationsGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this salutations get all default response a status code equal to that given
+func (o *SalutationsGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the salutations get all default response
+func (o *SalutationsGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SalutationsGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Salutations][%d] Salutations_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *SalutationsGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Salutations][%d] Salutations_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *SalutationsGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SalutationsGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

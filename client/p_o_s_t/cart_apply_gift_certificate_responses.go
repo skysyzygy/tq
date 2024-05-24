@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *CartApplyGiftCertificateReader) ReadResponse(response runtime.ClientRes
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Web/Cart/{sessionKey}/Payments/GiftCertificate] Cart_ApplyGiftCertificate", response, response.Code())
+		result := NewCartApplyGiftCertificateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *CartApplyGiftCertificateOK) Code() int {
 }
 
 func (o *CartApplyGiftCertificateOK) Error() string {
-	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/GiftCertificate][%d] cartApplyGiftCertificateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/GiftCertificate][%d] cartApplyGiftCertificateOK %s", 200, payload)
 }
 
 func (o *CartApplyGiftCertificateOK) String() string {
-	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/GiftCertificate][%d] cartApplyGiftCertificateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/GiftCertificate][%d] cartApplyGiftCertificateOK %s", 200, payload)
 }
 
 func (o *CartApplyGiftCertificateOK) GetPayload() *models.ApplyPaymentResponse {
@@ -93,6 +103,80 @@ func (o *CartApplyGiftCertificateOK) GetPayload() *models.ApplyPaymentResponse {
 func (o *CartApplyGiftCertificateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ApplyPaymentResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCartApplyGiftCertificateDefault creates a CartApplyGiftCertificateDefault with default headers values
+func NewCartApplyGiftCertificateDefault(code int) *CartApplyGiftCertificateDefault {
+	return &CartApplyGiftCertificateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CartApplyGiftCertificateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CartApplyGiftCertificateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this cart apply gift certificate default response has a 2xx status code
+func (o *CartApplyGiftCertificateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this cart apply gift certificate default response has a 3xx status code
+func (o *CartApplyGiftCertificateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this cart apply gift certificate default response has a 4xx status code
+func (o *CartApplyGiftCertificateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this cart apply gift certificate default response has a 5xx status code
+func (o *CartApplyGiftCertificateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this cart apply gift certificate default response a status code equal to that given
+func (o *CartApplyGiftCertificateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the cart apply gift certificate default response
+func (o *CartApplyGiftCertificateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CartApplyGiftCertificateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/GiftCertificate][%d] Cart_ApplyGiftCertificate default %s", o._statusCode, payload)
+}
+
+func (o *CartApplyGiftCertificateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/GiftCertificate][%d] Cart_ApplyGiftCertificate default %s", o._statusCode, payload)
+}
+
+func (o *CartApplyGiftCertificateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CartApplyGiftCertificateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

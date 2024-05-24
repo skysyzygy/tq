@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ZonesSearchReader) ReadResponse(response runtime.ClientResponse, consum
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /TXN/Zones/Search] Zones_Search", response, response.Code())
+		result := NewZonesSearchDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ZonesSearchOK) Code() int {
 }
 
 func (o *ZonesSearchOK) Error() string {
-	return fmt.Sprintf("[POST /TXN/Zones/Search][%d] zonesSearchOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/Zones/Search][%d] zonesSearchOK %s", 200, payload)
 }
 
 func (o *ZonesSearchOK) String() string {
-	return fmt.Sprintf("[POST /TXN/Zones/Search][%d] zonesSearchOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/Zones/Search][%d] zonesSearchOK %s", 200, payload)
 }
 
 func (o *ZonesSearchOK) GetPayload() []*models.ZoneSearchResponse {
@@ -94,6 +104,80 @@ func (o *ZonesSearchOK) readResponse(response runtime.ClientResponse, consumer r
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewZonesSearchDefault creates a ZonesSearchDefault with default headers values
+func NewZonesSearchDefault(code int) *ZonesSearchDefault {
+	return &ZonesSearchDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ZonesSearchDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ZonesSearchDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this zones search default response has a 2xx status code
+func (o *ZonesSearchDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this zones search default response has a 3xx status code
+func (o *ZonesSearchDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this zones search default response has a 4xx status code
+func (o *ZonesSearchDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this zones search default response has a 5xx status code
+func (o *ZonesSearchDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this zones search default response a status code equal to that given
+func (o *ZonesSearchDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the zones search default response
+func (o *ZonesSearchDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ZonesSearchDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/Zones/Search][%d] Zones_Search default %s", o._statusCode, payload)
+}
+
+func (o *ZonesSearchDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/Zones/Search][%d] Zones_Search default %s", o._statusCode, payload)
+}
+
+func (o *ZonesSearchDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ZonesSearchDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

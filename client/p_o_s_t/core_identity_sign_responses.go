@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *CoreIdentitySignReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Security/CoreIdentity/Sign] CoreIdentity_Sign", response, response.Code())
+		result := NewCoreIdentitySignDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *CoreIdentitySignOK) Code() int {
 }
 
 func (o *CoreIdentitySignOK) Error() string {
-	return fmt.Sprintf("[POST /Security/CoreIdentity/Sign][%d] coreIdentitySignOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Security/CoreIdentity/Sign][%d] coreIdentitySignOK %s", 200, payload)
 }
 
 func (o *CoreIdentitySignOK) String() string {
-	return fmt.Sprintf("[POST /Security/CoreIdentity/Sign][%d] coreIdentitySignOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Security/CoreIdentity/Sign][%d] coreIdentitySignOK %s", 200, payload)
 }
 
 func (o *CoreIdentitySignOK) GetPayload() *models.CoreIdentitySignResponse {
@@ -93,6 +103,80 @@ func (o *CoreIdentitySignOK) GetPayload() *models.CoreIdentitySignResponse {
 func (o *CoreIdentitySignOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.CoreIdentitySignResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCoreIdentitySignDefault creates a CoreIdentitySignDefault with default headers values
+func NewCoreIdentitySignDefault(code int) *CoreIdentitySignDefault {
+	return &CoreIdentitySignDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CoreIdentitySignDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CoreIdentitySignDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this core identity sign default response has a 2xx status code
+func (o *CoreIdentitySignDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this core identity sign default response has a 3xx status code
+func (o *CoreIdentitySignDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this core identity sign default response has a 4xx status code
+func (o *CoreIdentitySignDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this core identity sign default response has a 5xx status code
+func (o *CoreIdentitySignDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this core identity sign default response a status code equal to that given
+func (o *CoreIdentitySignDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the core identity sign default response
+func (o *CoreIdentitySignDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CoreIdentitySignDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Security/CoreIdentity/Sign][%d] CoreIdentity_Sign default %s", o._statusCode, payload)
+}
+
+func (o *CoreIdentitySignDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Security/CoreIdentity/Sign][%d] CoreIdentity_Sign default %s", o._statusCode, payload)
+}
+
+func (o *CoreIdentitySignDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CoreIdentitySignDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

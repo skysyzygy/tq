@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ResourcesGetReader) ReadResponse(response runtime.ClientResponse, consu
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /EventsManagement/Resources/{id}] Resources_Get", response, response.Code())
+		result := NewResourcesGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ResourcesGetOK) Code() int {
 }
 
 func (o *ResourcesGetOK) Error() string {
-	return fmt.Sprintf("[GET /EventsManagement/Resources/{id}][%d] resourcesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /EventsManagement/Resources/{id}][%d] resourcesGetOK %s", 200, payload)
 }
 
 func (o *ResourcesGetOK) String() string {
-	return fmt.Sprintf("[GET /EventsManagement/Resources/{id}][%d] resourcesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /EventsManagement/Resources/{id}][%d] resourcesGetOK %s", 200, payload)
 }
 
 func (o *ResourcesGetOK) GetPayload() *models.Resource {
@@ -93,6 +103,80 @@ func (o *ResourcesGetOK) GetPayload() *models.Resource {
 func (o *ResourcesGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Resource)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewResourcesGetDefault creates a ResourcesGetDefault with default headers values
+func NewResourcesGetDefault(code int) *ResourcesGetDefault {
+	return &ResourcesGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ResourcesGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ResourcesGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this resources get default response has a 2xx status code
+func (o *ResourcesGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this resources get default response has a 3xx status code
+func (o *ResourcesGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this resources get default response has a 4xx status code
+func (o *ResourcesGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this resources get default response has a 5xx status code
+func (o *ResourcesGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this resources get default response a status code equal to that given
+func (o *ResourcesGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the resources get default response
+func (o *ResourcesGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ResourcesGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /EventsManagement/Resources/{id}][%d] Resources_Get default %s", o._statusCode, payload)
+}
+
+func (o *ResourcesGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /EventsManagement/Resources/{id}][%d] Resources_Get default %s", o._statusCode, payload)
+}
+
+func (o *ResourcesGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ResourcesGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

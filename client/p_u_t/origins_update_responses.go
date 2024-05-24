@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *OriginsUpdateReader) ReadResponse(response runtime.ClientResponse, cons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/Origins/{id}] Origins_Update", response, response.Code())
+		result := NewOriginsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *OriginsUpdateOK) Code() int {
 }
 
 func (o *OriginsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/Origins/{id}][%d] originsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/Origins/{id}][%d] originsUpdateOK %s", 200, payload)
 }
 
 func (o *OriginsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/Origins/{id}][%d] originsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/Origins/{id}][%d] originsUpdateOK %s", 200, payload)
 }
 
 func (o *OriginsUpdateOK) GetPayload() *models.Origin {
@@ -93,6 +103,80 @@ func (o *OriginsUpdateOK) GetPayload() *models.Origin {
 func (o *OriginsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Origin)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewOriginsUpdateDefault creates a OriginsUpdateDefault with default headers values
+func NewOriginsUpdateDefault(code int) *OriginsUpdateDefault {
+	return &OriginsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+OriginsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type OriginsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this origins update default response has a 2xx status code
+func (o *OriginsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this origins update default response has a 3xx status code
+func (o *OriginsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this origins update default response has a 4xx status code
+func (o *OriginsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this origins update default response has a 5xx status code
+func (o *OriginsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this origins update default response a status code equal to that given
+func (o *OriginsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the origins update default response
+func (o *OriginsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *OriginsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/Origins/{id}][%d] Origins_Update default %s", o._statusCode, payload)
+}
+
+func (o *OriginsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/Origins/{id}][%d] Origins_Update default %s", o._statusCode, payload)
+}
+
+func (o *OriginsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *OriginsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *WorkerQualificationsGetAllReader) ReadResponse(response runtime.ClientR
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /CRM/WorkerQualifications] WorkerQualifications_GetAll", response, response.Code())
+		result := NewWorkerQualificationsGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *WorkerQualificationsGetAllOK) Code() int {
 }
 
 func (o *WorkerQualificationsGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /CRM/WorkerQualifications][%d] workerQualificationsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/WorkerQualifications][%d] workerQualificationsGetAllOK %s", 200, payload)
 }
 
 func (o *WorkerQualificationsGetAllOK) String() string {
-	return fmt.Sprintf("[GET /CRM/WorkerQualifications][%d] workerQualificationsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/WorkerQualifications][%d] workerQualificationsGetAllOK %s", 200, payload)
 }
 
 func (o *WorkerQualificationsGetAllOK) GetPayload() []*models.WorkerQualification {
@@ -94,6 +104,80 @@ func (o *WorkerQualificationsGetAllOK) readResponse(response runtime.ClientRespo
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewWorkerQualificationsGetAllDefault creates a WorkerQualificationsGetAllDefault with default headers values
+func NewWorkerQualificationsGetAllDefault(code int) *WorkerQualificationsGetAllDefault {
+	return &WorkerQualificationsGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+WorkerQualificationsGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type WorkerQualificationsGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this worker qualifications get all default response has a 2xx status code
+func (o *WorkerQualificationsGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this worker qualifications get all default response has a 3xx status code
+func (o *WorkerQualificationsGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this worker qualifications get all default response has a 4xx status code
+func (o *WorkerQualificationsGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this worker qualifications get all default response has a 5xx status code
+func (o *WorkerQualificationsGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this worker qualifications get all default response a status code equal to that given
+func (o *WorkerQualificationsGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the worker qualifications get all default response
+func (o *WorkerQualificationsGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *WorkerQualificationsGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/WorkerQualifications][%d] WorkerQualifications_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *WorkerQualificationsGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/WorkerQualifications][%d] WorkerQualifications_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *WorkerQualificationsGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *WorkerQualificationsGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

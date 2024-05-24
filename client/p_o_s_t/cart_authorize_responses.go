@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *CartAuthorizeReader) ReadResponse(response runtime.ClientResponse, cons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Web/Cart/{sessionKey}/Payments/EMV/Authorize] Cart_Authorize", response, response.Code())
+		result := NewCartAuthorizeDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *CartAuthorizeOK) Code() int {
 }
 
 func (o *CartAuthorizeOK) Error() string {
-	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/EMV/Authorize][%d] cartAuthorizeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/EMV/Authorize][%d] cartAuthorizeOK %s", 200, payload)
 }
 
 func (o *CartAuthorizeOK) String() string {
-	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/EMV/Authorize][%d] cartAuthorizeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/EMV/Authorize][%d] cartAuthorizeOK %s", 200, payload)
 }
 
 func (o *CartAuthorizeOK) GetPayload() *models.WebEmvAuthorizationResponse {
@@ -93,6 +103,80 @@ func (o *CartAuthorizeOK) GetPayload() *models.WebEmvAuthorizationResponse {
 func (o *CartAuthorizeOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.WebEmvAuthorizationResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCartAuthorizeDefault creates a CartAuthorizeDefault with default headers values
+func NewCartAuthorizeDefault(code int) *CartAuthorizeDefault {
+	return &CartAuthorizeDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CartAuthorizeDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CartAuthorizeDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this cart authorize default response has a 2xx status code
+func (o *CartAuthorizeDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this cart authorize default response has a 3xx status code
+func (o *CartAuthorizeDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this cart authorize default response has a 4xx status code
+func (o *CartAuthorizeDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this cart authorize default response has a 5xx status code
+func (o *CartAuthorizeDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this cart authorize default response a status code equal to that given
+func (o *CartAuthorizeDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the cart authorize default response
+func (o *CartAuthorizeDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CartAuthorizeDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/EMV/Authorize][%d] Cart_Authorize default %s", o._statusCode, payload)
+}
+
+func (o *CartAuthorizeDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/EMV/Authorize][%d] Cart_Authorize default %s", o._statusCode, payload)
+}
+
+func (o *CartAuthorizeDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CartAuthorizeDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

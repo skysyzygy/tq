@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SessionGetExpirationReader) ReadResponse(response runtime.ClientRespons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Web/Session/{sessionKey}/Expiration] Session_GetExpiration", response, response.Code())
+		result := NewSessionGetExpirationDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SessionGetExpirationOK) Code() int {
 }
 
 func (o *SessionGetExpirationOK) Error() string {
-	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Expiration][%d] sessionGetExpirationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Expiration][%d] sessionGetExpirationOK %s", 200, payload)
 }
 
 func (o *SessionGetExpirationOK) String() string {
-	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Expiration][%d] sessionGetExpirationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Expiration][%d] sessionGetExpirationOK %s", 200, payload)
 }
 
 func (o *SessionGetExpirationOK) GetPayload() *models.SessionExpirationResponse {
@@ -93,6 +103,80 @@ func (o *SessionGetExpirationOK) GetPayload() *models.SessionExpirationResponse 
 func (o *SessionGetExpirationOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.SessionExpirationResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSessionGetExpirationDefault creates a SessionGetExpirationDefault with default headers values
+func NewSessionGetExpirationDefault(code int) *SessionGetExpirationDefault {
+	return &SessionGetExpirationDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SessionGetExpirationDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SessionGetExpirationDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this session get expiration default response has a 2xx status code
+func (o *SessionGetExpirationDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this session get expiration default response has a 3xx status code
+func (o *SessionGetExpirationDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this session get expiration default response has a 4xx status code
+func (o *SessionGetExpirationDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this session get expiration default response has a 5xx status code
+func (o *SessionGetExpirationDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this session get expiration default response a status code equal to that given
+func (o *SessionGetExpirationDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the session get expiration default response
+func (o *SessionGetExpirationDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SessionGetExpirationDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Expiration][%d] Session_GetExpiration default %s", o._statusCode, payload)
+}
+
+func (o *SessionGetExpirationDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Expiration][%d] Session_GetExpiration default %s", o._statusCode, payload)
+}
+
+func (o *SessionGetExpirationDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SessionGetExpirationDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

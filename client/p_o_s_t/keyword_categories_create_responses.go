@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *KeywordCategoriesCreateReader) ReadResponse(response runtime.ClientResp
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /ReferenceData/KeywordCategories] KeywordCategories_Create", response, response.Code())
+		result := NewKeywordCategoriesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *KeywordCategoriesCreateOK) Code() int {
 }
 
 func (o *KeywordCategoriesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /ReferenceData/KeywordCategories][%d] keywordCategoriesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/KeywordCategories][%d] keywordCategoriesCreateOK %s", 200, payload)
 }
 
 func (o *KeywordCategoriesCreateOK) String() string {
-	return fmt.Sprintf("[POST /ReferenceData/KeywordCategories][%d] keywordCategoriesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/KeywordCategories][%d] keywordCategoriesCreateOK %s", 200, payload)
 }
 
 func (o *KeywordCategoriesCreateOK) GetPayload() *models.KeywordCategory {
@@ -93,6 +103,80 @@ func (o *KeywordCategoriesCreateOK) GetPayload() *models.KeywordCategory {
 func (o *KeywordCategoriesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.KeywordCategory)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewKeywordCategoriesCreateDefault creates a KeywordCategoriesCreateDefault with default headers values
+func NewKeywordCategoriesCreateDefault(code int) *KeywordCategoriesCreateDefault {
+	return &KeywordCategoriesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+KeywordCategoriesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type KeywordCategoriesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this keyword categories create default response has a 2xx status code
+func (o *KeywordCategoriesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this keyword categories create default response has a 3xx status code
+func (o *KeywordCategoriesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this keyword categories create default response has a 4xx status code
+func (o *KeywordCategoriesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this keyword categories create default response has a 5xx status code
+func (o *KeywordCategoriesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this keyword categories create default response a status code equal to that given
+func (o *KeywordCategoriesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the keyword categories create default response
+func (o *KeywordCategoriesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *KeywordCategoriesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/KeywordCategories][%d] KeywordCategories_Create default %s", o._statusCode, payload)
+}
+
+func (o *KeywordCategoriesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/KeywordCategories][%d] KeywordCategories_Create default %s", o._statusCode, payload)
+}
+
+func (o *KeywordCategoriesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *KeywordCategoriesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

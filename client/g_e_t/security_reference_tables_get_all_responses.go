@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SecurityReferenceTablesGetAllReader) ReadResponse(response runtime.Clie
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Security/ReferenceTables] SecurityReferenceTables_GetAll", response, response.Code())
+		result := NewSecurityReferenceTablesGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SecurityReferenceTablesGetAllOK) Code() int {
 }
 
 func (o *SecurityReferenceTablesGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /Security/ReferenceTables][%d] securityReferenceTablesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Security/ReferenceTables][%d] securityReferenceTablesGetAllOK %s", 200, payload)
 }
 
 func (o *SecurityReferenceTablesGetAllOK) String() string {
-	return fmt.Sprintf("[GET /Security/ReferenceTables][%d] securityReferenceTablesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Security/ReferenceTables][%d] securityReferenceTablesGetAllOK %s", 200, payload)
 }
 
 func (o *SecurityReferenceTablesGetAllOK) GetPayload() []*models.ReferenceTableUserGroup {
@@ -94,6 +104,80 @@ func (o *SecurityReferenceTablesGetAllOK) readResponse(response runtime.ClientRe
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSecurityReferenceTablesGetAllDefault creates a SecurityReferenceTablesGetAllDefault with default headers values
+func NewSecurityReferenceTablesGetAllDefault(code int) *SecurityReferenceTablesGetAllDefault {
+	return &SecurityReferenceTablesGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SecurityReferenceTablesGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SecurityReferenceTablesGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this security reference tables get all default response has a 2xx status code
+func (o *SecurityReferenceTablesGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this security reference tables get all default response has a 3xx status code
+func (o *SecurityReferenceTablesGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this security reference tables get all default response has a 4xx status code
+func (o *SecurityReferenceTablesGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this security reference tables get all default response has a 5xx status code
+func (o *SecurityReferenceTablesGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this security reference tables get all default response a status code equal to that given
+func (o *SecurityReferenceTablesGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the security reference tables get all default response
+func (o *SecurityReferenceTablesGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SecurityReferenceTablesGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Security/ReferenceTables][%d] SecurityReferenceTables_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *SecurityReferenceTablesGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Security/ReferenceTables][%d] SecurityReferenceTables_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *SecurityReferenceTablesGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SecurityReferenceTablesGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

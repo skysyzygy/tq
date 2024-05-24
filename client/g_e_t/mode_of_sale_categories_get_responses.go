@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ModeOfSaleCategoriesGetReader) ReadResponse(response runtime.ClientResp
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /TXN/ModeOfSaleCategories/{modeOfSaleCategoryId}] ModeOfSaleCategories_Get", response, response.Code())
+		result := NewModeOfSaleCategoriesGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ModeOfSaleCategoriesGetOK) Code() int {
 }
 
 func (o *ModeOfSaleCategoriesGetOK) Error() string {
-	return fmt.Sprintf("[GET /TXN/ModeOfSaleCategories/{modeOfSaleCategoryId}][%d] modeOfSaleCategoriesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/ModeOfSaleCategories/{modeOfSaleCategoryId}][%d] modeOfSaleCategoriesGetOK %s", 200, payload)
 }
 
 func (o *ModeOfSaleCategoriesGetOK) String() string {
-	return fmt.Sprintf("[GET /TXN/ModeOfSaleCategories/{modeOfSaleCategoryId}][%d] modeOfSaleCategoriesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/ModeOfSaleCategories/{modeOfSaleCategoryId}][%d] modeOfSaleCategoriesGetOK %s", 200, payload)
 }
 
 func (o *ModeOfSaleCategoriesGetOK) GetPayload() *models.ModeOfSaleCategory {
@@ -93,6 +103,80 @@ func (o *ModeOfSaleCategoriesGetOK) GetPayload() *models.ModeOfSaleCategory {
 func (o *ModeOfSaleCategoriesGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ModeOfSaleCategory)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewModeOfSaleCategoriesGetDefault creates a ModeOfSaleCategoriesGetDefault with default headers values
+func NewModeOfSaleCategoriesGetDefault(code int) *ModeOfSaleCategoriesGetDefault {
+	return &ModeOfSaleCategoriesGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ModeOfSaleCategoriesGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ModeOfSaleCategoriesGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this mode of sale categories get default response has a 2xx status code
+func (o *ModeOfSaleCategoriesGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this mode of sale categories get default response has a 3xx status code
+func (o *ModeOfSaleCategoriesGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this mode of sale categories get default response has a 4xx status code
+func (o *ModeOfSaleCategoriesGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this mode of sale categories get default response has a 5xx status code
+func (o *ModeOfSaleCategoriesGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this mode of sale categories get default response a status code equal to that given
+func (o *ModeOfSaleCategoriesGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the mode of sale categories get default response
+func (o *ModeOfSaleCategoriesGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ModeOfSaleCategoriesGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/ModeOfSaleCategories/{modeOfSaleCategoryId}][%d] ModeOfSaleCategories_Get default %s", o._statusCode, payload)
+}
+
+func (o *ModeOfSaleCategoriesGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/ModeOfSaleCategories/{modeOfSaleCategoryId}][%d] ModeOfSaleCategories_Get default %s", o._statusCode, payload)
+}
+
+func (o *ModeOfSaleCategoriesGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ModeOfSaleCategoriesGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

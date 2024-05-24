@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *QualificationCategoriesGetSummariesReader) ReadResponse(response runtim
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/QualificationCategories/Summary] QualificationCategories_GetSummaries", response, response.Code())
+		result := NewQualificationCategoriesGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *QualificationCategoriesGetSummariesOK) Code() int {
 }
 
 func (o *QualificationCategoriesGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/QualificationCategories/Summary][%d] qualificationCategoriesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/QualificationCategories/Summary][%d] qualificationCategoriesGetSummariesOK %s", 200, payload)
 }
 
 func (o *QualificationCategoriesGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/QualificationCategories/Summary][%d] qualificationCategoriesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/QualificationCategories/Summary][%d] qualificationCategoriesGetSummariesOK %s", 200, payload)
 }
 
 func (o *QualificationCategoriesGetSummariesOK) GetPayload() []*models.QualificationCategorySummary {
@@ -94,6 +104,80 @@ func (o *QualificationCategoriesGetSummariesOK) readResponse(response runtime.Cl
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewQualificationCategoriesGetSummariesDefault creates a QualificationCategoriesGetSummariesDefault with default headers values
+func NewQualificationCategoriesGetSummariesDefault(code int) *QualificationCategoriesGetSummariesDefault {
+	return &QualificationCategoriesGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+QualificationCategoriesGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type QualificationCategoriesGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this qualification categories get summaries default response has a 2xx status code
+func (o *QualificationCategoriesGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this qualification categories get summaries default response has a 3xx status code
+func (o *QualificationCategoriesGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this qualification categories get summaries default response has a 4xx status code
+func (o *QualificationCategoriesGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this qualification categories get summaries default response has a 5xx status code
+func (o *QualificationCategoriesGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this qualification categories get summaries default response a status code equal to that given
+func (o *QualificationCategoriesGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the qualification categories get summaries default response
+func (o *QualificationCategoriesGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *QualificationCategoriesGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/QualificationCategories/Summary][%d] QualificationCategories_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *QualificationCategoriesGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/QualificationCategories/Summary][%d] QualificationCategories_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *QualificationCategoriesGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *QualificationCategoriesGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

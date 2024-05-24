@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // MembershipLevelCategoriesDeleteReader is a Reader for the MembershipLevelCategoriesDelete structure.
@@ -27,7 +31,14 @@ func (o *MembershipLevelCategoriesDeleteReader) ReadResponse(response runtime.Cl
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /ReferenceData/MembershipLevelCategories/{id}] MembershipLevelCategories_Delete", response, response.Code())
+		result := NewMembershipLevelCategoriesDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *MembershipLevelCategoriesDeleteNoContent) Code() int {
 }
 
 func (o *MembershipLevelCategoriesDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/MembershipLevelCategories/{id}][%d] membershipLevelCategoriesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/MembershipLevelCategories/{id}][%d] membershipLevelCategoriesDeleteNoContent", 204)
 }
 
 func (o *MembershipLevelCategoriesDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/MembershipLevelCategories/{id}][%d] membershipLevelCategoriesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/MembershipLevelCategories/{id}][%d] membershipLevelCategoriesDeleteNoContent", 204)
 }
 
 func (o *MembershipLevelCategoriesDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewMembershipLevelCategoriesDeleteDefault creates a MembershipLevelCategoriesDeleteDefault with default headers values
+func NewMembershipLevelCategoriesDeleteDefault(code int) *MembershipLevelCategoriesDeleteDefault {
+	return &MembershipLevelCategoriesDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+MembershipLevelCategoriesDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type MembershipLevelCategoriesDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this membership level categories delete default response has a 2xx status code
+func (o *MembershipLevelCategoriesDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this membership level categories delete default response has a 3xx status code
+func (o *MembershipLevelCategoriesDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this membership level categories delete default response has a 4xx status code
+func (o *MembershipLevelCategoriesDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this membership level categories delete default response has a 5xx status code
+func (o *MembershipLevelCategoriesDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this membership level categories delete default response a status code equal to that given
+func (o *MembershipLevelCategoriesDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the membership level categories delete default response
+func (o *MembershipLevelCategoriesDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *MembershipLevelCategoriesDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/MembershipLevelCategories/{id}][%d] MembershipLevelCategories_Delete default %s", o._statusCode, payload)
+}
+
+func (o *MembershipLevelCategoriesDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/MembershipLevelCategories/{id}][%d] MembershipLevelCategories_Delete default %s", o._statusCode, payload)
+}
+
+func (o *MembershipLevelCategoriesDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *MembershipLevelCategoriesDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

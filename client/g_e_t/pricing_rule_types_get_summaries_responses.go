@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PricingRuleTypesGetSummariesReader) ReadResponse(response runtime.Clien
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/PricingRuleTypes/Summary] PricingRuleTypes_GetSummaries", response, response.Code())
+		result := NewPricingRuleTypesGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PricingRuleTypesGetSummariesOK) Code() int {
 }
 
 func (o *PricingRuleTypesGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/PricingRuleTypes/Summary][%d] pricingRuleTypesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PricingRuleTypes/Summary][%d] pricingRuleTypesGetSummariesOK %s", 200, payload)
 }
 
 func (o *PricingRuleTypesGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/PricingRuleTypes/Summary][%d] pricingRuleTypesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PricingRuleTypes/Summary][%d] pricingRuleTypesGetSummariesOK %s", 200, payload)
 }
 
 func (o *PricingRuleTypesGetSummariesOK) GetPayload() []*models.PricingRuleTypeSummary {
@@ -94,6 +104,80 @@ func (o *PricingRuleTypesGetSummariesOK) readResponse(response runtime.ClientRes
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPricingRuleTypesGetSummariesDefault creates a PricingRuleTypesGetSummariesDefault with default headers values
+func NewPricingRuleTypesGetSummariesDefault(code int) *PricingRuleTypesGetSummariesDefault {
+	return &PricingRuleTypesGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PricingRuleTypesGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PricingRuleTypesGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this pricing rule types get summaries default response has a 2xx status code
+func (o *PricingRuleTypesGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this pricing rule types get summaries default response has a 3xx status code
+func (o *PricingRuleTypesGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this pricing rule types get summaries default response has a 4xx status code
+func (o *PricingRuleTypesGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this pricing rule types get summaries default response has a 5xx status code
+func (o *PricingRuleTypesGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this pricing rule types get summaries default response a status code equal to that given
+func (o *PricingRuleTypesGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the pricing rule types get summaries default response
+func (o *PricingRuleTypesGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PricingRuleTypesGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PricingRuleTypes/Summary][%d] PricingRuleTypes_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *PricingRuleTypesGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PricingRuleTypes/Summary][%d] PricingRuleTypes_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *PricingRuleTypesGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PricingRuleTypesGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

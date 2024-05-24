@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SalesLayoutButtonTypesUpdateReader) ReadResponse(response runtime.Clien
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/SalesLayoutButtonTypes/{id}] SalesLayoutButtonTypes_Update", response, response.Code())
+		result := NewSalesLayoutButtonTypesUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SalesLayoutButtonTypesUpdateOK) Code() int {
 }
 
 func (o *SalesLayoutButtonTypesUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/SalesLayoutButtonTypes/{id}][%d] salesLayoutButtonTypesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/SalesLayoutButtonTypes/{id}][%d] salesLayoutButtonTypesUpdateOK %s", 200, payload)
 }
 
 func (o *SalesLayoutButtonTypesUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/SalesLayoutButtonTypes/{id}][%d] salesLayoutButtonTypesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/SalesLayoutButtonTypes/{id}][%d] salesLayoutButtonTypesUpdateOK %s", 200, payload)
 }
 
 func (o *SalesLayoutButtonTypesUpdateOK) GetPayload() *models.SalesLayoutButtonType {
@@ -93,6 +103,80 @@ func (o *SalesLayoutButtonTypesUpdateOK) GetPayload() *models.SalesLayoutButtonT
 func (o *SalesLayoutButtonTypesUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.SalesLayoutButtonType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSalesLayoutButtonTypesUpdateDefault creates a SalesLayoutButtonTypesUpdateDefault with default headers values
+func NewSalesLayoutButtonTypesUpdateDefault(code int) *SalesLayoutButtonTypesUpdateDefault {
+	return &SalesLayoutButtonTypesUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SalesLayoutButtonTypesUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SalesLayoutButtonTypesUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this sales layout button types update default response has a 2xx status code
+func (o *SalesLayoutButtonTypesUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this sales layout button types update default response has a 3xx status code
+func (o *SalesLayoutButtonTypesUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this sales layout button types update default response has a 4xx status code
+func (o *SalesLayoutButtonTypesUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this sales layout button types update default response has a 5xx status code
+func (o *SalesLayoutButtonTypesUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this sales layout button types update default response a status code equal to that given
+func (o *SalesLayoutButtonTypesUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the sales layout button types update default response
+func (o *SalesLayoutButtonTypesUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SalesLayoutButtonTypesUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/SalesLayoutButtonTypes/{id}][%d] SalesLayoutButtonTypes_Update default %s", o._statusCode, payload)
+}
+
+func (o *SalesLayoutButtonTypesUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/SalesLayoutButtonTypes/{id}][%d] SalesLayoutButtonTypes_Update default %s", o._statusCode, payload)
+}
+
+func (o *SalesLayoutButtonTypesUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SalesLayoutButtonTypesUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

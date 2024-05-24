@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // CartRemovePaymentReader is a Reader for the CartRemovePayment structure.
@@ -27,7 +31,14 @@ func (o *CartRemovePaymentReader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /Web/Cart/{sessionKey}/Payments/{paymentId}] Cart_RemovePayment", response, response.Code())
+		result := NewCartRemovePaymentDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *CartRemovePaymentNoContent) Code() int {
 }
 
 func (o *CartRemovePaymentNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /Web/Cart/{sessionKey}/Payments/{paymentId}][%d] cartRemovePaymentNoContent ", 204)
+	return fmt.Sprintf("[DELETE /Web/Cart/{sessionKey}/Payments/{paymentId}][%d] cartRemovePaymentNoContent", 204)
 }
 
 func (o *CartRemovePaymentNoContent) String() string {
-	return fmt.Sprintf("[DELETE /Web/Cart/{sessionKey}/Payments/{paymentId}][%d] cartRemovePaymentNoContent ", 204)
+	return fmt.Sprintf("[DELETE /Web/Cart/{sessionKey}/Payments/{paymentId}][%d] cartRemovePaymentNoContent", 204)
 }
 
 func (o *CartRemovePaymentNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewCartRemovePaymentDefault creates a CartRemovePaymentDefault with default headers values
+func NewCartRemovePaymentDefault(code int) *CartRemovePaymentDefault {
+	return &CartRemovePaymentDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CartRemovePaymentDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CartRemovePaymentDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this cart remove payment default response has a 2xx status code
+func (o *CartRemovePaymentDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this cart remove payment default response has a 3xx status code
+func (o *CartRemovePaymentDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this cart remove payment default response has a 4xx status code
+func (o *CartRemovePaymentDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this cart remove payment default response has a 5xx status code
+func (o *CartRemovePaymentDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this cart remove payment default response a status code equal to that given
+func (o *CartRemovePaymentDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the cart remove payment default response
+func (o *CartRemovePaymentDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CartRemovePaymentDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /Web/Cart/{sessionKey}/Payments/{paymentId}][%d] Cart_RemovePayment default %s", o._statusCode, payload)
+}
+
+func (o *CartRemovePaymentDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /Web/Cart/{sessionKey}/Payments/{paymentId}][%d] Cart_RemovePayment default %s", o._statusCode, payload)
+}
+
+func (o *CartRemovePaymentDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CartRemovePaymentDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

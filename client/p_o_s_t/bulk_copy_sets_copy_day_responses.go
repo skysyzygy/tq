@@ -6,10 +6,14 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // BulkCopySetsCopyDayReader is a Reader for the BulkCopySetsCopyDay structure.
@@ -27,7 +31,14 @@ func (o *BulkCopySetsCopyDayReader) ReadResponse(response runtime.ClientResponse
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /TXN/BulkCopySets/{bulkCopySetId}/CopyDay] BulkCopySets_CopyDay", response, response.Code())
+		result := NewBulkCopySetsCopyDayDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *BulkCopySetsCopyDayNoContent) Code() int {
 }
 
 func (o *BulkCopySetsCopyDayNoContent) Error() string {
-	return fmt.Sprintf("[POST /TXN/BulkCopySets/{bulkCopySetId}/CopyDay][%d] bulkCopySetsCopyDayNoContent ", 204)
+	return fmt.Sprintf("[POST /TXN/BulkCopySets/{bulkCopySetId}/CopyDay][%d] bulkCopySetsCopyDayNoContent", 204)
 }
 
 func (o *BulkCopySetsCopyDayNoContent) String() string {
-	return fmt.Sprintf("[POST /TXN/BulkCopySets/{bulkCopySetId}/CopyDay][%d] bulkCopySetsCopyDayNoContent ", 204)
+	return fmt.Sprintf("[POST /TXN/BulkCopySets/{bulkCopySetId}/CopyDay][%d] bulkCopySetsCopyDayNoContent", 204)
 }
 
 func (o *BulkCopySetsCopyDayNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewBulkCopySetsCopyDayDefault creates a BulkCopySetsCopyDayDefault with default headers values
+func NewBulkCopySetsCopyDayDefault(code int) *BulkCopySetsCopyDayDefault {
+	return &BulkCopySetsCopyDayDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+BulkCopySetsCopyDayDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type BulkCopySetsCopyDayDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this bulk copy sets copy day default response has a 2xx status code
+func (o *BulkCopySetsCopyDayDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this bulk copy sets copy day default response has a 3xx status code
+func (o *BulkCopySetsCopyDayDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this bulk copy sets copy day default response has a 4xx status code
+func (o *BulkCopySetsCopyDayDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this bulk copy sets copy day default response has a 5xx status code
+func (o *BulkCopySetsCopyDayDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this bulk copy sets copy day default response a status code equal to that given
+func (o *BulkCopySetsCopyDayDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the bulk copy sets copy day default response
+func (o *BulkCopySetsCopyDayDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *BulkCopySetsCopyDayDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/BulkCopySets/{bulkCopySetId}/CopyDay][%d] BulkCopySets_CopyDay default %s", o._statusCode, payload)
+}
+
+func (o *BulkCopySetsCopyDayDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/BulkCopySets/{bulkCopySetId}/CopyDay][%d] BulkCopySets_CopyDay default %s", o._statusCode, payload)
+}
+
+func (o *BulkCopySetsCopyDayDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *BulkCopySetsCopyDayDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

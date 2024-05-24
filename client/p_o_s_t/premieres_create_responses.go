@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PremieresCreateReader) ReadResponse(response runtime.ClientResponse, co
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /ReferenceData/Premieres] Premieres_Create", response, response.Code())
+		result := NewPremieresCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PremieresCreateOK) Code() int {
 }
 
 func (o *PremieresCreateOK) Error() string {
-	return fmt.Sprintf("[POST /ReferenceData/Premieres][%d] premieresCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/Premieres][%d] premieresCreateOK %s", 200, payload)
 }
 
 func (o *PremieresCreateOK) String() string {
-	return fmt.Sprintf("[POST /ReferenceData/Premieres][%d] premieresCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/Premieres][%d] premieresCreateOK %s", 200, payload)
 }
 
 func (o *PremieresCreateOK) GetPayload() *models.Premiere {
@@ -93,6 +103,80 @@ func (o *PremieresCreateOK) GetPayload() *models.Premiere {
 func (o *PremieresCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Premiere)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPremieresCreateDefault creates a PremieresCreateDefault with default headers values
+func NewPremieresCreateDefault(code int) *PremieresCreateDefault {
+	return &PremieresCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PremieresCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PremieresCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this premieres create default response has a 2xx status code
+func (o *PremieresCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this premieres create default response has a 3xx status code
+func (o *PremieresCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this premieres create default response has a 4xx status code
+func (o *PremieresCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this premieres create default response has a 5xx status code
+func (o *PremieresCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this premieres create default response a status code equal to that given
+func (o *PremieresCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the premieres create default response
+func (o *PremieresCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PremieresCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/Premieres][%d] Premieres_Create default %s", o._statusCode, payload)
+}
+
+func (o *PremieresCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/Premieres][%d] Premieres_Create default %s", o._statusCode, payload)
+}
+
+func (o *PremieresCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PremieresCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ReportRequestsGetQueuedReader) ReadResponse(response runtime.ClientResp
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Reporting/ReportRequests/Queued] ReportRequests_GetQueued", response, response.Code())
+		result := NewReportRequestsGetQueuedDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ReportRequestsGetQueuedOK) Code() int {
 }
 
 func (o *ReportRequestsGetQueuedOK) Error() string {
-	return fmt.Sprintf("[GET /Reporting/ReportRequests/Queued][%d] reportRequestsGetQueuedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Reporting/ReportRequests/Queued][%d] reportRequestsGetQueuedOK %s", 200, payload)
 }
 
 func (o *ReportRequestsGetQueuedOK) String() string {
-	return fmt.Sprintf("[GET /Reporting/ReportRequests/Queued][%d] reportRequestsGetQueuedOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Reporting/ReportRequests/Queued][%d] reportRequestsGetQueuedOK %s", 200, payload)
 }
 
 func (o *ReportRequestsGetQueuedOK) GetPayload() []*models.ReportRequest {
@@ -94,6 +104,80 @@ func (o *ReportRequestsGetQueuedOK) readResponse(response runtime.ClientResponse
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewReportRequestsGetQueuedDefault creates a ReportRequestsGetQueuedDefault with default headers values
+func NewReportRequestsGetQueuedDefault(code int) *ReportRequestsGetQueuedDefault {
+	return &ReportRequestsGetQueuedDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ReportRequestsGetQueuedDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ReportRequestsGetQueuedDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this report requests get queued default response has a 2xx status code
+func (o *ReportRequestsGetQueuedDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this report requests get queued default response has a 3xx status code
+func (o *ReportRequestsGetQueuedDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this report requests get queued default response has a 4xx status code
+func (o *ReportRequestsGetQueuedDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this report requests get queued default response has a 5xx status code
+func (o *ReportRequestsGetQueuedDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this report requests get queued default response a status code equal to that given
+func (o *ReportRequestsGetQueuedDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the report requests get queued default response
+func (o *ReportRequestsGetQueuedDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ReportRequestsGetQueuedDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Reporting/ReportRequests/Queued][%d] ReportRequests_GetQueued default %s", o._statusCode, payload)
+}
+
+func (o *ReportRequestsGetQueuedDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Reporting/ReportRequests/Queued][%d] ReportRequests_GetQueued default %s", o._statusCode, payload)
+}
+
+func (o *ReportRequestsGetQueuedDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ReportRequestsGetQueuedDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

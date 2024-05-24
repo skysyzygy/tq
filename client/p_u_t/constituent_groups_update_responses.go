@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ConstituentGroupsUpdateReader) ReadResponse(response runtime.ClientResp
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/ConstituentGroups/{id}] ConstituentGroups_Update", response, response.Code())
+		result := NewConstituentGroupsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ConstituentGroupsUpdateOK) Code() int {
 }
 
 func (o *ConstituentGroupsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/ConstituentGroups/{id}][%d] constituentGroupsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ConstituentGroups/{id}][%d] constituentGroupsUpdateOK %s", 200, payload)
 }
 
 func (o *ConstituentGroupsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/ConstituentGroups/{id}][%d] constituentGroupsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ConstituentGroups/{id}][%d] constituentGroupsUpdateOK %s", 200, payload)
 }
 
 func (o *ConstituentGroupsUpdateOK) GetPayload() *models.ConstituentGroup {
@@ -93,6 +103,80 @@ func (o *ConstituentGroupsUpdateOK) GetPayload() *models.ConstituentGroup {
 func (o *ConstituentGroupsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ConstituentGroup)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewConstituentGroupsUpdateDefault creates a ConstituentGroupsUpdateDefault with default headers values
+func NewConstituentGroupsUpdateDefault(code int) *ConstituentGroupsUpdateDefault {
+	return &ConstituentGroupsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ConstituentGroupsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ConstituentGroupsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this constituent groups update default response has a 2xx status code
+func (o *ConstituentGroupsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this constituent groups update default response has a 3xx status code
+func (o *ConstituentGroupsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this constituent groups update default response has a 4xx status code
+func (o *ConstituentGroupsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this constituent groups update default response has a 5xx status code
+func (o *ConstituentGroupsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this constituent groups update default response a status code equal to that given
+func (o *ConstituentGroupsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the constituent groups update default response
+func (o *ConstituentGroupsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ConstituentGroupsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ConstituentGroups/{id}][%d] ConstituentGroups_Update default %s", o._statusCode, payload)
+}
+
+func (o *ConstituentGroupsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ConstituentGroups/{id}][%d] ConstituentGroups_Update default %s", o._statusCode, payload)
+}
+
+func (o *ConstituentGroupsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ConstituentGroupsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *MailIndicatorsGetReader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/MailIndicators/{id}] MailIndicators_Get", response, response.Code())
+		result := NewMailIndicatorsGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *MailIndicatorsGetOK) Code() int {
 }
 
 func (o *MailIndicatorsGetOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/MailIndicators/{id}][%d] mailIndicatorsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/MailIndicators/{id}][%d] mailIndicatorsGetOK %s", 200, payload)
 }
 
 func (o *MailIndicatorsGetOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/MailIndicators/{id}][%d] mailIndicatorsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/MailIndicators/{id}][%d] mailIndicatorsGetOK %s", 200, payload)
 }
 
 func (o *MailIndicatorsGetOK) GetPayload() *models.MailIndicator {
@@ -93,6 +103,80 @@ func (o *MailIndicatorsGetOK) GetPayload() *models.MailIndicator {
 func (o *MailIndicatorsGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MailIndicator)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewMailIndicatorsGetDefault creates a MailIndicatorsGetDefault with default headers values
+func NewMailIndicatorsGetDefault(code int) *MailIndicatorsGetDefault {
+	return &MailIndicatorsGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+MailIndicatorsGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type MailIndicatorsGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this mail indicators get default response has a 2xx status code
+func (o *MailIndicatorsGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this mail indicators get default response has a 3xx status code
+func (o *MailIndicatorsGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this mail indicators get default response has a 4xx status code
+func (o *MailIndicatorsGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this mail indicators get default response has a 5xx status code
+func (o *MailIndicatorsGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this mail indicators get default response a status code equal to that given
+func (o *MailIndicatorsGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the mail indicators get default response
+func (o *MailIndicatorsGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *MailIndicatorsGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/MailIndicators/{id}][%d] MailIndicators_Get default %s", o._statusCode, payload)
+}
+
+func (o *MailIndicatorsGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/MailIndicators/{id}][%d] MailIndicators_Get default %s", o._statusCode, payload)
+}
+
+func (o *MailIndicatorsGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *MailIndicatorsGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

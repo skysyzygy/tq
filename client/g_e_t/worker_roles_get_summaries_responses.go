@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *WorkerRolesGetSummariesReader) ReadResponse(response runtime.ClientResp
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/WorkerRoles/Summary] WorkerRoles_GetSummaries", response, response.Code())
+		result := NewWorkerRolesGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *WorkerRolesGetSummariesOK) Code() int {
 }
 
 func (o *WorkerRolesGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/WorkerRoles/Summary][%d] workerRolesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/WorkerRoles/Summary][%d] workerRolesGetSummariesOK %s", 200, payload)
 }
 
 func (o *WorkerRolesGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/WorkerRoles/Summary][%d] workerRolesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/WorkerRoles/Summary][%d] workerRolesGetSummariesOK %s", 200, payload)
 }
 
 func (o *WorkerRolesGetSummariesOK) GetPayload() []*models.WorkerRoleSummary {
@@ -94,6 +104,80 @@ func (o *WorkerRolesGetSummariesOK) readResponse(response runtime.ClientResponse
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewWorkerRolesGetSummariesDefault creates a WorkerRolesGetSummariesDefault with default headers values
+func NewWorkerRolesGetSummariesDefault(code int) *WorkerRolesGetSummariesDefault {
+	return &WorkerRolesGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+WorkerRolesGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type WorkerRolesGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this worker roles get summaries default response has a 2xx status code
+func (o *WorkerRolesGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this worker roles get summaries default response has a 3xx status code
+func (o *WorkerRolesGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this worker roles get summaries default response has a 4xx status code
+func (o *WorkerRolesGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this worker roles get summaries default response has a 5xx status code
+func (o *WorkerRolesGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this worker roles get summaries default response a status code equal to that given
+func (o *WorkerRolesGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the worker roles get summaries default response
+func (o *WorkerRolesGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *WorkerRolesGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/WorkerRoles/Summary][%d] WorkerRoles_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *WorkerRolesGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/WorkerRoles/Summary][%d] WorkerRoles_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *WorkerRolesGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *WorkerRolesGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

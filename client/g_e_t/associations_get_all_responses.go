@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *AssociationsGetAllReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /CRM/Associations] Associations_GetAll", response, response.Code())
+		result := NewAssociationsGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *AssociationsGetAllOK) Code() int {
 }
 
 func (o *AssociationsGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /CRM/Associations][%d] associationsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Associations][%d] associationsGetAllOK %s", 200, payload)
 }
 
 func (o *AssociationsGetAllOK) String() string {
-	return fmt.Sprintf("[GET /CRM/Associations][%d] associationsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Associations][%d] associationsGetAllOK %s", 200, payload)
 }
 
 func (o *AssociationsGetAllOK) GetPayload() []*models.Association {
@@ -94,6 +104,80 @@ func (o *AssociationsGetAllOK) readResponse(response runtime.ClientResponse, con
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAssociationsGetAllDefault creates a AssociationsGetAllDefault with default headers values
+func NewAssociationsGetAllDefault(code int) *AssociationsGetAllDefault {
+	return &AssociationsGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+AssociationsGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type AssociationsGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this associations get all default response has a 2xx status code
+func (o *AssociationsGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this associations get all default response has a 3xx status code
+func (o *AssociationsGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this associations get all default response has a 4xx status code
+func (o *AssociationsGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this associations get all default response has a 5xx status code
+func (o *AssociationsGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this associations get all default response a status code equal to that given
+func (o *AssociationsGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the associations get all default response
+func (o *AssociationsGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *AssociationsGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Associations][%d] Associations_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *AssociationsGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Associations][%d] Associations_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *AssociationsGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *AssociationsGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

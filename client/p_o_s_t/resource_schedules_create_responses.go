@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ResourceSchedulesCreateReader) ReadResponse(response runtime.ClientResp
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /EventsManagement/ResourceSchedules] ResourceSchedules_Create", response, response.Code())
+		result := NewResourceSchedulesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ResourceSchedulesCreateOK) Code() int {
 }
 
 func (o *ResourceSchedulesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /EventsManagement/ResourceSchedules][%d] resourceSchedulesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /EventsManagement/ResourceSchedules][%d] resourceSchedulesCreateOK %s", 200, payload)
 }
 
 func (o *ResourceSchedulesCreateOK) String() string {
-	return fmt.Sprintf("[POST /EventsManagement/ResourceSchedules][%d] resourceSchedulesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /EventsManagement/ResourceSchedules][%d] resourceSchedulesCreateOK %s", 200, payload)
 }
 
 func (o *ResourceSchedulesCreateOK) GetPayload() *models.ResourceSchedule {
@@ -93,6 +103,80 @@ func (o *ResourceSchedulesCreateOK) GetPayload() *models.ResourceSchedule {
 func (o *ResourceSchedulesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ResourceSchedule)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewResourceSchedulesCreateDefault creates a ResourceSchedulesCreateDefault with default headers values
+func NewResourceSchedulesCreateDefault(code int) *ResourceSchedulesCreateDefault {
+	return &ResourceSchedulesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ResourceSchedulesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ResourceSchedulesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this resource schedules create default response has a 2xx status code
+func (o *ResourceSchedulesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this resource schedules create default response has a 3xx status code
+func (o *ResourceSchedulesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this resource schedules create default response has a 4xx status code
+func (o *ResourceSchedulesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this resource schedules create default response has a 5xx status code
+func (o *ResourceSchedulesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this resource schedules create default response a status code equal to that given
+func (o *ResourceSchedulesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the resource schedules create default response
+func (o *ResourceSchedulesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ResourceSchedulesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /EventsManagement/ResourceSchedules][%d] ResourceSchedules_Create default %s", o._statusCode, payload)
+}
+
+func (o *ResourceSchedulesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /EventsManagement/ResourceSchedules][%d] ResourceSchedules_Create default %s", o._statusCode, payload)
+}
+
+func (o *ResourceSchedulesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ResourceSchedulesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

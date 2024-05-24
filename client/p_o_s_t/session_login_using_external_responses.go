@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SessionLoginUsingExternalReader) ReadResponse(response runtime.ClientRe
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Web/Session/{sessionKey}/Login/External] Session_LoginUsingExternal", response, response.Code())
+		result := NewSessionLoginUsingExternalDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SessionLoginUsingExternalOK) Code() int {
 }
 
 func (o *SessionLoginUsingExternalOK) Error() string {
-	return fmt.Sprintf("[POST /Web/Session/{sessionKey}/Login/External][%d] sessionLoginUsingExternalOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Session/{sessionKey}/Login/External][%d] sessionLoginUsingExternalOK %s", 200, payload)
 }
 
 func (o *SessionLoginUsingExternalOK) String() string {
-	return fmt.Sprintf("[POST /Web/Session/{sessionKey}/Login/External][%d] sessionLoginUsingExternalOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Session/{sessionKey}/Login/External][%d] sessionLoginUsingExternalOK %s", 200, payload)
 }
 
 func (o *SessionLoginUsingExternalOK) GetPayload() *models.Session {
@@ -93,6 +103,80 @@ func (o *SessionLoginUsingExternalOK) GetPayload() *models.Session {
 func (o *SessionLoginUsingExternalOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Session)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSessionLoginUsingExternalDefault creates a SessionLoginUsingExternalDefault with default headers values
+func NewSessionLoginUsingExternalDefault(code int) *SessionLoginUsingExternalDefault {
+	return &SessionLoginUsingExternalDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SessionLoginUsingExternalDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SessionLoginUsingExternalDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this session login using external default response has a 2xx status code
+func (o *SessionLoginUsingExternalDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this session login using external default response has a 3xx status code
+func (o *SessionLoginUsingExternalDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this session login using external default response has a 4xx status code
+func (o *SessionLoginUsingExternalDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this session login using external default response has a 5xx status code
+func (o *SessionLoginUsingExternalDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this session login using external default response a status code equal to that given
+func (o *SessionLoginUsingExternalDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the session login using external default response
+func (o *SessionLoginUsingExternalDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SessionLoginUsingExternalDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Session/{sessionKey}/Login/External][%d] Session_LoginUsingExternal default %s", o._statusCode, payload)
+}
+
+func (o *SessionLoginUsingExternalDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Session/{sessionKey}/Login/External][%d] Session_LoginUsingExternal default %s", o._statusCode, payload)
+}
+
+func (o *SessionLoginUsingExternalDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SessionLoginUsingExternalDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // CartRemovePackagePerformanceItemReader is a Reader for the CartRemovePackagePerformanceItem structure.
@@ -27,7 +31,14 @@ func (o *CartRemovePackagePerformanceItemReader) ReadResponse(response runtime.C
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /Web/Cart/{sessionKey}/Packages/Fixed/{fixedPackageLineItemId}/{performanceLineItemId}/{performanceId}] Cart_RemovePackagePerformanceItem", response, response.Code())
+		result := NewCartRemovePackagePerformanceItemDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *CartRemovePackagePerformanceItemNoContent) Code() int {
 }
 
 func (o *CartRemovePackagePerformanceItemNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /Web/Cart/{sessionKey}/Packages/Fixed/{fixedPackageLineItemId}/{performanceLineItemId}/{performanceId}][%d] cartRemovePackagePerformanceItemNoContent ", 204)
+	return fmt.Sprintf("[DELETE /Web/Cart/{sessionKey}/Packages/Fixed/{fixedPackageLineItemId}/{performanceLineItemId}/{performanceId}][%d] cartRemovePackagePerformanceItemNoContent", 204)
 }
 
 func (o *CartRemovePackagePerformanceItemNoContent) String() string {
-	return fmt.Sprintf("[DELETE /Web/Cart/{sessionKey}/Packages/Fixed/{fixedPackageLineItemId}/{performanceLineItemId}/{performanceId}][%d] cartRemovePackagePerformanceItemNoContent ", 204)
+	return fmt.Sprintf("[DELETE /Web/Cart/{sessionKey}/Packages/Fixed/{fixedPackageLineItemId}/{performanceLineItemId}/{performanceId}][%d] cartRemovePackagePerformanceItemNoContent", 204)
 }
 
 func (o *CartRemovePackagePerformanceItemNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewCartRemovePackagePerformanceItemDefault creates a CartRemovePackagePerformanceItemDefault with default headers values
+func NewCartRemovePackagePerformanceItemDefault(code int) *CartRemovePackagePerformanceItemDefault {
+	return &CartRemovePackagePerformanceItemDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CartRemovePackagePerformanceItemDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CartRemovePackagePerformanceItemDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this cart remove package performance item default response has a 2xx status code
+func (o *CartRemovePackagePerformanceItemDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this cart remove package performance item default response has a 3xx status code
+func (o *CartRemovePackagePerformanceItemDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this cart remove package performance item default response has a 4xx status code
+func (o *CartRemovePackagePerformanceItemDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this cart remove package performance item default response has a 5xx status code
+func (o *CartRemovePackagePerformanceItemDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this cart remove package performance item default response a status code equal to that given
+func (o *CartRemovePackagePerformanceItemDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the cart remove package performance item default response
+func (o *CartRemovePackagePerformanceItemDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CartRemovePackagePerformanceItemDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /Web/Cart/{sessionKey}/Packages/Fixed/{fixedPackageLineItemId}/{performanceLineItemId}/{performanceId}][%d] Cart_RemovePackagePerformanceItem default %s", o._statusCode, payload)
+}
+
+func (o *CartRemovePackagePerformanceItemDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /Web/Cart/{sessionKey}/Packages/Fixed/{fixedPackageLineItemId}/{performanceLineItemId}/{performanceId}][%d] Cart_RemovePackagePerformanceItem default %s", o._statusCode, payload)
+}
+
+func (o *CartRemovePackagePerformanceItemDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CartRemovePackagePerformanceItemDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

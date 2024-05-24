@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ProductionsGetReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /TXN/Productions/{id}] Productions_Get", response, response.Code())
+		result := NewProductionsGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ProductionsGetOK) Code() int {
 }
 
 func (o *ProductionsGetOK) Error() string {
-	return fmt.Sprintf("[GET /TXN/Productions/{id}][%d] productionsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/Productions/{id}][%d] productionsGetOK %s", 200, payload)
 }
 
 func (o *ProductionsGetOK) String() string {
-	return fmt.Sprintf("[GET /TXN/Productions/{id}][%d] productionsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/Productions/{id}][%d] productionsGetOK %s", 200, payload)
 }
 
 func (o *ProductionsGetOK) GetPayload() *models.Production {
@@ -93,6 +103,80 @@ func (o *ProductionsGetOK) GetPayload() *models.Production {
 func (o *ProductionsGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Production)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewProductionsGetDefault creates a ProductionsGetDefault with default headers values
+func NewProductionsGetDefault(code int) *ProductionsGetDefault {
+	return &ProductionsGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ProductionsGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ProductionsGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this productions get default response has a 2xx status code
+func (o *ProductionsGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this productions get default response has a 3xx status code
+func (o *ProductionsGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this productions get default response has a 4xx status code
+func (o *ProductionsGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this productions get default response has a 5xx status code
+func (o *ProductionsGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this productions get default response a status code equal to that given
+func (o *ProductionsGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the productions get default response
+func (o *ProductionsGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ProductionsGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/Productions/{id}][%d] Productions_Get default %s", o._statusCode, payload)
+}
+
+func (o *ProductionsGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/Productions/{id}][%d] Productions_Get default %s", o._statusCode, payload)
+}
+
+func (o *ProductionsGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ProductionsGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

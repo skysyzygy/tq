@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PriceTypesGetValidZonesReader) ReadResponse(response runtime.ClientResp
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /TXN/PriceTypes/Zones] PriceTypes_GetValidZones", response, response.Code())
+		result := NewPriceTypesGetValidZonesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PriceTypesGetValidZonesOK) Code() int {
 }
 
 func (o *PriceTypesGetValidZonesOK) Error() string {
-	return fmt.Sprintf("[GET /TXN/PriceTypes/Zones][%d] priceTypesGetValidZonesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PriceTypes/Zones][%d] priceTypesGetValidZonesOK %s", 200, payload)
 }
 
 func (o *PriceTypesGetValidZonesOK) String() string {
-	return fmt.Sprintf("[GET /TXN/PriceTypes/Zones][%d] priceTypesGetValidZonesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PriceTypes/Zones][%d] priceTypesGetValidZonesOK %s", 200, payload)
 }
 
 func (o *PriceTypesGetValidZonesOK) GetPayload() []*models.ZoneSummary {
@@ -94,6 +104,80 @@ func (o *PriceTypesGetValidZonesOK) readResponse(response runtime.ClientResponse
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPriceTypesGetValidZonesDefault creates a PriceTypesGetValidZonesDefault with default headers values
+func NewPriceTypesGetValidZonesDefault(code int) *PriceTypesGetValidZonesDefault {
+	return &PriceTypesGetValidZonesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PriceTypesGetValidZonesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PriceTypesGetValidZonesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this price types get valid zones default response has a 2xx status code
+func (o *PriceTypesGetValidZonesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this price types get valid zones default response has a 3xx status code
+func (o *PriceTypesGetValidZonesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this price types get valid zones default response has a 4xx status code
+func (o *PriceTypesGetValidZonesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this price types get valid zones default response has a 5xx status code
+func (o *PriceTypesGetValidZonesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this price types get valid zones default response a status code equal to that given
+func (o *PriceTypesGetValidZonesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the price types get valid zones default response
+func (o *PriceTypesGetValidZonesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PriceTypesGetValidZonesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PriceTypes/Zones][%d] PriceTypes_GetValidZones default %s", o._statusCode, payload)
+}
+
+func (o *PriceTypesGetValidZonesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PriceTypes/Zones][%d] PriceTypes_GetValidZones default %s", o._statusCode, payload)
+}
+
+func (o *PriceTypesGetValidZonesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PriceTypesGetValidZonesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

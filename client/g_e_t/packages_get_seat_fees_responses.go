@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PackagesGetSeatFeesReader) ReadResponse(response runtime.ClientResponse
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /TXN/Packages/{packageId}/SeatFees] Packages_GetSeatFees", response, response.Code())
+		result := NewPackagesGetSeatFeesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PackagesGetSeatFeesOK) Code() int {
 }
 
 func (o *PackagesGetSeatFeesOK) Error() string {
-	return fmt.Sprintf("[GET /TXN/Packages/{packageId}/SeatFees][%d] packagesGetSeatFeesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/Packages/{packageId}/SeatFees][%d] packagesGetSeatFeesOK %s", 200, payload)
 }
 
 func (o *PackagesGetSeatFeesOK) String() string {
-	return fmt.Sprintf("[GET /TXN/Packages/{packageId}/SeatFees][%d] packagesGetSeatFeesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/Packages/{packageId}/SeatFees][%d] packagesGetSeatFeesOK %s", 200, payload)
 }
 
 func (o *PackagesGetSeatFeesOK) GetPayload() []*models.ProductSeatFee {
@@ -94,6 +104,80 @@ func (o *PackagesGetSeatFeesOK) readResponse(response runtime.ClientResponse, co
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPackagesGetSeatFeesDefault creates a PackagesGetSeatFeesDefault with default headers values
+func NewPackagesGetSeatFeesDefault(code int) *PackagesGetSeatFeesDefault {
+	return &PackagesGetSeatFeesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PackagesGetSeatFeesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PackagesGetSeatFeesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this packages get seat fees default response has a 2xx status code
+func (o *PackagesGetSeatFeesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this packages get seat fees default response has a 3xx status code
+func (o *PackagesGetSeatFeesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this packages get seat fees default response has a 4xx status code
+func (o *PackagesGetSeatFeesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this packages get seat fees default response has a 5xx status code
+func (o *PackagesGetSeatFeesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this packages get seat fees default response a status code equal to that given
+func (o *PackagesGetSeatFeesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the packages get seat fees default response
+func (o *PackagesGetSeatFeesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PackagesGetSeatFeesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/Packages/{packageId}/SeatFees][%d] Packages_GetSeatFees default %s", o._statusCode, payload)
+}
+
+func (o *PackagesGetSeatFeesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/Packages/{packageId}/SeatFees][%d] Packages_GetSeatFees default %s", o._statusCode, payload)
+}
+
+func (o *PackagesGetSeatFeesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PackagesGetSeatFeesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

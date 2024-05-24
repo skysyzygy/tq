@@ -6,15 +6,39 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"fmt"
-
 	"github.com/go-openapi/runtime"
+	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new p u t API client.
 func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
+}
+
+// New creates a new p u t API client with basic auth credentials.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - user: user for basic authentication header.
+// - password: password for basic authentication header.
+func NewClientWithBasicAuth(host, basePath, scheme, user, password string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BasicAuth(user, password)
+	return &Client{transport: transport, formats: strfmt.Default}
+}
+
+// New creates a new p u t API client with a bearer token for authentication.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - bearerToken: bearer token for Bearer authentication header.
+func NewClientWithBearerToken(host, basePath, scheme, bearerToken string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BearerToken(bearerToken)
+	return &Client{transport: transport, formats: strfmt.Default}
 }
 
 /*
@@ -25,8 +49,77 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-// ClientOption is the option for Client methods
+// ClientOption may be used to customize the behavior of Client methods.
 type ClientOption func(*runtime.ClientOperation)
+
+// This client is generated with a few options you might find useful for your swagger spec.
+//
+// Feel free to add you own set of options.
+
+// WithContentType allows the client to force the Content-Type header
+// to negotiate a specific Consumer from the server.
+//
+// You may use this option to set arbitrary extensions to your MIME media type.
+func WithContentType(mime string) ClientOption {
+	return func(r *runtime.ClientOperation) {
+		r.ConsumesMediaTypes = []string{mime}
+	}
+}
+
+// WithContentTypeApplicationJSON sets the Content-Type header to "application/json".
+func WithContentTypeApplicationJSON(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"application/json"}
+}
+
+// WithContentTypeApplicationxWwwFormUrlencoded sets the Content-Type header to "application/x-www-form-urlencoded".
+func WithContentTypeApplicationxWwwFormUrlencoded(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"application/x-www-form-urlencoded"}
+}
+
+// WithContentTypeApplicationXML sets the Content-Type header to "application/xml".
+func WithContentTypeApplicationXML(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"application/xml"}
+}
+
+// WithContentTypeTextJSON sets the Content-Type header to "text/json".
+func WithContentTypeTextJSON(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"text/json"}
+}
+
+// WithContentTypeTextXML sets the Content-Type header to "text/xml".
+func WithContentTypeTextXML(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"text/xml"}
+}
+
+// WithAccept allows the client to force the Accept header
+// to negotiate a specific Producer from the server.
+//
+// You may use this option to set arbitrary extensions to your MIME media type.
+func WithAccept(mime string) ClientOption {
+	return func(r *runtime.ClientOperation) {
+		r.ProducesMediaTypes = []string{mime}
+	}
+}
+
+// WithAcceptApplicationJSON sets the Accept header to "application/json".
+func WithAcceptApplicationJSON(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"application/json"}
+}
+
+// WithAcceptApplicationXML sets the Accept header to "application/xml".
+func WithAcceptApplicationXML(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"application/xml"}
+}
+
+// WithAcceptTextJSON sets the Accept header to "text/json".
+func WithAcceptTextJSON(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"text/json"}
+}
+
+// WithAcceptTextXML sets the Accept header to "text/xml".
+func WithAcceptTextXML(r *runtime.ClientOperation) {
+	r.ProducesMediaTypes = []string{"text/xml"}
+}
 
 // ClientService is the interface for Client methods
 type ClientService interface {
@@ -191,8 +284,6 @@ type ClientService interface {
 	CustomDefaultCategoriesUpdate(params *CustomDefaultCategoriesUpdateParams, opts ...ClientOption) (*CustomDefaultCategoriesUpdateOK, error)
 
 	CustomDefaultsUpdate(params *CustomDefaultsUpdateParams, opts ...ClientOption) (*CustomDefaultsUpdateOK, error)
-
-	CustomUpdate(params *CustomUpdateParams, opts ...ClientOption) (*CustomUpdateOK, error)
 
 	DeliveryMethodsUpdate(params *DeliveryMethodsUpdateParams, opts ...ClientOption) (*DeliveryMethodsUpdateOK, error)
 
@@ -575,8 +666,8 @@ func (a *Client) AccountTypesUpdate(params *AccountTypesUpdateParams, opts ...Cl
 		ID:                 "AccountTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/AccountTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AccountTypesUpdateReader{formats: a.formats},
@@ -596,9 +687,8 @@ func (a *Client) AccountTypesUpdate(params *AccountTypesUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for AccountTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AccountTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -613,8 +703,8 @@ func (a *Client) AccountsUpdateCardNumberAccount(params *AccountsUpdateCardNumbe
 		ID:                 "Accounts_UpdateCardNumberAccount",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Accounts/{accountId}/CardNumber",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AccountsUpdateCardNumberAccountReader{formats: a.formats},
@@ -634,9 +724,8 @@ func (a *Client) AccountsUpdateCardNumberAccount(params *AccountsUpdateCardNumbe
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Accounts_UpdateCardNumberAccount: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AccountsUpdateCardNumberAccountDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -651,8 +740,8 @@ func (a *Client) AccountsUpdateDirectDebitAccount(params *AccountsUpdateDirectDe
 		ID:                 "Accounts_UpdateDirectDebitAccount",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Accounts/{accountId}/DirectDebit",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AccountsUpdateDirectDebitAccountReader{formats: a.formats},
@@ -672,9 +761,8 @@ func (a *Client) AccountsUpdateDirectDebitAccount(params *AccountsUpdateDirectDe
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Accounts_UpdateDirectDebitAccount: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AccountsUpdateDirectDebitAccountDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -689,8 +777,8 @@ func (a *Client) AccountsUpdateSepaAccount(params *AccountsUpdateSepaAccountPara
 		ID:                 "Accounts_UpdateSepaAccount",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Accounts/{accountId}/SEPA",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AccountsUpdateSepaAccountReader{formats: a.formats},
@@ -710,9 +798,8 @@ func (a *Client) AccountsUpdateSepaAccount(params *AccountsUpdateSepaAccountPara
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Accounts_UpdateSepaAccount: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AccountsUpdateSepaAccountDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -727,8 +814,8 @@ func (a *Client) ActionTypesUpdate(params *ActionTypesUpdateParams, opts ...Clie
 		ID:                 "ActionTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ActionTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ActionTypesUpdateReader{formats: a.formats},
@@ -748,9 +835,8 @@ func (a *Client) ActionTypesUpdate(params *ActionTypesUpdateParams, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ActionTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ActionTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -765,8 +851,8 @@ func (a *Client) ActionsUpdate(params *ActionsUpdateParams, opts ...ClientOption
 		ID:                 "Actions_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Actions/{actionId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ActionsUpdateReader{formats: a.formats},
@@ -786,9 +872,8 @@ func (a *Client) ActionsUpdate(params *ActionsUpdateParams, opts ...ClientOption
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Actions_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ActionsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -803,8 +888,8 @@ func (a *Client) ActivityCategoriesUpdate(params *ActivityCategoriesUpdateParams
 		ID:                 "ActivityCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ActivityCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ActivityCategoriesUpdateReader{formats: a.formats},
@@ -824,9 +909,8 @@ func (a *Client) ActivityCategoriesUpdate(params *ActivityCategoriesUpdateParams
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ActivityCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ActivityCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -841,8 +925,8 @@ func (a *Client) ActivityTypesUpdate(params *ActivityTypesUpdateParams, opts ...
 		ID:                 "ActivityTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ActivityTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ActivityTypesUpdateReader{formats: a.formats},
@@ -862,9 +946,8 @@ func (a *Client) ActivityTypesUpdate(params *ActivityTypesUpdateParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ActivityTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ActivityTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -879,8 +962,8 @@ func (a *Client) AddressTypesUpdate(params *AddressTypesUpdateParams, opts ...Cl
 		ID:                 "AddressTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/AddressTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AddressTypesUpdateReader{formats: a.formats},
@@ -900,9 +983,8 @@ func (a *Client) AddressTypesUpdate(params *AddressTypesUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for AddressTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AddressTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -917,8 +999,8 @@ func (a *Client) AddressesUpdate(params *AddressesUpdateParams, opts ...ClientOp
 		ID:                 "Addresses_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Addresses/{addressId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AddressesUpdateReader{formats: a.formats},
@@ -938,9 +1020,8 @@ func (a *Client) AddressesUpdate(params *AddressesUpdateParams, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Addresses_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AddressesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -955,8 +1036,8 @@ func (a *Client) AffiliationTypesUpdate(params *AffiliationTypesUpdateParams, op
 		ID:                 "AffiliationTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/AffiliationTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AffiliationTypesUpdateReader{formats: a.formats},
@@ -976,9 +1057,8 @@ func (a *Client) AffiliationTypesUpdate(params *AffiliationTypesUpdateParams, op
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for AffiliationTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AffiliationTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -993,8 +1073,8 @@ func (a *Client) AffiliationsUpdate(params *AffiliationsUpdateParams, opts ...Cl
 		ID:                 "Affiliations_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Affiliations/{affiliationId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AffiliationsUpdateReader{formats: a.formats},
@@ -1014,9 +1094,8 @@ func (a *Client) AffiliationsUpdate(params *AffiliationsUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Affiliations_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AffiliationsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1031,8 +1110,8 @@ func (a *Client) AliasTypesUpdate(params *AliasTypesUpdateParams, opts ...Client
 		ID:                 "AliasTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/AliasTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AliasTypesUpdateReader{formats: a.formats},
@@ -1052,9 +1131,8 @@ func (a *Client) AliasTypesUpdate(params *AliasTypesUpdateParams, opts ...Client
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for AliasTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AliasTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1069,8 +1147,8 @@ func (a *Client) AliasesUpdate(params *AliasesUpdateParams, opts ...ClientOption
 		ID:                 "Aliases_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Aliases/{aliasId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AliasesUpdateReader{formats: a.formats},
@@ -1090,9 +1168,8 @@ func (a *Client) AliasesUpdate(params *AliasesUpdateParams, opts ...ClientOption
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Aliases_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AliasesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1107,8 +1184,8 @@ func (a *Client) AnalyticsReportsUpdate(params *AnalyticsReportsUpdateParams, op
 		ID:                 "AnalyticsReports_Update",
 		Method:             "PUT",
 		PathPattern:        "/Reporting/AnalyticsReports/{analyticsReportId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AnalyticsReportsUpdateReader{formats: a.formats},
@@ -1128,9 +1205,8 @@ func (a *Client) AnalyticsReportsUpdate(params *AnalyticsReportsUpdateParams, op
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for AnalyticsReports_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AnalyticsReportsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1145,8 +1221,8 @@ func (a *Client) AppScreenTextsCreateOrUpdate(params *AppScreenTextsCreateOrUpda
 		ID:                 "AppScreenTexts_CreateOrUpdate",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/AppScreenTexts",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AppScreenTextsCreateOrUpdateReader{formats: a.formats},
@@ -1166,9 +1242,8 @@ func (a *Client) AppScreenTextsCreateOrUpdate(params *AppScreenTextsCreateOrUpda
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for AppScreenTexts_CreateOrUpdate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AppScreenTextsCreateOrUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1183,8 +1258,8 @@ func (a *Client) AppealCategoriesUpdate(params *AppealCategoriesUpdateParams, op
 		ID:                 "AppealCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/AppealCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AppealCategoriesUpdateReader{formats: a.formats},
@@ -1204,9 +1279,8 @@ func (a *Client) AppealCategoriesUpdate(params *AppealCategoriesUpdateParams, op
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for AppealCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AppealCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1221,8 +1295,8 @@ func (a *Client) ArtistsUpdate(params *ArtistsUpdateParams, opts ...ClientOption
 		ID:                 "Artists_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/Artists/{artistId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ArtistsUpdateReader{formats: a.formats},
@@ -1242,9 +1316,8 @@ func (a *Client) ArtistsUpdate(params *ArtistsUpdateParams, opts ...ClientOption
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Artists_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ArtistsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1259,8 +1332,8 @@ func (a *Client) AssetTypesUpdate(params *AssetTypesUpdateParams, opts ...Client
 		ID:                 "AssetTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/AssetTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AssetTypesUpdateReader{formats: a.formats},
@@ -1280,9 +1353,8 @@ func (a *Client) AssetTypesUpdate(params *AssetTypesUpdateParams, opts ...Client
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for AssetTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AssetTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1297,8 +1369,8 @@ func (a *Client) AssetsUpdate(params *AssetsUpdateParams, opts ...ClientOption) 
 		ID:                 "Assets_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Assets/{assetId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AssetsUpdateReader{formats: a.formats},
@@ -1318,9 +1390,8 @@ func (a *Client) AssetsUpdate(params *AssetsUpdateParams, opts ...ClientOption) 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Assets_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AssetsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1335,8 +1406,8 @@ func (a *Client) AssociationTypesUpdate(params *AssociationTypesUpdateParams, op
 		ID:                 "AssociationTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/AssociationTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AssociationTypesUpdateReader{formats: a.formats},
@@ -1356,9 +1427,8 @@ func (a *Client) AssociationTypesUpdate(params *AssociationTypesUpdateParams, op
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for AssociationTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AssociationTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1373,8 +1443,8 @@ func (a *Client) AssociationsUpdate(params *AssociationsUpdateParams, opts ...Cl
 		ID:                 "Associations_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Associations/{associationId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AssociationsUpdateReader{formats: a.formats},
@@ -1394,9 +1464,8 @@ func (a *Client) AssociationsUpdate(params *AssociationsUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Associations_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AssociationsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1411,8 +1480,8 @@ func (a *Client) AttributesUpdate(params *AttributesUpdateParams, opts ...Client
 		ID:                 "Attributes_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Attributes/{attributeId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &AttributesUpdateReader{formats: a.formats},
@@ -1432,9 +1501,8 @@ func (a *Client) AttributesUpdate(params *AttributesUpdateParams, opts ...Client
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Attributes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AttributesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1449,7 +1517,7 @@ func (a *Client) AuthorizationExpirePayByLink(params *AuthorizationExpirePayByLi
 		ID:                 "Authorization_ExpirePayByLink",
 		Method:             "PUT",
 		PathPattern:        "/PaymentGateway/Authorization/Link/{paymentId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
@@ -1470,9 +1538,8 @@ func (a *Client) AuthorizationExpirePayByLink(params *AuthorizationExpirePayByLi
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Authorization_ExpirePayByLink: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*AuthorizationExpirePayByLinkDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1487,8 +1554,8 @@ func (a *Client) BatchTypeGroupsUpdate(params *BatchTypeGroupsUpdateParams, opts
 		ID:                 "BatchTypeGroups_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/BatchTypeGroups/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &BatchTypeGroupsUpdateReader{formats: a.formats},
@@ -1508,9 +1575,8 @@ func (a *Client) BatchTypeGroupsUpdate(params *BatchTypeGroupsUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for BatchTypeGroups_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*BatchTypeGroupsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1525,8 +1591,8 @@ func (a *Client) BatchTypesUpdate(params *BatchTypesUpdateParams, opts ...Client
 		ID:                 "BatchTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/BatchTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &BatchTypesUpdateReader{formats: a.formats},
@@ -1546,9 +1612,8 @@ func (a *Client) BatchTypesUpdate(params *BatchTypesUpdateParams, opts ...Client
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for BatchTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*BatchTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1563,8 +1628,8 @@ func (a *Client) BillingSchedulesUpdate(params *BillingSchedulesUpdateParams, op
 		ID:                 "BillingSchedules_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/BillingSchedules/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &BillingSchedulesUpdateReader{formats: a.formats},
@@ -1584,9 +1649,8 @@ func (a *Client) BillingSchedulesUpdate(params *BillingSchedulesUpdateParams, op
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for BillingSchedules_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*BillingSchedulesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1601,8 +1665,8 @@ func (a *Client) BillingTypesUpdate(params *BillingTypesUpdateParams, opts ...Cl
 		ID:                 "BillingTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/BillingTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &BillingTypesUpdateReader{formats: a.formats},
@@ -1622,9 +1686,8 @@ func (a *Client) BillingTypesUpdate(params *BillingTypesUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for BillingTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*BillingTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1639,8 +1702,8 @@ func (a *Client) BookingCategoriesUpdate(params *BookingCategoriesUpdateParams, 
 		ID:                 "BookingCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/BookingCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &BookingCategoriesUpdateReader{formats: a.formats},
@@ -1660,9 +1723,8 @@ func (a *Client) BookingCategoriesUpdate(params *BookingCategoriesUpdateParams, 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for BookingCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*BookingCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1677,8 +1739,8 @@ func (a *Client) BookingTemplatesUpdate(params *BookingTemplatesUpdateParams, op
 		ID:                 "BookingTemplates_Update",
 		Method:             "PUT",
 		PathPattern:        "/EventsManagement/BookingTemplates/{bookingTemplateId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &BookingTemplatesUpdateReader{formats: a.formats},
@@ -1698,9 +1760,8 @@ func (a *Client) BookingTemplatesUpdate(params *BookingTemplatesUpdateParams, op
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for BookingTemplates_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*BookingTemplatesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1715,8 +1776,8 @@ func (a *Client) BookingsUpdate(params *BookingsUpdateParams, opts ...ClientOpti
 		ID:                 "Bookings_Update",
 		Method:             "PUT",
 		PathPattern:        "/EventsManagement/Bookings/{bookingId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &BookingsUpdateReader{formats: a.formats},
@@ -1736,9 +1797,8 @@ func (a *Client) BookingsUpdate(params *BookingsUpdateParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Bookings_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*BookingsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1753,8 +1813,8 @@ func (a *Client) BulkCopySetsUpdate(params *BulkCopySetsUpdateParams, opts ...Cl
 		ID:                 "BulkCopySets_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/BulkCopySets/{bulkCopySetId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &BulkCopySetsUpdateReader{formats: a.formats},
@@ -1774,9 +1834,8 @@ func (a *Client) BulkCopySetsUpdate(params *BulkCopySetsUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for BulkCopySets_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*BulkCopySetsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1791,8 +1850,8 @@ func (a *Client) BulkDailyCopyExclusionsUpdate(params *BulkDailyCopyExclusionsUp
 		ID:                 "BulkDailyCopyExclusions_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/BulkDailyCopyExclusions/{bulkDailyCopyExclusionId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &BulkDailyCopyExclusionsUpdateReader{formats: a.formats},
@@ -1812,9 +1871,8 @@ func (a *Client) BulkDailyCopyExclusionsUpdate(params *BulkDailyCopyExclusionsUp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for BulkDailyCopyExclusions_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*BulkDailyCopyExclusionsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1829,8 +1887,8 @@ func (a *Client) BusinessUnitsUpdate(params *BusinessUnitsUpdateParams, opts ...
 		ID:                 "BusinessUnits_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/BusinessUnits/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &BusinessUnitsUpdateReader{formats: a.formats},
@@ -1850,9 +1908,8 @@ func (a *Client) BusinessUnitsUpdate(params *BusinessUnitsUpdateParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for BusinessUnits_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*BusinessUnitsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1867,8 +1924,8 @@ func (a *Client) CampaignDesignationsUpdate(params *CampaignDesignationsUpdatePa
 		ID:                 "CampaignDesignations_Update",
 		Method:             "PUT",
 		PathPattern:        "/Finance/CampaignDesignations/{campaignDesignationId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CampaignDesignationsUpdateReader{formats: a.formats},
@@ -1888,9 +1945,8 @@ func (a *Client) CampaignDesignationsUpdate(params *CampaignDesignationsUpdatePa
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CampaignDesignations_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CampaignDesignationsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1905,8 +1961,8 @@ func (a *Client) CampaignFundsUpdate(params *CampaignFundsUpdateParams, opts ...
 		ID:                 "CampaignFunds_Update",
 		Method:             "PUT",
 		PathPattern:        "/Finance/CampaignFunds/{campaignFundId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CampaignFundsUpdateReader{formats: a.formats},
@@ -1926,9 +1982,8 @@ func (a *Client) CampaignFundsUpdate(params *CampaignFundsUpdateParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CampaignFunds_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CampaignFundsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1943,8 +1998,8 @@ func (a *Client) CardReaderTypesUpdate(params *CardReaderTypesUpdateParams, opts
 		ID:                 "CardReaderTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/CardReaderTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CardReaderTypesUpdateReader{formats: a.formats},
@@ -1964,9 +2019,8 @@ func (a *Client) CardReaderTypesUpdate(params *CardReaderTypesUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CardReaderTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CardReaderTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -1981,8 +2035,8 @@ func (a *Client) CartApplyLineItemDiscount(params *CartApplyLineItemDiscountPara
 		ID:                 "Cart_ApplyLineItemDiscount",
 		Method:             "PUT",
 		PathPattern:        "/Web/Cart/{sessionKey}/LineItems/{lineItemId}/Discount",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CartApplyLineItemDiscountReader{formats: a.formats},
@@ -2002,9 +2056,8 @@ func (a *Client) CartApplyLineItemDiscount(params *CartApplyLineItemDiscountPara
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Cart_ApplyLineItemDiscount: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CartApplyLineItemDiscountDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2019,8 +2072,8 @@ func (a *Client) CartApplySubLineItemDiscount(params *CartApplySubLineItemDiscou
 		ID:                 "Cart_ApplySubLineItemDiscount",
 		Method:             "PUT",
 		PathPattern:        "/Web/Cart/{sessionKey}/SubLineItems/{subLineItemId}/Discount",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CartApplySubLineItemDiscountReader{formats: a.formats},
@@ -2040,9 +2093,8 @@ func (a *Client) CartApplySubLineItemDiscount(params *CartApplySubLineItemDiscou
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Cart_ApplySubLineItemDiscount: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CartApplySubLineItemDiscountDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2057,8 +2109,8 @@ func (a *Client) CartUpdateCartFlags(params *CartUpdateCartFlagsParams, opts ...
 		ID:                 "Cart_UpdateCartFlags",
 		Method:             "PUT",
 		PathPattern:        "/Web/Cart/{sessionKey}/CartFlags",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CartUpdateCartFlagsReader{formats: a.formats},
@@ -2078,9 +2130,8 @@ func (a *Client) CartUpdateCartFlags(params *CartUpdateCartFlagsParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Cart_UpdateCartFlags: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CartUpdateCartFlagsDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2095,8 +2146,8 @@ func (a *Client) CartUpdateCartProperties(params *CartUpdateCartPropertiesParams
 		ID:                 "Cart_UpdateCartProperties",
 		Method:             "PUT",
 		PathPattern:        "/Web/Cart/{sessionKey}/Properties",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CartUpdateCartPropertiesReader{formats: a.formats},
@@ -2116,9 +2167,8 @@ func (a *Client) CartUpdateCartProperties(params *CartUpdateCartPropertiesParams
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Cart_UpdateCartProperties: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CartUpdateCartPropertiesDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2134,7 +2184,7 @@ func (a *Client) CartUpdateCartPropertiesCustomData(params *CartUpdateCartProper
 		Method:             "PUT",
 		PathPattern:        "/Web/Cart/{sessionKey}/CustomData/{customId}",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CartUpdateCartPropertiesCustomDataReader{formats: a.formats},
@@ -2154,9 +2204,8 @@ func (a *Client) CartUpdateCartPropertiesCustomData(params *CartUpdateCartProper
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Cart_UpdateCartPropertiesCustomData: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CartUpdateCartPropertiesCustomDataDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2172,7 +2221,7 @@ func (a *Client) CartUpdateContributionCustomData(params *CartUpdateContribution
 		Method:             "PUT",
 		PathPattern:        "/Web/Cart/{sessionKey}/Contributions/{lineItemId}/CustomData/{customId}",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CartUpdateContributionCustomDataReader{formats: a.formats},
@@ -2192,9 +2241,8 @@ func (a *Client) CartUpdateContributionCustomData(params *CartUpdateContribution
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Cart_UpdateContributionCustomData: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CartUpdateContributionCustomDataDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2209,8 +2257,8 @@ func (a *Client) CartUpdateLineItemPrice(params *CartUpdateLineItemPriceParams, 
 		ID:                 "Cart_UpdateLineItemPrice",
 		Method:             "PUT",
 		PathPattern:        "/Web/Cart/{sessionKey}/LineItems/{lineItemId}/Price",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CartUpdateLineItemPriceReader{formats: a.formats},
@@ -2230,9 +2278,8 @@ func (a *Client) CartUpdateLineItemPrice(params *CartUpdateLineItemPriceParams, 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Cart_UpdateLineItemPrice: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CartUpdateLineItemPriceDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2248,7 +2295,7 @@ func (a *Client) CartUpdateLineItemPriceType(params *CartUpdateLineItemPriceType
 		Method:             "PUT",
 		PathPattern:        "/Web/Cart/{sessionKey}/LineItems/{lineItemId}/PriceTypeId",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CartUpdateLineItemPriceTypeReader{formats: a.formats},
@@ -2268,9 +2315,8 @@ func (a *Client) CartUpdateLineItemPriceType(params *CartUpdateLineItemPriceType
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Cart_UpdateLineItemPriceType: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CartUpdateLineItemPriceTypeDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2285,8 +2331,8 @@ func (a *Client) CartUpdateLineItemSource(params *CartUpdateLineItemSourceParams
 		ID:                 "Cart_UpdateLineItemSource",
 		Method:             "PUT",
 		PathPattern:        "/Web/Cart/{sessionKey}/LineItems/{lineItemId}/Source",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CartUpdateLineItemSourceReader{formats: a.formats},
@@ -2306,9 +2352,8 @@ func (a *Client) CartUpdateLineItemSource(params *CartUpdateLineItemSourceParams
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Cart_UpdateLineItemSource: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CartUpdateLineItemSourceDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2324,7 +2369,7 @@ func (a *Client) CartUpdateLineItemSpecialRequest(params *CartUpdateLineItemSpec
 		Method:             "PUT",
 		PathPattern:        "/Web/Cart/{sessionKey}/LineItems/{lineItemId}/SpecialRequest",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CartUpdateLineItemSpecialRequestReader{formats: a.formats},
@@ -2344,9 +2389,8 @@ func (a *Client) CartUpdateLineItemSpecialRequest(params *CartUpdateLineItemSpec
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Cart_UpdateLineItemSpecialRequest: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CartUpdateLineItemSpecialRequestDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2361,8 +2405,8 @@ func (a *Client) CartUpdatePaymentPlan(params *CartUpdatePaymentPlanParams, opts
 		ID:                 "Cart_UpdatePaymentPlan",
 		Method:             "PUT",
 		PathPattern:        "/Web/Cart/{sessionKey}/Payments/Plan",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CartUpdatePaymentPlanReader{formats: a.formats},
@@ -2382,9 +2426,8 @@ func (a *Client) CartUpdatePaymentPlan(params *CartUpdatePaymentPlanParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Cart_UpdatePaymentPlan: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CartUpdatePaymentPlanDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2399,8 +2442,8 @@ func (a *Client) CartUpdateSubLineItemPrice(params *CartUpdateSubLineItemPricePa
 		ID:                 "Cart_UpdateSubLineItemPrice",
 		Method:             "PUT",
 		PathPattern:        "/Web/Cart/{sessionKey}/SubLineItems/{subLineItemId}/Price",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CartUpdateSubLineItemPriceReader{formats: a.formats},
@@ -2420,9 +2463,8 @@ func (a *Client) CartUpdateSubLineItemPrice(params *CartUpdateSubLineItemPricePa
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Cart_UpdateSubLineItemPrice: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CartUpdateSubLineItemPriceDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2438,7 +2480,7 @@ func (a *Client) CartUpdateSubLineItemPriceType(params *CartUpdateSubLineItemPri
 		Method:             "PUT",
 		PathPattern:        "/Web/Cart/{sessionKey}/SubLineItems/{subLineItemId}/PriceTypeId",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CartUpdateSubLineItemPriceTypeReader{formats: a.formats},
@@ -2458,9 +2500,8 @@ func (a *Client) CartUpdateSubLineItemPriceType(params *CartUpdateSubLineItemPri
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Cart_UpdateSubLineItemPriceType: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CartUpdateSubLineItemPriceTypeDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2476,7 +2517,7 @@ func (a *Client) CartUpdateSubLineItemRecipient(params *CartUpdateSubLineItemRec
 		Method:             "PUT",
 		PathPattern:        "/Web/Cart/{sessionKey}/SubLineItems/{subLineItemId}/Recipient",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CartUpdateSubLineItemRecipientReader{formats: a.formats},
@@ -2496,9 +2537,8 @@ func (a *Client) CartUpdateSubLineItemRecipient(params *CartUpdateSubLineItemRec
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Cart_UpdateSubLineItemRecipient: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CartUpdateSubLineItemRecipientDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2513,8 +2553,8 @@ func (a *Client) ColorsUpdate(params *ColorsUpdateParams, opts ...ClientOption) 
 		ID:                 "Colors_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Colors/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ColorsUpdateReader{formats: a.formats},
@@ -2534,9 +2574,8 @@ func (a *Client) ColorsUpdate(params *ColorsUpdateParams, opts ...ClientOption) 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Colors_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ColorsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2551,8 +2590,8 @@ func (a *Client) ComposersUpdate(params *ComposersUpdateParams, opts ...ClientOp
 		ID:                 "Composers_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Composers/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ComposersUpdateReader{formats: a.formats},
@@ -2572,9 +2611,8 @@ func (a *Client) ComposersUpdate(params *ComposersUpdateParams, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Composers_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ComposersUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2589,8 +2627,8 @@ func (a *Client) ConstituenciesUpdate(params *ConstituenciesUpdateParams, opts .
 		ID:                 "Constituencies_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Constituencies/{constituencyId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ConstituenciesUpdateReader{formats: a.formats},
@@ -2610,9 +2648,8 @@ func (a *Client) ConstituenciesUpdate(params *ConstituenciesUpdateParams, opts .
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Constituencies_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ConstituenciesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2627,8 +2664,8 @@ func (a *Client) ConstituencyTypesUpdate(params *ConstituencyTypesUpdateParams, 
 		ID:                 "ConstituencyTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ConstituencyTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ConstituencyTypesUpdateReader{formats: a.formats},
@@ -2648,9 +2685,8 @@ func (a *Client) ConstituencyTypesUpdate(params *ConstituencyTypesUpdateParams, 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ConstituencyTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ConstituencyTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2665,8 +2701,8 @@ func (a *Client) ConstituentDocumentsUpdate(params *ConstituentDocumentsUpdatePa
 		ID:                 "ConstituentDocuments_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Documents/{documentId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ConstituentDocumentsUpdateReader{formats: a.formats},
@@ -2686,9 +2722,8 @@ func (a *Client) ConstituentDocumentsUpdate(params *ConstituentDocumentsUpdatePa
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ConstituentDocuments_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ConstituentDocumentsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2703,8 +2738,8 @@ func (a *Client) ConstituentGroupsUpdate(params *ConstituentGroupsUpdateParams, 
 		ID:                 "ConstituentGroups_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ConstituentGroups/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ConstituentGroupsUpdateReader{formats: a.formats},
@@ -2724,9 +2759,8 @@ func (a *Client) ConstituentGroupsUpdate(params *ConstituentGroupsUpdateParams, 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ConstituentGroups_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ConstituentGroupsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2741,8 +2775,8 @@ func (a *Client) ConstituentInactivesUpdate(params *ConstituentInactivesUpdatePa
 		ID:                 "ConstituentInactives_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ConstituentInactives/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ConstituentInactivesUpdateReader{formats: a.formats},
@@ -2762,9 +2796,8 @@ func (a *Client) ConstituentInactivesUpdate(params *ConstituentInactivesUpdatePa
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ConstituentInactives_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ConstituentInactivesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2779,8 +2812,8 @@ func (a *Client) ConstituentProtectionTypesUpdate(params *ConstituentProtectionT
 		ID:                 "ConstituentProtectionTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ConstituentProtectionTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ConstituentProtectionTypesUpdateReader{formats: a.formats},
@@ -2800,9 +2833,8 @@ func (a *Client) ConstituentProtectionTypesUpdate(params *ConstituentProtectionT
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ConstituentProtectionTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ConstituentProtectionTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2817,8 +2849,8 @@ func (a *Client) ConstituentTypeAffiliatesUpdate(params *ConstituentTypeAffiliat
 		ID:                 "ConstituentTypeAffiliates_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ConstituentTypeAffiliates/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ConstituentTypeAffiliatesUpdateReader{formats: a.formats},
@@ -2838,9 +2870,8 @@ func (a *Client) ConstituentTypeAffiliatesUpdate(params *ConstituentTypeAffiliat
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ConstituentTypeAffiliates_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ConstituentTypeAffiliatesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2855,8 +2886,8 @@ func (a *Client) ConstituentTypesUpdate(params *ConstituentTypesUpdateParams, op
 		ID:                 "ConstituentTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ConstituentTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ConstituentTypesUpdateReader{formats: a.formats},
@@ -2876,9 +2907,8 @@ func (a *Client) ConstituentTypesUpdate(params *ConstituentTypesUpdateParams, op
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ConstituentTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ConstituentTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2893,8 +2923,8 @@ func (a *Client) ConstituentsUpdate(params *ConstituentsUpdateParams, opts ...Cl
 		ID:                 "Constituents_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Constituents/{constituentId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ConstituentsUpdateReader{formats: a.formats},
@@ -2914,9 +2944,8 @@ func (a *Client) ConstituentsUpdate(params *ConstituentsUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Constituents_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ConstituentsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2931,8 +2960,8 @@ func (a *Client) ContactPermissionCategoriesUpdate(params *ContactPermissionCate
 		ID:                 "ContactPermissionCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ContactPermissionCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ContactPermissionCategoriesUpdateReader{formats: a.formats},
@@ -2952,9 +2981,8 @@ func (a *Client) ContactPermissionCategoriesUpdate(params *ContactPermissionCate
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ContactPermissionCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ContactPermissionCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -2969,8 +2997,8 @@ func (a *Client) ContactPermissionTypesUpdate(params *ContactPermissionTypesUpda
 		ID:                 "ContactPermissionTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ContactPermissionTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ContactPermissionTypesUpdateReader{formats: a.formats},
@@ -2990,9 +3018,8 @@ func (a *Client) ContactPermissionTypesUpdate(params *ContactPermissionTypesUpda
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ContactPermissionTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ContactPermissionTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3007,8 +3034,8 @@ func (a *Client) ContactPermissionsUpdate(params *ContactPermissionsUpdateParams
 		ID:                 "ContactPermissions_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/ContactPermissions/{contactPermissionId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ContactPermissionsUpdateReader{formats: a.formats},
@@ -3028,9 +3055,8 @@ func (a *Client) ContactPermissionsUpdate(params *ContactPermissionsUpdateParams
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ContactPermissions_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ContactPermissionsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3045,8 +3071,8 @@ func (a *Client) ContactPointCategoriesUpdate(params *ContactPointCategoriesUpda
 		ID:                 "ContactPointCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ContactPointCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ContactPointCategoriesUpdateReader{formats: a.formats},
@@ -3066,9 +3092,8 @@ func (a *Client) ContactPointCategoriesUpdate(params *ContactPointCategoriesUpda
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ContactPointCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ContactPointCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3083,8 +3108,8 @@ func (a *Client) ContactPointCategoryPurposesUpdate(params *ContactPointCategory
 		ID:                 "ContactPointCategoryPurposes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ContactPointCategoryPurposes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ContactPointCategoryPurposesUpdateReader{formats: a.formats},
@@ -3104,9 +3129,8 @@ func (a *Client) ContactPointCategoryPurposesUpdate(params *ContactPointCategory
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ContactPointCategoryPurposes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ContactPointCategoryPurposesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3121,8 +3145,8 @@ func (a *Client) ContactPointPurposeCategoriesUpdate(params *ContactPointPurpose
 		ID:                 "ContactPointPurposeCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ContactPointPurposeCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ContactPointPurposeCategoriesUpdateReader{formats: a.formats},
@@ -3142,9 +3166,8 @@ func (a *Client) ContactPointPurposeCategoriesUpdate(params *ContactPointPurpose
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ContactPointPurposeCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ContactPointPurposeCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3159,8 +3182,8 @@ func (a *Client) ContactPointPurposeMapsUpdate(params *ContactPointPurposeMapsUp
 		ID:                 "ContactPointPurposeMaps_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/ContactPointPurposeMaps/{contactPointPurposeMapId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ContactPointPurposeMapsUpdateReader{formats: a.formats},
@@ -3180,9 +3203,8 @@ func (a *Client) ContactPointPurposeMapsUpdate(params *ContactPointPurposeMapsUp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ContactPointPurposeMaps_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ContactPointPurposeMapsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3197,8 +3219,8 @@ func (a *Client) ContactPointPurposesUpdate(params *ContactPointPurposesUpdatePa
 		ID:                 "ContactPointPurposes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ContactPointPurposes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ContactPointPurposesUpdateReader{formats: a.formats},
@@ -3218,9 +3240,8 @@ func (a *Client) ContactPointPurposesUpdate(params *ContactPointPurposesUpdatePa
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ContactPointPurposes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ContactPointPurposesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3235,8 +3256,8 @@ func (a *Client) ContactTypesUpdate(params *ContactTypesUpdateParams, opts ...Cl
 		ID:                 "ContactTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ContactTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ContactTypesUpdateReader{formats: a.formats},
@@ -3256,9 +3277,8 @@ func (a *Client) ContactTypesUpdate(params *ContactTypesUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ContactTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ContactTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3273,8 +3293,8 @@ func (a *Client) ContributionDesignationsUpdate(params *ContributionDesignations
 		ID:                 "ContributionDesignations_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ContributionDesignations/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ContributionDesignationsUpdateReader{formats: a.formats},
@@ -3294,9 +3314,8 @@ func (a *Client) ContributionDesignationsUpdate(params *ContributionDesignations
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ContributionDesignations_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ContributionDesignationsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3311,8 +3330,8 @@ func (a *Client) ContributionImportSetsUpdate(params *ContributionImportSetsUpda
 		ID:                 "ContributionImportSets_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ContributionImportSets/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ContributionImportSetsUpdateReader{formats: a.formats},
@@ -3332,9 +3351,8 @@ func (a *Client) ContributionImportSetsUpdate(params *ContributionImportSetsUpda
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ContributionImportSets_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ContributionImportSetsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3349,8 +3367,8 @@ func (a *Client) ContributionsUpdate(params *ContributionsUpdateParams, opts ...
 		ID:                 "Contributions_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/Contributions/{contributionId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ContributionsUpdateReader{formats: a.formats},
@@ -3370,9 +3388,8 @@ func (a *Client) ContributionsUpdate(params *ContributionsUpdateParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Contributions_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ContributionsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3387,8 +3404,8 @@ func (a *Client) ControlGroupUserGroupsUpdate(params *ControlGroupUserGroupsUpda
 		ID:                 "ControlGroupUserGroups_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ControlGroupUserGroups/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ControlGroupUserGroupsUpdateReader{formats: a.formats},
@@ -3408,9 +3425,8 @@ func (a *Client) ControlGroupUserGroupsUpdate(params *ControlGroupUserGroupsUpda
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ControlGroupUserGroups_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ControlGroupUserGroupsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3425,8 +3441,8 @@ func (a *Client) ControlGroupsUpdate(params *ControlGroupsUpdateParams, opts ...
 		ID:                 "ControlGroups_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ControlGroups/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ControlGroupsUpdateReader{formats: a.formats},
@@ -3446,9 +3462,8 @@ func (a *Client) ControlGroupsUpdate(params *ControlGroupsUpdateParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ControlGroups_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ControlGroupsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3463,8 +3478,8 @@ func (a *Client) CountriesUpdate(params *CountriesUpdateParams, opts ...ClientOp
 		ID:                 "Countries_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Countries/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CountriesUpdateReader{formats: a.formats},
@@ -3484,9 +3499,8 @@ func (a *Client) CountriesUpdate(params *CountriesUpdateParams, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Countries_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CountriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3501,8 +3515,8 @@ func (a *Client) CrediteeTypesUpdate(params *CrediteeTypesUpdateParams, opts ...
 		ID:                 "CrediteeTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/CrediteeTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CrediteeTypesUpdateReader{formats: a.formats},
@@ -3522,9 +3536,8 @@ func (a *Client) CrediteeTypesUpdate(params *CrediteeTypesUpdateParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CrediteeTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CrediteeTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3539,8 +3552,8 @@ func (a *Client) CurrencyTypesUpdate(params *CurrencyTypesUpdateParams, opts ...
 		ID:                 "CurrencyTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/CurrencyTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CurrencyTypesUpdateReader{formats: a.formats},
@@ -3560,9 +3573,8 @@ func (a *Client) CurrencyTypesUpdate(params *CurrencyTypesUpdateParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CurrencyTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CurrencyTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3577,8 +3589,8 @@ func (a *Client) CustomDefaultCategoriesUpdate(params *CustomDefaultCategoriesUp
 		ID:                 "CustomDefaultCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/CustomDefaultCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CustomDefaultCategoriesUpdateReader{formats: a.formats},
@@ -3598,9 +3610,8 @@ func (a *Client) CustomDefaultCategoriesUpdate(params *CustomDefaultCategoriesUp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CustomDefaultCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CustomDefaultCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3615,8 +3626,8 @@ func (a *Client) CustomDefaultsUpdate(params *CustomDefaultsUpdateParams, opts .
 		ID:                 "CustomDefaults_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/CustomDefaults/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CustomDefaultsUpdateReader{formats: a.formats},
@@ -3636,47 +3647,8 @@ func (a *Client) CustomDefaultsUpdate(params *CustomDefaultsUpdateParams, opts .
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CustomDefaults_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-CustomUpdate updates the details of an entry in the table for the resource as defined by resource name in t r d a t a s e r v i c e t a b l e s with the given id Id
-*/
-func (a *Client) CustomUpdate(params *CustomUpdateParams, opts ...ClientOption) (*CustomUpdateOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCustomUpdateParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "Custom_Update",
-		Method:             "PUT",
-		PathPattern:        "/Custom/{resourceName}/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &CustomUpdateReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CustomUpdateOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Custom_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*CustomDefaultsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3691,8 +3663,8 @@ func (a *Client) DeliveryMethodsUpdate(params *DeliveryMethodsUpdateParams, opts
 		ID:                 "DeliveryMethods_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/DeliveryMethods/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DeliveryMethodsUpdateReader{formats: a.formats},
@@ -3712,9 +3684,8 @@ func (a *Client) DeliveryMethodsUpdate(params *DeliveryMethodsUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DeliveryMethods_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*DeliveryMethodsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3729,8 +3700,8 @@ func (a *Client) DesignationCodesUpdate(params *DesignationCodesUpdateParams, op
 		ID:                 "DesignationCodes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/DesignationCodes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DesignationCodesUpdateReader{formats: a.formats},
@@ -3750,9 +3721,8 @@ func (a *Client) DesignationCodesUpdate(params *DesignationCodesUpdateParams, op
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DesignationCodes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*DesignationCodesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3767,8 +3737,8 @@ func (a *Client) DiagnosticsPut(params *DiagnosticsPutParams, opts ...ClientOpti
 		ID:                 "Diagnostics_Put",
 		Method:             "PUT",
 		PathPattern:        "/Diagnostics/{diagnosticId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DiagnosticsPutReader{formats: a.formats},
@@ -3788,9 +3758,8 @@ func (a *Client) DiagnosticsPut(params *DiagnosticsPutParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Diagnostics_Put: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*DiagnosticsPutDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3805,8 +3774,8 @@ func (a *Client) DirectDebitAccountTypesUpdate(params *DirectDebitAccountTypesUp
 		ID:                 "DirectDebitAccountTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/DirectDebitAccountTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DirectDebitAccountTypesUpdateReader{formats: a.formats},
@@ -3826,9 +3795,8 @@ func (a *Client) DirectDebitAccountTypesUpdate(params *DirectDebitAccountTypesUp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DirectDebitAccountTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*DirectDebitAccountTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3843,8 +3811,8 @@ func (a *Client) DiscountTypesUpdate(params *DiscountTypesUpdateParams, opts ...
 		ID:                 "DiscountTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/DiscountTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DiscountTypesUpdateReader{formats: a.formats},
@@ -3864,9 +3832,8 @@ func (a *Client) DiscountTypesUpdate(params *DiscountTypesUpdateParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DiscountTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*DiscountTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3881,8 +3848,8 @@ func (a *Client) DocumentCategoriesUpdate(params *DocumentCategoriesUpdateParams
 		ID:                 "DocumentCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/DocumentCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DocumentCategoriesUpdateReader{formats: a.formats},
@@ -3902,9 +3869,8 @@ func (a *Client) DocumentCategoriesUpdate(params *DocumentCategoriesUpdateParams
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DocumentCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*DocumentCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3919,8 +3885,8 @@ func (a *Client) DonationLevelsUpdate(params *DonationLevelsUpdateParams, opts .
 		ID:                 "DonationLevels_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/DonationLevels/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DonationLevelsUpdateReader{formats: a.formats},
@@ -3940,9 +3906,8 @@ func (a *Client) DonationLevelsUpdate(params *DonationLevelsUpdateParams, opts .
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DonationLevels_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*DonationLevelsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3957,8 +3922,8 @@ func (a *Client) EMVSetIdleMessage(params *EMVSetIdleMessageParams, opts ...Clie
 		ID:                 "EMV_SetIdleMessage",
 		Method:             "PUT",
 		PathPattern:        "/PaymentGateway/EMV/TriPosLanes/{laneId}/Profiles/Idle",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &EMVSetIdleMessageReader{formats: a.formats},
@@ -3978,9 +3943,8 @@ func (a *Client) EMVSetIdleMessage(params *EMVSetIdleMessageParams, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for EMV_SetIdleMessage: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EMVSetIdleMessageDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -3995,8 +3959,8 @@ func (a *Client) ElectronicAddressTypesUpdate(params *ElectronicAddressTypesUpda
 		ID:                 "ElectronicAddressTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ElectronicAddressTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ElectronicAddressTypesUpdateReader{formats: a.formats},
@@ -4016,9 +3980,8 @@ func (a *Client) ElectronicAddressTypesUpdate(params *ElectronicAddressTypesUpda
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ElectronicAddressTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ElectronicAddressTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4033,8 +3996,8 @@ func (a *Client) ElectronicAddressesUpdate(params *ElectronicAddressesUpdatePara
 		ID:                 "ElectronicAddresses_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/ElectronicAddresses/{electronicAddressId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ElectronicAddressesUpdateReader{formats: a.formats},
@@ -4054,9 +4017,8 @@ func (a *Client) ElectronicAddressesUpdate(params *ElectronicAddressesUpdatePara
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ElectronicAddresses_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ElectronicAddressesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4071,8 +4033,8 @@ func (a *Client) EmailProfilesUpdate(params *EmailProfilesUpdateParams, opts ...
 		ID:                 "EmailProfiles_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/EmailProfiles/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &EmailProfilesUpdateReader{formats: a.formats},
@@ -4092,9 +4054,8 @@ func (a *Client) EmailProfilesUpdate(params *EmailProfilesUpdateParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for EmailProfiles_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EmailProfilesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4109,8 +4070,8 @@ func (a *Client) EmarketIndicatorsUpdate(params *EmarketIndicatorsUpdateParams, 
 		ID:                 "EmarketIndicators_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/EmarketIndicators/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &EmarketIndicatorsUpdateReader{formats: a.formats},
@@ -4130,9 +4091,8 @@ func (a *Client) EmarketIndicatorsUpdate(params *EmarketIndicatorsUpdateParams, 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for EmarketIndicators_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*EmarketIndicatorsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4147,8 +4107,8 @@ func (a *Client) ErasUpdate(params *ErasUpdateParams, opts ...ClientOption) (*Er
 		ID:                 "Eras_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Eras/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ErasUpdateReader{formats: a.formats},
@@ -4168,9 +4128,8 @@ func (a *Client) ErasUpdate(params *ErasUpdateParams, opts ...ClientOption) (*Er
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Eras_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ErasUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4185,8 +4144,8 @@ func (a *Client) FacilitiesUpdate(params *FacilitiesUpdateParams, opts ...Client
 		ID:                 "Facilities_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/Facilities/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &FacilitiesUpdateReader{formats: a.formats},
@@ -4206,9 +4165,8 @@ func (a *Client) FacilitiesUpdate(params *FacilitiesUpdateParams, opts ...Client
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Facilities_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*FacilitiesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4223,8 +4181,8 @@ func (a *Client) GendersUpdate(params *GendersUpdateParams, opts ...ClientOption
 		ID:                 "Genders_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Genders/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GendersUpdateReader{formats: a.formats},
@@ -4244,9 +4202,8 @@ func (a *Client) GendersUpdate(params *GendersUpdateParams, opts ...ClientOption
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Genders_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*GendersUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4261,8 +4218,8 @@ func (a *Client) GiftAidContactMethodsUpdate(params *GiftAidContactMethodsUpdate
 		ID:                 "GiftAidContactMethods_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/GiftAidContactMethods/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GiftAidContactMethodsUpdateReader{formats: a.formats},
@@ -4282,9 +4239,8 @@ func (a *Client) GiftAidContactMethodsUpdate(params *GiftAidContactMethodsUpdate
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GiftAidContactMethods_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*GiftAidContactMethodsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4299,8 +4255,8 @@ func (a *Client) GiftAidDeclarationsUpdate(params *GiftAidDeclarationsUpdatePara
 		ID:                 "GiftAidDeclarations_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/GiftAidDeclarations/{giftAidDeclarationId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GiftAidDeclarationsUpdateReader{formats: a.formats},
@@ -4320,9 +4276,8 @@ func (a *Client) GiftAidDeclarationsUpdate(params *GiftAidDeclarationsUpdatePara
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GiftAidDeclarations_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*GiftAidDeclarationsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4337,8 +4292,8 @@ func (a *Client) GiftAidDocumentStatusesUpdate(params *GiftAidDocumentStatusesUp
 		ID:                 "GiftAidDocumentStatuses_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/GiftAidDocumentStatuses/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GiftAidDocumentStatusesUpdateReader{formats: a.formats},
@@ -4358,9 +4313,8 @@ func (a *Client) GiftAidDocumentStatusesUpdate(params *GiftAidDocumentStatusesUp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GiftAidDocumentStatuses_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*GiftAidDocumentStatusesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4375,8 +4329,8 @@ func (a *Client) GiftAidIneligibleReasonsUpdate(params *GiftAidIneligibleReasons
 		ID:                 "GiftAidIneligibleReasons_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/GiftAidIneligibleReasons/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GiftAidIneligibleReasonsUpdateReader{formats: a.formats},
@@ -4396,9 +4350,8 @@ func (a *Client) GiftAidIneligibleReasonsUpdate(params *GiftAidIneligibleReasons
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GiftAidIneligibleReasons_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*GiftAidIneligibleReasonsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4413,8 +4366,8 @@ func (a *Client) GiftAidRatesUpdate(params *GiftAidRatesUpdateParams, opts ...Cl
 		ID:                 "GiftAidRates_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/GiftAidRates/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GiftAidRatesUpdateReader{formats: a.formats},
@@ -4434,9 +4387,8 @@ func (a *Client) GiftAidRatesUpdate(params *GiftAidRatesUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GiftAidRates_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*GiftAidRatesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4451,8 +4403,8 @@ func (a *Client) GiftAidStatusesUpdate(params *GiftAidStatusesUpdateParams, opts
 		ID:                 "GiftAidStatuses_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/GiftAidStatuses/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GiftAidStatusesUpdateReader{formats: a.formats},
@@ -4472,9 +4424,8 @@ func (a *Client) GiftAidStatusesUpdate(params *GiftAidStatusesUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GiftAidStatuses_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*GiftAidStatusesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4489,8 +4440,8 @@ func (a *Client) GiftAidTypesUpdate(params *GiftAidTypesUpdateParams, opts ...Cl
 		ID:                 "GiftAidTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/GiftAidTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GiftAidTypesUpdateReader{formats: a.formats},
@@ -4510,9 +4461,8 @@ func (a *Client) GiftAidTypesUpdate(params *GiftAidTypesUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GiftAidTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*GiftAidTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4527,8 +4477,8 @@ func (a *Client) HoldCodeCategoriesUpdate(params *HoldCodeCategoriesUpdateParams
 		ID:                 "HoldCodeCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/HoldCodeCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &HoldCodeCategoriesUpdateReader{formats: a.formats},
@@ -4548,9 +4498,8 @@ func (a *Client) HoldCodeCategoriesUpdate(params *HoldCodeCategoriesUpdateParams
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for HoldCodeCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*HoldCodeCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4565,8 +4514,8 @@ func (a *Client) HoldCodeUserGroupsUpdate(params *HoldCodeUserGroupsUpdateParams
 		ID:                 "HoldCodeUserGroups_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/HoldCodeUserGroups/{holdCodeUserGroupId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &HoldCodeUserGroupsUpdateReader{formats: a.formats},
@@ -4586,9 +4535,8 @@ func (a *Client) HoldCodeUserGroupsUpdate(params *HoldCodeUserGroupsUpdateParams
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for HoldCodeUserGroups_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*HoldCodeUserGroupsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4603,8 +4551,8 @@ func (a *Client) HoldCodesUpdate(params *HoldCodesUpdateParams, opts ...ClientOp
 		ID:                 "HoldCodes_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/HoldCodes/{holdCodeId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &HoldCodesUpdateReader{formats: a.formats},
@@ -4624,9 +4572,8 @@ func (a *Client) HoldCodesUpdate(params *HoldCodesUpdateParams, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for HoldCodes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*HoldCodesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4641,8 +4588,8 @@ func (a *Client) InactiveReasonsUpdate(params *InactiveReasonsUpdateParams, opts
 		ID:                 "InactiveReasons_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/InactiveReasons/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &InactiveReasonsUpdateReader{formats: a.formats},
@@ -4662,9 +4609,8 @@ func (a *Client) InactiveReasonsUpdate(params *InactiveReasonsUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for InactiveReasons_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*InactiveReasonsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4679,8 +4625,8 @@ func (a *Client) IntegrationDefaultsUpdate(params *IntegrationDefaultsUpdatePara
 		ID:                 "IntegrationDefaults_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/IntegrationDefaults/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &IntegrationDefaultsUpdateReader{formats: a.formats},
@@ -4700,9 +4646,8 @@ func (a *Client) IntegrationDefaultsUpdate(params *IntegrationDefaultsUpdatePara
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for IntegrationDefaults_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*IntegrationDefaultsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4717,8 +4662,8 @@ func (a *Client) IntegrationsUpdate(params *IntegrationsUpdateParams, opts ...Cl
 		ID:                 "Integrations_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Integrations/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &IntegrationsUpdateReader{formats: a.formats},
@@ -4738,9 +4683,8 @@ func (a *Client) IntegrationsUpdate(params *IntegrationsUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Integrations_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*IntegrationsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4755,8 +4699,8 @@ func (a *Client) InterestCategoriesUpdate(params *InterestCategoriesUpdateParams
 		ID:                 "InterestCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/InterestCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &InterestCategoriesUpdateReader{formats: a.formats},
@@ -4776,9 +4720,8 @@ func (a *Client) InterestCategoriesUpdate(params *InterestCategoriesUpdateParams
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for InterestCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*InterestCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4793,8 +4736,8 @@ func (a *Client) InterestTypesUpdate(params *InterestTypesUpdateParams, opts ...
 		ID:                 "InterestTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/InterestTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &InterestTypesUpdateReader{formats: a.formats},
@@ -4814,9 +4757,8 @@ func (a *Client) InterestTypesUpdate(params *InterestTypesUpdateParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for InterestTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*InterestTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4831,8 +4773,8 @@ func (a *Client) InterestsUpdate(params *InterestsUpdateParams, opts ...ClientOp
 		ID:                 "Interests_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Interests/{interestId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &InterestsUpdateReader{formats: a.formats},
@@ -4852,9 +4794,8 @@ func (a *Client) InterestsUpdate(params *InterestsUpdateParams, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Interests_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*InterestsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4869,8 +4810,8 @@ func (a *Client) InternalUpdate(params *InternalUpdateParams, opts ...ClientOpti
 		ID:                 "Internal_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Internal/AddressDetails/{addressId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &InternalUpdateReader{formats: a.formats},
@@ -4890,9 +4831,8 @@ func (a *Client) InternalUpdate(params *InternalUpdateParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Internal_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*InternalUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4907,8 +4847,8 @@ func (a *Client) InventoryContactPermissionTypesUpdate(params *InventoryContactP
 		ID:                 "InventoryContactPermissionTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/InventoryContactPermissionTypes/{inventoryContactPermissionTypeId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &InventoryContactPermissionTypesUpdateReader{formats: a.formats},
@@ -4928,9 +4868,8 @@ func (a *Client) InventoryContactPermissionTypesUpdate(params *InventoryContactP
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for InventoryContactPermissionTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*InventoryContactPermissionTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4945,8 +4884,8 @@ func (a *Client) InventoryWebContentsUpdate(params *InventoryWebContentsUpdatePa
 		ID:                 "InventoryWebContents_Update",
 		Method:             "PUT",
 		PathPattern:        "/Txn/InventoryWebContents/{inventoryWebContentId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &InventoryWebContentsUpdateReader{formats: a.formats},
@@ -4966,9 +4905,8 @@ func (a *Client) InventoryWebContentsUpdate(params *InventoryWebContentsUpdatePa
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for InventoryWebContents_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*InventoryWebContentsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -4983,8 +4921,8 @@ func (a *Client) IssuesUpdate(params *IssuesUpdateParams, opts ...ClientOption) 
 		ID:                 "Issues_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Issues/{issueId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &IssuesUpdateReader{formats: a.formats},
@@ -5004,9 +4942,8 @@ func (a *Client) IssuesUpdate(params *IssuesUpdateParams, opts ...ClientOption) 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Issues_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*IssuesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5021,8 +4958,8 @@ func (a *Client) KeywordCategoriesUpdate(params *KeywordCategoriesUpdateParams, 
 		ID:                 "KeywordCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/KeywordCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &KeywordCategoriesUpdateReader{formats: a.formats},
@@ -5042,9 +4979,8 @@ func (a *Client) KeywordCategoriesUpdate(params *KeywordCategoriesUpdateParams, 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for KeywordCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*KeywordCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5059,8 +4995,8 @@ func (a *Client) KeywordsUpdate(params *KeywordsUpdateParams, opts ...ClientOpti
 		ID:                 "Keywords_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Keywords/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &KeywordsUpdateReader{formats: a.formats},
@@ -5080,9 +5016,8 @@ func (a *Client) KeywordsUpdate(params *KeywordsUpdateParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Keywords_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*KeywordsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5097,8 +5032,8 @@ func (a *Client) LanguagesUpdate(params *LanguagesUpdateParams, opts ...ClientOp
 		ID:                 "Languages_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Languages/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &LanguagesUpdateReader{formats: a.formats},
@@ -5118,9 +5053,8 @@ func (a *Client) LanguagesUpdate(params *LanguagesUpdateParams, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Languages_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*LanguagesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5135,8 +5069,8 @@ func (a *Client) ListCategoriesUpdate(params *ListCategoriesUpdateParams, opts .
 		ID:                 "ListCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ListCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ListCategoriesUpdateReader{formats: a.formats},
@@ -5156,9 +5090,8 @@ func (a *Client) ListCategoriesUpdate(params *ListCategoriesUpdateParams, opts .
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ListCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ListCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5173,8 +5106,8 @@ func (a *Client) ListsUpdate(params *ListsUpdateParams, opts ...ClientOption) (*
 		ID:                 "Lists_Update",
 		Method:             "PUT",
 		PathPattern:        "/Reporting/Lists/{listId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ListsUpdateReader{formats: a.formats},
@@ -5194,9 +5127,8 @@ func (a *Client) ListsUpdate(params *ListsUpdateParams, opts ...ClientOption) (*
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Lists_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ListsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5211,8 +5143,8 @@ func (a *Client) ListsUpdateContents(params *ListsUpdateContentsParams, opts ...
 		ID:                 "Lists_UpdateContents",
 		Method:             "PUT",
 		PathPattern:        "/Reporting/Lists/{listId}/Contents",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ListsUpdateContentsReader{formats: a.formats},
@@ -5232,9 +5164,8 @@ func (a *Client) ListsUpdateContents(params *ListsUpdateContentsParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Lists_UpdateContents: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ListsUpdateContentsDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5249,8 +5180,8 @@ func (a *Client) LoginTypesUpdate(params *LoginTypesUpdateParams, opts ...Client
 		ID:                 "LoginTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/LoginTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &LoginTypesUpdateReader{formats: a.formats},
@@ -5270,9 +5201,8 @@ func (a *Client) LoginTypesUpdate(params *LoginTypesUpdateParams, opts ...Client
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for LoginTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*LoginTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5287,8 +5217,8 @@ func (a *Client) MachineSettingsUpdate(params *MachineSettingsUpdateParams, opts
 		ID:                 "MachineSettings_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/MachineSettings/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &MachineSettingsUpdateReader{formats: a.formats},
@@ -5308,9 +5238,8 @@ func (a *Client) MachineSettingsUpdate(params *MachineSettingsUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for MachineSettings_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*MachineSettingsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5325,8 +5254,8 @@ func (a *Client) MailIndicatorsUpdate(params *MailIndicatorsUpdateParams, opts .
 		ID:                 "MailIndicators_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/MailIndicators/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &MailIndicatorsUpdateReader{formats: a.formats},
@@ -5346,9 +5275,8 @@ func (a *Client) MailIndicatorsUpdate(params *MailIndicatorsUpdateParams, opts .
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for MailIndicators_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*MailIndicatorsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5363,8 +5291,8 @@ func (a *Client) MediaTypesUpdate(params *MediaTypesUpdateParams, opts ...Client
 		ID:                 "MediaTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/MediaTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &MediaTypesUpdateReader{formats: a.formats},
@@ -5384,9 +5312,8 @@ func (a *Client) MediaTypesUpdate(params *MediaTypesUpdateParams, opts ...Client
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for MediaTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*MediaTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5401,8 +5328,8 @@ func (a *Client) MembershipLevelCategoriesUpdate(params *MembershipLevelCategori
 		ID:                 "MembershipLevelCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/MembershipLevelCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &MembershipLevelCategoriesUpdateReader{formats: a.formats},
@@ -5422,9 +5349,8 @@ func (a *Client) MembershipLevelCategoriesUpdate(params *MembershipLevelCategori
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for MembershipLevelCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*MembershipLevelCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5439,8 +5365,8 @@ func (a *Client) ModeOfSaleCategoriesUpdate(params *ModeOfSaleCategoriesUpdatePa
 		ID:                 "ModeOfSaleCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/ModeOfSaleCategories/{modeOfSaleCategoryId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ModeOfSaleCategoriesUpdateReader{formats: a.formats},
@@ -5460,9 +5386,8 @@ func (a *Client) ModeOfSaleCategoriesUpdate(params *ModeOfSaleCategoriesUpdatePa
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ModeOfSaleCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ModeOfSaleCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5477,8 +5402,8 @@ func (a *Client) ModeOfSaleOffersUpdate(params *ModeOfSaleOffersUpdateParams, op
 		ID:                 "ModeOfSaleOffers_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/ModeOfSaleOffers/{modeOfSaleOfferId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ModeOfSaleOffersUpdateReader{formats: a.formats},
@@ -5498,9 +5423,8 @@ func (a *Client) ModeOfSaleOffersUpdate(params *ModeOfSaleOffersUpdateParams, op
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ModeOfSaleOffers_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ModeOfSaleOffersUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5515,8 +5439,8 @@ func (a *Client) ModeOfSalePriceTypesUpdate(params *ModeOfSalePriceTypesUpdatePa
 		ID:                 "ModeOfSalePriceTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/ModeOfSalePriceTypes/{modeOfSalePriceTypeId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ModeOfSalePriceTypesUpdateReader{formats: a.formats},
@@ -5536,9 +5460,8 @@ func (a *Client) ModeOfSalePriceTypesUpdate(params *ModeOfSalePriceTypesUpdatePa
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ModeOfSalePriceTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ModeOfSalePriceTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5553,8 +5476,8 @@ func (a *Client) ModeOfSaleSurveyQuestionsUpdate(params *ModeOfSaleSurveyQuestio
 		ID:                 "ModeOfSaleSurveyQuestions_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/ModeOfSaleSurveyQuestions/{modeOfSaleSurveyQuestionId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ModeOfSaleSurveyQuestionsUpdateReader{formats: a.formats},
@@ -5574,9 +5497,8 @@ func (a *Client) ModeOfSaleSurveyQuestionsUpdate(params *ModeOfSaleSurveyQuestio
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ModeOfSaleSurveyQuestions_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ModeOfSaleSurveyQuestionsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5591,8 +5513,8 @@ func (a *Client) ModeOfSaleUserGroupsUpdate(params *ModeOfSaleUserGroupsUpdatePa
 		ID:                 "ModeOfSaleUserGroups_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/ModeOfSaleUserGroups/{modeOfSaleUserGroupId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ModeOfSaleUserGroupsUpdateReader{formats: a.formats},
@@ -5612,9 +5534,8 @@ func (a *Client) ModeOfSaleUserGroupsUpdate(params *ModeOfSaleUserGroupsUpdatePa
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ModeOfSaleUserGroups_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ModeOfSaleUserGroupsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5629,8 +5550,8 @@ func (a *Client) ModesOfSaleUpdate(params *ModesOfSaleUpdateParams, opts ...Clie
 		ID:                 "ModesOfSale_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/ModesOfSale/{modeOfSaleId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ModesOfSaleUpdateReader{formats: a.formats},
@@ -5650,9 +5571,8 @@ func (a *Client) ModesOfSaleUpdate(params *ModesOfSaleUpdateParams, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ModesOfSale_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ModesOfSaleUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5667,8 +5587,8 @@ func (a *Client) NScanAccessAreasUpdate(params *NScanAccessAreasUpdateParams, op
 		ID:                 "NScanAccessAreas_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/NScanAccessAreas/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &NScanAccessAreasUpdateReader{formats: a.formats},
@@ -5688,9 +5608,8 @@ func (a *Client) NScanAccessAreasUpdate(params *NScanAccessAreasUpdateParams, op
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for NScanAccessAreas_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*NScanAccessAreasUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5705,8 +5624,8 @@ func (a *Client) NameStatusesUpdate(params *NameStatusesUpdateParams, opts ...Cl
 		ID:                 "NameStatuses_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/NameStatuses/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &NameStatusesUpdateReader{formats: a.formats},
@@ -5726,9 +5645,8 @@ func (a *Client) NameStatusesUpdate(params *NameStatusesUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for NameStatuses_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*NameStatusesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5743,8 +5661,8 @@ func (a *Client) ObjectPermissionsUpdate(params *ObjectPermissionsUpdateParams, 
 		ID:                 "ObjectPermissions_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ObjectPermissions/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ObjectPermissionsUpdateReader{formats: a.formats},
@@ -5764,9 +5682,8 @@ func (a *Client) ObjectPermissionsUpdate(params *ObjectPermissionsUpdateParams, 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ObjectPermissions_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ObjectPermissionsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5781,8 +5698,8 @@ func (a *Client) OrderCategoriesUpdate(params *OrderCategoriesUpdateParams, opts
 		ID:                 "OrderCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/OrderCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &OrderCategoriesUpdateReader{formats: a.formats},
@@ -5802,9 +5719,8 @@ func (a *Client) OrderCategoriesUpdate(params *OrderCategoriesUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for OrderCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*OrderCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5819,8 +5735,8 @@ func (a *Client) OrdersUpdate(params *OrdersUpdateParams, opts ...ClientOption) 
 		ID:                 "Orders_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/Orders/{orderId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &OrdersUpdateReader{formats: a.formats},
@@ -5840,9 +5756,8 @@ func (a *Client) OrdersUpdate(params *OrdersUpdateParams, opts ...ClientOption) 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Orders_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*OrdersUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5857,8 +5772,8 @@ func (a *Client) OrganizationsUpdate(params *OrganizationsUpdateParams, opts ...
 		ID:                 "Organizations_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Organizations/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &OrganizationsUpdateReader{formats: a.formats},
@@ -5878,9 +5793,8 @@ func (a *Client) OrganizationsUpdate(params *OrganizationsUpdateParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Organizations_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*OrganizationsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5895,8 +5809,8 @@ func (a *Client) OriginalSourcesUpdate(params *OriginalSourcesUpdateParams, opts
 		ID:                 "OriginalSources_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/OriginalSources/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &OriginalSourcesUpdateReader{formats: a.formats},
@@ -5916,9 +5830,8 @@ func (a *Client) OriginalSourcesUpdate(params *OriginalSourcesUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for OriginalSources_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*OriginalSourcesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5933,8 +5846,8 @@ func (a *Client) OriginsUpdate(params *OriginsUpdateParams, opts ...ClientOption
 		ID:                 "Origins_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Origins/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &OriginsUpdateReader{formats: a.formats},
@@ -5954,9 +5867,8 @@ func (a *Client) OriginsUpdate(params *OriginsUpdateParams, opts ...ClientOption
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Origins_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*OriginsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -5971,8 +5883,8 @@ func (a *Client) OutputSetsUpdate(params *OutputSetsUpdateParams, opts ...Client
 		ID:                 "OutputSets_Update",
 		Method:             "PUT",
 		PathPattern:        "/Reporting/OutputSets/{outputSetId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &OutputSetsUpdateReader{formats: a.formats},
@@ -5992,9 +5904,8 @@ func (a *Client) OutputSetsUpdate(params *OutputSetsUpdateParams, opts ...Client
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for OutputSets_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*OutputSetsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6009,8 +5920,8 @@ func (a *Client) PackagePriceTypesUpdate(params *PackagePriceTypesUpdateParams, 
 		ID:                 "PackagePriceTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/PackagePriceTypes/{packagePriceTypeId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PackagePriceTypesUpdateReader{formats: a.formats},
@@ -6030,9 +5941,8 @@ func (a *Client) PackagePriceTypesUpdate(params *PackagePriceTypesUpdateParams, 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PackagePriceTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PackagePriceTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6047,8 +5957,8 @@ func (a *Client) PackageTypesUpdate(params *PackageTypesUpdateParams, opts ...Cl
 		ID:                 "PackageTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PackageTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PackageTypesUpdateReader{formats: a.formats},
@@ -6068,9 +5978,8 @@ func (a *Client) PackageTypesUpdate(params *PackageTypesUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PackageTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PackageTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6085,8 +5994,8 @@ func (a *Client) PackageWebContentsUpdate(params *PackageWebContentsUpdateParams
 		ID:                 "PackageWebContents_Update",
 		Method:             "PUT",
 		PathPattern:        "/Txn/PackageWebContents/{packageWebContentId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PackageWebContentsUpdateReader{formats: a.formats},
@@ -6106,9 +6015,8 @@ func (a *Client) PackageWebContentsUpdate(params *PackageWebContentsUpdateParams
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PackageWebContents_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PackageWebContentsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6123,8 +6031,8 @@ func (a *Client) PaymentGatewayActivitiesUpdate(params *PaymentGatewayActivities
 		ID:                 "PaymentGatewayActivities_Update",
 		Method:             "PUT",
 		PathPattern:        "/PaymentGateway/PaymentGatewayActivities/{paymentGatewayActivityId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PaymentGatewayActivitiesUpdateReader{formats: a.formats},
@@ -6144,9 +6052,8 @@ func (a *Client) PaymentGatewayActivitiesUpdate(params *PaymentGatewayActivities
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PaymentGatewayActivities_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PaymentGatewayActivitiesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6161,8 +6068,8 @@ func (a *Client) PaymentGatewayNotificationsUpdate(params *PaymentGatewayNotific
 		ID:                 "PaymentGatewayNotifications_Update",
 		Method:             "PUT",
 		PathPattern:        "/PaymentGateway/Notifications/Events/{notificationEventId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PaymentGatewayNotificationsUpdateReader{formats: a.formats},
@@ -6182,9 +6089,8 @@ func (a *Client) PaymentGatewayNotificationsUpdate(params *PaymentGatewayNotific
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PaymentGatewayNotifications_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PaymentGatewayNotificationsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6199,8 +6105,8 @@ func (a *Client) PaymentGatewayTransactionTypesUpdate(params *PaymentGatewayTran
 		ID:                 "PaymentGatewayTransactionTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PaymentGatewayTransactionTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PaymentGatewayTransactionTypesUpdateReader{formats: a.formats},
@@ -6220,9 +6126,8 @@ func (a *Client) PaymentGatewayTransactionTypesUpdate(params *PaymentGatewayTran
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PaymentGatewayTransactionTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PaymentGatewayTransactionTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6237,8 +6142,8 @@ func (a *Client) PaymentMethodGroupsUpdate(params *PaymentMethodGroupsUpdatePara
 		ID:                 "PaymentMethodGroups_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PaymentMethodGroups/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PaymentMethodGroupsUpdateReader{formats: a.formats},
@@ -6258,9 +6163,8 @@ func (a *Client) PaymentMethodGroupsUpdate(params *PaymentMethodGroupsUpdatePara
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PaymentMethodGroups_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PaymentMethodGroupsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6275,8 +6179,8 @@ func (a *Client) PaymentMethodUserGroupsUpdate(params *PaymentMethodUserGroupsUp
 		ID:                 "PaymentMethodUserGroups_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/PaymentMethodUserGroups/{paymentMethodUserGroupId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PaymentMethodUserGroupsUpdateReader{formats: a.formats},
@@ -6296,9 +6200,8 @@ func (a *Client) PaymentMethodUserGroupsUpdate(params *PaymentMethodUserGroupsUp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PaymentMethodUserGroups_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PaymentMethodUserGroupsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6313,8 +6216,8 @@ func (a *Client) PaymentMethodsUpdate(params *PaymentMethodsUpdateParams, opts .
 		ID:                 "PaymentMethods_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/PaymentMethods/{paymentMethodId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PaymentMethodsUpdateReader{formats: a.formats},
@@ -6334,9 +6237,8 @@ func (a *Client) PaymentMethodsUpdate(params *PaymentMethodsUpdateParams, opts .
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PaymentMethods_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PaymentMethodsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6351,8 +6253,8 @@ func (a *Client) PaymentSignaturesUpdate(params *PaymentSignaturesUpdateParams, 
 		ID:                 "PaymentSignatures_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/Payment/Signatures/{paymentSignatureId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PaymentSignaturesUpdateReader{formats: a.formats},
@@ -6372,9 +6274,8 @@ func (a *Client) PaymentSignaturesUpdate(params *PaymentSignaturesUpdateParams, 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PaymentSignatures_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PaymentSignaturesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6389,8 +6290,8 @@ func (a *Client) PaymentTypesUpdate(params *PaymentTypesUpdateParams, opts ...Cl
 		ID:                 "PaymentTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PaymentTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PaymentTypesUpdateReader{formats: a.formats},
@@ -6410,9 +6311,8 @@ func (a *Client) PaymentTypesUpdate(params *PaymentTypesUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PaymentTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PaymentTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6427,8 +6327,8 @@ func (a *Client) PerformanceGroupsUpdate(params *PerformanceGroupsUpdateParams, 
 		ID:                 "PerformanceGroups_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/PerformanceGroups/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PerformanceGroupsUpdateReader{formats: a.formats},
@@ -6448,9 +6348,8 @@ func (a *Client) PerformanceGroupsUpdate(params *PerformanceGroupsUpdateParams, 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PerformanceGroups_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PerformanceGroupsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6465,8 +6364,8 @@ func (a *Client) PerformancePackageModeOfSalesUpdate(params *PerformancePackageM
 		ID:                 "PerformancePackageModeOfSales_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/PerformancePackageModeOfSales/{performancePackageModeOfSaleId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PerformancePackageModeOfSalesUpdateReader{formats: a.formats},
@@ -6486,9 +6385,8 @@ func (a *Client) PerformancePackageModeOfSalesUpdate(params *PerformancePackageM
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PerformancePackageModeOfSales_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PerformancePackageModeOfSalesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6503,8 +6401,8 @@ func (a *Client) PerformancePriceLayersUpdate(params *PerformancePriceLayersUpda
 		ID:                 "PerformancePriceLayers_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/PerformancePriceLayers/{performancePriceLayerId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PerformancePriceLayersUpdateReader{formats: a.formats},
@@ -6524,9 +6422,8 @@ func (a *Client) PerformancePriceLayersUpdate(params *PerformancePriceLayersUpda
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PerformancePriceLayers_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PerformancePriceLayersUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6542,7 +6439,7 @@ func (a *Client) PerformancePriceLayersUpdatePrices(params *PerformancePriceLaye
 		Method:             "PUT",
 		PathPattern:        "/TXN/PerformancePriceLayers/Prices",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PerformancePriceLayersUpdatePricesReader{formats: a.formats},
@@ -6562,9 +6459,8 @@ func (a *Client) PerformancePriceLayersUpdatePrices(params *PerformancePriceLaye
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PerformancePriceLayers_UpdatePrices: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PerformancePriceLayersUpdatePricesDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6580,7 +6476,7 @@ func (a *Client) PerformancePriceTypesBulkUpdate(params *PerformancePriceTypesBu
 		Method:             "PUT",
 		PathPattern:        "/TXN/PerformancePriceTypes",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PerformancePriceTypesBulkUpdateReader{formats: a.formats},
@@ -6600,9 +6496,8 @@ func (a *Client) PerformancePriceTypesBulkUpdate(params *PerformancePriceTypesBu
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PerformancePriceTypes_BulkUpdate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PerformancePriceTypesBulkUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6617,8 +6512,8 @@ func (a *Client) PerformancePriceTypesUpdate(params *PerformancePriceTypesUpdate
 		ID:                 "PerformancePriceTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/PerformancePriceTypes/{performancePriceTypeId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PerformancePriceTypesUpdateReader{formats: a.formats},
@@ -6638,9 +6533,8 @@ func (a *Client) PerformancePriceTypesUpdate(params *PerformancePriceTypesUpdate
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PerformancePriceTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PerformancePriceTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6676,9 +6570,8 @@ func (a *Client) PerformancePriceTypesUpdateBase(params *PerformancePriceTypesUp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PerformancePriceTypes_UpdateBase: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PerformancePriceTypesUpdateBaseDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6693,8 +6586,8 @@ func (a *Client) PerformancePricesUpdate(params *PerformancePricesUpdateParams, 
 		ID:                 "PerformancePrices_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/PerformancePrices/{performancePriceId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PerformancePricesUpdateReader{formats: a.formats},
@@ -6714,9 +6607,8 @@ func (a *Client) PerformancePricesUpdate(params *PerformancePricesUpdateParams, 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PerformancePrices_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PerformancePricesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6731,8 +6623,8 @@ func (a *Client) PerformanceStatusesUpdate(params *PerformanceStatusesUpdatePara
 		ID:                 "PerformanceStatuses_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PerformanceStatuses/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PerformanceStatusesUpdateReader{formats: a.formats},
@@ -6752,9 +6644,8 @@ func (a *Client) PerformanceStatusesUpdate(params *PerformanceStatusesUpdatePara
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PerformanceStatuses_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PerformanceStatusesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6769,8 +6660,8 @@ func (a *Client) PerformanceTypesUpdate(params *PerformanceTypesUpdateParams, op
 		ID:                 "PerformanceTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PerformanceTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PerformanceTypesUpdateReader{formats: a.formats},
@@ -6790,9 +6681,8 @@ func (a *Client) PerformanceTypesUpdate(params *PerformanceTypesUpdateParams, op
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PerformanceTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PerformanceTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6807,8 +6697,8 @@ func (a *Client) PerformancesExpireSeatHolds(params *PerformancesExpireSeatHolds
 		ID:                 "Performances_ExpireSeatHolds",
 		Method:             "PUT",
 		PathPattern:        "/TXN/Performances/{performanceId}/Seats/Holds/{holdCodeId}/Expire",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PerformancesExpireSeatHoldsReader{formats: a.formats},
@@ -6828,9 +6718,8 @@ func (a *Client) PerformancesExpireSeatHolds(params *PerformancesExpireSeatHolds
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Performances_ExpireSeatHolds: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PerformancesExpireSeatHoldsDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6845,8 +6734,8 @@ func (a *Client) PhilanthropyTypesUpdate(params *PhilanthropyTypesUpdateParams, 
 		ID:                 "PhilanthropyTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PhilanthropyTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PhilanthropyTypesUpdateReader{formats: a.formats},
@@ -6866,9 +6755,8 @@ func (a *Client) PhilanthropyTypesUpdate(params *PhilanthropyTypesUpdateParams, 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PhilanthropyTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PhilanthropyTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6883,8 +6771,8 @@ func (a *Client) PhilanthropyUpdate(params *PhilanthropyUpdateParams, opts ...Cl
 		ID:                 "Philanthropy_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Philanthropy/{philanthropyEntryId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PhilanthropyUpdateReader{formats: a.formats},
@@ -6904,9 +6792,8 @@ func (a *Client) PhilanthropyUpdate(params *PhilanthropyUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Philanthropy_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PhilanthropyUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6921,8 +6808,8 @@ func (a *Client) PhoneIndicatorsUpdate(params *PhoneIndicatorsUpdateParams, opts
 		ID:                 "PhoneIndicators_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PhoneIndicators/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PhoneIndicatorsUpdateReader{formats: a.formats},
@@ -6942,9 +6829,8 @@ func (a *Client) PhoneIndicatorsUpdate(params *PhoneIndicatorsUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PhoneIndicators_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PhoneIndicatorsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6959,8 +6845,8 @@ func (a *Client) PhoneTypesUpdate(params *PhoneTypesUpdateParams, opts ...Client
 		ID:                 "PhoneTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PhoneTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PhoneTypesUpdateReader{formats: a.formats},
@@ -6980,9 +6866,8 @@ func (a *Client) PhoneTypesUpdate(params *PhoneTypesUpdateParams, opts ...Client
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PhoneTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PhoneTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -6997,8 +6882,8 @@ func (a *Client) PhonesUpdate(params *PhonesUpdateParams, opts ...ClientOption) 
 		ID:                 "Phones_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Phones/{phoneId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PhonesUpdateReader{formats: a.formats},
@@ -7018,9 +6903,8 @@ func (a *Client) PhonesUpdate(params *PhonesUpdateParams, opts ...ClientOption) 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Phones_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PhonesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7035,8 +6919,8 @@ func (a *Client) PlanPrioritiesUpdate(params *PlanPrioritiesUpdateParams, opts .
 		ID:                 "PlanPriorities_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PlanPriorities/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PlanPrioritiesUpdateReader{formats: a.formats},
@@ -7056,9 +6940,8 @@ func (a *Client) PlanPrioritiesUpdate(params *PlanPrioritiesUpdateParams, opts .
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PlanPriorities_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PlanPrioritiesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7073,8 +6956,8 @@ func (a *Client) PlanSourcesUpdate(params *PlanSourcesUpdateParams, opts ...Clie
 		ID:                 "PlanSources_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PlanSources/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PlanSourcesUpdateReader{formats: a.formats},
@@ -7094,9 +6977,8 @@ func (a *Client) PlanSourcesUpdate(params *PlanSourcesUpdateParams, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PlanSources_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PlanSourcesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7111,8 +6993,8 @@ func (a *Client) PlanStatusesUpdate(params *PlanStatusesUpdateParams, opts ...Cl
 		ID:                 "PlanStatuses_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PlanStatuses/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PlanStatusesUpdateReader{formats: a.formats},
@@ -7132,9 +7014,8 @@ func (a *Client) PlanStatusesUpdate(params *PlanStatusesUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PlanStatuses_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PlanStatusesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7149,8 +7030,8 @@ func (a *Client) PlanTypesUpdate(params *PlanTypesUpdateParams, opts ...ClientOp
 		ID:                 "PlanTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PlanTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PlanTypesUpdateReader{formats: a.formats},
@@ -7170,9 +7051,8 @@ func (a *Client) PlanTypesUpdate(params *PlanTypesUpdateParams, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PlanTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PlanTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7187,8 +7067,8 @@ func (a *Client) PlanWorkersUpdate(params *PlanWorkersUpdateParams, opts ...Clie
 		ID:                 "PlanWorkers_Update",
 		Method:             "PUT",
 		PathPattern:        "/Finance/PlanWorkers/{planWorkerId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PlanWorkersUpdateReader{formats: a.formats},
@@ -7208,9 +7088,8 @@ func (a *Client) PlanWorkersUpdate(params *PlanWorkersUpdateParams, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PlanWorkers_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PlanWorkersUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7225,8 +7104,8 @@ func (a *Client) PlansUpdate(params *PlansUpdateParams, opts ...ClientOption) (*
 		ID:                 "Plans_Update",
 		Method:             "PUT",
 		PathPattern:        "/Finance/Plans/{planId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PlansUpdateReader{formats: a.formats},
@@ -7246,9 +7125,8 @@ func (a *Client) PlansUpdate(params *PlansUpdateParams, opts ...ClientOption) (*
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Plans_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PlansUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7263,8 +7141,8 @@ func (a *Client) PortfolioCustomElementsUpdate(params *PortfolioCustomElementsUp
 		ID:                 "PortfolioCustomElements_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PortfolioCustomElements/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PortfolioCustomElementsUpdateReader{formats: a.formats},
@@ -7284,9 +7162,8 @@ func (a *Client) PortfolioCustomElementsUpdate(params *PortfolioCustomElementsUp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PortfolioCustomElements_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PortfolioCustomElementsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7301,8 +7178,8 @@ func (a *Client) PrefixesUpdate(params *PrefixesUpdateParams, opts ...ClientOpti
 		ID:                 "Prefixes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Prefixes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PrefixesUpdateReader{formats: a.formats},
@@ -7322,9 +7199,8 @@ func (a *Client) PrefixesUpdate(params *PrefixesUpdateParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Prefixes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PrefixesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7339,8 +7215,8 @@ func (a *Client) PremieresUpdate(params *PremieresUpdateParams, opts ...ClientOp
 		ID:                 "Premieres_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Premieres/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PremieresUpdateReader{formats: a.formats},
@@ -7360,9 +7236,8 @@ func (a *Client) PremieresUpdate(params *PremieresUpdateParams, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Premieres_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PremieresUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7377,8 +7252,8 @@ func (a *Client) PriceCategoriesUpdate(params *PriceCategoriesUpdateParams, opts
 		ID:                 "PriceCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PriceCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PriceCategoriesUpdateReader{formats: a.formats},
@@ -7398,9 +7273,8 @@ func (a *Client) PriceCategoriesUpdate(params *PriceCategoriesUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PriceCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PriceCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7416,7 +7290,7 @@ func (a *Client) PriceEventsMoveTo(params *PriceEventsMoveToParams, opts ...Clie
 		Method:             "PUT",
 		PathPattern:        "/TXN/PriceEvents/MoveTo",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PriceEventsMoveToReader{formats: a.formats},
@@ -7436,9 +7310,8 @@ func (a *Client) PriceEventsMoveTo(params *PriceEventsMoveToParams, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PriceEvents_MoveTo: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PriceEventsMoveToDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7453,8 +7326,8 @@ func (a *Client) PriceLayerTypesUpdate(params *PriceLayerTypesUpdateParams, opts
 		ID:                 "PriceLayerTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PriceLayerTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PriceLayerTypesUpdateReader{formats: a.formats},
@@ -7474,9 +7347,8 @@ func (a *Client) PriceLayerTypesUpdate(params *PriceLayerTypesUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PriceLayerTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PriceLayerTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7491,8 +7363,8 @@ func (a *Client) PriceTemplatesUpdate(params *PriceTemplatesUpdateParams, opts .
 		ID:                 "PriceTemplates_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/PriceTemplates/{priceTemplateId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PriceTemplatesUpdateReader{formats: a.formats},
@@ -7512,9 +7384,8 @@ func (a *Client) PriceTemplatesUpdate(params *PriceTemplatesUpdateParams, opts .
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PriceTemplates_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PriceTemplatesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7529,8 +7400,8 @@ func (a *Client) PriceTypeCategoriesUpdate(params *PriceTypeCategoriesUpdatePara
 		ID:                 "PriceTypeCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PriceTypeCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PriceTypeCategoriesUpdateReader{formats: a.formats},
@@ -7550,9 +7421,8 @@ func (a *Client) PriceTypeCategoriesUpdate(params *PriceTypeCategoriesUpdatePara
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PriceTypeCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PriceTypeCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7567,8 +7437,8 @@ func (a *Client) PriceTypeGroupsUpdate(params *PriceTypeGroupsUpdateParams, opts
 		ID:                 "PriceTypeGroups_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PriceTypeGroups/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PriceTypeGroupsUpdateReader{formats: a.formats},
@@ -7588,9 +7458,8 @@ func (a *Client) PriceTypeGroupsUpdate(params *PriceTypeGroupsUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PriceTypeGroups_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PriceTypeGroupsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7605,8 +7474,8 @@ func (a *Client) PriceTypeReasonsUpdate(params *PriceTypeReasonsUpdateParams, op
 		ID:                 "PriceTypeReasons_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PriceTypeReasons/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PriceTypeReasonsUpdateReader{formats: a.formats},
@@ -7626,9 +7495,8 @@ func (a *Client) PriceTypeReasonsUpdate(params *PriceTypeReasonsUpdateParams, op
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PriceTypeReasons_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PriceTypeReasonsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7643,8 +7511,8 @@ func (a *Client) PriceTypeUserGroupsUpdate(params *PriceTypeUserGroupsUpdatePara
 		ID:                 "PriceTypeUserGroups_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/PriceTypeUserGroups/{priceTypeUserGroupId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PriceTypeUserGroupsUpdateReader{formats: a.formats},
@@ -7664,9 +7532,8 @@ func (a *Client) PriceTypeUserGroupsUpdate(params *PriceTypeUserGroupsUpdatePara
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PriceTypeUserGroups_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PriceTypeUserGroupsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7681,8 +7548,8 @@ func (a *Client) PriceTypesUpdate(params *PriceTypesUpdateParams, opts ...Client
 		ID:                 "PriceTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/PriceTypes/{priceTypeId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PriceTypesUpdateReader{formats: a.formats},
@@ -7702,9 +7569,8 @@ func (a *Client) PriceTypesUpdate(params *PriceTypesUpdateParams, opts ...Client
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PriceTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PriceTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7719,8 +7585,8 @@ func (a *Client) PricingRuleCategoriesUpdate(params *PricingRuleCategoriesUpdate
 		ID:                 "PricingRuleCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PricingRuleCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PricingRuleCategoriesUpdateReader{formats: a.formats},
@@ -7740,9 +7606,8 @@ func (a *Client) PricingRuleCategoriesUpdate(params *PricingRuleCategoriesUpdate
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PricingRuleCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PricingRuleCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7757,8 +7622,8 @@ func (a *Client) PricingRuleMessageTypesUpdate(params *PricingRuleMessageTypesUp
 		ID:                 "PricingRuleMessageTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/PricingRuleMessageTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PricingRuleMessageTypesUpdateReader{formats: a.formats},
@@ -7778,9 +7643,8 @@ func (a *Client) PricingRuleMessageTypesUpdate(params *PricingRuleMessageTypesUp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PricingRuleMessageTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PricingRuleMessageTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7795,8 +7659,8 @@ func (a *Client) PricingRuleSetsUpdate(params *PricingRuleSetsUpdateParams, opts
 		ID:                 "PricingRuleSets_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/PricingRuleSets/{pricingRuleSetId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PricingRuleSetsUpdateReader{formats: a.formats},
@@ -7816,9 +7680,8 @@ func (a *Client) PricingRuleSetsUpdate(params *PricingRuleSetsUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PricingRuleSets_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PricingRuleSetsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7833,8 +7696,8 @@ func (a *Client) PricingRulesUpdate(params *PricingRulesUpdateParams, opts ...Cl
 		ID:                 "PricingRules_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/PricingRules/{pricingRuleId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PricingRulesUpdateReader{formats: a.formats},
@@ -7854,9 +7717,8 @@ func (a *Client) PricingRulesUpdate(params *PricingRulesUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PricingRules_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PricingRulesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7871,8 +7733,8 @@ func (a *Client) PrintersUpdate(params *PrintersUpdateParams, opts ...ClientOpti
 		ID:                 "Printers_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Printers/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PrintersUpdateReader{formats: a.formats},
@@ -7892,9 +7754,8 @@ func (a *Client) PrintersUpdate(params *PrintersUpdateParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Printers_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PrintersUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7909,8 +7770,8 @@ func (a *Client) ProductionSeasonMembershipOrganizationsUpdate(params *Productio
 		ID:                 "ProductionSeasonMembershipOrganizations_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/ProductionSeasonMembershipOrganizations/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ProductionSeasonMembershipOrganizationsUpdateReader{formats: a.formats},
@@ -7930,9 +7791,8 @@ func (a *Client) ProductionSeasonMembershipOrganizationsUpdate(params *Productio
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ProductionSeasonMembershipOrganizations_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ProductionSeasonMembershipOrganizationsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7947,8 +7807,8 @@ func (a *Client) ProgramListingsUpdate(params *ProgramListingsUpdateParams, opts
 		ID:                 "ProgramListings_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/ProgramListings/{programListingId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ProgramListingsUpdateReader{formats: a.formats},
@@ -7968,9 +7828,8 @@ func (a *Client) ProgramListingsUpdate(params *ProgramListingsUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ProgramListings_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ProgramListingsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -7985,8 +7844,8 @@ func (a *Client) ProgramsUpdate(params *ProgramsUpdateParams, opts ...ClientOpti
 		ID:                 "Programs_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Programs/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ProgramsUpdateReader{formats: a.formats},
@@ -8006,9 +7865,8 @@ func (a *Client) ProgramsUpdate(params *ProgramsUpdateParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Programs_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ProgramsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8023,8 +7881,8 @@ func (a *Client) PronounsUpdate(params *PronounsUpdateParams, opts ...ClientOpti
 		ID:                 "Pronouns_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Pronouns/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PronounsUpdateReader{formats: a.formats},
@@ -8044,9 +7902,8 @@ func (a *Client) PronounsUpdate(params *PronounsUpdateParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Pronouns_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*PronounsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8061,8 +7918,8 @@ func (a *Client) QualificationCategoriesUpdate(params *QualificationCategoriesUp
 		ID:                 "QualificationCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/QualificationCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QualificationCategoriesUpdateReader{formats: a.formats},
@@ -8082,9 +7939,8 @@ func (a *Client) QualificationCategoriesUpdate(params *QualificationCategoriesUp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for QualificationCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*QualificationCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8099,8 +7955,8 @@ func (a *Client) QualificationsUpdate(params *QualificationsUpdateParams, opts .
 		ID:                 "Qualifications_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Qualifications/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QualificationsUpdateReader{formats: a.formats},
@@ -8120,9 +7976,8 @@ func (a *Client) QualificationsUpdate(params *QualificationsUpdateParams, opts .
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Qualifications_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*QualificationsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8137,8 +7992,8 @@ func (a *Client) QueryElementFiltersUpdate(params *QueryElementFiltersUpdatePara
 		ID:                 "QueryElementFilters_Update",
 		Method:             "PUT",
 		PathPattern:        "/Reporting/QueryElementFilters/{queryElementFilterId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryElementFiltersUpdateReader{formats: a.formats},
@@ -8158,9 +8013,8 @@ func (a *Client) QueryElementFiltersUpdate(params *QueryElementFiltersUpdatePara
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for QueryElementFilters_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*QueryElementFiltersUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8175,8 +8029,8 @@ func (a *Client) QueryElementGroupsUpdate(params *QueryElementGroupsUpdateParams
 		ID:                 "QueryElementGroups_Update",
 		Method:             "PUT",
 		PathPattern:        "/Reporting/QueryElementGroups/{queryElementGroupId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryElementGroupsUpdateReader{formats: a.formats},
@@ -8196,9 +8050,8 @@ func (a *Client) QueryElementGroupsUpdate(params *QueryElementGroupsUpdateParams
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for QueryElementGroups_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*QueryElementGroupsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8213,8 +8066,8 @@ func (a *Client) QueryElementsUpdate(params *QueryElementsUpdateParams, opts ...
 		ID:                 "QueryElements_Update",
 		Method:             "PUT",
 		PathPattern:        "/Reporting/QueryElements/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &QueryElementsUpdateReader{formats: a.formats},
@@ -8234,9 +8087,8 @@ func (a *Client) QueryElementsUpdate(params *QueryElementsUpdateParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for QueryElements_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*QueryElementsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8251,8 +8103,8 @@ func (a *Client) RankTypesUpdate(params *RankTypesUpdateParams, opts ...ClientOp
 		ID:                 "RankTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/RankTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RankTypesUpdateReader{formats: a.formats},
@@ -8272,9 +8124,8 @@ func (a *Client) RankTypesUpdate(params *RankTypesUpdateParams, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for RankTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*RankTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8289,8 +8140,8 @@ func (a *Client) RankingsUpdate(params *RankingsUpdateParams, opts ...ClientOpti
 		ID:                 "Rankings_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Rankings/{rankingId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RankingsUpdateReader{formats: a.formats},
@@ -8310,9 +8161,8 @@ func (a *Client) RankingsUpdate(params *RankingsUpdateParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Rankings_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*RankingsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8327,8 +8177,8 @@ func (a *Client) ReceiptSettingsUpdate(params *ReceiptSettingsUpdateParams, opts
 		ID:                 "ReceiptSettings_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ReceiptSettings/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ReceiptSettingsUpdateReader{formats: a.formats},
@@ -8348,9 +8198,8 @@ func (a *Client) ReceiptSettingsUpdate(params *ReceiptSettingsUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ReceiptSettings_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ReceiptSettingsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8365,8 +8214,8 @@ func (a *Client) ReferenceTableUserGroupsUpdate(params *ReferenceTableUserGroups
 		ID:                 "ReferenceTableUserGroups_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ReferenceTableUserGroups/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ReferenceTableUserGroupsUpdateReader{formats: a.formats},
@@ -8386,9 +8235,8 @@ func (a *Client) ReferenceTableUserGroupsUpdate(params *ReferenceTableUserGroups
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ReferenceTableUserGroups_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ReferenceTableUserGroupsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8403,8 +8251,8 @@ func (a *Client) RelationshipCategoriesUpdate(params *RelationshipCategoriesUpda
 		ID:                 "RelationshipCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/RelationshipCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &RelationshipCategoriesUpdateReader{formats: a.formats},
@@ -8424,9 +8272,8 @@ func (a *Client) RelationshipCategoriesUpdate(params *RelationshipCategoriesUpda
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for RelationshipCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*RelationshipCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8462,9 +8309,8 @@ func (a *Client) ReportRequestsFlushIncomplete(params *ReportRequestsFlushIncomp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ReportRequests_FlushIncomplete: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ReportRequestsFlushIncompleteDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8479,8 +8325,8 @@ func (a *Client) ReportRequestsUpdate(params *ReportRequestsUpdateParams, opts .
 		ID:                 "ReportRequests_Update",
 		Method:             "PUT",
 		PathPattern:        "/Reporting/ReportRequests/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ReportRequestsUpdateReader{formats: a.formats},
@@ -8500,9 +8346,8 @@ func (a *Client) ReportRequestsUpdate(params *ReportRequestsUpdateParams, opts .
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ReportRequests_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ReportRequestsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8517,8 +8362,8 @@ func (a *Client) ReportSchedulesUpdate(params *ReportSchedulesUpdateParams, opts
 		ID:                 "ReportSchedules_Update",
 		Method:             "PUT",
 		PathPattern:        "/Reporting/ReportSchedules/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ReportSchedulesUpdateReader{formats: a.formats},
@@ -8538,9 +8383,8 @@ func (a *Client) ReportSchedulesUpdate(params *ReportSchedulesUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ReportSchedules_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ReportSchedulesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8555,8 +8399,8 @@ func (a *Client) ReportUserGroupsUpdate(params *ReportUserGroupsUpdateParams, op
 		ID:                 "ReportUserGroups_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ReportUserGroups/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ReportUserGroupsUpdateReader{formats: a.formats},
@@ -8576,9 +8420,8 @@ func (a *Client) ReportUserGroupsUpdate(params *ReportUserGroupsUpdateParams, op
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ReportUserGroups_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ReportUserGroupsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8593,8 +8436,8 @@ func (a *Client) ResearchTypesUpdate(params *ResearchTypesUpdateParams, opts ...
 		ID:                 "ResearchTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ResearchTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ResearchTypesUpdateReader{formats: a.formats},
@@ -8614,9 +8457,8 @@ func (a *Client) ResearchTypesUpdate(params *ResearchTypesUpdateParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ResearchTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ResearchTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8631,8 +8473,8 @@ func (a *Client) ResearchUpdate(params *ResearchUpdateParams, opts ...ClientOpti
 		ID:                 "Research_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Research/{researchEntryId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ResearchUpdateReader{formats: a.formats},
@@ -8652,9 +8494,8 @@ func (a *Client) ResearchUpdate(params *ResearchUpdateParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Research_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ResearchUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8669,8 +8510,8 @@ func (a *Client) ResourceCategoriesUpdate(params *ResourceCategoriesUpdateParams
 		ID:                 "ResourceCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ResourceCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ResourceCategoriesUpdateReader{formats: a.formats},
@@ -8690,9 +8531,8 @@ func (a *Client) ResourceCategoriesUpdate(params *ResourceCategoriesUpdateParams
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ResourceCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ResourceCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8707,8 +8547,8 @@ func (a *Client) ResourceSchedulesUpdate(params *ResourceSchedulesUpdateParams, 
 		ID:                 "ResourceSchedules_Update",
 		Method:             "PUT",
 		PathPattern:        "/EventsManagement/ResourceSchedules/{resourceScheduleId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ResourceSchedulesUpdateReader{formats: a.formats},
@@ -8728,9 +8568,8 @@ func (a *Client) ResourceSchedulesUpdate(params *ResourceSchedulesUpdateParams, 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ResourceSchedules_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ResourceSchedulesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8745,8 +8584,8 @@ func (a *Client) ResourceTypesUpdate(params *ResourceTypesUpdateParams, opts ...
 		ID:                 "ResourceTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/EventsManagement/ResourceTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ResourceTypesUpdateReader{formats: a.formats},
@@ -8766,9 +8605,8 @@ func (a *Client) ResourceTypesUpdate(params *ResourceTypesUpdateParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ResourceTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ResourceTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8783,8 +8621,8 @@ func (a *Client) ResourcesUpdate(params *ResourcesUpdateParams, opts ...ClientOp
 		ID:                 "Resources_Update",
 		Method:             "PUT",
 		PathPattern:        "/EventsManagement/Resources/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ResourcesUpdateReader{formats: a.formats},
@@ -8804,9 +8642,8 @@ func (a *Client) ResourcesUpdate(params *ResourcesUpdateParams, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Resources_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ResourcesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8821,8 +8658,8 @@ func (a *Client) SalesChannelsUpdate(params *SalesChannelsUpdateParams, opts ...
 		ID:                 "SalesChannels_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/SalesChannels/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SalesChannelsUpdateReader{formats: a.formats},
@@ -8842,9 +8679,8 @@ func (a *Client) SalesChannelsUpdate(params *SalesChannelsUpdateParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SalesChannels_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SalesChannelsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8859,8 +8695,8 @@ func (a *Client) SalesLayoutButtonTypesUpdate(params *SalesLayoutButtonTypesUpda
 		ID:                 "SalesLayoutButtonTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/SalesLayoutButtonTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SalesLayoutButtonTypesUpdateReader{formats: a.formats},
@@ -8880,9 +8716,8 @@ func (a *Client) SalesLayoutButtonTypesUpdate(params *SalesLayoutButtonTypesUpda
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SalesLayoutButtonTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SalesLayoutButtonTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8897,8 +8732,8 @@ func (a *Client) SalesLayoutsUpdate(params *SalesLayoutsUpdateParams, opts ...Cl
 		ID:                 "SalesLayouts_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/SalesLayouts/Setup/{salesLayoutId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SalesLayoutsUpdateReader{formats: a.formats},
@@ -8918,9 +8753,8 @@ func (a *Client) SalesLayoutsUpdate(params *SalesLayoutsUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SalesLayouts_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SalesLayoutsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8935,8 +8769,8 @@ func (a *Client) SalutationTypesUpdate(params *SalutationTypesUpdateParams, opts
 		ID:                 "SalutationTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/SalutationTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SalutationTypesUpdateReader{formats: a.formats},
@@ -8956,9 +8790,8 @@ func (a *Client) SalutationTypesUpdate(params *SalutationTypesUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SalutationTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SalutationTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -8973,8 +8806,8 @@ func (a *Client) SalutationsUpdate(params *SalutationsUpdateParams, opts ...Clie
 		ID:                 "Salutations_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/Salutations/{salutationId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SalutationsUpdateReader{formats: a.formats},
@@ -8994,9 +8827,8 @@ func (a *Client) SalutationsUpdate(params *SalutationsUpdateParams, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Salutations_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SalutationsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9011,8 +8843,8 @@ func (a *Client) SchedulePatternTypesUpdate(params *SchedulePatternTypesUpdatePa
 		ID:                 "SchedulePatternTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/SchedulePatternTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SchedulePatternTypesUpdateReader{formats: a.formats},
@@ -9032,9 +8864,8 @@ func (a *Client) SchedulePatternTypesUpdate(params *SchedulePatternTypesUpdatePa
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SchedulePatternTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SchedulePatternTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9049,8 +8880,8 @@ func (a *Client) ScheduleTypesUpdate(params *ScheduleTypesUpdateParams, opts ...
 		ID:                 "ScheduleTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ScheduleTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ScheduleTypesUpdateReader{formats: a.formats},
@@ -9070,9 +8901,8 @@ func (a *Client) ScheduleTypesUpdate(params *ScheduleTypesUpdateParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ScheduleTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ScheduleTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9087,8 +8917,8 @@ func (a *Client) SeasonTypesUpdate(params *SeasonTypesUpdateParams, opts ...Clie
 		ID:                 "SeasonTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/SeasonTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SeasonTypesUpdateReader{formats: a.formats},
@@ -9108,9 +8938,8 @@ func (a *Client) SeasonTypesUpdate(params *SeasonTypesUpdateParams, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SeasonTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SeasonTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9125,8 +8954,8 @@ func (a *Client) SeasonsUpdate(params *SeasonsUpdateParams, opts ...ClientOption
 		ID:                 "Seasons_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Seasons/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SeasonsUpdateReader{formats: a.formats},
@@ -9146,9 +8975,8 @@ func (a *Client) SeasonsUpdate(params *SeasonsUpdateParams, opts ...ClientOption
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Seasons_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SeasonsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9163,8 +8991,8 @@ func (a *Client) SeatCodesUpdate(params *SeatCodesUpdateParams, opts ...ClientOp
 		ID:                 "SeatCodes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/SeatCodes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SeatCodesUpdateReader{formats: a.formats},
@@ -9184,9 +9012,8 @@ func (a *Client) SeatCodesUpdate(params *SeatCodesUpdateParams, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SeatCodes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SeatCodesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9201,8 +9028,8 @@ func (a *Client) SeatStatusesUpdate(params *SeatStatusesUpdateParams, opts ...Cl
 		ID:                 "SeatStatuses_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/SeatStatuses/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SeatStatusesUpdateReader{formats: a.formats},
@@ -9222,9 +9049,8 @@ func (a *Client) SeatStatusesUpdate(params *SeatStatusesUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SeatStatuses_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SeatStatusesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9239,8 +9065,8 @@ func (a *Client) SectionsUpdate(params *SectionsUpdateParams, opts ...ClientOpti
 		ID:                 "Sections_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Sections/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SectionsUpdateReader{formats: a.formats},
@@ -9260,9 +9086,8 @@ func (a *Client) SectionsUpdate(params *SectionsUpdateParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Sections_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SectionsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9277,8 +9102,8 @@ func (a *Client) ServiceResourceUserGroupsUpdate(params *ServiceResourceUserGrou
 		ID:                 "ServiceResourceUserGroups_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ServiceResourceUserGroups/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ServiceResourceUserGroupsUpdateReader{formats: a.formats},
@@ -9298,9 +9123,8 @@ func (a *Client) ServiceResourceUserGroupsUpdate(params *ServiceResourceUserGrou
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ServiceResourceUserGroups_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ServiceResourceUserGroupsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9315,8 +9139,8 @@ func (a *Client) SessionSetConstituent(params *SessionSetConstituentParams, opts
 		ID:                 "Session_SetConstituent",
 		Method:             "PUT",
 		PathPattern:        "/Web/Session/{sessionKey}/Constituents",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SessionSetConstituentReader{formats: a.formats},
@@ -9336,9 +9160,8 @@ func (a *Client) SessionSetConstituent(params *SessionSetConstituentParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Session_SetConstituent: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SessionSetConstituentDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9353,8 +9176,8 @@ func (a *Client) SessionSetExpiration(params *SessionSetExpirationParams, opts .
 		ID:                 "Session_SetExpiration",
 		Method:             "PUT",
 		PathPattern:        "/Web/Session/{sessionKey}/Expiration",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SessionSetExpirationReader{formats: a.formats},
@@ -9374,9 +9197,8 @@ func (a *Client) SessionSetExpiration(params *SessionSetExpirationParams, opts .
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Session_SetExpiration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SessionSetExpirationDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9391,8 +9213,8 @@ func (a *Client) SessionUpdateVariable(params *SessionUpdateVariableParams, opts
 		ID:                 "Session_UpdateVariable",
 		Method:             "PUT",
 		PathPattern:        "/Web/Session/{sessionKey}/Variables",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SessionUpdateVariableReader{formats: a.formats},
@@ -9412,9 +9234,8 @@ func (a *Client) SessionUpdateVariable(params *SessionUpdateVariableParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Session_UpdateVariable: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SessionUpdateVariableDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9429,8 +9250,8 @@ func (a *Client) SessionUpdateWebLogin(params *SessionUpdateWebLoginParams, opts
 		ID:                 "Session_UpdateWebLogin",
 		Method:             "PUT",
 		PathPattern:        "/Web/Session/{sessionKey}/WebLogins",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SessionUpdateWebLoginReader{formats: a.formats},
@@ -9450,9 +9271,8 @@ func (a *Client) SessionUpdateWebLogin(params *SessionUpdateWebLoginParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Session_UpdateWebLogin: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SessionUpdateWebLoginDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9467,8 +9287,8 @@ func (a *Client) SourceGroupsUpdate(params *SourceGroupsUpdateParams, opts ...Cl
 		ID:                 "SourceGroups_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/SourceGroups/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SourceGroupsUpdateReader{formats: a.formats},
@@ -9488,9 +9308,8 @@ func (a *Client) SourceGroupsUpdate(params *SourceGroupsUpdateParams, opts ...Cl
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SourceGroups_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SourceGroupsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9505,8 +9324,8 @@ func (a *Client) SpecialActivitiesUpdate(params *SpecialActivitiesUpdateParams, 
 		ID:                 "SpecialActivities_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/SpecialActivities/{specialActivityId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SpecialActivitiesUpdateReader{formats: a.formats},
@@ -9526,9 +9345,8 @@ func (a *Client) SpecialActivitiesUpdate(params *SpecialActivitiesUpdateParams, 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SpecialActivities_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SpecialActivitiesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9543,8 +9361,8 @@ func (a *Client) SpecialActivityStatusesUpdate(params *SpecialActivityStatusesUp
 		ID:                 "SpecialActivityStatuses_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/SpecialActivityStatuses/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SpecialActivityStatusesUpdateReader{formats: a.formats},
@@ -9564,9 +9382,8 @@ func (a *Client) SpecialActivityStatusesUpdate(params *SpecialActivityStatusesUp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SpecialActivityStatuses_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SpecialActivityStatusesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9581,8 +9398,8 @@ func (a *Client) SpecialActivityTypesUpdate(params *SpecialActivityTypesUpdatePa
 		ID:                 "SpecialActivityTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/SpecialActivityTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SpecialActivityTypesUpdateReader{formats: a.formats},
@@ -9602,9 +9419,8 @@ func (a *Client) SpecialActivityTypesUpdate(params *SpecialActivityTypesUpdatePa
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SpecialActivityTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SpecialActivityTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9619,8 +9435,8 @@ func (a *Client) StatesUpdate(params *StatesUpdateParams, opts ...ClientOption) 
 		ID:                 "States_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/States/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &StatesUpdateReader{formats: a.formats},
@@ -9640,9 +9456,8 @@ func (a *Client) StatesUpdate(params *StatesUpdateParams, opts ...ClientOption) 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for States_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*StatesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9657,8 +9472,8 @@ func (a *Client) StepTypesUpdate(params *StepTypesUpdateParams, opts ...ClientOp
 		ID:                 "StepTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/StepTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &StepTypesUpdateReader{formats: a.formats},
@@ -9678,9 +9493,8 @@ func (a *Client) StepTypesUpdate(params *StepTypesUpdateParams, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for StepTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*StepTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9695,8 +9509,8 @@ func (a *Client) StepsUpdate(params *StepsUpdateParams, opts ...ClientOption) (*
 		ID:                 "Steps_Update",
 		Method:             "PUT",
 		PathPattern:        "/Finance/Steps/{stepId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &StepsUpdateReader{formats: a.formats},
@@ -9716,9 +9530,8 @@ func (a *Client) StepsUpdate(params *StepsUpdateParams, opts ...ClientOption) (*
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Steps_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*StepsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9733,8 +9546,8 @@ func (a *Client) StepsUpdateDocument(params *StepsUpdateDocumentParams, opts ...
 		ID:                 "Steps_UpdateDocument",
 		Method:             "PUT",
 		PathPattern:        "/Finance/Steps/{stepId}/Documents/{documentId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &StepsUpdateDocumentReader{formats: a.formats},
@@ -9754,9 +9567,8 @@ func (a *Client) StepsUpdateDocument(params *StepsUpdateDocumentParams, opts ...
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Steps_UpdateDocument: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*StepsUpdateDocumentDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9771,8 +9583,8 @@ func (a *Client) SubLineItemStatusesUpdate(params *SubLineItemStatusesUpdatePara
 		ID:                 "SubLineItemStatuses_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/SubLineItemStatuses/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SubLineItemStatusesUpdateReader{formats: a.formats},
@@ -9792,9 +9604,8 @@ func (a *Client) SubLineItemStatusesUpdate(params *SubLineItemStatusesUpdatePara
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SubLineItemStatuses_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SubLineItemStatusesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9809,8 +9620,8 @@ func (a *Client) SuffixesUpdate(params *SuffixesUpdateParams, opts ...ClientOpti
 		ID:                 "Suffixes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Suffixes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SuffixesUpdateReader{formats: a.formats},
@@ -9830,9 +9641,8 @@ func (a *Client) SuffixesUpdate(params *SuffixesUpdateParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Suffixes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SuffixesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9847,8 +9657,8 @@ func (a *Client) SurveyQuestionsUpdate(params *SurveyQuestionsUpdateParams, opts
 		ID:                 "SurveyQuestions_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/SurveyQuestions/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SurveyQuestionsUpdateReader{formats: a.formats},
@@ -9868,9 +9678,8 @@ func (a *Client) SurveyQuestionsUpdate(params *SurveyQuestionsUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SurveyQuestions_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SurveyQuestionsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9885,8 +9694,8 @@ func (a *Client) SurveyResponsesUpdate(params *SurveyResponsesUpdateParams, opts
 		ID:                 "SurveyResponses_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/SurveyResponses/{surveyResponseId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SurveyResponsesUpdateReader{formats: a.formats},
@@ -9906,9 +9715,8 @@ func (a *Client) SurveyResponsesUpdate(params *SurveyResponsesUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SurveyResponses_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*SurveyResponsesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9923,8 +9731,8 @@ func (a *Client) TemplateCategoriesUpdate(params *TemplateCategoriesUpdateParams
 		ID:                 "TemplateCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/TemplateCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TemplateCategoriesUpdateReader{formats: a.formats},
@@ -9944,9 +9752,8 @@ func (a *Client) TemplateCategoriesUpdate(params *TemplateCategoriesUpdateParams
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for TemplateCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*TemplateCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9961,8 +9768,8 @@ func (a *Client) TemplatePriceTypesUpdate(params *TemplatePriceTypesUpdateParams
 		ID:                 "TemplatePriceTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/TemplatePriceTypes/{templatePriceTypeId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TemplatePriceTypesUpdateReader{formats: a.formats},
@@ -9982,9 +9789,8 @@ func (a *Client) TemplatePriceTypesUpdate(params *TemplatePriceTypesUpdateParams
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for TemplatePriceTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*TemplatePriceTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -9999,8 +9805,8 @@ func (a *Client) TemplatePricesUpdate(params *TemplatePricesUpdateParams, opts .
 		ID:                 "TemplatePrices_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/TemplatePrices/{templatePriceId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TemplatePricesUpdateReader{formats: a.formats},
@@ -10020,9 +9826,8 @@ func (a *Client) TemplatePricesUpdate(params *TemplatePricesUpdateParams, opts .
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for TemplatePrices_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*TemplatePricesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -10037,8 +9842,8 @@ func (a *Client) TemplatesUpdate(params *TemplatesUpdateParams, opts ...ClientOp
 		ID:                 "Templates_Update",
 		Method:             "PUT",
 		PathPattern:        "/Templates/{templateId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TemplatesUpdateReader{formats: a.formats},
@@ -10058,9 +9863,8 @@ func (a *Client) TemplatesUpdate(params *TemplatesUpdateParams, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Templates_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*TemplatesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -10075,8 +9879,8 @@ func (a *Client) TheatersUpdate(params *TheatersUpdateParams, opts ...ClientOpti
 		ID:                 "Theaters_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/Theaters/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TheatersUpdateReader{formats: a.formats},
@@ -10096,9 +9900,8 @@ func (a *Client) TheatersUpdate(params *TheatersUpdateParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Theaters_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*TheatersUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -10113,8 +9916,8 @@ func (a *Client) TimeSlotsUpdate(params *TimeSlotsUpdateParams, opts ...ClientOp
 		ID:                 "TimeSlots_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/TimeSlots/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TimeSlotsUpdateReader{formats: a.formats},
@@ -10134,9 +9937,8 @@ func (a *Client) TimeSlotsUpdate(params *TimeSlotsUpdateParams, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for TimeSlots_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*TimeSlotsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -10151,8 +9953,8 @@ func (a *Client) TriPOSCloudConfigurationsUpdate(params *TriPOSCloudConfiguratio
 		ID:                 "TriPOSCloudConfigurations_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/TriPOSCloudConfigurations/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TriPOSCloudConfigurationsUpdateReader{formats: a.formats},
@@ -10172,9 +9974,8 @@ func (a *Client) TriPOSCloudConfigurationsUpdate(params *TriPOSCloudConfiguratio
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for TriPOSCloudConfigurations_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*TriPOSCloudConfigurationsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -10189,8 +9990,8 @@ func (a *Client) UpgradeCategoriesUpdate(params *UpgradeCategoriesUpdateParams, 
 		ID:                 "UpgradeCategories_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/UpgradeCategories/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpgradeCategoriesUpdateReader{formats: a.formats},
@@ -10210,9 +10011,8 @@ func (a *Client) UpgradeCategoriesUpdate(params *UpgradeCategoriesUpdateParams, 
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for UpgradeCategories_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*UpgradeCategoriesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -10227,8 +10027,8 @@ func (a *Client) UpgradeLogsUpdate(params *UpgradeLogsUpdateParams, opts ...Clie
 		ID:                 "UpgradeLogs_Update",
 		Method:             "PUT",
 		PathPattern:        "/Admin/UpgradeLogs/{upgradeLogId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UpgradeLogsUpdateReader{formats: a.formats},
@@ -10248,9 +10048,8 @@ func (a *Client) UpgradeLogsUpdate(params *UpgradeLogsUpdateParams, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for UpgradeLogs_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*UpgradeLogsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -10265,8 +10064,8 @@ func (a *Client) UserPreferencesUpdate(params *UserPreferencesUpdateParams, opts
 		ID:                 "UserPreferences_Update",
 		Method:             "PUT",
 		PathPattern:        "/Security/UserPreferences/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &UserPreferencesUpdateReader{formats: a.formats},
@@ -10286,9 +10085,8 @@ func (a *Client) UserPreferencesUpdate(params *UserPreferencesUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for UserPreferences_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*UserPreferencesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -10303,8 +10101,8 @@ func (a *Client) WebContentTypesUpdate(params *WebContentTypesUpdateParams, opts
 		ID:                 "WebContentTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/WebContentTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &WebContentTypesUpdateReader{formats: a.formats},
@@ -10324,9 +10122,8 @@ func (a *Client) WebContentTypesUpdate(params *WebContentTypesUpdateParams, opts
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for WebContentTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*WebContentTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -10341,8 +10138,8 @@ func (a *Client) WebLoginsUpdate(params *WebLoginsUpdateParams, opts ...ClientOp
 		ID:                 "WebLogins_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/WebLogins/{loginId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &WebLoginsUpdateReader{formats: a.formats},
@@ -10362,9 +10159,8 @@ func (a *Client) WebLoginsUpdate(params *WebLoginsUpdateParams, opts ...ClientOp
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for WebLogins_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*WebLoginsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -10379,8 +10175,8 @@ func (a *Client) WorkerQualificationsUpdate(params *WorkerQualificationsUpdatePa
 		ID:                 "WorkerQualifications_Update",
 		Method:             "PUT",
 		PathPattern:        "/CRM/WorkerQualifications/{workerQualificationId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &WorkerQualificationsUpdateReader{formats: a.formats},
@@ -10400,9 +10196,8 @@ func (a *Client) WorkerQualificationsUpdate(params *WorkerQualificationsUpdatePa
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for WorkerQualifications_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*WorkerQualificationsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -10417,8 +10212,8 @@ func (a *Client) WorkerRolesUpdate(params *WorkerRolesUpdateParams, opts ...Clie
 		ID:                 "WorkerRoles_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/WorkerRoles/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &WorkerRolesUpdateReader{formats: a.formats},
@@ -10438,9 +10233,8 @@ func (a *Client) WorkerRolesUpdate(params *WorkerRolesUpdateParams, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for WorkerRoles_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*WorkerRolesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -10455,8 +10249,8 @@ func (a *Client) WorkerTypesUpdate(params *WorkerTypesUpdateParams, opts ...Clie
 		ID:                 "WorkerTypes_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/WorkerTypes/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &WorkerTypesUpdateReader{formats: a.formats},
@@ -10476,9 +10270,8 @@ func (a *Client) WorkerTypesUpdate(params *WorkerTypesUpdateParams, opts ...Clie
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for WorkerTypes_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*WorkerTypesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -10493,8 +10286,8 @@ func (a *Client) WorkersUpdate(params *WorkersUpdateParams, opts ...ClientOption
 		ID:                 "Workers_Update",
 		Method:             "PUT",
 		PathPattern:        "/Finance/Workers/{workerId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &WorkersUpdateReader{formats: a.formats},
@@ -10514,9 +10307,8 @@ func (a *Client) WorkersUpdate(params *WorkersUpdateParams, opts ...ClientOption
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Workers_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*WorkersUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -10531,8 +10323,8 @@ func (a *Client) ZoneGroupsUpdate(params *ZoneGroupsUpdateParams, opts ...Client
 		ID:                 "ZoneGroups_Update",
 		Method:             "PUT",
 		PathPattern:        "/ReferenceData/ZoneGroups/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ZoneGroupsUpdateReader{formats: a.formats},
@@ -10552,9 +10344,8 @@ func (a *Client) ZoneGroupsUpdate(params *ZoneGroupsUpdateParams, opts ...Client
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ZoneGroups_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ZoneGroupsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -10569,8 +10360,8 @@ func (a *Client) ZoneMapsUpdate(params *ZoneMapsUpdateParams, opts ...ClientOpti
 		ID:                 "ZoneMaps_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/ZoneMaps/{id}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ZoneMapsUpdateReader{formats: a.formats},
@@ -10590,9 +10381,8 @@ func (a *Client) ZoneMapsUpdate(params *ZoneMapsUpdateParams, opts ...ClientOpti
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ZoneMaps_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ZoneMapsUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*
@@ -10607,8 +10397,8 @@ func (a *Client) ZonesUpdate(params *ZonesUpdateParams, opts ...ClientOption) (*
 		ID:                 "Zones_Update",
 		Method:             "PUT",
 		PathPattern:        "/TXN/Zones/{zoneMapId},{zoneId}",
-		ProducesMediaTypes: []string{"application/json", "application/xml", "text/json", "text/xml"},
-		ConsumesMediaTypes: []string{"application/json", "application/x-www-form-urlencoded", "application/xml", "text/json", "text/xml"},
+		ProducesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml"},
+		ConsumesMediaTypes: []string{"application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ZonesUpdateReader{formats: a.formats},
@@ -10628,9 +10418,8 @@ func (a *Client) ZonesUpdate(params *ZonesUpdateParams, opts ...ClientOption) (*
 		return success, nil
 	}
 	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for Zones_Update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	unexpectedSuccess := result.(*ZonesUpdateDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 // SetTransport changes the transport on the client

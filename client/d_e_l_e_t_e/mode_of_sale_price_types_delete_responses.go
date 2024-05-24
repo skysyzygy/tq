@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // ModeOfSalePriceTypesDeleteReader is a Reader for the ModeOfSalePriceTypesDelete structure.
@@ -27,7 +31,14 @@ func (o *ModeOfSalePriceTypesDeleteReader) ReadResponse(response runtime.ClientR
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /TXN/ModeOfSalePriceTypes/{modeOfSalePriceTypeId}] ModeOfSalePriceTypes_Delete", response, response.Code())
+		result := NewModeOfSalePriceTypesDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *ModeOfSalePriceTypesDeleteNoContent) Code() int {
 }
 
 func (o *ModeOfSalePriceTypesDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /TXN/ModeOfSalePriceTypes/{modeOfSalePriceTypeId}][%d] modeOfSalePriceTypesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /TXN/ModeOfSalePriceTypes/{modeOfSalePriceTypeId}][%d] modeOfSalePriceTypesDeleteNoContent", 204)
 }
 
 func (o *ModeOfSalePriceTypesDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /TXN/ModeOfSalePriceTypes/{modeOfSalePriceTypeId}][%d] modeOfSalePriceTypesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /TXN/ModeOfSalePriceTypes/{modeOfSalePriceTypeId}][%d] modeOfSalePriceTypesDeleteNoContent", 204)
 }
 
 func (o *ModeOfSalePriceTypesDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewModeOfSalePriceTypesDeleteDefault creates a ModeOfSalePriceTypesDeleteDefault with default headers values
+func NewModeOfSalePriceTypesDeleteDefault(code int) *ModeOfSalePriceTypesDeleteDefault {
+	return &ModeOfSalePriceTypesDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ModeOfSalePriceTypesDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ModeOfSalePriceTypesDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this mode of sale price types delete default response has a 2xx status code
+func (o *ModeOfSalePriceTypesDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this mode of sale price types delete default response has a 3xx status code
+func (o *ModeOfSalePriceTypesDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this mode of sale price types delete default response has a 4xx status code
+func (o *ModeOfSalePriceTypesDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this mode of sale price types delete default response has a 5xx status code
+func (o *ModeOfSalePriceTypesDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this mode of sale price types delete default response a status code equal to that given
+func (o *ModeOfSalePriceTypesDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the mode of sale price types delete default response
+func (o *ModeOfSalePriceTypesDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ModeOfSalePriceTypesDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /TXN/ModeOfSalePriceTypes/{modeOfSalePriceTypeId}][%d] ModeOfSalePriceTypes_Delete default %s", o._statusCode, payload)
+}
+
+func (o *ModeOfSalePriceTypesDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /TXN/ModeOfSalePriceTypes/{modeOfSalePriceTypeId}][%d] ModeOfSalePriceTypes_Delete default %s", o._statusCode, payload)
+}
+
+func (o *ModeOfSalePriceTypesDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ModeOfSalePriceTypesDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

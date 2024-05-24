@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // DocumentCategoriesDeleteReader is a Reader for the DocumentCategoriesDelete structure.
@@ -27,7 +31,14 @@ func (o *DocumentCategoriesDeleteReader) ReadResponse(response runtime.ClientRes
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /ReferenceData/DocumentCategories/{id}] DocumentCategories_Delete", response, response.Code())
+		result := NewDocumentCategoriesDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *DocumentCategoriesDeleteNoContent) Code() int {
 }
 
 func (o *DocumentCategoriesDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/DocumentCategories/{id}][%d] documentCategoriesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/DocumentCategories/{id}][%d] documentCategoriesDeleteNoContent", 204)
 }
 
 func (o *DocumentCategoriesDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/DocumentCategories/{id}][%d] documentCategoriesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/DocumentCategories/{id}][%d] documentCategoriesDeleteNoContent", 204)
 }
 
 func (o *DocumentCategoriesDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewDocumentCategoriesDeleteDefault creates a DocumentCategoriesDeleteDefault with default headers values
+func NewDocumentCategoriesDeleteDefault(code int) *DocumentCategoriesDeleteDefault {
+	return &DocumentCategoriesDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+DocumentCategoriesDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type DocumentCategoriesDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this document categories delete default response has a 2xx status code
+func (o *DocumentCategoriesDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this document categories delete default response has a 3xx status code
+func (o *DocumentCategoriesDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this document categories delete default response has a 4xx status code
+func (o *DocumentCategoriesDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this document categories delete default response has a 5xx status code
+func (o *DocumentCategoriesDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this document categories delete default response a status code equal to that given
+func (o *DocumentCategoriesDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the document categories delete default response
+func (o *DocumentCategoriesDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *DocumentCategoriesDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/DocumentCategories/{id}][%d] DocumentCategories_Delete default %s", o._statusCode, payload)
+}
+
+func (o *DocumentCategoriesDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/DocumentCategories/{id}][%d] DocumentCategories_Delete default %s", o._statusCode, payload)
+}
+
+func (o *DocumentCategoriesDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *DocumentCategoriesDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

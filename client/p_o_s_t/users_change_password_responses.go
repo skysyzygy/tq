@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *UsersChangePasswordReader) ReadResponse(response runtime.ClientResponse
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Security/Users/{userName}/Password] Users_ChangePassword", response, response.Code())
+		result := NewUsersChangePasswordDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *UsersChangePasswordOK) Code() int {
 }
 
 func (o *UsersChangePasswordOK) Error() string {
-	return fmt.Sprintf("[POST /Security/Users/{userName}/Password][%d] usersChangePasswordOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Security/Users/{userName}/Password][%d] usersChangePasswordOK %s", 200, payload)
 }
 
 func (o *UsersChangePasswordOK) String() string {
-	return fmt.Sprintf("[POST /Security/Users/{userName}/Password][%d] usersChangePasswordOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Security/Users/{userName}/Password][%d] usersChangePasswordOK %s", 200, payload)
 }
 
 func (o *UsersChangePasswordOK) GetPayload() *models.User {
@@ -93,6 +103,80 @@ func (o *UsersChangePasswordOK) GetPayload() *models.User {
 func (o *UsersChangePasswordOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.User)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewUsersChangePasswordDefault creates a UsersChangePasswordDefault with default headers values
+func NewUsersChangePasswordDefault(code int) *UsersChangePasswordDefault {
+	return &UsersChangePasswordDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+UsersChangePasswordDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type UsersChangePasswordDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this users change password default response has a 2xx status code
+func (o *UsersChangePasswordDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this users change password default response has a 3xx status code
+func (o *UsersChangePasswordDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this users change password default response has a 4xx status code
+func (o *UsersChangePasswordDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this users change password default response has a 5xx status code
+func (o *UsersChangePasswordDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this users change password default response a status code equal to that given
+func (o *UsersChangePasswordDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the users change password default response
+func (o *UsersChangePasswordDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *UsersChangePasswordDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Security/Users/{userName}/Password][%d] Users_ChangePassword default %s", o._statusCode, payload)
+}
+
+func (o *UsersChangePasswordDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Security/Users/{userName}/Password][%d] Users_ChangePassword default %s", o._statusCode, payload)
+}
+
+func (o *UsersChangePasswordDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *UsersChangePasswordDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

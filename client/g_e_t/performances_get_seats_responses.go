@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PerformancesGetSeatsReader) ReadResponse(response runtime.ClientRespons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /TXN/Performances/{performanceId}/Seats] Performances_GetSeats", response, response.Code())
+		result := NewPerformancesGetSeatsDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PerformancesGetSeatsOK) Code() int {
 }
 
 func (o *PerformancesGetSeatsOK) Error() string {
-	return fmt.Sprintf("[GET /TXN/Performances/{performanceId}/Seats][%d] performancesGetSeatsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/Performances/{performanceId}/Seats][%d] performancesGetSeatsOK %s", 200, payload)
 }
 
 func (o *PerformancesGetSeatsOK) String() string {
-	return fmt.Sprintf("[GET /TXN/Performances/{performanceId}/Seats][%d] performancesGetSeatsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/Performances/{performanceId}/Seats][%d] performancesGetSeatsOK %s", 200, payload)
 }
 
 func (o *PerformancesGetSeatsOK) GetPayload() []*models.Seat {
@@ -94,6 +104,80 @@ func (o *PerformancesGetSeatsOK) readResponse(response runtime.ClientResponse, c
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPerformancesGetSeatsDefault creates a PerformancesGetSeatsDefault with default headers values
+func NewPerformancesGetSeatsDefault(code int) *PerformancesGetSeatsDefault {
+	return &PerformancesGetSeatsDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PerformancesGetSeatsDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PerformancesGetSeatsDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this performances get seats default response has a 2xx status code
+func (o *PerformancesGetSeatsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this performances get seats default response has a 3xx status code
+func (o *PerformancesGetSeatsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this performances get seats default response has a 4xx status code
+func (o *PerformancesGetSeatsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this performances get seats default response has a 5xx status code
+func (o *PerformancesGetSeatsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this performances get seats default response a status code equal to that given
+func (o *PerformancesGetSeatsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the performances get seats default response
+func (o *PerformancesGetSeatsDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PerformancesGetSeatsDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/Performances/{performanceId}/Seats][%d] Performances_GetSeats default %s", o._statusCode, payload)
+}
+
+func (o *PerformancesGetSeatsDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/Performances/{performanceId}/Seats][%d] Performances_GetSeats default %s", o._statusCode, payload)
+}
+
+func (o *PerformancesGetSeatsDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PerformancesGetSeatsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *EMVGetConnectionStatusReader) ReadResponse(response runtime.ClientRespo
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /PaymentGateway/EMV/TriPosLanes/{laneId}/ConnectionStatus] EMV_GetConnectionStatus", response, response.Code())
+		result := NewEMVGetConnectionStatusDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *EMVGetConnectionStatusOK) Code() int {
 }
 
 func (o *EMVGetConnectionStatusOK) Error() string {
-	return fmt.Sprintf("[GET /PaymentGateway/EMV/TriPosLanes/{laneId}/ConnectionStatus][%d] eMVGetConnectionStatusOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /PaymentGateway/EMV/TriPosLanes/{laneId}/ConnectionStatus][%d] eMVGetConnectionStatusOK %s", 200, payload)
 }
 
 func (o *EMVGetConnectionStatusOK) String() string {
-	return fmt.Sprintf("[GET /PaymentGateway/EMV/TriPosLanes/{laneId}/ConnectionStatus][%d] eMVGetConnectionStatusOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /PaymentGateway/EMV/TriPosLanes/{laneId}/ConnectionStatus][%d] eMVGetConnectionStatusOK %s", 200, payload)
 }
 
 func (o *EMVGetConnectionStatusOK) GetPayload() *models.ConnectionStatus {
@@ -93,6 +103,80 @@ func (o *EMVGetConnectionStatusOK) GetPayload() *models.ConnectionStatus {
 func (o *EMVGetConnectionStatusOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ConnectionStatus)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewEMVGetConnectionStatusDefault creates a EMVGetConnectionStatusDefault with default headers values
+func NewEMVGetConnectionStatusDefault(code int) *EMVGetConnectionStatusDefault {
+	return &EMVGetConnectionStatusDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+EMVGetConnectionStatusDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type EMVGetConnectionStatusDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this e m v get connection status default response has a 2xx status code
+func (o *EMVGetConnectionStatusDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this e m v get connection status default response has a 3xx status code
+func (o *EMVGetConnectionStatusDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this e m v get connection status default response has a 4xx status code
+func (o *EMVGetConnectionStatusDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this e m v get connection status default response has a 5xx status code
+func (o *EMVGetConnectionStatusDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this e m v get connection status default response a status code equal to that given
+func (o *EMVGetConnectionStatusDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the e m v get connection status default response
+func (o *EMVGetConnectionStatusDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *EMVGetConnectionStatusDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /PaymentGateway/EMV/TriPosLanes/{laneId}/ConnectionStatus][%d] EMV_GetConnectionStatus default %s", o._statusCode, payload)
+}
+
+func (o *EMVGetConnectionStatusDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /PaymentGateway/EMV/TriPosLanes/{laneId}/ConnectionStatus][%d] EMV_GetConnectionStatus default %s", o._statusCode, payload)
+}
+
+func (o *EMVGetConnectionStatusDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *EMVGetConnectionStatusDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

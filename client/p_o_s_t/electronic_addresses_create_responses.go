@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ElectronicAddressesCreateReader) ReadResponse(response runtime.ClientRe
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /CRM/ElectronicAddresses] ElectronicAddresses_Create", response, response.Code())
+		result := NewElectronicAddressesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ElectronicAddressesCreateOK) Code() int {
 }
 
 func (o *ElectronicAddressesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /CRM/ElectronicAddresses][%d] electronicAddressesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/ElectronicAddresses][%d] electronicAddressesCreateOK %s", 200, payload)
 }
 
 func (o *ElectronicAddressesCreateOK) String() string {
-	return fmt.Sprintf("[POST /CRM/ElectronicAddresses][%d] electronicAddressesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/ElectronicAddresses][%d] electronicAddressesCreateOK %s", 200, payload)
 }
 
 func (o *ElectronicAddressesCreateOK) GetPayload() *models.ElectronicAddress {
@@ -93,6 +103,80 @@ func (o *ElectronicAddressesCreateOK) GetPayload() *models.ElectronicAddress {
 func (o *ElectronicAddressesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ElectronicAddress)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewElectronicAddressesCreateDefault creates a ElectronicAddressesCreateDefault with default headers values
+func NewElectronicAddressesCreateDefault(code int) *ElectronicAddressesCreateDefault {
+	return &ElectronicAddressesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ElectronicAddressesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ElectronicAddressesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this electronic addresses create default response has a 2xx status code
+func (o *ElectronicAddressesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this electronic addresses create default response has a 3xx status code
+func (o *ElectronicAddressesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this electronic addresses create default response has a 4xx status code
+func (o *ElectronicAddressesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this electronic addresses create default response has a 5xx status code
+func (o *ElectronicAddressesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this electronic addresses create default response a status code equal to that given
+func (o *ElectronicAddressesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the electronic addresses create default response
+func (o *ElectronicAddressesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ElectronicAddressesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/ElectronicAddresses][%d] ElectronicAddresses_Create default %s", o._statusCode, payload)
+}
+
+func (o *ElectronicAddressesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/ElectronicAddresses][%d] ElectronicAddresses_Create default %s", o._statusCode, payload)
+}
+
+func (o *ElectronicAddressesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ElectronicAddressesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

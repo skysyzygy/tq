@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // ContactPointCategoryPurposesDeleteReader is a Reader for the ContactPointCategoryPurposesDelete structure.
@@ -27,7 +31,14 @@ func (o *ContactPointCategoryPurposesDeleteReader) ReadResponse(response runtime
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /ReferenceData/ContactPointCategoryPurposes/{id}] ContactPointCategoryPurposes_Delete", response, response.Code())
+		result := NewContactPointCategoryPurposesDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *ContactPointCategoryPurposesDeleteNoContent) Code() int {
 }
 
 func (o *ContactPointCategoryPurposesDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/ContactPointCategoryPurposes/{id}][%d] contactPointCategoryPurposesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/ContactPointCategoryPurposes/{id}][%d] contactPointCategoryPurposesDeleteNoContent", 204)
 }
 
 func (o *ContactPointCategoryPurposesDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/ContactPointCategoryPurposes/{id}][%d] contactPointCategoryPurposesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/ContactPointCategoryPurposes/{id}][%d] contactPointCategoryPurposesDeleteNoContent", 204)
 }
 
 func (o *ContactPointCategoryPurposesDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewContactPointCategoryPurposesDeleteDefault creates a ContactPointCategoryPurposesDeleteDefault with default headers values
+func NewContactPointCategoryPurposesDeleteDefault(code int) *ContactPointCategoryPurposesDeleteDefault {
+	return &ContactPointCategoryPurposesDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ContactPointCategoryPurposesDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ContactPointCategoryPurposesDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this contact point category purposes delete default response has a 2xx status code
+func (o *ContactPointCategoryPurposesDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this contact point category purposes delete default response has a 3xx status code
+func (o *ContactPointCategoryPurposesDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this contact point category purposes delete default response has a 4xx status code
+func (o *ContactPointCategoryPurposesDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this contact point category purposes delete default response has a 5xx status code
+func (o *ContactPointCategoryPurposesDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this contact point category purposes delete default response a status code equal to that given
+func (o *ContactPointCategoryPurposesDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the contact point category purposes delete default response
+func (o *ContactPointCategoryPurposesDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ContactPointCategoryPurposesDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/ContactPointCategoryPurposes/{id}][%d] ContactPointCategoryPurposes_Delete default %s", o._statusCode, payload)
+}
+
+func (o *ContactPointCategoryPurposesDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/ContactPointCategoryPurposes/{id}][%d] ContactPointCategoryPurposes_Delete default %s", o._statusCode, payload)
+}
+
+func (o *ContactPointCategoryPurposesDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ContactPointCategoryPurposesDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

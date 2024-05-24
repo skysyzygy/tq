@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SessionLoginReader) ReadResponse(response runtime.ClientResponse, consu
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Web/Session/{sessionKey}/Login] Session_Login", response, response.Code())
+		result := NewSessionLoginDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SessionLoginOK) Code() int {
 }
 
 func (o *SessionLoginOK) Error() string {
-	return fmt.Sprintf("[POST /Web/Session/{sessionKey}/Login][%d] sessionLoginOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Session/{sessionKey}/Login][%d] sessionLoginOK %s", 200, payload)
 }
 
 func (o *SessionLoginOK) String() string {
-	return fmt.Sprintf("[POST /Web/Session/{sessionKey}/Login][%d] sessionLoginOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Session/{sessionKey}/Login][%d] sessionLoginOK %s", 200, payload)
 }
 
 func (o *SessionLoginOK) GetPayload() *models.Session {
@@ -93,6 +103,80 @@ func (o *SessionLoginOK) GetPayload() *models.Session {
 func (o *SessionLoginOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Session)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSessionLoginDefault creates a SessionLoginDefault with default headers values
+func NewSessionLoginDefault(code int) *SessionLoginDefault {
+	return &SessionLoginDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SessionLoginDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SessionLoginDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this session login default response has a 2xx status code
+func (o *SessionLoginDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this session login default response has a 3xx status code
+func (o *SessionLoginDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this session login default response has a 4xx status code
+func (o *SessionLoginDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this session login default response has a 5xx status code
+func (o *SessionLoginDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this session login default response a status code equal to that given
+func (o *SessionLoginDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the session login default response
+func (o *SessionLoginDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SessionLoginDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Session/{sessionKey}/Login][%d] Session_Login default %s", o._statusCode, payload)
+}
+
+func (o *SessionLoginDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Session/{sessionKey}/Login][%d] Session_Login default %s", o._statusCode, payload)
+}
+
+func (o *SessionLoginDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SessionLoginDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

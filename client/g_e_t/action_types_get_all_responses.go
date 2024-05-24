@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ActionTypesGetAllReader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/ActionTypes] ActionTypes_GetAll", response, response.Code())
+		result := NewActionTypesGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ActionTypesGetAllOK) Code() int {
 }
 
 func (o *ActionTypesGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/ActionTypes][%d] actionTypesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ActionTypes][%d] actionTypesGetAllOK %s", 200, payload)
 }
 
 func (o *ActionTypesGetAllOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/ActionTypes][%d] actionTypesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ActionTypes][%d] actionTypesGetAllOK %s", 200, payload)
 }
 
 func (o *ActionTypesGetAllOK) GetPayload() []*models.ActionType {
@@ -94,6 +104,80 @@ func (o *ActionTypesGetAllOK) readResponse(response runtime.ClientResponse, cons
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewActionTypesGetAllDefault creates a ActionTypesGetAllDefault with default headers values
+func NewActionTypesGetAllDefault(code int) *ActionTypesGetAllDefault {
+	return &ActionTypesGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ActionTypesGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ActionTypesGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this action types get all default response has a 2xx status code
+func (o *ActionTypesGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this action types get all default response has a 3xx status code
+func (o *ActionTypesGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this action types get all default response has a 4xx status code
+func (o *ActionTypesGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this action types get all default response has a 5xx status code
+func (o *ActionTypesGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this action types get all default response a status code equal to that given
+func (o *ActionTypesGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the action types get all default response
+func (o *ActionTypesGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ActionTypesGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ActionTypes][%d] ActionTypes_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *ActionTypesGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ActionTypes][%d] ActionTypes_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *ActionTypesGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ActionTypesGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

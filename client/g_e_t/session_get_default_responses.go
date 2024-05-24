@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SessionGetDefaultReader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Web/Session/{sessionKey}/Default/{fieldName}] Session_GetDefault", response, response.Code())
+		result := NewSessionGetDefaultDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SessionGetDefaultOK) Code() int {
 }
 
 func (o *SessionGetDefaultOK) Error() string {
-	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Default/{fieldName}][%d] sessionGetDefaultOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Default/{fieldName}][%d] sessionGetDefaultOK %s", 200, payload)
 }
 
 func (o *SessionGetDefaultOK) String() string {
-	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Default/{fieldName}][%d] sessionGetDefaultOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Default/{fieldName}][%d] sessionGetDefaultOK %s", 200, payload)
 }
 
 func (o *SessionGetDefaultOK) GetPayload() *models.SystemDefaultSummary {
@@ -93,6 +103,80 @@ func (o *SessionGetDefaultOK) GetPayload() *models.SystemDefaultSummary {
 func (o *SessionGetDefaultOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.SystemDefaultSummary)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSessionGetDefaultDefault creates a SessionGetDefaultDefault with default headers values
+func NewSessionGetDefaultDefault(code int) *SessionGetDefaultDefault {
+	return &SessionGetDefaultDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SessionGetDefaultDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SessionGetDefaultDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this session get default default response has a 2xx status code
+func (o *SessionGetDefaultDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this session get default default response has a 3xx status code
+func (o *SessionGetDefaultDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this session get default default response has a 4xx status code
+func (o *SessionGetDefaultDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this session get default default response has a 5xx status code
+func (o *SessionGetDefaultDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this session get default default response a status code equal to that given
+func (o *SessionGetDefaultDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the session get default default response
+func (o *SessionGetDefaultDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SessionGetDefaultDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Default/{fieldName}][%d] Session_GetDefault default %s", o._statusCode, payload)
+}
+
+func (o *SessionGetDefaultDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Web/Session/{sessionKey}/Default/{fieldName}][%d] Session_GetDefault default %s", o._statusCode, payload)
+}
+
+func (o *SessionGetDefaultDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SessionGetDefaultDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

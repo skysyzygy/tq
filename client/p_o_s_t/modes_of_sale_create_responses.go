@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ModesOfSaleCreateReader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /TXN/ModesOfSale] ModesOfSale_Create", response, response.Code())
+		result := NewModesOfSaleCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ModesOfSaleCreateOK) Code() int {
 }
 
 func (o *ModesOfSaleCreateOK) Error() string {
-	return fmt.Sprintf("[POST /TXN/ModesOfSale][%d] modesOfSaleCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/ModesOfSale][%d] modesOfSaleCreateOK %s", 200, payload)
 }
 
 func (o *ModesOfSaleCreateOK) String() string {
-	return fmt.Sprintf("[POST /TXN/ModesOfSale][%d] modesOfSaleCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/ModesOfSale][%d] modesOfSaleCreateOK %s", 200, payload)
 }
 
 func (o *ModesOfSaleCreateOK) GetPayload() *models.ModeOfSale {
@@ -93,6 +103,80 @@ func (o *ModesOfSaleCreateOK) GetPayload() *models.ModeOfSale {
 func (o *ModesOfSaleCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ModeOfSale)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewModesOfSaleCreateDefault creates a ModesOfSaleCreateDefault with default headers values
+func NewModesOfSaleCreateDefault(code int) *ModesOfSaleCreateDefault {
+	return &ModesOfSaleCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ModesOfSaleCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ModesOfSaleCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this modes of sale create default response has a 2xx status code
+func (o *ModesOfSaleCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this modes of sale create default response has a 3xx status code
+func (o *ModesOfSaleCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this modes of sale create default response has a 4xx status code
+func (o *ModesOfSaleCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this modes of sale create default response has a 5xx status code
+func (o *ModesOfSaleCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this modes of sale create default response a status code equal to that given
+func (o *ModesOfSaleCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the modes of sale create default response
+func (o *ModesOfSaleCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ModesOfSaleCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/ModesOfSale][%d] ModesOfSale_Create default %s", o._statusCode, payload)
+}
+
+func (o *ModesOfSaleCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/ModesOfSale][%d] ModesOfSale_Create default %s", o._statusCode, payload)
+}
+
+func (o *ModesOfSaleCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ModesOfSaleCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

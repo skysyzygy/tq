@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *AppScreenTextsCreateOrUpdateReader) ReadResponse(response runtime.Clien
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/AppScreenTexts] AppScreenTexts_CreateOrUpdate", response, response.Code())
+		result := NewAppScreenTextsCreateOrUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *AppScreenTextsCreateOrUpdateOK) Code() int {
 }
 
 func (o *AppScreenTextsCreateOrUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/AppScreenTexts][%d] appScreenTextsCreateOrUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/AppScreenTexts][%d] appScreenTextsCreateOrUpdateOK %s", 200, payload)
 }
 
 func (o *AppScreenTextsCreateOrUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/AppScreenTexts][%d] appScreenTextsCreateOrUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/AppScreenTexts][%d] appScreenTextsCreateOrUpdateOK %s", 200, payload)
 }
 
 func (o *AppScreenTextsCreateOrUpdateOK) GetPayload() *models.AppScreenText {
@@ -93,6 +103,80 @@ func (o *AppScreenTextsCreateOrUpdateOK) GetPayload() *models.AppScreenText {
 func (o *AppScreenTextsCreateOrUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.AppScreenText)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAppScreenTextsCreateOrUpdateDefault creates a AppScreenTextsCreateOrUpdateDefault with default headers values
+func NewAppScreenTextsCreateOrUpdateDefault(code int) *AppScreenTextsCreateOrUpdateDefault {
+	return &AppScreenTextsCreateOrUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+AppScreenTextsCreateOrUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type AppScreenTextsCreateOrUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this app screen texts create or update default response has a 2xx status code
+func (o *AppScreenTextsCreateOrUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this app screen texts create or update default response has a 3xx status code
+func (o *AppScreenTextsCreateOrUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this app screen texts create or update default response has a 4xx status code
+func (o *AppScreenTextsCreateOrUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this app screen texts create or update default response has a 5xx status code
+func (o *AppScreenTextsCreateOrUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this app screen texts create or update default response a status code equal to that given
+func (o *AppScreenTextsCreateOrUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the app screen texts create or update default response
+func (o *AppScreenTextsCreateOrUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *AppScreenTextsCreateOrUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/AppScreenTexts][%d] AppScreenTexts_CreateOrUpdate default %s", o._statusCode, payload)
+}
+
+func (o *AppScreenTextsCreateOrUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/AppScreenTexts][%d] AppScreenTexts_CreateOrUpdate default %s", o._statusCode, payload)
+}
+
+func (o *AppScreenTextsCreateOrUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *AppScreenTextsCreateOrUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

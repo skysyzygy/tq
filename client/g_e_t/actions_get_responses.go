@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ActionsGetReader) ReadResponse(response runtime.ClientResponse, consume
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /CRM/Actions/{issueActionId}] Actions_Get", response, response.Code())
+		result := NewActionsGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ActionsGetOK) Code() int {
 }
 
 func (o *ActionsGetOK) Error() string {
-	return fmt.Sprintf("[GET /CRM/Actions/{issueActionId}][%d] actionsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Actions/{issueActionId}][%d] actionsGetOK %s", 200, payload)
 }
 
 func (o *ActionsGetOK) String() string {
-	return fmt.Sprintf("[GET /CRM/Actions/{issueActionId}][%d] actionsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Actions/{issueActionId}][%d] actionsGetOK %s", 200, payload)
 }
 
 func (o *ActionsGetOK) GetPayload() *models.IssueAction {
@@ -93,6 +103,80 @@ func (o *ActionsGetOK) GetPayload() *models.IssueAction {
 func (o *ActionsGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.IssueAction)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewActionsGetDefault creates a ActionsGetDefault with default headers values
+func NewActionsGetDefault(code int) *ActionsGetDefault {
+	return &ActionsGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ActionsGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ActionsGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this actions get default response has a 2xx status code
+func (o *ActionsGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this actions get default response has a 3xx status code
+func (o *ActionsGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this actions get default response has a 4xx status code
+func (o *ActionsGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this actions get default response has a 5xx status code
+func (o *ActionsGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this actions get default response a status code equal to that given
+func (o *ActionsGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the actions get default response
+func (o *ActionsGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ActionsGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Actions/{issueActionId}][%d] Actions_Get default %s", o._statusCode, payload)
+}
+
+func (o *ActionsGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Actions/{issueActionId}][%d] Actions_Get default %s", o._statusCode, payload)
+}
+
+func (o *ActionsGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ActionsGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

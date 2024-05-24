@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ConstituentDocumentsGetReader) ReadResponse(response runtime.ClientResp
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /CRM/Documents/{documentId}] ConstituentDocuments_Get", response, response.Code())
+		result := NewConstituentDocumentsGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ConstituentDocumentsGetOK) Code() int {
 }
 
 func (o *ConstituentDocumentsGetOK) Error() string {
-	return fmt.Sprintf("[GET /CRM/Documents/{documentId}][%d] constituentDocumentsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Documents/{documentId}][%d] constituentDocumentsGetOK %s", 200, payload)
 }
 
 func (o *ConstituentDocumentsGetOK) String() string {
-	return fmt.Sprintf("[GET /CRM/Documents/{documentId}][%d] constituentDocumentsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Documents/{documentId}][%d] constituentDocumentsGetOK %s", 200, payload)
 }
 
 func (o *ConstituentDocumentsGetOK) GetPayload() *models.Document {
@@ -93,6 +103,80 @@ func (o *ConstituentDocumentsGetOK) GetPayload() *models.Document {
 func (o *ConstituentDocumentsGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Document)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewConstituentDocumentsGetDefault creates a ConstituentDocumentsGetDefault with default headers values
+func NewConstituentDocumentsGetDefault(code int) *ConstituentDocumentsGetDefault {
+	return &ConstituentDocumentsGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ConstituentDocumentsGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ConstituentDocumentsGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this constituent documents get default response has a 2xx status code
+func (o *ConstituentDocumentsGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this constituent documents get default response has a 3xx status code
+func (o *ConstituentDocumentsGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this constituent documents get default response has a 4xx status code
+func (o *ConstituentDocumentsGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this constituent documents get default response has a 5xx status code
+func (o *ConstituentDocumentsGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this constituent documents get default response a status code equal to that given
+func (o *ConstituentDocumentsGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the constituent documents get default response
+func (o *ConstituentDocumentsGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ConstituentDocumentsGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Documents/{documentId}][%d] ConstituentDocuments_Get default %s", o._statusCode, payload)
+}
+
+func (o *ConstituentDocumentsGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Documents/{documentId}][%d] ConstituentDocuments_Get default %s", o._statusCode, payload)
+}
+
+func (o *ConstituentDocumentsGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ConstituentDocumentsGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

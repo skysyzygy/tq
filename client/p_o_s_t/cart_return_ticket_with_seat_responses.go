@@ -6,10 +6,14 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // CartReturnTicketWithSeatReader is a Reader for the CartReturnTicketWithSeat structure.
@@ -27,7 +31,14 @@ func (o *CartReturnTicketWithSeatReader) ReadResponse(response runtime.ClientRes
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Web/Cart/{sessionKey}/Tickets/ReturnWithSeat] Cart_ReturnTicketWithSeat", response, response.Code())
+		result := NewCartReturnTicketWithSeatDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *CartReturnTicketWithSeatNoContent) Code() int {
 }
 
 func (o *CartReturnTicketWithSeatNoContent) Error() string {
-	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Tickets/ReturnWithSeat][%d] cartReturnTicketWithSeatNoContent ", 204)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Tickets/ReturnWithSeat][%d] cartReturnTicketWithSeatNoContent", 204)
 }
 
 func (o *CartReturnTicketWithSeatNoContent) String() string {
-	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Tickets/ReturnWithSeat][%d] cartReturnTicketWithSeatNoContent ", 204)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Tickets/ReturnWithSeat][%d] cartReturnTicketWithSeatNoContent", 204)
 }
 
 func (o *CartReturnTicketWithSeatNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewCartReturnTicketWithSeatDefault creates a CartReturnTicketWithSeatDefault with default headers values
+func NewCartReturnTicketWithSeatDefault(code int) *CartReturnTicketWithSeatDefault {
+	return &CartReturnTicketWithSeatDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CartReturnTicketWithSeatDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CartReturnTicketWithSeatDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this cart return ticket with seat default response has a 2xx status code
+func (o *CartReturnTicketWithSeatDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this cart return ticket with seat default response has a 3xx status code
+func (o *CartReturnTicketWithSeatDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this cart return ticket with seat default response has a 4xx status code
+func (o *CartReturnTicketWithSeatDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this cart return ticket with seat default response has a 5xx status code
+func (o *CartReturnTicketWithSeatDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this cart return ticket with seat default response a status code equal to that given
+func (o *CartReturnTicketWithSeatDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the cart return ticket with seat default response
+func (o *CartReturnTicketWithSeatDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CartReturnTicketWithSeatDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Tickets/ReturnWithSeat][%d] Cart_ReturnTicketWithSeat default %s", o._statusCode, payload)
+}
+
+func (o *CartReturnTicketWithSeatDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Tickets/ReturnWithSeat][%d] Cart_ReturnTicketWithSeat default %s", o._statusCode, payload)
+}
+
+func (o *CartReturnTicketWithSeatDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CartReturnTicketWithSeatDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

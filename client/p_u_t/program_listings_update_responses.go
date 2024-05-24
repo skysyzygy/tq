@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ProgramListingsUpdateReader) ReadResponse(response runtime.ClientRespon
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /CRM/ProgramListings/{programListingId}] ProgramListings_Update", response, response.Code())
+		result := NewProgramListingsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ProgramListingsUpdateOK) Code() int {
 }
 
 func (o *ProgramListingsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /CRM/ProgramListings/{programListingId}][%d] programListingsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/ProgramListings/{programListingId}][%d] programListingsUpdateOK %s", 200, payload)
 }
 
 func (o *ProgramListingsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /CRM/ProgramListings/{programListingId}][%d] programListingsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/ProgramListings/{programListingId}][%d] programListingsUpdateOK %s", 200, payload)
 }
 
 func (o *ProgramListingsUpdateOK) GetPayload() *models.ProgramListing {
@@ -93,6 +103,80 @@ func (o *ProgramListingsUpdateOK) GetPayload() *models.ProgramListing {
 func (o *ProgramListingsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ProgramListing)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewProgramListingsUpdateDefault creates a ProgramListingsUpdateDefault with default headers values
+func NewProgramListingsUpdateDefault(code int) *ProgramListingsUpdateDefault {
+	return &ProgramListingsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ProgramListingsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ProgramListingsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this program listings update default response has a 2xx status code
+func (o *ProgramListingsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this program listings update default response has a 3xx status code
+func (o *ProgramListingsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this program listings update default response has a 4xx status code
+func (o *ProgramListingsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this program listings update default response has a 5xx status code
+func (o *ProgramListingsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this program listings update default response a status code equal to that given
+func (o *ProgramListingsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the program listings update default response
+func (o *ProgramListingsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ProgramListingsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/ProgramListings/{programListingId}][%d] ProgramListings_Update default %s", o._statusCode, payload)
+}
+
+func (o *ProgramListingsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/ProgramListings/{programListingId}][%d] ProgramListings_Update default %s", o._statusCode, payload)
+}
+
+func (o *ProgramListingsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ProgramListingsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

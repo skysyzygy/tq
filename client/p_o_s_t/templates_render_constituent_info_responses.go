@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *TemplatesRenderConstituentInfoReader) ReadResponse(response runtime.Cli
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Templates/Render/Constituent/{constituentId}/Info] Templates_RenderConstituentInfo", response, response.Code())
+		result := NewTemplatesRenderConstituentInfoDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *TemplatesRenderConstituentInfoOK) Code() int {
 }
 
 func (o *TemplatesRenderConstituentInfoOK) Error() string {
-	return fmt.Sprintf("[POST /Templates/Render/Constituent/{constituentId}/Info][%d] templatesRenderConstituentInfoOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Templates/Render/Constituent/{constituentId}/Info][%d] templatesRenderConstituentInfoOK %s", 200, payload)
 }
 
 func (o *TemplatesRenderConstituentInfoOK) String() string {
-	return fmt.Sprintf("[POST /Templates/Render/Constituent/{constituentId}/Info][%d] templatesRenderConstituentInfoOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Templates/Render/Constituent/{constituentId}/Info][%d] templatesRenderConstituentInfoOK %s", 200, payload)
 }
 
 func (o *TemplatesRenderConstituentInfoOK) GetPayload() *models.RenderResponse {
@@ -93,6 +103,80 @@ func (o *TemplatesRenderConstituentInfoOK) GetPayload() *models.RenderResponse {
 func (o *TemplatesRenderConstituentInfoOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.RenderResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewTemplatesRenderConstituentInfoDefault creates a TemplatesRenderConstituentInfoDefault with default headers values
+func NewTemplatesRenderConstituentInfoDefault(code int) *TemplatesRenderConstituentInfoDefault {
+	return &TemplatesRenderConstituentInfoDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+TemplatesRenderConstituentInfoDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type TemplatesRenderConstituentInfoDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this templates render constituent info default response has a 2xx status code
+func (o *TemplatesRenderConstituentInfoDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this templates render constituent info default response has a 3xx status code
+func (o *TemplatesRenderConstituentInfoDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this templates render constituent info default response has a 4xx status code
+func (o *TemplatesRenderConstituentInfoDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this templates render constituent info default response has a 5xx status code
+func (o *TemplatesRenderConstituentInfoDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this templates render constituent info default response a status code equal to that given
+func (o *TemplatesRenderConstituentInfoDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the templates render constituent info default response
+func (o *TemplatesRenderConstituentInfoDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *TemplatesRenderConstituentInfoDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Templates/Render/Constituent/{constituentId}/Info][%d] Templates_RenderConstituentInfo default %s", o._statusCode, payload)
+}
+
+func (o *TemplatesRenderConstituentInfoDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Templates/Render/Constituent/{constituentId}/Info][%d] Templates_RenderConstituentInfo default %s", o._statusCode, payload)
+}
+
+func (o *TemplatesRenderConstituentInfoDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *TemplatesRenderConstituentInfoDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

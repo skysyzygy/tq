@@ -6,10 +6,14 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // EmailsSendLoginCredentialsReader is a Reader for the EmailsSendLoginCredentials structure.
@@ -27,7 +31,14 @@ func (o *EmailsSendLoginCredentialsReader) ReadResponse(response runtime.ClientR
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Emails/LoginCredentials/{loginId}/Send] Emails_SendLoginCredentials", response, response.Code())
+		result := NewEmailsSendLoginCredentialsDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *EmailsSendLoginCredentialsNoContent) Code() int {
 }
 
 func (o *EmailsSendLoginCredentialsNoContent) Error() string {
-	return fmt.Sprintf("[POST /Emails/LoginCredentials/{loginId}/Send][%d] emailsSendLoginCredentialsNoContent ", 204)
+	return fmt.Sprintf("[POST /Emails/LoginCredentials/{loginId}/Send][%d] emailsSendLoginCredentialsNoContent", 204)
 }
 
 func (o *EmailsSendLoginCredentialsNoContent) String() string {
-	return fmt.Sprintf("[POST /Emails/LoginCredentials/{loginId}/Send][%d] emailsSendLoginCredentialsNoContent ", 204)
+	return fmt.Sprintf("[POST /Emails/LoginCredentials/{loginId}/Send][%d] emailsSendLoginCredentialsNoContent", 204)
 }
 
 func (o *EmailsSendLoginCredentialsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewEmailsSendLoginCredentialsDefault creates a EmailsSendLoginCredentialsDefault with default headers values
+func NewEmailsSendLoginCredentialsDefault(code int) *EmailsSendLoginCredentialsDefault {
+	return &EmailsSendLoginCredentialsDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+EmailsSendLoginCredentialsDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type EmailsSendLoginCredentialsDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this emails send login credentials default response has a 2xx status code
+func (o *EmailsSendLoginCredentialsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this emails send login credentials default response has a 3xx status code
+func (o *EmailsSendLoginCredentialsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this emails send login credentials default response has a 4xx status code
+func (o *EmailsSendLoginCredentialsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this emails send login credentials default response has a 5xx status code
+func (o *EmailsSendLoginCredentialsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this emails send login credentials default response a status code equal to that given
+func (o *EmailsSendLoginCredentialsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the emails send login credentials default response
+func (o *EmailsSendLoginCredentialsDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *EmailsSendLoginCredentialsDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Emails/LoginCredentials/{loginId}/Send][%d] Emails_SendLoginCredentials default %s", o._statusCode, payload)
+}
+
+func (o *EmailsSendLoginCredentialsDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Emails/LoginCredentials/{loginId}/Send][%d] Emails_SendLoginCredentials default %s", o._statusCode, payload)
+}
+
+func (o *EmailsSendLoginCredentialsDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *EmailsSendLoginCredentialsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

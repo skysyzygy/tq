@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *QueryElementsGetAllReader) ReadResponse(response runtime.ClientResponse
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Reporting/QueryElements] QueryElements_GetAll", response, response.Code())
+		result := NewQueryElementsGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *QueryElementsGetAllOK) Code() int {
 }
 
 func (o *QueryElementsGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /Reporting/QueryElements][%d] queryElementsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Reporting/QueryElements][%d] queryElementsGetAllOK %s", 200, payload)
 }
 
 func (o *QueryElementsGetAllOK) String() string {
-	return fmt.Sprintf("[GET /Reporting/QueryElements][%d] queryElementsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Reporting/QueryElements][%d] queryElementsGetAllOK %s", 200, payload)
 }
 
 func (o *QueryElementsGetAllOK) GetPayload() []*models.QueryElement {
@@ -94,6 +104,80 @@ func (o *QueryElementsGetAllOK) readResponse(response runtime.ClientResponse, co
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewQueryElementsGetAllDefault creates a QueryElementsGetAllDefault with default headers values
+func NewQueryElementsGetAllDefault(code int) *QueryElementsGetAllDefault {
+	return &QueryElementsGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+QueryElementsGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type QueryElementsGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this query elements get all default response has a 2xx status code
+func (o *QueryElementsGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query elements get all default response has a 3xx status code
+func (o *QueryElementsGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query elements get all default response has a 4xx status code
+func (o *QueryElementsGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query elements get all default response has a 5xx status code
+func (o *QueryElementsGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query elements get all default response a status code equal to that given
+func (o *QueryElementsGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the query elements get all default response
+func (o *QueryElementsGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *QueryElementsGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Reporting/QueryElements][%d] QueryElements_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *QueryElementsGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Reporting/QueryElements][%d] QueryElements_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *QueryElementsGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *QueryElementsGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

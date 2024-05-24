@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *TriPOSCloudConfigurationsUpdateReader) ReadResponse(response runtime.Cl
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/TriPOSCloudConfigurations/{id}] TriPOSCloudConfigurations_Update", response, response.Code())
+		result := NewTriPOSCloudConfigurationsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *TriPOSCloudConfigurationsUpdateOK) Code() int {
 }
 
 func (o *TriPOSCloudConfigurationsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/TriPOSCloudConfigurations/{id}][%d] triPOSCloudConfigurationsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/TriPOSCloudConfigurations/{id}][%d] triPOSCloudConfigurationsUpdateOK %s", 200, payload)
 }
 
 func (o *TriPOSCloudConfigurationsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/TriPOSCloudConfigurations/{id}][%d] triPOSCloudConfigurationsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/TriPOSCloudConfigurations/{id}][%d] triPOSCloudConfigurationsUpdateOK %s", 200, payload)
 }
 
 func (o *TriPOSCloudConfigurationsUpdateOK) GetPayload() *models.TriPOSCloudConfiguration {
@@ -93,6 +103,80 @@ func (o *TriPOSCloudConfigurationsUpdateOK) GetPayload() *models.TriPOSCloudConf
 func (o *TriPOSCloudConfigurationsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.TriPOSCloudConfiguration)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewTriPOSCloudConfigurationsUpdateDefault creates a TriPOSCloudConfigurationsUpdateDefault with default headers values
+func NewTriPOSCloudConfigurationsUpdateDefault(code int) *TriPOSCloudConfigurationsUpdateDefault {
+	return &TriPOSCloudConfigurationsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+TriPOSCloudConfigurationsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type TriPOSCloudConfigurationsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this tri p o s cloud configurations update default response has a 2xx status code
+func (o *TriPOSCloudConfigurationsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this tri p o s cloud configurations update default response has a 3xx status code
+func (o *TriPOSCloudConfigurationsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this tri p o s cloud configurations update default response has a 4xx status code
+func (o *TriPOSCloudConfigurationsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this tri p o s cloud configurations update default response has a 5xx status code
+func (o *TriPOSCloudConfigurationsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this tri p o s cloud configurations update default response a status code equal to that given
+func (o *TriPOSCloudConfigurationsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the tri p o s cloud configurations update default response
+func (o *TriPOSCloudConfigurationsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *TriPOSCloudConfigurationsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/TriPOSCloudConfigurations/{id}][%d] TriPOSCloudConfigurations_Update default %s", o._statusCode, payload)
+}
+
+func (o *TriPOSCloudConfigurationsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/TriPOSCloudConfigurations/{id}][%d] TriPOSCloudConfigurations_Update default %s", o._statusCode, payload)
+}
+
+func (o *TriPOSCloudConfigurationsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *TriPOSCloudConfigurationsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

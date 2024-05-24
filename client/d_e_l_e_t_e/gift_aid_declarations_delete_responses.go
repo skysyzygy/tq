@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // GiftAidDeclarationsDeleteReader is a Reader for the GiftAidDeclarationsDelete structure.
@@ -27,7 +31,14 @@ func (o *GiftAidDeclarationsDeleteReader) ReadResponse(response runtime.ClientRe
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /CRM/GiftAidDeclarations/{giftAidDeclarationId}] GiftAidDeclarations_Delete", response, response.Code())
+		result := NewGiftAidDeclarationsDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *GiftAidDeclarationsDeleteNoContent) Code() int {
 }
 
 func (o *GiftAidDeclarationsDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /CRM/GiftAidDeclarations/{giftAidDeclarationId}][%d] giftAidDeclarationsDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /CRM/GiftAidDeclarations/{giftAidDeclarationId}][%d] giftAidDeclarationsDeleteNoContent", 204)
 }
 
 func (o *GiftAidDeclarationsDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /CRM/GiftAidDeclarations/{giftAidDeclarationId}][%d] giftAidDeclarationsDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /CRM/GiftAidDeclarations/{giftAidDeclarationId}][%d] giftAidDeclarationsDeleteNoContent", 204)
 }
 
 func (o *GiftAidDeclarationsDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewGiftAidDeclarationsDeleteDefault creates a GiftAidDeclarationsDeleteDefault with default headers values
+func NewGiftAidDeclarationsDeleteDefault(code int) *GiftAidDeclarationsDeleteDefault {
+	return &GiftAidDeclarationsDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+GiftAidDeclarationsDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type GiftAidDeclarationsDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this gift aid declarations delete default response has a 2xx status code
+func (o *GiftAidDeclarationsDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this gift aid declarations delete default response has a 3xx status code
+func (o *GiftAidDeclarationsDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this gift aid declarations delete default response has a 4xx status code
+func (o *GiftAidDeclarationsDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this gift aid declarations delete default response has a 5xx status code
+func (o *GiftAidDeclarationsDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this gift aid declarations delete default response a status code equal to that given
+func (o *GiftAidDeclarationsDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the gift aid declarations delete default response
+func (o *GiftAidDeclarationsDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *GiftAidDeclarationsDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /CRM/GiftAidDeclarations/{giftAidDeclarationId}][%d] GiftAidDeclarations_Delete default %s", o._statusCode, payload)
+}
+
+func (o *GiftAidDeclarationsDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /CRM/GiftAidDeclarations/{giftAidDeclarationId}][%d] GiftAidDeclarations_Delete default %s", o._statusCode, payload)
+}
+
+func (o *GiftAidDeclarationsDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *GiftAidDeclarationsDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

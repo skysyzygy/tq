@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *UpgradeCategoriesCreateReader) ReadResponse(response runtime.ClientResp
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /ReferenceData/UpgradeCategories] UpgradeCategories_Create", response, response.Code())
+		result := NewUpgradeCategoriesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *UpgradeCategoriesCreateOK) Code() int {
 }
 
 func (o *UpgradeCategoriesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /ReferenceData/UpgradeCategories][%d] upgradeCategoriesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/UpgradeCategories][%d] upgradeCategoriesCreateOK %s", 200, payload)
 }
 
 func (o *UpgradeCategoriesCreateOK) String() string {
-	return fmt.Sprintf("[POST /ReferenceData/UpgradeCategories][%d] upgradeCategoriesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/UpgradeCategories][%d] upgradeCategoriesCreateOK %s", 200, payload)
 }
 
 func (o *UpgradeCategoriesCreateOK) GetPayload() *models.UpgradeCategory {
@@ -93,6 +103,80 @@ func (o *UpgradeCategoriesCreateOK) GetPayload() *models.UpgradeCategory {
 func (o *UpgradeCategoriesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.UpgradeCategory)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewUpgradeCategoriesCreateDefault creates a UpgradeCategoriesCreateDefault with default headers values
+func NewUpgradeCategoriesCreateDefault(code int) *UpgradeCategoriesCreateDefault {
+	return &UpgradeCategoriesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+UpgradeCategoriesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type UpgradeCategoriesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this upgrade categories create default response has a 2xx status code
+func (o *UpgradeCategoriesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this upgrade categories create default response has a 3xx status code
+func (o *UpgradeCategoriesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this upgrade categories create default response has a 4xx status code
+func (o *UpgradeCategoriesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this upgrade categories create default response has a 5xx status code
+func (o *UpgradeCategoriesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this upgrade categories create default response a status code equal to that given
+func (o *UpgradeCategoriesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the upgrade categories create default response
+func (o *UpgradeCategoriesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *UpgradeCategoriesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/UpgradeCategories][%d] UpgradeCategories_Create default %s", o._statusCode, payload)
+}
+
+func (o *UpgradeCategoriesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/UpgradeCategories][%d] UpgradeCategories_Create default %s", o._statusCode, payload)
+}
+
+func (o *UpgradeCategoriesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *UpgradeCategoriesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

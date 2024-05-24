@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PricingRuleCategoriesCreateReader) ReadResponse(response runtime.Client
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /ReferenceData/PricingRuleCategories] PricingRuleCategories_Create", response, response.Code())
+		result := NewPricingRuleCategoriesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PricingRuleCategoriesCreateOK) Code() int {
 }
 
 func (o *PricingRuleCategoriesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /ReferenceData/PricingRuleCategories][%d] pricingRuleCategoriesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/PricingRuleCategories][%d] pricingRuleCategoriesCreateOK %s", 200, payload)
 }
 
 func (o *PricingRuleCategoriesCreateOK) String() string {
-	return fmt.Sprintf("[POST /ReferenceData/PricingRuleCategories][%d] pricingRuleCategoriesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/PricingRuleCategories][%d] pricingRuleCategoriesCreateOK %s", 200, payload)
 }
 
 func (o *PricingRuleCategoriesCreateOK) GetPayload() *models.PricingRuleCategory {
@@ -93,6 +103,80 @@ func (o *PricingRuleCategoriesCreateOK) GetPayload() *models.PricingRuleCategory
 func (o *PricingRuleCategoriesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.PricingRuleCategory)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPricingRuleCategoriesCreateDefault creates a PricingRuleCategoriesCreateDefault with default headers values
+func NewPricingRuleCategoriesCreateDefault(code int) *PricingRuleCategoriesCreateDefault {
+	return &PricingRuleCategoriesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PricingRuleCategoriesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PricingRuleCategoriesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this pricing rule categories create default response has a 2xx status code
+func (o *PricingRuleCategoriesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this pricing rule categories create default response has a 3xx status code
+func (o *PricingRuleCategoriesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this pricing rule categories create default response has a 4xx status code
+func (o *PricingRuleCategoriesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this pricing rule categories create default response has a 5xx status code
+func (o *PricingRuleCategoriesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this pricing rule categories create default response a status code equal to that given
+func (o *PricingRuleCategoriesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the pricing rule categories create default response
+func (o *PricingRuleCategoriesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PricingRuleCategoriesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/PricingRuleCategories][%d] PricingRuleCategories_Create default %s", o._statusCode, payload)
+}
+
+func (o *PricingRuleCategoriesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/PricingRuleCategories][%d] PricingRuleCategories_Create default %s", o._statusCode, payload)
+}
+
+func (o *PricingRuleCategoriesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PricingRuleCategoriesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

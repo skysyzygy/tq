@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *TimeSlotsGetSummariesReader) ReadResponse(response runtime.ClientRespon
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/TimeSlots/Summary] TimeSlots_GetSummaries", response, response.Code())
+		result := NewTimeSlotsGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *TimeSlotsGetSummariesOK) Code() int {
 }
 
 func (o *TimeSlotsGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/TimeSlots/Summary][%d] timeSlotsGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/TimeSlots/Summary][%d] timeSlotsGetSummariesOK %s", 200, payload)
 }
 
 func (o *TimeSlotsGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/TimeSlots/Summary][%d] timeSlotsGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/TimeSlots/Summary][%d] timeSlotsGetSummariesOK %s", 200, payload)
 }
 
 func (o *TimeSlotsGetSummariesOK) GetPayload() []*models.TimeSlotSummary {
@@ -94,6 +104,80 @@ func (o *TimeSlotsGetSummariesOK) readResponse(response runtime.ClientResponse, 
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewTimeSlotsGetSummariesDefault creates a TimeSlotsGetSummariesDefault with default headers values
+func NewTimeSlotsGetSummariesDefault(code int) *TimeSlotsGetSummariesDefault {
+	return &TimeSlotsGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+TimeSlotsGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type TimeSlotsGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this time slots get summaries default response has a 2xx status code
+func (o *TimeSlotsGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this time slots get summaries default response has a 3xx status code
+func (o *TimeSlotsGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this time slots get summaries default response has a 4xx status code
+func (o *TimeSlotsGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this time slots get summaries default response has a 5xx status code
+func (o *TimeSlotsGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this time slots get summaries default response a status code equal to that given
+func (o *TimeSlotsGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the time slots get summaries default response
+func (o *TimeSlotsGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *TimeSlotsGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/TimeSlots/Summary][%d] TimeSlots_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *TimeSlotsGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/TimeSlots/Summary][%d] TimeSlots_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *TimeSlotsGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *TimeSlotsGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

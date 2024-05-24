@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PriceTemplatesGetSummariesReader) ReadResponse(response runtime.ClientR
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /TXN/PriceTemplates/Summary] PriceTemplates_GetSummaries", response, response.Code())
+		result := NewPriceTemplatesGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PriceTemplatesGetSummariesOK) Code() int {
 }
 
 func (o *PriceTemplatesGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /TXN/PriceTemplates/Summary][%d] priceTemplatesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PriceTemplates/Summary][%d] priceTemplatesGetSummariesOK %s", 200, payload)
 }
 
 func (o *PriceTemplatesGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /TXN/PriceTemplates/Summary][%d] priceTemplatesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PriceTemplates/Summary][%d] priceTemplatesGetSummariesOK %s", 200, payload)
 }
 
 func (o *PriceTemplatesGetSummariesOK) GetPayload() []*models.PriceTemplateSummary {
@@ -94,6 +104,80 @@ func (o *PriceTemplatesGetSummariesOK) readResponse(response runtime.ClientRespo
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPriceTemplatesGetSummariesDefault creates a PriceTemplatesGetSummariesDefault with default headers values
+func NewPriceTemplatesGetSummariesDefault(code int) *PriceTemplatesGetSummariesDefault {
+	return &PriceTemplatesGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PriceTemplatesGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PriceTemplatesGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this price templates get summaries default response has a 2xx status code
+func (o *PriceTemplatesGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this price templates get summaries default response has a 3xx status code
+func (o *PriceTemplatesGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this price templates get summaries default response has a 4xx status code
+func (o *PriceTemplatesGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this price templates get summaries default response has a 5xx status code
+func (o *PriceTemplatesGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this price templates get summaries default response a status code equal to that given
+func (o *PriceTemplatesGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the price templates get summaries default response
+func (o *PriceTemplatesGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PriceTemplatesGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PriceTemplates/Summary][%d] PriceTemplates_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *PriceTemplatesGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PriceTemplates/Summary][%d] PriceTemplates_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *PriceTemplatesGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PriceTemplatesGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

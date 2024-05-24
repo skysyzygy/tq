@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *DiagnosticsGetAPIPluginConfigurationReader) ReadResponse(response runti
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Diagnostics/ApiPluginConfiguration] Diagnostics_GetApiPluginConfiguration", response, response.Code())
+		result := NewDiagnosticsGetAPIPluginConfigurationDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *DiagnosticsGetAPIPluginConfigurationOK) Code() int {
 }
 
 func (o *DiagnosticsGetAPIPluginConfigurationOK) Error() string {
-	return fmt.Sprintf("[GET /Diagnostics/ApiPluginConfiguration][%d] diagnosticsGetApiPluginConfigurationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Diagnostics/ApiPluginConfiguration][%d] diagnosticsGetApiPluginConfigurationOK %s", 200, payload)
 }
 
 func (o *DiagnosticsGetAPIPluginConfigurationOK) String() string {
-	return fmt.Sprintf("[GET /Diagnostics/ApiPluginConfiguration][%d] diagnosticsGetApiPluginConfigurationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Diagnostics/ApiPluginConfiguration][%d] diagnosticsGetApiPluginConfigurationOK %s", 200, payload)
 }
 
 func (o *DiagnosticsGetAPIPluginConfigurationOK) GetPayload() *models.APIPluginConfiguration {
@@ -93,6 +103,80 @@ func (o *DiagnosticsGetAPIPluginConfigurationOK) GetPayload() *models.APIPluginC
 func (o *DiagnosticsGetAPIPluginConfigurationOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.APIPluginConfiguration)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewDiagnosticsGetAPIPluginConfigurationDefault creates a DiagnosticsGetAPIPluginConfigurationDefault with default headers values
+func NewDiagnosticsGetAPIPluginConfigurationDefault(code int) *DiagnosticsGetAPIPluginConfigurationDefault {
+	return &DiagnosticsGetAPIPluginConfigurationDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+DiagnosticsGetAPIPluginConfigurationDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type DiagnosticsGetAPIPluginConfigurationDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this diagnostics get Api plugin configuration default response has a 2xx status code
+func (o *DiagnosticsGetAPIPluginConfigurationDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this diagnostics get Api plugin configuration default response has a 3xx status code
+func (o *DiagnosticsGetAPIPluginConfigurationDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this diagnostics get Api plugin configuration default response has a 4xx status code
+func (o *DiagnosticsGetAPIPluginConfigurationDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this diagnostics get Api plugin configuration default response has a 5xx status code
+func (o *DiagnosticsGetAPIPluginConfigurationDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this diagnostics get Api plugin configuration default response a status code equal to that given
+func (o *DiagnosticsGetAPIPluginConfigurationDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the diagnostics get Api plugin configuration default response
+func (o *DiagnosticsGetAPIPluginConfigurationDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *DiagnosticsGetAPIPluginConfigurationDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Diagnostics/ApiPluginConfiguration][%d] Diagnostics_GetApiPluginConfiguration default %s", o._statusCode, payload)
+}
+
+func (o *DiagnosticsGetAPIPluginConfigurationDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Diagnostics/ApiPluginConfiguration][%d] Diagnostics_GetApiPluginConfiguration default %s", o._statusCode, payload)
+}
+
+func (o *DiagnosticsGetAPIPluginConfigurationDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *DiagnosticsGetAPIPluginConfigurationDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

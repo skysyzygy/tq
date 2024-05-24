@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ActionsUpdateReader) ReadResponse(response runtime.ClientResponse, cons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /CRM/Actions/{actionId}] Actions_Update", response, response.Code())
+		result := NewActionsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ActionsUpdateOK) Code() int {
 }
 
 func (o *ActionsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /CRM/Actions/{actionId}][%d] actionsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/Actions/{actionId}][%d] actionsUpdateOK %s", 200, payload)
 }
 
 func (o *ActionsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /CRM/Actions/{actionId}][%d] actionsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/Actions/{actionId}][%d] actionsUpdateOK %s", 200, payload)
 }
 
 func (o *ActionsUpdateOK) GetPayload() *models.IssueAction {
@@ -93,6 +103,80 @@ func (o *ActionsUpdateOK) GetPayload() *models.IssueAction {
 func (o *ActionsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.IssueAction)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewActionsUpdateDefault creates a ActionsUpdateDefault with default headers values
+func NewActionsUpdateDefault(code int) *ActionsUpdateDefault {
+	return &ActionsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ActionsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ActionsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this actions update default response has a 2xx status code
+func (o *ActionsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this actions update default response has a 3xx status code
+func (o *ActionsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this actions update default response has a 4xx status code
+func (o *ActionsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this actions update default response has a 5xx status code
+func (o *ActionsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this actions update default response a status code equal to that given
+func (o *ActionsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the actions update default response
+func (o *ActionsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ActionsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/Actions/{actionId}][%d] Actions_Update default %s", o._statusCode, payload)
+}
+
+func (o *ActionsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /CRM/Actions/{actionId}][%d] Actions_Update default %s", o._statusCode, payload)
+}
+
+func (o *ActionsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ActionsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PaymentsGetAllReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /TXN/Payments] Payments_GetAll", response, response.Code())
+		result := NewPaymentsGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PaymentsGetAllOK) Code() int {
 }
 
 func (o *PaymentsGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /TXN/Payments][%d] paymentsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/Payments][%d] paymentsGetAllOK %s", 200, payload)
 }
 
 func (o *PaymentsGetAllOK) String() string {
-	return fmt.Sprintf("[GET /TXN/Payments][%d] paymentsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/Payments][%d] paymentsGetAllOK %s", 200, payload)
 }
 
 func (o *PaymentsGetAllOK) GetPayload() []*models.Payment {
@@ -94,6 +104,80 @@ func (o *PaymentsGetAllOK) readResponse(response runtime.ClientResponse, consume
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPaymentsGetAllDefault creates a PaymentsGetAllDefault with default headers values
+func NewPaymentsGetAllDefault(code int) *PaymentsGetAllDefault {
+	return &PaymentsGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PaymentsGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PaymentsGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this payments get all default response has a 2xx status code
+func (o *PaymentsGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this payments get all default response has a 3xx status code
+func (o *PaymentsGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this payments get all default response has a 4xx status code
+func (o *PaymentsGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this payments get all default response has a 5xx status code
+func (o *PaymentsGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this payments get all default response a status code equal to that given
+func (o *PaymentsGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the payments get all default response
+func (o *PaymentsGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PaymentsGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/Payments][%d] Payments_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *PaymentsGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/Payments][%d] Payments_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *PaymentsGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PaymentsGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

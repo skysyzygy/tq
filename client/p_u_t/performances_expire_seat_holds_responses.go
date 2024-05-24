@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PerformancesExpireSeatHoldsReader) ReadResponse(response runtime.Client
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /TXN/Performances/{performanceId}/Seats/Holds/{holdCodeId}/Expire] Performances_ExpireSeatHolds", response, response.Code())
+		result := NewPerformancesExpireSeatHoldsDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PerformancesExpireSeatHoldsOK) Code() int {
 }
 
 func (o *PerformancesExpireSeatHoldsOK) Error() string {
-	return fmt.Sprintf("[PUT /TXN/Performances/{performanceId}/Seats/Holds/{holdCodeId}/Expire][%d] performancesExpireSeatHoldsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /TXN/Performances/{performanceId}/Seats/Holds/{holdCodeId}/Expire][%d] performancesExpireSeatHoldsOK %s", 200, payload)
 }
 
 func (o *PerformancesExpireSeatHoldsOK) String() string {
-	return fmt.Sprintf("[PUT /TXN/Performances/{performanceId}/Seats/Holds/{holdCodeId}/Expire][%d] performancesExpireSeatHoldsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /TXN/Performances/{performanceId}/Seats/Holds/{holdCodeId}/Expire][%d] performancesExpireSeatHoldsOK %s", 200, payload)
 }
 
 func (o *PerformancesExpireSeatHoldsOK) GetPayload() []*models.SeatHold {
@@ -94,6 +104,80 @@ func (o *PerformancesExpireSeatHoldsOK) readResponse(response runtime.ClientResp
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPerformancesExpireSeatHoldsDefault creates a PerformancesExpireSeatHoldsDefault with default headers values
+func NewPerformancesExpireSeatHoldsDefault(code int) *PerformancesExpireSeatHoldsDefault {
+	return &PerformancesExpireSeatHoldsDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PerformancesExpireSeatHoldsDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PerformancesExpireSeatHoldsDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this performances expire seat holds default response has a 2xx status code
+func (o *PerformancesExpireSeatHoldsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this performances expire seat holds default response has a 3xx status code
+func (o *PerformancesExpireSeatHoldsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this performances expire seat holds default response has a 4xx status code
+func (o *PerformancesExpireSeatHoldsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this performances expire seat holds default response has a 5xx status code
+func (o *PerformancesExpireSeatHoldsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this performances expire seat holds default response a status code equal to that given
+func (o *PerformancesExpireSeatHoldsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the performances expire seat holds default response
+func (o *PerformancesExpireSeatHoldsDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PerformancesExpireSeatHoldsDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /TXN/Performances/{performanceId}/Seats/Holds/{holdCodeId}/Expire][%d] Performances_ExpireSeatHolds default %s", o._statusCode, payload)
+}
+
+func (o *PerformancesExpireSeatHoldsDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /TXN/Performances/{performanceId}/Seats/Holds/{holdCodeId}/Expire][%d] Performances_ExpireSeatHolds default %s", o._statusCode, payload)
+}
+
+func (o *PerformancesExpireSeatHoldsDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PerformancesExpireSeatHoldsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

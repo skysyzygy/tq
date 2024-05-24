@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ArtistsUpdateReader) ReadResponse(response runtime.ClientResponse, cons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /TXN/Artists/{artistId}] Artists_Update", response, response.Code())
+		result := NewArtistsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ArtistsUpdateOK) Code() int {
 }
 
 func (o *ArtistsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /TXN/Artists/{artistId}][%d] artistsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /TXN/Artists/{artistId}][%d] artistsUpdateOK %s", 200, payload)
 }
 
 func (o *ArtistsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /TXN/Artists/{artistId}][%d] artistsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /TXN/Artists/{artistId}][%d] artistsUpdateOK %s", 200, payload)
 }
 
 func (o *ArtistsUpdateOK) GetPayload() *models.Artist {
@@ -93,6 +103,80 @@ func (o *ArtistsUpdateOK) GetPayload() *models.Artist {
 func (o *ArtistsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Artist)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewArtistsUpdateDefault creates a ArtistsUpdateDefault with default headers values
+func NewArtistsUpdateDefault(code int) *ArtistsUpdateDefault {
+	return &ArtistsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ArtistsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ArtistsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this artists update default response has a 2xx status code
+func (o *ArtistsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this artists update default response has a 3xx status code
+func (o *ArtistsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this artists update default response has a 4xx status code
+func (o *ArtistsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this artists update default response has a 5xx status code
+func (o *ArtistsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this artists update default response a status code equal to that given
+func (o *ArtistsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the artists update default response
+func (o *ArtistsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ArtistsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /TXN/Artists/{artistId}][%d] Artists_Update default %s", o._statusCode, payload)
+}
+
+func (o *ArtistsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /TXN/Artists/{artistId}][%d] Artists_Update default %s", o._statusCode, payload)
+}
+
+func (o *ArtistsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ArtistsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

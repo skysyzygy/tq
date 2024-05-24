@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PerformancePriceLayersSearchSummariesReader) ReadResponse(response runt
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /TXN/PerformancePriceLayers/Summaries/Search] PerformancePriceLayers_SearchSummaries", response, response.Code())
+		result := NewPerformancePriceLayersSearchSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PerformancePriceLayersSearchSummariesOK) Code() int {
 }
 
 func (o *PerformancePriceLayersSearchSummariesOK) Error() string {
-	return fmt.Sprintf("[POST /TXN/PerformancePriceLayers/Summaries/Search][%d] performancePriceLayersSearchSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/PerformancePriceLayers/Summaries/Search][%d] performancePriceLayersSearchSummariesOK %s", 200, payload)
 }
 
 func (o *PerformancePriceLayersSearchSummariesOK) String() string {
-	return fmt.Sprintf("[POST /TXN/PerformancePriceLayers/Summaries/Search][%d] performancePriceLayersSearchSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/PerformancePriceLayers/Summaries/Search][%d] performancePriceLayersSearchSummariesOK %s", 200, payload)
 }
 
 func (o *PerformancePriceLayersSearchSummariesOK) GetPayload() *models.PerformancePriceResponse {
@@ -93,6 +103,80 @@ func (o *PerformancePriceLayersSearchSummariesOK) GetPayload() *models.Performan
 func (o *PerformancePriceLayersSearchSummariesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.PerformancePriceResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPerformancePriceLayersSearchSummariesDefault creates a PerformancePriceLayersSearchSummariesDefault with default headers values
+func NewPerformancePriceLayersSearchSummariesDefault(code int) *PerformancePriceLayersSearchSummariesDefault {
+	return &PerformancePriceLayersSearchSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PerformancePriceLayersSearchSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PerformancePriceLayersSearchSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this performance price layers search summaries default response has a 2xx status code
+func (o *PerformancePriceLayersSearchSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this performance price layers search summaries default response has a 3xx status code
+func (o *PerformancePriceLayersSearchSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this performance price layers search summaries default response has a 4xx status code
+func (o *PerformancePriceLayersSearchSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this performance price layers search summaries default response has a 5xx status code
+func (o *PerformancePriceLayersSearchSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this performance price layers search summaries default response a status code equal to that given
+func (o *PerformancePriceLayersSearchSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the performance price layers search summaries default response
+func (o *PerformancePriceLayersSearchSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PerformancePriceLayersSearchSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/PerformancePriceLayers/Summaries/Search][%d] PerformancePriceLayers_SearchSummaries default %s", o._statusCode, payload)
+}
+
+func (o *PerformancePriceLayersSearchSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/PerformancePriceLayers/Summaries/Search][%d] PerformancePriceLayers_SearchSummaries default %s", o._statusCode, payload)
+}
+
+func (o *PerformancePriceLayersSearchSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PerformancePriceLayersSearchSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

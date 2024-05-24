@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *WorkerTypesCreateReader) ReadResponse(response runtime.ClientResponse, 
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /ReferenceData/WorkerTypes] WorkerTypes_Create", response, response.Code())
+		result := NewWorkerTypesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *WorkerTypesCreateOK) Code() int {
 }
 
 func (o *WorkerTypesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /ReferenceData/WorkerTypes][%d] workerTypesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/WorkerTypes][%d] workerTypesCreateOK %s", 200, payload)
 }
 
 func (o *WorkerTypesCreateOK) String() string {
-	return fmt.Sprintf("[POST /ReferenceData/WorkerTypes][%d] workerTypesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/WorkerTypes][%d] workerTypesCreateOK %s", 200, payload)
 }
 
 func (o *WorkerTypesCreateOK) GetPayload() *models.WorkerType {
@@ -93,6 +103,80 @@ func (o *WorkerTypesCreateOK) GetPayload() *models.WorkerType {
 func (o *WorkerTypesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.WorkerType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewWorkerTypesCreateDefault creates a WorkerTypesCreateDefault with default headers values
+func NewWorkerTypesCreateDefault(code int) *WorkerTypesCreateDefault {
+	return &WorkerTypesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+WorkerTypesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type WorkerTypesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this worker types create default response has a 2xx status code
+func (o *WorkerTypesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this worker types create default response has a 3xx status code
+func (o *WorkerTypesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this worker types create default response has a 4xx status code
+func (o *WorkerTypesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this worker types create default response has a 5xx status code
+func (o *WorkerTypesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this worker types create default response a status code equal to that given
+func (o *WorkerTypesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the worker types create default response
+func (o *WorkerTypesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *WorkerTypesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/WorkerTypes][%d] WorkerTypes_Create default %s", o._statusCode, payload)
+}
+
+func (o *WorkerTypesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/WorkerTypes][%d] WorkerTypes_Create default %s", o._statusCode, payload)
+}
+
+func (o *WorkerTypesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *WorkerTypesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

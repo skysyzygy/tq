@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *CountriesUpdateReader) ReadResponse(response runtime.ClientResponse, co
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/Countries/{id}] Countries_Update", response, response.Code())
+		result := NewCountriesUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *CountriesUpdateOK) Code() int {
 }
 
 func (o *CountriesUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/Countries/{id}][%d] countriesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/Countries/{id}][%d] countriesUpdateOK %s", 200, payload)
 }
 
 func (o *CountriesUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/Countries/{id}][%d] countriesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/Countries/{id}][%d] countriesUpdateOK %s", 200, payload)
 }
 
 func (o *CountriesUpdateOK) GetPayload() *models.Country {
@@ -93,6 +103,80 @@ func (o *CountriesUpdateOK) GetPayload() *models.Country {
 func (o *CountriesUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Country)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCountriesUpdateDefault creates a CountriesUpdateDefault with default headers values
+func NewCountriesUpdateDefault(code int) *CountriesUpdateDefault {
+	return &CountriesUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CountriesUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CountriesUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this countries update default response has a 2xx status code
+func (o *CountriesUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this countries update default response has a 3xx status code
+func (o *CountriesUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this countries update default response has a 4xx status code
+func (o *CountriesUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this countries update default response has a 5xx status code
+func (o *CountriesUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this countries update default response a status code equal to that given
+func (o *CountriesUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the countries update default response
+func (o *CountriesUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CountriesUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/Countries/{id}][%d] Countries_Update default %s", o._statusCode, payload)
+}
+
+func (o *CountriesUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/Countries/{id}][%d] Countries_Update default %s", o._statusCode, payload)
+}
+
+func (o *CountriesUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CountriesUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

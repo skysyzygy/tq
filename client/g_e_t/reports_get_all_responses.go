@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ReportsGetAllReader) ReadResponse(response runtime.ClientResponse, cons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Reporting/Reports] Reports_GetAll", response, response.Code())
+		result := NewReportsGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ReportsGetAllOK) Code() int {
 }
 
 func (o *ReportsGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /Reporting/Reports][%d] reportsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Reporting/Reports][%d] reportsGetAllOK %s", 200, payload)
 }
 
 func (o *ReportsGetAllOK) String() string {
-	return fmt.Sprintf("[GET /Reporting/Reports][%d] reportsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Reporting/Reports][%d] reportsGetAllOK %s", 200, payload)
 }
 
 func (o *ReportsGetAllOK) GetPayload() []*models.Report {
@@ -94,6 +104,80 @@ func (o *ReportsGetAllOK) readResponse(response runtime.ClientResponse, consumer
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewReportsGetAllDefault creates a ReportsGetAllDefault with default headers values
+func NewReportsGetAllDefault(code int) *ReportsGetAllDefault {
+	return &ReportsGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ReportsGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ReportsGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this reports get all default response has a 2xx status code
+func (o *ReportsGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this reports get all default response has a 3xx status code
+func (o *ReportsGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this reports get all default response has a 4xx status code
+func (o *ReportsGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this reports get all default response has a 5xx status code
+func (o *ReportsGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this reports get all default response a status code equal to that given
+func (o *ReportsGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the reports get all default response
+func (o *ReportsGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ReportsGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Reporting/Reports][%d] Reports_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *ReportsGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Reporting/Reports][%d] Reports_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *ReportsGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ReportsGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

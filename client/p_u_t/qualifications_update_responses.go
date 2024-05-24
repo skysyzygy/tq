@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *QualificationsUpdateReader) ReadResponse(response runtime.ClientRespons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/Qualifications/{id}] Qualifications_Update", response, response.Code())
+		result := NewQualificationsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *QualificationsUpdateOK) Code() int {
 }
 
 func (o *QualificationsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/Qualifications/{id}][%d] qualificationsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/Qualifications/{id}][%d] qualificationsUpdateOK %s", 200, payload)
 }
 
 func (o *QualificationsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/Qualifications/{id}][%d] qualificationsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/Qualifications/{id}][%d] qualificationsUpdateOK %s", 200, payload)
 }
 
 func (o *QualificationsUpdateOK) GetPayload() *models.Qualification {
@@ -93,6 +103,80 @@ func (o *QualificationsUpdateOK) GetPayload() *models.Qualification {
 func (o *QualificationsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Qualification)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewQualificationsUpdateDefault creates a QualificationsUpdateDefault with default headers values
+func NewQualificationsUpdateDefault(code int) *QualificationsUpdateDefault {
+	return &QualificationsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+QualificationsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type QualificationsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this qualifications update default response has a 2xx status code
+func (o *QualificationsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this qualifications update default response has a 3xx status code
+func (o *QualificationsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this qualifications update default response has a 4xx status code
+func (o *QualificationsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this qualifications update default response has a 5xx status code
+func (o *QualificationsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this qualifications update default response a status code equal to that given
+func (o *QualificationsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the qualifications update default response
+func (o *QualificationsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *QualificationsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/Qualifications/{id}][%d] Qualifications_Update default %s", o._statusCode, payload)
+}
+
+func (o *QualificationsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/Qualifications/{id}][%d] Qualifications_Update default %s", o._statusCode, payload)
+}
+
+func (o *QualificationsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *QualificationsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

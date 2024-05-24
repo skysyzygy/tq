@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ContactTypesUpdateReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/ContactTypes/{id}] ContactTypes_Update", response, response.Code())
+		result := NewContactTypesUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ContactTypesUpdateOK) Code() int {
 }
 
 func (o *ContactTypesUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/ContactTypes/{id}][%d] contactTypesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ContactTypes/{id}][%d] contactTypesUpdateOK %s", 200, payload)
 }
 
 func (o *ContactTypesUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/ContactTypes/{id}][%d] contactTypesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ContactTypes/{id}][%d] contactTypesUpdateOK %s", 200, payload)
 }
 
 func (o *ContactTypesUpdateOK) GetPayload() *models.ContactType {
@@ -93,6 +103,80 @@ func (o *ContactTypesUpdateOK) GetPayload() *models.ContactType {
 func (o *ContactTypesUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ContactType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewContactTypesUpdateDefault creates a ContactTypesUpdateDefault with default headers values
+func NewContactTypesUpdateDefault(code int) *ContactTypesUpdateDefault {
+	return &ContactTypesUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ContactTypesUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ContactTypesUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this contact types update default response has a 2xx status code
+func (o *ContactTypesUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this contact types update default response has a 3xx status code
+func (o *ContactTypesUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this contact types update default response has a 4xx status code
+func (o *ContactTypesUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this contact types update default response has a 5xx status code
+func (o *ContactTypesUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this contact types update default response a status code equal to that given
+func (o *ContactTypesUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the contact types update default response
+func (o *ContactTypesUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ContactTypesUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ContactTypes/{id}][%d] ContactTypes_Update default %s", o._statusCode, payload)
+}
+
+func (o *ContactTypesUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ContactTypes/{id}][%d] ContactTypes_Update default %s", o._statusCode, payload)
+}
+
+func (o *ContactTypesUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ContactTypesUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

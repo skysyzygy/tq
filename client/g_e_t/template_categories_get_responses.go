@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *TemplateCategoriesGetReader) ReadResponse(response runtime.ClientRespon
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/TemplateCategories/{id}] TemplateCategories_Get", response, response.Code())
+		result := NewTemplateCategoriesGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *TemplateCategoriesGetOK) Code() int {
 }
 
 func (o *TemplateCategoriesGetOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/TemplateCategories/{id}][%d] templateCategoriesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/TemplateCategories/{id}][%d] templateCategoriesGetOK %s", 200, payload)
 }
 
 func (o *TemplateCategoriesGetOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/TemplateCategories/{id}][%d] templateCategoriesGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/TemplateCategories/{id}][%d] templateCategoriesGetOK %s", 200, payload)
 }
 
 func (o *TemplateCategoriesGetOK) GetPayload() *models.TemplateCategory {
@@ -93,6 +103,80 @@ func (o *TemplateCategoriesGetOK) GetPayload() *models.TemplateCategory {
 func (o *TemplateCategoriesGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.TemplateCategory)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewTemplateCategoriesGetDefault creates a TemplateCategoriesGetDefault with default headers values
+func NewTemplateCategoriesGetDefault(code int) *TemplateCategoriesGetDefault {
+	return &TemplateCategoriesGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+TemplateCategoriesGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type TemplateCategoriesGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this template categories get default response has a 2xx status code
+func (o *TemplateCategoriesGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this template categories get default response has a 3xx status code
+func (o *TemplateCategoriesGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this template categories get default response has a 4xx status code
+func (o *TemplateCategoriesGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this template categories get default response has a 5xx status code
+func (o *TemplateCategoriesGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this template categories get default response a status code equal to that given
+func (o *TemplateCategoriesGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the template categories get default response
+func (o *TemplateCategoriesGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *TemplateCategoriesGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/TemplateCategories/{id}][%d] TemplateCategories_Get default %s", o._statusCode, payload)
+}
+
+func (o *TemplateCategoriesGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/TemplateCategories/{id}][%d] TemplateCategories_Get default %s", o._statusCode, payload)
+}
+
+func (o *TemplateCategoriesGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *TemplateCategoriesGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

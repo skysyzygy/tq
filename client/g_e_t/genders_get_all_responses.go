@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *GendersGetAllReader) ReadResponse(response runtime.ClientResponse, cons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/Genders] Genders_GetAll", response, response.Code())
+		result := NewGendersGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *GendersGetAllOK) Code() int {
 }
 
 func (o *GendersGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/Genders][%d] gendersGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Genders][%d] gendersGetAllOK %s", 200, payload)
 }
 
 func (o *GendersGetAllOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/Genders][%d] gendersGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Genders][%d] gendersGetAllOK %s", 200, payload)
 }
 
 func (o *GendersGetAllOK) GetPayload() []*models.Gender {
@@ -94,6 +104,80 @@ func (o *GendersGetAllOK) readResponse(response runtime.ClientResponse, consumer
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGendersGetAllDefault creates a GendersGetAllDefault with default headers values
+func NewGendersGetAllDefault(code int) *GendersGetAllDefault {
+	return &GendersGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+GendersGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type GendersGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this genders get all default response has a 2xx status code
+func (o *GendersGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this genders get all default response has a 3xx status code
+func (o *GendersGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this genders get all default response has a 4xx status code
+func (o *GendersGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this genders get all default response has a 5xx status code
+func (o *GendersGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this genders get all default response a status code equal to that given
+func (o *GendersGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the genders get all default response
+func (o *GendersGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *GendersGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Genders][%d] Genders_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *GendersGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Genders][%d] Genders_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *GendersGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *GendersGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SessionUpdateWebLoginReader) ReadResponse(response runtime.ClientRespon
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /Web/Session/{sessionKey}/WebLogins] Session_UpdateWebLogin", response, response.Code())
+		result := NewSessionUpdateWebLoginDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SessionUpdateWebLoginOK) Code() int {
 }
 
 func (o *SessionUpdateWebLoginOK) Error() string {
-	return fmt.Sprintf("[PUT /Web/Session/{sessionKey}/WebLogins][%d] sessionUpdateWebLoginOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Web/Session/{sessionKey}/WebLogins][%d] sessionUpdateWebLoginOK %s", 200, payload)
 }
 
 func (o *SessionUpdateWebLoginOK) String() string {
-	return fmt.Sprintf("[PUT /Web/Session/{sessionKey}/WebLogins][%d] sessionUpdateWebLoginOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Web/Session/{sessionKey}/WebLogins][%d] sessionUpdateWebLoginOK %s", 200, payload)
 }
 
 func (o *SessionUpdateWebLoginOK) GetPayload() *models.Session {
@@ -93,6 +103,80 @@ func (o *SessionUpdateWebLoginOK) GetPayload() *models.Session {
 func (o *SessionUpdateWebLoginOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Session)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSessionUpdateWebLoginDefault creates a SessionUpdateWebLoginDefault with default headers values
+func NewSessionUpdateWebLoginDefault(code int) *SessionUpdateWebLoginDefault {
+	return &SessionUpdateWebLoginDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SessionUpdateWebLoginDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SessionUpdateWebLoginDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this session update web login default response has a 2xx status code
+func (o *SessionUpdateWebLoginDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this session update web login default response has a 3xx status code
+func (o *SessionUpdateWebLoginDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this session update web login default response has a 4xx status code
+func (o *SessionUpdateWebLoginDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this session update web login default response has a 5xx status code
+func (o *SessionUpdateWebLoginDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this session update web login default response a status code equal to that given
+func (o *SessionUpdateWebLoginDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the session update web login default response
+func (o *SessionUpdateWebLoginDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SessionUpdateWebLoginDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Web/Session/{sessionKey}/WebLogins][%d] Session_UpdateWebLogin default %s", o._statusCode, payload)
+}
+
+func (o *SessionUpdateWebLoginDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Web/Session/{sessionKey}/WebLogins][%d] Session_UpdateWebLogin default %s", o._statusCode, payload)
+}
+
+func (o *SessionUpdateWebLoginDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SessionUpdateWebLoginDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

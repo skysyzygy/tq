@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PaymentGatewayNotificationsCreateNotificationEventReader) ReadResponse(
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /PaymentGateway/Notifications/Events] PaymentGatewayNotifications_CreateNotificationEvent", response, response.Code())
+		result := NewPaymentGatewayNotificationsCreateNotificationEventDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PaymentGatewayNotificationsCreateNotificationEventOK) Code() int {
 }
 
 func (o *PaymentGatewayNotificationsCreateNotificationEventOK) Error() string {
-	return fmt.Sprintf("[POST /PaymentGateway/Notifications/Events][%d] paymentGatewayNotificationsCreateNotificationEventOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /PaymentGateway/Notifications/Events][%d] paymentGatewayNotificationsCreateNotificationEventOK %s", 200, payload)
 }
 
 func (o *PaymentGatewayNotificationsCreateNotificationEventOK) String() string {
-	return fmt.Sprintf("[POST /PaymentGateway/Notifications/Events][%d] paymentGatewayNotificationsCreateNotificationEventOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /PaymentGateway/Notifications/Events][%d] paymentGatewayNotificationsCreateNotificationEventOK %s", 200, payload)
 }
 
 func (o *PaymentGatewayNotificationsCreateNotificationEventOK) GetPayload() *models.NotificationEvent {
@@ -93,6 +103,80 @@ func (o *PaymentGatewayNotificationsCreateNotificationEventOK) GetPayload() *mod
 func (o *PaymentGatewayNotificationsCreateNotificationEventOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.NotificationEvent)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPaymentGatewayNotificationsCreateNotificationEventDefault creates a PaymentGatewayNotificationsCreateNotificationEventDefault with default headers values
+func NewPaymentGatewayNotificationsCreateNotificationEventDefault(code int) *PaymentGatewayNotificationsCreateNotificationEventDefault {
+	return &PaymentGatewayNotificationsCreateNotificationEventDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PaymentGatewayNotificationsCreateNotificationEventDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PaymentGatewayNotificationsCreateNotificationEventDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this payment gateway notifications create notification event default response has a 2xx status code
+func (o *PaymentGatewayNotificationsCreateNotificationEventDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this payment gateway notifications create notification event default response has a 3xx status code
+func (o *PaymentGatewayNotificationsCreateNotificationEventDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this payment gateway notifications create notification event default response has a 4xx status code
+func (o *PaymentGatewayNotificationsCreateNotificationEventDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this payment gateway notifications create notification event default response has a 5xx status code
+func (o *PaymentGatewayNotificationsCreateNotificationEventDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this payment gateway notifications create notification event default response a status code equal to that given
+func (o *PaymentGatewayNotificationsCreateNotificationEventDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the payment gateway notifications create notification event default response
+func (o *PaymentGatewayNotificationsCreateNotificationEventDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PaymentGatewayNotificationsCreateNotificationEventDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /PaymentGateway/Notifications/Events][%d] PaymentGatewayNotifications_CreateNotificationEvent default %s", o._statusCode, payload)
+}
+
+func (o *PaymentGatewayNotificationsCreateNotificationEventDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /PaymentGateway/Notifications/Events][%d] PaymentGatewayNotifications_CreateNotificationEvent default %s", o._statusCode, payload)
+}
+
+func (o *PaymentGatewayNotificationsCreateNotificationEventDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PaymentGatewayNotificationsCreateNotificationEventDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

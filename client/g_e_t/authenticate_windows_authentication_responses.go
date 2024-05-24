@@ -6,11 +6,14 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // AuthenticateWindowsAuthenticationReader is a Reader for the AuthenticateWindowsAuthentication structure.
@@ -28,7 +31,14 @@ func (o *AuthenticateWindowsAuthenticationReader) ReadResponse(response runtime.
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Security/Authenticate/Windows] Authenticate_WindowsAuthentication", response, response.Code())
+		result := NewAuthenticateWindowsAuthenticationDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -77,11 +87,13 @@ func (o *AuthenticateWindowsAuthenticationOK) Code() int {
 }
 
 func (o *AuthenticateWindowsAuthenticationOK) Error() string {
-	return fmt.Sprintf("[GET /Security/Authenticate/Windows][%d] authenticateWindowsAuthenticationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Security/Authenticate/Windows][%d] authenticateWindowsAuthenticationOK %s", 200, payload)
 }
 
 func (o *AuthenticateWindowsAuthenticationOK) String() string {
-	return fmt.Sprintf("[GET /Security/Authenticate/Windows][%d] authenticateWindowsAuthenticationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Security/Authenticate/Windows][%d] authenticateWindowsAuthenticationOK %s", 200, payload)
 }
 
 func (o *AuthenticateWindowsAuthenticationOK) GetPayload() interface{} {
@@ -92,6 +104,80 @@ func (o *AuthenticateWindowsAuthenticationOK) readResponse(response runtime.Clie
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAuthenticateWindowsAuthenticationDefault creates a AuthenticateWindowsAuthenticationDefault with default headers values
+func NewAuthenticateWindowsAuthenticationDefault(code int) *AuthenticateWindowsAuthenticationDefault {
+	return &AuthenticateWindowsAuthenticationDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+AuthenticateWindowsAuthenticationDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type AuthenticateWindowsAuthenticationDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this authenticate windows authentication default response has a 2xx status code
+func (o *AuthenticateWindowsAuthenticationDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this authenticate windows authentication default response has a 3xx status code
+func (o *AuthenticateWindowsAuthenticationDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this authenticate windows authentication default response has a 4xx status code
+func (o *AuthenticateWindowsAuthenticationDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this authenticate windows authentication default response has a 5xx status code
+func (o *AuthenticateWindowsAuthenticationDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this authenticate windows authentication default response a status code equal to that given
+func (o *AuthenticateWindowsAuthenticationDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the authenticate windows authentication default response
+func (o *AuthenticateWindowsAuthenticationDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *AuthenticateWindowsAuthenticationDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Security/Authenticate/Windows][%d] Authenticate_WindowsAuthentication default %s", o._statusCode, payload)
+}
+
+func (o *AuthenticateWindowsAuthenticationDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Security/Authenticate/Windows][%d] Authenticate_WindowsAuthentication default %s", o._statusCode, payload)
+}
+
+func (o *AuthenticateWindowsAuthenticationDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *AuthenticateWindowsAuthenticationDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

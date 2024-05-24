@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *AttributesGetAllReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /CRM/Attributes] Attributes_GetAll", response, response.Code())
+		result := NewAttributesGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *AttributesGetAllOK) Code() int {
 }
 
 func (o *AttributesGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /CRM/Attributes][%d] attributesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Attributes][%d] attributesGetAllOK %s", 200, payload)
 }
 
 func (o *AttributesGetAllOK) String() string {
-	return fmt.Sprintf("[GET /CRM/Attributes][%d] attributesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Attributes][%d] attributesGetAllOK %s", 200, payload)
 }
 
 func (o *AttributesGetAllOK) GetPayload() []*models.Attribute {
@@ -94,6 +104,80 @@ func (o *AttributesGetAllOK) readResponse(response runtime.ClientResponse, consu
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAttributesGetAllDefault creates a AttributesGetAllDefault with default headers values
+func NewAttributesGetAllDefault(code int) *AttributesGetAllDefault {
+	return &AttributesGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+AttributesGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type AttributesGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this attributes get all default response has a 2xx status code
+func (o *AttributesGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this attributes get all default response has a 3xx status code
+func (o *AttributesGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this attributes get all default response has a 4xx status code
+func (o *AttributesGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this attributes get all default response has a 5xx status code
+func (o *AttributesGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this attributes get all default response a status code equal to that given
+func (o *AttributesGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the attributes get all default response
+func (o *AttributesGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *AttributesGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Attributes][%d] Attributes_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *AttributesGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/Attributes][%d] Attributes_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *AttributesGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *AttributesGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

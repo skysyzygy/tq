@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SalesChannelsGetSummariesReader) ReadResponse(response runtime.ClientRe
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/SalesChannels/Summary] SalesChannels_GetSummaries", response, response.Code())
+		result := NewSalesChannelsGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SalesChannelsGetSummariesOK) Code() int {
 }
 
 func (o *SalesChannelsGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/SalesChannels/Summary][%d] salesChannelsGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SalesChannels/Summary][%d] salesChannelsGetSummariesOK %s", 200, payload)
 }
 
 func (o *SalesChannelsGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/SalesChannels/Summary][%d] salesChannelsGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SalesChannels/Summary][%d] salesChannelsGetSummariesOK %s", 200, payload)
 }
 
 func (o *SalesChannelsGetSummariesOK) GetPayload() []*models.SalesChannelSummary {
@@ -94,6 +104,80 @@ func (o *SalesChannelsGetSummariesOK) readResponse(response runtime.ClientRespon
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSalesChannelsGetSummariesDefault creates a SalesChannelsGetSummariesDefault with default headers values
+func NewSalesChannelsGetSummariesDefault(code int) *SalesChannelsGetSummariesDefault {
+	return &SalesChannelsGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SalesChannelsGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SalesChannelsGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this sales channels get summaries default response has a 2xx status code
+func (o *SalesChannelsGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this sales channels get summaries default response has a 3xx status code
+func (o *SalesChannelsGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this sales channels get summaries default response has a 4xx status code
+func (o *SalesChannelsGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this sales channels get summaries default response has a 5xx status code
+func (o *SalesChannelsGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this sales channels get summaries default response a status code equal to that given
+func (o *SalesChannelsGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the sales channels get summaries default response
+func (o *SalesChannelsGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SalesChannelsGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SalesChannels/Summary][%d] SalesChannels_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *SalesChannelsGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/SalesChannels/Summary][%d] SalesChannels_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *SalesChannelsGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SalesChannelsGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

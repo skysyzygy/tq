@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SessionUpdateVariableReader) ReadResponse(response runtime.ClientRespon
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /Web/Session/{sessionKey}/Variables] Session_UpdateVariable", response, response.Code())
+		result := NewSessionUpdateVariableDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SessionUpdateVariableOK) Code() int {
 }
 
 func (o *SessionUpdateVariableOK) Error() string {
-	return fmt.Sprintf("[PUT /Web/Session/{sessionKey}/Variables][%d] sessionUpdateVariableOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Web/Session/{sessionKey}/Variables][%d] sessionUpdateVariableOK %s", 200, payload)
 }
 
 func (o *SessionUpdateVariableOK) String() string {
-	return fmt.Sprintf("[PUT /Web/Session/{sessionKey}/Variables][%d] sessionUpdateVariableOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Web/Session/{sessionKey}/Variables][%d] sessionUpdateVariableOK %s", 200, payload)
 }
 
 func (o *SessionUpdateVariableOK) GetPayload() *models.SessionVariable {
@@ -93,6 +103,80 @@ func (o *SessionUpdateVariableOK) GetPayload() *models.SessionVariable {
 func (o *SessionUpdateVariableOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.SessionVariable)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSessionUpdateVariableDefault creates a SessionUpdateVariableDefault with default headers values
+func NewSessionUpdateVariableDefault(code int) *SessionUpdateVariableDefault {
+	return &SessionUpdateVariableDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SessionUpdateVariableDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SessionUpdateVariableDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this session update variable default response has a 2xx status code
+func (o *SessionUpdateVariableDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this session update variable default response has a 3xx status code
+func (o *SessionUpdateVariableDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this session update variable default response has a 4xx status code
+func (o *SessionUpdateVariableDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this session update variable default response has a 5xx status code
+func (o *SessionUpdateVariableDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this session update variable default response a status code equal to that given
+func (o *SessionUpdateVariableDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the session update variable default response
+func (o *SessionUpdateVariableDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SessionUpdateVariableDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Web/Session/{sessionKey}/Variables][%d] Session_UpdateVariable default %s", o._statusCode, payload)
+}
+
+func (o *SessionUpdateVariableDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Web/Session/{sessionKey}/Variables][%d] Session_UpdateVariable default %s", o._statusCode, payload)
+}
+
+func (o *SessionUpdateVariableDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SessionUpdateVariableDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

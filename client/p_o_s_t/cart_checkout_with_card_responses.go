@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *CartCheckoutWithCardReader) ReadResponse(response runtime.ClientRespons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Web/Cart/{sessionKey}/CheckoutWithCard] Cart_CheckoutWithCard", response, response.Code())
+		result := NewCartCheckoutWithCardDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *CartCheckoutWithCardOK) Code() int {
 }
 
 func (o *CartCheckoutWithCardOK) Error() string {
-	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/CheckoutWithCard][%d] cartCheckoutWithCardOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/CheckoutWithCard][%d] cartCheckoutWithCardOK %s", 200, payload)
 }
 
 func (o *CartCheckoutWithCardOK) String() string {
-	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/CheckoutWithCard][%d] cartCheckoutWithCardOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/CheckoutWithCard][%d] cartCheckoutWithCardOK %s", 200, payload)
 }
 
 func (o *CartCheckoutWithCardOK) GetPayload() *models.CheckoutResponse {
@@ -93,6 +103,80 @@ func (o *CartCheckoutWithCardOK) GetPayload() *models.CheckoutResponse {
 func (o *CartCheckoutWithCardOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.CheckoutResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCartCheckoutWithCardDefault creates a CartCheckoutWithCardDefault with default headers values
+func NewCartCheckoutWithCardDefault(code int) *CartCheckoutWithCardDefault {
+	return &CartCheckoutWithCardDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CartCheckoutWithCardDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CartCheckoutWithCardDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this cart checkout with card default response has a 2xx status code
+func (o *CartCheckoutWithCardDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this cart checkout with card default response has a 3xx status code
+func (o *CartCheckoutWithCardDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this cart checkout with card default response has a 4xx status code
+func (o *CartCheckoutWithCardDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this cart checkout with card default response has a 5xx status code
+func (o *CartCheckoutWithCardDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this cart checkout with card default response a status code equal to that given
+func (o *CartCheckoutWithCardDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the cart checkout with card default response
+func (o *CartCheckoutWithCardDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CartCheckoutWithCardDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/CheckoutWithCard][%d] Cart_CheckoutWithCard default %s", o._statusCode, payload)
+}
+
+func (o *CartCheckoutWithCardDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/CheckoutWithCard][%d] Cart_CheckoutWithCard default %s", o._statusCode, payload)
+}
+
+func (o *CartCheckoutWithCardDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CartCheckoutWithCardDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

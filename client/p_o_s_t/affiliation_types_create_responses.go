@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *AffiliationTypesCreateReader) ReadResponse(response runtime.ClientRespo
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /ReferenceData/AffiliationTypes] AffiliationTypes_Create", response, response.Code())
+		result := NewAffiliationTypesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *AffiliationTypesCreateOK) Code() int {
 }
 
 func (o *AffiliationTypesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /ReferenceData/AffiliationTypes][%d] affiliationTypesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/AffiliationTypes][%d] affiliationTypesCreateOK %s", 200, payload)
 }
 
 func (o *AffiliationTypesCreateOK) String() string {
-	return fmt.Sprintf("[POST /ReferenceData/AffiliationTypes][%d] affiliationTypesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/AffiliationTypes][%d] affiliationTypesCreateOK %s", 200, payload)
 }
 
 func (o *AffiliationTypesCreateOK) GetPayload() *models.AffiliationType {
@@ -93,6 +103,80 @@ func (o *AffiliationTypesCreateOK) GetPayload() *models.AffiliationType {
 func (o *AffiliationTypesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.AffiliationType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAffiliationTypesCreateDefault creates a AffiliationTypesCreateDefault with default headers values
+func NewAffiliationTypesCreateDefault(code int) *AffiliationTypesCreateDefault {
+	return &AffiliationTypesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+AffiliationTypesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type AffiliationTypesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this affiliation types create default response has a 2xx status code
+func (o *AffiliationTypesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this affiliation types create default response has a 3xx status code
+func (o *AffiliationTypesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this affiliation types create default response has a 4xx status code
+func (o *AffiliationTypesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this affiliation types create default response has a 5xx status code
+func (o *AffiliationTypesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this affiliation types create default response a status code equal to that given
+func (o *AffiliationTypesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the affiliation types create default response
+func (o *AffiliationTypesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *AffiliationTypesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/AffiliationTypes][%d] AffiliationTypes_Create default %s", o._statusCode, payload)
+}
+
+func (o *AffiliationTypesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/AffiliationTypes][%d] AffiliationTypes_Create default %s", o._statusCode, payload)
+}
+
+func (o *AffiliationTypesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *AffiliationTypesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

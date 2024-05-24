@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PerformancePriceTypesUpdateReader) ReadResponse(response runtime.Client
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /TXN/PerformancePriceTypes/{performancePriceTypeId}] PerformancePriceTypes_Update", response, response.Code())
+		result := NewPerformancePriceTypesUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PerformancePriceTypesUpdateOK) Code() int {
 }
 
 func (o *PerformancePriceTypesUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /TXN/PerformancePriceTypes/{performancePriceTypeId}][%d] performancePriceTypesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /TXN/PerformancePriceTypes/{performancePriceTypeId}][%d] performancePriceTypesUpdateOK %s", 200, payload)
 }
 
 func (o *PerformancePriceTypesUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /TXN/PerformancePriceTypes/{performancePriceTypeId}][%d] performancePriceTypesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /TXN/PerformancePriceTypes/{performancePriceTypeId}][%d] performancePriceTypesUpdateOK %s", 200, payload)
 }
 
 func (o *PerformancePriceTypesUpdateOK) GetPayload() *models.PerformancePriceType {
@@ -93,6 +103,80 @@ func (o *PerformancePriceTypesUpdateOK) GetPayload() *models.PerformancePriceTyp
 func (o *PerformancePriceTypesUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.PerformancePriceType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPerformancePriceTypesUpdateDefault creates a PerformancePriceTypesUpdateDefault with default headers values
+func NewPerformancePriceTypesUpdateDefault(code int) *PerformancePriceTypesUpdateDefault {
+	return &PerformancePriceTypesUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PerformancePriceTypesUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PerformancePriceTypesUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this performance price types update default response has a 2xx status code
+func (o *PerformancePriceTypesUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this performance price types update default response has a 3xx status code
+func (o *PerformancePriceTypesUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this performance price types update default response has a 4xx status code
+func (o *PerformancePriceTypesUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this performance price types update default response has a 5xx status code
+func (o *PerformancePriceTypesUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this performance price types update default response a status code equal to that given
+func (o *PerformancePriceTypesUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the performance price types update default response
+func (o *PerformancePriceTypesUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PerformancePriceTypesUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /TXN/PerformancePriceTypes/{performancePriceTypeId}][%d] PerformancePriceTypes_Update default %s", o._statusCode, payload)
+}
+
+func (o *PerformancePriceTypesUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /TXN/PerformancePriceTypes/{performancePriceTypeId}][%d] PerformancePriceTypes_Update default %s", o._statusCode, payload)
+}
+
+func (o *PerformancePriceTypesUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PerformancePriceTypesUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

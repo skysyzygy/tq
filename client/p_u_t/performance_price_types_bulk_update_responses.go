@@ -6,10 +6,14 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // PerformancePriceTypesBulkUpdateReader is a Reader for the PerformancePriceTypesBulkUpdate structure.
@@ -27,7 +31,14 @@ func (o *PerformancePriceTypesBulkUpdateReader) ReadResponse(response runtime.Cl
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /TXN/PerformancePriceTypes] PerformancePriceTypes_BulkUpdate", response, response.Code())
+		result := NewPerformancePriceTypesBulkUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *PerformancePriceTypesBulkUpdateNoContent) Code() int {
 }
 
 func (o *PerformancePriceTypesBulkUpdateNoContent) Error() string {
-	return fmt.Sprintf("[PUT /TXN/PerformancePriceTypes][%d] performancePriceTypesBulkUpdateNoContent ", 204)
+	return fmt.Sprintf("[PUT /TXN/PerformancePriceTypes][%d] performancePriceTypesBulkUpdateNoContent", 204)
 }
 
 func (o *PerformancePriceTypesBulkUpdateNoContent) String() string {
-	return fmt.Sprintf("[PUT /TXN/PerformancePriceTypes][%d] performancePriceTypesBulkUpdateNoContent ", 204)
+	return fmt.Sprintf("[PUT /TXN/PerformancePriceTypes][%d] performancePriceTypesBulkUpdateNoContent", 204)
 }
 
 func (o *PerformancePriceTypesBulkUpdateNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewPerformancePriceTypesBulkUpdateDefault creates a PerformancePriceTypesBulkUpdateDefault with default headers values
+func NewPerformancePriceTypesBulkUpdateDefault(code int) *PerformancePriceTypesBulkUpdateDefault {
+	return &PerformancePriceTypesBulkUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PerformancePriceTypesBulkUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PerformancePriceTypesBulkUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this performance price types bulk update default response has a 2xx status code
+func (o *PerformancePriceTypesBulkUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this performance price types bulk update default response has a 3xx status code
+func (o *PerformancePriceTypesBulkUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this performance price types bulk update default response has a 4xx status code
+func (o *PerformancePriceTypesBulkUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this performance price types bulk update default response has a 5xx status code
+func (o *PerformancePriceTypesBulkUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this performance price types bulk update default response a status code equal to that given
+func (o *PerformancePriceTypesBulkUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the performance price types bulk update default response
+func (o *PerformancePriceTypesBulkUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PerformancePriceTypesBulkUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /TXN/PerformancePriceTypes][%d] PerformancePriceTypes_BulkUpdate default %s", o._statusCode, payload)
+}
+
+func (o *PerformancePriceTypesBulkUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /TXN/PerformancePriceTypes][%d] PerformancePriceTypes_BulkUpdate default %s", o._statusCode, payload)
+}
+
+func (o *PerformancePriceTypesBulkUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PerformancePriceTypesBulkUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

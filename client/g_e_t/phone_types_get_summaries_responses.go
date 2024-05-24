@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PhoneTypesGetSummariesReader) ReadResponse(response runtime.ClientRespo
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/PhoneTypes/Summary] PhoneTypes_GetSummaries", response, response.Code())
+		result := NewPhoneTypesGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PhoneTypesGetSummariesOK) Code() int {
 }
 
 func (o *PhoneTypesGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/PhoneTypes/Summary][%d] phoneTypesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PhoneTypes/Summary][%d] phoneTypesGetSummariesOK %s", 200, payload)
 }
 
 func (o *PhoneTypesGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/PhoneTypes/Summary][%d] phoneTypesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PhoneTypes/Summary][%d] phoneTypesGetSummariesOK %s", 200, payload)
 }
 
 func (o *PhoneTypesGetSummariesOK) GetPayload() []*models.PhoneTypeSummary {
@@ -94,6 +104,80 @@ func (o *PhoneTypesGetSummariesOK) readResponse(response runtime.ClientResponse,
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPhoneTypesGetSummariesDefault creates a PhoneTypesGetSummariesDefault with default headers values
+func NewPhoneTypesGetSummariesDefault(code int) *PhoneTypesGetSummariesDefault {
+	return &PhoneTypesGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PhoneTypesGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PhoneTypesGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this phone types get summaries default response has a 2xx status code
+func (o *PhoneTypesGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this phone types get summaries default response has a 3xx status code
+func (o *PhoneTypesGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this phone types get summaries default response has a 4xx status code
+func (o *PhoneTypesGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this phone types get summaries default response has a 5xx status code
+func (o *PhoneTypesGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this phone types get summaries default response a status code equal to that given
+func (o *PhoneTypesGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the phone types get summaries default response
+func (o *PhoneTypesGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PhoneTypesGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PhoneTypes/Summary][%d] PhoneTypes_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *PhoneTypesGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PhoneTypes/Summary][%d] PhoneTypes_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *PhoneTypesGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PhoneTypesGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

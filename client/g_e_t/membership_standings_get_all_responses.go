@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *MembershipStandingsGetAllReader) ReadResponse(response runtime.ClientRe
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/MembershipStandings] MembershipStandings_GetAll", response, response.Code())
+		result := NewMembershipStandingsGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *MembershipStandingsGetAllOK) Code() int {
 }
 
 func (o *MembershipStandingsGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/MembershipStandings][%d] membershipStandingsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/MembershipStandings][%d] membershipStandingsGetAllOK %s", 200, payload)
 }
 
 func (o *MembershipStandingsGetAllOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/MembershipStandings][%d] membershipStandingsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/MembershipStandings][%d] membershipStandingsGetAllOK %s", 200, payload)
 }
 
 func (o *MembershipStandingsGetAllOK) GetPayload() []*models.MembershipStanding {
@@ -94,6 +104,80 @@ func (o *MembershipStandingsGetAllOK) readResponse(response runtime.ClientRespon
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewMembershipStandingsGetAllDefault creates a MembershipStandingsGetAllDefault with default headers values
+func NewMembershipStandingsGetAllDefault(code int) *MembershipStandingsGetAllDefault {
+	return &MembershipStandingsGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+MembershipStandingsGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type MembershipStandingsGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this membership standings get all default response has a 2xx status code
+func (o *MembershipStandingsGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this membership standings get all default response has a 3xx status code
+func (o *MembershipStandingsGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this membership standings get all default response has a 4xx status code
+func (o *MembershipStandingsGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this membership standings get all default response has a 5xx status code
+func (o *MembershipStandingsGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this membership standings get all default response a status code equal to that given
+func (o *MembershipStandingsGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the membership standings get all default response
+func (o *MembershipStandingsGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *MembershipStandingsGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/MembershipStandings][%d] MembershipStandings_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *MembershipStandingsGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/MembershipStandings][%d] MembershipStandings_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *MembershipStandingsGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *MembershipStandingsGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *BulkCopySetsReplaceExclusionsReader) ReadResponse(response runtime.Clie
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /TXN/BulkCopySets/{bulkCopySetId}/ReplaceExclusions] BulkCopySets_ReplaceExclusions", response, response.Code())
+		result := NewBulkCopySetsReplaceExclusionsDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *BulkCopySetsReplaceExclusionsOK) Code() int {
 }
 
 func (o *BulkCopySetsReplaceExclusionsOK) Error() string {
-	return fmt.Sprintf("[POST /TXN/BulkCopySets/{bulkCopySetId}/ReplaceExclusions][%d] bulkCopySetsReplaceExclusionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/BulkCopySets/{bulkCopySetId}/ReplaceExclusions][%d] bulkCopySetsReplaceExclusionsOK %s", 200, payload)
 }
 
 func (o *BulkCopySetsReplaceExclusionsOK) String() string {
-	return fmt.Sprintf("[POST /TXN/BulkCopySets/{bulkCopySetId}/ReplaceExclusions][%d] bulkCopySetsReplaceExclusionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/BulkCopySets/{bulkCopySetId}/ReplaceExclusions][%d] bulkCopySetsReplaceExclusionsOK %s", 200, payload)
 }
 
 func (o *BulkCopySetsReplaceExclusionsOK) GetPayload() []*models.BulkDailyCopyExclusion {
@@ -94,6 +104,80 @@ func (o *BulkCopySetsReplaceExclusionsOK) readResponse(response runtime.ClientRe
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewBulkCopySetsReplaceExclusionsDefault creates a BulkCopySetsReplaceExclusionsDefault with default headers values
+func NewBulkCopySetsReplaceExclusionsDefault(code int) *BulkCopySetsReplaceExclusionsDefault {
+	return &BulkCopySetsReplaceExclusionsDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+BulkCopySetsReplaceExclusionsDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type BulkCopySetsReplaceExclusionsDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this bulk copy sets replace exclusions default response has a 2xx status code
+func (o *BulkCopySetsReplaceExclusionsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this bulk copy sets replace exclusions default response has a 3xx status code
+func (o *BulkCopySetsReplaceExclusionsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this bulk copy sets replace exclusions default response has a 4xx status code
+func (o *BulkCopySetsReplaceExclusionsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this bulk copy sets replace exclusions default response has a 5xx status code
+func (o *BulkCopySetsReplaceExclusionsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this bulk copy sets replace exclusions default response a status code equal to that given
+func (o *BulkCopySetsReplaceExclusionsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the bulk copy sets replace exclusions default response
+func (o *BulkCopySetsReplaceExclusionsDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *BulkCopySetsReplaceExclusionsDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/BulkCopySets/{bulkCopySetId}/ReplaceExclusions][%d] BulkCopySets_ReplaceExclusions default %s", o._statusCode, payload)
+}
+
+func (o *BulkCopySetsReplaceExclusionsDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/BulkCopySets/{bulkCopySetId}/ReplaceExclusions][%d] BulkCopySets_ReplaceExclusions default %s", o._statusCode, payload)
+}
+
+func (o *BulkCopySetsReplaceExclusionsDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *BulkCopySetsReplaceExclusionsDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

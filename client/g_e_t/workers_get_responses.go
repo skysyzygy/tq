@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *WorkersGetReader) ReadResponse(response runtime.ClientResponse, consume
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Finance/Workers/{workerId}] Workers_Get", response, response.Code())
+		result := NewWorkersGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *WorkersGetOK) Code() int {
 }
 
 func (o *WorkersGetOK) Error() string {
-	return fmt.Sprintf("[GET /Finance/Workers/{workerId}][%d] workersGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/Workers/{workerId}][%d] workersGetOK %s", 200, payload)
 }
 
 func (o *WorkersGetOK) String() string {
-	return fmt.Sprintf("[GET /Finance/Workers/{workerId}][%d] workersGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/Workers/{workerId}][%d] workersGetOK %s", 200, payload)
 }
 
 func (o *WorkersGetOK) GetPayload() *models.Worker {
@@ -93,6 +103,80 @@ func (o *WorkersGetOK) GetPayload() *models.Worker {
 func (o *WorkersGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Worker)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewWorkersGetDefault creates a WorkersGetDefault with default headers values
+func NewWorkersGetDefault(code int) *WorkersGetDefault {
+	return &WorkersGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+WorkersGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type WorkersGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this workers get default response has a 2xx status code
+func (o *WorkersGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this workers get default response has a 3xx status code
+func (o *WorkersGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this workers get default response has a 4xx status code
+func (o *WorkersGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this workers get default response has a 5xx status code
+func (o *WorkersGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this workers get default response a status code equal to that given
+func (o *WorkersGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the workers get default response
+func (o *WorkersGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *WorkersGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/Workers/{workerId}][%d] Workers_Get default %s", o._statusCode, payload)
+}
+
+func (o *WorkersGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/Workers/{workerId}][%d] Workers_Get default %s", o._statusCode, payload)
+}
+
+func (o *WorkersGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *WorkersGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ElectronicAddressTypesCreateReader) ReadResponse(response runtime.Clien
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /ReferenceData/ElectronicAddressTypes] ElectronicAddressTypes_Create", response, response.Code())
+		result := NewElectronicAddressTypesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ElectronicAddressTypesCreateOK) Code() int {
 }
 
 func (o *ElectronicAddressTypesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /ReferenceData/ElectronicAddressTypes][%d] electronicAddressTypesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/ElectronicAddressTypes][%d] electronicAddressTypesCreateOK %s", 200, payload)
 }
 
 func (o *ElectronicAddressTypesCreateOK) String() string {
-	return fmt.Sprintf("[POST /ReferenceData/ElectronicAddressTypes][%d] electronicAddressTypesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/ElectronicAddressTypes][%d] electronicAddressTypesCreateOK %s", 200, payload)
 }
 
 func (o *ElectronicAddressTypesCreateOK) GetPayload() *models.ElectronicAddressType {
@@ -93,6 +103,80 @@ func (o *ElectronicAddressTypesCreateOK) GetPayload() *models.ElectronicAddressT
 func (o *ElectronicAddressTypesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ElectronicAddressType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewElectronicAddressTypesCreateDefault creates a ElectronicAddressTypesCreateDefault with default headers values
+func NewElectronicAddressTypesCreateDefault(code int) *ElectronicAddressTypesCreateDefault {
+	return &ElectronicAddressTypesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ElectronicAddressTypesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ElectronicAddressTypesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this electronic address types create default response has a 2xx status code
+func (o *ElectronicAddressTypesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this electronic address types create default response has a 3xx status code
+func (o *ElectronicAddressTypesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this electronic address types create default response has a 4xx status code
+func (o *ElectronicAddressTypesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this electronic address types create default response has a 5xx status code
+func (o *ElectronicAddressTypesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this electronic address types create default response a status code equal to that given
+func (o *ElectronicAddressTypesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the electronic address types create default response
+func (o *ElectronicAddressTypesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ElectronicAddressTypesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/ElectronicAddressTypes][%d] ElectronicAddressTypes_Create default %s", o._statusCode, payload)
+}
+
+func (o *ElectronicAddressTypesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/ElectronicAddressTypes][%d] ElectronicAddressTypes_Create default %s", o._statusCode, payload)
+}
+
+func (o *ElectronicAddressTypesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ElectronicAddressTypesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

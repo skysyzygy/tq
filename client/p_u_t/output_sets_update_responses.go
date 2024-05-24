@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *OutputSetsUpdateReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /Reporting/OutputSets/{outputSetId}] OutputSets_Update", response, response.Code())
+		result := NewOutputSetsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *OutputSetsUpdateOK) Code() int {
 }
 
 func (o *OutputSetsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /Reporting/OutputSets/{outputSetId}][%d] outputSetsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Reporting/OutputSets/{outputSetId}][%d] outputSetsUpdateOK %s", 200, payload)
 }
 
 func (o *OutputSetsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /Reporting/OutputSets/{outputSetId}][%d] outputSetsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Reporting/OutputSets/{outputSetId}][%d] outputSetsUpdateOK %s", 200, payload)
 }
 
 func (o *OutputSetsUpdateOK) GetPayload() *models.OutputSet {
@@ -93,6 +103,80 @@ func (o *OutputSetsUpdateOK) GetPayload() *models.OutputSet {
 func (o *OutputSetsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.OutputSet)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewOutputSetsUpdateDefault creates a OutputSetsUpdateDefault with default headers values
+func NewOutputSetsUpdateDefault(code int) *OutputSetsUpdateDefault {
+	return &OutputSetsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+OutputSetsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type OutputSetsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this output sets update default response has a 2xx status code
+func (o *OutputSetsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this output sets update default response has a 3xx status code
+func (o *OutputSetsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this output sets update default response has a 4xx status code
+func (o *OutputSetsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this output sets update default response has a 5xx status code
+func (o *OutputSetsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this output sets update default response a status code equal to that given
+func (o *OutputSetsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the output sets update default response
+func (o *OutputSetsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *OutputSetsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Reporting/OutputSets/{outputSetId}][%d] OutputSets_Update default %s", o._statusCode, payload)
+}
+
+func (o *OutputSetsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Reporting/OutputSets/{outputSetId}][%d] OutputSets_Update default %s", o._statusCode, payload)
+}
+
+func (o *OutputSetsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *OutputSetsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SuffixesUpdateReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/Suffixes/{id}] Suffixes_Update", response, response.Code())
+		result := NewSuffixesUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SuffixesUpdateOK) Code() int {
 }
 
 func (o *SuffixesUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/Suffixes/{id}][%d] suffixesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/Suffixes/{id}][%d] suffixesUpdateOK %s", 200, payload)
 }
 
 func (o *SuffixesUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/Suffixes/{id}][%d] suffixesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/Suffixes/{id}][%d] suffixesUpdateOK %s", 200, payload)
 }
 
 func (o *SuffixesUpdateOK) GetPayload() *models.Suffix {
@@ -93,6 +103,80 @@ func (o *SuffixesUpdateOK) GetPayload() *models.Suffix {
 func (o *SuffixesUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Suffix)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSuffixesUpdateDefault creates a SuffixesUpdateDefault with default headers values
+func NewSuffixesUpdateDefault(code int) *SuffixesUpdateDefault {
+	return &SuffixesUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SuffixesUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SuffixesUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this suffixes update default response has a 2xx status code
+func (o *SuffixesUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this suffixes update default response has a 3xx status code
+func (o *SuffixesUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this suffixes update default response has a 4xx status code
+func (o *SuffixesUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this suffixes update default response has a 5xx status code
+func (o *SuffixesUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this suffixes update default response a status code equal to that given
+func (o *SuffixesUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the suffixes update default response
+func (o *SuffixesUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SuffixesUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/Suffixes/{id}][%d] Suffixes_Update default %s", o._statusCode, payload)
+}
+
+func (o *SuffixesUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/Suffixes/{id}][%d] Suffixes_Update default %s", o._statusCode, payload)
+}
+
+func (o *SuffixesUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SuffixesUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

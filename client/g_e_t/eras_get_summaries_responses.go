@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ErasGetSummariesReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/Eras/Summary] Eras_GetSummaries", response, response.Code())
+		result := NewErasGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ErasGetSummariesOK) Code() int {
 }
 
 func (o *ErasGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/Eras/Summary][%d] erasGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Eras/Summary][%d] erasGetSummariesOK %s", 200, payload)
 }
 
 func (o *ErasGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/Eras/Summary][%d] erasGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Eras/Summary][%d] erasGetSummariesOK %s", 200, payload)
 }
 
 func (o *ErasGetSummariesOK) GetPayload() []*models.EraSummary {
@@ -94,6 +104,80 @@ func (o *ErasGetSummariesOK) readResponse(response runtime.ClientResponse, consu
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewErasGetSummariesDefault creates a ErasGetSummariesDefault with default headers values
+func NewErasGetSummariesDefault(code int) *ErasGetSummariesDefault {
+	return &ErasGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ErasGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ErasGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this eras get summaries default response has a 2xx status code
+func (o *ErasGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this eras get summaries default response has a 3xx status code
+func (o *ErasGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this eras get summaries default response has a 4xx status code
+func (o *ErasGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this eras get summaries default response has a 5xx status code
+func (o *ErasGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this eras get summaries default response a status code equal to that given
+func (o *ErasGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the eras get summaries default response
+func (o *ErasGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ErasGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Eras/Summary][%d] Eras_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *ErasGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Eras/Summary][%d] Eras_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *ErasGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ErasGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

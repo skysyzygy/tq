@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *MachineSettingsGetReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/MachineSettings/{id}] MachineSettings_Get", response, response.Code())
+		result := NewMachineSettingsGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *MachineSettingsGetOK) Code() int {
 }
 
 func (o *MachineSettingsGetOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/MachineSettings/{id}][%d] machineSettingsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/MachineSettings/{id}][%d] machineSettingsGetOK %s", 200, payload)
 }
 
 func (o *MachineSettingsGetOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/MachineSettings/{id}][%d] machineSettingsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/MachineSettings/{id}][%d] machineSettingsGetOK %s", 200, payload)
 }
 
 func (o *MachineSettingsGetOK) GetPayload() *models.MachineSetting {
@@ -93,6 +103,80 @@ func (o *MachineSettingsGetOK) GetPayload() *models.MachineSetting {
 func (o *MachineSettingsGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.MachineSetting)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewMachineSettingsGetDefault creates a MachineSettingsGetDefault with default headers values
+func NewMachineSettingsGetDefault(code int) *MachineSettingsGetDefault {
+	return &MachineSettingsGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+MachineSettingsGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type MachineSettingsGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this machine settings get default response has a 2xx status code
+func (o *MachineSettingsGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this machine settings get default response has a 3xx status code
+func (o *MachineSettingsGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this machine settings get default response has a 4xx status code
+func (o *MachineSettingsGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this machine settings get default response has a 5xx status code
+func (o *MachineSettingsGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this machine settings get default response a status code equal to that given
+func (o *MachineSettingsGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the machine settings get default response
+func (o *MachineSettingsGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *MachineSettingsGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/MachineSettings/{id}][%d] MachineSettings_Get default %s", o._statusCode, payload)
+}
+
+func (o *MachineSettingsGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/MachineSettings/{id}][%d] MachineSettings_Get default %s", o._statusCode, payload)
+}
+
+func (o *MachineSettingsGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *MachineSettingsGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

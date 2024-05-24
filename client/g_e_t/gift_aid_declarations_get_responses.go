@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *GiftAidDeclarationsGetReader) ReadResponse(response runtime.ClientRespo
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /CRM/GiftAidDeclarations/{giftAidDeclarationId}] GiftAidDeclarations_Get", response, response.Code())
+		result := NewGiftAidDeclarationsGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *GiftAidDeclarationsGetOK) Code() int {
 }
 
 func (o *GiftAidDeclarationsGetOK) Error() string {
-	return fmt.Sprintf("[GET /CRM/GiftAidDeclarations/{giftAidDeclarationId}][%d] giftAidDeclarationsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/GiftAidDeclarations/{giftAidDeclarationId}][%d] giftAidDeclarationsGetOK %s", 200, payload)
 }
 
 func (o *GiftAidDeclarationsGetOK) String() string {
-	return fmt.Sprintf("[GET /CRM/GiftAidDeclarations/{giftAidDeclarationId}][%d] giftAidDeclarationsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/GiftAidDeclarations/{giftAidDeclarationId}][%d] giftAidDeclarationsGetOK %s", 200, payload)
 }
 
 func (o *GiftAidDeclarationsGetOK) GetPayload() *models.GiftAidDeclaration {
@@ -93,6 +103,80 @@ func (o *GiftAidDeclarationsGetOK) GetPayload() *models.GiftAidDeclaration {
 func (o *GiftAidDeclarationsGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.GiftAidDeclaration)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewGiftAidDeclarationsGetDefault creates a GiftAidDeclarationsGetDefault with default headers values
+func NewGiftAidDeclarationsGetDefault(code int) *GiftAidDeclarationsGetDefault {
+	return &GiftAidDeclarationsGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+GiftAidDeclarationsGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type GiftAidDeclarationsGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this gift aid declarations get default response has a 2xx status code
+func (o *GiftAidDeclarationsGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this gift aid declarations get default response has a 3xx status code
+func (o *GiftAidDeclarationsGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this gift aid declarations get default response has a 4xx status code
+func (o *GiftAidDeclarationsGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this gift aid declarations get default response has a 5xx status code
+func (o *GiftAidDeclarationsGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this gift aid declarations get default response a status code equal to that given
+func (o *GiftAidDeclarationsGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the gift aid declarations get default response
+func (o *GiftAidDeclarationsGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *GiftAidDeclarationsGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/GiftAidDeclarations/{giftAidDeclarationId}][%d] GiftAidDeclarations_Get default %s", o._statusCode, payload)
+}
+
+func (o *GiftAidDeclarationsGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /CRM/GiftAidDeclarations/{giftAidDeclarationId}][%d] GiftAidDeclarations_Get default %s", o._statusCode, payload)
+}
+
+func (o *GiftAidDeclarationsGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *GiftAidDeclarationsGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

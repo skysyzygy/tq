@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *FundsGetReader) ReadResponse(response runtime.ClientResponse, consumer 
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Finance/Funds/{fundId}] Funds_Get", response, response.Code())
+		result := NewFundsGetDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *FundsGetOK) Code() int {
 }
 
 func (o *FundsGetOK) Error() string {
-	return fmt.Sprintf("[GET /Finance/Funds/{fundId}][%d] fundsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/Funds/{fundId}][%d] fundsGetOK %s", 200, payload)
 }
 
 func (o *FundsGetOK) String() string {
-	return fmt.Sprintf("[GET /Finance/Funds/{fundId}][%d] fundsGetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/Funds/{fundId}][%d] fundsGetOK %s", 200, payload)
 }
 
 func (o *FundsGetOK) GetPayload() *models.Fund {
@@ -93,6 +103,80 @@ func (o *FundsGetOK) GetPayload() *models.Fund {
 func (o *FundsGetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Fund)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewFundsGetDefault creates a FundsGetDefault with default headers values
+func NewFundsGetDefault(code int) *FundsGetDefault {
+	return &FundsGetDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+FundsGetDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type FundsGetDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this funds get default response has a 2xx status code
+func (o *FundsGetDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this funds get default response has a 3xx status code
+func (o *FundsGetDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this funds get default response has a 4xx status code
+func (o *FundsGetDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this funds get default response has a 5xx status code
+func (o *FundsGetDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this funds get default response a status code equal to that given
+func (o *FundsGetDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the funds get default response
+func (o *FundsGetDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *FundsGetDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/Funds/{fundId}][%d] Funds_Get default %s", o._statusCode, payload)
+}
+
+func (o *FundsGetDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/Funds/{fundId}][%d] Funds_Get default %s", o._statusCode, payload)
+}
+
+func (o *FundsGetDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *FundsGetDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

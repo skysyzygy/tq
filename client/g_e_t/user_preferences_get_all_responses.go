@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *UserPreferencesGetAllReader) ReadResponse(response runtime.ClientRespon
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Security/UserPreferences] UserPreferences_GetAll", response, response.Code())
+		result := NewUserPreferencesGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *UserPreferencesGetAllOK) Code() int {
 }
 
 func (o *UserPreferencesGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /Security/UserPreferences][%d] userPreferencesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Security/UserPreferences][%d] userPreferencesGetAllOK %s", 200, payload)
 }
 
 func (o *UserPreferencesGetAllOK) String() string {
-	return fmt.Sprintf("[GET /Security/UserPreferences][%d] userPreferencesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Security/UserPreferences][%d] userPreferencesGetAllOK %s", 200, payload)
 }
 
 func (o *UserPreferencesGetAllOK) GetPayload() []*models.UserPreference {
@@ -94,6 +104,80 @@ func (o *UserPreferencesGetAllOK) readResponse(response runtime.ClientResponse, 
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewUserPreferencesGetAllDefault creates a UserPreferencesGetAllDefault with default headers values
+func NewUserPreferencesGetAllDefault(code int) *UserPreferencesGetAllDefault {
+	return &UserPreferencesGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+UserPreferencesGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type UserPreferencesGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this user preferences get all default response has a 2xx status code
+func (o *UserPreferencesGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this user preferences get all default response has a 3xx status code
+func (o *UserPreferencesGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this user preferences get all default response has a 4xx status code
+func (o *UserPreferencesGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this user preferences get all default response has a 5xx status code
+func (o *UserPreferencesGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this user preferences get all default response a status code equal to that given
+func (o *UserPreferencesGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the user preferences get all default response
+func (o *UserPreferencesGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *UserPreferencesGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Security/UserPreferences][%d] UserPreferences_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *UserPreferencesGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Security/UserPreferences][%d] UserPreferences_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *UserPreferencesGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *UserPreferencesGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

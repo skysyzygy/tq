@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ZoneMapsCreateReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /TXN/ZoneMaps] ZoneMaps_Create", response, response.Code())
+		result := NewZoneMapsCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ZoneMapsCreateOK) Code() int {
 }
 
 func (o *ZoneMapsCreateOK) Error() string {
-	return fmt.Sprintf("[POST /TXN/ZoneMaps][%d] zoneMapsCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/ZoneMaps][%d] zoneMapsCreateOK %s", 200, payload)
 }
 
 func (o *ZoneMapsCreateOK) String() string {
-	return fmt.Sprintf("[POST /TXN/ZoneMaps][%d] zoneMapsCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/ZoneMaps][%d] zoneMapsCreateOK %s", 200, payload)
 }
 
 func (o *ZoneMapsCreateOK) GetPayload() *models.ZoneMap {
@@ -93,6 +103,80 @@ func (o *ZoneMapsCreateOK) GetPayload() *models.ZoneMap {
 func (o *ZoneMapsCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ZoneMap)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewZoneMapsCreateDefault creates a ZoneMapsCreateDefault with default headers values
+func NewZoneMapsCreateDefault(code int) *ZoneMapsCreateDefault {
+	return &ZoneMapsCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ZoneMapsCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ZoneMapsCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this zone maps create default response has a 2xx status code
+func (o *ZoneMapsCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this zone maps create default response has a 3xx status code
+func (o *ZoneMapsCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this zone maps create default response has a 4xx status code
+func (o *ZoneMapsCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this zone maps create default response has a 5xx status code
+func (o *ZoneMapsCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this zone maps create default response a status code equal to that given
+func (o *ZoneMapsCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the zone maps create default response
+func (o *ZoneMapsCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ZoneMapsCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/ZoneMaps][%d] ZoneMaps_Create default %s", o._statusCode, payload)
+}
+
+func (o *ZoneMapsCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/ZoneMaps][%d] ZoneMaps_Create default %s", o._statusCode, payload)
+}
+
+func (o *ZoneMapsCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ZoneMapsCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PaymentMethodsTranslateMnemonicReader) ReadResponse(response runtime.Cl
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /TXN/PaymentMethods/TranslateMnemonic] PaymentMethods_TranslateMnemonic", response, response.Code())
+		result := NewPaymentMethodsTranslateMnemonicDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PaymentMethodsTranslateMnemonicOK) Code() int {
 }
 
 func (o *PaymentMethodsTranslateMnemonicOK) Error() string {
-	return fmt.Sprintf("[GET /TXN/PaymentMethods/TranslateMnemonic][%d] paymentMethodsTranslateMnemonicOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PaymentMethods/TranslateMnemonic][%d] paymentMethodsTranslateMnemonicOK %s", 200, payload)
 }
 
 func (o *PaymentMethodsTranslateMnemonicOK) String() string {
-	return fmt.Sprintf("[GET /TXN/PaymentMethods/TranslateMnemonic][%d] paymentMethodsTranslateMnemonicOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PaymentMethods/TranslateMnemonic][%d] paymentMethodsTranslateMnemonicOK %s", 200, payload)
 }
 
 func (o *PaymentMethodsTranslateMnemonicOK) GetPayload() *models.PaymentMethod {
@@ -93,6 +103,80 @@ func (o *PaymentMethodsTranslateMnemonicOK) GetPayload() *models.PaymentMethod {
 func (o *PaymentMethodsTranslateMnemonicOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.PaymentMethod)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPaymentMethodsTranslateMnemonicDefault creates a PaymentMethodsTranslateMnemonicDefault with default headers values
+func NewPaymentMethodsTranslateMnemonicDefault(code int) *PaymentMethodsTranslateMnemonicDefault {
+	return &PaymentMethodsTranslateMnemonicDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PaymentMethodsTranslateMnemonicDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PaymentMethodsTranslateMnemonicDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this payment methods translate mnemonic default response has a 2xx status code
+func (o *PaymentMethodsTranslateMnemonicDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this payment methods translate mnemonic default response has a 3xx status code
+func (o *PaymentMethodsTranslateMnemonicDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this payment methods translate mnemonic default response has a 4xx status code
+func (o *PaymentMethodsTranslateMnemonicDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this payment methods translate mnemonic default response has a 5xx status code
+func (o *PaymentMethodsTranslateMnemonicDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this payment methods translate mnemonic default response a status code equal to that given
+func (o *PaymentMethodsTranslateMnemonicDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the payment methods translate mnemonic default response
+func (o *PaymentMethodsTranslateMnemonicDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PaymentMethodsTranslateMnemonicDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PaymentMethods/TranslateMnemonic][%d] PaymentMethods_TranslateMnemonic default %s", o._statusCode, payload)
+}
+
+func (o *PaymentMethodsTranslateMnemonicDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PaymentMethods/TranslateMnemonic][%d] PaymentMethods_TranslateMnemonic default %s", o._statusCode, payload)
+}
+
+func (o *PaymentMethodsTranslateMnemonicDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PaymentMethodsTranslateMnemonicDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

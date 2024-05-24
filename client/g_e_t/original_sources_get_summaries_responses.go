@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *OriginalSourcesGetSummariesReader) ReadResponse(response runtime.Client
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/OriginalSources/Summary] OriginalSources_GetSummaries", response, response.Code())
+		result := NewOriginalSourcesGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *OriginalSourcesGetSummariesOK) Code() int {
 }
 
 func (o *OriginalSourcesGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/OriginalSources/Summary][%d] originalSourcesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/OriginalSources/Summary][%d] originalSourcesGetSummariesOK %s", 200, payload)
 }
 
 func (o *OriginalSourcesGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/OriginalSources/Summary][%d] originalSourcesGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/OriginalSources/Summary][%d] originalSourcesGetSummariesOK %s", 200, payload)
 }
 
 func (o *OriginalSourcesGetSummariesOK) GetPayload() []*models.OriginalSourceSummary {
@@ -94,6 +104,80 @@ func (o *OriginalSourcesGetSummariesOK) readResponse(response runtime.ClientResp
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewOriginalSourcesGetSummariesDefault creates a OriginalSourcesGetSummariesDefault with default headers values
+func NewOriginalSourcesGetSummariesDefault(code int) *OriginalSourcesGetSummariesDefault {
+	return &OriginalSourcesGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+OriginalSourcesGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type OriginalSourcesGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this original sources get summaries default response has a 2xx status code
+func (o *OriginalSourcesGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this original sources get summaries default response has a 3xx status code
+func (o *OriginalSourcesGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this original sources get summaries default response has a 4xx status code
+func (o *OriginalSourcesGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this original sources get summaries default response has a 5xx status code
+func (o *OriginalSourcesGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this original sources get summaries default response a status code equal to that given
+func (o *OriginalSourcesGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the original sources get summaries default response
+func (o *OriginalSourcesGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *OriginalSourcesGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/OriginalSources/Summary][%d] OriginalSources_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *OriginalSourcesGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/OriginalSources/Summary][%d] OriginalSources_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *OriginalSourcesGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *OriginalSourcesGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

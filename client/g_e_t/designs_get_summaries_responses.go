@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *DesignsGetSummariesReader) ReadResponse(response runtime.ClientResponse
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/Designs/Summary] Designs_GetSummaries", response, response.Code())
+		result := NewDesignsGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *DesignsGetSummariesOK) Code() int {
 }
 
 func (o *DesignsGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/Designs/Summary][%d] designsGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Designs/Summary][%d] designsGetSummariesOK %s", 200, payload)
 }
 
 func (o *DesignsGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/Designs/Summary][%d] designsGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Designs/Summary][%d] designsGetSummariesOK %s", 200, payload)
 }
 
 func (o *DesignsGetSummariesOK) GetPayload() []*models.DesignSummary {
@@ -94,6 +104,80 @@ func (o *DesignsGetSummariesOK) readResponse(response runtime.ClientResponse, co
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewDesignsGetSummariesDefault creates a DesignsGetSummariesDefault with default headers values
+func NewDesignsGetSummariesDefault(code int) *DesignsGetSummariesDefault {
+	return &DesignsGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+DesignsGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type DesignsGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this designs get summaries default response has a 2xx status code
+func (o *DesignsGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this designs get summaries default response has a 3xx status code
+func (o *DesignsGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this designs get summaries default response has a 4xx status code
+func (o *DesignsGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this designs get summaries default response has a 5xx status code
+func (o *DesignsGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this designs get summaries default response a status code equal to that given
+func (o *DesignsGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the designs get summaries default response
+func (o *DesignsGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *DesignsGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Designs/Summary][%d] Designs_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *DesignsGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/Designs/Summary][%d] Designs_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *DesignsGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *DesignsGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

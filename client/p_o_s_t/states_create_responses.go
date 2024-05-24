@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *StatesCreateReader) ReadResponse(response runtime.ClientResponse, consu
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /ReferenceData/States] States_Create", response, response.Code())
+		result := NewStatesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *StatesCreateOK) Code() int {
 }
 
 func (o *StatesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /ReferenceData/States][%d] statesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/States][%d] statesCreateOK %s", 200, payload)
 }
 
 func (o *StatesCreateOK) String() string {
-	return fmt.Sprintf("[POST /ReferenceData/States][%d] statesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/States][%d] statesCreateOK %s", 200, payload)
 }
 
 func (o *StatesCreateOK) GetPayload() *models.State {
@@ -93,6 +103,80 @@ func (o *StatesCreateOK) GetPayload() *models.State {
 func (o *StatesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.State)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewStatesCreateDefault creates a StatesCreateDefault with default headers values
+func NewStatesCreateDefault(code int) *StatesCreateDefault {
+	return &StatesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+StatesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type StatesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this states create default response has a 2xx status code
+func (o *StatesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this states create default response has a 3xx status code
+func (o *StatesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this states create default response has a 4xx status code
+func (o *StatesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this states create default response has a 5xx status code
+func (o *StatesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this states create default response a status code equal to that given
+func (o *StatesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the states create default response
+func (o *StatesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *StatesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/States][%d] States_Create default %s", o._statusCode, payload)
+}
+
+func (o *StatesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/States][%d] States_Create default %s", o._statusCode, payload)
+}
+
+func (o *StatesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *StatesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

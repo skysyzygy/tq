@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ProductionSeasonMembershipOrganizationsGetSummariesReader) ReadResponse
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /TXN/ProductionSeasonMembershipOrganizations/Summary] ProductionSeasonMembershipOrganizations_GetSummaries", response, response.Code())
+		result := NewProductionSeasonMembershipOrganizationsGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ProductionSeasonMembershipOrganizationsGetSummariesOK) Code() int {
 }
 
 func (o *ProductionSeasonMembershipOrganizationsGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /TXN/ProductionSeasonMembershipOrganizations/Summary][%d] productionSeasonMembershipOrganizationsGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/ProductionSeasonMembershipOrganizations/Summary][%d] productionSeasonMembershipOrganizationsGetSummariesOK %s", 200, payload)
 }
 
 func (o *ProductionSeasonMembershipOrganizationsGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /TXN/ProductionSeasonMembershipOrganizations/Summary][%d] productionSeasonMembershipOrganizationsGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/ProductionSeasonMembershipOrganizations/Summary][%d] productionSeasonMembershipOrganizationsGetSummariesOK %s", 200, payload)
 }
 
 func (o *ProductionSeasonMembershipOrganizationsGetSummariesOK) GetPayload() []*models.ProductionSeasonMembershipOrganizationSummary {
@@ -94,6 +104,80 @@ func (o *ProductionSeasonMembershipOrganizationsGetSummariesOK) readResponse(res
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewProductionSeasonMembershipOrganizationsGetSummariesDefault creates a ProductionSeasonMembershipOrganizationsGetSummariesDefault with default headers values
+func NewProductionSeasonMembershipOrganizationsGetSummariesDefault(code int) *ProductionSeasonMembershipOrganizationsGetSummariesDefault {
+	return &ProductionSeasonMembershipOrganizationsGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ProductionSeasonMembershipOrganizationsGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ProductionSeasonMembershipOrganizationsGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this production season membership organizations get summaries default response has a 2xx status code
+func (o *ProductionSeasonMembershipOrganizationsGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this production season membership organizations get summaries default response has a 3xx status code
+func (o *ProductionSeasonMembershipOrganizationsGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this production season membership organizations get summaries default response has a 4xx status code
+func (o *ProductionSeasonMembershipOrganizationsGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this production season membership organizations get summaries default response has a 5xx status code
+func (o *ProductionSeasonMembershipOrganizationsGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this production season membership organizations get summaries default response a status code equal to that given
+func (o *ProductionSeasonMembershipOrganizationsGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the production season membership organizations get summaries default response
+func (o *ProductionSeasonMembershipOrganizationsGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ProductionSeasonMembershipOrganizationsGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/ProductionSeasonMembershipOrganizations/Summary][%d] ProductionSeasonMembershipOrganizations_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *ProductionSeasonMembershipOrganizationsGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/ProductionSeasonMembershipOrganizations/Summary][%d] ProductionSeasonMembershipOrganizations_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *ProductionSeasonMembershipOrganizationsGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ProductionSeasonMembershipOrganizationsGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

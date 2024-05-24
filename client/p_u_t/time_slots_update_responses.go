@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *TimeSlotsUpdateReader) ReadResponse(response runtime.ClientResponse, co
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/TimeSlots/{id}] TimeSlots_Update", response, response.Code())
+		result := NewTimeSlotsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *TimeSlotsUpdateOK) Code() int {
 }
 
 func (o *TimeSlotsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/TimeSlots/{id}][%d] timeSlotsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/TimeSlots/{id}][%d] timeSlotsUpdateOK %s", 200, payload)
 }
 
 func (o *TimeSlotsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/TimeSlots/{id}][%d] timeSlotsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/TimeSlots/{id}][%d] timeSlotsUpdateOK %s", 200, payload)
 }
 
 func (o *TimeSlotsUpdateOK) GetPayload() *models.TimeSlot {
@@ -93,6 +103,80 @@ func (o *TimeSlotsUpdateOK) GetPayload() *models.TimeSlot {
 func (o *TimeSlotsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.TimeSlot)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewTimeSlotsUpdateDefault creates a TimeSlotsUpdateDefault with default headers values
+func NewTimeSlotsUpdateDefault(code int) *TimeSlotsUpdateDefault {
+	return &TimeSlotsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+TimeSlotsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type TimeSlotsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this time slots update default response has a 2xx status code
+func (o *TimeSlotsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this time slots update default response has a 3xx status code
+func (o *TimeSlotsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this time slots update default response has a 4xx status code
+func (o *TimeSlotsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this time slots update default response has a 5xx status code
+func (o *TimeSlotsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this time slots update default response a status code equal to that given
+func (o *TimeSlotsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the time slots update default response
+func (o *TimeSlotsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *TimeSlotsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/TimeSlots/{id}][%d] TimeSlots_Update default %s", o._statusCode, payload)
+}
+
+func (o *TimeSlotsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/TimeSlots/{id}][%d] TimeSlots_Update default %s", o._statusCode, payload)
+}
+
+func (o *TimeSlotsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *TimeSlotsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

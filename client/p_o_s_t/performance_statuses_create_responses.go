@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PerformanceStatusesCreateReader) ReadResponse(response runtime.ClientRe
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /ReferenceData/PerformanceStatuses] PerformanceStatuses_Create", response, response.Code())
+		result := NewPerformanceStatusesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PerformanceStatusesCreateOK) Code() int {
 }
 
 func (o *PerformanceStatusesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /ReferenceData/PerformanceStatuses][%d] performanceStatusesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/PerformanceStatuses][%d] performanceStatusesCreateOK %s", 200, payload)
 }
 
 func (o *PerformanceStatusesCreateOK) String() string {
-	return fmt.Sprintf("[POST /ReferenceData/PerformanceStatuses][%d] performanceStatusesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/PerformanceStatuses][%d] performanceStatusesCreateOK %s", 200, payload)
 }
 
 func (o *PerformanceStatusesCreateOK) GetPayload() *models.PerformanceStatus {
@@ -93,6 +103,80 @@ func (o *PerformanceStatusesCreateOK) GetPayload() *models.PerformanceStatus {
 func (o *PerformanceStatusesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.PerformanceStatus)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPerformanceStatusesCreateDefault creates a PerformanceStatusesCreateDefault with default headers values
+func NewPerformanceStatusesCreateDefault(code int) *PerformanceStatusesCreateDefault {
+	return &PerformanceStatusesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PerformanceStatusesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PerformanceStatusesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this performance statuses create default response has a 2xx status code
+func (o *PerformanceStatusesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this performance statuses create default response has a 3xx status code
+func (o *PerformanceStatusesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this performance statuses create default response has a 4xx status code
+func (o *PerformanceStatusesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this performance statuses create default response has a 5xx status code
+func (o *PerformanceStatusesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this performance statuses create default response a status code equal to that given
+func (o *PerformanceStatusesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the performance statuses create default response
+func (o *PerformanceStatusesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PerformanceStatusesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/PerformanceStatuses][%d] PerformanceStatuses_Create default %s", o._statusCode, payload)
+}
+
+func (o *PerformanceStatusesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/PerformanceStatuses][%d] PerformanceStatuses_Create default %s", o._statusCode, payload)
+}
+
+func (o *PerformanceStatusesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PerformanceStatusesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

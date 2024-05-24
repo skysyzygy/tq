@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *AccountTypesCreateReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /ReferenceData/AccountTypes] AccountTypes_Create", response, response.Code())
+		result := NewAccountTypesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *AccountTypesCreateOK) Code() int {
 }
 
 func (o *AccountTypesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /ReferenceData/AccountTypes][%d] accountTypesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/AccountTypes][%d] accountTypesCreateOK %s", 200, payload)
 }
 
 func (o *AccountTypesCreateOK) String() string {
-	return fmt.Sprintf("[POST /ReferenceData/AccountTypes][%d] accountTypesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/AccountTypes][%d] accountTypesCreateOK %s", 200, payload)
 }
 
 func (o *AccountTypesCreateOK) GetPayload() *models.AccountType {
@@ -93,6 +103,80 @@ func (o *AccountTypesCreateOK) GetPayload() *models.AccountType {
 func (o *AccountTypesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.AccountType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAccountTypesCreateDefault creates a AccountTypesCreateDefault with default headers values
+func NewAccountTypesCreateDefault(code int) *AccountTypesCreateDefault {
+	return &AccountTypesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+AccountTypesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type AccountTypesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this account types create default response has a 2xx status code
+func (o *AccountTypesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this account types create default response has a 3xx status code
+func (o *AccountTypesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this account types create default response has a 4xx status code
+func (o *AccountTypesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this account types create default response has a 5xx status code
+func (o *AccountTypesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this account types create default response a status code equal to that given
+func (o *AccountTypesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the account types create default response
+func (o *AccountTypesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *AccountTypesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/AccountTypes][%d] AccountTypes_Create default %s", o._statusCode, payload)
+}
+
+func (o *AccountTypesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/AccountTypes][%d] AccountTypes_Create default %s", o._statusCode, payload)
+}
+
+func (o *AccountTypesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *AccountTypesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

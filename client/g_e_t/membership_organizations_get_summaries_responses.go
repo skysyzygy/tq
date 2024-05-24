@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *MembershipOrganizationsGetSummariesReader) ReadResponse(response runtim
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /Finance/MembershipOrganizations/Summary] MembershipOrganizations_GetSummaries", response, response.Code())
+		result := NewMembershipOrganizationsGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *MembershipOrganizationsGetSummariesOK) Code() int {
 }
 
 func (o *MembershipOrganizationsGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /Finance/MembershipOrganizations/Summary][%d] membershipOrganizationsGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/MembershipOrganizations/Summary][%d] membershipOrganizationsGetSummariesOK %s", 200, payload)
 }
 
 func (o *MembershipOrganizationsGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /Finance/MembershipOrganizations/Summary][%d] membershipOrganizationsGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/MembershipOrganizations/Summary][%d] membershipOrganizationsGetSummariesOK %s", 200, payload)
 }
 
 func (o *MembershipOrganizationsGetSummariesOK) GetPayload() []*models.MembershipOrganizationSummary {
@@ -94,6 +104,80 @@ func (o *MembershipOrganizationsGetSummariesOK) readResponse(response runtime.Cl
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewMembershipOrganizationsGetSummariesDefault creates a MembershipOrganizationsGetSummariesDefault with default headers values
+func NewMembershipOrganizationsGetSummariesDefault(code int) *MembershipOrganizationsGetSummariesDefault {
+	return &MembershipOrganizationsGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+MembershipOrganizationsGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type MembershipOrganizationsGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this membership organizations get summaries default response has a 2xx status code
+func (o *MembershipOrganizationsGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this membership organizations get summaries default response has a 3xx status code
+func (o *MembershipOrganizationsGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this membership organizations get summaries default response has a 4xx status code
+func (o *MembershipOrganizationsGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this membership organizations get summaries default response has a 5xx status code
+func (o *MembershipOrganizationsGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this membership organizations get summaries default response a status code equal to that given
+func (o *MembershipOrganizationsGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the membership organizations get summaries default response
+func (o *MembershipOrganizationsGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *MembershipOrganizationsGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/MembershipOrganizations/Summary][%d] MembershipOrganizations_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *MembershipOrganizationsGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /Finance/MembershipOrganizations/Summary][%d] MembershipOrganizations_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *MembershipOrganizationsGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *MembershipOrganizationsGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

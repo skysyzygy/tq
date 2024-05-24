@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *CardReaderTypesUpdateReader) ReadResponse(response runtime.ClientRespon
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/CardReaderTypes/{id}] CardReaderTypes_Update", response, response.Code())
+		result := NewCardReaderTypesUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *CardReaderTypesUpdateOK) Code() int {
 }
 
 func (o *CardReaderTypesUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/CardReaderTypes/{id}][%d] cardReaderTypesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/CardReaderTypes/{id}][%d] cardReaderTypesUpdateOK %s", 200, payload)
 }
 
 func (o *CardReaderTypesUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/CardReaderTypes/{id}][%d] cardReaderTypesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/CardReaderTypes/{id}][%d] cardReaderTypesUpdateOK %s", 200, payload)
 }
 
 func (o *CardReaderTypesUpdateOK) GetPayload() *models.CardReaderType {
@@ -93,6 +103,80 @@ func (o *CardReaderTypesUpdateOK) GetPayload() *models.CardReaderType {
 func (o *CardReaderTypesUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.CardReaderType)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCardReaderTypesUpdateDefault creates a CardReaderTypesUpdateDefault with default headers values
+func NewCardReaderTypesUpdateDefault(code int) *CardReaderTypesUpdateDefault {
+	return &CardReaderTypesUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CardReaderTypesUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CardReaderTypesUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this card reader types update default response has a 2xx status code
+func (o *CardReaderTypesUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this card reader types update default response has a 3xx status code
+func (o *CardReaderTypesUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this card reader types update default response has a 4xx status code
+func (o *CardReaderTypesUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this card reader types update default response has a 5xx status code
+func (o *CardReaderTypesUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this card reader types update default response a status code equal to that given
+func (o *CardReaderTypesUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the card reader types update default response
+func (o *CardReaderTypesUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CardReaderTypesUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/CardReaderTypes/{id}][%d] CardReaderTypes_Update default %s", o._statusCode, payload)
+}
+
+func (o *CardReaderTypesUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/CardReaderTypes/{id}][%d] CardReaderTypes_Update default %s", o._statusCode, payload)
+}
+
+func (o *CardReaderTypesUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CardReaderTypesUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

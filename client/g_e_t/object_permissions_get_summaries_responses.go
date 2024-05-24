@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ObjectPermissionsGetSummariesReader) ReadResponse(response runtime.Clie
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/ObjectPermissions/Summary] ObjectPermissions_GetSummaries", response, response.Code())
+		result := NewObjectPermissionsGetSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ObjectPermissionsGetSummariesOK) Code() int {
 }
 
 func (o *ObjectPermissionsGetSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/ObjectPermissions/Summary][%d] objectPermissionsGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ObjectPermissions/Summary][%d] objectPermissionsGetSummariesOK %s", 200, payload)
 }
 
 func (o *ObjectPermissionsGetSummariesOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/ObjectPermissions/Summary][%d] objectPermissionsGetSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ObjectPermissions/Summary][%d] objectPermissionsGetSummariesOK %s", 200, payload)
 }
 
 func (o *ObjectPermissionsGetSummariesOK) GetPayload() []*models.ObjectPermissionSummary {
@@ -94,6 +104,80 @@ func (o *ObjectPermissionsGetSummariesOK) readResponse(response runtime.ClientRe
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewObjectPermissionsGetSummariesDefault creates a ObjectPermissionsGetSummariesDefault with default headers values
+func NewObjectPermissionsGetSummariesDefault(code int) *ObjectPermissionsGetSummariesDefault {
+	return &ObjectPermissionsGetSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ObjectPermissionsGetSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ObjectPermissionsGetSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this object permissions get summaries default response has a 2xx status code
+func (o *ObjectPermissionsGetSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this object permissions get summaries default response has a 3xx status code
+func (o *ObjectPermissionsGetSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this object permissions get summaries default response has a 4xx status code
+func (o *ObjectPermissionsGetSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this object permissions get summaries default response has a 5xx status code
+func (o *ObjectPermissionsGetSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this object permissions get summaries default response a status code equal to that given
+func (o *ObjectPermissionsGetSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the object permissions get summaries default response
+func (o *ObjectPermissionsGetSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ObjectPermissionsGetSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ObjectPermissions/Summary][%d] ObjectPermissions_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *ObjectPermissionsGetSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/ObjectPermissions/Summary][%d] ObjectPermissions_GetSummaries default %s", o._statusCode, payload)
+}
+
+func (o *ObjectPermissionsGetSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ObjectPermissionsGetSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

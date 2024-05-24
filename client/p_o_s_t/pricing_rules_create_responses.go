@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PricingRulesCreateReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /TXN/PricingRules] PricingRules_Create", response, response.Code())
+		result := NewPricingRulesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PricingRulesCreateOK) Code() int {
 }
 
 func (o *PricingRulesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /TXN/PricingRules][%d] pricingRulesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/PricingRules][%d] pricingRulesCreateOK %s", 200, payload)
 }
 
 func (o *PricingRulesCreateOK) String() string {
-	return fmt.Sprintf("[POST /TXN/PricingRules][%d] pricingRulesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/PricingRules][%d] pricingRulesCreateOK %s", 200, payload)
 }
 
 func (o *PricingRulesCreateOK) GetPayload() *models.PricingRule {
@@ -93,6 +103,80 @@ func (o *PricingRulesCreateOK) GetPayload() *models.PricingRule {
 func (o *PricingRulesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.PricingRule)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPricingRulesCreateDefault creates a PricingRulesCreateDefault with default headers values
+func NewPricingRulesCreateDefault(code int) *PricingRulesCreateDefault {
+	return &PricingRulesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PricingRulesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PricingRulesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this pricing rules create default response has a 2xx status code
+func (o *PricingRulesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this pricing rules create default response has a 3xx status code
+func (o *PricingRulesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this pricing rules create default response has a 4xx status code
+func (o *PricingRulesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this pricing rules create default response has a 5xx status code
+func (o *PricingRulesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this pricing rules create default response a status code equal to that given
+func (o *PricingRulesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the pricing rules create default response
+func (o *PricingRulesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PricingRulesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/PricingRules][%d] PricingRules_Create default %s", o._statusCode, payload)
+}
+
+func (o *PricingRulesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /TXN/PricingRules][%d] PricingRules_Create default %s", o._statusCode, payload)
+}
+
+func (o *PricingRulesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PricingRulesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

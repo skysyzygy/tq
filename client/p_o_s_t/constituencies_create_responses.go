@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ConstituenciesCreateReader) ReadResponse(response runtime.ClientRespons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /CRM/Constituencies] Constituencies_Create", response, response.Code())
+		result := NewConstituenciesCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ConstituenciesCreateOK) Code() int {
 }
 
 func (o *ConstituenciesCreateOK) Error() string {
-	return fmt.Sprintf("[POST /CRM/Constituencies][%d] constituenciesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Constituencies][%d] constituenciesCreateOK %s", 200, payload)
 }
 
 func (o *ConstituenciesCreateOK) String() string {
-	return fmt.Sprintf("[POST /CRM/Constituencies][%d] constituenciesCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Constituencies][%d] constituenciesCreateOK %s", 200, payload)
 }
 
 func (o *ConstituenciesCreateOK) GetPayload() *models.Constituency {
@@ -93,6 +103,80 @@ func (o *ConstituenciesCreateOK) GetPayload() *models.Constituency {
 func (o *ConstituenciesCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Constituency)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewConstituenciesCreateDefault creates a ConstituenciesCreateDefault with default headers values
+func NewConstituenciesCreateDefault(code int) *ConstituenciesCreateDefault {
+	return &ConstituenciesCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ConstituenciesCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ConstituenciesCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this constituencies create default response has a 2xx status code
+func (o *ConstituenciesCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this constituencies create default response has a 3xx status code
+func (o *ConstituenciesCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this constituencies create default response has a 4xx status code
+func (o *ConstituenciesCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this constituencies create default response has a 5xx status code
+func (o *ConstituenciesCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this constituencies create default response a status code equal to that given
+func (o *ConstituenciesCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the constituencies create default response
+func (o *ConstituenciesCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ConstituenciesCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Constituencies][%d] Constituencies_Create default %s", o._statusCode, payload)
+}
+
+func (o *ConstituenciesCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /CRM/Constituencies][%d] Constituencies_Create default %s", o._statusCode, payload)
+}
+
+func (o *ConstituenciesCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ConstituenciesCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

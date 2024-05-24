@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *TheatersCreateReader) ReadResponse(response runtime.ClientResponse, con
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /ReferenceData/Theaters] Theaters_Create", response, response.Code())
+		result := NewTheatersCreateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *TheatersCreateOK) Code() int {
 }
 
 func (o *TheatersCreateOK) Error() string {
-	return fmt.Sprintf("[POST /ReferenceData/Theaters][%d] theatersCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/Theaters][%d] theatersCreateOK %s", 200, payload)
 }
 
 func (o *TheatersCreateOK) String() string {
-	return fmt.Sprintf("[POST /ReferenceData/Theaters][%d] theatersCreateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/Theaters][%d] theatersCreateOK %s", 200, payload)
 }
 
 func (o *TheatersCreateOK) GetPayload() *models.Theater {
@@ -93,6 +103,80 @@ func (o *TheatersCreateOK) GetPayload() *models.Theater {
 func (o *TheatersCreateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Theater)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewTheatersCreateDefault creates a TheatersCreateDefault with default headers values
+func NewTheatersCreateDefault(code int) *TheatersCreateDefault {
+	return &TheatersCreateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+TheatersCreateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type TheatersCreateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this theaters create default response has a 2xx status code
+func (o *TheatersCreateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this theaters create default response has a 3xx status code
+func (o *TheatersCreateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this theaters create default response has a 4xx status code
+func (o *TheatersCreateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this theaters create default response has a 5xx status code
+func (o *TheatersCreateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this theaters create default response a status code equal to that given
+func (o *TheatersCreateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the theaters create default response
+func (o *TheatersCreateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *TheatersCreateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/Theaters][%d] Theaters_Create default %s", o._statusCode, payload)
+}
+
+func (o *TheatersCreateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /ReferenceData/Theaters][%d] Theaters_Create default %s", o._statusCode, payload)
+}
+
+func (o *TheatersCreateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *TheatersCreateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *QueryElementGroupsUpdateReader) ReadResponse(response runtime.ClientRes
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /Reporting/QueryElementGroups/{queryElementGroupId}] QueryElementGroups_Update", response, response.Code())
+		result := NewQueryElementGroupsUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *QueryElementGroupsUpdateOK) Code() int {
 }
 
 func (o *QueryElementGroupsUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /Reporting/QueryElementGroups/{queryElementGroupId}][%d] queryElementGroupsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Reporting/QueryElementGroups/{queryElementGroupId}][%d] queryElementGroupsUpdateOK %s", 200, payload)
 }
 
 func (o *QueryElementGroupsUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /Reporting/QueryElementGroups/{queryElementGroupId}][%d] queryElementGroupsUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Reporting/QueryElementGroups/{queryElementGroupId}][%d] queryElementGroupsUpdateOK %s", 200, payload)
 }
 
 func (o *QueryElementGroupsUpdateOK) GetPayload() *models.QueryElementGroup {
@@ -93,6 +103,80 @@ func (o *QueryElementGroupsUpdateOK) GetPayload() *models.QueryElementGroup {
 func (o *QueryElementGroupsUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.QueryElementGroup)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewQueryElementGroupsUpdateDefault creates a QueryElementGroupsUpdateDefault with default headers values
+func NewQueryElementGroupsUpdateDefault(code int) *QueryElementGroupsUpdateDefault {
+	return &QueryElementGroupsUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+QueryElementGroupsUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type QueryElementGroupsUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this query element groups update default response has a 2xx status code
+func (o *QueryElementGroupsUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this query element groups update default response has a 3xx status code
+func (o *QueryElementGroupsUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this query element groups update default response has a 4xx status code
+func (o *QueryElementGroupsUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this query element groups update default response has a 5xx status code
+func (o *QueryElementGroupsUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this query element groups update default response a status code equal to that given
+func (o *QueryElementGroupsUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the query element groups update default response
+func (o *QueryElementGroupsUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *QueryElementGroupsUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Reporting/QueryElementGroups/{queryElementGroupId}][%d] QueryElementGroups_Update default %s", o._statusCode, payload)
+}
+
+func (o *QueryElementGroupsUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /Reporting/QueryElementGroups/{queryElementGroupId}][%d] QueryElementGroups_Update default %s", o._statusCode, payload)
+}
+
+func (o *QueryElementGroupsUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *QueryElementGroupsUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

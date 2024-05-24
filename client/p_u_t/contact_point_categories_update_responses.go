@@ -6,6 +6,7 @@ package p_u_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *ContactPointCategoriesUpdateReader) ReadResponse(response runtime.Clien
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[PUT /ReferenceData/ContactPointCategories/{id}] ContactPointCategories_Update", response, response.Code())
+		result := NewContactPointCategoriesUpdateDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *ContactPointCategoriesUpdateOK) Code() int {
 }
 
 func (o *ContactPointCategoriesUpdateOK) Error() string {
-	return fmt.Sprintf("[PUT /ReferenceData/ContactPointCategories/{id}][%d] contactPointCategoriesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ContactPointCategories/{id}][%d] contactPointCategoriesUpdateOK %s", 200, payload)
 }
 
 func (o *ContactPointCategoriesUpdateOK) String() string {
-	return fmt.Sprintf("[PUT /ReferenceData/ContactPointCategories/{id}][%d] contactPointCategoriesUpdateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ContactPointCategories/{id}][%d] contactPointCategoriesUpdateOK %s", 200, payload)
 }
 
 func (o *ContactPointCategoriesUpdateOK) GetPayload() *models.ContactPointCategory {
@@ -93,6 +103,80 @@ func (o *ContactPointCategoriesUpdateOK) GetPayload() *models.ContactPointCatego
 func (o *ContactPointCategoriesUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ContactPointCategory)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewContactPointCategoriesUpdateDefault creates a ContactPointCategoriesUpdateDefault with default headers values
+func NewContactPointCategoriesUpdateDefault(code int) *ContactPointCategoriesUpdateDefault {
+	return &ContactPointCategoriesUpdateDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+ContactPointCategoriesUpdateDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type ContactPointCategoriesUpdateDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this contact point categories update default response has a 2xx status code
+func (o *ContactPointCategoriesUpdateDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this contact point categories update default response has a 3xx status code
+func (o *ContactPointCategoriesUpdateDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this contact point categories update default response has a 4xx status code
+func (o *ContactPointCategoriesUpdateDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this contact point categories update default response has a 5xx status code
+func (o *ContactPointCategoriesUpdateDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this contact point categories update default response a status code equal to that given
+func (o *ContactPointCategoriesUpdateDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the contact point categories update default response
+func (o *ContactPointCategoriesUpdateDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *ContactPointCategoriesUpdateDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ContactPointCategories/{id}][%d] ContactPointCategories_Update default %s", o._statusCode, payload)
+}
+
+func (o *ContactPointCategoriesUpdateDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /ReferenceData/ContactPointCategories/{id}][%d] ContactPointCategories_Update default %s", o._statusCode, payload)
+}
+
+func (o *ContactPointCategoriesUpdateDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *ContactPointCategoriesUpdateDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

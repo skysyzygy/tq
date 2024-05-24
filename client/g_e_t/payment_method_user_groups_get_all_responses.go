@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PaymentMethodUserGroupsGetAllReader) ReadResponse(response runtime.Clie
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /TXN/PaymentMethodUserGroups] PaymentMethodUserGroups_GetAll", response, response.Code())
+		result := NewPaymentMethodUserGroupsGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PaymentMethodUserGroupsGetAllOK) Code() int {
 }
 
 func (o *PaymentMethodUserGroupsGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /TXN/PaymentMethodUserGroups][%d] paymentMethodUserGroupsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PaymentMethodUserGroups][%d] paymentMethodUserGroupsGetAllOK %s", 200, payload)
 }
 
 func (o *PaymentMethodUserGroupsGetAllOK) String() string {
-	return fmt.Sprintf("[GET /TXN/PaymentMethodUserGroups][%d] paymentMethodUserGroupsGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PaymentMethodUserGroups][%d] paymentMethodUserGroupsGetAllOK %s", 200, payload)
 }
 
 func (o *PaymentMethodUserGroupsGetAllOK) GetPayload() []*models.PaymentMethodUserGroup {
@@ -94,6 +104,80 @@ func (o *PaymentMethodUserGroupsGetAllOK) readResponse(response runtime.ClientRe
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPaymentMethodUserGroupsGetAllDefault creates a PaymentMethodUserGroupsGetAllDefault with default headers values
+func NewPaymentMethodUserGroupsGetAllDefault(code int) *PaymentMethodUserGroupsGetAllDefault {
+	return &PaymentMethodUserGroupsGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PaymentMethodUserGroupsGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PaymentMethodUserGroupsGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this payment method user groups get all default response has a 2xx status code
+func (o *PaymentMethodUserGroupsGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this payment method user groups get all default response has a 3xx status code
+func (o *PaymentMethodUserGroupsGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this payment method user groups get all default response has a 4xx status code
+func (o *PaymentMethodUserGroupsGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this payment method user groups get all default response has a 5xx status code
+func (o *PaymentMethodUserGroupsGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this payment method user groups get all default response a status code equal to that given
+func (o *PaymentMethodUserGroupsGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the payment method user groups get all default response
+func (o *PaymentMethodUserGroupsGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PaymentMethodUserGroupsGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PaymentMethodUserGroups][%d] PaymentMethodUserGroups_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *PaymentMethodUserGroupsGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/PaymentMethodUserGroups][%d] PaymentMethodUserGroups_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *PaymentMethodUserGroupsGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PaymentMethodUserGroupsGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *CartApplyOnAccountPaymentReader) ReadResponse(response runtime.ClientRe
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Web/Cart/{sessionKey}/Payments/OnAccount] Cart_ApplyOnAccountPayment", response, response.Code())
+		result := NewCartApplyOnAccountPaymentDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *CartApplyOnAccountPaymentOK) Code() int {
 }
 
 func (o *CartApplyOnAccountPaymentOK) Error() string {
-	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/OnAccount][%d] cartApplyOnAccountPaymentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/OnAccount][%d] cartApplyOnAccountPaymentOK %s", 200, payload)
 }
 
 func (o *CartApplyOnAccountPaymentOK) String() string {
-	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/OnAccount][%d] cartApplyOnAccountPaymentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/OnAccount][%d] cartApplyOnAccountPaymentOK %s", 200, payload)
 }
 
 func (o *CartApplyOnAccountPaymentOK) GetPayload() *models.ApplyPaymentResponse {
@@ -93,6 +103,80 @@ func (o *CartApplyOnAccountPaymentOK) GetPayload() *models.ApplyPaymentResponse 
 func (o *CartApplyOnAccountPaymentOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.ApplyPaymentResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewCartApplyOnAccountPaymentDefault creates a CartApplyOnAccountPaymentDefault with default headers values
+func NewCartApplyOnAccountPaymentDefault(code int) *CartApplyOnAccountPaymentDefault {
+	return &CartApplyOnAccountPaymentDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+CartApplyOnAccountPaymentDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type CartApplyOnAccountPaymentDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this cart apply on account payment default response has a 2xx status code
+func (o *CartApplyOnAccountPaymentDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this cart apply on account payment default response has a 3xx status code
+func (o *CartApplyOnAccountPaymentDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this cart apply on account payment default response has a 4xx status code
+func (o *CartApplyOnAccountPaymentDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this cart apply on account payment default response has a 5xx status code
+func (o *CartApplyOnAccountPaymentDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this cart apply on account payment default response a status code equal to that given
+func (o *CartApplyOnAccountPaymentDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the cart apply on account payment default response
+func (o *CartApplyOnAccountPaymentDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *CartApplyOnAccountPaymentDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/OnAccount][%d] Cart_ApplyOnAccountPayment default %s", o._statusCode, payload)
+}
+
+func (o *CartApplyOnAccountPaymentDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Cart/{sessionKey}/Payments/OnAccount][%d] Cart_ApplyOnAccountPayment default %s", o._statusCode, payload)
+}
+
+func (o *CartApplyOnAccountPaymentDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *CartApplyOnAccountPaymentDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

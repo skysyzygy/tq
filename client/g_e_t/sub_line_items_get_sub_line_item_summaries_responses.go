@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SubLineItemsGetSubLineItemSummariesReader) ReadResponse(response runtim
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /TXN/SubLineItems] SubLineItems_GetSubLineItemSummaries", response, response.Code())
+		result := NewSubLineItemsGetSubLineItemSummariesDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SubLineItemsGetSubLineItemSummariesOK) Code() int {
 }
 
 func (o *SubLineItemsGetSubLineItemSummariesOK) Error() string {
-	return fmt.Sprintf("[GET /TXN/SubLineItems][%d] subLineItemsGetSubLineItemSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/SubLineItems][%d] subLineItemsGetSubLineItemSummariesOK %s", 200, payload)
 }
 
 func (o *SubLineItemsGetSubLineItemSummariesOK) String() string {
-	return fmt.Sprintf("[GET /TXN/SubLineItems][%d] subLineItemsGetSubLineItemSummariesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/SubLineItems][%d] subLineItemsGetSubLineItemSummariesOK %s", 200, payload)
 }
 
 func (o *SubLineItemsGetSubLineItemSummariesOK) GetPayload() []*models.SubLineItemSummary {
@@ -94,6 +104,80 @@ func (o *SubLineItemsGetSubLineItemSummariesOK) readResponse(response runtime.Cl
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSubLineItemsGetSubLineItemSummariesDefault creates a SubLineItemsGetSubLineItemSummariesDefault with default headers values
+func NewSubLineItemsGetSubLineItemSummariesDefault(code int) *SubLineItemsGetSubLineItemSummariesDefault {
+	return &SubLineItemsGetSubLineItemSummariesDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SubLineItemsGetSubLineItemSummariesDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SubLineItemsGetSubLineItemSummariesDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this sub line items get sub line item summaries default response has a 2xx status code
+func (o *SubLineItemsGetSubLineItemSummariesDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this sub line items get sub line item summaries default response has a 3xx status code
+func (o *SubLineItemsGetSubLineItemSummariesDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this sub line items get sub line item summaries default response has a 4xx status code
+func (o *SubLineItemsGetSubLineItemSummariesDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this sub line items get sub line item summaries default response has a 5xx status code
+func (o *SubLineItemsGetSubLineItemSummariesDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this sub line items get sub line item summaries default response a status code equal to that given
+func (o *SubLineItemsGetSubLineItemSummariesDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the sub line items get sub line item summaries default response
+func (o *SubLineItemsGetSubLineItemSummariesDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SubLineItemsGetSubLineItemSummariesDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/SubLineItems][%d] SubLineItems_GetSubLineItemSummaries default %s", o._statusCode, payload)
+}
+
+func (o *SubLineItemsGetSubLineItemSummariesDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /TXN/SubLineItems][%d] SubLineItems_GetSubLineItemSummaries default %s", o._statusCode, payload)
+}
+
+func (o *SubLineItemsGetSubLineItemSummariesDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SubLineItemsGetSubLineItemSummariesDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

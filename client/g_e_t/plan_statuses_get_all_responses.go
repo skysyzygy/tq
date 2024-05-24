@@ -6,6 +6,7 @@ package g_e_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *PlanStatusesGetAllReader) ReadResponse(response runtime.ClientResponse,
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /ReferenceData/PlanStatuses] PlanStatuses_GetAll", response, response.Code())
+		result := NewPlanStatusesGetAllDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *PlanStatusesGetAllOK) Code() int {
 }
 
 func (o *PlanStatusesGetAllOK) Error() string {
-	return fmt.Sprintf("[GET /ReferenceData/PlanStatuses][%d] planStatusesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PlanStatuses][%d] planStatusesGetAllOK %s", 200, payload)
 }
 
 func (o *PlanStatusesGetAllOK) String() string {
-	return fmt.Sprintf("[GET /ReferenceData/PlanStatuses][%d] planStatusesGetAllOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PlanStatuses][%d] planStatusesGetAllOK %s", 200, payload)
 }
 
 func (o *PlanStatusesGetAllOK) GetPayload() []*models.PlanStatus {
@@ -94,6 +104,80 @@ func (o *PlanStatusesGetAllOK) readResponse(response runtime.ClientResponse, con
 
 	// response payload
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPlanStatusesGetAllDefault creates a PlanStatusesGetAllDefault with default headers values
+func NewPlanStatusesGetAllDefault(code int) *PlanStatusesGetAllDefault {
+	return &PlanStatusesGetAllDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PlanStatusesGetAllDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PlanStatusesGetAllDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this plan statuses get all default response has a 2xx status code
+func (o *PlanStatusesGetAllDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this plan statuses get all default response has a 3xx status code
+func (o *PlanStatusesGetAllDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this plan statuses get all default response has a 4xx status code
+func (o *PlanStatusesGetAllDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this plan statuses get all default response has a 5xx status code
+func (o *PlanStatusesGetAllDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this plan statuses get all default response a status code equal to that given
+func (o *PlanStatusesGetAllDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the plan statuses get all default response
+func (o *PlanStatusesGetAllDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PlanStatusesGetAllDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PlanStatuses][%d] PlanStatuses_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *PlanStatusesGetAllDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /ReferenceData/PlanStatuses][%d] PlanStatuses_GetAll default %s", o._statusCode, payload)
+}
+
+func (o *PlanStatusesGetAllDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PlanStatusesGetAllDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

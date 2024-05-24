@@ -6,6 +6,7 @@ package p_o_s_t
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 
@@ -30,7 +31,14 @@ func (o *SessionLoadOrderReader) ReadResponse(response runtime.ClientResponse, c
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[POST /Web/Session/{sessionKey}/LoadOrder/{orderId}] Session_LoadOrder", response, response.Code())
+		result := NewSessionLoadOrderDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -79,11 +87,13 @@ func (o *SessionLoadOrderOK) Code() int {
 }
 
 func (o *SessionLoadOrderOK) Error() string {
-	return fmt.Sprintf("[POST /Web/Session/{sessionKey}/LoadOrder/{orderId}][%d] sessionLoadOrderOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Session/{sessionKey}/LoadOrder/{orderId}][%d] sessionLoadOrderOK %s", 200, payload)
 }
 
 func (o *SessionLoadOrderOK) String() string {
-	return fmt.Sprintf("[POST /Web/Session/{sessionKey}/LoadOrder/{orderId}][%d] sessionLoadOrderOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Session/{sessionKey}/LoadOrder/{orderId}][%d] sessionLoadOrderOK %s", 200, payload)
 }
 
 func (o *SessionLoadOrderOK) GetPayload() *models.Cart {
@@ -93,6 +103,80 @@ func (o *SessionLoadOrderOK) GetPayload() *models.Cart {
 func (o *SessionLoadOrderOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Cart)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewSessionLoadOrderDefault creates a SessionLoadOrderDefault with default headers values
+func NewSessionLoadOrderDefault(code int) *SessionLoadOrderDefault {
+	return &SessionLoadOrderDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+SessionLoadOrderDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type SessionLoadOrderDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this session load order default response has a 2xx status code
+func (o *SessionLoadOrderDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this session load order default response has a 3xx status code
+func (o *SessionLoadOrderDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this session load order default response has a 4xx status code
+func (o *SessionLoadOrderDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this session load order default response has a 5xx status code
+func (o *SessionLoadOrderDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this session load order default response a status code equal to that given
+func (o *SessionLoadOrderDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the session load order default response
+func (o *SessionLoadOrderDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *SessionLoadOrderDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Session/{sessionKey}/LoadOrder/{orderId}][%d] Session_LoadOrder default %s", o._statusCode, payload)
+}
+
+func (o *SessionLoadOrderDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /Web/Session/{sessionKey}/LoadOrder/{orderId}][%d] Session_LoadOrder default %s", o._statusCode, payload)
+}
+
+func (o *SessionLoadOrderDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *SessionLoadOrderDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -6,10 +6,14 @@ package d_e_l_e_t_e
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/skysyzygy/tq/models"
 )
 
 // PlanPrioritiesDeleteReader is a Reader for the PlanPrioritiesDelete structure.
@@ -27,7 +31,14 @@ func (o *PlanPrioritiesDeleteReader) ReadResponse(response runtime.ClientRespons
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[DELETE /ReferenceData/PlanPriorities/{id}] PlanPriorities_Delete", response, response.Code())
+		result := NewPlanPrioritiesDeleteDefault(response.Code())
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		if response.Code()/100 == 2 {
+			return result, nil
+		}
+		return nil, result
 	}
 }
 
@@ -75,14 +86,88 @@ func (o *PlanPrioritiesDeleteNoContent) Code() int {
 }
 
 func (o *PlanPrioritiesDeleteNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/PlanPriorities/{id}][%d] planPrioritiesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/PlanPriorities/{id}][%d] planPrioritiesDeleteNoContent", 204)
 }
 
 func (o *PlanPrioritiesDeleteNoContent) String() string {
-	return fmt.Sprintf("[DELETE /ReferenceData/PlanPriorities/{id}][%d] planPrioritiesDeleteNoContent ", 204)
+	return fmt.Sprintf("[DELETE /ReferenceData/PlanPriorities/{id}][%d] planPrioritiesDeleteNoContent", 204)
 }
 
 func (o *PlanPrioritiesDeleteNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	return nil
+}
+
+// NewPlanPrioritiesDeleteDefault creates a PlanPrioritiesDeleteDefault with default headers values
+func NewPlanPrioritiesDeleteDefault(code int) *PlanPrioritiesDeleteDefault {
+	return &PlanPrioritiesDeleteDefault{
+		_statusCode: code,
+	}
+}
+
+/*
+PlanPrioritiesDeleteDefault describes a response with status code -1, with default header values.
+
+Error
+*/
+type PlanPrioritiesDeleteDefault struct {
+	_statusCode int
+
+	Payload *models.ErrorMessage
+}
+
+// IsSuccess returns true when this plan priorities delete default response has a 2xx status code
+func (o *PlanPrioritiesDeleteDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this plan priorities delete default response has a 3xx status code
+func (o *PlanPrioritiesDeleteDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this plan priorities delete default response has a 4xx status code
+func (o *PlanPrioritiesDeleteDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this plan priorities delete default response has a 5xx status code
+func (o *PlanPrioritiesDeleteDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this plan priorities delete default response a status code equal to that given
+func (o *PlanPrioritiesDeleteDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
+// Code gets the status code for the plan priorities delete default response
+func (o *PlanPrioritiesDeleteDefault) Code() int {
+	return o._statusCode
+}
+
+func (o *PlanPrioritiesDeleteDefault) Error() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/PlanPriorities/{id}][%d] PlanPriorities_Delete default %s", o._statusCode, payload)
+}
+
+func (o *PlanPrioritiesDeleteDefault) String() string {
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /ReferenceData/PlanPriorities/{id}][%d] PlanPriorities_Delete default %s", o._statusCode, payload)
+}
+
+func (o *PlanPrioritiesDeleteDefault) GetPayload() *models.ErrorMessage {
+	return o.Payload
+}
+
+func (o *PlanPrioritiesDeleteDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorMessage)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }
