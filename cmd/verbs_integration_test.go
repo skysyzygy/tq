@@ -5,6 +5,7 @@ import (
 
 	"github.com/99designs/keyring"
 	"github.com/skysyzygy/tq/auth"
+	"github.com/skysyzygy/tq/tq"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
 )
@@ -25,8 +26,16 @@ func Test_Get_Integration(t *testing.T) {
 	err := rootCmd.Execute()
 	assert.ErrorContains(t, err, "sdf")
 
-	// test with payload
+	// test with invalid payload
 	rootCmd.SetArgs([]string{"get", "constituents", `{"constituentId":"0"}`})
 	err = rootCmd.Execute()
+	assert.ErrorContains(t, err, "Constituent Id cannot be 0 or Null")
+
+	// test with valid payload
+	rootCmd.SetArgs([]string{"get", "constituents", `{"constituentId":"1"}`})
+	stdout, stderr := tq.CaptureOutput(func() { err = rootCmd.Execute() })
 	assert.NoError(t, err)
+	assert.Equal(t, stderr, "")
+	assert.Contains(t, stdout, "Dummy")
+
 }
