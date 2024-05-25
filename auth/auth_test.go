@@ -19,17 +19,10 @@ var keys Keyring
 // Setup the test environment by making a separate keystore for testing
 func TestMain(m *testing.M) {
 	// setup code
-	keys, _ = keyring.Open(keyring.Config{
-		ServiceName: "auth_test",
-	})
+	keys = keyring.NewArrayKeyring(nil)
 
 	code := m.Run()
 	// teardown code
-
-	_keys, _ := keys.Keys()
-	for _, key := range _keys {
-		keys.Remove(key)
-	}
 
 	os.Exit(code)
 
@@ -99,10 +92,6 @@ func TestAuth_Load(t *testing.T) {
 }
 
 func TestList(t *testing.T) {
-	//TODO: this isn't working on windows-latest
-	if os.Getenv("OS") == "windows-latest" {
-		t.Skip("Skipping testing in windows-latest environment")
-	}
 	v, err := List(keys)
 
 	assert.Equal(t, v, []Auth{{"a", "b", "c", "d", nil}}, "lists all auths in keystore")

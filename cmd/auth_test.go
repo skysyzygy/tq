@@ -41,11 +41,6 @@ func Test_authenticateAddCmd(t *testing.T) {
 
 // authenticateListCmd lists all authentication methods
 func Test_authenticateListCmd(t *testing.T) {
-	//TODO: this isn't working on windows-latest
-	if os.Getenv("OS") == "windows-latest" {
-		t.Skip("Skipping testing in windows-latest environment")
-	}
-
 	*hostname = ""
 	*username = ""
 	*usergroup = ""

@@ -21,9 +21,8 @@ func TestMain(m *testing.M) {
 	server := server()
 	defer server.Close()
 
-	keys, _ = keyring.Open(keyring.Config{
-		ServiceName: "tq_test",
-	})
+	keys = keyring.NewArrayKeyring(nil)
+
 	// Setup the test environment by making a separate keystore for testing
 	a := auth.New(strings.Replace(server.URL, "https://", "", 1), "", "", "", nil)
 	a.Save(keys)
