@@ -11,7 +11,7 @@ import (
 )
 
 func init() {
-	viper.Set("login", "t-gw-test-b-ex-rest.bam.org/TessituraService|jolson||jolson-14")
+	viper.Set("login", "t-gw-test-b-ex-rest.bam.org/TessituraService/|jolson||jolson-14")
 }
 
 // end-to-end get test
@@ -24,7 +24,7 @@ func Test_Get_Integration(t *testing.T) {
 	// test without payload
 	rootCmd.SetArgs([]string{"get", "constituents"})
 	err := rootCmd.Execute()
-	assert.ErrorContains(t, err, "sdf")
+	assert.ErrorContains(t, err, "500")
 
 	// test with invalid payload
 	rootCmd.SetArgs([]string{"get", "constituents", `{"constituentId":"0"}`})
@@ -35,7 +35,7 @@ func Test_Get_Integration(t *testing.T) {
 	rootCmd.SetArgs([]string{"get", "constituents", `{"constituentId":"1"}`})
 	stdout, stderr := tq.CaptureOutput(func() { err = rootCmd.Execute() })
 	assert.NoError(t, err)
-	assert.Equal(t, stderr, "")
-	assert.Contains(t, stdout, "Dummy")
+	assert.Regexp(t, "Using config file: .+tq\n$", string(stderr))
+	assert.Contains(t, string(stdout), "Dummy")
 
 }
