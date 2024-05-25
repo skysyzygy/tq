@@ -178,10 +178,11 @@ func tqInit(cmd *cobra.Command, args []string) (err error) {
 	}
 
 	if err != nil {
+		authString, _ := a.String()
 		_tq.Log.Error(err.Error(),
 			"logFile", logFile,
 			"jsonFile", jsonFile,
-			"auth", a)
+			"auth", authString)
 		return err
 	}
 
