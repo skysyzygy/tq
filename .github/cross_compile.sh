@@ -6,14 +6,19 @@ if [[ -z "$package" ]]; then
   exit 1
 fi
 	
-platforms=("windows/amd64" "windows/386" "darwin/arm64" "darwin/amd64" "darwin/386" "linux/amd64" "linux/386") 
+platforms=("windows/amd64" "windows/386" "darwin/arm64" "darwin/amd64" "linux/amd64" "linux/386") 
 
 for platform in "${platforms[@]}"
 do
 	platform_split=(${platform//\// })
 	GOOS=${platform_split[0]}
 	GOARCH=${platform_split[1]}
-	output_name=$package'-'$GOOS'-'$GOARCH
+	case $GOARCH in 
+		386) arch="x86";;
+		amd64) arch="x86_64";;
+		arm64) arch="M1";;
+	esac
+	output_name=$package'-'$GOOS'-'$arch
 	if [ $GOOS = "windows" ]; then
 		output_name+='.exe'
 	fi	
