@@ -26,6 +26,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"runtime/debug"
 	"slices"
 	"strings"
 
@@ -35,6 +36,9 @@ import (
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 )
+
+// Version number
+const version string = "0.1"
 
 var (
 	cfgFile, jsonFile, logFile string
@@ -52,15 +56,13 @@ var rootCmd = &cobra.Command{
 		"closure, and batch/concurrent processing so that humans like " +
 		"you can focus on the data and not the intricacies of the API.\n\n" +
 		"tq is basically a high-level API for common tasks in Tessi. "),
-
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
+	Version: version,
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
+	rootCmd.SetArgs([]string{"--version"})
 	err := rootCmd.Execute()
 	if err != nil {
 		if _tq != nil && _tq.Log != nil {
@@ -74,6 +76,15 @@ func Execute() {
 
 func init() {
 	cobra.OnInitialize(initConfig)
+
+	settings := make(map[string]string)
+	if info, ok := debug.ReadBuildInfo(); ok {
+		for _, setting := range info.Settings {
+			settings[setting.Key] = setting.Value
+		}
+	}
+	commit := strings.Join([]string{settings["vcs"], settings["vcs.revision"], settings["vcs.time"]}, " ")
+	rootCmd.Version = rootCmd.Version + " (" + commit + ")"
 
 	//rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "", "config file (default is $HOME/.tq.yaml)")
 	rootCmd.PersistentFlags().StringVarP(&jsonFile, "file", "f", "", "JSON file to read (default is to read from stdin)")
