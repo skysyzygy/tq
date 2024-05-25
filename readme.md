@@ -18,7 +18,7 @@ Download the latest release from the [releases page!](https://github.com/skysyzy
 The only prerequisite to using **tq** is [installing go](https://go.dev/doc/install).
 
 Then clone this repository and build:
-```
+```shell
 git clone github.com/skysyzygy/tq
 cd tq
 go build -o bin/tq .
@@ -28,7 +28,7 @@ The build command will create an executable file `tq` or `tq.exe` in the `bin` p
 ### authentication:
 
 To authenticate with the API server you need to select at least one authentication method. 
-```
+```shell
 tq auth add --host hostname --user username --group usergroup --location location
 # Password: ******
 
@@ -38,7 +38,9 @@ tq auth select --host hostname --user username --group usergroup --location loca
 
 ## usage: 
 
-``` tq [flags] [verb] [object] [query]```
+```shell 
+tq [flags] [verb] [object] [query]
+```
 
 ### flags:
 * **-n, --dryrun**         : don't actually do anything, just show what would have happened
@@ -62,7 +64,9 @@ A yaml configuration file `.tq` placed in your home directory can be used to set
 ### queries:
 Queries are simply JSON objects and can be batched by combining multiple query objects into a single JSON array, e.g. 
 
-```[{"ID":123},{"ID":124},{"ID":125},...]```
+```json
+[{"ID":123}, {"ID":124}, {"ID":125}, ...]
+```
 
 Query object details are detailed in the help for each command.
 
