@@ -23,16 +23,16 @@ git clone github.com/skysyzygy/tq
 cd tq
 go build -o bin/tq .
 ```
-The build command will create an executable file `bin/tq` in the project directory.
+The build command will create an executable file `tq` or `tq.exe` in the `bin` project directory.
 
 ### authentication:
 
 To authenticate with the API server you need to select at least one authentication method. 
 ```
-tq auth add -H hostname -u username -g usergroup -L location
-> Password: ******
+tq auth add --host hostname --user username --group usergroup --location location
+# Password: ******
 
-tq auth select -H hostname -u username -g usergroup -L location
+tq auth select --host hostname --user username --group usergroup --location location
 ```
 
 
