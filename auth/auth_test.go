@@ -20,9 +20,17 @@ func TestMain(m *testing.M) {
 	Keys, _ = keyring.Open(keyring.Config{
 		ServiceName: "tq_test",
 	})
+
 	code := m.Run()
 	// teardown code
+
+	keys, _ := Keys.Keys()
+	for _, key := range keys {
+		Keys.Remove(key)
+	}
+
 	os.Exit(code)
+
 }
 
 func TestAuth_String(t *testing.T) {
@@ -120,10 +128,10 @@ func TestAuth_Validate(t *testing.T) {
 
 		if r.RequestURI != "/Security/Authenticate" {
 			w.WriteHeader(http.StatusNotFound)
+			w.Write([]byte("Not Found"))
 			return
-		} else {
-			w.Header().Set("Content-Type", "application/json")
 		}
+		w.Header().Set("Content-Type", "application/json")
 
 		if req.UserName == "user" &&
 			req.UserGroup == "group" &&
@@ -155,7 +163,7 @@ func TestAuth_Validate(t *testing.T) {
 	v, err = Auth{hostname: url + "/Not an endpoint/",
 		username: "user", usergroup: "group", location: "location", password: []byte("password")}.Validate()
 	assert.False(t, v)
-	assert.ErrorContains(t, err, "404 Not Found", "validation fails when endpoint is incorrect and provides useful info")
+	assert.ErrorContains(t, err, "404", "validation fails when endpoint is incorrect and provides useful info")
 
 	v, err = Auth{hostname: url,
 		username: "user", usergroup: "group", location: "location", password: []byte("password")}.Validate()
@@ -174,6 +182,11 @@ func TestAuth_Validate_Integration(t *testing.T) {
 	Keys, _ = keyring.Open(keyring.Config{
 		ServiceName: "tq_test_integration",
 	})
+	defer func() {
+		Keys, _ = keyring.Open(keyring.Config{
+			ServiceName: "tq_test",
+		})
+	}()
 
 	auths, _ := List()
 	a := auths[0]
@@ -189,7 +202,7 @@ func TestAuth_Validate_Integration(t *testing.T) {
 	a2.hostname = strings.ReplaceAll(a2.hostname, "/TessituraService", "")
 	v, err = a2.Validate()
 	assert.False(t, v)
-	assert.ErrorContains(t, err, "404 Not Found", "validation fails when endpoint is incorrect and provides useful info")
+	assert.ErrorContains(t, err, "File or directory not found", "validation fails when endpoint is incorrect and provides useful info")
 
 	v, err = a.Validate()
 	assert.True(t, v, "validation works when credentials are correct")
@@ -198,6 +211,6 @@ func TestAuth_Validate_Integration(t *testing.T) {
 	a.password = []byte("wrong_password")
 	v, err = a.Validate()
 	assert.False(t, v)
-	assert.ErrorContains(t, err, "400 Bad Request", "validation fails when credentials are incorrect")
+	assert.ErrorContains(t, err, "Invalid Credentials", "validation fails when credentials are incorrect")
 
 }
