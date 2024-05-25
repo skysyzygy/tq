@@ -34,7 +34,8 @@ jobs:
     - name: Setup pass keyring
       run: pass init ${{ steps.setup_gpg_key.outputs.gpg_key_id }}
       shell: bash
-
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      
     - name: Test
       run: go test -skip "_Integration$" -v -race -coverprofile=coverage.out -covermode=atomic ./...
       
@@ -44,7 +45,7 @@ jobs:
         token: ${{ secrets.CODECOV_TOKEN }}
 
     - name: Build
-      run: go build -v -o bin/tq  .
+      run: go build -v -o bin/  .
 
     - name: Bundle release
       uses: softprops/action-gh-release@v2
