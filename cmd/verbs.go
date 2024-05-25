@@ -13,19 +13,19 @@ const longSuffix string = "Queries are simply JSON objects and can be batched by
 
 var Get_cmd = &cobra.Command{
 	Use:     "get",
-	Aliases: []string{"Get", "get", "Retrieve", "retrieve", "G", "g", "R", "r"},
+	Aliases: []string{"get", "retrieve", "g", "r"},
 	Short:   "Retrieve entities from Tessitura",
 }
 
 var Post_cmd = &cobra.Command{
 	Use:     "create",
-	Aliases: []string{"Post", "post", "Create", "create", "C", "c"},
+	Aliases: []string{"post", "create", "c"},
 	Short:   "Create entities in Tessitura",
 }
 
 var Put_cmd = &cobra.Command{
 	Use:     "update",
-	Aliases: []string{"Put", "put", "Update", "update", "U", "u"},
+	Aliases: []string{"put", "update", "u"},
 	Short:   "Update entities in Tessitura",
 }
 

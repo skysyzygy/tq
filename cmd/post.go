@@ -11,7 +11,6 @@ import (
 
 
 var Post_AccountTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "accounttypes",  "at",  },
 		Use: `AccountTypes {"CardLength":"string","CardPrefix":"string","CardtypeIndicator":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditMask":"string","Id":123,"Inactive":true,"Mod10Indicator":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new account type`,
 		Long:  `Create a new account type.`,
@@ -32,7 +31,6 @@ var Post_AccountTypes_cmd = &cobra.Command{
 	}
 
 var Post_Accounts_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "accounts",  },
 		Use: `Accounts {"AccountNumber":"string","CardExpiryMonth":123,"CardExpiryYear":123,"ConstituentId":123,"ExclusiveToControlledBatchId":123,"Inactive":true,"Name":"string","PaymentMethodGroupId":123,"ReturnAccountIfAccountExists":true,"TransactionOrigin":"string","VantivEncryptedCard":{"Version":"string"}}`,
 		Short: `Create a credit card account`,
 		Long:  `Create a credit card account, storing the card number. Will create and store a token if tokenization is enabled.`,
@@ -60,7 +58,6 @@ var Post_Accounts_cmd = &cobra.Command{
 	}
 
 var Post_ActionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "actiontypes",  "at",  },
 		Use: `ActionTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"LetterIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new action type`,
 		Long:  `Create a new action type.`,
@@ -81,7 +78,6 @@ var Post_ActionTypes_cmd = &cobra.Command{
 	}
 
 var Post_Actions_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "actions",  },
 		Use: `Actions {"ActionDate":"2000-01-01T00:00:00.000Z","ActionType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Issue":{"Id":123},"LetterPrintedDate":"2000-01-01T00:00:00.000Z","Notes":"string","Resolved":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create an issue action for a Constituent`,
 		Long:  `Create an issue action for a Constituent`,
@@ -102,7 +98,6 @@ var Post_Actions_cmd = &cobra.Command{
 	}
 
 var Post_ActivityCategories_cmd = &cobra.Command{
-		Aliases: []string{  "AC",  "ac",  "activitycategories",  },
 		Use: `ActivityCategories {"AutoClose":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new activity category`,
 		Long:  `Create a new activity category.`,
@@ -123,7 +118,6 @@ var Post_ActivityCategories_cmd = &cobra.Command{
 	}
 
 var Post_ActivityTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "activitytypes",  "at",  },
 		Use: `ActivityTypes {"Category":{"Id":123},"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PerfIndicator":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new activity type`,
 		Long:  `Create a new activity type.`,
@@ -144,7 +138,6 @@ var Post_ActivityTypes_cmd = &cobra.Command{
 	}
 
 var Post_AddressTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "addresstypes",  "at",  },
 		Use: `AddressTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new address type`,
 		Long:  `Create a new address type.`,
@@ -165,7 +158,6 @@ var Post_AddressTypes_cmd = &cobra.Command{
 	}
 
 var Post_Addresses_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "addresses",  },
 		Use: `Addresses {"AddressType":{"Id":123},"AffiliatedConstituent":{"Id":123},"AltSalutationType":{"Id":123},"City":"string","Constituent":{"Id":123},"Country":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DeliveryPoint":"string","EditIndicator":true,"EndDate":"2000-01-01T00:00:00.000Z","GeoArea":123,"Id":123,"Inactive":true,"IsFromAffiliation":true,"Label":true,"Months":"string","NcoaAction":123,"NcoaSession":123,"PostalCode":"string","PostalCodeFormatted":"string","PrimaryIndicator":true,"StartDate":"2000-01-01T00:00:00.000Z","State":{"Id":123},"Street1":"string","Street1Address":{"Number":"string","Street":"string"},"Street2":"string","Street3":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new address for a Constituent by sending an XML or JSON representation of an Address object using HTTP POST`,
 		Long:  `Create a new address for a Constituent by sending an XML or JSON representation of an Address object using HTTP POST.`,
@@ -186,7 +178,6 @@ var Post_Addresses_cmd = &cobra.Command{
 	}
 
 var Post_AffiliationInfo_cmd = &cobra.Command{
-		Aliases: []string{  "AI",  "affiliationinfo",  "ai",  },
 		Use: `AffiliationInfo {"AffiliationType":{"Id":123},"ConstituentId":123,"EditIndicator":true,"EndDate":"2000-01-01T00:00:00.000Z","Id":123,"Inactive":true,"IsAllowedToTransact":true,"IsIncludedInSearchResults":true,"NameIndicator":123,"Note":"string","PrimaryIndicator":true,"ProtectionType":{"Id":123},"Rank":123,"RelatedConstituentFirstName":"string","RelatedConstituentGender":{"Id":123},"RelatedConstituentId":123,"RelatedConstituentInactive":true,"RelatedConstituentLastName":"string","RelatedConstituentMiddleName":"string","RelatedConstituentNameStatusDescription":"string","RelatedConstituentNameStatusId":123,"RelatedConstituentPrefix":{"Id":123},"RelatedConstituentShortDisplayName":"string","RelatedConstituentSortName":"string","RelatedConstituentSuffix":{"Id":123},"RelatedConstituentType":{"Id":123},"Salary":123.456,"StartDate":"2000-01-01T00:00:00.000Z","Title":"string"}`,
 		Short: `Create affiliation between a group constituent and its related constituent`,
 		Long:  `Create affiliation between a group constituent and its related constituent. If the related constituent does not exist then create the related constituent as well before creating the affiliation.`,
@@ -207,7 +198,6 @@ var Post_AffiliationInfo_cmd = &cobra.Command{
 	}
 
 var Post_AffiliationTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "affiliationtypes",  "at",  },
 		Use: `AffiliationTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"IsAllowedToTransactDefault":true,"IsIncludedInSearchResultsDefault":true,"RelationshipCategory":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseSalary":true,"UseTitle":true}`,
 		Short: `Create a new affiliation type`,
 		Long:  `Create a new affiliation type.`,
@@ -228,7 +218,6 @@ var Post_AffiliationTypes_cmd = &cobra.Command{
 	}
 
 var Post_Affiliations_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "affiliations",  },
 		Use: `Affiliations {"AddressId":123,"AffiliatedName":"string","AffiliationType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"ElectronicAddressId":123,"EndDate":"2000-01-01T00:00:00.000Z","GroupConstituent":{"Id":123},"GroupConstituentName":"string","GroupConstituentSortName":"string","Id":123,"Inactive":true,"IndividualConstituent":{"Id":123},"IndividualConstituentName":"string","IndividualConstituentSortName":"string","IsAllowedToTransact":true,"IsIncludedInSearchResults":true,"NameIndicator":123,"Note":"string","PrimaryIndicator":true,"Salary":123.456,"SalutationId":123,"StartDate":"2000-01-01T00:00:00.000Z","Title":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new affiliation`,
 		Long:  `Create a new affiliation.`,
@@ -249,7 +238,6 @@ var Post_Affiliations_cmd = &cobra.Command{
 	}
 
 var Post_AliasTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "aliastypes",  "at",  },
 		Use: `AliasTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new alias type`,
 		Long:  `Create a new alias type.`,
@@ -270,7 +258,6 @@ var Post_AliasTypes_cmd = &cobra.Command{
 	}
 
 var Post_Aliases_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "aliases",  },
 		Use: `Aliases {"AliasFirstName":"string","AliasLastName":"string","AliasType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new alias`,
 		Long:  `Create a new alias.`,
@@ -291,7 +278,6 @@ var Post_Aliases_cmd = &cobra.Command{
 	}
 
 var Post_AnalyticsReports_cmd = &cobra.Command{
-		Aliases: []string{  "AR",  "analyticsreports",  "ar",  },
 		Use: `AnalyticsReports {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Division":{"Id":"string"},"Id":123,"Inactive":true,"ReportPath":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create SSRS Reports for display in Analytics`,
 		Long:  `Create SSRS Reports for display in Analytics.`,
@@ -312,7 +298,6 @@ var Post_AnalyticsReports_cmd = &cobra.Command{
 	}
 
 var Post_AppealCategories_cmd = &cobra.Command{
-		Aliases: []string{  "AC",  "ac",  "appealcategories",  },
 		Use: `AppealCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new appeal category`,
 		Long:  `Create a new appeal category.`,
@@ -333,7 +318,6 @@ var Post_AppealCategories_cmd = &cobra.Command{
 	}
 
 var Post_Artists_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "artists",  },
 		Use: `Artists {"Bio":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","FirstName":"string","Id":123,"LastName":"string","MiddleName":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","VoiceId":123}`,
 		Short: `Create a new artist`,
 		Long:  `Create a new artist.`,
@@ -354,7 +338,6 @@ var Post_Artists_cmd = &cobra.Command{
 	}
 
 var Post_AssetTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "assettypes",  "at",  },
 		Use: `AssetTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new asset type`,
 		Long:  `Create a new asset type.`,
@@ -375,7 +358,6 @@ var Post_AssetTypes_cmd = &cobra.Command{
 	}
 
 var Post_Assets_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "assets",  },
 		Use: `Assets {"AcquisitionDateTime":"2000-01-01T00:00:00.000Z","AssetType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"EstimatedValue":123.456,"Id":123,"Notes":"string","SaleDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create an asset for a constituent`,
 		Long:  `Create an asset for a constituent.`,
@@ -396,7 +378,6 @@ var Post_Assets_cmd = &cobra.Command{
 	}
 
 var Post_AssociationTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "associationtypes",  "at",  },
 		Use: `AssociationTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"IsIncludedInSearchResultsDefault":true,"ReciprocalType":{"Id":123},"RelationshipCategory":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseBirthDate":true,"UseGender":true}`,
 		Short: `Create a new association type`,
 		Long:  `Create a new association type.`,
@@ -417,7 +398,6 @@ var Post_AssociationTypes_cmd = &cobra.Command{
 	}
 
 var Post_Associations_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "associations",  },
 		Use: `Associations {"AssociatedConstituent":{"Id":123},"AssociatedName":"string","AssociationType":{"Id":123},"BirthDate":"2000-01-01T00:00:00.000Z","Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"EndDate":"2000-01-01T00:00:00.000Z","Gender":{"Id":123},"Id":123,"Inactive":true,"IsIncludedInSearchResults":true,"Note":"string","ReciprocalAssociation":{"Id":123},"StartDate":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new association`,
 		Long:  `Create a new association.`,
@@ -438,7 +418,6 @@ var Post_Associations_cmd = &cobra.Command{
 	}
 
 var Post_Attributes_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "attributes",  },
 		Use: `Attributes {"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Keyword":{"Id":123},"KeywordConstituentType":{"Inactive":true,"Rank":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Value":"string"}`,
 		Short: `Create a new attribute`,
 		Long:  `Create a new attribute.`,
@@ -459,7 +438,6 @@ var Post_Attributes_cmd = &cobra.Command{
 	}
 
 var Post_Authenticate_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "authenticate",  },
 		Use: `Authenticate {"Application":"string","MachineLocation":"string","Password":"string","UserGroup":"string","UserName":"string"}`,
 		Short: `Authenticate the provided credentials`,
 		Long:  `Authenticate the provided credentials`,
@@ -489,7 +467,6 @@ var Post_Authenticate_cmd = &cobra.Command{
 	}
 
 var Post_Authorization_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "authorization",  },
 		Use: `Authorization {"AllowPartialAuth":true,"Amount":123.456,"AuthorizationCode":"string","BillingAddress":{"AddressId":123,"Country":"string","PostalCode":"string","Street1":"string"},"Card":{"AccountId":123,"CardHolderName":"string","CardNumber":"string","Cvv2":"string","ExpirationDate":"string","TessituraMerchantServicesData":"string","Track1":"string","Track2":"string"},"ConstituentId":123,"DeliveryDate":"2000-01-01T00:00:00.000Z","IsECommerce":true,"IsRecurring":true,"PaymentId":123,"PaymentMethodId":123,"ReferenceNumber":"string","ReturnUrl":"string","ShopperIp":"string","StoreAccount":true,"ThreeDSecureData":{"EciIndicatorType":"string","MpiSessionId":"string","SecureTransactionId":"string","SecureTransactionSecurity":"string","VerAuthValue":"string","VerCertificateSerialCardAcceptor":"string","VerCertificateSerialCardHolder":"string","VerHashResult":"string"},"TransactionOrigin":"string","UserData":"string"}`,
 		Short: `Authorize a payment using a manually keyed`,
 		Long:  `Authorize a payment using a manually keyed, swiped or encrypted card data, including payments made using the Tessitura Merchant Services Payment Component.`,
@@ -521,7 +498,6 @@ var Post_Authorization_cmd = &cobra.Command{
 	}
 
 var Post_Batch_cmd = &cobra.Command{
-		Aliases: []string{  "B",  "b",  "batch",  },
 		Use: `Batch {"Requests":[{"Id":123},...]}`,
 		Short: ``,
 		Long:  ``,
@@ -542,7 +518,6 @@ var Post_Batch_cmd = &cobra.Command{
 	}
 
 var Post_BatchMaintenance_cmd = &cobra.Command{
-		Aliases: []string{  "BM",  "batchmaintenance",  "bm",  },
 		Use: `BatchMaintenance {"AmtPosted":123.456,"BatchType":{"Id":123},"CloseDateTime":"2000-01-01T00:00:00.000Z","ClosedBy":"string","CntlIndicator":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Notes":"string","NumAccCc":123,"NumRejCc":123,"OpenLoc":"string","Owner":"string","PostId":123,"PostedBy":"string","PostedDateTime":"2000-01-01T00:00:00.000Z","Status":"string","TallyPlAmount":123.456,"TallyReAmount":123.456,"UniqueTag":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Batch`,
 		Long:  `Create a new Batch`,
@@ -563,7 +538,6 @@ var Post_BatchMaintenance_cmd = &cobra.Command{
 	}
 
 var Post_BatchTypeGroups_cmd = &cobra.Command{
-		Aliases: []string{  "BTG",  "batchtypegroups",  "btg",  },
 		Use: `BatchTypeGroups {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new batch type group`,
 		Long:  `Create a new batch type group.`,
@@ -584,7 +558,6 @@ var Post_BatchTypeGroups_cmd = &cobra.Command{
 	}
 
 var Post_BatchTypes_cmd = &cobra.Command{
-		Aliases: []string{  "BT",  "batchtypes",  "bt",  },
 		Use: `BatchTypes {"BatchTypeGroup":{"Id":123},"BusinessUnit":{"Id":123},"Category":123,"CntlIndicator":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new batch type`,
 		Long:  `Create a new batch type.`,
@@ -605,7 +578,6 @@ var Post_BatchTypes_cmd = &cobra.Command{
 	}
 
 var Post_BillingSchedules_cmd = &cobra.Command{
-		Aliases: []string{  "BS",  "billingschedules",  "bs",  },
 		Use: `BillingSchedules {"BillAmounts":"string","BillDates":"string","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"LongDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Billing Schedule`,
 		Long:  `Create a new Billing Schedule.`,
@@ -626,7 +598,6 @@ var Post_BillingSchedules_cmd = &cobra.Command{
 	}
 
 var Post_BillingTypes_cmd = &cobra.Command{
-		Aliases: []string{  "BT",  "billingtypes",  "bt",  },
 		Use: `BillingTypes {"AutoBillingIndicator":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Billing Type`,
 		Long:  `Create a new Billing Type.`,
@@ -647,7 +618,6 @@ var Post_BillingTypes_cmd = &cobra.Command{
 	}
 
 var Post_BookingCategories_cmd = &cobra.Command{
-		Aliases: []string{  "BC",  "bc",  "bookingcategories",  },
 		Use: `BookingCategories {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Booking Category`,
 		Long:  `Create a new Booking Category.`,
@@ -668,7 +638,6 @@ var Post_BookingCategories_cmd = &cobra.Command{
 	}
 
 var Post_BookingTemplates_cmd = &cobra.Command{
-		Aliases: []string{  "BT",  "bookingtemplates",  "bt",  },
 		Use: `BookingTemplates {"Assignments":[{"Id":123},...],"Category":{"Id":123},"ConfirmationText":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Notes":"string","OverrideTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Booking Template`,
 		Long:  `Create a new Booking Template`,
@@ -689,7 +658,6 @@ var Post_BookingTemplates_cmd = &cobra.Command{
 	}
 
 var Post_Bookings_cmd = &cobra.Command{
-		Aliases: []string{  "B",  "b",  "bookings",  },
 		Use: `Bookings {"Assignments":[{"Id":123},...],"BookingSource":123,"Category":{"Id":123},"ConfirmationText":"string","Context":{},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultCount":123,"DefaultDateTime":"2000-01-01T00:00:00.000Z","DefaultDuration":123,"Description":"string","EditIndicator":true,"Id":123,"Notes":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Booking`,
 		Long:  `Create a new Booking`,
@@ -715,7 +683,6 @@ var Post_Bookings_cmd = &cobra.Command{
 	}
 
 var Post_BulkCopySets_cmd = &cobra.Command{
-		Aliases: []string{  "BCS",  "bcs",  "bulkcopysets",  },
 		Use: `BulkCopySets {"AvailableForSaleIndicator":true,"ControlGroup":{"Id":123},"CopyCredits":true,"CopyNotes":true,"CopyOffers":true,"CopyPriceEvents":true,"CopyPrices":true,"CreateFriday":true,"CreateFromDateTime":"2000-01-01T00:00:00.000Z","CreateLocation":"string","CreateMode":"string","CreateMonday":true,"CreateSaturday":true,"CreateSunday":true,"CreateThursday":true,"CreateToDateTime":"2000-01-01T00:00:00.000Z","CreateTuesday":true,"CreateWednesday":true,"CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultRelativeDates":"string","Id":123,"Inactive":true,"OverrideOnSale":true,"PackageCode":"string","PackageCodeSeed":123,"PackageModeOfSaleRelativeDates":"string","PerformanceCode":"string","PerformanceCodeSeed":123,"PerformanceDescription":"string","PerformanceModeOfSaleRelativeDates":"string","PerformanceStatus":{"Id":123},"PerformanceTime":"string","PerformanceType":{"Id":123},"PriceEventRelativeDates":"string","PriceTypeRelativeDates":"string","ProductionSeason":{"Id":123},"PublishRelativeDates":"string","ReferenceDay":"2000-01-01T00:00:00.000Z","ReferencePerformanceId":123,"ReferenceSeasonString":"string","SetDescription":"string","SetType":123,"ShortName":"string","TimeSlot":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Creates a new bulk copy set`,
 		Long:  `Creates a new bulk copy set.`,
@@ -743,7 +710,6 @@ var Post_BulkCopySets_cmd = &cobra.Command{
 	}
 
 var Post_BulkDailyCopyExclusions_cmd = &cobra.Command{
-		Aliases: []string{  "BDCE",  "bdce",  "bulkdailycopyexclusions",  },
 		Use: `BulkDailyCopyExclusions {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DoNotCopy":true,"Id":123,"IncludeWithoutCopy":true,"PackageId":123,"PerformanceId":123,"SetId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Creates a bulk daily copy exclusion`,
 		Long:  `Creates a bulk daily copy exclusion.`,
@@ -764,7 +730,6 @@ var Post_BulkDailyCopyExclusions_cmd = &cobra.Command{
 	}
 
 var Post_BusinessUnits_cmd = &cobra.Command{
-		Aliases: []string{  "BU",  "bu",  "businessunits",  },
 		Use: `BusinessUnits {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new business unit`,
 		Long:  `Create a new business unit.`,
@@ -785,7 +750,6 @@ var Post_BusinessUnits_cmd = &cobra.Command{
 	}
 
 var Post_CampaignDesignations_cmd = &cobra.Command{
-		Aliases: []string{  "CD",  "campaigndesignations",  "cd",  },
 		Use: `CampaignDesignations {"Campaign":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultIndicator":true,"Designation":{"Id":123},"EditIndicator":true,"GoalAmount":123.456,"Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new association between a Designation and a Campaign`,
 		Long:  `Create a new association between a Designation and a Campaign.`,
@@ -806,7 +770,6 @@ var Post_CampaignDesignations_cmd = &cobra.Command{
 	}
 
 var Post_CampaignFunds_cmd = &cobra.Command{
-		Aliases: []string{  "CF",  "campaignfunds",  "cf",  },
 		Use: `CampaignFunds {"Campaign":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"EndDateTime":"2000-01-01T00:00:00.000Z","Fund":{"Id":123},"GoalAmount":123.456,"Id":123,"StartDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Fund association to a Campaign`,
 		Long:  `Create a new Fund association to a Campaign.`,
@@ -827,7 +790,6 @@ var Post_CampaignFunds_cmd = &cobra.Command{
 	}
 
 var Post_CardReaderTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CRT",  "cardreadertypes",  "crt",  },
 		Use: `CardReaderTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Card Reader Type`,
 		Long:  `Create a new Card Reader Type.`,
@@ -848,7 +810,6 @@ var Post_CardReaderTypes_cmd = &cobra.Command{
 	}
 
 var Post_Cart_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "cart",  },
 		Use: `Cart {"BookingId":123,"SessionKey":"string"}`,
 		Short: `Attach an existing booking to the cart`,
 		Long:  `Attach an existing booking to the cart.`,
@@ -930,7 +891,6 @@ var Post_Cart_cmd = &cobra.Command{
 	}
 
 var Post_Colors_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "colors",  },
 		Use: `Colors {"ColorValue":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new color`,
 		Long:  `Create a new color.`,
@@ -951,7 +911,6 @@ var Post_Colors_cmd = &cobra.Command{
 	}
 
 var Post_Composers_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "composers",  },
 		Use: `Composers {"Bio":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","FirstName":"string","Id":123,"Inactive":true,"LastName":"string","MiddleName":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new composer`,
 		Long:  `Create a new composer.`,
@@ -972,7 +931,6 @@ var Post_Composers_cmd = &cobra.Command{
 	}
 
 var Post_Constituencies_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "constituencies",  },
 		Use: `Constituencies {"ConstituencyType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"EndDate":"2000-01-01T00:00:00.000Z","Id":123,"StartDate":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new constituency`,
 		Long:  `Create a new constituency.`,
@@ -993,7 +951,6 @@ var Post_Constituencies_cmd = &cobra.Command{
 	}
 
 var Post_ConstituencyTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CT",  "constituencytypes",  "ct",  },
 		Use: `ConstituencyTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rank":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new constituency type`,
 		Long:  `Create a new constituency type.`,
@@ -1014,7 +971,6 @@ var Post_ConstituencyTypes_cmd = &cobra.Command{
 	}
 
 var Post_ConstituentDocuments_cmd = &cobra.Command{
-		Aliases: []string{  "CD",  "cd",  "constituentdocuments",  },
 		Use: `ConstituentDocuments {"Category":{"Id":123},"ConstituentId":123,"Contents":"AA==","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","FileName":"string","Id":123,"Notes":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create document for a constituent`,
 		Long:  `Create document for a constituent.`,
@@ -1035,7 +991,6 @@ var Post_ConstituentDocuments_cmd = &cobra.Command{
 	}
 
 var Post_ConstituentGroups_cmd = &cobra.Command{
-		Aliases: []string{  "CG",  "cg",  "constituentgroups",  },
 		Use: `ConstituentGroups {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new constituent group`,
 		Long:  `Create a new constituent group.`,
@@ -1056,7 +1011,6 @@ var Post_ConstituentGroups_cmd = &cobra.Command{
 	}
 
 var Post_ConstituentInactives_cmd = &cobra.Command{
-		Aliases: []string{  "CI",  "ci",  "constituentinactives",  },
 		Use: `ConstituentInactives {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new constituent inactive`,
 		Long:  `Create a new constituent inactive.`,
@@ -1077,7 +1031,6 @@ var Post_ConstituentInactives_cmd = &cobra.Command{
 	}
 
 var Post_ConstituentProtectionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CPT",  "constituentprotectiontypes",  "cpt",  },
 		Use: `ConstituentProtectionTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new constituent protection type`,
 		Long:  `Create a new constituent protection type.`,
@@ -1098,7 +1051,6 @@ var Post_ConstituentProtectionTypes_cmd = &cobra.Command{
 	}
 
 var Post_ConstituentTypeAffiliates_cmd = &cobra.Command{
-		Aliases: []string{  "CTA",  "constituenttypeaffiliates",  "cta",  },
 		Use: `ConstituentTypeAffiliates {"AffiliationType":{"Id":123},"ConstituentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","HouseholdPrimary":true,"Id":123,"Rank":123,"ShowWithGroup":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new constituent type affiliate`,
 		Long:  `Create a new constituent type affiliate.`,
@@ -1119,7 +1071,6 @@ var Post_ConstituentTypeAffiliates_cmd = &cobra.Command{
 	}
 
 var Post_ConstituentTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CT",  "constituenttypes",  "ct",  },
 		Use: `ConstituentTypes {"AddressTypeId":123,"ConstituentGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultAffiliatedConstituentTypeId":123,"DefaultAffiliationTypeId":123,"DefaultIndicator":true,"DefaultSalutationId":123,"Description":"string","ElectronicAddressTypeId":123,"GiftAidIndicator":true,"Id":123,"Inactive":true,"LoginTypeId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new constituent type`,
 		Long:  `Create a new constituent type.`,
@@ -1140,7 +1091,6 @@ var Post_ConstituentTypes_cmd = &cobra.Command{
 	}
 
 var Post_Constituents_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "constituents",  },
 		Use: `Constituents {"Addresses":[{"Id":123},...],"ConstituentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DisplayName":"string","ElectronicAddresses":[{"Id":123},...],"EmarketIndicator":{"Id":123},"FirstName":"string","Gender":{"Id":123},"Id":123,"Inactive":{"Id":123},"InactiveReason":{"Id":123},"LastActivityDate":"2000-01-01T00:00:00.000Z","LastGiftDate":"2000-01-01T00:00:00.000Z","LastName":"string","LastTicketDate":"2000-01-01T00:00:00.000Z","MailIndicator":{"Id":123},"MiddleName":"string","NameStatus":{"Id":123},"OriginalSource":{"Id":123},"PhoneIndicator":{"Id":123},"PhoneNumbers":[{"Id":123},...],"Prefix":{"Id":123},"ProtectionType":{"Id":123},"Salutations":[{"Id":123},...],"SortName":"string","Suffix":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new constituent with addresses`,
 		Long:  `Create a new constituent with addresses, electronicAddresses, salutations and phones.`,
@@ -1178,7 +1128,6 @@ var Post_Constituents_cmd = &cobra.Command{
 	}
 
 var Post_ContactPermissionCategories_cmd = &cobra.Command{
-		Aliases: []string{  "CPC",  "contactpermissioncategories",  "cpc",  },
 		Use: `ContactPermissionCategories {"AskFrequencyMonths":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new contact permission category`,
 		Long:  `Create a new contact permission category.`,
@@ -1199,7 +1148,6 @@ var Post_ContactPermissionCategories_cmd = &cobra.Command{
 	}
 
 var Post_ContactPermissionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CPT",  "contactpermissiontypes",  "cpt",  },
 		Use: `ContactPermissionTypes {"Category":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultValueForAdd":"string","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Presenter":true,"Rank":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new contact permission type`,
 		Long:  `Create a new contact permission type.`,
@@ -1220,7 +1168,6 @@ var Post_ContactPermissionTypes_cmd = &cobra.Command{
 	}
 
 var Post_ContactPermissions_cmd = &cobra.Command{
-		Aliases: []string{  "CP",  "contactpermissions",  "cp",  },
 		Use: `ContactPermissions {"Answer":"string","Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"LastAskedDateTime":"2000-01-01T00:00:00.000Z","ShouldAsk":true,"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new contact permission`,
 		Long:  `Create a new contact permission`,
@@ -1244,7 +1191,6 @@ var Post_ContactPermissions_cmd = &cobra.Command{
 	}
 
 var Post_ContactPointCategories_cmd = &cobra.Command{
-		Aliases: []string{  "CPC",  "contactpointcategories",  "cpc",  },
 		Use: `ContactPointCategories {"ContactPointKey":"string","ContactPointTable":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new contact point category`,
 		Long:  `Create a new contact point category.`,
@@ -1265,7 +1211,6 @@ var Post_ContactPointCategories_cmd = &cobra.Command{
 	}
 
 var Post_ContactPointCategoryPurposes_cmd = &cobra.Command{
-		Aliases: []string{  "CPCP",  "contactpointcategorypurposes",  "cpcp",  },
 		Use: `ContactPointCategoryPurposes {"ContactPointCategory":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Purpose":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new contact point category purpose`,
 		Long:  `Create a new contact point category purpose.`,
@@ -1286,7 +1231,6 @@ var Post_ContactPointCategoryPurposes_cmd = &cobra.Command{
 	}
 
 var Post_ContactPointPurposeCategories_cmd = &cobra.Command{
-		Aliases: []string{  "CPPC",  "contactpointpurposecategories",  "cppc",  },
 		Use: `ContactPointPurposeCategories {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new contact point purpose category`,
 		Long:  `Create a new contact point purpose category.`,
@@ -1307,7 +1251,6 @@ var Post_ContactPointPurposeCategories_cmd = &cobra.Command{
 	}
 
 var Post_ContactPointPurposeMaps_cmd = &cobra.Command{
-		Aliases: []string{  "CPPM",  "contactpointpurposemaps",  "cppm",  },
 		Use: `ContactPointPurposeMaps {"ContactPoint":{"Id":123},"ContactPointCategory":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Purpose":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new contact point purpose`,
 		Long:  `Create a new contact point purpose.`,
@@ -1328,7 +1271,6 @@ var Post_ContactPointPurposeMaps_cmd = &cobra.Command{
 	}
 
 var Post_ContactPointPurposes_cmd = &cobra.Command{
-		Aliases: []string{  "CPP",  "contactpointpurposes",  "cpp",  },
 		Use: `ContactPointPurposes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PurposeCategory":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new contact point purpose`,
 		Long:  `Create a new contact point purpose.`,
@@ -1349,7 +1291,6 @@ var Post_ContactPointPurposes_cmd = &cobra.Command{
 	}
 
 var Post_ContactTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CT",  "contacttypes",  "ct",  },
 		Use: `ContactTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new contact type`,
 		Long:  `Create a new contact type.`,
@@ -1370,7 +1311,6 @@ var Post_ContactTypes_cmd = &cobra.Command{
 	}
 
 var Post_ContributionDesignations_cmd = &cobra.Command{
-		Aliases: []string{  "CD",  "cd",  "contributiondesignations",  },
 		Use: `ContributionDesignations {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"LetterText":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new contribution designation`,
 		Long:  `Create a new contribution designation.`,
@@ -1391,7 +1331,6 @@ var Post_ContributionDesignations_cmd = &cobra.Command{
 	}
 
 var Post_ContributionImportSets_cmd = &cobra.Command{
-		Aliases: []string{  "CIS",  "cis",  "contributionimportsets",  },
 		Use: `ContributionImportSets {"AccountMatchKeyword":{"Id":123},"AcknowledgmentLetterMode":123,"BatchType":{"Id":123},"BillingSchedule":{"Id":123},"BillingType":{"Id":123},"Campaign":{"Id":123},"ContributionDateTime":"2000-01-01T00:00:00.000Z","ContributionPayMode":123,"CreateLocation":"string","CreatePotentialDuplicate":true,"CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CrediteeMode":123,"CrediteeType":{"Id":123},"DefaultConstituentType":{"Id":123},"DefaultCountryCode":"string","DefaultHouseholdConstituentType":{"Id":123},"DefaultOriginalSource":{"Id":123},"Description":"string","Designation":{"Id":123},"FilePath":"string","FormatFile":"string","Fund":{"Id":123},"Id":123,"ImportRefNoLocation":123,"Inactive":true,"PaymentMethod":{"Id":123},"SalesChannel":{"Id":123},"Source":{"Id":123},"StripPhoneFormatting":true,"TransactAsHousehold":true,"TransactAsHouseholdCreditee":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Worker":{"Id":123}}`,
 		Short: `Create a new contributionImportSet`,
 		Long:  `Create a new contributionImportSet.`,
@@ -1412,7 +1351,6 @@ var Post_ContributionImportSets_cmd = &cobra.Command{
 	}
 
 var Post_Contributions_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "contributions",  },
 		Use: `Contributions {"AccountId":123,"AppealId":123,"BatchId":123,"BillingAccount":"string","BillingTypeId":123,"BusinessUnitId":123,"Campaign":{"Id":123},"Cancel":"string","Channel":{"Id":123},"Constituent":{"Id":123},"ContributionAmount":123.456,"ContributionDateTime":"2000-01-01T00:00:00.000Z","ContributionDesignation":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Custom0":"string","Custom1":"string","Custom2":"string","Custom3":"string","Custom4":"string","Custom5":"string","Custom6":"string","Custom7":"string","Custom8":"string","Custom9":"string","EditIndicator":true,"Fund":{"Id":123},"Id":123,"Initiator":{"Id":123},"KindGiftDescription":"string","KindGiftTransferDateTime":"2000-01-01T00:00:00.000Z","MatchIndicator":"string","MatchingContributionId":123,"MediaType":{"Id":123},"MirrorLock":123,"Notes":"string","PaymentEndDateTime":"2000-01-01T00:00:00.000Z","PaymentStartDateTime":"2000-01-01T00:00:00.000Z","Plan":{"Id":123},"PledgeStatusId":123,"ReceivedAmount":123.456,"Solicitor":"string","SourceId":123,"Type":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `This resource is currently strictly for interceptor plugin use`,
 		Long:  `This resource is currently strictly for interceptor plugin use. This is called any time a new contribution is saved from the contribution editor in the client application. Only Id (ref_no) is provided in the request content.`,
@@ -1433,7 +1371,6 @@ var Post_Contributions_cmd = &cobra.Command{
 	}
 
 var Post_ControlGroupUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "CGUG",  "cgug",  "controlgroupusergroups",  },
 		Use: `ControlGroupUserGroups {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultIndicator":true,"EditIndicator":true,"Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string"}`,
 		Short: `Create a new control group/user group mapping`,
 		Long:  `Create a new control group/user group mapping.`,
@@ -1454,7 +1391,6 @@ var Post_ControlGroupUserGroups_cmd = &cobra.Command{
 	}
 
 var Post_ControlGroups_cmd = &cobra.Command{
-		Aliases: []string{  "CG",  "cg",  "controlgroups",  },
 		Use: `ControlGroups {"CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Permission":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new control group`,
 		Long:  `Create a new control group.`,
@@ -1475,7 +1411,6 @@ var Post_ControlGroups_cmd = &cobra.Command{
 	}
 
 var Post_CoreIdentity_cmd = &cobra.Command{
-		Aliases: []string{  "CI",  "ci",  "coreidentity",  },
 		Use: `CoreIdentity {"Body":"string","Headers":[{"Name":"string","Value":"string"},...],"Method":"string","Path":"string","QueryParameters":[{"Name":"string","Value":"string"},...]}`,
 		Short: ``,
 		Long:  ``,
@@ -1496,7 +1431,6 @@ var Post_CoreIdentity_cmd = &cobra.Command{
 	}
 
 var Post_Countries_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "countries",  },
 		Use: `Countries {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DecimalSeparator":"string","Description":"string","Id":123,"Inactive":true,"IsoAlpha2Code":"string","IsoAlpha3Code":"string","PhoneCode":"string","PhoneEditstring":"string","PhoneMask":"string","PhoneValidLengths":"string","ReqCity":true,"ReqPcode":true,"ShortDesc":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseAvs":"string","UseStateField":"string","ZipEditstring":"string","ZipMask":"string","ZipValidLengths":"string"}`,
 		Short: `Create a new country`,
 		Long:  `Create a new country.`,
@@ -1517,7 +1451,6 @@ var Post_Countries_cmd = &cobra.Command{
 	}
 
 var Post_CrediteeTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CT",  "crediteetypes",  "ct",  },
 		Use: `CrediteeTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CreditMembershipIndicator":true,"Description":"string","GiftAidIndicator":true,"Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new crediteeType`,
 		Long:  `Create a new crediteeType.`,
@@ -1538,7 +1471,6 @@ var Post_CrediteeTypes_cmd = &cobra.Command{
 	}
 
 var Post_CurrencyTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CT",  "ct",  "currencytypes",  },
 		Use: `CurrencyTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rate":123.456,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new currency type`,
 		Long:  `Create a new currency type.`,
@@ -1559,7 +1491,6 @@ var Post_CurrencyTypes_cmd = &cobra.Command{
 	}
 
 var Post_Custom_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "custom",  },
 		Use: `Custom {"ParameterValues":[{"Name":"string","Value":"string"},...],"Parameters":"string","ProcedureId":123,"ProcedureName":"string"}`,
 		Short: `Executes a local procedure defined in TR_LOCAL_PROCEDURE`,
 		Long:  `Executes a local procedure defined in TR_LOCAL_PROCEDURE. This will only return a collection of the first result set in a registered procedure.  For the result set, null values in each data row are not returned as properties.`,
@@ -1583,7 +1514,6 @@ var Post_Custom_cmd = &cobra.Command{
 	}
 
 var Post_CustomDefaultCategories_cmd = &cobra.Command{
-		Aliases: []string{  "CDC",  "cdc",  "customdefaultcategories",  },
 		Use: `CustomDefaultCategories {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new custom default category`,
 		Long:  `Create a new custom default category.`,
@@ -1604,7 +1534,6 @@ var Post_CustomDefaultCategories_cmd = &cobra.Command{
 	}
 
 var Post_CustomDefaults_cmd = &cobra.Command{
-		Aliases: []string{  "CD",  "cd",  "customdefaults",  },
 		Use: `CustomDefaults {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CustomDefaultCategory":{"Id":123},"DefaultValue":"string","Description":"string","FieldName":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new custom default`,
 		Long:  `Create a new custom default.`,
@@ -1625,7 +1554,6 @@ var Post_CustomDefaults_cmd = &cobra.Command{
 	}
 
 var Post_DeliveryMethods_cmd = &cobra.Command{
-		Aliases: []string{  "DM",  "deliverymethods",  "dm",  },
 		Use: `DeliveryMethods {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PrintAtHome":true,"RequireAddress":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new delivery method`,
 		Long:  `Create a new delivery method.`,
@@ -1646,7 +1574,6 @@ var Post_DeliveryMethods_cmd = &cobra.Command{
 	}
 
 var Post_DesignationCodes_cmd = &cobra.Command{
-		Aliases: []string{  "DC",  "dc",  "designationcodes",  },
 		Use: `DesignationCodes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new designation code`,
 		Long:  `Create a new designation code.`,
@@ -1667,7 +1594,6 @@ var Post_DesignationCodes_cmd = &cobra.Command{
 	}
 
 var Post_Diagnostics_cmd = &cobra.Command{
-		Aliases: []string{  "D",  "d",  "diagnostics",  },
 		Use: `Diagnostics {"ServerName":"string"}`,
 		Short: `Check connection information`,
 		Long:  `Check connection information.`,
@@ -1688,7 +1614,6 @@ var Post_Diagnostics_cmd = &cobra.Command{
 	}
 
 var Post_DirectDebitAccountTypes_cmd = &cobra.Command{
-		Aliases: []string{  "DDAT",  "ddat",  "directdebitaccounttypes",  },
 		Use: `DirectDebitAccountTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new direct debit account type`,
 		Long:  `Create a new direct debit account type.`,
@@ -1709,7 +1634,6 @@ var Post_DirectDebitAccountTypes_cmd = &cobra.Command{
 	}
 
 var Post_DiscountTypes_cmd = &cobra.Command{
-		Aliases: []string{  "DT",  "discounttypes",  "dt",  },
 		Use: `DiscountTypes {"Amount":123.456,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PercentIndicator":true,"RespectMinimumPrice":true,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new discount type`,
 		Long:  `Create a new discount type.`,
@@ -1730,7 +1654,6 @@ var Post_DiscountTypes_cmd = &cobra.Command{
 	}
 
 var Post_DocumentCategories_cmd = &cobra.Command{
-		Aliases: []string{  "DC",  "dc",  "documentcategories",  },
 		Use: `DocumentCategories {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"ParentTableName":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new documentCategory`,
 		Long:  `Create a new documentCategory.`,
@@ -1751,7 +1674,6 @@ var Post_DocumentCategories_cmd = &cobra.Command{
 	}
 
 var Post_DonationLevels_cmd = &cobra.Command{
-		Aliases: []string{  "DL",  "dl",  "donationlevels",  },
 		Use: `DonationLevels {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"ProgramType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new donation level`,
 		Long:  `Create a new donation level.`,
@@ -1772,7 +1694,6 @@ var Post_DonationLevels_cmd = &cobra.Command{
 	}
 
 var Post_EMV_cmd = &cobra.Command{
-		Aliases: []string{  "emv",  },
 		Use: `EMV {"Amount":123.456,"BillingAddress":{"AddressId":123,"Country":"string","PostalCode":"string","Street1":"string"},"ConstituentId":123,"IsMoto":true,"MachineId":123,"PaymentId":123,"StoreAccount":true,"TransactionOrigin":"string","UserData":"string"}`,
 		Short: `Authorize a payment via a Payment Express HIT`,
 		Long:  `Authorize a payment via a Payment Express HIT, TriPOSCloud, or Adyen device.`,
@@ -1800,7 +1721,6 @@ var Post_EMV_cmd = &cobra.Command{
 	}
 
 var Post_ElectronicAddressTypes_cmd = &cobra.Command{
-		Aliases: []string{  "EAT",  "eat",  "electronicaddresstypes",  },
 		Use: `ElectronicAddressTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"IsEmail":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new electronic address type`,
 		Long:  `Create a new electronic address type.`,
@@ -1821,7 +1741,6 @@ var Post_ElectronicAddressTypes_cmd = &cobra.Command{
 	}
 
 var Post_ElectronicAddresses_cmd = &cobra.Command{
-		Aliases: []string{  "EA",  "ea",  "electronicaddresses",  },
 		Use: `ElectronicAddresses {"Address":"string","AffiliatedConstituent":{"Id":123},"AllowHtmlFormat":true,"AllowMarketing":true,"AltSalutationType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"ElectronicAddressType":{"Id":123},"EndDate":"2000-01-01T00:00:00.000Z","Id":123,"Inactive":true,"IsEmail":true,"IsFromAffiliation":true,"Months":"string","PrimaryIndicator":true,"StartDate":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new electronic address`,
 		Long:  `Create a new electronic address.`,
@@ -1845,7 +1764,6 @@ var Post_ElectronicAddresses_cmd = &cobra.Command{
 	}
 
 var Post_EmailProfiles_cmd = &cobra.Command{
-		Aliases: []string{  "EP",  "emailprofiles",  "ep",  },
 		Use: `EmailProfiles {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EmailBcc":"string","EmailCc":"string","EmailDefaultSubject":"string","EmailFrom":"string","Id":123,"Inactive":true,"SMTPPassword":"string","SMTPPort":123,"SMTPServer":"string","SMTPUserName":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseSsl":true}`,
 		Short: `Create a new email profile`,
 		Long:  `Create a new email profile`,
@@ -1866,7 +1784,6 @@ var Post_EmailProfiles_cmd = &cobra.Command{
 	}
 
 var Post_EmailResponses_cmd = &cobra.Command{
-		Aliases: []string{  "ER",  "emailresponses",  "er",  },
 		Use: `EmailResponses {"ConstituentId":123,"DownloadNumber":123,"EventDateTime":"2000-01-01T00:00:00.000Z","EventName":"string"}`,
 		Short: `Updates an appeal with customer data in response to an email event`,
 		Long:  `Updates an appeal with customer data in response to an email event. EventName should be one of open, click, hard-bounce, soft-bounce or opt-out.`,
@@ -1887,7 +1804,6 @@ var Post_EmailResponses_cmd = &cobra.Command{
 	}
 
 var Post_Emails_cmd = &cobra.Command{
-		Aliases: []string{  "E",  "e",  "emails",  },
 		Use: `Emails {"Attachments":[{"Name":"string"},...],"DuplicateBodyAsAttachment":true,"DuplicateBodyAttachmentName":"string","EmailProfileId":123,"EmbeddedImages":[{"MediaType":"string","Name":"string"},...],"FromAddress":"string","HtmlBody":"string","PlainTextBody":"string","RecipientAddress":"string","Subject":"string"}`,
 		Short: `Sends an email via SMTP`,
 		Long:  `Sends an email via SMTP`,
@@ -1917,7 +1833,6 @@ var Post_Emails_cmd = &cobra.Command{
 	}
 
 var Post_EmarketIndicators_cmd = &cobra.Command{
-		Aliases: []string{  "EI",  "ei",  "emarketindicators",  },
 		Use: `EmarketIndicators {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new emarket indicator`,
 		Long:  `Create a new emarket indicator.`,
@@ -1938,7 +1853,6 @@ var Post_EmarketIndicators_cmd = &cobra.Command{
 	}
 
 var Post_Eras_cmd = &cobra.Command{
-		Aliases: []string{  "E",  "e",  "eras",  },
 		Use: `Eras {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new era`,
 		Long:  `Create a new era.`,
@@ -1959,7 +1873,6 @@ var Post_Eras_cmd = &cobra.Command{
 	}
 
 var Post_Facilities_cmd = &cobra.Command{
-		Aliases: []string{  "F",  "f",  "facilities",  },
 		Use: `Facilities {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultBestSeatMapId":123,"DefaultZoneMapId":123,"Description":"string","Id":123,"SeatMap":{"Id":123},"Theater":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Facility`,
 		Long:  `Create a new Facility.`,
@@ -1980,7 +1893,6 @@ var Post_Facilities_cmd = &cobra.Command{
 	}
 
 var Post_Genders_cmd = &cobra.Command{
-		Aliases: []string{  "G",  "g",  "genders",  },
 		Use: `Genders {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultPrefix":{"Id":123},"Description":"string","Id":123,"Inactive":true,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new gender`,
 		Long:  `Create a new gender.`,
@@ -2001,7 +1913,6 @@ var Post_Genders_cmd = &cobra.Command{
 	}
 
 var Post_GiftAidContactMethods_cmd = &cobra.Command{
-		Aliases: []string{  "GACM",  "gacm",  "giftaidcontactmethods",  },
 		Use: `GiftAidContactMethods {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new gift aid contact method`,
 		Long:  `Create a new gift aid contact method.`,
@@ -2022,7 +1933,6 @@ var Post_GiftAidContactMethods_cmd = &cobra.Command{
 	}
 
 var Post_GiftAidDeclarations_cmd = &cobra.Command{
-		Aliases: []string{  "GAD",  "gad",  "giftaiddeclarations",  },
 		Use: `GiftAidDeclarations {"ConfirmDateTime":"2000-01-01T00:00:00.000Z","Constituent":{"Id":123},"ContactMethod":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DocumentStatus":{"Id":123},"EligibleIndicator":true,"EndDateTime":"2000-01-01T00:00:00.000Z","GiftAidType":{"Id":123},"Id":123,"IneligibleReason":{"Id":123},"Notes":"string","ReceivedDateTime":"2000-01-01T00:00:00.000Z","StartDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Creates a Gift Aid Declaration`,
 		Long:  `Creates a Gift Aid Declaration.`,
@@ -2043,7 +1953,6 @@ var Post_GiftAidDeclarations_cmd = &cobra.Command{
 	}
 
 var Post_GiftAidDocumentStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "GADS",  "gads",  "giftaiddocumentstatuses",  },
 		Use: `GiftAidDocumentStatuses {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new gift aid document status`,
 		Long:  `Create a new gift aid document status.`,
@@ -2064,7 +1973,6 @@ var Post_GiftAidDocumentStatuses_cmd = &cobra.Command{
 	}
 
 var Post_GiftAidIneligibleReasons_cmd = &cobra.Command{
-		Aliases: []string{  "GAIR",  "gair",  "giftaidineligiblereasons",  },
 		Use: `GiftAidIneligibleReasons {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new gift aid ineligible reason`,
 		Long:  `Create a new gift aid ineligible reason.`,
@@ -2085,7 +1993,6 @@ var Post_GiftAidIneligibleReasons_cmd = &cobra.Command{
 	}
 
 var Post_GiftAidRates_cmd = &cobra.Command{
-		Aliases: []string{  "GAR",  "gar",  "giftaidrates",  },
 		Use: `GiftAidRates {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EndDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Rate":123.456,"StartDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new gift aid rate`,
 		Long:  `Create a new gift aid rate.`,
@@ -2106,7 +2013,6 @@ var Post_GiftAidRates_cmd = &cobra.Command{
 	}
 
 var Post_GiftAidStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "GAS",  "gas",  "giftaidstatuses",  },
 		Use: `GiftAidStatuses {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new gift aid status`,
 		Long:  `Create a new gift aid status.`,
@@ -2127,7 +2033,6 @@ var Post_GiftAidStatuses_cmd = &cobra.Command{
 	}
 
 var Post_GiftAidTypes_cmd = &cobra.Command{
-		Aliases: []string{  "GAT",  "gat",  "giftaidtypes",  },
 		Use: `GiftAidTypes {"CharityClaimsRef":"string","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new gift aid type`,
 		Long:  `Create a new gift aid type.`,
@@ -2148,7 +2053,6 @@ var Post_GiftAidTypes_cmd = &cobra.Command{
 	}
 
 var Post_GiftCertificates_cmd = &cobra.Command{
-		Aliases: []string{  "GC",  "gc",  "giftcertificates",  },
 		Use: `GiftCertificates {"BatchId":123,"LockForBatch":true,"Number":"string","PaymentMethodId":123}`,
 		Short: `Get transaction details for a gift certificate and lock it for redemption in a specific batch`,
 		Long:  `Get transaction details for a gift certificate and lock it for redemption in a specific batch.`,
@@ -2172,7 +2076,6 @@ var Post_GiftCertificates_cmd = &cobra.Command{
 	}
 
 var Post_HoldCodeCategories_cmd = &cobra.Command{
-		Aliases: []string{  "HCC",  "hcc",  "holdcodecategories",  },
 		Use: `HoldCodeCategories {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Hold Code Category`,
 		Long:  `Create a new Hold Code Category.`,
@@ -2193,7 +2096,6 @@ var Post_HoldCodeCategories_cmd = &cobra.Command{
 	}
 
 var Post_HoldCodeUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "HCUG",  "hcug",  "holdcodeusergroups",  },
 		Use: `HoldCodeUserGroups {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","HoldCode":{"Id":123},"Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string"}`,
 		Short: `Create a new hold code/user group mapping`,
 		Long:  `Create a new hold code/user group mapping.`,
@@ -2214,7 +2116,6 @@ var Post_HoldCodeUserGroups_cmd = &cobra.Command{
 	}
 
 var Post_HoldCodes_cmd = &cobra.Command{
-		Aliases: []string{  "HC",  "hc",  "holdcodes",  },
 		Use: `HoldCodes {"BlackoutIndicator":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Legend":"string","Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a Hold Code`,
 		Long:  `Create a Hold Code.`,
@@ -2235,7 +2136,6 @@ var Post_HoldCodes_cmd = &cobra.Command{
 	}
 
 var Post_InactiveReasons_cmd = &cobra.Command{
-		Aliases: []string{  "IR",  "inactivereasons",  "ir",  },
 		Use: `InactiveReasons {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new inactive reason`,
 		Long:  `Create a new inactive reason.`,
@@ -2256,7 +2156,6 @@ var Post_InactiveReasons_cmd = &cobra.Command{
 	}
 
 var Post_IntegrationDefaults_cmd = &cobra.Command{
-		Aliases: []string{  "ID",  "id",  "integrationdefaults",  },
 		Use: `IntegrationDefaults {"AccessId":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultValue":"string","Description":"string","FieldName":"string","Id":123,"Integration":{"Id":123},"Organization":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Integration Default`,
 		Long:  `Create a new Integration Default.`,
@@ -2277,7 +2176,6 @@ var Post_IntegrationDefaults_cmd = &cobra.Command{
 	}
 
 var Post_Integrations_cmd = &cobra.Command{
-		Aliases: []string{  "I",  "i",  "integrations",  },
 		Use: `Integrations {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new action type`,
 		Long:  `Create a new action type.`,
@@ -2298,7 +2196,6 @@ var Post_Integrations_cmd = &cobra.Command{
 	}
 
 var Post_InterestCategories_cmd = &cobra.Command{
-		Aliases: []string{  "IC",  "ic",  "interestcategories",  },
 		Use: `InterestCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new interest category`,
 		Long:  `Create a new interest category.`,
@@ -2319,7 +2216,6 @@ var Post_InterestCategories_cmd = &cobra.Command{
 	}
 
 var Post_InterestTypes_cmd = &cobra.Command{
-		Aliases: []string{  "IT",  "interesttypes",  "it",  },
 		Use: `InterestTypes {"Category":{"Id":123},"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"SearchIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UsedIn":"string"}`,
 		Short: `Create a new interest type`,
 		Long:  `Create a new interest type.`,
@@ -2340,7 +2236,6 @@ var Post_InterestTypes_cmd = &cobra.Command{
 	}
 
 var Post_Interests_cmd = &cobra.Command{
-		Aliases: []string{  "I",  "i",  "interests",  },
 		Use: `Interests {"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"InterestType":{"Id":123},"Selected":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Weight":123}`,
 		Short: `Create a new interest associating an interest type to a constituent`,
 		Long:  `Create a new interest associating an interest type to a constituent.
@@ -2365,7 +2260,6 @@ For bulk interest edits, consider the CRM/Interests/CreateOrUpdate batching reso
 	}
 
 var Post_Internal_cmd = &cobra.Command{
-		Aliases: []string{  "I",  "i",  "internal",  },
 		Use: `Internal {"AddressType":{"Id":123},"AffiliatedConstituent":{"Id":123},"AllowTelemarketing1":true,"AllowTelemarketing2":true,"AllowTelemarketing3":true,"AltSalutationType":{"Id":123},"City":"string","Constituent":{"Id":123},"Country":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DayEveningIndicator1":"string","DayEveningIndicator2":"string","DayEveningIndicator3":"string","DeliveryPoint":"string","EditIndicator":true,"EditIndicator1":true,"EditIndicator2":true,"EditIndicator3":true,"EndDate":"2000-01-01T00:00:00.000Z","GeoArea":123,"Id":123,"Inactive":true,"Label":true,"Months":"string","NcoaAction":123,"NcoaSession":123,"PhoneId1":123,"PhoneId2":123,"PhoneId3":123,"PhoneNumber1":"string","PhoneNumber1Formatted":"string","PhoneNumber2":"string","PhoneNumber2Formatted":"string","PhoneNumber3":"string","PhoneNumber3Formatted":"string","PhoneSearch1":"string","PhoneSearch2":"string","PhoneSearch3":"string","PostalCode":"string","PostalCodeFormatted":"string","PrimaryIndicator":true,"StartDate":"2000-01-01T00:00:00.000Z","State":{"Id":123},"Street1":"string","Street2":"string","Street3":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UpdatedDateTime1":"2000-01-01T00:00:00.000Z","UpdatedDateTime2":"2000-01-01T00:00:00.000Z","UpdatedDateTime3":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new address along with the phones and attach all the phones to the address`,
 		Long:  `Create a new address along with the phones and attach all the phones to the address. By default first phone is of phone type 1, second phone is of phone type 2 and third phone is of phone type 3.`,
@@ -2386,7 +2280,6 @@ var Post_Internal_cmd = &cobra.Command{
 	}
 
 var Post_InventoryContactPermissionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "ICPT",  "icpt",  "inventorycontactpermissiontypes",  },
 		Use: `InventoryContactPermissionTypes {"ContactPermissionType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"ProductionElementId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create an inventoryContactPermissionType`,
 		Long:  `Create an inventoryContactPermissionType.`,
@@ -2407,7 +2300,6 @@ var Post_InventoryContactPermissionTypes_cmd = &cobra.Command{
 	}
 
 var Post_InventoryWebContents_cmd = &cobra.Command{
-		Aliases: []string{  "IWC",  "inventorywebcontents",  "iwc",  },
 		Use: `InventoryWebContents {"ContentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"ProductionElementId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Value":"string"}`,
 		Short: `Create an inventoryWebContent`,
 		Long:  `Create an inventoryWebContent.`,
@@ -2428,7 +2320,6 @@ var Post_InventoryWebContents_cmd = &cobra.Command{
 	}
 
 var Post_InvoiceBilling_cmd = &cobra.Command{
-		Aliases: []string{  "IB",  "ib",  "invoicebilling",  },
 		Use: `InvoiceBilling {"AppealId":123,"BatchTypeId":123,"BillingTypeId":123,"BusinessUnitId":123,"CutoffDateTime":"2000-01-01T00:00:00.000Z","ElectronicAddressPurposeId":123,"ElectronicAddressTypeId":123,"EndDateTime":"2000-01-01T00:00:00.000Z","InvoiceEndDateTime":"2000-01-01T00:00:00.000Z","InvoiceStartDateTime":"2000-01-01T00:00:00.000Z","IsLabel":true,"ListId":123,"MailDateTime":"2000-01-01T00:00:00.000Z","MailTypeId":123,"MaxNumberOfBillsToPrint":123,"MediaTypeId":123,"MinAmount":123.456,"MinNumberOfBillsToPrint":123,"NewSourceDescription":"string","PaymentMethodGroupId":123,"PaymentMethodId":123,"RespectElectronicAddressMarketingFlag":true,"SalutationTypeId":123,"ShouldCollectAll":true,"ShouldUpdate":true,"StartDateTime":"2000-01-01T00:00:00.000Z","UserId":"string"}`,
 		Short: `Invoice billing`,
 		Long:  `Invoice billing`,
@@ -2449,7 +2340,6 @@ var Post_InvoiceBilling_cmd = &cobra.Command{
 	}
 
 var Post_Issues_cmd = &cobra.Command{
-		Aliases: []string{  "I",  "i",  "issues",  },
 		Use: `Issues {"ActivityType":{"Id":123},"Constituent":{"Id":123},"ContactType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"HasReminder":true,"Id":123,"IssueDate":"2000-01-01T00:00:00.000Z","Notes":"string","Origin":{"Id":123},"PackageId":123,"PerformanceId":123,"ResolvedIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UrgentIndicator":true}`,
 		Short: `Create an issue for a Constituent`,
 		Long:  `Create an issue for a Constituent`,
@@ -2470,7 +2360,6 @@ var Post_Issues_cmd = &cobra.Command{
 	}
 
 var Post_KeywordCategories_cmd = &cobra.Command{
-		Aliases: []string{  "KC",  "kc",  "keywordcategories",  },
 		Use: `KeywordCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new keyword category`,
 		Long:  `Create a new keyword category.`,
@@ -2491,7 +2380,6 @@ var Post_KeywordCategories_cmd = &cobra.Command{
 	}
 
 var Post_Keywords_cmd = &cobra.Command{
-		Aliases: []string{  "K",  "k",  "keywords",  },
 		Use: `Keywords {"Category":{"Id":123},"ConstituentType":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CustomDefaultValue":"string","CustomId":123,"CustomLimit":123,"CustomRequired":true,"DataType":"string","Description":"string","DetailColumn":"string","DetailTable":"string","EditIndicator":true,"EditMask":"string","ExtendedDescription":"string","FrequentUpdateDate":"2000-01-01T00:00:00.000Z","HelpText":"string","Id":123,"KeyColumn":"string","KeywordUse":"string","MultipleValue":true,"ParentKeyColumn":"string","ParentTable":"string","PrimaryGroupDefault":"string","ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","SortOrder":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseForSearch":true,"ValuesCodedIndicator":true}`,
 		Short: `Create a new keyword`,
 		Long:  `Create a new keyword.`,
@@ -2512,7 +2400,6 @@ var Post_Keywords_cmd = &cobra.Command{
 	}
 
 var Post_Languages_cmd = &cobra.Command{
-		Aliases: []string{  "L",  "l",  "languages",  },
 		Use: `Languages {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new language`,
 		Long:  `Create a new language.`,
@@ -2533,7 +2420,6 @@ var Post_Languages_cmd = &cobra.Command{
 	}
 
 var Post_ListCategories_cmd = &cobra.Command{
-		Aliases: []string{  "LC",  "lc",  "listcategories",  },
 		Use: `ListCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new list category`,
 		Long:  `Create a new list category.`,
@@ -2554,7 +2440,6 @@ var Post_ListCategories_cmd = &cobra.Command{
 	}
 
 var Post_Lists_cmd = &cobra.Command{
-		Aliases: []string{  "L",  "l",  "lists",  },
 		Use: `Lists {"AffiliatedIndividuals":123,"AnalyticsIndicator":true,"Category":{"Id":123},"ConstituentCount":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Criteria":[{"Id":123},...],"Description":"string","EditIndicator":true,"EditMode":"string","Generate":true,"Households":123,"Id":123,"Inactive":true,"Individuals":123,"IsDynamic":true,"LastUsedDateTime":"2000-01-01T00:00:00.000Z","ListSql":"string","Organizations":123,"OutputSet":{"Id":123},"RelationshipOptions":{"AffiliatedGroupInactive":true,"AffiliatedGroupTypes":"string","AffiliatedGroupUseDates":true,"AffiliatedIndividualInactive":true,"AffiliatedIndividualTypes":"string","AffiliatedIndividualUseDates":true,"AssociatedInactive":true,"AssociatedTypes":"string","AssociatedUseDates":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","KeepOrReplaceOriginal":"string","ReplaceIndividuals":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"TMSIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a List`,
 		Long:  `Create a List.`,
@@ -2582,7 +2467,6 @@ var Post_Lists_cmd = &cobra.Command{
 	}
 
 var Post_LoginTypes_cmd = &cobra.Command{
-		Aliases: []string{  "LT",  "logintypes",  "lt",  },
 		Use: `LoginTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new login type`,
 		Long:  `Create a new login type.`,
@@ -2603,7 +2487,6 @@ var Post_LoginTypes_cmd = &cobra.Command{
 	}
 
 var Post_MachineSettings_cmd = &cobra.Command{
-		Aliases: []string{  "MS",  "machinesettings",  "ms",  },
 		Use: `MachineSettings {"CardReaderHost":"string","CardReaderPort":123,"CardReaderType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Inactive":true,"MerchantId":"string","PXStation":"string","PXUserKey":"string","PXUserName":"string","TessituraPaymentsPosDevice":"string","TessituraPaymentsPosDeviceModel":"string","TnspaySoftwareTerminal":true,"TriPOSCloudConfiguration":{"Id":123},"TriposLane":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","WorkstationName":"string"}`,
 		Short: `Create a new Machine Setting`,
 		Long:  `Create a new Machine Setting.`,
@@ -2624,7 +2507,6 @@ var Post_MachineSettings_cmd = &cobra.Command{
 	}
 
 var Post_MailIndicators_cmd = &cobra.Command{
-		Aliases: []string{  "MI",  "mailindicators",  "mi",  },
 		Use: `MailIndicators {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new mail indicator`,
 		Long:  `Create a new mail indicator.`,
@@ -2645,7 +2527,6 @@ var Post_MailIndicators_cmd = &cobra.Command{
 	}
 
 var Post_MediaTypes_cmd = &cobra.Command{
-		Aliases: []string{  "MT",  "mediatypes",  "mt",  },
 		Use: `MediaTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","GenerateCost":123.456,"Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new media type`,
 		Long:  `Create a new media type.`,
@@ -2666,7 +2547,6 @@ var Post_MediaTypes_cmd = &cobra.Command{
 	}
 
 var Post_MembershipLevelCategories_cmd = &cobra.Command{
-		Aliases: []string{  "MLC",  "membershiplevelcategories",  "mlc",  },
 		Use: `MembershipLevelCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new membership level category`,
 		Long:  `Create a new membership level category.`,
@@ -2687,7 +2567,6 @@ var Post_MembershipLevelCategories_cmd = &cobra.Command{
 	}
 
 var Post_Memberships_cmd = &cobra.Command{
-		Aliases: []string{  "M",  "m",  "memberships",  },
 		Use: `Memberships {"CalcCampaignId":123,"CalcConstituentId":123,"CalcContributionAmount":123.456,"CalcContributionDate":"2000-01-01T00:00:00.000Z","CalcExpirationDate":"2000-01-01T00:00:00.000Z","CalcInitialDate":"2000-01-01T00:00:00.000Z","CrediteeId":123,"DeclineBenefits":"string","MembershipLevelOverride":"string","MembershipOrganizationId":123,"RealOrMirror":"string","RenewUpgradeIndicator":"string"}`,
 		Short: `This returns a result of calculated changes to a constituent membership`,
 		Long:  `This returns a result of calculated changes to a constituent membership.  This resource makes no actual changes and only returns calculated membership data for information purposes.
@@ -2709,7 +2588,6 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 	}
 
 var Post_ModeOfSaleCategories_cmd = &cobra.Command{
-		Aliases: []string{  "MOSC",  "modeofsalecategories",  "mosc",  },
 		Use: `ModeOfSaleCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Sequence":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new mode of sale category`,
 		Long:  `Create a new mode of sale category.`,
@@ -2730,7 +2608,6 @@ var Post_ModeOfSaleCategories_cmd = &cobra.Command{
 	}
 
 var Post_ModeOfSaleOffers_cmd = &cobra.Command{
-		Aliases: []string{  "MOSO",  "modeofsaleoffers",  "moso",  },
 		Use: `ModeOfSaleOffers {"AppealId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EndDateTime":"2000-01-01T00:00:00.000Z","Id":123,"MaxSeats":123,"ModeOfSaleId":123,"OverrideDefaultPriceTypeIndicator":true,"PackageId":123,"PerformanceId":123,"PriceTypeId":123,"Rank":123,"SourceId":123,"StartDateTime":"2000-01-01T00:00:00.000Z","Terms":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new mode of sale offer`,
 		Long:  `Create a new mode of sale offer.`,
@@ -2751,7 +2628,6 @@ var Post_ModeOfSaleOffers_cmd = &cobra.Command{
 	}
 
 var Post_ModeOfSalePriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "MOSPT",  "modeofsalepricetypes",  "mospt",  },
 		Use: `ModeOfSalePriceTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultIndicator":true,"Id":123,"ModeOfSale":{"Id":123},"PriceType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new mode of sale price type`,
 		Long:  `Create a new mode of sale price type.`,
@@ -2772,7 +2648,6 @@ var Post_ModeOfSalePriceTypes_cmd = &cobra.Command{
 	}
 
 var Post_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
-		Aliases: []string{  "MOSSQ",  "modeofsalesurveyquestions",  "mossq",  },
 		Use: `ModeOfSaleSurveyQuestions {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"ModeOfSale":{"Id":123},"Question":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new mode of sale survey question`,
 		Long:  `Create a new mode of sale survey question.`,
@@ -2793,7 +2668,6 @@ var Post_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 	}
 
 var Post_ModeOfSaleUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "MOSUG",  "modeofsaleusergroups",  "mosug",  },
 		Use: `ModeOfSaleUserGroups {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultIndicator":true,"Id":123,"ModeOfSale":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string"}`,
 		Short: `Create a new mode of sale/user group mapping`,
 		Long:  `Create a new mode of sale/user group mapping.`,
@@ -2814,7 +2688,6 @@ var Post_ModeOfSaleUserGroups_cmd = &cobra.Command{
 	}
 
 var Post_ModesOfSale_cmd = &cobra.Command{
-		Aliases: []string{  "MOS",  "modesofsale",  "mos",  },
 		Use: `ModesOfSale {"AllowUnseatedPaidInd":true,"Category":{"Id":123},"CategoryRequired":true,"ClearSourceNoInd":true,"ClearSourceOnReload":true,"ConfirmationMode":true,"ConstLinkRequired":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultAckFormatId":123,"DefaultChannelId":123,"DefaultDeliveryMethodId":123,"DefaultHeaderFormatId":123,"DefaultSalesLayoutId":123,"Description":"string","EditDate":true,"EditSourceOnReload":true,"GeneralPublicInd":true,"HaboDays":123,"HaboForeign":true,"HoldUntilDate":"2000-01-01T00:00:00.000Z","HoldUntilDays":123,"HoldUntilMethod":"string","Id":123,"Inactive":true,"MustBePaidInd":true,"MustBeSeatedInd":true,"MustBeTicketedInd":true,"PricingRuleSetId":123,"SampleForGeneralPublic":123,"SampleForKnownConstituent":123,"SliAutoDeleteInd":true,"StartPkgOrPerf":"string","SubsSummaryRequired":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new mode of sale`,
 		Long:  `Create a new mode of sale.`,
@@ -2835,7 +2708,6 @@ var Post_ModesOfSale_cmd = &cobra.Command{
 	}
 
 var Post_NScanAccessAreas_cmd = &cobra.Command{
-		Aliases: []string{  "NSAA",  "nsaa",  "nscanaccessareas",  },
 		Use: `NScanAccessAreas {"AreaCode":"string","ConstituencyIds":"string","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EndDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Inactive":true,"KeywordId":123,"KeywordValue":"string","ListId":123,"MaxEntries":123,"MembershipLevelIds":"string","PerformanceIds":"string","PriceTypeIds":"string","PriceZoneIds":"string","PromptQuantity":true,"StartDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new NScan Access Area`,
 		Long:  `Create a new NScan Access Area.`,
@@ -2856,7 +2728,6 @@ var Post_NScanAccessAreas_cmd = &cobra.Command{
 	}
 
 var Post_NameStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "NS",  "namestatuses",  "ns",  },
 		Use: `NameStatuses {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new name status`,
 		Long:  `Create a new name status.`,
@@ -2877,7 +2748,6 @@ var Post_NameStatuses_cmd = &cobra.Command{
 	}
 
 var Post_ObjectPermissions_cmd = &cobra.Command{
-		Aliases: []string{  "OP",  "objectpermissions",  "op",  },
 		Use: `ObjectPermissions {"ApplicationObject":{"Id":123},"CanCreate":"string","CanDelete":"string","CanEdit":"string","CanView":"string","Constituency":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroup":{"Id":"string"}}`,
 		Short: `Create a new object permission`,
 		Long:  `Create a new object permission.`,
@@ -2898,7 +2768,6 @@ var Post_ObjectPermissions_cmd = &cobra.Command{
 	}
 
 var Post_OrderBilling_cmd = &cobra.Command{
-		Aliases: []string{  "OB",  "ob",  "orderbilling",  },
 		Use: `OrderBilling {"AppealId":123,"BatchTypeId":123,"BillingTypeId":123,"CutoffDateTime":"2000-01-01T00:00:00.000Z","EndDateTime":"2000-01-01T00:00:00.000Z","ListId":123,"MaxNumberOfBillsToPrint":123,"MediaTypeId":123,"MinAmount":123.456,"MinNumberOfBillsToPrint":123,"ModesOfSale":"string","NewSourceDescription":"string","OrderEndDateTime":"2000-01-01T00:00:00.000Z","OrderStartDateTime":"2000-01-01T00:00:00.000Z","PaymentMethodGroupId":123,"PerformanceEndDateTime":"2000-01-01T00:00:00.000Z","PerformanceStartDateTime":"2000-01-01T00:00:00.000Z","Seasons":"string","ShouldUpdate":true,"StartDateTime":"2000-01-01T00:00:00.000Z","UserId":"string"}`,
 		Short: `Order billing`,
 		Long:  `Order billing`,
@@ -2919,7 +2788,6 @@ var Post_OrderBilling_cmd = &cobra.Command{
 	}
 
 var Post_OrderCategories_cmd = &cobra.Command{
-		Aliases: []string{  "OC",  "oc",  "ordercategories",  },
 		Use: `OrderCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new order category`,
 		Long:  `Create a new order category.`,
@@ -2940,7 +2808,6 @@ var Post_OrderCategories_cmd = &cobra.Command{
 	}
 
 var Post_Orders_cmd = &cobra.Command{
-		Aliases: []string{  "O",  "o",  "orders",  },
 		Use: `Orders {"AcceptingRollovers":true,"AccountId":123,"AltAddressId":123,"AltElectronicAddressId":123,"AppealId":123,"AppliedMessageRules":"string","BatchId":123,"BusinessUnitId":123,"CategoryId":123,"ChannelId":123,"ConstituentId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Custom0":"string","Custom1":"string","Custom2":"string","Custom3":"string","Custom4":"string","Custom5":"string","Custom6":"string","Custom7":"string","Custom8":"string","Custom9":"string","DeliveryDate":"2000-01-01T00:00:00.000Z","DeliveryMethodId":123,"HoldUntilDateTime":"2000-01-01T00:00:00.000Z","Id":123,"InitiatorId":123,"LineItems":[{"Id":123},...],"Messages":[{"Id":123},...],"MirrorLock":123,"ModeOfSaleId":123,"Notes":"string","OrderDateTime":"2000-01-01T00:00:00.000Z","ReloadPricingRules":true,"Solicitor":"string","SourceId":123,"TotalDue":123.456,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","VirtualConstituencies":"string"}`,
 		Short: `This resource is currently only for interceptor plugin use`,
 		Long:  `This resource is currently only for interceptor plugin use. This is called any time a new order is saved via the API or from the client application. Only OrderId is provided in the request content.
@@ -2970,7 +2837,6 @@ This resource will be invoked from a cart checkout.`,
 	}
 
 var Post_Organizations_cmd = &cobra.Command{
-		Aliases: []string{  "O",  "o",  "organizations",  },
 		Use: `Organizations {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"LicenseeAccountCode":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new organization`,
 		Long:  `Create a new organization.`,
@@ -2991,7 +2857,6 @@ var Post_Organizations_cmd = &cobra.Command{
 	}
 
 var Post_OriginalSources_cmd = &cobra.Command{
-		Aliases: []string{  "OS",  "originalsources",  "os",  },
 		Use: `OriginalSources {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new original source`,
 		Long:  `Create a new original source.`,
@@ -3012,7 +2877,6 @@ var Post_OriginalSources_cmd = &cobra.Command{
 	}
 
 var Post_Origins_cmd = &cobra.Command{
-		Aliases: []string{  "O",  "o",  "origins",  },
 		Use: `Origins {"ActivityType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new origin`,
 		Long:  `Create a new origin.`,
@@ -3033,7 +2897,6 @@ var Post_Origins_cmd = &cobra.Command{
 	}
 
 var Post_OutputSets_cmd = &cobra.Command{
-		Aliases: []string{  "OS",  "os",  "outputsets",  },
 		Use: `OutputSets {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"ElementGroups":[{"IncludePrimaryAffiliation":true,"IsSingleRow":true,"KeywordId":123},...],"Id":123,"LastUsedDateTime":"2000-01-01T00:00:00.000Z","TMSIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create an Output Set`,
 		Long:  `Create an Output Set.`,
@@ -3054,7 +2917,6 @@ var Post_OutputSets_cmd = &cobra.Command{
 	}
 
 var Post_PackagePriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PPT",  "packagepricetypes",  "ppt",  },
 		Use: `PackagePriceTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"PackageId":123,"PriceTypeId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new package price type`,
 		Long:  `Create a new package price type.`,
@@ -3075,7 +2937,6 @@ var Post_PackagePriceTypes_cmd = &cobra.Command{
 	}
 
 var Post_PackageTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "packagetypes",  "pt",  },
 		Use: `PackageTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new package type`,
 		Long:  `Create a new package type.`,
@@ -3096,7 +2957,6 @@ var Post_PackageTypes_cmd = &cobra.Command{
 	}
 
 var Post_PackageWebContents_cmd = &cobra.Command{
-		Aliases: []string{  "PWC",  "packagewebcontents",  "pwc",  },
 		Use: `PackageWebContents {"ContentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"PackageId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Value":"string"}`,
 		Short: `Create a packageWebContent`,
 		Long:  `Create a packageWebContent.`,
@@ -3117,7 +2977,6 @@ var Post_PackageWebContents_cmd = &cobra.Command{
 	}
 
 var Post_Packages_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "packages",  },
 		Use: `Packages {"ArtistIds":"string","BusinessUnitId":123,"ConstituentId":123,"FullTextSearch":"string","MatchAllPerformances":true,"ModeOfSaleId":123,"PackageEndDate":"2000-01-01T00:00:00.000Z","PackageFacilityIds":"string","PackageKeywordAndOr":"string","PackageKeywordIds":"string","PackageStartDate":"2000-01-01T00:00:00.000Z","PackageTypeIds":"string","PerformanceEndDate":"2000-01-01T00:00:00.000Z","PerformanceFacilityIds":"string","PerformanceKeywordAndOr":"string","PerformanceKeywordIds":"string","PerformanceStartDate":"2000-01-01T00:00:00.000Z","SeasonIds":"string"}`,
 		Short: `Search for packages`,
 		Long:  `Search for packages`,
@@ -3138,7 +2997,6 @@ var Post_Packages_cmd = &cobra.Command{
 	}
 
 var Post_PaymentComponent_cmd = &cobra.Command{
-		Aliases: []string{  "PC",  "paymentcomponent",  "pc",  },
 		Use: `PaymentComponent {"Amount":123.456,"CardBrandsToInclude":["",...],"ComponentVersion":"string","ConstituentId":123,"MerchantId":"string","ShowStoredCards":true}`,
 		Short: `This request is used to configure a transaction and retrieve the JavaScript location for implementing the Tessitura Merchant Services Payment Component`,
 		Long:  `This request is used to configure a transaction and retrieve the JavaScript location for implementing the Tessitura Merchant Services Payment Component. 
@@ -3160,7 +3018,6 @@ For complete documentation on how to implement the Payment Component, please vis
 	}
 
 var Post_PaymentGatewayAccounts_cmd = &cobra.Command{
-		Aliases: []string{  "PGA",  "paymentgatewayaccounts",  "pga",  },
 		Use: `PaymentGatewayAccounts {"ConstituentId":123,"ReferenceNumber":"string"}`,
 		Short: `Generate a payment card token from a ReferenceNumber obtained from a previous Authorization request (Vantiv only)`,
 		Long:  `Generate a payment card token from a ReferenceNumber obtained from a previous Authorization request (Vantiv only)`,
@@ -3184,7 +3041,6 @@ var Post_PaymentGatewayAccounts_cmd = &cobra.Command{
 	}
 
 var Post_PaymentGatewayActivities_cmd = &cobra.Command{
-		Aliases: []string{  "PGA",  "paymentgatewayactivities",  "pga",  },
 		Use: `PaymentGatewayActivities {"AccountId":123,"AccountNumber":"string","ActivityData":"string","Amount":123.456,"AuthCode":"string","AvsAddress":"string","AvsPostalcode":"string","AvsResultCode":"string","BalanceAmount":123.456,"BalanceCurrencyCode":"string","ConstituentId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CvvResultCode":"string","EcommerceIndicator":"string","EmvApplicationIdentifier":"string","EmvApplicationName":"string","EmvCryptogram":"string","EmvHostResponseCode":"string","EmvHostResponseMessage":"string","EmvPinVerified":"string","EntryMethod":"string","ExpirationDate":"string","Id":123,"MerchantId":"string","Name":"string","NetworkTransactionId":"string","Origin":"string","PaymentGatewayTransactionType":{"Id":123},"PaymentId":123,"PaymentMethodGroupId":123,"PaymentMethodId":123,"ProviderCommunicationDurationMs":123,"ProviderTransactionDateTime":"2000-01-01T00:00:00.000Z","ReferenceNumber":"string","ResponseCode":"string","ResponseMessage":"string","Success":"string","TerminalIdentifier":"string","TotalDurationMs":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserData":"string"}`,
 		Short: `Create a new Payment Gateway Activity`,
 		Long:  `Create a new Payment Gateway Activity`,
@@ -3205,7 +3061,6 @@ var Post_PaymentGatewayActivities_cmd = &cobra.Command{
 	}
 
 var Post_PaymentGatewayCredentials_cmd = &cobra.Command{
-		Aliases: []string{  "PGC",  "paymentgatewaycredentials",  "pgc",  },
 		Use: `PaymentGatewayCredentials {"ConstituentId":123,"MerchantId":"string"}`,
 		Short: ``,
 		Long:  ``,
@@ -3226,7 +3081,6 @@ var Post_PaymentGatewayCredentials_cmd = &cobra.Command{
 	}
 
 var Post_PaymentGatewayNotifications_cmd = &cobra.Command{
-		Aliases: []string{  "PGN",  "paymentgatewaynotifications",  "pgn",  },
 		Use: `PaymentGatewayNotifications {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EventType":"string","Id":123,"Payload":"string","ProcessedDate":"2000-01-01T00:00:00.000Z","ReceivedDate":"2000-01-01T00:00:00.000Z","Reference":"string","Topic":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new notification event`,
 		Long:  `Create a new notification event.`,
@@ -3247,7 +3101,6 @@ var Post_PaymentGatewayNotifications_cmd = &cobra.Command{
 	}
 
 var Post_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PGTT",  "paymentgatewaytransactiontypes",  "pgtt",  },
 		Use: `PaymentGatewayTransactionTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Payment Gateway Transaction Type`,
 		Long:  `Create a new Payment Gateway Transaction Type.`,
@@ -3268,7 +3121,6 @@ var Post_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 	}
 
 var Post_PaymentMethodGroups_cmd = &cobra.Command{
-		Aliases: []string{  "PMG",  "paymentmethodgroups",  "pmg",  },
 		Use: `PaymentMethodGroups {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"MerchantId":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new payment method group`,
 		Long:  `Create a new payment method group.`,
@@ -3289,7 +3141,6 @@ var Post_PaymentMethodGroups_cmd = &cobra.Command{
 	}
 
 var Post_PaymentMethodUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "PMUG",  "paymentmethodusergroups",  "pmug",  },
 		Use: `PaymentMethodUserGroups {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"IncomeIndicator":true,"MaxRefund":123.456,"PaymentMethod":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string"}`,
 		Short: `Create a new payment method/user group mapping`,
 		Long:  `Create a new payment method/user group mapping.`,
@@ -3310,7 +3161,6 @@ var Post_PaymentMethodUserGroups_cmd = &cobra.Command{
 	}
 
 var Post_PaymentMethods_cmd = &cobra.Command{
-		Aliases: []string{  "PM",  "paymentmethods",  "pm",  },
 		Use: `PaymentMethods {"AccountType":{"Id":123},"AuthIndicator":true,"BusinessUnitId":123,"CanRefund":true,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CurrencyTypeId":123,"DefaultIndicator":true,"Description":"string","GiftAidIndicator":true,"GlAccountId":"string","Id":123,"Inactive":true,"Income":true,"MerchantId":"string","MerchantIdForSwipe":"string","NoCopiesOnAuth":123,"NoCopiesOnSave":123,"OpenCashDrawer":true,"PaymentMethodGroup":{"Id":123},"PaymentType":{"Id":123},"ReceiptFormatId":123,"RequireCheckIndicator":true,"RequireCvv":true,"RequirePostalCode":"string","ShortDesc":"string","StoreTenderedAmount":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseWithCardReader":true}`,
 		Short: `Create a new payment method`,
 		Long:  `Create a new payment method.`,
@@ -3331,7 +3181,6 @@ var Post_PaymentMethods_cmd = &cobra.Command{
 	}
 
 var Post_PaymentSignatures_cmd = &cobra.Command{
-		Aliases: []string{  "PS",  "paymentsignatures",  "ps",  },
 		Use: `PaymentSignatures {"Id":123}`,
 		Short: `Create a new payment signature`,
 		Long:  `Create a new payment signature.`,
@@ -3355,7 +3204,6 @@ var Post_PaymentSignatures_cmd = &cobra.Command{
 	}
 
 var Post_PaymentTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "paymenttypes",  "pt",  },
 		Use: `PaymentTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new payment type`,
 		Long:  `Create a new payment type.`,
@@ -3376,7 +3224,6 @@ var Post_PaymentTypes_cmd = &cobra.Command{
 	}
 
 var Post_Payments_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "payments",  },
 		Use: `Payments {"Increment":123}`,
 		Short: `Reserves a payment id generated per the request's required "increment" parameter`,
 		Long:  `Reserves a payment id generated per the request's required "increment" parameter. Increment number must be greater than 0.`,
@@ -3397,7 +3244,6 @@ var Post_Payments_cmd = &cobra.Command{
 	}
 
 var Post_PerformanceGroups_cmd = &cobra.Command{
-		Aliases: []string{  "PG",  "performancegroups",  "pg",  },
 		Use: `PerformanceGroups {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","DisplayByZone":true,"Facility":{"Id":123},"FixedSeatIndicator":true,"Id":123,"Season":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ZoneMap":{"Id":123}}`,
 		Short: `Create a new Performance Group`,
 		Long:  `Create a new Performance Group.`,
@@ -3418,7 +3264,6 @@ var Post_PerformanceGroups_cmd = &cobra.Command{
 	}
 
 var Post_PerformancePackageModeOfSales_cmd = &cobra.Command{
-		Aliases: []string{  "PPMOS",  "performancepackagemodeofsales",  "ppmos",  },
 		Use: `PerformancePackageModeOfSales {"AutoAttend":"string","ETicketReleaseDateTime":"2000-01-01T00:00:00.000Z","EndDateTime":"2000-01-01T00:00:00.000Z","Id":123,"ModeOfSaleId":123,"PackageId":123,"PerformanceId":123,"PrintIndicator":true,"PrintOnAutoAttend":true,"SeatIndicator":true,"StartDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new performance package mode of sale`,
 		Long:  `Create a new performance package mode of sale.`,
@@ -3439,7 +3284,6 @@ var Post_PerformancePackageModeOfSales_cmd = &cobra.Command{
 	}
 
 var Post_PerformancePriceLayers_cmd = &cobra.Command{
-		Aliases: []string{  "PPL",  "performancepricelayers",  "ppl",  },
 		Use: `PerformancePriceLayers {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultDesignationCodeId":123,"DefaultGlAccountId":123,"DefaultResaleAccountId":123,"Description":"string","EffectiveDateTime":"2000-01-01T00:00:00.000Z","Id":123,"PerformanceId":123,"PerformancePriceTypes":[{"Id":123},...],"PriceLayerType":{"Id":123},"TemplateId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new performance price layer`,
 		Long:  `Create a new performance price layer.`,
@@ -3467,7 +3311,6 @@ var Post_PerformancePriceLayers_cmd = &cobra.Command{
 	}
 
 var Post_PerformancePriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PPT",  "performancepricetypes",  "ppt",  },
 		Use: `PerformancePriceTypes {"BaseIndicator":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DesignationCodeId":123,"EffectiveDateTime":"2000-01-01T00:00:00.000Z","EndDateTime":"2000-01-01T00:00:00.000Z","GlAccountId":123,"Id":123,"IsWithinDateRange":true,"PerformanceId":123,"PerformancePriceLayerId":123,"PerformancePrices":[{"Id":123},...],"PriceTypeId":123,"ResaleAccountId":123,"StartDateTime":"2000-01-01T00:00:00.000Z","TicketDesignId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new performance price type`,
 		Long:  `Create a new performance price type.`,
@@ -3488,7 +3331,6 @@ var Post_PerformancePriceTypes_cmd = &cobra.Command{
 	}
 
 var Post_PerformancePrices_cmd = &cobra.Command{
-		Aliases: []string{  "PP",  "performanceprices",  "pp",  },
 		Use: `PerformancePrices {"EditIndicator":true,"EffectiveDateTime":"2000-01-01T00:00:00.000Z","Enabled":true,"HasEvents":true,"Id":123,"IsPriceBasedOnCurrentEvent":true,"MinPrice":123.456,"PerformanceId":123,"PerformancePriceTypeId":123,"Price":123.456,"ZoneId":123}`,
 		Short: `Create a new performance price`,
 		Long:  `Create a new performance price.`,
@@ -3509,7 +3351,6 @@ var Post_PerformancePrices_cmd = &cobra.Command{
 	}
 
 var Post_PerformanceStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "PS",  "performancestatuses",  "ps",  },
 		Use: `PerformanceStatuses {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new performance status`,
 		Long:  `Create a new performance status.`,
@@ -3530,7 +3371,6 @@ var Post_PerformanceStatuses_cmd = &cobra.Command{
 	}
 
 var Post_PerformanceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "performancetypes",  "pt",  },
 		Use: `PerformanceTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ValidCountryList":"string"}`,
 		Short: `Create a new performance type`,
 		Long:  `Create a new performance type.`,
@@ -3551,7 +3391,6 @@ var Post_PerformanceTypes_cmd = &cobra.Command{
 	}
 
 var Post_Performances_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "performances",  },
 		Use: `Performances {"PerformanceID":"string","HoldCodeId":123,"HoldUntilDate":"2000-01-01T00:00:00.000Z","ReplaceMode":123,"SeatID":"string"}`,
 		Short: `Apply a single hold on a performance seat`,
 		Long:  `Apply a single hold on a performance seat.`,
@@ -3581,7 +3420,6 @@ var Post_Performances_cmd = &cobra.Command{
 	}
 
 var Post_Philanthropy_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "philanthropy",  },
 		Use: `Philanthropy {"Activity":"string","Amount":123.456,"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DonatedTo":"string","DonatedToConstituent":{"Id":123},"DonationDateTime":"2000-01-01T00:00:00.000Z","Id":123,"PhilanthropyType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create an philanthropyEntry for a constituent`,
 		Long:  `Create an philanthropyEntry for a constituent.`,
@@ -3602,7 +3440,6 @@ var Post_Philanthropy_cmd = &cobra.Command{
 	}
 
 var Post_PhilanthropyTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "philanthropytypes",  "pt",  },
 		Use: `PhilanthropyTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new philosophy type`,
 		Long:  `Create a new philosophy type.`,
@@ -3623,7 +3460,6 @@ var Post_PhilanthropyTypes_cmd = &cobra.Command{
 	}
 
 var Post_PhoneIndicators_cmd = &cobra.Command{
-		Aliases: []string{  "PI",  "phoneindicators",  "pi",  },
 		Use: `PhoneIndicators {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new phone indicator`,
 		Long:  `Create a new phone indicator.`,
@@ -3644,7 +3480,6 @@ var Post_PhoneIndicators_cmd = &cobra.Command{
 	}
 
 var Post_PhoneTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "phonetypes",  "pt",  },
 		Use: `PhoneTypes {"AllowMarketing":true,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DayEveningIndicator":"string","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new phone type`,
 		Long:  `Create a new phone type.`,
@@ -3665,7 +3500,6 @@ var Post_PhoneTypes_cmd = &cobra.Command{
 	}
 
 var Post_Phones_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "phones",  },
 		Use: `Phones {"Address":{"Id":123},"AllowTelemarketing":true,"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DayEveningIndicator":"string","EditIndicator":true,"Id":123,"Inactive":true,"PhoneFormatted":"string","PhoneNumber":"string","PhoneSearch":"string","PhoneType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new phone`,
 		Long:  `Create a new phone.`,
@@ -3686,7 +3520,6 @@ var Post_Phones_cmd = &cobra.Command{
 	}
 
 var Post_PlanPriorities_cmd = &cobra.Command{
-		Aliases: []string{  "PP",  "planpriorities",  "pp",  },
 		Use: `PlanPriorities {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Ranking":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new plan priority`,
 		Long:  `Create a new plan priority.`,
@@ -3707,7 +3540,6 @@ var Post_PlanPriorities_cmd = &cobra.Command{
 	}
 
 var Post_PlanSources_cmd = &cobra.Command{
-		Aliases: []string{  "PS",  "plansources",  "ps",  },
 		Use: `PlanSources {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new plan source`,
 		Long:  `Create a new plan source.`,
@@ -3728,7 +3560,6 @@ var Post_PlanSources_cmd = &cobra.Command{
 	}
 
 var Post_PlanStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "PS",  "planstatuses",  "ps",  },
 		Use: `PlanStatuses {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new plan status`,
 		Long:  `Create a new plan status.`,
@@ -3749,7 +3580,6 @@ var Post_PlanStatuses_cmd = &cobra.Command{
 	}
 
 var Post_PlanTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "plantypes",  "pt",  },
 		Use: `PlanTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new plan type`,
 		Long:  `Create a new plan type.`,
@@ -3770,7 +3600,6 @@ var Post_PlanTypes_cmd = &cobra.Command{
 	}
 
 var Post_PlanWorkers_cmd = &cobra.Command{
-		Aliases: []string{  "PW",  "planworkers",  "pw",  },
 		Use: `PlanWorkers {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Plan":{"Id":123},"PrimaryIndicator":true,"Role":{"Id":123},"ShowInPortfolio":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Worker":{"Id":123}}`,
 		Short: `Create a new plan worker`,
 		Long:  `Create a new plan worker.`,
@@ -3791,7 +3620,6 @@ var Post_PlanWorkers_cmd = &cobra.Command{
 	}
 
 var Post_Plans_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "plans",  },
 		Use: `Plans {"AskAmount":123.456,"Campaign":{"Id":123},"CompleteByDateTime":"2000-01-01T00:00:00.000Z","Constituent":{"Id":123},"ContributionAmount":123.456,"ContributionDesignation":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CustomDataItems":[{"DataType":"string","Description":"string","EditIndicator":true,"Index":123,"IsDropdown":true,"KeywordId":123,"Name":"string","Value":"string"},...],"EditIndicator":true,"Fund":{"Id":123},"GoalAmount":123.456,"HasOpenSteps":true,"HasSteps":true,"Id":123,"LastStepDate":"2000-01-01T00:00:00.000Z","LastStepType":{"Id":123},"LastWorkerDisplayName":"string","NextStepDate":"2000-01-01T00:00:00.000Z","NextStepType":{"Id":123},"Notes":"string","OriginalSource":{"Id":123},"PlanAssociates":"string","PrimaryWorker":{"Id":123},"Priority":{"Id":123},"Probability":123.456,"RecordedAmount":123.456,"StartDateTime":"2000-01-01T00:00:00.000Z","Status":{"Id":123},"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new plan`,
 		Long:  `Create a new plan.`,
@@ -3812,7 +3640,6 @@ var Post_Plans_cmd = &cobra.Command{
 	}
 
 var Post_PledgeBilling_cmd = &cobra.Command{
-		Aliases: []string{  "PB",  "pb",  "pledgebilling",  },
 		Use: `PledgeBilling {"AcknowledgementLetterId":123,"AppealId":123,"BatchTypeId":123,"BillingTypeId":123,"CampaignId":123,"CutoffDateTime":"2000-01-01T00:00:00.000Z","EndDateTime":"2000-01-01T00:00:00.000Z","FundIds":"string","IsLabel":true,"ListId":123,"MailDateTime":"2000-01-01T00:00:00.000Z","MailTypeId":123,"MaxNumberOfBillsToPrint":123,"MediaTypeId":123,"MinAmount":123.456,"MinNumberOfBillsToPrint":123,"NewSourceDescription":"string","PaymentMethodGroupId":123,"SalutationTypeId":123,"ShouldUpdate":true,"StartDateTime":"2000-01-01T00:00:00.000Z","UserId":"string"}`,
 		Short: `This is not intended for use outside of the Tessitura application`,
 		Long:  `This is not intended for use outside of the Tessitura application.  There is no standard way to return billing details for a run. For a given campaign, funds, bill types etc., It raises bills for all those scheduled payments that have due date between given start and end dates. It also checks to see that a bill was not raised after a given 'cut off date'.`,
@@ -3833,7 +3660,6 @@ var Post_PledgeBilling_cmd = &cobra.Command{
 	}
 
 var Post_PortfolioCustomElements_cmd = &cobra.Command{
-		Aliases: []string{  "PCE",  "pce",  "portfoliocustomelements",  },
 		Use: `PortfolioCustomElements {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DataType":123,"Description":"string","Id":123,"Inactive":true,"SqlQuery":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new portfolio custom element`,
 		Long:  `Create a new portfolio custom element.`,
@@ -3854,7 +3680,6 @@ var Post_PortfolioCustomElements_cmd = &cobra.Command{
 	}
 
 var Post_Prefixes_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "prefixes",  },
 		Use: `Prefixes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new prefix`,
 		Long:  `Create a new prefix.`,
@@ -3875,7 +3700,6 @@ var Post_Prefixes_cmd = &cobra.Command{
 	}
 
 var Post_Premieres_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "premieres",  },
 		Use: `Premieres {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new premiere`,
 		Long:  `Create a new premiere.`,
@@ -3896,7 +3720,6 @@ var Post_Premieres_cmd = &cobra.Command{
 	}
 
 var Post_PriceCategories_cmd = &cobra.Command{
-		Aliases: []string{  "PC",  "pc",  "pricecategories",  },
 		Use: `PriceCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new price category`,
 		Long:  `Create a new price category.`,
@@ -3917,7 +3740,6 @@ var Post_PriceCategories_cmd = &cobra.Command{
 	}
 
 var Post_PriceLayerTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PLT",  "plt",  "pricelayertypes",  },
 		Use: `PriceLayerTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ExcludeFromRules":true,"Id":123,"Inactive":true,"PriceCategory":{"Id":123},"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new price layer type`,
 		Long:  `Create a new price layer type.`,
@@ -3938,7 +3760,6 @@ var Post_PriceLayerTypes_cmd = &cobra.Command{
 	}
 
 var Post_PriceTemplates_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "pricetemplates",  "pt",  },
 		Use: `PriceTemplates {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultDesignationCode":{"Id":123},"DefaultGlAccount":{"Id":123},"DefaultPriceLayerType":{"Id":123},"DefaultResaleAccount":{"Id":123},"Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Name":"string","PriceCategory":{"Id":123},"TemplatePriceTypes":[{"Id":123},...],"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ZoneMap":{"Id":123}}`,
 		Short: `Create a new price template`,
 		Long:  `Create a new price template.`,
@@ -3959,7 +3780,6 @@ var Post_PriceTemplates_cmd = &cobra.Command{
 	}
 
 var Post_PriceTypeCategories_cmd = &cobra.Command{
-		Aliases: []string{  "PTC",  "pricetypecategories",  "ptc",  },
 		Use: `PriceTypeCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new price type category`,
 		Long:  `Create a new price type category.`,
@@ -3980,7 +3800,6 @@ var Post_PriceTypeCategories_cmd = &cobra.Command{
 	}
 
 var Post_PriceTypeGroups_cmd = &cobra.Command{
-		Aliases: []string{  "PTG",  "pricetypegroups",  "ptg",  },
 		Use: `PriceTypeGroups {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new price type group`,
 		Long:  `Create a new price type group.`,
@@ -4001,7 +3820,6 @@ var Post_PriceTypeGroups_cmd = &cobra.Command{
 	}
 
 var Post_PriceTypeReasons_cmd = &cobra.Command{
-		Aliases: []string{  "PTR",  "pricetypereasons",  "ptr",  },
 		Use: `PriceTypeReasons {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"ShortDescription":"string","TicketText":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new price type reason`,
 		Long:  `Create a new price type reason.`,
@@ -4022,7 +3840,6 @@ var Post_PriceTypeReasons_cmd = &cobra.Command{
 	}
 
 var Post_PriceTypeUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "PTUG",  "pricetypeusergroups",  "ptug",  },
 		Use: `PriceTypeUserGroups {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"PriceType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string"}`,
 		Short: `Create a new price typ/user group mapping`,
 		Long:  `Create a new price typ/user group mapping.`,
@@ -4043,7 +3860,6 @@ var Post_PriceTypeUserGroups_cmd = &cobra.Command{
 	}
 
 var Post_PriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "pricetypes",  "pt",  },
 		Use: `PriceTypes {"AliasDescription":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultTicketDesign":{"Id":123},"Description":"string","EditIndicator":true,"EditableIndicator":true,"Id":123,"Inactive":true,"PriceTypeCategory":{"Id":123},"PriceTypeGroup":{"Id":123},"ReasonIndicator":true,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new price type`,
 		Long:  `Create a new price type.`,
@@ -4064,7 +3880,6 @@ var Post_PriceTypes_cmd = &cobra.Command{
 	}
 
 var Post_PricingRuleCategories_cmd = &cobra.Command{
-		Aliases: []string{  "PRC",  "prc",  "pricingrulecategories",  },
 		Use: `PricingRuleCategories {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new pricing rule category`,
 		Long:  `Create a new pricing rule category.`,
@@ -4085,7 +3900,6 @@ var Post_PricingRuleCategories_cmd = &cobra.Command{
 	}
 
 var Post_PricingRuleMessageTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PRMT",  "pricingrulemessagetypes",  "prmt",  },
 		Use: `PricingRuleMessageTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new pricing rule message type`,
 		Long:  `Create a new pricing rule message type.`,
@@ -4106,7 +3920,6 @@ var Post_PricingRuleMessageTypes_cmd = &cobra.Command{
 	}
 
 var Post_PricingRuleSets_cmd = &cobra.Command{
-		Aliases: []string{  "PRS",  "pricingrulesets",  "prs",  },
 		Use: `PricingRuleSets {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Rules":[{"Id":123},...],"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new pricing rule set`,
 		Long:  `Create a new pricing rule set.`,
@@ -4127,7 +3940,6 @@ var Post_PricingRuleSets_cmd = &cobra.Command{
 	}
 
 var Post_PricingRules_cmd = &cobra.Command{
-		Aliases: []string{  "PR",  "pr",  "pricingrules",  },
 		Use: `PricingRules {"Appeals":"string","ApplyOncePerOrder":true,"ApplyToLowestCommonNumberOfSeats":true,"Constituencies":"string","ConstituentAttribute":123,"ConstituentAttributeOperator":{"Id":123},"ConstituentAttributeValue1":"string","ConstituentAttributeValue2":"string","ConstituentExclusionListId":123,"ConstituentListId":123,"ConstituentRankType":123,"ConstituentRankingOperator":{"Id":123},"ConstituentRankingValue1":123,"ConstituentRankingValue2":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","DiscountAmount":123.456,"DiscountIsPercent":true,"DiscountPercentRound":123,"DiscountPriceTypeId":123,"EditIndicator":true,"EndDateTime":"2000-01-01T00:00:00.000Z","ExcludeGeneralPublic":true,"Id":123,"Inactive":true,"MaxSeats":123,"Messages":[{"Id":123},...],"OverTheLimitDateTime":"2000-01-01T00:00:00.000Z","PromotedAppeals":"string","PromotedSources":"string","QualifyingPackage":"string","QualifyingPerformance":"string","QualifyingPriceType1":"string","QualifyingPriceType2":"string","QualifyingProductionSeason":"string","QualifyingSeasonPackageType":"string","QualifyingSeatCount1Value1":123,"QualifyingSeatCount1Value2":123,"QualifyingSeatCount2Value1":123,"QualifyingSeatCount2Value2":123,"QualifyingZone":"string","RespectMinimumPrice":true,"ResultMaximumSeats":123,"ResultMaximumSeats2":123,"ResultPackage":"string","ResultPerformance":"string","ResultPriceType":"string","ResultProductionSeason":"string","ResultSeasonPackageType":"string","ResultSeatCount":123,"ResultZone":"string","RuleAction":123,"RuleCategory":{"Id":123},"RuleType":{"Id":123},"Sources":"string","StartDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new pricing rule`,
 		Long:  `Create a new pricing rule.`,
@@ -4148,7 +3960,6 @@ var Post_PricingRules_cmd = &cobra.Command{
 	}
 
 var Post_Printers_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "printers",  },
 		Use: `Printers {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"MaxCol":123,"MaxRow":123,"MaxX2val":123,"MaxY2val":123,"Type":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new printer`,
 		Long:  `Create a new printer.`,
@@ -4169,7 +3980,6 @@ var Post_Printers_cmd = &cobra.Command{
 	}
 
 var Post_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
-		Aliases: []string{  "PSMO",  "productionseasonmembershiporganizations",  "psmo",  },
 		Use: `ProductionSeasonMembershipOrganizations {"AllowMultipleEntry":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"MembershipOrganization":{"Id":123},"ProductionSeason":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new production season membership organization`,
 		Long:  `Create a new production season membership organization.`,
@@ -4190,7 +4000,6 @@ var Post_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 	}
 
 var Post_ProductionSeasons_cmd = &cobra.Command{
-		Aliases: []string{  "PS",  "productionseasons",  "ps",  },
 		Use: `ProductionSeasons {"ArtistIds":"string","BusinessUnitId":123,"ConstituentId":123,"FacilityIds":"string","FullTextSearch":"string","KeywordAndOr":"string","KeywordIds":"string","MatchAllPerformances":true,"ModeOfSaleId":123,"PerformanceEndDate":"2000-01-01T00:00:00.000Z","PerformanceStartDate":"2000-01-01T00:00:00.000Z","SeasonIds":"string"}`,
 		Short: `Search for production seasons`,
 		Long:  `Search for production seasons
@@ -4212,7 +4021,6 @@ Returns production seasons matching the specified search criteria.`,
 	}
 
 var Post_Products_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "products",  },
 		Use: `Products {"PackageIds":"string","PackageTypeIds":"string","PerformanceIds":"string","ProductionSeasonIds":"string"}`,
 		Short: `Get product descriptions`,
 		Long:  `Get product descriptions`,
@@ -4236,7 +4044,6 @@ var Post_Products_cmd = &cobra.Command{
 	}
 
 var Post_ProgramListings_cmd = &cobra.Command{
-		Aliases: []string{  "PL",  "pl",  "programlistings",  },
 		Use: `ProgramListings {"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DonationLevel":{"Id":123},"EditIndicator":true,"Id":123,"ProgramName":"string","ProgramType":{"Id":123},"SortName":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new program listing`,
 		Long:  `Create a new program listing.`,
@@ -4257,7 +4064,6 @@ var Post_ProgramListings_cmd = &cobra.Command{
 	}
 
 var Post_Programs_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "programs",  },
 		Use: `Programs {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new program`,
 		Long:  `Create a new program.`,
@@ -4278,7 +4084,6 @@ var Post_Programs_cmd = &cobra.Command{
 	}
 
 var Post_Pronouns_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "pronouns",  },
 		Use: `Pronouns {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: ``,
 		Long:  ``,
@@ -4299,7 +4104,6 @@ var Post_Pronouns_cmd = &cobra.Command{
 	}
 
 var Post_QualificationCategories_cmd = &cobra.Command{
-		Aliases: []string{  "QC",  "qc",  "qualificationcategories",  },
 		Use: `QualificationCategories {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Qualification Category`,
 		Long:  `Create a new Qualification Category.`,
@@ -4320,7 +4124,6 @@ var Post_QualificationCategories_cmd = &cobra.Command{
 	}
 
 var Post_Qualifications_cmd = &cobra.Command{
-		Aliases: []string{  "Q",  "q",  "qualifications",  },
 		Use: `Qualifications {"Category":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Qualification`,
 		Long:  `Create a new Qualification.`,
@@ -4341,7 +4144,6 @@ var Post_Qualifications_cmd = &cobra.Command{
 	}
 
 var Post_QueryElementFilters_cmd = &cobra.Command{
-		Aliases: []string{  "QEF",  "qef",  "queryelementfilters",  },
 		Use: `QueryElementFilters {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DataType":123,"Description":"string","EndOfDay":true,"FilterElement":"string","Group":{"Id":123},"Id":123,"ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a query element filter`,
 		Long:  `Create a query element filter.`,
@@ -4362,7 +4164,6 @@ var Post_QueryElementFilters_cmd = &cobra.Command{
 	}
 
 var Post_QueryElementGroups_cmd = &cobra.Command{
-		Aliases: []string{  "QEG",  "qeg",  "queryelementgroups",  },
 		Use: `QueryElementGroups {"Category":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DataFrom":"string","DataWhere":"string","Description":"string","Id":123,"IsVirtual":true,"NumberOfParameters":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new query element group`,
 		Long:  `Create a new query element group.`,
@@ -4383,7 +4184,6 @@ var Post_QueryElementGroups_cmd = &cobra.Command{
 	}
 
 var Post_QueryElements_cmd = &cobra.Command{
-		Aliases: []string{  "QE",  "qe",  "queryelements",  },
 		Use: `QueryElements {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DataSelect":"string","Description":"string","Group":{"Id":123},"Id":123,"Inactive":true,"IsSingleRow":true,"KeywordId":123,"PrimaryGroupDefault":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new query element`,
 		Long:  `Create a new query element.`,
@@ -4404,7 +4204,6 @@ var Post_QueryElements_cmd = &cobra.Command{
 	}
 
 var Post_RankTypes_cmd = &cobra.Command{
-		Aliases: []string{  "RT",  "ranktypes",  "rt",  },
 		Use: `RankTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new rank type`,
 		Long:  `Create a new rank type.`,
@@ -4425,7 +4224,6 @@ var Post_RankTypes_cmd = &cobra.Command{
 	}
 
 var Post_Rankings_cmd = &cobra.Command{
-		Aliases: []string{  "R",  "r",  "rankings",  },
 		Use: `Rankings {"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Rank":123,"RankType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new ranking`,
 		Long:  `Create a new ranking.`,
@@ -4446,7 +4244,6 @@ var Post_Rankings_cmd = &cobra.Command{
 	}
 
 var Post_ReceiptSettings_cmd = &cobra.Command{
-		Aliases: []string{  "RS",  "receiptsettings",  "rs",  },
 		Use: `ReceiptSettings {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EmailFooter":"string","EmailHeader":"string","EmailSubject":"string","Id":123,"Inactive":true,"PrintFooter":"string","PrintHeader":"string","ReceiptEmailProfile":{"Id":123},"TicketEmailProfile":{"Id":123},"TicketEmailSubject":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Receipt Setting`,
 		Long:  `Create a new Receipt Setting.`,
@@ -4467,7 +4264,6 @@ var Post_ReceiptSettings_cmd = &cobra.Command{
 	}
 
 var Post_RecordAttendance_cmd = &cobra.Command{
-		Aliases: []string{  "RA",  "ra",  "recordattendance",  },
 		Use: `RecordAttendance {"OverrideDoorsOpen":true,"ProfileId":123,"TicketNo":123}`,
 		Short: `Records attendance for a given ticket number`,
 		Long:  `Records attendance for a given ticket number.`,
@@ -4488,7 +4284,6 @@ var Post_RecordAttendance_cmd = &cobra.Command{
 	}
 
 var Post_ReferenceTableUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "RTUG",  "referencetableusergroups",  "rtug",  },
 		Use: `ReferenceTableUserGroups {"CanEdit":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"ReferenceTable":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string"}`,
 		Short: `Create a new reference table/user group mapping`,
 		Long:  `Create a new reference table/user group mapping.`,
@@ -4509,7 +4304,6 @@ var Post_ReferenceTableUserGroups_cmd = &cobra.Command{
 	}
 
 var Post_Registration_cmd = &cobra.Command{
-		Aliases: []string{  "R",  "r",  "registration",  },
 		Use: `Registration {"Address":{"AddressTypeId":123,"City":"string","CountryId":123,"PostalCode":"string","StateId":"string","Street1":"string","Street2":"string","Street3":"string"},"Affiliates":[{"AffiliationTypeId":123,"ConstituentTypeId":123,"FirstName":"string","LastName":"string","MiddleName":"string","NameIndicator":123,"NameStatusId":123,"Note":"string","SortName":"string","Title":"string"},...],"ConstituentTypeId":123,"ElectronicAddress":{"Address":"string","AllowHtmlFormat":true,"AllowMarketing":true,"ElectronicAddressTypeId":123},"EmarketIndicatorId":123,"FirstName":"string","GenderId":123,"LastName":"string","MailIndicatorId":123,"MiddleName":"string","NameStatusId":123,"OriginalSourceId":123,"PhoneIndicatorId":123,"Phones":[{"AllowTelemarketing":true,"DayEveningIndicator":"string","PhoneNumber":"string","PhoneTypeId":123},...],"PrefixId":123,"Salutation":{"BusinessTitle":"string","EnvelopeSalutation1":"string","EnvelopeSalutation2":"string","LetterSalutation":"string","SalutationTypeId":123},"SortName":"string","SourceId":123,"SuffixId":123,"WebLogin":{"Login":"string","LoginTypeId":123,"Password":"string"},"SessionKey":"string"}`,
 		Short: `This is a combined resource for registering a new constituent with logging into the current session`,
 		Long:  `This is a combined resource for registering a new constituent with logging into the current session. This resource combines a workflow of multiple API actions into a single request. This is primarily designed for creating a constituent with a primary electronic address, a primary login, and logging into the session using the provide login.
@@ -4532,7 +4326,6 @@ The login must be unique for the login type. The electronic address for this con
 	}
 
 var Post_RelationshipCategories_cmd = &cobra.Command{
-		Aliases: []string{  "RC",  "rc",  "relationshipcategories",  },
 		Use: `RelationshipCategories {"CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new relationship category`,
 		Long:  `Create a new relationship category.`,
@@ -4553,7 +4346,6 @@ var Post_RelationshipCategories_cmd = &cobra.Command{
 	}
 
 var Post_ReportRequests_cmd = &cobra.Command{
-		Aliases: []string{  "RR",  "reportrequests",  "rr",  },
 		Use: `ReportRequests {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DeletedIndicator":true,"EmailBody":"string","EmailRecipients":"string","EmailSubject":"string","EndDateTime":"2000-01-01T00:00:00.000Z","Id":123,"OutputOption":"string","Parameters":[{"ParameterId":123,"ReportId":"string","RequestId":123,"Value":"string"},...],"PublicIndicator":true,"QueueStatus":"string","ReportId":"string","ReportType":123,"RequestDateTime":"2000-01-01T00:00:00.000Z","ResultCode":"string","ResultText":"string","ScheduleId":123,"Type":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string","UserId":"string"}`,
 		Short: `Creates the report request`,
 		Long:  `Creates the report request.`,
@@ -4577,7 +4369,6 @@ var Post_ReportRequests_cmd = &cobra.Command{
 	}
 
 var Post_ReportSchedules_cmd = &cobra.Command{
-		Aliases: []string{  "RS",  "reportschedules",  "rs",  },
 		Use: `ReportSchedules {"DayOfWeek":123,"DayWeekNumber":123,"EndDate":"2000-01-01T00:00:00.000Z","EndTime":"2000-01-01T00:00:00.000Z","Interval":123,"StartDate":"2000-01-01T00:00:00.000Z","StartTime":"2000-01-01T00:00:00.000Z","Type":"string"}`,
 		Short: `Verify the next run for a schedule's recurrence pattern by passing the pattern`,
 		Long:  `Verify the next run for a schedule's recurrence pattern by passing the pattern.  Returns its calculated next run date/time.`,
@@ -4601,7 +4392,6 @@ var Post_ReportSchedules_cmd = &cobra.Command{
 	}
 
 var Post_ReportUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "RUG",  "reportusergroups",  "rug",  },
 		Use: `ReportUserGroups {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"ReportId":"string","RunRight":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string","ViewRight":"string"}`,
 		Short: `Create a new report/user group mapping`,
 		Long:  `Create a new report/user group mapping.`,
@@ -4622,7 +4412,6 @@ var Post_ReportUserGroups_cmd = &cobra.Command{
 	}
 
 var Post_Reports_cmd = &cobra.Command{
-		Aliases: []string{  "R",  "r",  "reports",  },
 		Use: `Reports {"ParameterName":"string","ReportId":"string","WhereDependencies":[{"ParameterId":"string"},...]}`,
 		Short: `Get parameter values for a report parameter`,
 		Long:  `Get parameter values for a report parameter.`,
@@ -4643,7 +4432,6 @@ var Post_Reports_cmd = &cobra.Command{
 	}
 
 var Post_Research_cmd = &cobra.Command{
-		Aliases: []string{  "R",  "r",  "research",  },
 		Use: `Research {"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"ResearchDate":"2000-01-01T00:00:00.000Z","ResearchSource":"string","ResearchType":{"Id":123},"Researcher":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a research entry for a constituent`,
 		Long:  `Create a research entry for a constituent.`,
@@ -4664,7 +4452,6 @@ var Post_Research_cmd = &cobra.Command{
 	}
 
 var Post_ResearchTypes_cmd = &cobra.Command{
-		Aliases: []string{  "RT",  "researchtypes",  "rt",  },
 		Use: `ResearchTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new research type`,
 		Long:  `Create a new research type.`,
@@ -4685,7 +4472,6 @@ var Post_ResearchTypes_cmd = &cobra.Command{
 	}
 
 var Post_ResourceCategories_cmd = &cobra.Command{
-		Aliases: []string{  "RC",  "rc",  "resourcecategories",  },
 		Use: `ResourceCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Resource Category`,
 		Long:  `Create a new Resource Category.`,
@@ -4706,7 +4492,6 @@ var Post_ResourceCategories_cmd = &cobra.Command{
 	}
 
 var Post_ResourceSchedules_cmd = &cobra.Command{
-		Aliases: []string{  "RS",  "resourceschedules",  "rs",  },
 		Use: `ResourceSchedules {"BookingAssignmentId":123,"ConstituentId":123,"Count":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EndDateTime":"2000-01-01T00:00:00.000Z","Id":123,"OverrideConflicts":true,"RecurrenceDayOfWeek":"string","RecurrenceEndDate":"2000-01-01T00:00:00.000Z","RecurrenceInterval":123,"RecurrenceOrdinal":123,"RecurrencePattern":123,"ResourceId":123,"StartDateTime":"2000-01-01T00:00:00.000Z","Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a Busy or Available resource schedule`,
 		Long:  `Create a Busy or Available resource schedule.  Booking Assignment Schedules must be created in a booking.`,
@@ -4727,7 +4512,6 @@ var Post_ResourceSchedules_cmd = &cobra.Command{
 	}
 
 var Post_ResourceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "RT",  "resourcetypes",  "rt",  },
 		Use: `ResourceTypes {"CanBeShared":true,"Category":{"Id":123},"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"HasCapacity":true,"Id":123,"Inactive":true,"RequireAvailability":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new resource type`,
 		Long:  `Create a new resource type.`,
@@ -4748,7 +4532,6 @@ var Post_ResourceTypes_cmd = &cobra.Command{
 	}
 
 var Post_Resources_cmd = &cobra.Command{
-		Aliases: []string{  "R",  "r",  "resources",  },
 		Use: `Resources {"Capacity":123,"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultConfirmationText":"string","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Notes":"string","ResourceType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a Resource`,
 		Long:  `Create a Resource.`,
@@ -4774,7 +4557,6 @@ var Post_Resources_cmd = &cobra.Command{
 	}
 
 var Post_SalesChannels_cmd = &cobra.Command{
-		Aliases: []string{  "SC",  "saleschannels",  "sc",  },
 		Use: `SalesChannels {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new sales channel`,
 		Long:  `Create a new sales channel.`,
@@ -4795,7 +4577,6 @@ var Post_SalesChannels_cmd = &cobra.Command{
 	}
 
 var Post_SalesLayoutButtonTypes_cmd = &cobra.Command{
-		Aliases: []string{  "SLBT",  "saleslayoutbuttontypes",  "slbt",  },
 		Use: `SalesLayoutButtonTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new sales layout button type`,
 		Long:  `Create a new sales layout button type.`,
@@ -4816,7 +4597,6 @@ var Post_SalesLayoutButtonTypes_cmd = &cobra.Command{
 	}
 
 var Post_SalesLayouts_cmd = &cobra.Command{
-		Aliases: []string{  "SL",  "saleslayouts",  "sl",  },
 		Use: `SalesLayouts {"Columns":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PaymentMethods":[{"Id":123},...],"PriceTypes":[{"Id":123},...],"PrimaryIndicator":true,"Rows":123,"SalesLayoutButtons":[{"Id":123},...],"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new sales layout setup`,
 		Long:  `Create a new sales layout setup.`,
@@ -4837,7 +4617,6 @@ var Post_SalesLayouts_cmd = &cobra.Command{
 	}
 
 var Post_SalutationTypes_cmd = &cobra.Command{
-		Aliases: []string{  "ST",  "salutationtypes",  "st",  },
 		Use: `SalutationTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new salutation type`,
 		Long:  `Create a new salutation type.`,
@@ -4858,7 +4637,6 @@ var Post_SalutationTypes_cmd = &cobra.Command{
 	}
 
 var Post_Salutations_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "salutations",  },
 		Use: `Salutations {"BusinessTitle":"string","Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultIndicator":true,"EditIndicator":true,"EnvelopeSalutation1":"string","EnvelopeSalutation2":"string","Id":123,"IsFromAffiliation":true,"Label":true,"LetterSalutation":"string","SalutationType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new salutation`,
 		Long:  `Create a new salutation.`,
@@ -4879,7 +4657,6 @@ var Post_Salutations_cmd = &cobra.Command{
 	}
 
 var Post_SchedulePatternTypes_cmd = &cobra.Command{
-		Aliases: []string{  "SPT",  "schedulepatterntypes",  "spt",  },
 		Use: `SchedulePatternTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Schedule Pattern`,
 		Long:  `Create a new Schedule Pattern.`,
@@ -4900,7 +4677,6 @@ var Post_SchedulePatternTypes_cmd = &cobra.Command{
 	}
 
 var Post_ScheduleTypes_cmd = &cobra.Command{
-		Aliases: []string{  "ST",  "scheduletypes",  "st",  },
 		Use: `ScheduleTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Schedule Type`,
 		Long:  `Create a new Schedule Type.`,
@@ -4921,7 +4697,6 @@ var Post_ScheduleTypes_cmd = &cobra.Command{
 	}
 
 var Post_SeasonTypes_cmd = &cobra.Command{
-		Aliases: []string{  "ST",  "seasontypes",  "st",  },
 		Use: `SeasonTypes {"BusinessUnit":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new season type`,
 		Long:  `Create a new season type.`,
@@ -4942,7 +4717,6 @@ var Post_SeasonTypes_cmd = &cobra.Command{
 	}
 
 var Post_Seasons_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "seasons",  },
 		Use: `Seasons {"ConfirmationNoticeFormat":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultIndicator":true,"Description":"string","DisplayInSeasonOverview":true,"EndDateTime":"2000-01-01T00:00:00.000Z","FYear":123,"Id":123,"Inactive":true,"RenewalNoticeFormat":123,"StartDateTime":"2000-01-01T00:00:00.000Z","SubscriptionFund1":123,"SubscriptionFund2":123,"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","YearlySeason":123}`,
 		Short: `Create a new season`,
 		Long:  `Create a new season.`,
@@ -4963,7 +4737,6 @@ var Post_Seasons_cmd = &cobra.Command{
 	}
 
 var Post_SeatCodes_cmd = &cobra.Command{
-		Aliases: []string{  "SC",  "sc",  "seatcodes",  },
 		Use: `SeatCodes {"BackColor":123,"Context":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","DisplayLetter":"string","ForeColor":123,"Id":123,"Inactive":true,"IsSeat":123,"TicketText":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new seat code`,
 		Long:  `Create a new seat code.`,
@@ -4984,7 +4757,6 @@ var Post_SeatCodes_cmd = &cobra.Command{
 	}
 
 var Post_SeatStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "SS",  "seatstatuses",  "ss",  },
 		Use: `SeatStatuses {"BackColor":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ForeColor":123,"Id":123,"Inactive":true,"StatusCode":"string","StatusLegend":"string","StatusPriority":123,"Tck":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new seat status`,
 		Long:  `Create a new seat status.`,
@@ -5005,7 +4777,6 @@ var Post_SeatStatuses_cmd = &cobra.Command{
 	}
 
 var Post_Sections_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "sections",  },
 		Use: `Sections {"AdditionalText":"string","AdditionalText2":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"PrintDesc":"string","PrintSequence":123,"SectionLegend":"string","ShortDesc":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new section`,
 		Long:  `Create a new section.`,
@@ -5026,7 +4797,6 @@ var Post_Sections_cmd = &cobra.Command{
 	}
 
 var Post_ServiceResourceUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "SRUG",  "serviceresourceusergroups",  "srug",  },
 		Use: `ServiceResourceUserGroups {"CanCreate":true,"CanDelete":true,"CanRead":true,"CanUpdate":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"ServiceResource":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string"}`,
 		Short: `Create a new service resource/user group mapping`,
 		Long:  `Create a new service resource/user group mapping.`,
@@ -5047,7 +4817,6 @@ var Post_ServiceResourceUserGroups_cmd = &cobra.Command{
 	}
 
 var Post_Session_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "session",  },
 		Use: `Session {"SessionKey":"string","Name":"string","Value":"string"}`,
 		Short: `Add a new session variable to specified session`,
 		Long:  `Add a new session variable to specified session.`,
@@ -5099,7 +4868,6 @@ var Post_Session_cmd = &cobra.Command{
 	}
 
 var Post_SourceGroups_cmd = &cobra.Command{
-		Aliases: []string{  "SG",  "sg",  "sourcegroups",  },
 		Use: `SourceGroups {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new source group`,
 		Long:  `Create a new source group.`,
@@ -5120,7 +4888,6 @@ var Post_SourceGroups_cmd = &cobra.Command{
 	}
 
 var Post_SpecialActivities_cmd = &cobra.Command{
-		Aliases: []string{  "SA",  "sa",  "specialactivities",  },
 		Use: `SpecialActivities {"ConstituentId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Notes":"string","NumberOfAttendees":123,"Performance":"string","SpecialActivityDateTime":"2000-01-01T00:00:00.000Z","Status":{"Id":123},"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","WorkerConstituentId":123}`,
 		Short: `Create a new activity record`,
 		Long:  `Create a new activity record.`,
@@ -5141,7 +4908,6 @@ var Post_SpecialActivities_cmd = &cobra.Command{
 	}
 
 var Post_SpecialActivityStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "SAS",  "sas",  "specialactivitystatuses",  },
 		Use: `SpecialActivityStatuses {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Special Activity Status`,
 		Long:  `Create a new Special Activity Status.`,
@@ -5162,7 +4928,6 @@ var Post_SpecialActivityStatuses_cmd = &cobra.Command{
 	}
 
 var Post_SpecialActivityTypes_cmd = &cobra.Command{
-		Aliases: []string{  "SAT",  "sat",  "specialactivitytypes",  },
 		Use: `SpecialActivityTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Special Activity Type`,
 		Long:  `Create a new Special Activity Type.`,
@@ -5183,7 +4948,6 @@ var Post_SpecialActivityTypes_cmd = &cobra.Command{
 	}
 
 var Post_States_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "states",  },
 		Use: `States {"Country":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"StateCode":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new state`,
 		Long:  `Create a new state.`,
@@ -5204,7 +4968,6 @@ var Post_States_cmd = &cobra.Command{
 	}
 
 var Post_StepTypes_cmd = &cobra.Command{
-		Aliases: []string{  "ST",  "st",  "steptypes",  },
 		Use: `StepTypes {"AllowAttachments":"string","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseAssociate":"string","UseCompletedOnDateTime":"string","UseDueDateTime":"string","UseNote":"string","UseWarningDays":"string","UseWorker":"string"}`,
 		Short: `Create a new step type`,
 		Long:  `Create a new step type.`,
@@ -5225,7 +4988,6 @@ var Post_StepTypes_cmd = &cobra.Command{
 	}
 
 var Post_Steps_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "steps",  },
 		Use: `Steps {"Associate":{"Id":123},"CompletedOnDateTime":"2000-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","DueDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"NewValue":"string","Notes":"string","OldValue":"string","Plan":{"Id":123},"Priority":123,"StepDateTime":"2000-01-01T00:00:00.000Z","Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","WarningDays":123,"Worker":{"Id":123}}`,
 		Short: `Create a new step`,
 		Long:  `Create a new step.`,
@@ -5249,7 +5011,6 @@ var Post_Steps_cmd = &cobra.Command{
 	}
 
 var Post_SubLineItemStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "SLIS",  "slis",  "sublineitemstatuses",  },
 		Use: `SubLineItemStatuses {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Priority":123,"StatusCode":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new sub line item status`,
 		Long:  `Create a new sub line item status.`,
@@ -5270,7 +5031,6 @@ var Post_SubLineItemStatuses_cmd = &cobra.Command{
 	}
 
 var Post_Suffixes_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "suffixes",  },
 		Use: `Suffixes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new suffix`,
 		Long:  `Create a new suffix.`,
@@ -5291,7 +5051,6 @@ var Post_Suffixes_cmd = &cobra.Command{
 	}
 
 var Post_SurveyQuestions_cmd = &cobra.Command{
-		Aliases: []string{  "SQ",  "sq",  "surveyquestions",  },
 		Use: `SurveyQuestions {"AskType":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DataType":123,"DefaultValue":"string","Id":123,"Inactive":true,"Question":"string","ReferenceTable":"string","ReferenceTableDescriptionColumn":"string","ReferenceTableIdColumn":"string","ReferenceTableSort":"string","ReferenceTableWhereClause":"string","Required":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new survey question`,
 		Long:  `Create a new survey question.`,
@@ -5312,7 +5071,6 @@ var Post_SurveyQuestions_cmd = &cobra.Command{
 	}
 
 var Post_SurveyResponses_cmd = &cobra.Command{
-		Aliases: []string{  "SR",  "sr",  "surveyresponses",  },
 		Use: `SurveyResponses {"Answer":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"OrderId":123,"QuestionId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new survey response`,
 		Long:  `Create a new survey response.`,
@@ -5333,7 +5091,6 @@ var Post_SurveyResponses_cmd = &cobra.Command{
 	}
 
 var Post_TemplateCategories_cmd = &cobra.Command{
-		Aliases: []string{  "TC",  "tc",  "templatecategories",  },
 		Use: `TemplateCategories {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new template category`,
 		Long:  `Create a new template category`,
@@ -5354,7 +5111,6 @@ var Post_TemplateCategories_cmd = &cobra.Command{
 	}
 
 var Post_TemplatePriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "TPT",  "templatepricetypes",  "tpt",  },
 		Use: `TemplatePriceTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DesignationCode":{"Id":123},"GlAccount":{"Id":123},"Id":123,"PriceTemplate":{"Id":123},"PriceType":{"Id":123},"ResaleAccount":{"Id":123},"TemplatePrices":[{"Id":123},...],"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new template price type`,
 		Long:  `Create a new template price type.`,
@@ -5378,7 +5134,6 @@ var Post_TemplatePriceTypes_cmd = &cobra.Command{
 	}
 
 var Post_TemplatePrices_cmd = &cobra.Command{
-		Aliases: []string{  "TP",  "templateprices",  "tp",  },
 		Use: `TemplatePrices {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Enabled":true,"Id":123,"MinPrice":123.456,"Price":123.456,"TemplatePriceType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Zone":{"Id":123}}`,
 		Short: `Create a new template price`,
 		Long:  `Create a new template price.`,
@@ -5402,7 +5157,6 @@ var Post_TemplatePrices_cmd = &cobra.Command{
 	}
 
 var Post_Templates_cmd = &cobra.Command{
-		Aliases: []string{  "T",  "t",  "templates",  },
 		Use: `Templates {"Category":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"IsHtmlBody":true,"TemplateBody":"string","TemplateSubject":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new template`,
 		Long:  `Create a new template`,
@@ -5440,7 +5194,6 @@ var Post_Templates_cmd = &cobra.Command{
 	}
 
 var Post_Theaters_cmd = &cobra.Command{
-		Aliases: []string{  "T",  "t",  "theaters",  },
 		Use: `Theaters {"City":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DataWindowDefinition":"string","Description":"string","DrivingDirections":"string","Id":123,"Inactive":true,"MaximumNumberOfSeats":123,"Phone":"string","PostalCode":"string","State":"string","Street":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new theater`,
 		Long:  `Create a new theater.`,
@@ -5461,7 +5214,6 @@ var Post_Theaters_cmd = &cobra.Command{
 	}
 
 var Post_TimeSlots_cmd = &cobra.Command{
-		Aliases: []string{  "TS",  "timeslots",  "ts",  },
 		Use: `TimeSlots {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EndTime":"2000-01-01T00:00:00.000Z","Id":123,"Inactive":true,"StartTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new time slot`,
 		Long:  `Create a new time slot.`,
@@ -5482,7 +5234,6 @@ var Post_TimeSlots_cmd = &cobra.Command{
 	}
 
 var Post_TriPOSCloudConfigurations_cmd = &cobra.Command{
-		Aliases: []string{  "TPOSCC",  "tposcc",  "triposcloudconfigurations",  },
 		Use: `TriPOSCloudConfigurations {"ConfigSetting":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new TriPOS Cloud configuration`,
 		Long:  `Create a new TriPOS Cloud configuration.`,
@@ -5503,7 +5254,6 @@ var Post_TriPOSCloudConfigurations_cmd = &cobra.Command{
 	}
 
 var Post_UpgradeCategories_cmd = &cobra.Command{
-		Aliases: []string{  "UC",  "uc",  "upgradecategories",  },
 		Use: `UpgradeCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new Upgrade Category`,
 		Long:  `Create a new Upgrade Category.`,
@@ -5524,7 +5274,6 @@ var Post_UpgradeCategories_cmd = &cobra.Command{
 	}
 
 var Post_UpgradeLogs_cmd = &cobra.Command{
-		Aliases: []string{  "UL",  "ul",  "upgradelogs",  },
 		Use: `UpgradeLogs {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","HotFixNumber":123,"Id":123,"ReleaseDescription":"string","ScriptId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UpgradeCategorySummary":{"Id":123},"Version":"string"}`,
 		Short: `Saves the given upgradeLog`,
 		Long:  `Saves the given upgradeLog.`,
@@ -5545,7 +5294,6 @@ var Post_UpgradeLogs_cmd = &cobra.Command{
 	}
 
 var Post_UserPreferences_cmd = &cobra.Command{
-		Aliases: []string{  "UP",  "up",  "userpreferences",  },
 		Use: `UserPreferences {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Key":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Value":"string"}`,
 		Short: `Create a new user preference`,
 		Long:  `Create a new user preference.`,
@@ -5569,7 +5317,6 @@ var Post_UserPreferences_cmd = &cobra.Command{
 	}
 
 var Post_Users_cmd = &cobra.Command{
-		Aliases: []string{  "U",  "u",  "users",  },
 		Use: `Users {"NewPassword":"string","OldPassword":"string","UserName":"string"}`,
 		Short: `Allows for changing of a user's password`,
 		Long:  `Allows for changing of a user's password`,
@@ -5590,7 +5337,6 @@ var Post_Users_cmd = &cobra.Command{
 	}
 
 var Post_ValidateWebLogin_cmd = &cobra.Command{
-		Aliases: []string{  "VWL",  "validateweblogin",  "vwl",  },
 		Use: `ValidateWebLogin {"LoginName":"string","LoginTypeId":123,"Password":"string"}`,
 		Short: `Validate a web login`,
 		Long:  `Validate a web login.`,
@@ -5611,7 +5357,6 @@ var Post_ValidateWebLogin_cmd = &cobra.Command{
 	}
 
 var Post_WebContentTypes_cmd = &cobra.Command{
-		Aliases: []string{  "WCT",  "wct",  "webcontenttypes",  },
 		Use: `WebContentTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditMask":"string","FullTextSearchIndicator":true,"Id":123,"Inactive":true,"LastContentUseUpdateDateTime":"2000-01-01T00:00:00.000Z","Limit":123,"ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseWebApi":true}`,
 		Short: `Create a Web Content Type`,
 		Long:  `Create a Web Content Type.`,
@@ -5632,7 +5377,6 @@ var Post_WebContentTypes_cmd = &cobra.Command{
 	}
 
 var Post_WebLogins_cmd = &cobra.Command{
-		Aliases: []string{  "WL",  "weblogins",  "wl",  },
 		Use: `WebLogins {"Constituent":{"Id":123},"ConstituentUpdateDate":"2000-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Email":{"Id":123},"FailedAttempts":123,"Id":123,"Inactive":true,"LastLoginDate":"2000-01-01T00:00:00.000Z","LockedDate":"2000-01-01T00:00:00.000Z","Login":"string","LoginType":{"Id":123},"PrimaryIndicator":true,"TemporaryIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new weblogin`,
 		Long:  `Create a new weblogin.`,
@@ -5653,7 +5397,6 @@ var Post_WebLogins_cmd = &cobra.Command{
 	}
 
 var Post_WorkerQualifications_cmd = &cobra.Command{
-		Aliases: []string{  "WQ",  "workerqualifications",  "wq",  },
 		Use: `WorkerQualifications {"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EndDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Qualification":{"Id":123},"StartDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a WorkerQualification`,
 		Long:  `Create a WorkerQualification.`,
@@ -5674,7 +5417,6 @@ var Post_WorkerQualifications_cmd = &cobra.Command{
 	}
 
 var Post_WorkerRoles_cmd = &cobra.Command{
-		Aliases: []string{  "WR",  "workerroles",  "wr",  },
 		Use: `WorkerRoles {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"ShowInPortfolioDefault":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new worker role`,
 		Long:  `Create a new worker role.`,
@@ -5695,7 +5437,6 @@ var Post_WorkerRoles_cmd = &cobra.Command{
 	}
 
 var Post_WorkerTypes_cmd = &cobra.Command{
-		Aliases: []string{  "WT",  "workertypes",  "wt",  },
 		Use: `WorkerTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new worker type`,
 		Long:  `Create a new worker type.`,
@@ -5716,7 +5457,6 @@ var Post_WorkerTypes_cmd = &cobra.Command{
 	}
 
 var Post_Workers_cmd = &cobra.Command{
-		Aliases: []string{  "W",  "w",  "workers",  },
 		Use: `Workers {"ConstituentId":123,"ConstituentInactive":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"FirstName":"string","Id":123,"Inactive":true,"LastName":"string","Prefix":{"Id":123},"ShortDisplayName":"string","SortName":"string","Suffix":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","WorkerType":{"Id":123}}`,
 		Short: `Create a new worker`,
 		Long:  `Create a new worker.`,
@@ -5737,7 +5477,6 @@ var Post_Workers_cmd = &cobra.Command{
 	}
 
 var Post_ZoneGroups_cmd = &cobra.Command{
-		Aliases: []string{  "ZG",  "zg",  "zonegroups",  },
 		Use: `ZoneGroups {"AliasDescription":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new zone group`,
 		Long:  `Create a new zone group.`,
@@ -5758,7 +5497,6 @@ var Post_ZoneGroups_cmd = &cobra.Command{
 	}
 
 var Post_ZoneMaps_cmd = &cobra.Command{
-		Aliases: []string{  "ZM",  "zm",  "zonemaps",  },
 		Use: `ZoneMaps {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"SeatMap":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Create a new zone map`,
 		Long:  `Create a new zone map.`,
@@ -5779,7 +5517,6 @@ var Post_ZoneMaps_cmd = &cobra.Command{
 	}
 
 var Post_Zones_cmd = &cobra.Command{
-		Aliases: []string{  "Z",  "z",  "zones",  },
 		Use: `Zones {"Abbreviation":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EndTime":"string","Id":123,"Rank":123,"ShortDescription":"string","StartTime":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ZoneGroup":{"Id":123},"ZoneLegend":"string","ZoneMapId":123,"ZoneTime":"string"}`,
 		Short: `Create a new zone`,
 		Long:  `Create a new zone.`,

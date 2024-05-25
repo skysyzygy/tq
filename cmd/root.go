@@ -78,6 +78,13 @@ func Execute() {
 func init() {
 	cobra.OnInitialize(initConfig)
 
+	// enable case insensitive command names
+	cobra.EnableCaseInsensitive = true
+	// enable case insensitive flag names
+	rootCmd.SetGlobalNormalizationFunc(func(f *pflag.FlagSet, name string) pflag.NormalizedName {
+		return pflag.NormalizedName(strings.ToLower(name))
+	})
+
 	settings := make(map[string]string)
 	if info, ok := debug.ReadBuildInfo(); ok {
 		for _, setting := range info.Settings {

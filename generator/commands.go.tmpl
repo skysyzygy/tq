@@ -15,7 +15,6 @@ import (
 {{- range $key, $commands := .commands }}
 {{- $command := index $commands 0 }}
 var {{ print $op "_" $key "_cmd" }} = &cobra.Command{
-		Aliases: []string{ {{ range call $makeAliases $command.Thing }} "{{ . }}", {{end}} },
 		Use: `{{ print $key " " $command.Usage }}`,
 		Short: `{{ $command.Short }}`,
 		Long:  `{{ $command.Long }}`,

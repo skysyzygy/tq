@@ -11,7 +11,6 @@ import (
 
 
 var Put_AccountTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "accounttypes",  "at",  },
 		Use: `AccountTypes {"CardLength":"string","CardPrefix":"string","CardtypeIndicator":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditMask":"string","Id":123,"Inactive":true,"Mod10Indicator":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing account type`,
 		Long:  `Update an existing account type.`,
@@ -32,7 +31,6 @@ var Put_AccountTypes_cmd = &cobra.Command{
 	}
 
 var Put_Accounts_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "accounts",  },
 		Use: `Accounts {"AccountID":"string","CardExpiryMonth":123,"CardExpiryYear":123,"Inactive":true,"Name":"string","PaymentMethodGroupId":123,"TransactionOrigin":"string"}`,
 		Short: `Update expiration date or name on a credit card account or token`,
 		Long:  `Update expiration date or name on a credit card account or token. Will also tokenize the credit card if tokenization is enabled.
@@ -60,7 +58,6 @@ If tokenizing a non-tokenized card, PaymentMethodGroupId is required if one has 
 	}
 
 var Put_ActionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "actiontypes",  "at",  },
 		Use: `ActionTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"LetterIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing action type`,
 		Long:  `Update an existing action type.`,
@@ -81,7 +78,6 @@ var Put_ActionTypes_cmd = &cobra.Command{
 	}
 
 var Put_Actions_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "actions",  },
 		Use: `Actions {"ActionID":"string","ActionDate":"2000-01-01T00:00:00.000Z","ActionType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Issue":{"Id":123},"LetterPrintedDate":"2000-01-01T00:00:00.000Z","Notes":"string","Resolved":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Update an issue action for a Constituent`,
 		Long:  `Update an issue action for a Constituent`,
@@ -102,7 +98,6 @@ var Put_Actions_cmd = &cobra.Command{
 	}
 
 var Put_ActivityCategories_cmd = &cobra.Command{
-		Aliases: []string{  "AC",  "ac",  "activitycategories",  },
 		Use: `ActivityCategories {"AutoClose":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing activity category`,
 		Long:  `Update an existing activity category.`,
@@ -123,7 +118,6 @@ var Put_ActivityCategories_cmd = &cobra.Command{
 	}
 
 var Put_ActivityTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "activitytypes",  "at",  },
 		Use: `ActivityTypes {"Category":{"Id":123},"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PerfIndicator":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing activity type`,
 		Long:  `Update an existing activity type.`,
@@ -144,7 +138,6 @@ var Put_ActivityTypes_cmd = &cobra.Command{
 	}
 
 var Put_AddressTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "addresstypes",  "at",  },
 		Use: `AddressTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing address type`,
 		Long:  `Update an existing address type.`,
@@ -165,7 +158,6 @@ var Put_AddressTypes_cmd = &cobra.Command{
 	}
 
 var Put_Addresses_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "addresses",  },
 		Use: `Addresses {"AddressType":{"Id":123},"AffiliatedConstituent":{"Id":123},"AltSalutationType":{"Id":123},"City":"string","Constituent":{"Id":123},"Country":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DeliveryPoint":"string","EditIndicator":true,"EndDate":"2000-01-01T00:00:00.000Z","GeoArea":123,"Id":123,"Inactive":true,"IsFromAffiliation":true,"Label":true,"Months":"string","NcoaAction":123,"NcoaSession":123,"PostalCode":"string","PostalCodeFormatted":"string","PrimaryIndicator":true,"StartDate":"2000-01-01T00:00:00.000Z","State":{"Id":123},"Street1":"string","Street1Address":{"Number":"string","Street":"string"},"Street2":"string","Street3":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","AddressID":"string"}`,
 		Short: `Update an address for a Constituent by sending an XML or JSON representation of an existing Address object using HTTP PUT`,
 		Long:  `Update an address for a Constituent by sending an XML or JSON representation of an existing Address object using HTTP PUT.`,
@@ -186,7 +178,6 @@ var Put_Addresses_cmd = &cobra.Command{
 	}
 
 var Put_AffiliationTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "affiliationtypes",  "at",  },
 		Use: `AffiliationTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"IsAllowedToTransactDefault":true,"IsIncludedInSearchResultsDefault":true,"RelationshipCategory":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseSalary":true,"UseTitle":true,"ID":"string"}`,
 		Short: `Update an existing affiliation type`,
 		Long:  `Update an existing affiliation type.`,
@@ -207,7 +198,6 @@ var Put_AffiliationTypes_cmd = &cobra.Command{
 	}
 
 var Put_Affiliations_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "affiliations",  },
 		Use: `Affiliations {"AddressId":123,"AffiliatedName":"string","AffiliationType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"ElectronicAddressId":123,"EndDate":"2000-01-01T00:00:00.000Z","GroupConstituent":{"Id":123},"GroupConstituentName":"string","GroupConstituentSortName":"string","Id":123,"Inactive":true,"IndividualConstituent":{"Id":123},"IndividualConstituentName":"string","IndividualConstituentSortName":"string","IsAllowedToTransact":true,"IsIncludedInSearchResults":true,"NameIndicator":123,"Note":"string","PrimaryIndicator":true,"Salary":123.456,"SalutationId":123,"StartDate":"2000-01-01T00:00:00.000Z","Title":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","AffiliationID":"string"}`,
 		Short: `Update an affiliation`,
 		Long:  `Update an affiliation.`,
@@ -228,7 +218,6 @@ var Put_Affiliations_cmd = &cobra.Command{
 	}
 
 var Put_AliasTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "aliastypes",  "at",  },
 		Use: `AliasTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing alias type`,
 		Long:  `Update an existing alias type.`,
@@ -249,7 +238,6 @@ var Put_AliasTypes_cmd = &cobra.Command{
 	}
 
 var Put_Aliases_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "aliases",  },
 		Use: `Aliases {"AliasFirstName":"string","AliasLastName":"string","AliasType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","AliasID":"string"}`,
 		Short: `Update an alias`,
 		Long:  `Update an alias.`,
@@ -270,7 +258,6 @@ var Put_Aliases_cmd = &cobra.Command{
 	}
 
 var Put_AnalyticsReports_cmd = &cobra.Command{
-		Aliases: []string{  "AR",  "analyticsreports",  "ar",  },
 		Use: `AnalyticsReports {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Division":{"Id":"string"},"Id":123,"Inactive":true,"ReportPath":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","AnalyticsReportID":"string"}`,
 		Short: `Update SSRS Reports for display in Analytics`,
 		Long:  `Update SSRS Reports for display in Analytics.`,
@@ -291,7 +278,6 @@ var Put_AnalyticsReports_cmd = &cobra.Command{
 	}
 
 var Put_AppScreenTexts_cmd = &cobra.Command{
-		Aliases: []string{  "AST",  "appscreentexts",  "ast",  },
 		Use: `AppScreenTexts {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Name":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Value":"string"}`,
 		Short: `Create or update a new App Screen Text`,
 		Long:  `Create or update a new App Screen Text.`,
@@ -312,7 +298,6 @@ var Put_AppScreenTexts_cmd = &cobra.Command{
 	}
 
 var Put_AppealCategories_cmd = &cobra.Command{
-		Aliases: []string{  "AC",  "ac",  "appealcategories",  },
 		Use: `AppealCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing appeal category`,
 		Long:  `Update an existing appeal category.`,
@@ -333,7 +318,6 @@ var Put_AppealCategories_cmd = &cobra.Command{
 	}
 
 var Put_Artists_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "artists",  },
 		Use: `Artists {"Bio":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","FirstName":"string","Id":123,"LastName":"string","MiddleName":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","VoiceId":123,"ArtistID":"string"}`,
 		Short: `Update an existing artist`,
 		Long:  `Update an existing artist.`,
@@ -354,7 +338,6 @@ var Put_Artists_cmd = &cobra.Command{
 	}
 
 var Put_AssetTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "assettypes",  "at",  },
 		Use: `AssetTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing asset type`,
 		Long:  `Update an existing asset type.`,
@@ -375,7 +358,6 @@ var Put_AssetTypes_cmd = &cobra.Command{
 	}
 
 var Put_Assets_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "assets",  },
 		Use: `Assets {"AcquisitionDateTime":"2000-01-01T00:00:00.000Z","AssetType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"EstimatedValue":123.456,"Id":123,"Notes":"string","SaleDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","AssetID":"string"}`,
 		Short: `Update an existing asset for a constituent`,
 		Long:  `Update an existing asset for a constituent.`,
@@ -396,7 +378,6 @@ var Put_Assets_cmd = &cobra.Command{
 	}
 
 var Put_AssociationTypes_cmd = &cobra.Command{
-		Aliases: []string{  "AT",  "associationtypes",  "at",  },
 		Use: `AssociationTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"IsIncludedInSearchResultsDefault":true,"ReciprocalType":{"Id":123},"RelationshipCategory":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseBirthDate":true,"UseGender":true,"ID":"string"}`,
 		Short: `Update an existing association type`,
 		Long:  `Update an existing association type.`,
@@ -417,7 +398,6 @@ var Put_AssociationTypes_cmd = &cobra.Command{
 	}
 
 var Put_Associations_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "associations",  },
 		Use: `Associations {"AssociatedConstituent":{"Id":123},"AssociatedName":"string","AssociationType":{"Id":123},"BirthDate":"2000-01-01T00:00:00.000Z","Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"EndDate":"2000-01-01T00:00:00.000Z","Gender":{"Id":123},"Id":123,"Inactive":true,"IsIncludedInSearchResults":true,"Note":"string","ReciprocalAssociation":{"Id":123},"StartDate":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","AssociationID":"string"}`,
 		Short: `Update a association`,
 		Long:  `Update a association.`,
@@ -438,7 +418,6 @@ var Put_Associations_cmd = &cobra.Command{
 	}
 
 var Put_Attributes_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "attributes",  },
 		Use: `Attributes {"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Keyword":{"Id":123},"KeywordConstituentType":{"Inactive":true,"Rank":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Value":"string","AttributeID":"string"}`,
 		Short: `Update an attribute`,
 		Long:  `Update an attribute.`,
@@ -459,7 +438,6 @@ var Put_Attributes_cmd = &cobra.Command{
 	}
 
 var Put_Authorization_cmd = &cobra.Command{
-		Aliases: []string{  "A",  "a",  "authorization",  },
 		Use: `Authorization {"PaymentID":"string"}`,
 		Short: `NOTE: THIS IS FOR TESSITURA USE ONLY`,
 		Long:  `NOTE: THIS IS FOR TESSITURA USE ONLY. Custom implementations of this endpoint are not supported.
@@ -481,7 +459,6 @@ Expire a payment link which has yet to be authorized or already expired.  For Te
 	}
 
 var Put_BatchTypeGroups_cmd = &cobra.Command{
-		Aliases: []string{  "BTG",  "batchtypegroups",  "btg",  },
 		Use: `BatchTypeGroups {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing batch type group`,
 		Long:  `Update an existing batch type group.`,
@@ -502,7 +479,6 @@ var Put_BatchTypeGroups_cmd = &cobra.Command{
 	}
 
 var Put_BatchTypes_cmd = &cobra.Command{
-		Aliases: []string{  "BT",  "batchtypes",  "bt",  },
 		Use: `BatchTypes {"BatchTypeGroup":{"Id":123},"BusinessUnit":{"Id":123},"Category":123,"CntlIndicator":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing batch type`,
 		Long:  `Update an existing batch type.`,
@@ -523,7 +499,6 @@ var Put_BatchTypes_cmd = &cobra.Command{
 	}
 
 var Put_BillingSchedules_cmd = &cobra.Command{
-		Aliases: []string{  "BS",  "billingschedules",  "bs",  },
 		Use: `BillingSchedules {"BillAmounts":"string","BillDates":"string","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"LongDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing Billing Schedule`,
 		Long:  `Update an existing Billing Schedule.`,
@@ -544,7 +519,6 @@ var Put_BillingSchedules_cmd = &cobra.Command{
 	}
 
 var Put_BillingTypes_cmd = &cobra.Command{
-		Aliases: []string{  "BT",  "billingtypes",  "bt",  },
 		Use: `BillingTypes {"AutoBillingIndicator":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing Billing Type`,
 		Long:  `Update an existing Billing Type.`,
@@ -565,7 +539,6 @@ var Put_BillingTypes_cmd = &cobra.Command{
 	}
 
 var Put_BookingCategories_cmd = &cobra.Command{
-		Aliases: []string{  "BC",  "bc",  "bookingcategories",  },
 		Use: `BookingCategories {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing Booking Category`,
 		Long:  `Update an existing Booking Category.`,
@@ -586,7 +559,6 @@ var Put_BookingCategories_cmd = &cobra.Command{
 	}
 
 var Put_BookingTemplates_cmd = &cobra.Command{
-		Aliases: []string{  "BT",  "bookingtemplates",  "bt",  },
 		Use: `BookingTemplates {"Assignments":[{"Id":123},...],"Category":{"Id":123},"ConfirmationText":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Notes":"string","OverrideTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","BookingTemplateID":"string"}`,
 		Short: `Update an existing Booking Template`,
 		Long:  `Update an existing Booking Template`,
@@ -607,7 +579,6 @@ var Put_BookingTemplates_cmd = &cobra.Command{
 	}
 
 var Put_Bookings_cmd = &cobra.Command{
-		Aliases: []string{  "B",  "b",  "bookings",  },
 		Use: `Bookings {"Assignments":[{"Id":123},...],"BookingSource":123,"Category":{"Id":123},"ConfirmationText":"string","Context":{},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultCount":123,"DefaultDateTime":"2000-01-01T00:00:00.000Z","DefaultDuration":123,"Description":"string","EditIndicator":true,"Id":123,"Notes":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","BookingID":"string"}`,
 		Short: `Update an existing Booking`,
 		Long:  `Update an existing Booking`,
@@ -628,7 +599,6 @@ var Put_Bookings_cmd = &cobra.Command{
 	}
 
 var Put_BulkCopySets_cmd = &cobra.Command{
-		Aliases: []string{  "BCS",  "bcs",  "bulkcopysets",  },
 		Use: `BulkCopySets {"AvailableForSaleIndicator":true,"ControlGroup":{"Id":123},"CopyCredits":true,"CopyNotes":true,"CopyOffers":true,"CopyPriceEvents":true,"CopyPrices":true,"CreateFriday":true,"CreateFromDateTime":"2000-01-01T00:00:00.000Z","CreateLocation":"string","CreateMode":"string","CreateMonday":true,"CreateSaturday":true,"CreateSunday":true,"CreateThursday":true,"CreateToDateTime":"2000-01-01T00:00:00.000Z","CreateTuesday":true,"CreateWednesday":true,"CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultRelativeDates":"string","Id":123,"Inactive":true,"OverrideOnSale":true,"PackageCode":"string","PackageCodeSeed":123,"PackageModeOfSaleRelativeDates":"string","PerformanceCode":"string","PerformanceCodeSeed":123,"PerformanceDescription":"string","PerformanceModeOfSaleRelativeDates":"string","PerformanceStatus":{"Id":123},"PerformanceTime":"string","PerformanceType":{"Id":123},"PriceEventRelativeDates":"string","PriceTypeRelativeDates":"string","ProductionSeason":{"Id":123},"PublishRelativeDates":"string","ReferenceDay":"2000-01-01T00:00:00.000Z","ReferencePerformanceId":123,"ReferenceSeasonString":"string","SetDescription":"string","SetType":123,"ShortName":"string","TimeSlot":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","BulkCopySetID":"string"}`,
 		Short: `Updates an existing bulk copy set`,
 		Long:  `Updates an existing bulk copy set.`,
@@ -649,7 +619,6 @@ var Put_BulkCopySets_cmd = &cobra.Command{
 	}
 
 var Put_BulkDailyCopyExclusions_cmd = &cobra.Command{
-		Aliases: []string{  "BDCE",  "bdce",  "bulkdailycopyexclusions",  },
 		Use: `BulkDailyCopyExclusions {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DoNotCopy":true,"Id":123,"IncludeWithoutCopy":true,"PackageId":123,"PerformanceId":123,"SetId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","BulkDailyCopyExclusionID":"string"}`,
 		Short: `Updates an existing bulk daily copy exclusion`,
 		Long:  `Updates an existing bulk daily copy exclusion.`,
@@ -670,7 +639,6 @@ var Put_BulkDailyCopyExclusions_cmd = &cobra.Command{
 	}
 
 var Put_BusinessUnits_cmd = &cobra.Command{
-		Aliases: []string{  "BU",  "bu",  "businessunits",  },
 		Use: `BusinessUnits {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing business unit`,
 		Long:  `Update an existing business unit.`,
@@ -691,7 +659,6 @@ var Put_BusinessUnits_cmd = &cobra.Command{
 	}
 
 var Put_CampaignDesignations_cmd = &cobra.Command{
-		Aliases: []string{  "CD",  "campaigndesignations",  "cd",  },
 		Use: `CampaignDesignations {"Campaign":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultIndicator":true,"Designation":{"Id":123},"EditIndicator":true,"GoalAmount":123.456,"Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","CampaignDesignationID":"string"}`,
 		Short: `Update an association between a Designation and a Campaign`,
 		Long:  `Update an association between a Designation and a Campaign.`,
@@ -712,7 +679,6 @@ var Put_CampaignDesignations_cmd = &cobra.Command{
 	}
 
 var Put_CampaignFunds_cmd = &cobra.Command{
-		Aliases: []string{  "CF",  "campaignfunds",  "cf",  },
 		Use: `CampaignFunds {"Campaign":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"EndDateTime":"2000-01-01T00:00:00.000Z","Fund":{"Id":123},"GoalAmount":123.456,"Id":123,"StartDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","CampaignFundID":"string"}`,
 		Short: `Update a Fund association to a Campaign`,
 		Long:  `Update a Fund association to a Campaign.`,
@@ -733,7 +699,6 @@ var Put_CampaignFunds_cmd = &cobra.Command{
 	}
 
 var Put_CardReaderTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CRT",  "cardreadertypes",  "crt",  },
 		Use: `CardReaderTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing Card Reader Type`,
 		Long:  `Update an existing Card Reader Type.`,
@@ -754,7 +719,6 @@ var Put_CardReaderTypes_cmd = &cobra.Command{
 	}
 
 var Put_Cart_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "cart",  },
 		Use: `Cart {"LineItemID":"string","DiscountTypeId":123,"SessionKey":"string"}`,
 		Short: `Applies a discounted price to all sub line items for a line item`,
 		Long:  `Applies a discounted price to all sub line items for a line item
@@ -804,7 +768,6 @@ The status field in the response will return as S if the discount can be used or
 	}
 
 var Put_Colors_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "colors",  },
 		Use: `Colors {"ColorValue":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing color`,
 		Long:  `Update an existing color.`,
@@ -825,7 +788,6 @@ var Put_Colors_cmd = &cobra.Command{
 	}
 
 var Put_Composers_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "composers",  },
 		Use: `Composers {"Bio":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","FirstName":"string","Id":123,"Inactive":true,"LastName":"string","MiddleName":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing composer`,
 		Long:  `Update an existing composer.`,
@@ -846,7 +808,6 @@ var Put_Composers_cmd = &cobra.Command{
 	}
 
 var Put_Constituencies_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "constituencies",  },
 		Use: `Constituencies {"ConstituencyType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"EndDate":"2000-01-01T00:00:00.000Z","Id":123,"StartDate":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ConstituencyID":"string"}`,
 		Short: `Update a constituency`,
 		Long:  `Update a constituency.`,
@@ -867,7 +828,6 @@ var Put_Constituencies_cmd = &cobra.Command{
 	}
 
 var Put_ConstituencyTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CT",  "constituencytypes",  "ct",  },
 		Use: `ConstituencyTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rank":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing constituency type`,
 		Long:  `Update an existing constituency type.`,
@@ -888,7 +848,6 @@ var Put_ConstituencyTypes_cmd = &cobra.Command{
 	}
 
 var Put_ConstituentDocuments_cmd = &cobra.Command{
-		Aliases: []string{  "CD",  "cd",  "constituentdocuments",  },
 		Use: `ConstituentDocuments {"Category":{"Id":123},"ConstituentId":123,"Contents":"AA==","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","FileName":"string","Id":123,"Notes":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","DocumentID":"string"}`,
 		Short: `Update an existing document for a constituent`,
 		Long:  `Update an existing document for a constituent.`,
@@ -909,7 +868,6 @@ var Put_ConstituentDocuments_cmd = &cobra.Command{
 	}
 
 var Put_ConstituentGroups_cmd = &cobra.Command{
-		Aliases: []string{  "CG",  "cg",  "constituentgroups",  },
 		Use: `ConstituentGroups {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing constituent group`,
 		Long:  `Update an existing constituent group.`,
@@ -930,7 +888,6 @@ var Put_ConstituentGroups_cmd = &cobra.Command{
 	}
 
 var Put_ConstituentInactives_cmd = &cobra.Command{
-		Aliases: []string{  "CI",  "ci",  "constituentinactives",  },
 		Use: `ConstituentInactives {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing constituent inactive`,
 		Long:  `Update an existing constituent inactive.`,
@@ -951,7 +908,6 @@ var Put_ConstituentInactives_cmd = &cobra.Command{
 	}
 
 var Put_ConstituentProtectionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CPT",  "constituentprotectiontypes",  "cpt",  },
 		Use: `ConstituentProtectionTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing constituent protection type`,
 		Long:  `Update an existing constituent protection type.`,
@@ -972,7 +928,6 @@ var Put_ConstituentProtectionTypes_cmd = &cobra.Command{
 	}
 
 var Put_ConstituentTypeAffiliates_cmd = &cobra.Command{
-		Aliases: []string{  "CTA",  "constituenttypeaffiliates",  "cta",  },
 		Use: `ConstituentTypeAffiliates {"AffiliationType":{"Id":123},"ConstituentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","HouseholdPrimary":true,"Id":123,"Rank":123,"ShowWithGroup":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing constituent type affiliate`,
 		Long:  `Update an existing constituent type affiliate.`,
@@ -993,7 +948,6 @@ var Put_ConstituentTypeAffiliates_cmd = &cobra.Command{
 	}
 
 var Put_ConstituentTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CT",  "constituenttypes",  "ct",  },
 		Use: `ConstituentTypes {"AddressTypeId":123,"ConstituentGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultAffiliatedConstituentTypeId":123,"DefaultAffiliationTypeId":123,"DefaultIndicator":true,"DefaultSalutationId":123,"Description":"string","ElectronicAddressTypeId":123,"GiftAidIndicator":true,"Id":123,"Inactive":true,"LoginTypeId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing constituent type`,
 		Long:  `Update an existing constituent type.`,
@@ -1014,7 +968,6 @@ var Put_ConstituentTypes_cmd = &cobra.Command{
 	}
 
 var Put_Constituents_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "constituents",  },
 		Use: `Constituents {"ConstituentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DisplayName":"string","EmarketIndicator":{"Id":123},"FirstName":"string","Gender":{"Id":123},"Id":123,"Inactive":{"Id":123},"InactiveReason":{"Id":123},"LastActivityDate":"2000-01-01T00:00:00.000Z","LastGiftDate":"2000-01-01T00:00:00.000Z","LastName":"string","LastTicketDate":"2000-01-01T00:00:00.000Z","MailIndicator":{"Id":123},"MiddleName":"string","NameStatus":{"Id":123},"OriginalSource":{"Id":123},"PhoneIndicator":{"Id":123},"Prefix":{"Id":123},"ProtectionType":{"Id":123},"SortName":"string","Suffix":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ConstituentID":"string"}`,
 		Short: `Update a constituent`,
 		Long:  `Update a constituent. Only the information about constituent can be updated. If addresses, electronicAddresses, salutations or phones data are passed, they will be ignored.`,
@@ -1035,7 +988,6 @@ var Put_Constituents_cmd = &cobra.Command{
 	}
 
 var Put_ContactPermissionCategories_cmd = &cobra.Command{
-		Aliases: []string{  "CPC",  "contactpermissioncategories",  "cpc",  },
 		Use: `ContactPermissionCategories {"AskFrequencyMonths":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing contact permission category`,
 		Long:  `Update an existing contact permission category.`,
@@ -1056,7 +1008,6 @@ var Put_ContactPermissionCategories_cmd = &cobra.Command{
 	}
 
 var Put_ContactPermissionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CPT",  "contactpermissiontypes",  "cpt",  },
 		Use: `ContactPermissionTypes {"Category":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultValueForAdd":"string","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Presenter":true,"Rank":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing contact permission type`,
 		Long:  `Update an existing contact permission type.`,
@@ -1077,7 +1028,6 @@ var Put_ContactPermissionTypes_cmd = &cobra.Command{
 	}
 
 var Put_ContactPermissions_cmd = &cobra.Command{
-		Aliases: []string{  "CP",  "contactpermissions",  "cp",  },
 		Use: `ContactPermissions {"Answer":"string","Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"LastAskedDateTime":"2000-01-01T00:00:00.000Z","ShouldAsk":true,"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ContactPermissionID":"string"}`,
 		Short: `Update a contact permission`,
 		Long:  `Update a contact permission`,
@@ -1098,7 +1048,6 @@ var Put_ContactPermissions_cmd = &cobra.Command{
 	}
 
 var Put_ContactPointCategories_cmd = &cobra.Command{
-		Aliases: []string{  "CPC",  "contactpointcategories",  "cpc",  },
 		Use: `ContactPointCategories {"ContactPointKey":"string","ContactPointTable":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing contact point category`,
 		Long:  `Update an existing contact point category.`,
@@ -1119,7 +1068,6 @@ var Put_ContactPointCategories_cmd = &cobra.Command{
 	}
 
 var Put_ContactPointCategoryPurposes_cmd = &cobra.Command{
-		Aliases: []string{  "CPCP",  "contactpointcategorypurposes",  "cpcp",  },
 		Use: `ContactPointCategoryPurposes {"ContactPointCategory":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Purpose":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing contact point category purpose`,
 		Long:  `Update an existing contact point category purpose.`,
@@ -1140,7 +1088,6 @@ var Put_ContactPointCategoryPurposes_cmd = &cobra.Command{
 	}
 
 var Put_ContactPointPurposeCategories_cmd = &cobra.Command{
-		Aliases: []string{  "CPPC",  "contactpointpurposecategories",  "cppc",  },
 		Use: `ContactPointPurposeCategories {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing contact point purpose category`,
 		Long:  `Update an existing contact point purpose category.`,
@@ -1161,7 +1108,6 @@ var Put_ContactPointPurposeCategories_cmd = &cobra.Command{
 	}
 
 var Put_ContactPointPurposeMaps_cmd = &cobra.Command{
-		Aliases: []string{  "CPPM",  "contactpointpurposemaps",  "cppm",  },
 		Use: `ContactPointPurposeMaps {"ContactPoint":{"Id":123},"ContactPointCategory":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Purpose":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ContactPointPurposeMapID":"string"}`,
 		Short: `Update a contact point purpose`,
 		Long:  `Update a contact point purpose.`,
@@ -1182,7 +1128,6 @@ var Put_ContactPointPurposeMaps_cmd = &cobra.Command{
 	}
 
 var Put_ContactPointPurposes_cmd = &cobra.Command{
-		Aliases: []string{  "CPP",  "contactpointpurposes",  "cpp",  },
 		Use: `ContactPointPurposes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PurposeCategory":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing contact point purpose`,
 		Long:  `Update an existing contact point purpose.`,
@@ -1203,7 +1148,6 @@ var Put_ContactPointPurposes_cmd = &cobra.Command{
 	}
 
 var Put_ContactTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CT",  "contacttypes",  "ct",  },
 		Use: `ContactTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing contact type`,
 		Long:  `Update an existing contact type.`,
@@ -1224,7 +1168,6 @@ var Put_ContactTypes_cmd = &cobra.Command{
 	}
 
 var Put_ContributionDesignations_cmd = &cobra.Command{
-		Aliases: []string{  "CD",  "cd",  "contributiondesignations",  },
 		Use: `ContributionDesignations {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"LetterText":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing contribution designation`,
 		Long:  `Update an existing contribution designation.`,
@@ -1245,7 +1188,6 @@ var Put_ContributionDesignations_cmd = &cobra.Command{
 	}
 
 var Put_ContributionImportSets_cmd = &cobra.Command{
-		Aliases: []string{  "CIS",  "cis",  "contributionimportsets",  },
 		Use: `ContributionImportSets {"AccountMatchKeyword":{"Id":123},"AcknowledgmentLetterMode":123,"BatchType":{"Id":123},"BillingSchedule":{"Id":123},"BillingType":{"Id":123},"Campaign":{"Id":123},"ContributionDateTime":"2000-01-01T00:00:00.000Z","ContributionPayMode":123,"CreateLocation":"string","CreatePotentialDuplicate":true,"CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CrediteeMode":123,"CrediteeType":{"Id":123},"DefaultConstituentType":{"Id":123},"DefaultCountryCode":"string","DefaultHouseholdConstituentType":{"Id":123},"DefaultOriginalSource":{"Id":123},"Description":"string","Designation":{"Id":123},"FilePath":"string","FormatFile":"string","Fund":{"Id":123},"Id":123,"ImportRefNoLocation":123,"Inactive":true,"PaymentMethod":{"Id":123},"SalesChannel":{"Id":123},"Source":{"Id":123},"StripPhoneFormatting":true,"TransactAsHousehold":true,"TransactAsHouseholdCreditee":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Worker":{"Id":123},"ID":"string"}`,
 		Short: `Update an existing contributionImportSet`,
 		Long:  `Update an existing contributionImportSet.`,
@@ -1266,7 +1208,6 @@ var Put_ContributionImportSets_cmd = &cobra.Command{
 	}
 
 var Put_Contributions_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "contributions",  },
 		Use: `Contributions {"AccountId":123,"AppealId":123,"BatchId":123,"BillingAccount":"string","BillingTypeId":123,"BusinessUnitId":123,"Campaign":{"Id":123},"Cancel":"string","Channel":{"Id":123},"Constituent":{"Id":123},"ContributionAmount":123.456,"ContributionDateTime":"2000-01-01T00:00:00.000Z","ContributionDesignation":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Custom0":"string","Custom1":"string","Custom2":"string","Custom3":"string","Custom4":"string","Custom5":"string","Custom6":"string","Custom7":"string","Custom8":"string","Custom9":"string","EditIndicator":true,"Fund":{"Id":123},"Id":123,"Initiator":{"Id":123},"KindGiftDescription":"string","KindGiftTransferDateTime":"2000-01-01T00:00:00.000Z","MatchIndicator":"string","MatchingContributionId":123,"MediaType":{"Id":123},"MirrorLock":123,"Notes":"string","PaymentEndDateTime":"2000-01-01T00:00:00.000Z","PaymentStartDateTime":"2000-01-01T00:00:00.000Z","Plan":{"Id":123},"PledgeStatusId":123,"ReceivedAmount":123.456,"Solicitor":"string","SourceId":123,"Type":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ContributionID":"string"}`,
 		Short: `This resource is currently strictly for interceptor plugin use`,
 		Long:  `This resource is currently strictly for interceptor plugin use. This is called any time an existing contribution is updated from contribution editor in the client application. Only Id (ref_no) is provided in the request content.`,
@@ -1287,7 +1228,6 @@ var Put_Contributions_cmd = &cobra.Command{
 	}
 
 var Put_ControlGroupUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "CGUG",  "cgug",  "controlgroupusergroups",  },
 		Use: `ControlGroupUserGroups {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultIndicator":true,"EditIndicator":true,"Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string","ID":"string"}`,
 		Short: `Update an existing control group/user group mapping`,
 		Long:  `Update an existing control group/user group mapping.`,
@@ -1308,7 +1248,6 @@ var Put_ControlGroupUserGroups_cmd = &cobra.Command{
 	}
 
 var Put_ControlGroups_cmd = &cobra.Command{
-		Aliases: []string{  "CG",  "cg",  "controlgroups",  },
 		Use: `ControlGroups {"CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Permission":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing control group`,
 		Long:  `Update an existing control group.`,
@@ -1329,7 +1268,6 @@ var Put_ControlGroups_cmd = &cobra.Command{
 	}
 
 var Put_Countries_cmd = &cobra.Command{
-		Aliases: []string{  "C",  "c",  "countries",  },
 		Use: `Countries {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DecimalSeparator":"string","Description":"string","Id":123,"Inactive":true,"IsoAlpha2Code":"string","IsoAlpha3Code":"string","PhoneCode":"string","PhoneEditstring":"string","PhoneMask":"string","PhoneValidLengths":"string","ReqCity":true,"ReqPcode":true,"ShortDesc":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseAvs":"string","UseStateField":"string","ZipEditstring":"string","ZipMask":"string","ZipValidLengths":"string","ID":"string"}`,
 		Short: `Update an existing country`,
 		Long:  `Update an existing country.`,
@@ -1350,7 +1288,6 @@ var Put_Countries_cmd = &cobra.Command{
 	}
 
 var Put_CrediteeTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CT",  "crediteetypes",  "ct",  },
 		Use: `CrediteeTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CreditMembershipIndicator":true,"Description":"string","GiftAidIndicator":true,"Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing crediteeType`,
 		Long:  `Update an existing crediteeType.`,
@@ -1371,7 +1308,6 @@ var Put_CrediteeTypes_cmd = &cobra.Command{
 	}
 
 var Put_CurrencyTypes_cmd = &cobra.Command{
-		Aliases: []string{  "CT",  "ct",  "currencytypes",  },
 		Use: `CurrencyTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rate":123.456,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing currency type`,
 		Long:  `Update an existing currency type.`,
@@ -1392,7 +1328,6 @@ var Put_CurrencyTypes_cmd = &cobra.Command{
 	}
 
 var Put_CustomDefaultCategories_cmd = &cobra.Command{
-		Aliases: []string{  "CDC",  "cdc",  "customdefaultcategories",  },
 		Use: `CustomDefaultCategories {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing custom default category`,
 		Long:  `Update an existing custom default category.`,
@@ -1413,7 +1348,6 @@ var Put_CustomDefaultCategories_cmd = &cobra.Command{
 	}
 
 var Put_CustomDefaults_cmd = &cobra.Command{
-		Aliases: []string{  "CD",  "cd",  "customdefaults",  },
 		Use: `CustomDefaults {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CustomDefaultCategory":{"Id":123},"DefaultValue":"string","Description":"string","FieldName":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing custom default`,
 		Long:  `Update an existing custom default.`,
@@ -1434,7 +1368,6 @@ var Put_CustomDefaults_cmd = &cobra.Command{
 	}
 
 var Put_DeliveryMethods_cmd = &cobra.Command{
-		Aliases: []string{  "DM",  "deliverymethods",  "dm",  },
 		Use: `DeliveryMethods {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PrintAtHome":true,"RequireAddress":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing delivery method`,
 		Long:  `Update an existing delivery method.`,
@@ -1455,7 +1388,6 @@ var Put_DeliveryMethods_cmd = &cobra.Command{
 	}
 
 var Put_DesignationCodes_cmd = &cobra.Command{
-		Aliases: []string{  "DC",  "dc",  "designationcodes",  },
 		Use: `DesignationCodes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing designation code`,
 		Long:  `Update an existing designation code.`,
@@ -1476,7 +1408,6 @@ var Put_DesignationCodes_cmd = &cobra.Command{
 	}
 
 var Put_Diagnostics_cmd = &cobra.Command{
-		Aliases: []string{  "D",  "d",  "diagnostics",  },
 		Use: `Diagnostics {"CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","DiagnosticID":"string"}`,
 		Short: `Dummy end point to check availability of HTTP PUT`,
 		Long:  `Dummy end point to check availability of HTTP PUT.`,
@@ -1497,7 +1428,6 @@ var Put_Diagnostics_cmd = &cobra.Command{
 	}
 
 var Put_DirectDebitAccountTypes_cmd = &cobra.Command{
-		Aliases: []string{  "DDAT",  "ddat",  "directdebitaccounttypes",  },
 		Use: `DirectDebitAccountTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing direct debit account type`,
 		Long:  `Update an existing direct debit account type.`,
@@ -1518,7 +1448,6 @@ var Put_DirectDebitAccountTypes_cmd = &cobra.Command{
 	}
 
 var Put_DiscountTypes_cmd = &cobra.Command{
-		Aliases: []string{  "DT",  "discounttypes",  "dt",  },
 		Use: `DiscountTypes {"Amount":123.456,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PercentIndicator":true,"RespectMinimumPrice":true,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing discount type`,
 		Long:  `Update an existing discount type.`,
@@ -1539,7 +1468,6 @@ var Put_DiscountTypes_cmd = &cobra.Command{
 	}
 
 var Put_DocumentCategories_cmd = &cobra.Command{
-		Aliases: []string{  "DC",  "dc",  "documentcategories",  },
 		Use: `DocumentCategories {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"ParentTableName":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing documentCategory`,
 		Long:  `Update an existing documentCategory.`,
@@ -1560,7 +1488,6 @@ var Put_DocumentCategories_cmd = &cobra.Command{
 	}
 
 var Put_DonationLevels_cmd = &cobra.Command{
-		Aliases: []string{  "DL",  "dl",  "donationlevels",  },
 		Use: `DonationLevels {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"ProgramType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing donation level`,
 		Long:  `Update an existing donation level.`,
@@ -1581,7 +1508,6 @@ var Put_DonationLevels_cmd = &cobra.Command{
 	}
 
 var Put_EMV_cmd = &cobra.Command{
-		Aliases: []string{  "emv",  },
 		Use: `EMV {"Cert":"string","LaneID":"string","Merchant":"string","IdleMessage":"string"}`,
 		Short: `Set idle message for a specific lane`,
 		Long:  `Set idle message for a specific lane`,
@@ -1602,7 +1528,6 @@ var Put_EMV_cmd = &cobra.Command{
 	}
 
 var Put_ElectronicAddressTypes_cmd = &cobra.Command{
-		Aliases: []string{  "EAT",  "eat",  "electronicaddresstypes",  },
 		Use: `ElectronicAddressTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"IsEmail":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing electronic address type`,
 		Long:  `Update an existing electronic address type.`,
@@ -1623,7 +1548,6 @@ var Put_ElectronicAddressTypes_cmd = &cobra.Command{
 	}
 
 var Put_ElectronicAddresses_cmd = &cobra.Command{
-		Aliases: []string{  "EA",  "ea",  "electronicaddresses",  },
 		Use: `ElectronicAddresses {"Address":"string","AffiliatedConstituent":{"Id":123},"AllowHtmlFormat":true,"AllowMarketing":true,"AltSalutationType":{"Id":123},"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"ElectronicAddressType":{"Id":123},"EndDate":"2000-01-01T00:00:00.000Z","Id":123,"Inactive":true,"IsEmail":true,"IsFromAffiliation":true,"Months":"string","PrimaryIndicator":true,"StartDate":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ElectronicAddressID":"string"}`,
 		Short: `Update an electronic address`,
 		Long:  `Update an electronic address.`,
@@ -1644,7 +1568,6 @@ var Put_ElectronicAddresses_cmd = &cobra.Command{
 	}
 
 var Put_EmailProfiles_cmd = &cobra.Command{
-		Aliases: []string{  "EP",  "emailprofiles",  "ep",  },
 		Use: `EmailProfiles {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EmailBcc":"string","EmailCc":"string","EmailDefaultSubject":"string","EmailFrom":"string","Id":123,"Inactive":true,"SMTPPassword":"string","SMTPPort":123,"SMTPServer":"string","SMTPUserName":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseSsl":true,"ID":"string"}`,
 		Short: `Update an existing email profile`,
 		Long:  `Update an existing email profile`,
@@ -1665,7 +1588,6 @@ var Put_EmailProfiles_cmd = &cobra.Command{
 	}
 
 var Put_EmarketIndicators_cmd = &cobra.Command{
-		Aliases: []string{  "EI",  "ei",  "emarketindicators",  },
 		Use: `EmarketIndicators {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing emarket indicator`,
 		Long:  `Update an existing emarket indicator.`,
@@ -1686,7 +1608,6 @@ var Put_EmarketIndicators_cmd = &cobra.Command{
 	}
 
 var Put_Eras_cmd = &cobra.Command{
-		Aliases: []string{  "E",  "e",  "eras",  },
 		Use: `Eras {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing era`,
 		Long:  `Update an existing era.`,
@@ -1707,7 +1628,6 @@ var Put_Eras_cmd = &cobra.Command{
 	}
 
 var Put_Facilities_cmd = &cobra.Command{
-		Aliases: []string{  "F",  "f",  "facilities",  },
 		Use: `Facilities {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultBestSeatMapId":123,"DefaultZoneMapId":123,"Description":"string","Id":123,"SeatMap":{"Id":123},"Theater":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update a Facility`,
 		Long:  `Update a Facility.`,
@@ -1728,7 +1648,6 @@ var Put_Facilities_cmd = &cobra.Command{
 	}
 
 var Put_Genders_cmd = &cobra.Command{
-		Aliases: []string{  "G",  "g",  "genders",  },
 		Use: `Genders {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultPrefix":{"Id":123},"Description":"string","Id":123,"Inactive":true,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing gender`,
 		Long:  `Update an existing gender.`,
@@ -1749,7 +1668,6 @@ var Put_Genders_cmd = &cobra.Command{
 	}
 
 var Put_GiftAidContactMethods_cmd = &cobra.Command{
-		Aliases: []string{  "GACM",  "gacm",  "giftaidcontactmethods",  },
 		Use: `GiftAidContactMethods {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing gift aid contact method`,
 		Long:  `Update an existing gift aid contact method.`,
@@ -1770,7 +1688,6 @@ var Put_GiftAidContactMethods_cmd = &cobra.Command{
 	}
 
 var Put_GiftAidDeclarations_cmd = &cobra.Command{
-		Aliases: []string{  "GAD",  "gad",  "giftaiddeclarations",  },
 		Use: `GiftAidDeclarations {"ConfirmDateTime":"2000-01-01T00:00:00.000Z","Constituent":{"Id":123},"ContactMethod":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DocumentStatus":{"Id":123},"EligibleIndicator":true,"EndDateTime":"2000-01-01T00:00:00.000Z","GiftAidType":{"Id":123},"Id":123,"IneligibleReason":{"Id":123},"Notes":"string","ReceivedDateTime":"2000-01-01T00:00:00.000Z","StartDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","GiftAidDeclarationID":"string"}`,
 		Short: `Update a Gift Aid Declaration`,
 		Long:  `Update a Gift Aid Declaration.`,
@@ -1791,7 +1708,6 @@ var Put_GiftAidDeclarations_cmd = &cobra.Command{
 	}
 
 var Put_GiftAidDocumentStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "GADS",  "gads",  "giftaiddocumentstatuses",  },
 		Use: `GiftAidDocumentStatuses {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing gift aid document status`,
 		Long:  `Update an existing gift aid document status.`,
@@ -1812,7 +1728,6 @@ var Put_GiftAidDocumentStatuses_cmd = &cobra.Command{
 	}
 
 var Put_GiftAidIneligibleReasons_cmd = &cobra.Command{
-		Aliases: []string{  "GAIR",  "gair",  "giftaidineligiblereasons",  },
 		Use: `GiftAidIneligibleReasons {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing gift aid ineligible reason`,
 		Long:  `Update an existing gift aid ineligible reason.`,
@@ -1833,7 +1748,6 @@ var Put_GiftAidIneligibleReasons_cmd = &cobra.Command{
 	}
 
 var Put_GiftAidRates_cmd = &cobra.Command{
-		Aliases: []string{  "GAR",  "gar",  "giftaidrates",  },
 		Use: `GiftAidRates {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EndDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Rate":123.456,"StartDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing gift aid rate`,
 		Long:  `Update an existing gift aid rate.`,
@@ -1854,7 +1768,6 @@ var Put_GiftAidRates_cmd = &cobra.Command{
 	}
 
 var Put_GiftAidStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "GAS",  "gas",  "giftaidstatuses",  },
 		Use: `GiftAidStatuses {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing gift aid status`,
 		Long:  `Update an existing gift aid status.`,
@@ -1875,7 +1788,6 @@ var Put_GiftAidStatuses_cmd = &cobra.Command{
 	}
 
 var Put_GiftAidTypes_cmd = &cobra.Command{
-		Aliases: []string{  "GAT",  "gat",  "giftaidtypes",  },
 		Use: `GiftAidTypes {"CharityClaimsRef":"string","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing gift aid type`,
 		Long:  `Update an existing gift aid type.`,
@@ -1896,7 +1808,6 @@ var Put_GiftAidTypes_cmd = &cobra.Command{
 	}
 
 var Put_HoldCodeCategories_cmd = &cobra.Command{
-		Aliases: []string{  "HCC",  "hcc",  "holdcodecategories",  },
 		Use: `HoldCodeCategories {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing Hold Code Category`,
 		Long:  `Update an existing Hold Code Category.`,
@@ -1917,7 +1828,6 @@ var Put_HoldCodeCategories_cmd = &cobra.Command{
 	}
 
 var Put_HoldCodeUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "HCUG",  "hcug",  "holdcodeusergroups",  },
 		Use: `HoldCodeUserGroups {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","HoldCode":{"Id":123},"Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string","HoldCodeUserGroupID":"string"}`,
 		Short: `Update an existing hold code/user group mapping`,
 		Long:  `Update an existing hold code/user group mapping.`,
@@ -1938,7 +1848,6 @@ var Put_HoldCodeUserGroups_cmd = &cobra.Command{
 	}
 
 var Put_HoldCodes_cmd = &cobra.Command{
-		Aliases: []string{  "HC",  "hc",  "holdcodes",  },
 		Use: `HoldCodes {"BlackoutIndicator":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Legend":"string","Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","HoldCodeID":"string"}`,
 		Short: `Update an existing Hold Code`,
 		Long:  `Update an existing Hold Code.`,
@@ -1959,7 +1868,6 @@ var Put_HoldCodes_cmd = &cobra.Command{
 	}
 
 var Put_InactiveReasons_cmd = &cobra.Command{
-		Aliases: []string{  "IR",  "inactivereasons",  "ir",  },
 		Use: `InactiveReasons {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing inactive reason`,
 		Long:  `Update an existing inactive reason.`,
@@ -1980,7 +1888,6 @@ var Put_InactiveReasons_cmd = &cobra.Command{
 	}
 
 var Put_IntegrationDefaults_cmd = &cobra.Command{
-		Aliases: []string{  "ID",  "id",  "integrationdefaults",  },
 		Use: `IntegrationDefaults {"AccessId":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultValue":"string","Description":"string","FieldName":"string","Id":123,"Integration":{"Id":123},"Organization":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing Integration Default`,
 		Long:  `Update an existing Integration Default.`,
@@ -2001,7 +1908,6 @@ var Put_IntegrationDefaults_cmd = &cobra.Command{
 	}
 
 var Put_Integrations_cmd = &cobra.Command{
-		Aliases: []string{  "I",  "i",  "integrations",  },
 		Use: `Integrations {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing action type`,
 		Long:  `Update an existing action type.`,
@@ -2022,7 +1928,6 @@ var Put_Integrations_cmd = &cobra.Command{
 	}
 
 var Put_InterestCategories_cmd = &cobra.Command{
-		Aliases: []string{  "IC",  "ic",  "interestcategories",  },
 		Use: `InterestCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing interest category`,
 		Long:  `Update an existing interest category.`,
@@ -2043,7 +1948,6 @@ var Put_InterestCategories_cmd = &cobra.Command{
 	}
 
 var Put_InterestTypes_cmd = &cobra.Command{
-		Aliases: []string{  "IT",  "interesttypes",  "it",  },
 		Use: `InterestTypes {"Category":{"Id":123},"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"SearchIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UsedIn":"string","ID":"string"}`,
 		Short: `Update an existing interest type`,
 		Long:  `Update an existing interest type.`,
@@ -2064,7 +1968,6 @@ var Put_InterestTypes_cmd = &cobra.Command{
 	}
 
 var Put_Interests_cmd = &cobra.Command{
-		Aliases: []string{  "I",  "i",  "interests",  },
 		Use: `Interests {"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"InterestType":{"Id":123},"Selected":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Weight":123,"InterestID":"string"}`,
 		Short: `Update an interest`,
 		Long:  `Update an interest. If the interest is not selected and the weight is 0 or null, it will be deleted.
@@ -2086,7 +1989,6 @@ For bulk interest edits, consider the CRM/Interests/CreateOrUpdate batching reso
 	}
 
 var Put_Internal_cmd = &cobra.Command{
-		Aliases: []string{  "I",  "i",  "internal",  },
 		Use: `Internal {"AddressType":{"Id":123},"AffiliatedConstituent":{"Id":123},"AllowTelemarketing1":true,"AllowTelemarketing2":true,"AllowTelemarketing3":true,"AltSalutationType":{"Id":123},"City":"string","Constituent":{"Id":123},"Country":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DayEveningIndicator1":"string","DayEveningIndicator2":"string","DayEveningIndicator3":"string","DeliveryPoint":"string","EditIndicator":true,"EditIndicator1":true,"EditIndicator2":true,"EditIndicator3":true,"EndDate":"2000-01-01T00:00:00.000Z","GeoArea":123,"Id":123,"Inactive":true,"Label":true,"Months":"string","NcoaAction":123,"NcoaSession":123,"PhoneId1":123,"PhoneId2":123,"PhoneId3":123,"PhoneNumber1":"string","PhoneNumber1Formatted":"string","PhoneNumber2":"string","PhoneNumber2Formatted":"string","PhoneNumber3":"string","PhoneNumber3Formatted":"string","PhoneSearch1":"string","PhoneSearch2":"string","PhoneSearch3":"string","PostalCode":"string","PostalCodeFormatted":"string","PrimaryIndicator":true,"StartDate":"2000-01-01T00:00:00.000Z","State":{"Id":123},"Street1":"string","Street2":"string","Street3":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UpdatedDateTime1":"2000-01-01T00:00:00.000Z","UpdatedDateTime2":"2000-01-01T00:00:00.000Z","UpdatedDateTime3":"2000-01-01T00:00:00.000Z","AddressID":"string"}`,
 		Short: `Update an address and phones`,
 		Long:  `Update an address and phones. If the entire information about a phone is added newly then create a new phone. If the phone number of a phone is not given then delete that phone.`,
@@ -2107,7 +2009,6 @@ var Put_Internal_cmd = &cobra.Command{
 	}
 
 var Put_InventoryContactPermissionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "ICPT",  "icpt",  "inventorycontactpermissiontypes",  },
 		Use: `InventoryContactPermissionTypes {"ContactPermissionType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"ProductionElementId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","InventoryContactPermissionTypeID":"string"}`,
 		Short: `Updated an existing inventoryContactPermissionType`,
 		Long:  `Updated an existing inventoryContactPermissionType.`,
@@ -2128,7 +2029,6 @@ var Put_InventoryContactPermissionTypes_cmd = &cobra.Command{
 	}
 
 var Put_InventoryWebContents_cmd = &cobra.Command{
-		Aliases: []string{  "IWC",  "inventorywebcontents",  "iwc",  },
 		Use: `InventoryWebContents {"ContentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"ProductionElementId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Value":"string","InventoryWebContentID":"string"}`,
 		Short: `Update an existing inventoryWebContent`,
 		Long:  `Update an existing inventoryWebContent.`,
@@ -2149,7 +2049,6 @@ var Put_InventoryWebContents_cmd = &cobra.Command{
 	}
 
 var Put_Issues_cmd = &cobra.Command{
-		Aliases: []string{  "I",  "i",  "issues",  },
 		Use: `Issues {"ActivityType":{"Id":123},"Constituent":{"Id":123},"ContactType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"HasReminder":true,"Id":123,"IssueDate":"2000-01-01T00:00:00.000Z","Notes":"string","Origin":{"Id":123},"PackageId":123,"PerformanceId":123,"ResolvedIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UrgentIndicator":true,"IssueID":"string"}`,
 		Short: `Update an issue for a Constituent`,
 		Long:  `Update an issue for a Constituent`,
@@ -2170,7 +2069,6 @@ var Put_Issues_cmd = &cobra.Command{
 	}
 
 var Put_KeywordCategories_cmd = &cobra.Command{
-		Aliases: []string{  "KC",  "kc",  "keywordcategories",  },
 		Use: `KeywordCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing keyword category`,
 		Long:  `Update an existing keyword category.`,
@@ -2191,7 +2089,6 @@ var Put_KeywordCategories_cmd = &cobra.Command{
 	}
 
 var Put_Keywords_cmd = &cobra.Command{
-		Aliases: []string{  "K",  "k",  "keywords",  },
 		Use: `Keywords {"Category":{"Id":123},"ConstituentType":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CustomDefaultValue":"string","CustomId":123,"CustomLimit":123,"CustomRequired":true,"DataType":"string","Description":"string","DetailColumn":"string","DetailTable":"string","EditIndicator":true,"EditMask":"string","ExtendedDescription":"string","FrequentUpdateDate":"2000-01-01T00:00:00.000Z","HelpText":"string","Id":123,"KeyColumn":"string","KeywordUse":"string","MultipleValue":true,"ParentKeyColumn":"string","ParentTable":"string","PrimaryGroupDefault":"string","ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","SortOrder":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseForSearch":true,"ValuesCodedIndicator":true,"ID":"string"}`,
 		Short: `Update an existing keyword`,
 		Long:  `Update an existing keyword.`,
@@ -2212,7 +2109,6 @@ var Put_Keywords_cmd = &cobra.Command{
 	}
 
 var Put_Languages_cmd = &cobra.Command{
-		Aliases: []string{  "L",  "l",  "languages",  },
 		Use: `Languages {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing language`,
 		Long:  `Update an existing language.`,
@@ -2233,7 +2129,6 @@ var Put_Languages_cmd = &cobra.Command{
 	}
 
 var Put_ListCategories_cmd = &cobra.Command{
-		Aliases: []string{  "LC",  "lc",  "listcategories",  },
 		Use: `ListCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing list category`,
 		Long:  `Update an existing list category.`,
@@ -2254,7 +2149,6 @@ var Put_ListCategories_cmd = &cobra.Command{
 	}
 
 var Put_Lists_cmd = &cobra.Command{
-		Aliases: []string{  "L",  "l",  "lists",  },
 		Use: `Lists {"AffiliatedIndividuals":123,"AnalyticsIndicator":true,"Category":{"Id":123},"ConstituentCount":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Criteria":[{"Id":123},...],"Description":"string","EditIndicator":true,"EditMode":"string","Generate":true,"Households":123,"Id":123,"Inactive":true,"Individuals":123,"IsDynamic":true,"LastUsedDateTime":"2000-01-01T00:00:00.000Z","ListSql":"string","Organizations":123,"OutputSet":{"Id":123},"RelationshipOptions":{"AffiliatedGroupInactive":true,"AffiliatedGroupTypes":"string","AffiliatedGroupUseDates":true,"AffiliatedIndividualInactive":true,"AffiliatedIndividualTypes":"string","AffiliatedIndividualUseDates":true,"AssociatedInactive":true,"AssociatedTypes":"string","AssociatedUseDates":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"0001-01-01T00:00:00.000Z","KeepOrReplaceOriginal":"string","ReplaceIndividuals":"string","UpdatedBy":"string","UpdatedDateTime":"0001-01-01T00:00:00.000Z"},"TMSIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ListID":"string"}`,
 		Short: `Update an existing List`,
 		Long:  `Update an existing List.`,
@@ -2278,7 +2172,6 @@ var Put_Lists_cmd = &cobra.Command{
 	}
 
 var Put_LoginTypes_cmd = &cobra.Command{
-		Aliases: []string{  "LT",  "logintypes",  "lt",  },
 		Use: `LoginTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing login type`,
 		Long:  `Update an existing login type.`,
@@ -2299,7 +2192,6 @@ var Put_LoginTypes_cmd = &cobra.Command{
 	}
 
 var Put_MachineSettings_cmd = &cobra.Command{
-		Aliases: []string{  "MS",  "machinesettings",  "ms",  },
 		Use: `MachineSettings {"CardReaderHost":"string","CardReaderPort":123,"CardReaderType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Inactive":true,"MerchantId":"string","PXStation":"string","PXUserKey":"string","PXUserName":"string","TessituraPaymentsPosDevice":"string","TessituraPaymentsPosDeviceModel":"string","TnspaySoftwareTerminal":true,"TriPOSCloudConfiguration":{"Id":123},"TriposLane":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","WorkstationName":"string","ID":"string"}`,
 		Short: `Update an existing Machine Setting`,
 		Long:  `Update an existing Machine Setting.`,
@@ -2320,7 +2212,6 @@ var Put_MachineSettings_cmd = &cobra.Command{
 	}
 
 var Put_MailIndicators_cmd = &cobra.Command{
-		Aliases: []string{  "MI",  "mailindicators",  "mi",  },
 		Use: `MailIndicators {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing mail indicator`,
 		Long:  `Update an existing mail indicator.`,
@@ -2341,7 +2232,6 @@ var Put_MailIndicators_cmd = &cobra.Command{
 	}
 
 var Put_MediaTypes_cmd = &cobra.Command{
-		Aliases: []string{  "MT",  "mediatypes",  "mt",  },
 		Use: `MediaTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","GenerateCost":123.456,"Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing media type`,
 		Long:  `Update an existing media type.`,
@@ -2362,7 +2252,6 @@ var Put_MediaTypes_cmd = &cobra.Command{
 	}
 
 var Put_MembershipLevelCategories_cmd = &cobra.Command{
-		Aliases: []string{  "MLC",  "membershiplevelcategories",  "mlc",  },
 		Use: `MembershipLevelCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing membership level category`,
 		Long:  `Update an existing membership level category.`,
@@ -2383,7 +2272,6 @@ var Put_MembershipLevelCategories_cmd = &cobra.Command{
 	}
 
 var Put_ModeOfSaleCategories_cmd = &cobra.Command{
-		Aliases: []string{  "MOSC",  "modeofsalecategories",  "mosc",  },
 		Use: `ModeOfSaleCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Sequence":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ModeOfSaleCategoryID":"string"}`,
 		Short: `Update an existing mode of sale category`,
 		Long:  `Update an existing mode of sale category.`,
@@ -2404,7 +2292,6 @@ var Put_ModeOfSaleCategories_cmd = &cobra.Command{
 	}
 
 var Put_ModeOfSaleOffers_cmd = &cobra.Command{
-		Aliases: []string{  "MOSO",  "modeofsaleoffers",  "moso",  },
 		Use: `ModeOfSaleOffers {"AppealId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EndDateTime":"2000-01-01T00:00:00.000Z","Id":123,"MaxSeats":123,"ModeOfSaleId":123,"OverrideDefaultPriceTypeIndicator":true,"PackageId":123,"PerformanceId":123,"PriceTypeId":123,"Rank":123,"SourceId":123,"StartDateTime":"2000-01-01T00:00:00.000Z","Terms":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ModeOfSaleOfferID":"string"}`,
 		Short: `Update an existing mode of sale offer`,
 		Long:  `Update an existing mode of sale offer.`,
@@ -2425,7 +2312,6 @@ var Put_ModeOfSaleOffers_cmd = &cobra.Command{
 	}
 
 var Put_ModeOfSalePriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "MOSPT",  "modeofsalepricetypes",  "mospt",  },
 		Use: `ModeOfSalePriceTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultIndicator":true,"Id":123,"ModeOfSale":{"Id":123},"PriceType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ModeOfSalePriceTypeID":"string"}`,
 		Short: `Update an existing mode of sale price type`,
 		Long:  `Update an existing mode of sale price type.`,
@@ -2446,7 +2332,6 @@ var Put_ModeOfSalePriceTypes_cmd = &cobra.Command{
 	}
 
 var Put_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
-		Aliases: []string{  "MOSSQ",  "modeofsalesurveyquestions",  "mossq",  },
 		Use: `ModeOfSaleSurveyQuestions {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"ModeOfSale":{"Id":123},"Question":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ModeOfSaleSurveyQuestionID":"string"}`,
 		Short: `Update an existing mode of sale survey question`,
 		Long:  `Update an existing mode of sale survey question.`,
@@ -2467,7 +2352,6 @@ var Put_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 	}
 
 var Put_ModeOfSaleUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "MOSUG",  "modeofsaleusergroups",  "mosug",  },
 		Use: `ModeOfSaleUserGroups {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultIndicator":true,"Id":123,"ModeOfSale":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string","ModeOfSaleUserGroupID":"string"}`,
 		Short: `Update an existing mode of sale/user group mapping`,
 		Long:  `Update an existing mode of sale/user group mapping.`,
@@ -2488,7 +2372,6 @@ var Put_ModeOfSaleUserGroups_cmd = &cobra.Command{
 	}
 
 var Put_ModesOfSale_cmd = &cobra.Command{
-		Aliases: []string{  "MOS",  "modesofsale",  "mos",  },
 		Use: `ModesOfSale {"AllowUnseatedPaidInd":true,"Category":{"Id":123},"CategoryRequired":true,"ClearSourceNoInd":true,"ClearSourceOnReload":true,"ConfirmationMode":true,"ConstLinkRequired":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultAckFormatId":123,"DefaultChannelId":123,"DefaultDeliveryMethodId":123,"DefaultHeaderFormatId":123,"DefaultSalesLayoutId":123,"Description":"string","EditDate":true,"EditSourceOnReload":true,"GeneralPublicInd":true,"HaboDays":123,"HaboForeign":true,"HoldUntilDate":"2000-01-01T00:00:00.000Z","HoldUntilDays":123,"HoldUntilMethod":"string","Id":123,"Inactive":true,"MustBePaidInd":true,"MustBeSeatedInd":true,"MustBeTicketedInd":true,"PricingRuleSetId":123,"SampleForGeneralPublic":123,"SampleForKnownConstituent":123,"SliAutoDeleteInd":true,"StartPkgOrPerf":"string","SubsSummaryRequired":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ModeOfSaleID":"string"}`,
 		Short: `Update an existing mode of sale`,
 		Long:  `Update an existing mode of sale.`,
@@ -2509,7 +2392,6 @@ var Put_ModesOfSale_cmd = &cobra.Command{
 	}
 
 var Put_NScanAccessAreas_cmd = &cobra.Command{
-		Aliases: []string{  "NSAA",  "nsaa",  "nscanaccessareas",  },
 		Use: `NScanAccessAreas {"AreaCode":"string","ConstituencyIds":"string","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EndDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Inactive":true,"KeywordId":123,"KeywordValue":"string","ListId":123,"MaxEntries":123,"MembershipLevelIds":"string","PerformanceIds":"string","PriceTypeIds":"string","PriceZoneIds":"string","PromptQuantity":true,"StartDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing NScan Access Area`,
 		Long:  `Update an existing NScan Access Area.`,
@@ -2530,7 +2412,6 @@ var Put_NScanAccessAreas_cmd = &cobra.Command{
 	}
 
 var Put_NameStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "NS",  "namestatuses",  "ns",  },
 		Use: `NameStatuses {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing name status`,
 		Long:  `Update an existing name status.`,
@@ -2551,7 +2432,6 @@ var Put_NameStatuses_cmd = &cobra.Command{
 	}
 
 var Put_ObjectPermissions_cmd = &cobra.Command{
-		Aliases: []string{  "OP",  "objectpermissions",  "op",  },
 		Use: `ObjectPermissions {"ApplicationObject":{"Id":123},"CanCreate":"string","CanDelete":"string","CanEdit":"string","CanView":"string","Constituency":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroup":{"Id":"string"},"ID":"string"}`,
 		Short: `Update an existing object permission`,
 		Long:  `Update an existing object permission.`,
@@ -2572,7 +2452,6 @@ var Put_ObjectPermissions_cmd = &cobra.Command{
 	}
 
 var Put_OrderCategories_cmd = &cobra.Command{
-		Aliases: []string{  "OC",  "oc",  "ordercategories",  },
 		Use: `OrderCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing order category`,
 		Long:  `Update an existing order category.`,
@@ -2593,7 +2472,6 @@ var Put_OrderCategories_cmd = &cobra.Command{
 	}
 
 var Put_Orders_cmd = &cobra.Command{
-		Aliases: []string{  "O",  "o",  "orders",  },
 		Use: `Orders {"AcceptingRollovers":true,"AccountId":123,"AltAddressId":123,"AltElectronicAddressId":123,"AppealId":123,"AppliedMessageRules":"string","BatchId":123,"BusinessUnitId":123,"CategoryId":123,"ChannelId":123,"ConstituentId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Custom0":"string","Custom1":"string","Custom2":"string","Custom3":"string","Custom4":"string","Custom5":"string","Custom6":"string","Custom7":"string","Custom8":"string","Custom9":"string","DeliveryDate":"2000-01-01T00:00:00.000Z","DeliveryMethodId":123,"HoldUntilDateTime":"2000-01-01T00:00:00.000Z","Id":123,"InitiatorId":123,"LineItems":[{"Id":123},...],"Messages":[{"Id":123},...],"MirrorLock":123,"ModeOfSaleId":123,"Notes":"string","OrderDateTime":"2000-01-01T00:00:00.000Z","ReloadPricingRules":true,"Solicitor":"string","SourceId":123,"TotalDue":123.456,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","VirtualConstituencies":"string","OrderID":"string"}`,
 		Short: `This resource is currently strictly for interceptor plugin use`,
 		Long:  `This resource is currently strictly for interceptor plugin use. This is called any time an order is saved via the API or from the client application. Only OrderId is provided in the request content.
@@ -2616,7 +2494,6 @@ This resource will be invoked from a cart checkout.`,
 	}
 
 var Put_Organizations_cmd = &cobra.Command{
-		Aliases: []string{  "O",  "o",  "organizations",  },
 		Use: `Organizations {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"LicenseeAccountCode":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing organization`,
 		Long:  `Update an existing organization.`,
@@ -2637,7 +2514,6 @@ var Put_Organizations_cmd = &cobra.Command{
 	}
 
 var Put_OriginalSources_cmd = &cobra.Command{
-		Aliases: []string{  "OS",  "originalsources",  "os",  },
 		Use: `OriginalSources {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing original source`,
 		Long:  `Update an existing original source.`,
@@ -2658,7 +2534,6 @@ var Put_OriginalSources_cmd = &cobra.Command{
 	}
 
 var Put_Origins_cmd = &cobra.Command{
-		Aliases: []string{  "O",  "o",  "origins",  },
 		Use: `Origins {"ActivityType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing origin`,
 		Long:  `Update an existing origin.`,
@@ -2679,7 +2554,6 @@ var Put_Origins_cmd = &cobra.Command{
 	}
 
 var Put_OutputSets_cmd = &cobra.Command{
-		Aliases: []string{  "OS",  "os",  "outputsets",  },
 		Use: `OutputSets {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"ElementGroups":[{"IncludePrimaryAffiliation":true,"IsSingleRow":true,"KeywordId":123},...],"Id":123,"LastUsedDateTime":"2000-01-01T00:00:00.000Z","TMSIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","OutputSetID":"string"}`,
 		Short: `Update an existing Output Set`,
 		Long:  `Update an existing Output Set.`,
@@ -2700,7 +2574,6 @@ var Put_OutputSets_cmd = &cobra.Command{
 	}
 
 var Put_PackagePriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PPT",  "packagepricetypes",  "ppt",  },
 		Use: `PackagePriceTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"PackageId":123,"PriceTypeId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","PackagePriceTypeID":"string"}`,
 		Short: `Update an existing package price type`,
 		Long:  `Update an existing package price type.`,
@@ -2721,7 +2594,6 @@ var Put_PackagePriceTypes_cmd = &cobra.Command{
 	}
 
 var Put_PackageTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "packagetypes",  "pt",  },
 		Use: `PackageTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing package type`,
 		Long:  `Update an existing package type.`,
@@ -2742,7 +2614,6 @@ var Put_PackageTypes_cmd = &cobra.Command{
 	}
 
 var Put_PackageWebContents_cmd = &cobra.Command{
-		Aliases: []string{  "PWC",  "packagewebcontents",  "pwc",  },
 		Use: `PackageWebContents {"ContentType":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"PackageId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Value":"string","PackageWebContentID":"string"}`,
 		Short: `Update an existing packageWebContent`,
 		Long:  `Update an existing packageWebContent.`,
@@ -2763,7 +2634,6 @@ var Put_PackageWebContents_cmd = &cobra.Command{
 	}
 
 var Put_PaymentGatewayActivities_cmd = &cobra.Command{
-		Aliases: []string{  "PGA",  "paymentgatewayactivities",  "pga",  },
 		Use: `PaymentGatewayActivities {"AccountId":123,"AccountNumber":"string","ActivityData":"string","Amount":123.456,"AuthCode":"string","AvsAddress":"string","AvsPostalcode":"string","AvsResultCode":"string","BalanceAmount":123.456,"BalanceCurrencyCode":"string","ConstituentId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CvvResultCode":"string","EcommerceIndicator":"string","EmvApplicationIdentifier":"string","EmvApplicationName":"string","EmvCryptogram":"string","EmvHostResponseCode":"string","EmvHostResponseMessage":"string","EmvPinVerified":"string","EntryMethod":"string","ExpirationDate":"string","Id":123,"MerchantId":"string","Name":"string","NetworkTransactionId":"string","Origin":"string","PaymentGatewayTransactionType":{"Id":123},"PaymentId":123,"PaymentMethodGroupId":123,"PaymentMethodId":123,"ProviderCommunicationDurationMs":123,"ProviderTransactionDateTime":"2000-01-01T00:00:00.000Z","ReferenceNumber":"string","ResponseCode":"string","ResponseMessage":"string","Success":"string","TerminalIdentifier":"string","TotalDurationMs":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserData":"string","PaymentGatewayActivityID":"string"}`,
 		Short: `Update an existing Payment Gateway Activity`,
 		Long:  `Update an existing Payment Gateway Activity`,
@@ -2784,7 +2654,6 @@ var Put_PaymentGatewayActivities_cmd = &cobra.Command{
 	}
 
 var Put_PaymentGatewayNotifications_cmd = &cobra.Command{
-		Aliases: []string{  "PGN",  "paymentgatewaynotifications",  "pgn",  },
 		Use: `PaymentGatewayNotifications {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EventType":"string","Id":123,"Payload":"string","ProcessedDate":"2000-01-01T00:00:00.000Z","ReceivedDate":"2000-01-01T00:00:00.000Z","Reference":"string","Topic":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","NotificationEventID":"string"}`,
 		Short: `Update a notification event`,
 		Long:  `Update a notification event.`,
@@ -2805,7 +2674,6 @@ var Put_PaymentGatewayNotifications_cmd = &cobra.Command{
 	}
 
 var Put_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PGTT",  "paymentgatewaytransactiontypes",  "pgtt",  },
 		Use: `PaymentGatewayTransactionTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing Payment Gateway Transaction Type`,
 		Long:  `Update an existing Payment Gateway Transaction Type.`,
@@ -2826,7 +2694,6 @@ var Put_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 	}
 
 var Put_PaymentMethodGroups_cmd = &cobra.Command{
-		Aliases: []string{  "PMG",  "paymentmethodgroups",  "pmg",  },
 		Use: `PaymentMethodGroups {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"MerchantId":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing payment method group`,
 		Long:  `Update an existing payment method group.`,
@@ -2847,7 +2714,6 @@ var Put_PaymentMethodGroups_cmd = &cobra.Command{
 	}
 
 var Put_PaymentMethodUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "PMUG",  "paymentmethodusergroups",  "pmug",  },
 		Use: `PaymentMethodUserGroups {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"IncomeIndicator":true,"MaxRefund":123.456,"PaymentMethod":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string","PaymentMethodUserGroupID":"string"}`,
 		Short: `Update an existing payment method/user group mapping`,
 		Long:  `Update an existing payment method/user group mapping.`,
@@ -2868,7 +2734,6 @@ var Put_PaymentMethodUserGroups_cmd = &cobra.Command{
 	}
 
 var Put_PaymentMethods_cmd = &cobra.Command{
-		Aliases: []string{  "PM",  "paymentmethods",  "pm",  },
 		Use: `PaymentMethods {"AccountType":{"Id":123},"AuthIndicator":true,"BusinessUnitId":123,"CanRefund":true,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CurrencyTypeId":123,"DefaultIndicator":true,"Description":"string","GiftAidIndicator":true,"GlAccountId":"string","Id":123,"Inactive":true,"Income":true,"MerchantId":"string","MerchantIdForSwipe":"string","NoCopiesOnAuth":123,"NoCopiesOnSave":123,"OpenCashDrawer":true,"PaymentMethodGroup":{"Id":123},"PaymentType":{"Id":123},"ReceiptFormatId":123,"RequireCheckIndicator":true,"RequireCvv":true,"RequirePostalCode":"string","ShortDesc":"string","StoreTenderedAmount":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseWithCardReader":true,"PaymentMethodID":"string"}`,
 		Short: `Update an existing payment method`,
 		Long:  `Update an existing payment method.`,
@@ -2889,7 +2754,6 @@ var Put_PaymentMethods_cmd = &cobra.Command{
 	}
 
 var Put_PaymentSignatures_cmd = &cobra.Command{
-		Aliases: []string{  "PS",  "paymentsignatures",  "ps",  },
 		Use: `PaymentSignatures {"Id":123,"PaymentSignatureID":"string"}`,
 		Short: `Update an existing payment signature`,
 		Long:  `Update an existing payment signature.`,
@@ -2910,7 +2774,6 @@ var Put_PaymentSignatures_cmd = &cobra.Command{
 	}
 
 var Put_PaymentTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "paymenttypes",  "pt",  },
 		Use: `PaymentTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing payment type`,
 		Long:  `Update an existing payment type.`,
@@ -2931,7 +2794,6 @@ var Put_PaymentTypes_cmd = &cobra.Command{
 	}
 
 var Put_PerformanceGroups_cmd = &cobra.Command{
-		Aliases: []string{  "PG",  "performancegroups",  "pg",  },
 		Use: `PerformanceGroups {"ID":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","DisplayByZone":true,"Facility":{"Id":123},"FixedSeatIndicator":true,"Id":123,"Season":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ZoneMap":{"Id":123}}`,
 		Short: `Update a Performance Group`,
 		Long:  `Update a Performance Group.`,
@@ -2952,7 +2814,6 @@ var Put_PerformanceGroups_cmd = &cobra.Command{
 	}
 
 var Put_PerformancePackageModeOfSales_cmd = &cobra.Command{
-		Aliases: []string{  "PPMOS",  "performancepackagemodeofsales",  "ppmos",  },
 		Use: `PerformancePackageModeOfSales {"AutoAttend":"string","ETicketReleaseDateTime":"2000-01-01T00:00:00.000Z","EndDateTime":"2000-01-01T00:00:00.000Z","Id":123,"ModeOfSaleId":123,"PackageId":123,"PerformanceId":123,"PrintIndicator":true,"PrintOnAutoAttend":true,"SeatIndicator":true,"StartDateTime":"2000-01-01T00:00:00.000Z","PerformancePackageModeOfSaleID":"string"}`,
 		Short: `Update an existing performance package mode of sale`,
 		Long:  `Update an existing performance package mode of sale.`,
@@ -2973,7 +2834,6 @@ var Put_PerformancePackageModeOfSales_cmd = &cobra.Command{
 	}
 
 var Put_PerformancePriceLayers_cmd = &cobra.Command{
-		Aliases: []string{  "PPL",  "performancepricelayers",  "ppl",  },
 		Use: `PerformancePriceLayers {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultDesignationCodeId":123,"DefaultGlAccountId":123,"DefaultResaleAccountId":123,"Description":"string","EffectiveDateTime":"2000-01-01T00:00:00.000Z","Id":123,"PerformanceId":123,"PerformancePriceTypes":[{"Id":123},...],"PriceLayerType":{"Id":123},"TemplateId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","PerformancePriceLayerID":"string"}`,
 		Short: `Update an existing performance price layer`,
 		Long:  `Update an existing performance price layer.`,
@@ -2997,7 +2857,6 @@ var Put_PerformancePriceLayers_cmd = &cobra.Command{
 	}
 
 var Put_PerformancePriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PPT",  "performancepricetypes",  "ppt",  },
 		Use: `PerformancePriceTypes {"BaseIndicator":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DesignationCodeId":123,"EffectiveDateTime":"2000-01-01T00:00:00.000Z","EndDateTime":"2000-01-01T00:00:00.000Z","GlAccountId":123,"Id":123,"IsWithinDateRange":true,"PerformanceId":123,"PerformancePriceLayerId":123,"PerformancePrices":[{"Id":123},...],"PriceTypeId":123,"ResaleAccountId":123,"StartDateTime":"2000-01-01T00:00:00.000Z","TicketDesignId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","PerformancePriceTypeID":"string"}`,
 		Short: `Update an existing performance price type`,
 		Long:  `Update an existing performance price type.`,
@@ -3023,7 +2882,6 @@ var Put_PerformancePriceTypes_cmd = &cobra.Command{
 	}
 
 var Put_PerformancePrices_cmd = &cobra.Command{
-		Aliases: []string{  "PP",  "performanceprices",  "pp",  },
 		Use: `PerformancePrices {"EditIndicator":true,"EffectiveDateTime":"2000-01-01T00:00:00.000Z","Enabled":true,"HasEvents":true,"Id":123,"IsPriceBasedOnCurrentEvent":true,"MinPrice":123.456,"PerformanceId":123,"PerformancePriceTypeId":123,"Price":123.456,"ZoneId":123,"PerformancePriceID":"string"}`,
 		Short: `Update an existing performance price`,
 		Long:  `Update an existing performance price.`,
@@ -3044,7 +2902,6 @@ var Put_PerformancePrices_cmd = &cobra.Command{
 	}
 
 var Put_PerformanceStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "PS",  "performancestatuses",  "ps",  },
 		Use: `PerformanceStatuses {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing performance status`,
 		Long:  `Update an existing performance status.`,
@@ -3065,7 +2922,6 @@ var Put_PerformanceStatuses_cmd = &cobra.Command{
 	}
 
 var Put_PerformanceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "performancetypes",  "pt",  },
 		Use: `PerformanceTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ValidCountryList":"string","ID":"string"}`,
 		Short: `Update an existing performance type`,
 		Long:  `Update an existing performance type.`,
@@ -3086,7 +2942,6 @@ var Put_PerformanceTypes_cmd = &cobra.Command{
 	}
 
 var Put_Performances_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "performances",  },
 		Use: `Performances {"ExpireAsOfDate":"2000-01-01T00:00:00.000Z","SeatIds":"string","HoldCodeID":"string","PerformanceID":"string"}`,
 		Short: `Expires seat holds for a performance and hold code`,
 		Long:  `Expires seat holds for a performance and hold code`,
@@ -3107,7 +2962,6 @@ var Put_Performances_cmd = &cobra.Command{
 	}
 
 var Put_Philanthropy_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "philanthropy",  },
 		Use: `Philanthropy {"Activity":"string","Amount":123.456,"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DonatedTo":"string","DonatedToConstituent":{"Id":123},"DonationDateTime":"2000-01-01T00:00:00.000Z","Id":123,"PhilanthropyType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","PhilanthropyEntryID":"string"}`,
 		Short: `Updated an existing philanthropyEntry for a constituent`,
 		Long:  `Updated an existing philanthropyEntry for a constituent.`,
@@ -3128,7 +2982,6 @@ var Put_Philanthropy_cmd = &cobra.Command{
 	}
 
 var Put_PhilanthropyTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "philanthropytypes",  "pt",  },
 		Use: `PhilanthropyTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing philosophy type`,
 		Long:  `Update an existing philosophy type.`,
@@ -3149,7 +3002,6 @@ var Put_PhilanthropyTypes_cmd = &cobra.Command{
 	}
 
 var Put_PhoneIndicators_cmd = &cobra.Command{
-		Aliases: []string{  "PI",  "phoneindicators",  "pi",  },
 		Use: `PhoneIndicators {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing phone indicator`,
 		Long:  `Update an existing phone indicator.`,
@@ -3170,7 +3022,6 @@ var Put_PhoneIndicators_cmd = &cobra.Command{
 	}
 
 var Put_PhoneTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "phonetypes",  "pt",  },
 		Use: `PhoneTypes {"AllowMarketing":true,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DayEveningIndicator":"string","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing phone type`,
 		Long:  `Update an existing phone type.`,
@@ -3191,7 +3042,6 @@ var Put_PhoneTypes_cmd = &cobra.Command{
 	}
 
 var Put_Phones_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "phones",  },
 		Use: `Phones {"Address":{"Id":123},"AllowTelemarketing":true,"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DayEveningIndicator":"string","EditIndicator":true,"Id":123,"Inactive":true,"PhoneFormatted":"string","PhoneNumber":"string","PhoneSearch":"string","PhoneType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","PhoneID":"string"}`,
 		Short: `Update a phone`,
 		Long:  `Update a phone.`,
@@ -3212,7 +3062,6 @@ var Put_Phones_cmd = &cobra.Command{
 	}
 
 var Put_PlanPriorities_cmd = &cobra.Command{
-		Aliases: []string{  "PP",  "planpriorities",  "pp",  },
 		Use: `PlanPriorities {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Ranking":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing plan priority`,
 		Long:  `Update an existing plan priority.`,
@@ -3233,7 +3082,6 @@ var Put_PlanPriorities_cmd = &cobra.Command{
 	}
 
 var Put_PlanSources_cmd = &cobra.Command{
-		Aliases: []string{  "PS",  "plansources",  "ps",  },
 		Use: `PlanSources {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing plan source`,
 		Long:  `Update an existing plan source.`,
@@ -3254,7 +3102,6 @@ var Put_PlanSources_cmd = &cobra.Command{
 	}
 
 var Put_PlanStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "PS",  "planstatuses",  "ps",  },
 		Use: `PlanStatuses {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing plan status`,
 		Long:  `Update an existing plan status.`,
@@ -3275,7 +3122,6 @@ var Put_PlanStatuses_cmd = &cobra.Command{
 	}
 
 var Put_PlanTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "plantypes",  "pt",  },
 		Use: `PlanTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing plan type`,
 		Long:  `Update an existing plan type.`,
@@ -3296,7 +3142,6 @@ var Put_PlanTypes_cmd = &cobra.Command{
 	}
 
 var Put_PlanWorkers_cmd = &cobra.Command{
-		Aliases: []string{  "PW",  "planworkers",  "pw",  },
 		Use: `PlanWorkers {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Plan":{"Id":123},"PrimaryIndicator":true,"Role":{"Id":123},"ShowInPortfolio":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Worker":{"Id":123},"PlanWorkerID":"string"}`,
 		Short: `Update an existing plan worker`,
 		Long:  `Update an existing plan worker.`,
@@ -3317,7 +3162,6 @@ var Put_PlanWorkers_cmd = &cobra.Command{
 	}
 
 var Put_Plans_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "plans",  },
 		Use: `Plans {"AskAmount":123.456,"Campaign":{"Id":123},"CompleteByDateTime":"2000-01-01T00:00:00.000Z","Constituent":{"Id":123},"ContributionAmount":123.456,"ContributionDesignation":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CustomDataItems":[{"DataType":"string","Description":"string","EditIndicator":true,"Index":123,"IsDropdown":true,"KeywordId":123,"Name":"string","Value":"string"},...],"EditIndicator":true,"Fund":{"Id":123},"GoalAmount":123.456,"HasOpenSteps":true,"HasSteps":true,"Id":123,"LastStepDate":"2000-01-01T00:00:00.000Z","LastStepType":{"Id":123},"LastWorkerDisplayName":"string","NextStepDate":"2000-01-01T00:00:00.000Z","NextStepType":{"Id":123},"Notes":"string","OriginalSource":{"Id":123},"PlanAssociates":"string","PrimaryWorker":{"Id":123},"Priority":{"Id":123},"Probability":123.456,"RecordedAmount":123.456,"StartDateTime":"2000-01-01T00:00:00.000Z","Status":{"Id":123},"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","PlanID":"string"}`,
 		Short: `Update an existing plan`,
 		Long:  `Update an existing plan.`,
@@ -3338,7 +3182,6 @@ var Put_Plans_cmd = &cobra.Command{
 	}
 
 var Put_PortfolioCustomElements_cmd = &cobra.Command{
-		Aliases: []string{  "PCE",  "pce",  "portfoliocustomelements",  },
 		Use: `PortfolioCustomElements {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DataType":123,"Description":"string","Id":123,"Inactive":true,"SqlQuery":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing portfolio custom element`,
 		Long:  `Update an existing portfolio custom element.`,
@@ -3359,7 +3202,6 @@ var Put_PortfolioCustomElements_cmd = &cobra.Command{
 	}
 
 var Put_Prefixes_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "prefixes",  },
 		Use: `Prefixes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing prefix`,
 		Long:  `Update an existing prefix.`,
@@ -3380,7 +3222,6 @@ var Put_Prefixes_cmd = &cobra.Command{
 	}
 
 var Put_Premieres_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "premieres",  },
 		Use: `Premieres {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing premiere`,
 		Long:  `Update an existing premiere.`,
@@ -3401,7 +3242,6 @@ var Put_Premieres_cmd = &cobra.Command{
 	}
 
 var Put_PriceCategories_cmd = &cobra.Command{
-		Aliases: []string{  "PC",  "pc",  "pricecategories",  },
 		Use: `PriceCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing price category`,
 		Long:  `Update an existing price category.`,
@@ -3422,7 +3262,6 @@ var Put_PriceCategories_cmd = &cobra.Command{
 	}
 
 var Put_PriceEvents_cmd = &cobra.Command{
-		Aliases: []string{  "PE",  "pe",  "priceevents",  },
 		Use: `PriceEvents {"EventDateTime":"2000-01-01T00:00:00.000Z","EventIds":"string"}`,
 		Short: `Move a set of price events to a new date`,
 		Long:  `Move a set of price events to a new date.`,
@@ -3443,7 +3282,6 @@ var Put_PriceEvents_cmd = &cobra.Command{
 	}
 
 var Put_PriceLayerTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PLT",  "plt",  "pricelayertypes",  },
 		Use: `PriceLayerTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ExcludeFromRules":true,"Id":123,"Inactive":true,"PriceCategory":{"Id":123},"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing price layer type`,
 		Long:  `Update an existing price layer type.`,
@@ -3464,7 +3302,6 @@ var Put_PriceLayerTypes_cmd = &cobra.Command{
 	}
 
 var Put_PriceTemplates_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "pricetemplates",  "pt",  },
 		Use: `PriceTemplates {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultDesignationCode":{"Id":123},"DefaultGlAccount":{"Id":123},"DefaultPriceLayerType":{"Id":123},"DefaultResaleAccount":{"Id":123},"Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Name":"string","PriceCategory":{"Id":123},"TemplatePriceTypes":[{"Id":123},...],"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ZoneMap":{"Id":123},"PriceTemplateID":"string"}`,
 		Short: `Update an existing price template`,
 		Long:  `Update an existing price template.`,
@@ -3485,7 +3322,6 @@ var Put_PriceTemplates_cmd = &cobra.Command{
 	}
 
 var Put_PriceTypeCategories_cmd = &cobra.Command{
-		Aliases: []string{  "PTC",  "pricetypecategories",  "ptc",  },
 		Use: `PriceTypeCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing price type category`,
 		Long:  `Update an existing price type category.`,
@@ -3506,7 +3342,6 @@ var Put_PriceTypeCategories_cmd = &cobra.Command{
 	}
 
 var Put_PriceTypeGroups_cmd = &cobra.Command{
-		Aliases: []string{  "PTG",  "pricetypegroups",  "ptg",  },
 		Use: `PriceTypeGroups {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing price type group`,
 		Long:  `Update an existing price type group.`,
@@ -3527,7 +3362,6 @@ var Put_PriceTypeGroups_cmd = &cobra.Command{
 	}
 
 var Put_PriceTypeReasons_cmd = &cobra.Command{
-		Aliases: []string{  "PTR",  "pricetypereasons",  "ptr",  },
 		Use: `PriceTypeReasons {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"ShortDescription":"string","TicketText":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing price type reason`,
 		Long:  `Update an existing price type reason.`,
@@ -3548,7 +3382,6 @@ var Put_PriceTypeReasons_cmd = &cobra.Command{
 	}
 
 var Put_PriceTypeUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "PTUG",  "pricetypeusergroups",  "ptug",  },
 		Use: `PriceTypeUserGroups {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"PriceType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string","PriceTypeUserGroupID":"string"}`,
 		Short: `Update an existing price type/user group mapping`,
 		Long:  `Update an existing price type/user group mapping.`,
@@ -3569,7 +3402,6 @@ var Put_PriceTypeUserGroups_cmd = &cobra.Command{
 	}
 
 var Put_PriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PT",  "pricetypes",  "pt",  },
 		Use: `PriceTypes {"AliasDescription":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultTicketDesign":{"Id":123},"Description":"string","EditIndicator":true,"EditableIndicator":true,"Id":123,"Inactive":true,"PriceTypeCategory":{"Id":123},"PriceTypeGroup":{"Id":123},"ReasonIndicator":true,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","PriceTypeID":"string"}`,
 		Short: `Update an existing price type`,
 		Long:  `Update an existing price type.`,
@@ -3590,7 +3422,6 @@ var Put_PriceTypes_cmd = &cobra.Command{
 	}
 
 var Put_PricingRuleCategories_cmd = &cobra.Command{
-		Aliases: []string{  "PRC",  "prc",  "pricingrulecategories",  },
 		Use: `PricingRuleCategories {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing pricing rule category`,
 		Long:  `Update an existing pricing rule category.`,
@@ -3611,7 +3442,6 @@ var Put_PricingRuleCategories_cmd = &cobra.Command{
 	}
 
 var Put_PricingRuleMessageTypes_cmd = &cobra.Command{
-		Aliases: []string{  "PRMT",  "pricingrulemessagetypes",  "prmt",  },
 		Use: `PricingRuleMessageTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing pricing rule message type`,
 		Long:  `Update an existing pricing rule message type.`,
@@ -3632,7 +3462,6 @@ var Put_PricingRuleMessageTypes_cmd = &cobra.Command{
 	}
 
 var Put_PricingRuleSets_cmd = &cobra.Command{
-		Aliases: []string{  "PRS",  "pricingrulesets",  "prs",  },
 		Use: `PricingRuleSets {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Rules":[{"Id":123},...],"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","PricingRuleSetID":"string"}`,
 		Short: `Update an existing pricing rule set`,
 		Long:  `Update an existing pricing rule set.`,
@@ -3653,7 +3482,6 @@ var Put_PricingRuleSets_cmd = &cobra.Command{
 	}
 
 var Put_PricingRules_cmd = &cobra.Command{
-		Aliases: []string{  "PR",  "pr",  "pricingrules",  },
 		Use: `PricingRules {"Appeals":"string","ApplyOncePerOrder":true,"ApplyToLowestCommonNumberOfSeats":true,"Constituencies":"string","ConstituentAttribute":123,"ConstituentAttributeOperator":{"Id":123},"ConstituentAttributeValue1":"string","ConstituentAttributeValue2":"string","ConstituentExclusionListId":123,"ConstituentListId":123,"ConstituentRankType":123,"ConstituentRankingOperator":{"Id":123},"ConstituentRankingValue1":123,"ConstituentRankingValue2":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","DiscountAmount":123.456,"DiscountIsPercent":true,"DiscountPercentRound":123,"DiscountPriceTypeId":123,"EditIndicator":true,"EndDateTime":"2000-01-01T00:00:00.000Z","ExcludeGeneralPublic":true,"Id":123,"Inactive":true,"MaxSeats":123,"Messages":[{"Id":123},...],"OverTheLimitDateTime":"2000-01-01T00:00:00.000Z","PromotedAppeals":"string","PromotedSources":"string","QualifyingPackage":"string","QualifyingPerformance":"string","QualifyingPriceType1":"string","QualifyingPriceType2":"string","QualifyingProductionSeason":"string","QualifyingSeasonPackageType":"string","QualifyingSeatCount1Value1":123,"QualifyingSeatCount1Value2":123,"QualifyingSeatCount2Value1":123,"QualifyingSeatCount2Value2":123,"QualifyingZone":"string","RespectMinimumPrice":true,"ResultMaximumSeats":123,"ResultMaximumSeats2":123,"ResultPackage":"string","ResultPerformance":"string","ResultPriceType":"string","ResultProductionSeason":"string","ResultSeasonPackageType":"string","ResultSeatCount":123,"ResultZone":"string","RuleAction":123,"RuleCategory":{"Id":123},"RuleType":{"Id":123},"Sources":"string","StartDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","PricingRuleID":"string"}`,
 		Short: `Update an existing pricing rule`,
 		Long:  `Update an existing pricing rule.`,
@@ -3674,7 +3502,6 @@ var Put_PricingRules_cmd = &cobra.Command{
 	}
 
 var Put_Printers_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "printers",  },
 		Use: `Printers {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"MaxCol":123,"MaxRow":123,"MaxX2val":123,"MaxY2val":123,"Type":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing printer`,
 		Long:  `Update an existing printer.`,
@@ -3695,7 +3522,6 @@ var Put_Printers_cmd = &cobra.Command{
 	}
 
 var Put_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
-		Aliases: []string{  "PSMO",  "productionseasonmembershiporganizations",  "psmo",  },
 		Use: `ProductionSeasonMembershipOrganizations {"ID":"string","AllowMultipleEntry":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"MembershipOrganization":{"Id":123},"ProductionSeason":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Update an existing production season membership organization`,
 		Long:  `Update an existing production season membership organization.`,
@@ -3716,7 +3542,6 @@ var Put_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 	}
 
 var Put_ProgramListings_cmd = &cobra.Command{
-		Aliases: []string{  "PL",  "pl",  "programlistings",  },
 		Use: `ProgramListings {"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DonationLevel":{"Id":123},"EditIndicator":true,"Id":123,"ProgramName":"string","ProgramType":{"Id":123},"SortName":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ProgramListingID":"string"}`,
 		Short: `Update a program listing`,
 		Long:  `Update a program listing.`,
@@ -3737,7 +3562,6 @@ var Put_ProgramListings_cmd = &cobra.Command{
 	}
 
 var Put_Programs_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "programs",  },
 		Use: `Programs {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing program`,
 		Long:  `Update an existing program.`,
@@ -3758,7 +3582,6 @@ var Put_Programs_cmd = &cobra.Command{
 	}
 
 var Put_Pronouns_cmd = &cobra.Command{
-		Aliases: []string{  "P",  "p",  "pronouns",  },
 		Use: `Pronouns {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: ``,
 		Long:  ``,
@@ -3779,7 +3602,6 @@ var Put_Pronouns_cmd = &cobra.Command{
 	}
 
 var Put_QualificationCategories_cmd = &cobra.Command{
-		Aliases: []string{  "QC",  "qc",  "qualificationcategories",  },
 		Use: `QualificationCategories {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing Qualification Category`,
 		Long:  `Update an existing Qualification Category.`,
@@ -3800,7 +3622,6 @@ var Put_QualificationCategories_cmd = &cobra.Command{
 	}
 
 var Put_Qualifications_cmd = &cobra.Command{
-		Aliases: []string{  "Q",  "q",  "qualifications",  },
 		Use: `Qualifications {"Category":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing Qualification`,
 		Long:  `Update an existing Qualification.`,
@@ -3821,7 +3642,6 @@ var Put_Qualifications_cmd = &cobra.Command{
 	}
 
 var Put_QueryElementFilters_cmd = &cobra.Command{
-		Aliases: []string{  "QEF",  "qef",  "queryelementfilters",  },
 		Use: `QueryElementFilters {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DataType":123,"Description":"string","EndOfDay":true,"FilterElement":"string","Group":{"Id":123},"Id":123,"ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","QueryElementFilterID":"string"}`,
 		Short: `Update an existing query element filter`,
 		Long:  `Update an existing query element filter.`,
@@ -3842,7 +3662,6 @@ var Put_QueryElementFilters_cmd = &cobra.Command{
 	}
 
 var Put_QueryElementGroups_cmd = &cobra.Command{
-		Aliases: []string{  "QEG",  "qeg",  "queryelementgroups",  },
 		Use: `QueryElementGroups {"Category":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DataFrom":"string","DataWhere":"string","Description":"string","Id":123,"IsVirtual":true,"NumberOfParameters":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","QueryElementGroupID":"string"}`,
 		Short: `Update an existing query element group`,
 		Long:  `Update an existing query element group.`,
@@ -3863,7 +3682,6 @@ var Put_QueryElementGroups_cmd = &cobra.Command{
 	}
 
 var Put_QueryElements_cmd = &cobra.Command{
-		Aliases: []string{  "QE",  "qe",  "queryelements",  },
 		Use: `QueryElements {"ID":"string","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DataSelect":"string","Description":"string","Group":{"Id":123},"Id":123,"Inactive":true,"IsSingleRow":true,"KeywordId":123,"PrimaryGroupDefault":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Update an existing query element`,
 		Long:  `Update an existing query element.`,
@@ -3884,7 +3702,6 @@ var Put_QueryElements_cmd = &cobra.Command{
 	}
 
 var Put_RankTypes_cmd = &cobra.Command{
-		Aliases: []string{  "RT",  "ranktypes",  "rt",  },
 		Use: `RankTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing rank type`,
 		Long:  `Update an existing rank type.`,
@@ -3905,7 +3722,6 @@ var Put_RankTypes_cmd = &cobra.Command{
 	}
 
 var Put_Rankings_cmd = &cobra.Command{
-		Aliases: []string{  "R",  "r",  "rankings",  },
 		Use: `Rankings {"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Rank":123,"RankType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","RankingID":"string"}`,
 		Short: `Update a ranking`,
 		Long:  `Update a ranking.`,
@@ -3926,7 +3742,6 @@ var Put_Rankings_cmd = &cobra.Command{
 	}
 
 var Put_ReceiptSettings_cmd = &cobra.Command{
-		Aliases: []string{  "RS",  "receiptsettings",  "rs",  },
 		Use: `ReceiptSettings {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EmailFooter":"string","EmailHeader":"string","EmailSubject":"string","Id":123,"Inactive":true,"PrintFooter":"string","PrintHeader":"string","ReceiptEmailProfile":{"Id":123},"TicketEmailProfile":{"Id":123},"TicketEmailSubject":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing Receipt Setting`,
 		Long:  `Update an existing Receipt Setting.`,
@@ -3947,7 +3762,6 @@ var Put_ReceiptSettings_cmd = &cobra.Command{
 	}
 
 var Put_ReferenceTableUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "RTUG",  "referencetableusergroups",  "rtug",  },
 		Use: `ReferenceTableUserGroups {"CanEdit":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"ReferenceTable":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string","ID":"string"}`,
 		Short: `Update an existing reference table/user group mapping`,
 		Long:  `Update an existing reference table/user group mapping.`,
@@ -3968,7 +3782,6 @@ var Put_ReferenceTableUserGroups_cmd = &cobra.Command{
 	}
 
 var Put_RelationshipCategories_cmd = &cobra.Command{
-		Aliases: []string{  "RC",  "rc",  "relationshipcategories",  },
 		Use: `RelationshipCategories {"CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing relationship category`,
 		Long:  `Update an existing relationship category.`,
@@ -3989,7 +3802,6 @@ var Put_RelationshipCategories_cmd = &cobra.Command{
 	}
 
 var Put_ReportRequests_cmd = &cobra.Command{
-		Aliases: []string{  "RR",  "reportrequests",  "rr",  },
 		Use: `ReportRequests {"ID":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DeletedIndicator":true,"EmailBody":"string","EmailRecipients":"string","EmailSubject":"string","EndDateTime":"2000-01-01T00:00:00.000Z","Id":123,"OutputOption":"string","Parameters":[{"ParameterId":123,"ReportId":"string","RequestId":123,"Value":"string"},...],"PublicIndicator":true,"QueueStatus":"string","ReportId":"string","ReportType":123,"RequestDateTime":"2000-01-01T00:00:00.000Z","ResultCode":"string","ResultText":"string","ScheduleId":123,"Type":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string","UserId":"string"}`,
 		Short: `Update the details of a report request`,
 		Long:  `Update the details of a report request.`,
@@ -4013,7 +3825,6 @@ var Put_ReportRequests_cmd = &cobra.Command{
 	}
 
 var Put_ReportSchedules_cmd = &cobra.Command{
-		Aliases: []string{  "RS",  "reportschedules",  "rs",  },
 		Use: `ReportSchedules {"ID":"string","AsOfDateTime":"2000-01-01T00:00:00.000Z","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DayOfWeek":123,"DayWeekNumber":123,"EndDate":"2000-01-01T00:00:00.000Z","EndTime":"2000-01-01T00:00:00.000Z","HeaderRequest":{"Id":123},"Id":123,"Inactive":true,"Interval":123,"Name":"string","StartDate":"2000-01-01T00:00:00.000Z","StartTime":"2000-01-01T00:00:00.000Z","Type":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Update the details of a report schedule`,
 		Long:  `Update the details of a report schedule.`,
@@ -4034,7 +3845,6 @@ var Put_ReportSchedules_cmd = &cobra.Command{
 	}
 
 var Put_ReportUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "RUG",  "reportusergroups",  "rug",  },
 		Use: `ReportUserGroups {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"ReportId":"string","RunRight":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string","ViewRight":"string","ID":"string"}`,
 		Short: `Update an existing report/user group mapping`,
 		Long:  `Update an existing report/user group mapping.`,
@@ -4055,7 +3865,6 @@ var Put_ReportUserGroups_cmd = &cobra.Command{
 	}
 
 var Put_Research_cmd = &cobra.Command{
-		Aliases: []string{  "R",  "r",  "research",  },
 		Use: `Research {"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"ResearchDate":"2000-01-01T00:00:00.000Z","ResearchSource":"string","ResearchType":{"Id":123},"Researcher":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ResearchEntryID":"string"}`,
 		Short: `Updated an existing research entry for a constituent`,
 		Long:  `Updated an existing research entry for a constituent.`,
@@ -4076,7 +3885,6 @@ var Put_Research_cmd = &cobra.Command{
 	}
 
 var Put_ResearchTypes_cmd = &cobra.Command{
-		Aliases: []string{  "RT",  "researchtypes",  "rt",  },
 		Use: `ResearchTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing research type`,
 		Long:  `Update an existing research type.`,
@@ -4097,7 +3905,6 @@ var Put_ResearchTypes_cmd = &cobra.Command{
 	}
 
 var Put_ResourceCategories_cmd = &cobra.Command{
-		Aliases: []string{  "RC",  "rc",  "resourcecategories",  },
 		Use: `ResourceCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing Resource Category`,
 		Long:  `Update an existing Resource Category.`,
@@ -4118,7 +3925,6 @@ var Put_ResourceCategories_cmd = &cobra.Command{
 	}
 
 var Put_ResourceSchedules_cmd = &cobra.Command{
-		Aliases: []string{  "RS",  "resourceschedules",  "rs",  },
 		Use: `ResourceSchedules {"BookingAssignmentId":123,"ConstituentId":123,"Count":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EndDateTime":"2000-01-01T00:00:00.000Z","Id":123,"OverrideConflicts":true,"RecurrenceDayOfWeek":"string","RecurrenceEndDate":"2000-01-01T00:00:00.000Z","RecurrenceInterval":123,"RecurrenceOrdinal":123,"RecurrencePattern":123,"ResourceId":123,"StartDateTime":"2000-01-01T00:00:00.000Z","Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ResourceScheduleID":"string"}`,
 		Short: `Update a specific resource schedule`,
 		Long:  `Update a specific resource schedule.  Only Busy or Available types can be updated.`,
@@ -4139,7 +3945,6 @@ var Put_ResourceSchedules_cmd = &cobra.Command{
 	}
 
 var Put_ResourceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "RT",  "resourcetypes",  "rt",  },
 		Use: `ResourceTypes {"ID":"string","CanBeShared":true,"Category":{"Id":123},"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"HasCapacity":true,"Id":123,"Inactive":true,"RequireAvailability":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Update an existing resource type`,
 		Long:  `Update an existing resource type.`,
@@ -4160,7 +3965,6 @@ var Put_ResourceTypes_cmd = &cobra.Command{
 	}
 
 var Put_Resources_cmd = &cobra.Command{
-		Aliases: []string{  "R",  "r",  "resources",  },
 		Use: `Resources {"ID":"string","Capacity":123,"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultConfirmationText":"string","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Notes":"string","ResourceType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Update an existing Resource`,
 		Long:  `Update an existing Resource.`,
@@ -4181,7 +3985,6 @@ var Put_Resources_cmd = &cobra.Command{
 	}
 
 var Put_SalesChannels_cmd = &cobra.Command{
-		Aliases: []string{  "SC",  "saleschannels",  "sc",  },
 		Use: `SalesChannels {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing sales channel`,
 		Long:  `Update an existing sales channel.`,
@@ -4202,7 +4005,6 @@ var Put_SalesChannels_cmd = &cobra.Command{
 	}
 
 var Put_SalesLayoutButtonTypes_cmd = &cobra.Command{
-		Aliases: []string{  "SLBT",  "saleslayoutbuttontypes",  "slbt",  },
 		Use: `SalesLayoutButtonTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing sales layout button type`,
 		Long:  `Update an existing sales layout button type.`,
@@ -4223,7 +4025,6 @@ var Put_SalesLayoutButtonTypes_cmd = &cobra.Command{
 	}
 
 var Put_SalesLayouts_cmd = &cobra.Command{
-		Aliases: []string{  "SL",  "saleslayouts",  "sl",  },
 		Use: `SalesLayouts {"Columns":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"PaymentMethods":[{"Id":123},...],"PriceTypes":[{"Id":123},...],"PrimaryIndicator":true,"Rows":123,"SalesLayoutButtons":[{"Id":123},...],"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","SalesLayoutID":"string"}`,
 		Short: `Update an existing sales layout setup`,
 		Long:  `Update an existing sales layout setup.`,
@@ -4244,7 +4045,6 @@ var Put_SalesLayouts_cmd = &cobra.Command{
 	}
 
 var Put_SalutationTypes_cmd = &cobra.Command{
-		Aliases: []string{  "ST",  "salutationtypes",  "st",  },
 		Use: `SalutationTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing salutation type`,
 		Long:  `Update an existing salutation type.`,
@@ -4265,7 +4065,6 @@ var Put_SalutationTypes_cmd = &cobra.Command{
 	}
 
 var Put_Salutations_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "salutations",  },
 		Use: `Salutations {"BusinessTitle":"string","Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultIndicator":true,"EditIndicator":true,"EnvelopeSalutation1":"string","EnvelopeSalutation2":"string","Id":123,"IsFromAffiliation":true,"Label":true,"LetterSalutation":"string","SalutationType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","SalutationID":"string"}`,
 		Short: `Update a salutation`,
 		Long:  `Update a salutation.`,
@@ -4286,7 +4085,6 @@ var Put_Salutations_cmd = &cobra.Command{
 	}
 
 var Put_SchedulePatternTypes_cmd = &cobra.Command{
-		Aliases: []string{  "SPT",  "schedulepatterntypes",  "spt",  },
 		Use: `SchedulePatternTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing Schedule Pattern`,
 		Long:  `Update an existing Schedule Pattern.`,
@@ -4307,7 +4105,6 @@ var Put_SchedulePatternTypes_cmd = &cobra.Command{
 	}
 
 var Put_ScheduleTypes_cmd = &cobra.Command{
-		Aliases: []string{  "ST",  "scheduletypes",  "st",  },
 		Use: `ScheduleTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing Schedule Type`,
 		Long:  `Update an existing Schedule Type.`,
@@ -4328,7 +4125,6 @@ var Put_ScheduleTypes_cmd = &cobra.Command{
 	}
 
 var Put_SeasonTypes_cmd = &cobra.Command{
-		Aliases: []string{  "ST",  "seasontypes",  "st",  },
 		Use: `SeasonTypes {"BusinessUnit":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing season type`,
 		Long:  `Update an existing season type.`,
@@ -4349,7 +4145,6 @@ var Put_SeasonTypes_cmd = &cobra.Command{
 	}
 
 var Put_Seasons_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "seasons",  },
 		Use: `Seasons {"ConfirmationNoticeFormat":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultIndicator":true,"Description":"string","DisplayInSeasonOverview":true,"EndDateTime":"2000-01-01T00:00:00.000Z","FYear":123,"Id":123,"Inactive":true,"RenewalNoticeFormat":123,"StartDateTime":"2000-01-01T00:00:00.000Z","SubscriptionFund1":123,"SubscriptionFund2":123,"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","YearlySeason":123,"ID":"string"}`,
 		Short: `Update an existing season`,
 		Long:  `Update an existing season.`,
@@ -4370,7 +4165,6 @@ var Put_Seasons_cmd = &cobra.Command{
 	}
 
 var Put_SeatCodes_cmd = &cobra.Command{
-		Aliases: []string{  "SC",  "sc",  "seatcodes",  },
 		Use: `SeatCodes {"BackColor":123,"Context":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","DisplayLetter":"string","ForeColor":123,"Id":123,"Inactive":true,"IsSeat":123,"TicketText":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing seat code`,
 		Long:  `Update an existing seat code.`,
@@ -4391,7 +4185,6 @@ var Put_SeatCodes_cmd = &cobra.Command{
 	}
 
 var Put_SeatStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "SS",  "seatstatuses",  "ss",  },
 		Use: `SeatStatuses {"BackColor":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ForeColor":123,"Id":123,"Inactive":true,"StatusCode":"string","StatusLegend":"string","StatusPriority":123,"Tck":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing seat status`,
 		Long:  `Update an existing seat status.`,
@@ -4412,7 +4205,6 @@ var Put_SeatStatuses_cmd = &cobra.Command{
 	}
 
 var Put_Sections_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "sections",  },
 		Use: `Sections {"AdditionalText":"string","AdditionalText2":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"PrintDesc":"string","PrintSequence":123,"SectionLegend":"string","ShortDesc":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing section`,
 		Long:  `Update an existing section.`,
@@ -4433,7 +4225,6 @@ var Put_Sections_cmd = &cobra.Command{
 	}
 
 var Put_ServiceResourceUserGroups_cmd = &cobra.Command{
-		Aliases: []string{  "SRUG",  "serviceresourceusergroups",  "srug",  },
 		Use: `ServiceResourceUserGroups {"CanCreate":true,"CanDelete":true,"CanRead":true,"CanUpdate":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"ServiceResource":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string","ID":"string"}`,
 		Short: `Update an existing service resource/user group mapping`,
 		Long:  `Update an existing service resource/user group mapping.`,
@@ -4454,7 +4245,6 @@ var Put_ServiceResourceUserGroups_cmd = &cobra.Command{
 	}
 
 var Put_Session_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "session",  },
 		Use: `Session {"ConstituentId":123,"OverridePrompt":true,"SessionKey":"string"}`,
 		Short: `Sets the current constituent on the cart for a business facing session`,
 		Long:  `Sets the current constituent on the cart for a business facing session
@@ -4484,7 +4274,6 @@ If the default is set to "Prompt", both the household and individual are returne
 	}
 
 var Put_SourceGroups_cmd = &cobra.Command{
-		Aliases: []string{  "SG",  "sg",  "sourcegroups",  },
 		Use: `SourceGroups {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing source group`,
 		Long:  `Update an existing source group.`,
@@ -4505,7 +4294,6 @@ var Put_SourceGroups_cmd = &cobra.Command{
 	}
 
 var Put_SpecialActivities_cmd = &cobra.Command{
-		Aliases: []string{  "SA",  "sa",  "specialactivities",  },
 		Use: `SpecialActivities {"ConstituentId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Notes":"string","NumberOfAttendees":123,"Performance":"string","SpecialActivityDateTime":"2000-01-01T00:00:00.000Z","Status":{"Id":123},"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","WorkerConstituentId":123,"SpecialActivityID":"string"}`,
 		Short: `Update an activity record`,
 		Long:  `Update an activity record.`,
@@ -4526,7 +4314,6 @@ var Put_SpecialActivities_cmd = &cobra.Command{
 	}
 
 var Put_SpecialActivityStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "SAS",  "sas",  "specialactivitystatuses",  },
 		Use: `SpecialActivityStatuses {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an Special Activity Status`,
 		Long:  `Update an Special Activity Status.`,
@@ -4547,7 +4334,6 @@ var Put_SpecialActivityStatuses_cmd = &cobra.Command{
 	}
 
 var Put_SpecialActivityTypes_cmd = &cobra.Command{
-		Aliases: []string{  "SAT",  "sat",  "specialactivitytypes",  },
 		Use: `SpecialActivityTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing Special Activity Type`,
 		Long:  `Update an existing Special Activity Type.`,
@@ -4568,7 +4354,6 @@ var Put_SpecialActivityTypes_cmd = &cobra.Command{
 	}
 
 var Put_States_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "states",  },
 		Use: `States {"Country":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"StateCode":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing state`,
 		Long:  `Update an existing state.`,
@@ -4589,7 +4374,6 @@ var Put_States_cmd = &cobra.Command{
 	}
 
 var Put_StepTypes_cmd = &cobra.Command{
-		Aliases: []string{  "ST",  "st",  "steptypes",  },
 		Use: `StepTypes {"AllowAttachments":"string","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseAssociate":"string","UseCompletedOnDateTime":"string","UseDueDateTime":"string","UseNote":"string","UseWarningDays":"string","UseWorker":"string","ID":"string"}`,
 		Short: `Update an existing step type`,
 		Long:  `Update an existing step type.`,
@@ -4610,7 +4394,6 @@ var Put_StepTypes_cmd = &cobra.Command{
 	}
 
 var Put_Steps_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "steps",  },
 		Use: `Steps {"Associate":{"Id":123},"CompletedOnDateTime":"2000-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","DueDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"NewValue":"string","Notes":"string","OldValue":"string","Plan":{"Id":123},"Priority":123,"StepDateTime":"2000-01-01T00:00:00.000Z","Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","WarningDays":123,"Worker":{"Id":123},"StepID":"string"}`,
 		Short: `Update an existing step`,
 		Long:  `Update an existing step.`,
@@ -4634,7 +4417,6 @@ var Put_Steps_cmd = &cobra.Command{
 	}
 
 var Put_SubLineItemStatuses_cmd = &cobra.Command{
-		Aliases: []string{  "SLIS",  "slis",  "sublineitemstatuses",  },
 		Use: `SubLineItemStatuses {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Priority":123,"StatusCode":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing sub line item status`,
 		Long:  `Update an existing sub line item status.`,
@@ -4655,7 +4437,6 @@ var Put_SubLineItemStatuses_cmd = &cobra.Command{
 	}
 
 var Put_Suffixes_cmd = &cobra.Command{
-		Aliases: []string{  "S",  "s",  "suffixes",  },
 		Use: `Suffixes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing suffix`,
 		Long:  `Update an existing suffix.`,
@@ -4676,7 +4457,6 @@ var Put_Suffixes_cmd = &cobra.Command{
 	}
 
 var Put_SurveyQuestions_cmd = &cobra.Command{
-		Aliases: []string{  "SQ",  "sq",  "surveyquestions",  },
 		Use: `SurveyQuestions {"AskType":123,"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DataType":123,"DefaultValue":"string","Id":123,"Inactive":true,"Question":"string","ReferenceTable":"string","ReferenceTableDescriptionColumn":"string","ReferenceTableIdColumn":"string","ReferenceTableSort":"string","ReferenceTableWhereClause":"string","Required":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing survey question`,
 		Long:  `Update an existing survey question.`,
@@ -4697,7 +4477,6 @@ var Put_SurveyQuestions_cmd = &cobra.Command{
 	}
 
 var Put_SurveyResponses_cmd = &cobra.Command{
-		Aliases: []string{  "SR",  "sr",  "surveyresponses",  },
 		Use: `SurveyResponses {"Answer":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"OrderId":123,"QuestionId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","SurveyResponseID":"string"}`,
 		Short: `Update an existing survey response`,
 		Long:  `Update an existing survey response.`,
@@ -4718,7 +4497,6 @@ var Put_SurveyResponses_cmd = &cobra.Command{
 	}
 
 var Put_TemplateCategories_cmd = &cobra.Command{
-		Aliases: []string{  "TC",  "tc",  "templatecategories",  },
 		Use: `TemplateCategories {"ID":"string","ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"Type":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Update an existing template category`,
 		Long:  `Update an existing template category`,
@@ -4739,7 +4517,6 @@ var Put_TemplateCategories_cmd = &cobra.Command{
 	}
 
 var Put_TemplatePriceTypes_cmd = &cobra.Command{
-		Aliases: []string{  "TPT",  "templatepricetypes",  "tpt",  },
 		Use: `TemplatePriceTypes {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DesignationCode":{"Id":123},"GlAccount":{"Id":123},"Id":123,"PriceTemplate":{"Id":123},"PriceType":{"Id":123},"ResaleAccount":{"Id":123},"TemplatePrices":[{"Id":123},...],"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","TemplatePriceTypeID":"string"}`,
 		Short: `Update an existing template price type`,
 		Long:  `Update an existing template price type.`,
@@ -4760,7 +4537,6 @@ var Put_TemplatePriceTypes_cmd = &cobra.Command{
 	}
 
 var Put_TemplatePrices_cmd = &cobra.Command{
-		Aliases: []string{  "TP",  "templateprices",  "tp",  },
 		Use: `TemplatePrices {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Enabled":true,"Id":123,"MinPrice":123.456,"Price":123.456,"TemplatePriceType":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Zone":{"Id":123},"TemplatePriceID":"string"}`,
 		Short: `Update an existing template price`,
 		Long:  `Update an existing template price.`,
@@ -4781,7 +4557,6 @@ var Put_TemplatePrices_cmd = &cobra.Command{
 	}
 
 var Put_Templates_cmd = &cobra.Command{
-		Aliases: []string{  "T",  "t",  "templates",  },
 		Use: `Templates {"Category":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"IsHtmlBody":true,"TemplateBody":"string","TemplateSubject":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","TemplateID":"string"}`,
 		Short: `Update an existing template`,
 		Long:  `Update an existing template`,
@@ -4802,7 +4577,6 @@ var Put_Templates_cmd = &cobra.Command{
 	}
 
 var Put_Theaters_cmd = &cobra.Command{
-		Aliases: []string{  "T",  "t",  "theaters",  },
 		Use: `Theaters {"City":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DataWindowDefinition":"string","Description":"string","DrivingDirections":"string","Id":123,"Inactive":true,"MaximumNumberOfSeats":123,"Phone":"string","PostalCode":"string","State":"string","Street":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing theater`,
 		Long:  `Update an existing theater.`,
@@ -4823,7 +4597,6 @@ var Put_Theaters_cmd = &cobra.Command{
 	}
 
 var Put_TimeSlots_cmd = &cobra.Command{
-		Aliases: []string{  "TS",  "timeslots",  "ts",  },
 		Use: `TimeSlots {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EndTime":"2000-01-01T00:00:00.000Z","Id":123,"Inactive":true,"StartTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing time slot`,
 		Long:  `Update an existing time slot.`,
@@ -4844,7 +4617,6 @@ var Put_TimeSlots_cmd = &cobra.Command{
 	}
 
 var Put_TriPOSCloudConfigurations_cmd = &cobra.Command{
-		Aliases: []string{  "TPOSCC",  "tposcc",  "triposcloudconfigurations",  },
 		Use: `TriPOSCloudConfigurations {"ConfigSetting":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing TriPOS Cloud configuration`,
 		Long:  `Update an existing TriPOS Cloud configuration.`,
@@ -4865,7 +4637,6 @@ var Put_TriPOSCloudConfigurations_cmd = &cobra.Command{
 	}
 
 var Put_UpgradeCategories_cmd = &cobra.Command{
-		Aliases: []string{  "UC",  "uc",  "upgradecategories",  },
 		Use: `UpgradeCategories {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing Upgrade Category`,
 		Long:  `Update an existing Upgrade Category.`,
@@ -4886,7 +4657,6 @@ var Put_UpgradeCategories_cmd = &cobra.Command{
 	}
 
 var Put_UpgradeLogs_cmd = &cobra.Command{
-		Aliases: []string{  "UL",  "ul",  "upgradelogs",  },
 		Use: `UpgradeLogs {"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","HotFixNumber":123,"Id":123,"ReleaseDescription":"string","ScriptId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UpgradeCategorySummary":{"Id":123},"Version":"string","UpgradeLogID":"string"}`,
 		Short: `Updates the given upgradeLog`,
 		Long:  `Updates the given upgradeLog.`,
@@ -4907,7 +4677,6 @@ var Put_UpgradeLogs_cmd = &cobra.Command{
 	}
 
 var Put_UserPreferences_cmd = &cobra.Command{
-		Aliases: []string{  "UP",  "up",  "userpreferences",  },
 		Use: `UserPreferences {"ID":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Key":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Value":"string"}`,
 		Short: `Update a user preference by id`,
 		Long:  `Update a user preference by id.`,
@@ -4928,7 +4697,6 @@ var Put_UserPreferences_cmd = &cobra.Command{
 	}
 
 var Put_WebContentTypes_cmd = &cobra.Command{
-		Aliases: []string{  "WCT",  "wct",  "webcontenttypes",  },
 		Use: `WebContentTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditMask":"string","FullTextSearchIndicator":true,"Id":123,"Inactive":true,"LastContentUseUpdateDateTime":"2000-01-01T00:00:00.000Z","Limit":123,"ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseWebApi":true,"ID":"string"}`,
 		Short: `Update an existing Web Content Type`,
 		Long:  `Update an existing Web Content Type.`,
@@ -4949,7 +4717,6 @@ var Put_WebContentTypes_cmd = &cobra.Command{
 	}
 
 var Put_WebLogins_cmd = &cobra.Command{
-		Aliases: []string{  "WL",  "weblogins",  "wl",  },
 		Use: `WebLogins {"Constituent":{"Id":123},"ConstituentUpdateDate":"2000-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Email":{"Id":123},"FailedAttempts":123,"Id":123,"Inactive":true,"LastLoginDate":"2000-01-01T00:00:00.000Z","LockedDate":"2000-01-01T00:00:00.000Z","Login":"string","LoginType":{"Id":123},"PrimaryIndicator":true,"TemporaryIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","LoginID":"string"}`,
 		Short: `Update a weblogin`,
 		Long:  `Update a weblogin.`,
@@ -4970,7 +4737,6 @@ var Put_WebLogins_cmd = &cobra.Command{
 	}
 
 var Put_WorkerQualifications_cmd = &cobra.Command{
-		Aliases: []string{  "WQ",  "workerqualifications",  "wq",  },
 		Use: `WorkerQualifications {"Constituent":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EndDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Qualification":{"Id":123},"StartDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","WorkerQualificationID":"string"}`,
 		Short: `Update an existing WorkerQualification`,
 		Long:  `Update an existing WorkerQualification.`,
@@ -4991,7 +4757,6 @@ var Put_WorkerQualifications_cmd = &cobra.Command{
 	}
 
 var Put_WorkerRoles_cmd = &cobra.Command{
-		Aliases: []string{  "WR",  "workerroles",  "wr",  },
 		Use: `WorkerRoles {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"ShowInPortfolioDefault":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing worker role`,
 		Long:  `Update an existing worker role.`,
@@ -5012,7 +4777,6 @@ var Put_WorkerRoles_cmd = &cobra.Command{
 	}
 
 var Put_WorkerTypes_cmd = &cobra.Command{
-		Aliases: []string{  "WT",  "workertypes",  "wt",  },
 		Use: `WorkerTypes {"ControlGroup":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing worker type`,
 		Long:  `Update an existing worker type.`,
@@ -5033,7 +4797,6 @@ var Put_WorkerTypes_cmd = &cobra.Command{
 	}
 
 var Put_Workers_cmd = &cobra.Command{
-		Aliases: []string{  "W",  "w",  "workers",  },
 		Use: `Workers {"ConstituentId":123,"ConstituentInactive":{"Id":123},"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"FirstName":"string","Id":123,"Inactive":true,"LastName":"string","Prefix":{"Id":123},"ShortDisplayName":"string","SortName":"string","Suffix":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","WorkerType":{"Id":123},"WorkerID":"string"}`,
 		Short: `Update an existing worker`,
 		Long:  `Update an existing worker.`,
@@ -5054,7 +4817,6 @@ var Put_Workers_cmd = &cobra.Command{
 	}
 
 var Put_ZoneGroups_cmd = &cobra.Command{
-		Aliases: []string{  "ZG",  "zg",  "zonegroups",  },
 		Use: `ZoneGroups {"AliasDescription":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string"}`,
 		Short: `Update an existing zone group`,
 		Long:  `Update an existing zone group.`,
@@ -5075,7 +4837,6 @@ var Put_ZoneGroups_cmd = &cobra.Command{
 	}
 
 var Put_ZoneMaps_cmd = &cobra.Command{
-		Aliases: []string{  "ZM",  "zm",  "zonemaps",  },
 		Use: `ZoneMaps {"ID":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"SeatMap":{"Id":123},"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Update an existing zone map`,
 		Long:  `Update an existing zone map.`,
@@ -5096,7 +4857,6 @@ var Put_ZoneMaps_cmd = &cobra.Command{
 	}
 
 var Put_Zones_cmd = &cobra.Command{
-		Aliases: []string{  "Z",  "z",  "zones",  },
 		Use: `Zones {"Abbreviation":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EndTime":"string","Id":123,"Rank":123,"ShortDescription":"string","StartTime":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ZoneGroup":{"Id":123},"ZoneLegend":"string","ZoneMapId":123,"ZoneTime":"string","ZoneID":"string","ZoneMapID":"string"}`,
 		Short: `Update an existing zone`,
 		Long:  `Update an existing zone.`,
