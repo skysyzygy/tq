@@ -25,19 +25,7 @@ type Auth struct {
 	password  []byte
 }
 
-var (
-	Keys keyring.Keyring
-)
-
-func init() {
-	var err error
-	Keys, err = keyring.Open(keyring.Config{
-		ServiceName: "tq",
-	})
-	if err != nil {
-		panic(err)
-	}
-}
+type Keyring keyring.Keyring
 
 func (a Auth) Hostname() string {
 	return a.hostname
@@ -83,37 +71,37 @@ func New(hostname string, username string, usergroup string, location string, pa
 }
 
 // Save the authentication data in the keystore
-func (a Auth) Save() error {
+func (a Auth) Save(k Keyring) error {
 	if authString, err := a.String(); err != nil {
 		return err
 	} else {
-		return Keys.Set(keyring.Item{Key: authString, Data: a.password})
+		return k.Set(keyring.Item{Key: authString, Data: a.password})
 	}
 }
 
 // Load the password for the matching authentication in the keystore
-func (a *Auth) Load() error {
+func (a *Auth) Load(k Keyring) error {
 	if authString, err := a.String(); err != nil {
 		return err
 	} else {
-		pass, err := Keys.Get(authString)
+		pass, err := k.Get(authString)
 		a.password = pass.Data
 		return err
 	}
 }
 
 // Delete the matching authentication in the keystore
-func (a Auth) Delete() error {
+func (a Auth) Delete(k Keyring) error {
 	if authString, err := a.String(); err != nil {
 		return err
 	} else {
-		return Keys.Remove(authString)
+		return k.Remove(authString)
 	}
 }
 
 // List all authentication keys in the keystore
-func List() ([]Auth, error) {
-	keys, err := Keys.Keys()
+func List(k Keyring) ([]Auth, error) {
+	keys, err := k.Keys()
 	auths := make([]Auth, len(keys))
 	for i, key := range keys {
 		var err2 error

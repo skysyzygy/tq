@@ -4,8 +4,6 @@ import (
 	"os"
 	"testing"
 
-	"github.com/skysyzygy/tq/auth"
-
 	"github.com/skysyzygy/tq/tq"
 	"github.com/stretchr/testify/assert"
 )
@@ -29,12 +27,12 @@ func Test_authenticateAddCmd(t *testing.T) {
 	w.Write(password)
 	w.Close()
 
-	key, err := auth.Keys.Get("tessitura.api/basePath|user|group|location")
+	key, err := keys.Get("tessitura.api/basePath|user|group|location")
 	assert.Error(t, err)
 
 	authenticateAddCmd.RunE(authenticateAddCmd, nil)
 
-	key, err = auth.Keys.Get("tessitura.api/basePath|user|group|location")
+	key, err = keys.Get("tessitura.api/basePath|user|group|location")
 	assert.Equal(t, "tessitura.api/basePath|user|group|location", key.Key)
 	assert.Equal(t, []byte("password"), key.Data)
 	assert.NoError(t, err)
@@ -70,7 +68,6 @@ func Test_authenticateSelectCmd(t *testing.T) {
 
 	// root command calls this to read in the config file
 	initConfig()
-	defer os.Remove("tq.yaml")
 
 	*hostname = "tessitura.api/basePath"
 	*username = "not_a_user"
@@ -97,7 +94,6 @@ func Test_authenticateSelectCmd_ExistingFile(t *testing.T) {
 	cfgFile = "tq.yaml"
 	// root command calls this to read in the config file
 	initConfig()
-	defer os.Remove("tq.yaml")
 
 	*hostname = "tessitura.api/basePath"
 	*username = "user"
@@ -121,11 +117,11 @@ func Test_authenticateDeleteCmd(t *testing.T) {
 	*usergroup = "group"
 	*location = "location"
 
-	_, err := auth.Keys.Get("tessitura.api/basePath|user|group|location")
+	_, err := keys.Get("tessitura.api/basePath|user|group|location")
 	assert.NoError(t, err)
 
 	authenticateDeleteCmd.RunE(authenticateDeleteCmd, nil)
 
-	_, err = auth.Keys.Get("tessitura.api/basePath|user|group|location")
+	_, err = keys.Get("tessitura.api/basePath|user|group|location")
 	assert.Error(t, err)
 }

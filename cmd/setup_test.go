@@ -9,7 +9,6 @@ import (
 	"testing"
 
 	"github.com/99designs/keyring"
-
 	"github.com/skysyzygy/tq/auth"
 	"github.com/skysyzygy/tq/models"
 
@@ -22,18 +21,17 @@ func TestMain(m *testing.M) {
 	server := server()
 	defer server.Close()
 
-	// Setup the test environment by making a separate keystore for testing
-	auth.Keys, _ = keyring.Open(keyring.Config{
+	keys, _ = keyring.Open(keyring.Config{
 		ServiceName: "tq_test",
 	})
-
+	// Setup the test environment by making a separate keystore for testing
 	a := auth.New(strings.Replace(server.URL, "https://", "", 1), "", "", "", nil)
-	a.Save()
+	a.Save(keys)
 	authString, _ = a.String()
 
 	m.Run()
 
-	a.Delete()
+	a.Delete(keys)
 
 	os.Remove("tq.yaml")
 }

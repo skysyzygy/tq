@@ -30,6 +30,7 @@ import (
 	"slices"
 	"strings"
 
+	"github.com/99designs/keyring"
 	"github.com/skysyzygy/tq/auth"
 	"github.com/skysyzygy/tq/tq"
 	"github.com/spf13/cobra"
@@ -44,6 +45,7 @@ var (
 	cfgFile, jsonFile, logFile string
 	verbose, dryRun            bool
 	_tq                        *tq.TqConfig
+	keys                       auth.Keyring
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -100,6 +102,10 @@ func init() {
 	rootCmd.SetUsageTemplate(
 		strings.NewReplacer("command", "verb", " Command", " Verb").
 			Replace(rootCmd.UsageTemplate()))
+
+	keys, _ = keyring.Open(keyring.Config{
+		ServiceName: "tq",
+	})
 
 }
 
@@ -170,7 +176,7 @@ func tqInit(cmd *cobra.Command, args []string) (err error) {
 		err = errors.Join(fmt.Errorf("bad login string in config file"), _err, err)
 	}
 
-	err = errors.Join(a.Load(), err)
+	err = errors.Join(a.Load(keys), err)
 
 	if valid, _err := a.Validate(); !valid || _err != nil {
 		err = errors.Join(fmt.Errorf("invalid login"), _err, err)

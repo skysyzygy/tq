@@ -14,19 +14,21 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+var keys Keyring
+
 // Setup the test environment by making a separate keystore for testing
 func TestMain(m *testing.M) {
 	// setup code
-	Keys, _ = keyring.Open(keyring.Config{
-		ServiceName: "tq_test",
+	keys, _ = keyring.Open(keyring.Config{
+		ServiceName: "auth_test",
 	})
 
 	code := m.Run()
 	// teardown code
 
-	keys, _ := Keys.Keys()
-	for _, key := range keys {
-		Keys.Remove(key)
+	_keys, _ := keys.Keys()
+	for _, key := range _keys {
+		keys.Remove(key)
 	}
 
 	os.Exit(code)
@@ -37,27 +39,27 @@ func TestAuth_String(t *testing.T) {
 	assert := assert.New(t)
 
 	v, err := Auth{"a", "b", "c", "d", nil}.String()
-	assert.Equal(v, "a|b|c|d", "generates string")
+	assert.Equal("a|b|c|d", v, "generates string")
 	assert.NoError(err)
 
 	v, err = Auth{"a|", "b", "c", "d", nil}.String()
-	assert.Equal(v, "")
+	assert.Equal("", v)
 	assert.ErrorContains(err, "|", "complains when there are '|' present in hostname")
 
 	v, err = Auth{"a", "b|", "c", "d", nil}.String()
-	assert.Equal(v, "")
+	assert.Equal("", v)
 	assert.ErrorContains(err, "|", "complains when there are '|' present in username")
 
 	v, err = Auth{"a", "b", "c|", "d", nil}.String()
-	assert.Equal(v, "")
+	assert.Equal("", v)
 	assert.ErrorContains(err, "|", "complains when there are '|' present in usergroup")
 
 	v, err = Auth{"a", "b", "c", "d|", nil}.String()
-	assert.Equal(v, "")
+	assert.Equal("", v)
 	assert.ErrorContains(err, "|", "complains when there are '|' present in location")
 
 	v, err = Auth{"a", "b", "c", "d", []byte("|)")}.String()
-	assert.Equal(v, "a|b|c|d", "doesn't complain when there are '|' present in password")
+	assert.Equal("a|b|c|d", v, "doesn't complain when there are '|' present in password")
 	assert.NoError(err)
 
 }
@@ -82,8 +84,8 @@ func TestFromString(t *testing.T) {
 func TestAuth_Save(t *testing.T) {
 	assert := assert.New(t)
 
-	err := Auth{"a", "b", "c", "d", []byte("e")}.Save()
-	pass, _ := Keys.Get("a|b|c|d")
+	err := Auth{"a", "b", "c", "d", []byte("e")}.Save(keys)
+	pass, _ := keys.Get("a|b|c|d")
 	assert.Equal(pass.Data, []byte("e"), "saves Auth password to keystore")
 	assert.NoError(err)
 
@@ -92,12 +94,12 @@ func TestAuth_Save(t *testing.T) {
 func TestAuth_Load(t *testing.T) {
 	a := Auth{"a", "b", "c", "d", nil}
 
-	a.Load()
+	a.Load(keys)
 	assert.Equal(t, a.password, []byte("e"), "loads Auth password from keystore")
 }
 
 func TestList(t *testing.T) {
-	v, err := List()
+	v, err := List(keys)
 
 	assert.Equal(t, v, []Auth{{"a", "b", "c", "d", nil}}, "lists all auths in keystore")
 	assert.NoError(t, err)
@@ -105,12 +107,12 @@ func TestList(t *testing.T) {
 }
 
 func TestAuth_Delete(t *testing.T) {
-	k, _ := Keys.Keys()
+	k, _ := keys.Keys()
 	assert.Equal(t, len(k), 1, "there's a key in the keystore")
 
-	err := Auth{"a", "b", "c", "d", nil}.Delete()
+	err := Auth{"a", "b", "c", "d", nil}.Delete(keys)
 
-	k, _ = Keys.Keys()
+	k, _ = keys.Keys()
 	assert.Equal(t, len(k), 0, "deletes auth from keystore")
 	assert.NoError(t, err)
 }
@@ -179,18 +181,13 @@ func TestAuth_Validate(t *testing.T) {
 
 func TestAuth_Validate_Integration(t *testing.T) {
 
-	Keys, _ = keyring.Open(keyring.Config{
+	keys, _ := keyring.Open(keyring.Config{
 		ServiceName: "tq_test_integration",
 	})
-	defer func() {
-		Keys, _ = keyring.Open(keyring.Config{
-			ServiceName: "tq_test",
-		})
-	}()
 
-	auths, _ := List()
+	auths, err := List(keys)
 	a := auths[0]
-	a.Load()
+	a.Load(keys)
 
 	a1 := a
 	a1.hostname = "not-a-server.bam.org"

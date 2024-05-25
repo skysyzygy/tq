@@ -66,7 +66,7 @@ var authenticateAddCmd = &cobra.Command{
 		}
 
 		a := auth.New(*hostname, *username, *usergroup, *location, password)
-		err = a.Save()
+		err = a.Save(keys)
 		return err
 	},
 }
@@ -82,7 +82,7 @@ var authenticateListCmd = &cobra.Command{
 			*location != "" {
 			os.Stderr.WriteString("Warning: parameters ignored\n")
 		}
-		auths, _ := auth.List()
+		auths, _ := auth.List(keys)
 		for _, auth := range auths {
 			fmt.Printf("%s", auth)
 		}
@@ -95,7 +95,7 @@ var authenticateDeleteCmd = &cobra.Command{
 	Short:   `Delete a Tessitura API authentication method`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		a := auth.New(*hostname, *username, *usergroup, *location, nil)
-		return a.Delete()
+		return a.Delete(keys)
 	},
 }
 
@@ -105,7 +105,7 @@ var authenticateSelectCmd = &cobra.Command{
 	Short:   `Select a Tessitura API authentication method`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		a := auth.New(*hostname, *username, *usergroup, *location, nil)
-		err := a.Load()
+		err := a.Load(keys)
 		if err != nil {
 			return err
 		}
@@ -122,7 +122,7 @@ var authenticateValidateCmd = &cobra.Command{
 	Short:   `Validate a Tessitura API authentication method with the server`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		a := auth.New(*hostname, *username, *usergroup, *location, nil)
-		err := a.Load()
+		err := a.Load(keys)
 		if err != nil {
 			return err
 		}

@@ -4,7 +4,6 @@ import (
 	"testing"
 
 	"github.com/99designs/keyring"
-	"github.com/skysyzygy/tq/auth"
 	"github.com/skysyzygy/tq/tq"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
@@ -17,7 +16,7 @@ func init() {
 // end-to-end get test
 func Test_Get_Integration(t *testing.T) {
 	// use the integration keystore
-	auth.Keys, _ = keyring.Open(keyring.Config{
+	keys, _ = keyring.Open(keyring.Config{
 		ServiceName: "tq_test_integration",
 	})
 
