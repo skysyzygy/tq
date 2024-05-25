@@ -323,11 +323,11 @@ func Test_Do(t *testing.T) {
 	tq := New(nil, false, false)
 	tq.Login(auth.New(strings.Replace(server.URL, "https://", "", 1), "user", "", "", []byte("password")))
 
-	query := []byte(`{"ConstituentId": "0"}`)
+	query := []byte(`{"ConstituentId": "1"}`)
 	constituent := new(models.Constituent)
 	res, err := Do(*tq, tq.Get.ConstituentsGet, query)
 	json.Unmarshal(res, constituent)
-	assert.Equal(t, int32(0), constituent.ID)
+	assert.Equal(t, int32(1), constituent.ID)
 	assert.NoError(t, err)
 
 	query = []byte(`[{"ConstituentId": "1"},{"ConstituentId": "2"},{"ConstituentId": "3"}]`)
