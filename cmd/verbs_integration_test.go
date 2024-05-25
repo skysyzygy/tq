@@ -16,9 +16,9 @@ func init() {
 
 // end-to-end get test
 func Test_Get_Integration(t *testing.T) {
-	// use the real keystore
+	// use the integration keystore
 	auth.Keys, _ = keyring.Open(keyring.Config{
-		ServiceName: "tq",
+		ServiceName: "tq_test_integration",
 	})
 
 	// test without payload
