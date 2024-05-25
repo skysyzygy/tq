@@ -13,13 +13,8 @@ on:
 jobs:
 
   build:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
-    env:
-      OS: ${{ matrix.os }}
-      
+    runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v3
 
@@ -36,8 +31,8 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
 
-    - name: Build
-      run: go build -v -o bin/tq-${{ matrix.os }}  .
+    - name: Cross compile
+      run: .github/cross_compile.sh tq
 
     - name: Bundle release
       uses: softprops/action-gh-release@v2
