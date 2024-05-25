@@ -59,3 +59,4 @@ jobs:
         body_path: NEWS.md
         files: bin/*
         fail_on_unmatched_files: true
+        token: ${{ secrets.REPO_TOKEN }}
