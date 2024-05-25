@@ -3,6 +3,7 @@ package cmd
 import (
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"regexp"
 	"strings"
 	"testing"
@@ -33,6 +34,8 @@ func TestMain(m *testing.M) {
 	m.Run()
 
 	a.Delete()
+
+	os.Remove("tq.yaml")
 }
 
 func server() (server *httptest.Server) {
