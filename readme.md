@@ -9,6 +9,12 @@
 
 ## installation:
 
+### from binary:
+
+Download the latest release from the [releases page!](https://github.com/skysyzygy/tq/releases/) 
+
+### from source:
+
 The only prerequisite to using **tq** is [installing go](https://go.dev/doc/install).
 
 Then clone this repository and build:

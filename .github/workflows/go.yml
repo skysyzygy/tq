@@ -15,10 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-      with:
-        submodules: 'true'
-        ssh-key: ${{ secrets.SSH_KEY }}  
-        ssh-known-hosts: 'bitbucket.org ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPIQmuzMBuKdWeF4+a2sjSSpBK0iqitSQ+5BM9KhpexuGt20JpTVM7u5BDZngncgrqDMbWdxMWWOGtZ9UgbqgZE='
 
     - name: Set up Go
       uses: actions/setup-go@v4
@@ -36,9 +32,6 @@ jobs:
       run: pass init ${{ steps.setup_gpg_key.outputs.gpg_key_id }}
       shell: bash
 
-    - name: Build
-      run: go build -v ./...
-
     - name: Test
       run: go test -skip "_Integration$" -v -race -coverprofile=coverage.out -covermode=atomic ./...
       
@@ -46,3 +39,14 @@ jobs:
       uses: codecov/codecov-action@v3
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
+
+    - name: Build
+      run: go build -v -o bin/tq  ./...
+
+    - name: Bundle release
+      uses: softprops/action-gh-release
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        body_path: NEWS.md
+        files: bin/*
+        fail_on_unmatched_files: true
