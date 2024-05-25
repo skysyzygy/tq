@@ -140,8 +140,8 @@ func init() {
 	rootCmd.AddCommand(authenticateCmd)
 
 	hostname = authenticateCmd.PersistentFlags().StringP("host", "H", "", "hostname and base path of the API server")
-	username = authenticateCmd.PersistentFlags().StringP("user", "u", "", "username to authenticate")
-	usergroup = authenticateCmd.PersistentFlags().StringP("group", "g", "", "group to authenticate with")
+	username = authenticateCmd.PersistentFlags().StringP("user", "U", "", "username to authenticate")
+	usergroup = authenticateCmd.PersistentFlags().StringP("group", "G", "", "group to authenticate with")
 	location = authenticateCmd.PersistentFlags().StringP("location", "L", "", "machine location to authenticate with")
 
 	authenticateCmd.AddCommand(authenticateAddCmd, authenticateListCmd,
