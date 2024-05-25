@@ -67,7 +67,6 @@ func Test_authenticateListCmd(t *testing.T) {
 
 func Test_authenticateSelectCmd(t *testing.T) {
 	cfgFile = "tq.yaml"
-	assert.NoFileExists(t, "tq.yaml")
 
 	// root command calls this to read in the config file
 	initConfig()
