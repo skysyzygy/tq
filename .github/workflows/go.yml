@@ -33,6 +33,7 @@ jobs:
 
     - name: Cross compile
       run: .github/cross_compile.sh tq
+      if: startsWith(github.ref, 'refs/tags/')
 
     - name: Bundle release
       uses: softprops/action-gh-release@v2
