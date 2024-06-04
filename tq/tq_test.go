@@ -232,6 +232,7 @@ func testServer(t *testing.T) *httptest.Server {
 
 		reqBody, _ := io.ReadAll(r.Body)
 		json.Unmarshal(reqBody, &req)
+		r.Body.Close()
 
 		id, _ := strconv.Atoi(strings.Split(r.URL.Path, "/")[3])
 
@@ -256,6 +257,7 @@ func testServer(t *testing.T) *httptest.Server {
 
 		w.Header().Set("Content-Type", "application/json")
 		w.Write(resBody)
+
 	}))
 }
 
@@ -325,15 +327,15 @@ func Test_Do(t *testing.T) {
 
 	query := []byte(`{"ConstituentId": "1"}`)
 	constituent := new(models.Constituent)
-	res, err := Do(*tq, tq.Get.ConstituentsGet, query)
-	json.Unmarshal(res, constituent)
+	err := Do(tq, tq.Get.ConstituentsGet, query)
+	json.Unmarshal(tq.output, constituent)
 	assert.Equal(t, int32(1), constituent.ID)
 	assert.NoError(t, err)
 
 	query = []byte(`[{"ConstituentId": "1"},{"ConstituentId": "2"},{"ConstituentId": "3"}]`)
 	constituents := new([]models.Constituent)
-	res, err = Do(*tq, tq.Get.ConstituentsGet, query)
-	json.Unmarshal(res, constituents)
+	err = Do(tq, tq.Get.ConstituentsGet, query)
+	json.Unmarshal(tq.output, constituents)
 	assert.Equal(t, 3, len(*constituents))
 	assert.Equal(t, int32(1), (*constituents)[0].ID)
 	assert.Equal(t, int32(2), (*constituents)[1].ID)
@@ -343,8 +345,8 @@ func Test_Do(t *testing.T) {
 	// Test that Do returns the last error
 	query = []byte(`[{"ConstituentId": "4"},["Can't be unmarshaled"],{"ConstituentId": "6"}]`)
 	constituents = new([]models.Constituent)
-	res, err = Do(*tq, tq.Get.ConstituentsGet, query)
-	json.Unmarshal(res, constituents)
+	err = Do(tq, tq.Get.ConstituentsGet, query)
+	json.Unmarshal(tq.output, constituents)
 	assert.Equal(t, 3, len(*constituents))
 	assert.Equal(t, int32(4), (*constituents)[0].ID)
 	assert.Equal(t, int32(0), (*constituents)[1].ID)

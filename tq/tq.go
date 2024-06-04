@@ -3,6 +3,7 @@ package tq
 import (
 	"errors"
 	"fmt"
+	"io"
 	"log/slog"
 	"os"
 	"reflect"
@@ -40,6 +41,10 @@ type TqConfig struct {
 	// some flags, set by New
 	verbose bool
 	dryRun  bool
+
+	// input / output
+	input  io.Reader
+	output []byte
 }
 
 func New(logFile *os.File, verbose bool, dryRun bool) *TqConfig {
@@ -56,6 +61,9 @@ func New(logFile *os.File, verbose bool, dryRun bool) *TqConfig {
 	}
 
 }
+
+func (tq *TqConfig) SetInput(input io.Reader) { tq.input = input }
+func (tq *TqConfig) GetOutput() []byte        { return tq.output }
 
 // Log in the Tessitura client with the given authentication info and cache the login data
 func (tq *TqConfig) Login(a auth.Auth) error {
@@ -84,20 +92,22 @@ func (tq *TqConfig) Login(a auth.Auth) error {
 // or an array of json maps if there are multiple operations.
 // Returns the last error
 func Do[P any, R any, O any, F func(*P, ...O) (*R, error)](
-	tq TqConfig, function F, query []byte,
-) ([]byte, error) {
+	tq *TqConfig, function F, query []byte,
+) (err error) {
 	tq.Log.Info(fmt.Sprint("calling swagger function: ",
 		run.FuncForPC(reflect.ValueOf(function).Pointer()).Name()))
 	if len(query) == 0 {
 		tq.Log.Info("query is empty, calling API endpoint once")
-		return DoOne(tq, function, query)
+		tq.output, err = DoOne(*tq, function, query)
+		return err
 	}
 	queries := new([]json.RawMessage)
-	err := json.Unmarshal(query, queries)
+	err = json.Unmarshal(query, queries)
 	if _, ok := err.(*json.UnmarshalTypeError); ok {
 		tq.Log.Info("query is not an array, calling API endpoint once")
 		// it's not an array... so just call DoOne
-		return DoOne(tq, function, query)
+		tq.output, err = DoOne(*tq, function, query)
+		return err
 	} else if err == nil {
 		tq.Log.Info("query is an array, calling API endpoint multiple times")
 		// loop over queries and call DoOne for each
@@ -107,19 +117,19 @@ func Do[P any, R any, O any, F func(*P, ...O) (*R, error)](
 		wait.Add(len(*queries))
 		for i, q := range *queries {
 			go func(i int) {
-				out[i], errs[i] = DoOne(tq, function, q)
+				out[i], errs[i] = DoOne(*tq, function, q)
 				wait.Done()
 			}(i)
 		}
 		wait.Wait()
 		errs = slices.DeleteFunc(errs, func(e error) bool { return e == nil })
-		res, _ := json.Marshal(out)
+		tq.output, _ = json.Marshal(out)
 		if len(errs) > 0 {
 			err = errs[len(errs)-1]
 		}
-		return res, err
+		return err
 	}
-	return nil, err // json.Unmarshal error
+	return err // json.Unmarshal error
 }
 
 // Generic for doing operations (get/put/post), parallelizing calls to DoOne as needed
