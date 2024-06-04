@@ -12,18 +12,21 @@ const longSuffix string = "Queries are simply JSON objects and can be batched by
 	"\n\nQuery details are detailed in the help for each command."
 
 var Get_cmd = &cobra.Command{
+	PreRunE: initTq,
 	Use:     "get",
 	Aliases: []string{"get", "retrieve", "g", "r"},
 	Short:   "Retrieve entities from Tessitura",
 }
 
 var Post_cmd = &cobra.Command{
+	PreRunE: initTq,
 	Use:     "create",
 	Aliases: []string{"post", "create", "c"},
 	Short:   "Create entities in Tessitura",
 }
 
 var Put_cmd = &cobra.Command{
+	PreRunE: initTq,
 	Use:     "update",
 	Aliases: []string{"put", "update", "u"},
 	Short:   "Update entities in Tessitura",

@@ -3,6 +3,7 @@
 package cmd
 
 import (
+    "os"
 	"testing"
     "regexp"
     "strings"
@@ -16,31 +17,29 @@ import (
 func Test_Post_AccountTypes__cmd(t *testing.T) {
         command := Post_AccountTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Accounts_CardNumberAccount_cmd(t *testing.T) {
         command := Post_Accounts_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("CardNumberAccount")
         if flag != nil {
@@ -51,27 +50,24 @@ func Test_Post_Accounts_CardNumberAccount_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Accounts_DirectDebitAccount_cmd(t *testing.T) {
         command := Post_Accounts_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("DirectDebitAccount")
         if flag != nil {
@@ -82,27 +78,24 @@ func Test_Post_Accounts_DirectDebitAccount_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Accounts_SepaAccount_cmd(t *testing.T) {
         command := Post_Accounts_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("SepaAccount")
         if flag != nil {
@@ -113,27 +106,24 @@ func Test_Post_Accounts_SepaAccount_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Accounts_VantivEncryptedCardAccount_cmd(t *testing.T) {
         command := Post_Accounts_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("VantivEncryptedCardAccount")
         if flag != nil {
@@ -144,177 +134,156 @@ func Test_Post_Accounts_VantivEncryptedCardAccount_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ActionTypes__cmd(t *testing.T) {
         command := Post_ActionTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Actions__cmd(t *testing.T) {
         command := Post_Actions_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ActivityCategories__cmd(t *testing.T) {
         command := Post_ActivityCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ActivityTypes__cmd(t *testing.T) {
         command := Post_ActivityTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_AddressTypes__cmd(t *testing.T) {
         command := Post_AddressTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Addresses__cmd(t *testing.T) {
         command := Post_Addresses_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_AffiliationInfo_PostAffiliation_cmd(t *testing.T) {
         command := Post_AffiliationInfo_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("PostAffiliation")
         if flag != nil {
@@ -325,327 +294,288 @@ func Test_Post_AffiliationInfo_PostAffiliation_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_AffiliationTypes__cmd(t *testing.T) {
         command := Post_AffiliationTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Affiliations__cmd(t *testing.T) {
         command := Post_Affiliations_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_AliasTypes__cmd(t *testing.T) {
         command := Post_AliasTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Aliases__cmd(t *testing.T) {
         command := Post_Aliases_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_AnalyticsReports__cmd(t *testing.T) {
         command := Post_AnalyticsReports_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_AppealCategories__cmd(t *testing.T) {
         command := Post_AppealCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Artists__cmd(t *testing.T) {
         command := Post_Artists_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_AssetTypes__cmd(t *testing.T) {
         command := Post_AssetTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Assets__cmd(t *testing.T) {
         command := Post_Assets_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_AssociationTypes__cmd(t *testing.T) {
         command := Post_AssociationTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Associations__cmd(t *testing.T) {
         command := Post_Associations_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Attributes__cmd(t *testing.T) {
         command := Post_Attributes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Authenticate_Authenticate_cmd(t *testing.T) {
         command := Post_Authenticate_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Authenticate")
         if flag != nil {
@@ -656,27 +586,24 @@ func Test_Post_Authenticate_Authenticate_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Authenticate_AuthenticateWindows_cmd(t *testing.T) {
         command := Post_Authenticate_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("AuthenticateWindows")
         if flag != nil {
@@ -687,27 +614,24 @@ func Test_Post_Authenticate_AuthenticateWindows_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Authenticate_GenerateToken_cmd(t *testing.T) {
         command := Post_Authenticate_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("GenerateToken")
         if flag != nil {
@@ -718,27 +642,24 @@ func Test_Post_Authenticate_GenerateToken_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Authenticate_GenerateTokenWindows_cmd(t *testing.T) {
         command := Post_Authenticate_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("GenerateTokenWindows")
         if flag != nil {
@@ -749,27 +670,24 @@ func Test_Post_Authenticate_GenerateTokenWindows_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Authenticate_ValidateToken_cmd(t *testing.T) {
         command := Post_Authenticate_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ValidateToken")
         if flag != nil {
@@ -780,27 +698,24 @@ func Test_Post_Authenticate_ValidateToken_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Authorization_Authorize_cmd(t *testing.T) {
         command := Post_Authorization_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Authorize")
         if flag != nil {
@@ -811,27 +726,24 @@ func Test_Post_Authorization_Authorize_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Authorization_Confirm_cmd(t *testing.T) {
         command := Post_Authorization_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Confirm")
         if flag != nil {
@@ -842,27 +754,24 @@ func Test_Post_Authorization_Confirm_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Authorization_ConfirmPayByLink_cmd(t *testing.T) {
         command := Post_Authorization_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ConfirmPayByLink")
         if flag != nil {
@@ -873,27 +782,24 @@ func Test_Post_Authorization_ConfirmPayByLink_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Authorization_Finalize_cmd(t *testing.T) {
         command := Post_Authorization_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Finalize")
         if flag != nil {
@@ -904,27 +810,24 @@ func Test_Post_Authorization_Finalize_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Authorization_Link_cmd(t *testing.T) {
         command := Post_Authorization_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Link")
         if flag != nil {
@@ -935,27 +838,24 @@ func Test_Post_Authorization_Link_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Authorization_Reverse_cmd(t *testing.T) {
         command := Post_Authorization_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Reverse")
         if flag != nil {
@@ -966,27 +866,24 @@ func Test_Post_Authorization_Reverse_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Batch_Sample_cmd(t *testing.T) {
         command := Post_Batch_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Sample")
         if flag != nil {
@@ -997,227 +894,200 @@ func Test_Post_Batch_Sample_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_BatchMaintenance__cmd(t *testing.T) {
         command := Post_BatchMaintenance_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_BatchTypeGroups__cmd(t *testing.T) {
         command := Post_BatchTypeGroups_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_BatchTypes__cmd(t *testing.T) {
         command := Post_BatchTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_BillingSchedules__cmd(t *testing.T) {
         command := Post_BillingSchedules_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_BillingTypes__cmd(t *testing.T) {
         command := Post_BillingTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_BookingCategories__cmd(t *testing.T) {
         command := Post_BookingCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_BookingTemplates__cmd(t *testing.T) {
         command := Post_BookingTemplates_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Bookings__cmd(t *testing.T) {
         command := Post_Bookings_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Bookings_AddDocument_cmd(t *testing.T) {
         command := Post_Bookings_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("AddDocument")
         if flag != nil {
@@ -1228,27 +1098,24 @@ func Test_Post_Bookings_AddDocument_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Bookings_FromTemplate_cmd(t *testing.T) {
         command := Post_Bookings_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("FromTemplate")
         if flag != nil {
@@ -1259,52 +1126,46 @@ func Test_Post_Bookings_FromTemplate_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_BulkCopySets__cmd(t *testing.T) {
         command := Post_BulkCopySets_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_BulkCopySets_CopyDay_cmd(t *testing.T) {
         command := Post_BulkCopySets_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("CopyDay")
         if flag != nil {
@@ -1315,27 +1176,24 @@ func Test_Post_BulkCopySets_CopyDay_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_BulkCopySets_CopyEvent_cmd(t *testing.T) {
         command := Post_BulkCopySets_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("CopyEvent")
         if flag != nil {
@@ -1346,27 +1204,24 @@ func Test_Post_BulkCopySets_CopyEvent_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_BulkCopySets_ReplaceExclusions_cmd(t *testing.T) {
         command := Post_BulkCopySets_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ReplaceExclusions")
         if flag != nil {
@@ -1377,152 +1232,134 @@ func Test_Post_BulkCopySets_ReplaceExclusions_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_BulkDailyCopyExclusions__cmd(t *testing.T) {
         command := Post_BulkDailyCopyExclusions_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_BusinessUnits__cmd(t *testing.T) {
         command := Post_BusinessUnits_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_CampaignDesignations__cmd(t *testing.T) {
         command := Post_CampaignDesignations_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_CampaignFunds__cmd(t *testing.T) {
         command := Post_CampaignFunds_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_CardReaderTypes__cmd(t *testing.T) {
         command := Post_CardReaderTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_AddBooking_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("AddBooking")
         if flag != nil {
@@ -1533,27 +1370,24 @@ func Test_Post_Cart_AddBooking_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_AddContribution_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("AddContribution")
         if flag != nil {
@@ -1564,27 +1398,24 @@ func Test_Post_Cart_AddContribution_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_AddFee_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("AddFee")
         if flag != nil {
@@ -1595,27 +1426,24 @@ func Test_Post_Cart_AddFee_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_AddGiftCertificate_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("AddGiftCertificate")
         if flag != nil {
@@ -1626,27 +1454,24 @@ func Test_Post_Cart_AddGiftCertificate_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_AddNFSPackagePerformanceItem_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("AddNFSPackagePerformanceItem")
         if flag != nil {
@@ -1657,27 +1482,24 @@ func Test_Post_Cart_AddNFSPackagePerformanceItem_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_AddOnAccount_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("AddOnAccount")
         if flag != nil {
@@ -1688,27 +1510,24 @@ func Test_Post_Cart_AddOnAccount_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_AddPackageItem_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("AddPackageItem")
         if flag != nil {
@@ -1719,27 +1538,24 @@ func Test_Post_Cart_AddPackageItem_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_AddPaymentPlan_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("AddPaymentPlan")
         if flag != nil {
@@ -1750,27 +1566,24 @@ func Test_Post_Cart_AddPaymentPlan_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_AddPaymentPlanBasedOnBillingSchedule_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("AddPaymentPlanBasedOnBillingSchedule")
         if flag != nil {
@@ -1781,27 +1594,24 @@ func Test_Post_Cart_AddPaymentPlanBasedOnBillingSchedule_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_AddPaymentPlanInstallments_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("AddPaymentPlanInstallments")
         if flag != nil {
@@ -1812,27 +1622,24 @@ func Test_Post_Cart_AddPaymentPlanInstallments_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_AddSubPackageItem_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("AddSubPackageItem")
         if flag != nil {
@@ -1843,27 +1650,24 @@ func Test_Post_Cart_AddSubPackageItem_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_ApplyCashPayment_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ApplyCashPayment")
         if flag != nil {
@@ -1874,27 +1678,24 @@ func Test_Post_Cart_ApplyCashPayment_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_ApplyCheckPayment_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ApplyCheckPayment")
         if flag != nil {
@@ -1905,27 +1706,24 @@ func Test_Post_Cart_ApplyCheckPayment_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_ApplyGiftCertificate_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ApplyGiftCertificate")
         if flag != nil {
@@ -1936,27 +1734,24 @@ func Test_Post_Cart_ApplyGiftCertificate_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_ApplyInvoicePayment_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ApplyInvoicePayment")
         if flag != nil {
@@ -1967,27 +1762,24 @@ func Test_Post_Cart_ApplyInvoicePayment_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_ApplyOnAccountPayment_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ApplyOnAccountPayment")
         if flag != nil {
@@ -1998,27 +1790,24 @@ func Test_Post_Cart_ApplyOnAccountPayment_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_ApplyOtherPayment_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ApplyOtherPayment")
         if flag != nil {
@@ -2029,27 +1818,24 @@ func Test_Post_Cart_ApplyOtherPayment_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_Authorize_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Authorize")
         if flag != nil {
@@ -2060,27 +1846,24 @@ func Test_Post_Cart_Authorize_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_Checkout_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Checkout")
         if flag != nil {
@@ -2091,27 +1874,24 @@ func Test_Post_Cart_Checkout_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_CheckoutWithCard_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("CheckoutWithCard")
         if flag != nil {
@@ -2122,27 +1902,24 @@ func Test_Post_Cart_CheckoutWithCard_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_PreviewPaymentPlanBasedOnBillingSchedule_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("PreviewPaymentPlanBasedOnBillingSchedule")
         if flag != nil {
@@ -2153,27 +1930,24 @@ func Test_Post_Cart_PreviewPaymentPlanBasedOnBillingSchedule_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_Price_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Price")
         if flag != nil {
@@ -2184,27 +1958,24 @@ func Test_Post_Cart_Price_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_PrintEmail_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("PrintEmail")
         if flag != nil {
@@ -2215,27 +1986,24 @@ func Test_Post_Cart_PrintEmail_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_PrintPrintStrings_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("PrintPrintStrings")
         if flag != nil {
@@ -2246,27 +2014,24 @@ func Test_Post_Cart_PrintPrintStrings_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_PrintTicketElements_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("PrintTicketElements")
         if flag != nil {
@@ -2277,27 +2042,24 @@ func Test_Post_Cart_PrintTicketElements_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_ReserveTickets_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ReserveTickets")
         if flag != nil {
@@ -2308,27 +2070,24 @@ func Test_Post_Cart_ReserveTickets_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_ReserveTicketsForLineItem_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ReserveTicketsForLineItem")
         if flag != nil {
@@ -2339,27 +2098,24 @@ func Test_Post_Cart_ReserveTicketsForLineItem_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_ReturnTicket_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ReturnTicket")
         if flag != nil {
@@ -2370,27 +2126,24 @@ func Test_Post_Cart_ReturnTicket_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_ReturnTicketWithSeat_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ReturnTicketWithSeat")
         if flag != nil {
@@ -2401,27 +2154,24 @@ func Test_Post_Cart_ReturnTicketWithSeat_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_Validate_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Validate")
         if flag != nil {
@@ -2432,27 +2182,24 @@ func Test_Post_Cart_Validate_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Cart_ValidateLimits_cmd(t *testing.T) {
         command := Post_Cart_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ValidateLimits")
         if flag != nil {
@@ -2463,277 +2210,244 @@ func Test_Post_Cart_ValidateLimits_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Colors__cmd(t *testing.T) {
         command := Post_Colors_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Composers__cmd(t *testing.T) {
         command := Post_Composers_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Constituencies__cmd(t *testing.T) {
         command := Post_Constituencies_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ConstituencyTypes__cmd(t *testing.T) {
         command := Post_ConstituencyTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ConstituentDocuments__cmd(t *testing.T) {
         command := Post_ConstituentDocuments_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ConstituentGroups__cmd(t *testing.T) {
         command := Post_ConstituentGroups_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ConstituentInactives__cmd(t *testing.T) {
         command := Post_ConstituentInactives_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ConstituentProtectionTypes__cmd(t *testing.T) {
         command := Post_ConstituentProtectionTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ConstituentTypeAffiliates__cmd(t *testing.T) {
         command := Post_ConstituentTypeAffiliates_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ConstituentTypes__cmd(t *testing.T) {
         command := Post_ConstituentTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Constituents_Constituent_cmd(t *testing.T) {
         command := Post_Constituents_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Constituent")
         if flag != nil {
@@ -2744,27 +2458,24 @@ func Test_Post_Constituents_Constituent_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Constituents_ConstituentUsingSnapshot_cmd(t *testing.T) {
         command := Post_Constituents_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ConstituentUsingSnapshot")
         if flag != nil {
@@ -2775,27 +2486,24 @@ func Test_Post_Constituents_ConstituentUsingSnapshot_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Constituents_ConvertGroupToIndividual_cmd(t *testing.T) {
         command := Post_Constituents_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ConvertGroupToIndividual")
         if flag != nil {
@@ -2806,27 +2514,24 @@ func Test_Post_Constituents_ConvertGroupToIndividual_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Constituents_ConvertIndividualToHousehold_cmd(t *testing.T) {
         command := Post_Constituents_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ConvertIndividualToHousehold")
         if flag != nil {
@@ -2837,27 +2542,24 @@ func Test_Post_Constituents_ConvertIndividualToHousehold_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Constituents_ConvertIndividualToOrganization_cmd(t *testing.T) {
         command := Post_Constituents_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ConvertIndividualToOrganization")
         if flag != nil {
@@ -2868,27 +2570,24 @@ func Test_Post_Constituents_ConvertIndividualToOrganization_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Constituents_SchedulePurge_cmd(t *testing.T) {
         command := Post_Constituents_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("SchedulePurge")
         if flag != nil {
@@ -2899,27 +2598,24 @@ func Test_Post_Constituents_SchedulePurge_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Constituents_SearchByCardNumber_cmd(t *testing.T) {
         command := Post_Constituents_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("SearchByCardNumber")
         if flag != nil {
@@ -2930,27 +2626,24 @@ func Test_Post_Constituents_SearchByCardNumber_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Constituents_SwapConstituentA1A2_cmd(t *testing.T) {
         command := Post_Constituents_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("SwapConstituentA1A2")
         if flag != nil {
@@ -2961,27 +2654,24 @@ func Test_Post_Constituents_SwapConstituentA1A2_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Constituents_UnschedulePurge_cmd(t *testing.T) {
         command := Post_Constituents_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("UnschedulePurge")
         if flag != nil {
@@ -2992,102 +2682,90 @@ func Test_Post_Constituents_UnschedulePurge_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ContactPermissionCategories__cmd(t *testing.T) {
         command := Post_ContactPermissionCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ContactPermissionTypes__cmd(t *testing.T) {
         command := Post_ContactPermissionTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ContactPermissions__cmd(t *testing.T) {
         command := Post_ContactPermissions_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ContactPermissions_ForTransaction_cmd(t *testing.T) {
         command := Post_ContactPermissions_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ForTransaction")
         if flag != nil {
@@ -3098,302 +2776,266 @@ func Test_Post_ContactPermissions_ForTransaction_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ContactPointCategories__cmd(t *testing.T) {
         command := Post_ContactPointCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ContactPointCategoryPurposes__cmd(t *testing.T) {
         command := Post_ContactPointCategoryPurposes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ContactPointPurposeCategories__cmd(t *testing.T) {
         command := Post_ContactPointPurposeCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ContactPointPurposeMaps__cmd(t *testing.T) {
         command := Post_ContactPointPurposeMaps_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ContactPointPurposes__cmd(t *testing.T) {
         command := Post_ContactPointPurposes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ContactTypes__cmd(t *testing.T) {
         command := Post_ContactTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ContributionDesignations__cmd(t *testing.T) {
         command := Post_ContributionDesignations_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ContributionImportSets__cmd(t *testing.T) {
         command := Post_ContributionImportSets_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Contributions__cmd(t *testing.T) {
         command := Post_Contributions_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ControlGroupUserGroups__cmd(t *testing.T) {
         command := Post_ControlGroupUserGroups_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ControlGroups__cmd(t *testing.T) {
         command := Post_ControlGroups_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_CoreIdentity_Sign_cmd(t *testing.T) {
         command := Post_CoreIdentity_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Sign")
         if flag != nil {
@@ -3404,102 +3046,90 @@ func Test_Post_CoreIdentity_Sign_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Countries__cmd(t *testing.T) {
         command := Post_Countries_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_CrediteeTypes__cmd(t *testing.T) {
         command := Post_CrediteeTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_CurrencyTypes__cmd(t *testing.T) {
         command := Post_CurrencyTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Custom_ExecuteLocalProcedure_cmd(t *testing.T) {
         command := Post_Custom_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ExecuteLocalProcedure")
         if flag != nil {
@@ -3510,27 +3140,24 @@ func Test_Post_Custom_ExecuteLocalProcedure_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Custom_ExecuteLocalProcedureWithMultipleResultSets_cmd(t *testing.T) {
         command := Post_Custom_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ExecuteLocalProcedureWithMultipleResultSets")
         if flag != nil {
@@ -3541,127 +3168,112 @@ func Test_Post_Custom_ExecuteLocalProcedureWithMultipleResultSets_cmd(t *testing
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_CustomDefaultCategories__cmd(t *testing.T) {
         command := Post_CustomDefaultCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_CustomDefaults__cmd(t *testing.T) {
         command := Post_CustomDefaults_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_DeliveryMethods__cmd(t *testing.T) {
         command := Post_DeliveryMethods_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_DesignationCodes__cmd(t *testing.T) {
         command := Post_DesignationCodes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Diagnostics_Check_cmd(t *testing.T) {
         command := Post_Diagnostics_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Check")
         if flag != nil {
@@ -3672,127 +3284,112 @@ func Test_Post_Diagnostics_Check_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_DirectDebitAccountTypes__cmd(t *testing.T) {
         command := Post_DirectDebitAccountTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_DiscountTypes__cmd(t *testing.T) {
         command := Post_DiscountTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_DocumentCategories__cmd(t *testing.T) {
         command := Post_DocumentCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_DonationLevels__cmd(t *testing.T) {
         command := Post_DonationLevels_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_EMV_Authorization_cmd(t *testing.T) {
         command := Post_EMV_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Authorization")
         if flag != nil {
@@ -3803,27 +3400,24 @@ func Test_Post_EMV_Authorization_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_EMV_Lane_cmd(t *testing.T) {
         command := Post_EMV_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Lane")
         if flag != nil {
@@ -3834,27 +3428,24 @@ func Test_Post_EMV_Lane_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_EMV_Signature_cmd(t *testing.T) {
         command := Post_EMV_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Signature")
         if flag != nil {
@@ -3865,27 +3456,24 @@ func Test_Post_EMV_Signature_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_EMV_Token_cmd(t *testing.T) {
         command := Post_EMV_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Token")
         if flag != nil {
@@ -3896,77 +3484,68 @@ func Test_Post_EMV_Token_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ElectronicAddressTypes__cmd(t *testing.T) {
         command := Post_ElectronicAddressTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ElectronicAddresses__cmd(t *testing.T) {
         command := Post_ElectronicAddresses_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ElectronicAddresses_Move_cmd(t *testing.T) {
         command := Post_ElectronicAddresses_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Move")
         if flag != nil {
@@ -3977,52 +3556,46 @@ func Test_Post_ElectronicAddresses_Move_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_EmailProfiles__cmd(t *testing.T) {
         command := Post_EmailProfiles_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_EmailResponses_Appeal_cmd(t *testing.T) {
         command := Post_EmailResponses_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Appeal")
         if flag != nil {
@@ -4033,27 +3606,24 @@ func Test_Post_EmailResponses_Appeal_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Emails_Send_cmd(t *testing.T) {
         command := Post_Emails_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Send")
         if flag != nil {
@@ -4064,27 +3634,24 @@ func Test_Post_Emails_Send_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Emails_SendConstituentInfo_cmd(t *testing.T) {
         command := Post_Emails_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("SendConstituentInfo")
         if flag != nil {
@@ -4095,27 +3662,24 @@ func Test_Post_Emails_SendConstituentInfo_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Emails_SendLoginCredentials_cmd(t *testing.T) {
         command := Post_Emails_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("SendLoginCredentials")
         if flag != nil {
@@ -4126,27 +3690,24 @@ func Test_Post_Emails_SendLoginCredentials_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Emails_SendOrderConfirmation_cmd(t *testing.T) {
         command := Post_Emails_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("SendOrderConfirmation")
         if flag != nil {
@@ -4157,27 +3718,24 @@ func Test_Post_Emails_SendOrderConfirmation_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Emails_SendTickets_cmd(t *testing.T) {
         command := Post_Emails_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("SendTickets")
         if flag != nil {
@@ -4188,302 +3746,266 @@ func Test_Post_Emails_SendTickets_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_EmarketIndicators__cmd(t *testing.T) {
         command := Post_EmarketIndicators_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Eras__cmd(t *testing.T) {
         command := Post_Eras_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Facilities__cmd(t *testing.T) {
         command := Post_Facilities_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Genders__cmd(t *testing.T) {
         command := Post_Genders_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_GiftAidContactMethods__cmd(t *testing.T) {
         command := Post_GiftAidContactMethods_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_GiftAidDeclarations__cmd(t *testing.T) {
         command := Post_GiftAidDeclarations_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_GiftAidDocumentStatuses__cmd(t *testing.T) {
         command := Post_GiftAidDocumentStatuses_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_GiftAidIneligibleReasons__cmd(t *testing.T) {
         command := Post_GiftAidIneligibleReasons_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_GiftAidRates__cmd(t *testing.T) {
         command := Post_GiftAidRates_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_GiftAidStatuses__cmd(t *testing.T) {
         command := Post_GiftAidStatuses_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_GiftAidTypes__cmd(t *testing.T) {
         command := Post_GiftAidTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_GiftCertificates_TransactionDetailsForRedemption_cmd(t *testing.T) {
         command := Post_GiftCertificates_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("TransactionDetailsForRedemption")
         if flag != nil {
@@ -4494,27 +4016,24 @@ func Test_Post_GiftCertificates_TransactionDetailsForRedemption_cmd(t *testing.T
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_GiftCertificates_Unlock_cmd(t *testing.T) {
         command := Post_GiftCertificates_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Unlock")
         if flag != nil {
@@ -4525,252 +4044,222 @@ func Test_Post_GiftCertificates_Unlock_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_HoldCodeCategories__cmd(t *testing.T) {
         command := Post_HoldCodeCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_HoldCodeUserGroups__cmd(t *testing.T) {
         command := Post_HoldCodeUserGroups_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_HoldCodes__cmd(t *testing.T) {
         command := Post_HoldCodes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_InactiveReasons__cmd(t *testing.T) {
         command := Post_InactiveReasons_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_IntegrationDefaults__cmd(t *testing.T) {
         command := Post_IntegrationDefaults_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Integrations__cmd(t *testing.T) {
         command := Post_Integrations_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_InterestCategories__cmd(t *testing.T) {
         command := Post_InterestCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_InterestTypes__cmd(t *testing.T) {
         command := Post_InterestTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Interests__cmd(t *testing.T) {
         command := Post_Interests_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Interests_Or_cmd(t *testing.T) {
         command := Post_Interests_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Or")
         if flag != nil {
@@ -4781,102 +4270,90 @@ func Test_Post_Interests_Or_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Internal__cmd(t *testing.T) {
         command := Post_Internal_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_InventoryContactPermissionTypes__cmd(t *testing.T) {
         command := Post_InventoryContactPermissionTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_InventoryWebContents__cmd(t *testing.T) {
         command := Post_InventoryWebContents_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_InvoiceBilling_BillInvoices_cmd(t *testing.T) {
         command := Post_InvoiceBilling_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("BillInvoices")
         if flag != nil {
@@ -4887,177 +4364,156 @@ func Test_Post_InvoiceBilling_BillInvoices_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Issues__cmd(t *testing.T) {
         command := Post_Issues_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_KeywordCategories__cmd(t *testing.T) {
         command := Post_KeywordCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Keywords__cmd(t *testing.T) {
         command := Post_Keywords_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Languages__cmd(t *testing.T) {
         command := Post_Languages_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ListCategories__cmd(t *testing.T) {
         command := Post_ListCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Lists__cmd(t *testing.T) {
         command := Post_Lists_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Lists_Generate_cmd(t *testing.T) {
         command := Post_Lists_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Generate")
         if flag != nil {
@@ -5068,27 +4524,24 @@ func Test_Post_Lists_Generate_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Lists_Results_cmd(t *testing.T) {
         command := Post_Lists_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Results")
         if flag != nil {
@@ -5099,27 +4552,24 @@ func Test_Post_Lists_Results_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Lists_Search_cmd(t *testing.T) {
         command := Post_Lists_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Search")
         if flag != nil {
@@ -5130,152 +4580,134 @@ func Test_Post_Lists_Search_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_LoginTypes__cmd(t *testing.T) {
         command := Post_LoginTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_MachineSettings__cmd(t *testing.T) {
         command := Post_MachineSettings_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_MailIndicators__cmd(t *testing.T) {
         command := Post_MailIndicators_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_MediaTypes__cmd(t *testing.T) {
         command := Post_MediaTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_MembershipLevelCategories__cmd(t *testing.T) {
         command := Post_MembershipLevelCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Memberships_Calculate_cmd(t *testing.T) {
         command := Post_Memberships_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Calculate")
         if flag != nil {
@@ -5286,252 +4718,222 @@ func Test_Post_Memberships_Calculate_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ModeOfSaleCategories__cmd(t *testing.T) {
         command := Post_ModeOfSaleCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ModeOfSaleOffers__cmd(t *testing.T) {
         command := Post_ModeOfSaleOffers_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ModeOfSalePriceTypes__cmd(t *testing.T) {
         command := Post_ModeOfSalePriceTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ModeOfSaleSurveyQuestions__cmd(t *testing.T) {
         command := Post_ModeOfSaleSurveyQuestions_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ModeOfSaleUserGroups__cmd(t *testing.T) {
         command := Post_ModeOfSaleUserGroups_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ModesOfSale__cmd(t *testing.T) {
         command := Post_ModesOfSale_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_NScanAccessAreas__cmd(t *testing.T) {
         command := Post_NScanAccessAreas_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_NameStatuses__cmd(t *testing.T) {
         command := Post_NameStatuses_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ObjectPermissions__cmd(t *testing.T) {
         command := Post_ObjectPermissions_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_OrderBilling_BillOrders_cmd(t *testing.T) {
         command := Post_OrderBilling_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("BillOrders")
         if flag != nil {
@@ -5542,77 +4944,68 @@ func Test_Post_OrderBilling_BillOrders_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_OrderCategories__cmd(t *testing.T) {
         command := Post_OrderCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Orders__cmd(t *testing.T) {
         command := Post_Orders_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Orders_OrdersForDelivery_cmd(t *testing.T) {
         command := Post_Orders_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("OrdersForDelivery")
         if flag != nil {
@@ -5623,27 +5016,24 @@ func Test_Post_Orders_OrdersForDelivery_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Orders_Price_cmd(t *testing.T) {
         command := Post_Orders_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Price")
         if flag != nil {
@@ -5654,27 +5044,24 @@ func Test_Post_Orders_Price_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Orders_PrintTicketElements_cmd(t *testing.T) {
         command := Post_Orders_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("PrintTicketElements")
         if flag != nil {
@@ -5685,202 +5072,178 @@ func Test_Post_Orders_PrintTicketElements_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Organizations__cmd(t *testing.T) {
         command := Post_Organizations_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_OriginalSources__cmd(t *testing.T) {
         command := Post_OriginalSources_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Origins__cmd(t *testing.T) {
         command := Post_Origins_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_OutputSets__cmd(t *testing.T) {
         command := Post_OutputSets_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PackagePriceTypes__cmd(t *testing.T) {
         command := Post_PackagePriceTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PackageTypes__cmd(t *testing.T) {
         command := Post_PackageTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PackageWebContents__cmd(t *testing.T) {
         command := Post_PackageWebContents_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Packages_Search_cmd(t *testing.T) {
         command := Post_Packages_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Search")
         if flag != nil {
@@ -5891,27 +5254,24 @@ func Test_Post_Packages_Search_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PaymentComponent_PaymentComponent_cmd(t *testing.T) {
         command := Post_PaymentComponent_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("PaymentComponent")
         if flag != nil {
@@ -5922,27 +5282,24 @@ func Test_Post_PaymentComponent_PaymentComponent_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PaymentGatewayAccounts_Account_cmd(t *testing.T) {
         command := Post_PaymentGatewayAccounts_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Account")
         if flag != nil {
@@ -5953,27 +5310,24 @@ func Test_Post_PaymentGatewayAccounts_Account_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PaymentGatewayAccounts_StoreToken_cmd(t *testing.T) {
         command := Post_PaymentGatewayAccounts_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("StoreToken")
         if flag != nil {
@@ -5984,52 +5338,46 @@ func Test_Post_PaymentGatewayAccounts_StoreToken_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PaymentGatewayActivities__cmd(t *testing.T) {
         command := Post_PaymentGatewayActivities_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PaymentGatewayCredentials_Credential_cmd(t *testing.T) {
         command := Post_PaymentGatewayCredentials_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Credential")
         if flag != nil {
@@ -6040,27 +5388,24 @@ func Test_Post_PaymentGatewayCredentials_Credential_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PaymentGatewayNotifications_NotificationEvent_cmd(t *testing.T) {
         command := Post_PaymentGatewayNotifications_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("NotificationEvent")
         if flag != nil {
@@ -6071,152 +5416,134 @@ func Test_Post_PaymentGatewayNotifications_NotificationEvent_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PaymentGatewayTransactionTypes__cmd(t *testing.T) {
         command := Post_PaymentGatewayTransactionTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PaymentMethodGroups__cmd(t *testing.T) {
         command := Post_PaymentMethodGroups_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PaymentMethodUserGroups__cmd(t *testing.T) {
         command := Post_PaymentMethodUserGroups_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PaymentMethods__cmd(t *testing.T) {
         command := Post_PaymentMethods_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PaymentSignatures__cmd(t *testing.T) {
         command := Post_PaymentSignatures_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PaymentSignatures_PostForOrder_cmd(t *testing.T) {
         command := Post_PaymentSignatures_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("PostForOrder")
         if flag != nil {
@@ -6227,52 +5554,46 @@ func Test_Post_PaymentSignatures_PostForOrder_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PaymentTypes__cmd(t *testing.T) {
         command := Post_PaymentTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Payments_ReserveIds_cmd(t *testing.T) {
         command := Post_Payments_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ReserveIds")
         if flag != nil {
@@ -6283,102 +5604,90 @@ func Test_Post_Payments_ReserveIds_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PerformanceGroups__cmd(t *testing.T) {
         command := Post_PerformanceGroups_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PerformancePackageModeOfSales__cmd(t *testing.T) {
         command := Post_PerformancePackageModeOfSales_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PerformancePriceLayers__cmd(t *testing.T) {
         command := Post_PerformancePriceLayers_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PerformancePriceLayers_PostSummaries_cmd(t *testing.T) {
         command := Post_PerformancePriceLayers_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("PostSummaries")
         if flag != nil {
@@ -6389,27 +5698,24 @@ func Test_Post_PerformancePriceLayers_PostSummaries_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PerformancePriceLayers_Search_cmd(t *testing.T) {
         command := Post_PerformancePriceLayers_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Search")
         if flag != nil {
@@ -6420,27 +5726,24 @@ func Test_Post_PerformancePriceLayers_Search_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PerformancePriceLayers_SearchSummaries_cmd(t *testing.T) {
         command := Post_PerformancePriceLayers_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("SearchSummaries")
         if flag != nil {
@@ -6451,127 +5754,112 @@ func Test_Post_PerformancePriceLayers_SearchSummaries_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PerformancePriceTypes__cmd(t *testing.T) {
         command := Post_PerformancePriceTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PerformancePrices__cmd(t *testing.T) {
         command := Post_PerformancePrices_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PerformanceStatuses__cmd(t *testing.T) {
         command := Post_PerformanceStatuses_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PerformanceTypes__cmd(t *testing.T) {
         command := Post_PerformanceTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Performances_ApplySingleHold_cmd(t *testing.T) {
         command := Post_Performances_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ApplySingleHold")
         if flag != nil {
@@ -6582,27 +5870,24 @@ func Test_Post_Performances_ApplySingleHold_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Performances_Copy_cmd(t *testing.T) {
         command := Post_Performances_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Copy")
         if flag != nil {
@@ -6613,27 +5898,24 @@ func Test_Post_Performances_Copy_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Performances_Reschedule_cmd(t *testing.T) {
         command := Post_Performances_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Reschedule")
         if flag != nil {
@@ -6644,27 +5926,24 @@ func Test_Post_Performances_Reschedule_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Performances_Search_cmd(t *testing.T) {
         command := Post_Performances_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Search")
         if flag != nil {
@@ -6675,27 +5954,24 @@ func Test_Post_Performances_Search_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Performances_SeatHolds_cmd(t *testing.T) {
         command := Post_Performances_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("SeatHolds")
         if flag != nil {
@@ -6706,302 +5982,266 @@ func Test_Post_Performances_SeatHolds_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Philanthropy__cmd(t *testing.T) {
         command := Post_Philanthropy_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PhilanthropyTypes__cmd(t *testing.T) {
         command := Post_PhilanthropyTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PhoneIndicators__cmd(t *testing.T) {
         command := Post_PhoneIndicators_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PhoneTypes__cmd(t *testing.T) {
         command := Post_PhoneTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Phones__cmd(t *testing.T) {
         command := Post_Phones_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PlanPriorities__cmd(t *testing.T) {
         command := Post_PlanPriorities_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PlanSources__cmd(t *testing.T) {
         command := Post_PlanSources_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PlanStatuses__cmd(t *testing.T) {
         command := Post_PlanStatuses_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PlanTypes__cmd(t *testing.T) {
         command := Post_PlanTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PlanWorkers__cmd(t *testing.T) {
         command := Post_PlanWorkers_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Plans__cmd(t *testing.T) {
         command := Post_Plans_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PledgeBilling_BillPledges_cmd(t *testing.T) {
         command := Post_PledgeBilling_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("BillPledges")
         if flag != nil {
@@ -7012,452 +6252,398 @@ func Test_Post_PledgeBilling_BillPledges_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PortfolioCustomElements__cmd(t *testing.T) {
         command := Post_PortfolioCustomElements_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Prefixes__cmd(t *testing.T) {
         command := Post_Prefixes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Premieres__cmd(t *testing.T) {
         command := Post_Premieres_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PriceCategories__cmd(t *testing.T) {
         command := Post_PriceCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PriceLayerTypes__cmd(t *testing.T) {
         command := Post_PriceLayerTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PriceTemplates__cmd(t *testing.T) {
         command := Post_PriceTemplates_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PriceTypeCategories__cmd(t *testing.T) {
         command := Post_PriceTypeCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PriceTypeGroups__cmd(t *testing.T) {
         command := Post_PriceTypeGroups_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PriceTypeReasons__cmd(t *testing.T) {
         command := Post_PriceTypeReasons_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PriceTypeUserGroups__cmd(t *testing.T) {
         command := Post_PriceTypeUserGroups_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PriceTypes__cmd(t *testing.T) {
         command := Post_PriceTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PricingRuleCategories__cmd(t *testing.T) {
         command := Post_PricingRuleCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PricingRuleMessageTypes__cmd(t *testing.T) {
         command := Post_PricingRuleMessageTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PricingRuleSets__cmd(t *testing.T) {
         command := Post_PricingRuleSets_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_PricingRules__cmd(t *testing.T) {
         command := Post_PricingRules_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Printers__cmd(t *testing.T) {
         command := Post_Printers_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ProductionSeasonMembershipOrganizations__cmd(t *testing.T) {
         command := Post_ProductionSeasonMembershipOrganizations_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ProductionSeasons_Search_cmd(t *testing.T) {
         command := Post_ProductionSeasons_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Search")
         if flag != nil {
@@ -7468,27 +6654,24 @@ func Test_Post_ProductionSeasons_Search_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Products_Describe_cmd(t *testing.T) {
         command := Post_Products_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Describe")
         if flag != nil {
@@ -7499,27 +6682,24 @@ func Test_Post_Products_Describe_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Products_Search_cmd(t *testing.T) {
         command := Post_Products_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Search")
         if flag != nil {
@@ -7530,302 +6710,266 @@ func Test_Post_Products_Search_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ProgramListings__cmd(t *testing.T) {
         command := Post_ProgramListings_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Programs__cmd(t *testing.T) {
         command := Post_Programs_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Pronouns__cmd(t *testing.T) {
         command := Post_Pronouns_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_QualificationCategories__cmd(t *testing.T) {
         command := Post_QualificationCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Qualifications__cmd(t *testing.T) {
         command := Post_Qualifications_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_QueryElementFilters__cmd(t *testing.T) {
         command := Post_QueryElementFilters_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_QueryElementGroups__cmd(t *testing.T) {
         command := Post_QueryElementGroups_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_QueryElements__cmd(t *testing.T) {
         command := Post_QueryElements_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_RankTypes__cmd(t *testing.T) {
         command := Post_RankTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Rankings__cmd(t *testing.T) {
         command := Post_Rankings_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ReceiptSettings__cmd(t *testing.T) {
         command := Post_ReceiptSettings_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_RecordAttendance_RecordTicket_cmd(t *testing.T) {
         command := Post_RecordAttendance_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("RecordTicket")
         if flag != nil {
@@ -7836,52 +6980,46 @@ func Test_Post_RecordAttendance_RecordTicket_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ReferenceTableUserGroups__cmd(t *testing.T) {
         command := Post_ReferenceTableUserGroups_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Registration_Register_cmd(t *testing.T) {
         command := Post_Registration_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Register")
         if flag != nil {
@@ -7892,77 +7030,68 @@ func Test_Post_Registration_Register_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_RelationshipCategories__cmd(t *testing.T) {
         command := Post_RelationshipCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ReportRequests__cmd(t *testing.T) {
         command := Post_ReportRequests_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ReportRequests_GenerateScheduled_cmd(t *testing.T) {
         command := Post_ReportRequests_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("GenerateScheduled")
         if flag != nil {
@@ -7973,27 +7102,24 @@ func Test_Post_ReportRequests_GenerateScheduled_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ReportSchedules_CalculateNextRun_cmd(t *testing.T) {
         command := Post_ReportSchedules_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("CalculateNextRun")
         if flag != nil {
@@ -8004,27 +7130,24 @@ func Test_Post_ReportSchedules_CalculateNextRun_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ReportSchedules_Save_cmd(t *testing.T) {
         command := Post_ReportSchedules_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Save")
         if flag != nil {
@@ -8035,52 +7158,46 @@ func Test_Post_ReportSchedules_Save_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ReportUserGroups__cmd(t *testing.T) {
         command := Post_ReportUserGroups_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Reports_ParameterValues_cmd(t *testing.T) {
         command := Post_Reports_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ParameterValues")
         if flag != nil {
@@ -8091,177 +7208,156 @@ func Test_Post_Reports_ParameterValues_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Research__cmd(t *testing.T) {
         command := Post_Research_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ResearchTypes__cmd(t *testing.T) {
         command := Post_ResearchTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ResourceCategories__cmd(t *testing.T) {
         command := Post_ResourceCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ResourceSchedules__cmd(t *testing.T) {
         command := Post_ResourceSchedules_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ResourceTypes__cmd(t *testing.T) {
         command := Post_ResourceTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Resources__cmd(t *testing.T) {
         command := Post_Resources_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Resources_FindAvailableResources_cmd(t *testing.T) {
         command := Post_Resources_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("FindAvailableResources")
         if flag != nil {
@@ -8272,27 +7368,24 @@ func Test_Post_Resources_FindAvailableResources_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Resources_ScheduleOccurrences_cmd(t *testing.T) {
         command := Post_Resources_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ScheduleOccurrences")
         if flag != nil {
@@ -8303,352 +7396,310 @@ func Test_Post_Resources_ScheduleOccurrences_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_SalesChannels__cmd(t *testing.T) {
         command := Post_SalesChannels_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_SalesLayoutButtonTypes__cmd(t *testing.T) {
         command := Post_SalesLayoutButtonTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_SalesLayouts__cmd(t *testing.T) {
         command := Post_SalesLayouts_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_SalutationTypes__cmd(t *testing.T) {
         command := Post_SalutationTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Salutations__cmd(t *testing.T) {
         command := Post_Salutations_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_SchedulePatternTypes__cmd(t *testing.T) {
         command := Post_SchedulePatternTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ScheduleTypes__cmd(t *testing.T) {
         command := Post_ScheduleTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_SeasonTypes__cmd(t *testing.T) {
         command := Post_SeasonTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Seasons__cmd(t *testing.T) {
         command := Post_Seasons_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_SeatCodes__cmd(t *testing.T) {
         command := Post_SeatCodes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_SeatStatuses__cmd(t *testing.T) {
         command := Post_SeatStatuses_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Sections__cmd(t *testing.T) {
         command := Post_Sections_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ServiceResourceUserGroups__cmd(t *testing.T) {
         command := Post_ServiceResourceUserGroups_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Session_AddVariable_cmd(t *testing.T) {
         command := Post_Session_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("AddVariable")
         if flag != nil {
@@ -8659,27 +7710,24 @@ func Test_Post_Session_AddVariable_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Session_BusinessFacingSession_cmd(t *testing.T) {
         command := Post_Session_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("BusinessFacingSession")
         if flag != nil {
@@ -8690,27 +7738,24 @@ func Test_Post_Session_BusinessFacingSession_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Session_LoadOrder_cmd(t *testing.T) {
         command := Post_Session_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("LoadOrder")
         if flag != nil {
@@ -8721,27 +7766,24 @@ func Test_Post_Session_LoadOrder_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Session_Login_cmd(t *testing.T) {
         command := Post_Session_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Login")
         if flag != nil {
@@ -8752,27 +7794,24 @@ func Test_Post_Session_Login_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Session_LoginAsGuest_cmd(t *testing.T) {
         command := Post_Session_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("LoginAsGuest")
         if flag != nil {
@@ -8783,27 +7822,24 @@ func Test_Post_Session_LoginAsGuest_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Session_LoginUsingConstituentInfo_cmd(t *testing.T) {
         command := Post_Session_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("LoginUsingConstituentInfo")
         if flag != nil {
@@ -8814,27 +7850,24 @@ func Test_Post_Session_LoginUsingConstituentInfo_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Session_LoginUsingEmail_cmd(t *testing.T) {
         command := Post_Session_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("LoginUsingEmail")
         if flag != nil {
@@ -8845,27 +7878,24 @@ func Test_Post_Session_LoginUsingEmail_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Session_LoginUsingExternal_cmd(t *testing.T) {
         command := Post_Session_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("LoginUsingExternal")
         if flag != nil {
@@ -8876,27 +7906,24 @@ func Test_Post_Session_LoginUsingExternal_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Session_LoginUsingToken_cmd(t *testing.T) {
         command := Post_Session_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("LoginUsingToken")
         if flag != nil {
@@ -8907,27 +7934,24 @@ func Test_Post_Session_LoginUsingToken_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Session_Logout_cmd(t *testing.T) {
         command := Post_Session_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Logout")
         if flag != nil {
@@ -8938,27 +7962,24 @@ func Test_Post_Session_Logout_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Session_PromoCode_cmd(t *testing.T) {
         command := Post_Session_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("PromoCode")
         if flag != nil {
@@ -8969,27 +7990,24 @@ func Test_Post_Session_PromoCode_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Session_Reprint_cmd(t *testing.T) {
         command := Post_Session_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Reprint")
         if flag != nil {
@@ -9000,27 +8018,24 @@ func Test_Post_Session_Reprint_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Session_SendLoginCredentials_cmd(t *testing.T) {
         command := Post_Session_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("SendLoginCredentials")
         if flag != nil {
@@ -9031,27 +8046,24 @@ func Test_Post_Session_SendLoginCredentials_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Session_Session_cmd(t *testing.T) {
         command := Post_Session_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Session")
         if flag != nil {
@@ -9062,27 +8074,24 @@ func Test_Post_Session_Session_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Session_TransferSession_cmd(t *testing.T) {
         command := Post_Session_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("TransferSession")
         if flag != nil {
@@ -9093,27 +8102,24 @@ func Test_Post_Session_TransferSession_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Session_WebLogin_cmd(t *testing.T) {
         command := Post_Session_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("WebLogin")
         if flag != nil {
@@ -9124,202 +8130,178 @@ func Test_Post_Session_WebLogin_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_SourceGroups__cmd(t *testing.T) {
         command := Post_SourceGroups_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_SpecialActivities__cmd(t *testing.T) {
         command := Post_SpecialActivities_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_SpecialActivityStatuses__cmd(t *testing.T) {
         command := Post_SpecialActivityStatuses_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_SpecialActivityTypes__cmd(t *testing.T) {
         command := Post_SpecialActivityTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_States__cmd(t *testing.T) {
         command := Post_States_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_StepTypes__cmd(t *testing.T) {
         command := Post_StepTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Steps__cmd(t *testing.T) {
         command := Post_Steps_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Steps_AddDocument_cmd(t *testing.T) {
         command := Post_Steps_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("AddDocument")
         if flag != nil {
@@ -9330,177 +8312,156 @@ func Test_Post_Steps_AddDocument_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_SubLineItemStatuses__cmd(t *testing.T) {
         command := Post_SubLineItemStatuses_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Suffixes__cmd(t *testing.T) {
         command := Post_Suffixes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_SurveyQuestions__cmd(t *testing.T) {
         command := Post_SurveyQuestions_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_SurveyResponses__cmd(t *testing.T) {
         command := Post_SurveyResponses_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_TemplateCategories__cmd(t *testing.T) {
         command := Post_TemplateCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_TemplatePriceTypes__cmd(t *testing.T) {
         command := Post_TemplatePriceTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_TemplatePriceTypes_Batch_cmd(t *testing.T) {
         command := Post_TemplatePriceTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Batch")
         if flag != nil {
@@ -9511,52 +8472,46 @@ func Test_Post_TemplatePriceTypes_Batch_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_TemplatePrices__cmd(t *testing.T) {
         command := Post_TemplatePrices_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_TemplatePrices_Batch_cmd(t *testing.T) {
         command := Post_TemplatePrices_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Batch")
         if flag != nil {
@@ -9567,52 +8522,46 @@ func Test_Post_TemplatePrices_Batch_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Templates__cmd(t *testing.T) {
         command := Post_Templates_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Templates_ConstituentInfo_cmd(t *testing.T) {
         command := Post_Templates_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ConstituentInfo")
         if flag != nil {
@@ -9623,27 +8572,24 @@ func Test_Post_Templates_ConstituentInfo_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Templates_LoginCredentials_cmd(t *testing.T) {
         command := Post_Templates_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("LoginCredentials")
         if flag != nil {
@@ -9654,27 +8600,24 @@ func Test_Post_Templates_LoginCredentials_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Templates_OrderConfirmation_cmd(t *testing.T) {
         command := Post_Templates_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("OrderConfirmation")
         if flag != nil {
@@ -9685,27 +8628,24 @@ func Test_Post_Templates_OrderConfirmation_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Templates_RenderConstituentInfo_cmd(t *testing.T) {
         command := Post_Templates_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("RenderConstituentInfo")
         if flag != nil {
@@ -9716,27 +8656,24 @@ func Test_Post_Templates_RenderConstituentInfo_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Templates_RenderLoginCredentials_cmd(t *testing.T) {
         command := Post_Templates_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("RenderLoginCredentials")
         if flag != nil {
@@ -9747,27 +8684,24 @@ func Test_Post_Templates_RenderLoginCredentials_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Templates_RenderOrderConfirmation_cmd(t *testing.T) {
         command := Post_Templates_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("RenderOrderConfirmation")
         if flag != nil {
@@ -9778,27 +8712,24 @@ func Test_Post_Templates_RenderOrderConfirmation_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Templates_RenderTickets_cmd(t *testing.T) {
         command := Post_Templates_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("RenderTickets")
         if flag != nil {
@@ -9809,27 +8740,24 @@ func Test_Post_Templates_RenderTickets_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Templates_Tickets_cmd(t *testing.T) {
         command := Post_Templates_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Tickets")
         if flag != nil {
@@ -9840,177 +8768,156 @@ func Test_Post_Templates_Tickets_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Theaters__cmd(t *testing.T) {
         command := Post_Theaters_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_TimeSlots__cmd(t *testing.T) {
         command := Post_TimeSlots_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_TriPOSCloudConfigurations__cmd(t *testing.T) {
         command := Post_TriPOSCloudConfigurations_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_UpgradeCategories__cmd(t *testing.T) {
         command := Post_UpgradeCategories_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_UpgradeLogs__cmd(t *testing.T) {
         command := Post_UpgradeLogs_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_UserPreferences__cmd(t *testing.T) {
         command := Post_UserPreferences_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_UserPreferences_SaveBatch_cmd(t *testing.T) {
         command := Post_UserPreferences_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("SaveBatch")
         if flag != nil {
@@ -10021,27 +8928,24 @@ func Test_Post_UserPreferences_SaveBatch_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Users_ChangePassword_cmd(t *testing.T) {
         command := Post_Users_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("ChangePassword")
         if flag != nil {
@@ -10052,277 +8956,244 @@ func Test_Post_Users_ChangePassword_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ValidateWebLogin__cmd(t *testing.T) {
         command := Post_ValidateWebLogin_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_WebContentTypes__cmd(t *testing.T) {
         command := Post_WebContentTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_WebLogins__cmd(t *testing.T) {
         command := Post_WebLogins_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_WorkerQualifications__cmd(t *testing.T) {
         command := Post_WorkerQualifications_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_WorkerRoles__cmd(t *testing.T) {
         command := Post_WorkerRoles_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_WorkerTypes__cmd(t *testing.T) {
         command := Post_WorkerTypes_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Workers__cmd(t *testing.T) {
         command := Post_Workers_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ZoneGroups__cmd(t *testing.T) {
         command := Post_ZoneGroups_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_ZoneMaps__cmd(t *testing.T) {
         command := Post_ZoneMaps_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Zones__cmd(t *testing.T) {
         command := Post_Zones_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }
 
 func Test_Post_Zones_Search_cmd(t *testing.T) {
         command := Post_Zones_cmd
         use := command.Use
+        r, w, _ := os.Pipe()
 
         flag := command.Flag("Search")
         if flag != nil {
@@ -10333,20 +9204,16 @@ func Test_Post_Zones_Search_cmd(t *testing.T) {
         input := regexp.MustCompile(`\{.+\}$`).FindString(
                             strings.ReplaceAll(use,",...",""))
 
-        out, err := tq.CaptureOutput(func(){
-            viper.Set("login",authString)
-            // PreRun: tqInit
-            if err := command.PreRunE(command, nil); err != nil {
-                panic(err)
-            }
-            //Use: {{ print $key " " $command.Usage 
-            if err := command.RunE(command, []string{input}); err != nil {
-                _tq.Log.Error(err.Error())
-            }
-        })
+        viper.Set("login",authString)
+        _tq = tq.New(nil, false, false)
+        _tq.SetInput(r)
+
+        w.Write([]byte(input))
+        w.Close()
+        err := command.Execute()
     
-        assert.Empty(t, string(err))
-        // Note need to test output better
-        assert.NotEmpty(t, string(out))
+        assert.NoError(t, err)
+        // Note: need to test output better
+        assert.NotEmpty(t, string(_tq.GetOutput()))
         
 }

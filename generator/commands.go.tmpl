@@ -3,8 +3,6 @@
 package cmd
 
 import (
-	"fmt"
-
 	"github.com/spf13/cobra"
 	"github.com/skysyzygy/tq/tq"
 )
@@ -15,32 +13,23 @@ import (
 {{- range $key, $commands := .commands }}
 {{- $command := index $commands 0 }}
 var {{ print $op "_" $key "_cmd" }} = &cobra.Command{
-		Use: `{{ print $key " " $command.Usage }}`,
+		Use: `{{ print $command.Usage " | " $key  }}`,
 		Short: `{{ $command.Short }}`,
 		Long:  `{{ $command.Long }}`,
-		PreRunE: tqInit,
-		RunE: func(cmd *cobra.Command, args []string) error {
-			var out []byte
-			var err error
-			if len(args) == 0 {
-				args = make([]string,1)
-			}
-			{{ if gt (len $commands) 1 }}
+		RunE: func(cmd *cobra.Command, args []string) (err error) {
+			{{ if gt (len $commands) 1 -}}
 			{{- range slice $commands 1 -}}
 			if test, _ := cmd.Flags().GetBool("{{ .Variant }}"); test {
-				out, err = tq.Do(*_tq, {{ print "_tq." $op "." .Name }} , []byte(args[0]))
+				err = tq.Do(_tq, {{ print "_tq." $op "." .Name }})
 			} else{{ " " }} 
 			{{- end -}}
 			{
-				out, err = tq.Do(*_tq, {{ print "_tq." $op "." $command.Name }} , []byte(args[0]))
+				err = tq.Do(_tq, {{ print "_tq." $op "." $command.Name }})
 			}
 			{{- else }}
-			out, err = tq.Do(*_tq, {{ print "_tq." $op "." $command.Name }} , []byte(args[0]))
+			err = tq.Do(_tq, {{ print "_tq." $op "." $command.Name }})
 			{{- end }}
-			if err == nil {
-				fmt.Println(string(out))
-			} 
-			return err
+			return
 		},
 	}
 {{ end }}
