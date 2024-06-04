@@ -43,7 +43,7 @@ type TqConfig struct {
 	dryRun  bool
 
 	// input / output
-	input  io.Reader
+	input  io.ReadCloser
 	output []byte
 }
 
@@ -62,9 +62,13 @@ func New(logFile *os.File, verbose bool, dryRun bool) *TqConfig {
 
 }
 
-func (tq *TqConfig) SetInput(input io.Reader)  { tq.input = input }
-func (tq TqConfig) ReadInput() ([]byte, error) { return io.ReadAll(tq.input) }
-func (tq TqConfig) GetOutput() []byte          { return tq.output }
+func (tq *TqConfig) SetInput(input io.ReadCloser) { tq.input = input }
+func (tq TqConfig) ReadInput() ([]byte, error) {
+	out, err := io.ReadAll(tq.input)
+	tq.input.Close()
+	return out, err
+}
+func (tq TqConfig) GetOutput() []byte { return tq.output }
 
 // Log in the Tessitura client with the given authentication info and cache the login data
 func (tq *TqConfig) Login(a auth.Auth) error {
