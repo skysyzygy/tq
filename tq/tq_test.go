@@ -232,7 +232,6 @@ func testServer(t *testing.T) *httptest.Server {
 
 		reqBody, _ := io.ReadAll(r.Body)
 		json.Unmarshal(reqBody, &req)
-		r.Body.Close()
 
 		id, _ := strconv.Atoi(strings.Split(r.URL.Path, "/")[3])
 
@@ -325,16 +324,22 @@ func Test_Do(t *testing.T) {
 	tq := New(nil, false, false)
 	tq.Login(auth.New(strings.Replace(server.URL, "https://", "", 1), "user", "", "", []byte("password")))
 
-	query := []byte(`{"ConstituentId": "1"}`)
+	r, w, _ := os.Pipe()
+	tq.SetInput(r)
+	w.Write([]byte(`{"ConstituentId": "1"}`))
+	w.Close()
 	constituent := new(models.Constituent)
-	err := Do(tq, tq.Get.ConstituentsGet, query)
+	err := Do(tq, tq.Get.ConstituentsGet)
 	json.Unmarshal(tq.output, constituent)
 	assert.Equal(t, int32(1), constituent.ID)
 	assert.NoError(t, err)
 
-	query = []byte(`[{"ConstituentId": "1"},{"ConstituentId": "2"},{"ConstituentId": "3"}]`)
+	r, w, _ = os.Pipe()
+	tq.SetInput(r)
+	w.Write([]byte(`[{"ConstituentId": "1"},{"ConstituentId": "2"},{"ConstituentId": "3"}]`))
+	w.Close()
 	constituents := new([]models.Constituent)
-	err = Do(tq, tq.Get.ConstituentsGet, query)
+	err = Do(tq, tq.Get.ConstituentsGet)
 	json.Unmarshal(tq.output, constituents)
 	assert.Equal(t, 3, len(*constituents))
 	assert.Equal(t, int32(1), (*constituents)[0].ID)
@@ -343,9 +348,12 @@ func Test_Do(t *testing.T) {
 	assert.NoError(t, err)
 
 	// Test that Do returns the last error
-	query = []byte(`[{"ConstituentId": "4"},["Can't be unmarshaled"],{"ConstituentId": "6"}]`)
+	r, w, _ = os.Pipe()
+	tq.SetInput(r)
+	w.Write([]byte(`[{"ConstituentId": "4"},["Can't be unmarshaled"],{"ConstituentId": "6"}]`))
+	w.Close()
 	constituents = new([]models.Constituent)
-	err = Do(tq, tq.Get.ConstituentsGet, query)
+	err = Do(tq, tq.Get.ConstituentsGet)
 	json.Unmarshal(tq.output, constituents)
 	assert.Equal(t, 3, len(*constituents))
 	assert.Equal(t, int32(4), (*constituents)[0].ID)

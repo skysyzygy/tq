@@ -62,8 +62,9 @@ func New(logFile *os.File, verbose bool, dryRun bool) *TqConfig {
 
 }
 
-func (tq *TqConfig) SetInput(input io.Reader) { tq.input = input }
-func (tq *TqConfig) GetOutput() []byte        { return tq.output }
+func (tq *TqConfig) SetInput(input io.Reader)  { tq.input = input }
+func (tq TqConfig) ReadInput() ([]byte, error) { return io.ReadAll(tq.input) }
+func (tq TqConfig) GetOutput() []byte          { return tq.output }
 
 // Log in the Tessitura client with the given authentication info and cache the login data
 func (tq *TqConfig) Login(a auth.Auth) error {
@@ -92,10 +93,16 @@ func (tq *TqConfig) Login(a auth.Auth) error {
 // or an array of json maps if there are multiple operations.
 // Returns the last error
 func Do[P any, R any, O any, F func(*P, ...O) (*R, error)](
-	tq *TqConfig, function F, query []byte,
+	tq *TqConfig, function F,
 ) (err error) {
 	tq.Log.Info(fmt.Sprint("calling swagger function: ",
 		run.FuncForPC(reflect.ValueOf(function).Pointer()).Name()))
+	tq.Log.Info("reading from input")
+	query, err := tq.ReadInput()
+	if err != nil {
+		tq.Log.Error("error reading from input")
+		return err
+	}
 	if len(query) == 0 {
 		tq.Log.Info("query is empty, calling API endpoint once")
 		tq.output, err = DoOne(*tq, function, query)
