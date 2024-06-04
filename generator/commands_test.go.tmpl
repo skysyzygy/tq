@@ -3,48 +3,20 @@
 package cmd
 
 import (
-    "os"
-	"testing"
-    "regexp"
-    "strings"
-
-	"github.com/stretchr/testify/assert"
-    "github.com/skysyzygy/tq/tq"
-    "github.com/spf13/viper"
+    "testing"
 )
 
 {{ $op := .op }}
 {{- range $key, $commands := .commands }}
 {{- range $commands }}
 func Test_{{ print $op "_" $key "_" .Variant "_cmd" }}(t *testing.T) {
+        var flag string
         command := {{ print $op "_" $key "_cmd" }}
-        use := command.Use
-        r, w, _ := os.Pipe()
-
         {{ if ne .Variant "" -}}
-        flag := command.Flag("{{ .Variant }}")
-        if flag != nil {
-            flag.Value.Set("true")
-            defer flag.Value.Set("false")
-            use = flag.Usage
-        }
+        flag = "{{ .Variant }}"
         {{ end -}}
 
-		input := regexp.MustCompile(`\{.+\}$`).FindString(
-                            strings.ReplaceAll(use,",...",""))
-
-        viper.Set("login",authString)
-        _tq = tq.New(nil, false, false)
-        _tq.SetInput(r)
-
-        w.Write([]byte(input))
-        w.Close()
-        err := command.Execute()
-    
-        assert.NoError(t, err)
-        // Note: need to test output better
-        assert.NotEmpty(t, string(_tq.GetOutput()))
-        
+        testCommand(t, command, flag)
 }
 {{ end }}
 {{- end }}
