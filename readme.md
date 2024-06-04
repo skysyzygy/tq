@@ -32,14 +32,14 @@ To authenticate with the API server you need to select at least one authenticati
 tq auth add --host hostname --user username --group usergroup --location location
 # Password: ******
 
-tq auth select --host hostname --user username --group usergroup --location location
+tq auth sel --host hostname --user username --group usergroup --location location
 ```
 
 
 ## usage: 
 
 ```shell 
-tq [flags] [verb] [object] [query]
+tq [flags] [verb] [object]
 ```
 
 ### flags:
@@ -65,10 +65,54 @@ A yaml configuration file `.tq` placed in your home directory can be used to set
 Queries are simply JSON objects and can be batched by combining multiple query objects into a single JSON array, e.g. 
 
 ```json
-[{"ID":123}, {"ID":124}, {"ID":125}, ...]
+[{"ID":123}, {"ID":124}, {"ID":125}, {}, {}, ]
+```
+Query object details are detailed in the help for each command.
+
+#### queries on the command line:
+Queries can be sent to `tq` by writing them to a file, e.g.:
+```shell
+echo '{"CustomerId":"12345"}' > test.json
+
+tq -f test.json get constituents
+# or
+tq get constituents < test.json
 ```
 
-Query object details are detailed in the help for each command.
+By piping them on the command line to `tq` directly:
+```shell
+echo {"CustomerId":"12345"} | tq get constituents
+```
+
+... or using a here-string:
+```shell
+# bash
+tq get constituents <<< '{"CustomerId":"12345"}'
+# powershell
+'{\"CustomerId\":\"12345\"}' | tq get constituents
+```
+
+... or using a here-doc for longer queries!
+```shell
+# bash
+tq get constituents <<EOF 
+[
+    {"CustomerId":"12345"},
+    {"CustomerId":"12346"},
+    {"CustomerId":"12347"},
+    {"CustomerId":"12348"}
+]
+EOF
+# powershell
+@'
+[
+    {"CustomerId":"12345"},
+    {"CustomerId":"12346"},
+    {"CustomerId":"12347"},
+    {"CustomerId":"12348"}
+]
+'@ | tq get constituents
+```
 
 
 ### objects:
