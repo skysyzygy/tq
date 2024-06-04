@@ -12,11 +12,34 @@ import (
 )
 
 var test_cmd = &cobra.Command{
-	PreRunE: tqInit,
+	PreRunE: initTq,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		_tq.Log.Info(args[0])
-		return fmt.Errorf(args[0])
+		input, _ := _tq.ReadInput()
+		_tq.Log.Info(string(input))
+		return fmt.Errorf(string(input))
 	},
+}
+
+// test that initLog sets up logging by creating a tq instance
+func Test_initLog(t *testing.T) {
+	logFile = os.TempDir() + string(os.PathSeparator) + "test.log"
+	defer func() { logFile = "" }()
+
+	initLog()
+	_tq.Log.Info("Starting log!")
+
+	// test that log file is getting written to
+	assert.FileExists(t, logFile)
+	log, _ := os.ReadFile(logFile)
+	assert.Contains(t, string(log), "Starting log!")
+
+	// test that unwriteable log file throws an error
+	logFile = "not_a_dir/test.log"
+	_, err := tq.CaptureOutput(func() {
+		initLog()
+	})
+	assert.Regexp(t, "cannot open log file .+ for appending", string(err))
+	logFile = ""
 }
 
 // test that log and file options are getting set for cobra commands by tqInit
@@ -29,14 +52,14 @@ func Test_tqInit(t *testing.T) {
 	jsonFile = "test.json"
 	defer func() { jsonFile = "" }()
 
+	viper.Set("login", authString)
+
 	logFile = os.TempDir() + string(os.PathSeparator) + "test.log"
 	defer func() { logFile = "" }()
 
-	viper.Set("login", authString)
-
+	initLog()
+	var err error
 	// test that input file is getting read
-	err := tqInit(test_cmd, nil)
-	assert.NoError(t, err)
 	tq.CaptureOutput(func() {
 		err = test_cmd.Execute()
 	})
@@ -51,21 +74,15 @@ func Test_tqInit(t *testing.T) {
 func Test_tqInit_Errors(t *testing.T) {
 	jsonFile = "test.json"
 	viper.Set("login", authString)
+	os.Remove(jsonFile)
 	var err error
 
+	initLog()
 	// test that absent input file throws an error
 	tq.CaptureOutput(func() {
-		err = tqInit(test_cmd, nil)
+		err = test_cmd.Execute()
 	})
-	assert.ErrorContains(t, err, "cannot open input file for reading")
+	assert.Regexp(t, "cannot open input file .* for reading", err.Error())
 	jsonFile = ""
-
-	// test that unwriteable log file throws an error
-	logFile = "not_a_dir/test.log"
-	tq.CaptureOutput(func() {
-		err = tqInit(test_cmd, nil)
-	})
-	assert.ErrorContains(t, err, "cannot open log file for appending")
-	logFile = ""
 
 }

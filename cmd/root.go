@@ -24,10 +24,8 @@ package cmd
 import (
 	"errors"
 	"fmt"
-	"io"
 	"os"
 	"runtime/debug"
-	"slices"
 	"strings"
 
 	"github.com/99designs/keyring"
@@ -65,6 +63,9 @@ var rootCmd = &cobra.Command{
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	err := rootCmd.Execute()
+	if _tq != nil {
+		fmt.Println(_tq.GetOutput())
+	}
 	if err != nil {
 		if _tq != nil && _tq.Log != nil {
 			_tq.Log.Error(err.Error())
@@ -145,37 +146,38 @@ func initConfig() {
 			fmt.Fprintln(os.Stderr, "Warning: couldn't access config file")
 		}
 	}
+
+	initLog()
 }
 
-// Initializes a tq instance with logger, verbosity, and dryness,
-// and logs it in using the default authentication method.
-// Defined here but shouldn't be called until the last minute in order to make sure
-// all flags are set and that we don't unnecessarily ping the server.
-func tqInit(cmd *cobra.Command, args []string) (err error) {
-	var log, json *os.File
-	var _err error
-
+func initLog() {
+	var log *os.File
+	var err error
 	if logFile != "" {
 		// open log file for appending
-		log, _err = os.OpenFile(logFile, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
-		if _err != nil {
-			err = errors.Join(fmt.Errorf("cannot open log file for appending"), _err, err)
+		log, err = os.OpenFile(logFile, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Error: cannot open log file %v for appending.", logFile)
 		}
 	}
 	_tq = tq.New(log, verbose, dryRun)
+}
 
+// Initializes a tq instance with input from file or stdin
+// and logs it in using the default authentication method.
+// Shouldn't be called until the last minute in order to make sure
+// all flags are set and that we don't unnecessarily ping the server.
+func initTq(cmd *cobra.Command, args []string) (err error) {
+	var input *os.File
+	var _err error
 	if jsonFile != "" {
 		// open input file for reading
-		json, _err = os.OpenFile(jsonFile, os.O_RDONLY, 0644)
+		input, _err = os.OpenFile(jsonFile, os.O_RDONLY, 0644)
 		if _err != nil {
-			err = errors.Join(fmt.Errorf("cannot open input file for reading"), _err, err)
+			err = errors.Join(fmt.Errorf("cannot open input file %v for reading", jsonFile), _err, err)
 		}
-		input, _err := io.ReadAll(json)
-		json.Close()
-		if _err != nil {
-			err = errors.Join(fmt.Errorf("cannot read from input file"), _err, err)
-		}
-		cmd.SetArgs(slices.Concat([]string{string(input)}, args))
+	} else {
+		input = os.Stdin
 	}
 
 	a, _err := auth.FromString(viper.GetString("Login"))
@@ -198,5 +200,6 @@ func tqInit(cmd *cobra.Command, args []string) (err error) {
 		return err
 	}
 
+	_tq.SetInput(input)
 	return _tq.Login(a)
 }
