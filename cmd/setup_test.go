@@ -21,9 +21,14 @@ func TestMain(m *testing.M) {
 	server := server()
 	defer server.Close()
 
+	// Setup the test environment by making a separate keystore for testing
 	keys = keyring.NewArrayKeyring(nil)
 
-	// Setup the test environment by making a separate keystore for testing
+	auth_string, _ := os.LookupEnv("AUTH_STRING")
+	auth_secret, _ := os.LookupEnv("AUTH_SECRET")
+
+	keys.Set(keyring.Item{Key: auth_string, Data: []byte(auth_secret)})
+
 	a := auth.New(strings.Replace(server.URL, "https://", "", 1), "", "", "", nil)
 	a.Save(keys)
 	authString, _ = a.String()

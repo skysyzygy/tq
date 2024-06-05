@@ -1,34 +1,29 @@
 package cmd
 
 import (
+	"io"
 	"os"
 	"testing"
 
-	"github.com/99designs/keyring"
 	"github.com/skysyzygy/tq/tq"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
 )
 
-func init() {
-	viper.Set("login", "t-gw-test-b-ex-rest.bam.org/TessituraService/|jolson||jolson-14")
-}
-
-func sendToStdin(query string) {
+func sendToStdin(query string) io.Reader {
 	r, w, _ := os.Pipe()
-	os.Stdin = r
 	w.Write([]byte(query))
 	w.Close()
+	return r
 }
 
 // end-to-end get test
 func Test_Get_Integration_empty(t *testing.T) {
-	// use the integration keystore
-	keys, _ = keyring.Open(keyring.Config{
-		ServiceName: "tq_test_integration",
-	})
+	auth_string, _ := os.LookupEnv("AUTH_STRING")
+	viper.Set("login", auth_string)
 
 	// test without payload
+	rootCmd.SetIn(sendToStdin(""))
 	rootCmd.SetArgs([]string{"get", "constituents"})
 	err := rootCmd.Execute()
 	assert.ErrorContains(t, err, "500")
