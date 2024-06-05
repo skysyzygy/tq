@@ -174,13 +174,10 @@ func TestAuth_Validate(t *testing.T) {
 
 func TestAuth_Validate_Integration(t *testing.T) {
 
-	keys, _ := keyring.Open(keyring.Config{
-		ServiceName: "tq_test_integration",
-	})
+	auth_string, _ := os.LookupEnv("AUTH_STRING")
+	auth_secret, _ := os.LookupEnv("AUTH_SECRET")
 
-	auths, err := List(keys)
-	a := auths[0]
-	a.Load(keys)
+	a, _ := FromString(auth_string)
 
 	a1 := a
 	a1.hostname = "not-a-server.bam.org"
@@ -194,6 +191,7 @@ func TestAuth_Validate_Integration(t *testing.T) {
 	assert.False(t, v)
 	assert.ErrorContains(t, err, "File or directory not found", "validation fails when endpoint is incorrect and provides useful info")
 
+	a.password = []byte(auth_secret)
 	v, err = a.Validate()
 	assert.True(t, v, "validation works when credentials are correct")
 	assert.NoError(t, err)
