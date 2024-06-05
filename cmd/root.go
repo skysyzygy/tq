@@ -67,7 +67,7 @@ var rootCmd = &cobra.Command{
 func Execute() {
 	err := rootCmd.Execute()
 	if _tq != nil {
-		fmt.Println(_tq.GetOutput())
+		fmt.Println(string(_tq.GetOutput()))
 	}
 	if err != nil {
 		if _tq != nil && _tq.Log != nil {
