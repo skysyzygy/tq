@@ -13,8 +13,10 @@ import (
 )
 
 func testCommand(t *testing.T, command *cobra.Command, flagName string) {
-	use := command.Use
+	use := command.Example
+
 	r, w, _ := os.Pipe()
+	command.SetIn(r)
 
 	if flagName != "" {
 		flag := command.Flag(flagName)
@@ -29,11 +31,11 @@ func testCommand(t *testing.T, command *cobra.Command, flagName string) {
 
 	viper.Set("login", authString)
 	_tq = tq.New(nil, false, false)
-	_tq.SetInput(r)
+	initTq(command, nil)
 
 	w.Write([]byte(input))
 	w.Close()
-	err := command.Execute()
+	err := command.RunE(command, nil)
 
 	assert.NoError(t, err)
 	// Note: need to test output better

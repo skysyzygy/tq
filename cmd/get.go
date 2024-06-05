@@ -9,9 +9,11 @@ import (
 
 
 var Get_AccountTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | AccountTypes`,
+		Use: `AccountTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an account type by id`,
 		Long:  `Get the details of an account type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.AccountTypesGetAll)
@@ -25,9 +27,11 @@ var Get_AccountTypes_cmd = &cobra.Command{
 	}
 
 var Get_Accounts_cmd = &cobra.Command{
-		Use: `{"AccountID":"string"} | Accounts`,
+		Use: `Accounts`,
+		Example: `{"AccountID":"string"}`,
 		Short: `Get details of a specific credit card account`,
 		Long:  `Get details of a specific credit card account`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.AccountsGetAll)
@@ -39,9 +43,11 @@ var Get_Accounts_cmd = &cobra.Command{
 	}
 
 var Get_ActionTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | ActionTypes`,
+		Use: `ActionTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an action type by id`,
 		Long:  `Get the details of an action type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ActionTypesGetAll)
@@ -55,9 +61,11 @@ var Get_ActionTypes_cmd = &cobra.Command{
 	}
 
 var Get_Actions_cmd = &cobra.Command{
-		Use: `{"IssueActionID":"string"} | Actions`,
+		Use: `Actions`,
+		Example: `{"IssueActionID":"string"}`,
 		Short: `Get details of an issue action`,
 		Long:  `Get details of an issue action.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ActionsGetAll)
@@ -69,9 +77,11 @@ var Get_Actions_cmd = &cobra.Command{
 	}
 
 var Get_ActivityCategories_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | ActivityCategories`,
+		Use: `ActivityCategories`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an activity category by id`,
 		Long:  `Get the details of an activity category by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ActivityCategoriesGetAll)
@@ -85,9 +95,11 @@ var Get_ActivityCategories_cmd = &cobra.Command{
 	}
 
 var Get_ActivityTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | ActivityTypes`,
+		Use: `ActivityTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an activity type by id`,
 		Long:  `Get the details of an activity type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ActivityTypesGetAll)
@@ -101,9 +113,11 @@ var Get_ActivityTypes_cmd = &cobra.Command{
 	}
 
 var Get_AddressTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | AddressTypes`,
+		Use: `AddressTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an address type by id`,
 		Long:  `Get the details of an address type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.AddressTypesGetAll)
@@ -117,9 +131,11 @@ var Get_AddressTypes_cmd = &cobra.Command{
 	}
 
 var Get_Addresses_cmd = &cobra.Command{
-		Use: `{"AddressID":"string"} | Addresses`,
+		Use: `Addresses`,
+		Example: `{"AddressID":"string"}`,
 		Short: `Get details of an address using addressId as a URL query parameter`,
 		Long:  `Get details of an address using addressId as a URL query parameter. Returns 404 Not Found if an address with the specified Id is not found.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.AddressesGetAll)
@@ -131,9 +147,11 @@ var Get_Addresses_cmd = &cobra.Command{
 	}
 
 var Get_AffiliationTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | AffiliationTypes`,
+		Use: `AffiliationTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an affiliation type by id`,
 		Long:  `Get the details of an affiliation type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.AffiliationTypesGetAll)
@@ -147,9 +165,11 @@ var Get_AffiliationTypes_cmd = &cobra.Command{
 	}
 
 var Get_Affiliations_cmd = &cobra.Command{
-		Use: `{"AffiliationID":"string"} | Affiliations`,
+		Use: `Affiliations`,
+		Example: `{"AffiliationID":"string"}`,
 		Short: `Get details of an affiliation`,
 		Long:  `Get details of an affiliation.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.AffiliationsGetAll)
@@ -161,9 +181,11 @@ var Get_Affiliations_cmd = &cobra.Command{
 	}
 
 var Get_AliasTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | AliasTypes`,
+		Use: `AliasTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an alias type by id`,
 		Long:  `Get the details of an alias type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.AliasTypesGetAll)
@@ -177,9 +199,11 @@ var Get_AliasTypes_cmd = &cobra.Command{
 	}
 
 var Get_Aliases_cmd = &cobra.Command{
-		Use: `{"AliasID":"string"} | Aliases`,
+		Use: `Aliases`,
+		Example: `{"AliasID":"string"}`,
 		Short: `Get details of an alias`,
 		Long:  `Get details of an alias.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.AliasesGetAll)
@@ -191,9 +215,11 @@ var Get_Aliases_cmd = &cobra.Command{
 	}
 
 var Get_AnalyticsCubes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | AnalyticsCubes`,
+		Use: `AnalyticsCubes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an analytics cube`,
 		Long:  `Get the details of an analytics cube.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.AnalyticsCubesGetAll)
@@ -205,9 +231,11 @@ var Get_AnalyticsCubes_cmd = &cobra.Command{
 	}
 
 var Get_AnalyticsReports_cmd = &cobra.Command{
-		Use: `{"AnalyticsReportID":"string"} | AnalyticsReports`,
+		Use: `AnalyticsReports`,
+		Example: `{"AnalyticsReportID":"string"}`,
 		Short: `Get a single SSRS Report for display in Analytics`,
 		Long:  `Get a single SSRS Report for display in Analytics.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.AnalyticsReportsGetAll)
@@ -219,9 +247,11 @@ var Get_AnalyticsReports_cmd = &cobra.Command{
 	}
 
 var Get_AppScreenTexts_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | AppScreenTexts`,
+		Use: `AppScreenTexts`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an App Screen Text by id`,
 		Long:  `Get the details of an App Screen Text by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.AppScreenTextsGetAll)
@@ -235,9 +265,11 @@ var Get_AppScreenTexts_cmd = &cobra.Command{
 	}
 
 var Get_AppealCategories_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | AppealCategories`,
+		Use: `AppealCategories`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an appeal category by id`,
 		Long:  `Get the details of an appeal category by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.AppealCategoriesGetAll)
@@ -251,9 +283,11 @@ var Get_AppealCategories_cmd = &cobra.Command{
 	}
 
 var Get_Appeals_cmd = &cobra.Command{
-		Use: `{"AppealID":"string"} | Appeals`,
+		Use: `Appeals`,
+		Example: `{"AppealID":"string"}`,
 		Short: `Get details of an Appeal`,
 		Long:  `Get details of an Appeal.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				err = tq.Do(_tq, _tq.Get.AppealsGetSummaries)
@@ -265,9 +299,11 @@ var Get_Appeals_cmd = &cobra.Command{
 	}
 
 var Get_ApplicationObjects_cmd = &cobra.Command{
-		Use: ` | ApplicationObjects`,
+		Use: `ApplicationObjects`,
+		Example: ``,
 		Short: `Get all application objects valid for the context usergroup`,
 		Long:  `Get all application objects valid for the context usergroup.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.ApplicationObjectsGetAll)
@@ -276,9 +312,11 @@ var Get_ApplicationObjects_cmd = &cobra.Command{
 	}
 
 var Get_Artists_cmd = &cobra.Command{
-		Use: `{"ArtistID":"string"} | Artists`,
+		Use: `Artists`,
+		Example: `{"ArtistID":"string"}`,
 		Short: `Get details of an existing artist`,
 		Long:  `Get details of an existing artist.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ArtistsGetAll)
@@ -290,9 +328,11 @@ var Get_Artists_cmd = &cobra.Command{
 	}
 
 var Get_AssetTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | AssetTypes`,
+		Use: `AssetTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an asset type by id`,
 		Long:  `Get the details of an asset type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.AssetTypesGetAll)
@@ -306,9 +346,11 @@ var Get_AssetTypes_cmd = &cobra.Command{
 	}
 
 var Get_Assets_cmd = &cobra.Command{
-		Use: `{"AssetID":"string"} | Assets`,
+		Use: `Assets`,
+		Example: `{"AssetID":"string"}`,
 		Short: `Get details of an asset`,
 		Long:  `Get details of an asset.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.AssetsGetAll)
@@ -320,9 +362,11 @@ var Get_Assets_cmd = &cobra.Command{
 	}
 
 var Get_AssociationTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | AssociationTypes`,
+		Use: `AssociationTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an association type by id`,
 		Long:  `Get the details of an association type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.AssociationTypesGetAll)
@@ -336,9 +380,11 @@ var Get_AssociationTypes_cmd = &cobra.Command{
 	}
 
 var Get_Associations_cmd = &cobra.Command{
-		Use: `{"AssociationID":"string"} | Associations`,
+		Use: `Associations`,
+		Example: `{"AssociationID":"string"}`,
 		Short: `Get details of an association`,
 		Long:  `Get details of an association.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.AssociationsGetAll)
@@ -350,9 +396,11 @@ var Get_Associations_cmd = &cobra.Command{
 	}
 
 var Get_AttendanceHistory_cmd = &cobra.Command{
-		Use: `{"ConstituentID":"string","IncludeAffiliations":"string"} | AttendanceHistory`,
+		Use: `AttendanceHistory`,
+		Example: `{"ConstituentID":"string","IncludeAffiliations":"string"}`,
 		Short: `Attendance History for a selected constituent optionally including primary affiliates`,
 		Long:  `Attendance History for a selected constituent optionally including primary affiliates.  Does not return history based on recipient for the selected constituent(s).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.AttendanceHistoryGetAll)
@@ -361,9 +409,11 @@ var Get_AttendanceHistory_cmd = &cobra.Command{
 	}
 
 var Get_Attributes_cmd = &cobra.Command{
-		Use: `{"AttributeID":"string"} | Attributes`,
+		Use: `Attributes`,
+		Example: `{"AttributeID":"string"}`,
 		Short: `Get details of an attribute`,
 		Long:  `Get details of an attribute.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.AttributesGetAll)
@@ -375,9 +425,11 @@ var Get_Attributes_cmd = &cobra.Command{
 	}
 
 var Get_AuditLogs_cmd = &cobra.Command{
-		Use: `{"AuditLog":"string"} | AuditLogs`,
+		Use: `AuditLogs`,
+		Example: `{"AuditLog":"string"}`,
 		Short: `Get details of a audit log`,
 		Long:  `Get details of a audit log.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.AuditLogsGetAll)
@@ -391,9 +443,11 @@ var Get_AuditLogs_cmd = &cobra.Command{
 	}
 
 var Get_Authenticate_cmd = &cobra.Command{
-		Use: ` | Authenticate`,
+		Use: `Authenticate`,
+		Example: ``,
 		Short: `This is a no-op operation for windows authentication diagnostics`,
 		Long:  `This is a no-op operation for windows authentication diagnostics.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.AuthenticateWindowsAuthentication)
@@ -402,9 +456,11 @@ var Get_Authenticate_cmd = &cobra.Command{
 	}
 
 var Get_BatchMaintenance_cmd = &cobra.Command{
-		Use: `{"BatchID":"string"} | BatchMaintenance`,
+		Use: `BatchMaintenance`,
+		Example: `{"BatchID":"string"}`,
 		Short: `Get a single Batch`,
 		Long:  `Get a single Batch`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("Active"); test {
 				err = tq.Do(_tq, _tq.Get.BatchMaintenanceActive)
@@ -416,9 +472,11 @@ var Get_BatchMaintenance_cmd = &cobra.Command{
 	}
 
 var Get_BatchTypeGroups_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | BatchTypeGroups`,
+		Use: `BatchTypeGroups`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a batch type group by id`,
 		Long:  `Get the details of a batch type group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.BatchTypeGroupsGetAll)
@@ -432,9 +490,11 @@ var Get_BatchTypeGroups_cmd = &cobra.Command{
 	}
 
 var Get_BatchTypeUserGroup_cmd = &cobra.Command{
-		Use: `{"UserGroup":"string"} | BatchTypeUserGroup`,
+		Use: `BatchTypeUserGroup`,
+		Example: `{"UserGroup":"string"}`,
 		Short: `Get all batch type/user group mappings`,
 		Long:  `Get all batch type/user group mappings.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.BatchTypeUserGroupGetAll)
@@ -443,9 +503,11 @@ var Get_BatchTypeUserGroup_cmd = &cobra.Command{
 	}
 
 var Get_BatchTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | BatchTypes`,
+		Use: `BatchTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a batch type by id`,
 		Long:  `Get the details of a batch type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.BatchTypesGetAll)
@@ -459,9 +521,11 @@ var Get_BatchTypes_cmd = &cobra.Command{
 	}
 
 var Get_BillingSchedules_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | BillingSchedules`,
+		Use: `BillingSchedules`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Billing Schedule`,
 		Long:  `Get the details of a Billing Schedule. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.BillingSchedulesGetAll)
@@ -475,9 +539,11 @@ var Get_BillingSchedules_cmd = &cobra.Command{
 	}
 
 var Get_BillingTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | BillingTypes`,
+		Use: `BillingTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Billing Type by id`,
 		Long:  `Get the details of a Billing Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.BillingTypesGetAll)
@@ -491,9 +557,11 @@ var Get_BillingTypes_cmd = &cobra.Command{
 	}
 
 var Get_BookingCategories_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | BookingCategories`,
+		Use: `BookingCategories`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Booking Category by id`,
 		Long:  `Get the details of a Booking Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.BookingCategoriesGetAll)
@@ -507,9 +575,11 @@ var Get_BookingCategories_cmd = &cobra.Command{
 	}
 
 var Get_BookingTemplates_cmd = &cobra.Command{
-		Use: `{"BookingTemplateID":"string"} | BookingTemplates`,
+		Use: `BookingTemplates`,
+		Example: `{"BookingTemplateID":"string"}`,
 		Short: `Get a Booking Template by ID`,
 		Long:  `Get a Booking Template by ID`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				err = tq.Do(_tq, _tq.Get.BookingTemplatesGetSummaries)
@@ -521,9 +591,11 @@ var Get_BookingTemplates_cmd = &cobra.Command{
 	}
 
 var Get_Bookings_cmd = &cobra.Command{
-		Use: `{"BookingID":"string"} | Bookings`,
+		Use: `Bookings`,
+		Example: `{"BookingID":"string"}`,
 		Short: `Get a Booking by id`,
 		Long:  `Get a Booking by id`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("AllDocumentSummaries"); test {
 				err = tq.Do(_tq, _tq.Get.BookingsGetAllDocumentSummaries)
@@ -541,9 +613,11 @@ var Get_Bookings_cmd = &cobra.Command{
 	}
 
 var Get_BulkCopySets_cmd = &cobra.Command{
-		Use: `{"BulkCopySetID":"string"} | BulkCopySets`,
+		Use: `BulkCopySets`,
+		Example: `{"BulkCopySetID":"string"}`,
 		Short: `Get a bulk copy set by Id`,
 		Long:  `Get a bulk copy set by Id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.BulkCopySetsGetAll)
@@ -559,9 +633,11 @@ var Get_BulkCopySets_cmd = &cobra.Command{
 	}
 
 var Get_BulkDailyCopyExclusions_cmd = &cobra.Command{
-		Use: `{"BulkDailyCopyExclusionID":"string"} | BulkDailyCopyExclusions`,
+		Use: `BulkDailyCopyExclusions`,
+		Example: `{"BulkDailyCopyExclusionID":"string"}`,
 		Short: `Get a bulk daily copy exclusion by id`,
 		Long:  `Get a bulk daily copy exclusion by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.BulkDailyCopyExclusionsGetAll)
@@ -573,9 +649,11 @@ var Get_BulkDailyCopyExclusions_cmd = &cobra.Command{
 	}
 
 var Get_BusinessUnits_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | BusinessUnits`,
+		Use: `BusinessUnits`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a business unit by id`,
 		Long:  `Get the details of a business unit by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.BusinessUnitsGetAll)
@@ -589,9 +667,11 @@ var Get_BusinessUnits_cmd = &cobra.Command{
 	}
 
 var Get_Cache_cmd = &cobra.Command{
-		Use: ` | Cache`,
+		Use: `Cache`,
+		Example: ``,
 		Short: ``,
 		Long:  ``,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.CacheInit)
@@ -600,9 +680,11 @@ var Get_Cache_cmd = &cobra.Command{
 	}
 
 var Get_CampaignDesignations_cmd = &cobra.Command{
-		Use: `{"CampaignDesignationID":"string"} | CampaignDesignations`,
+		Use: `CampaignDesignations`,
+		Example: `{"CampaignDesignationID":"string"}`,
 		Short: `Get a single Designation associated to a Campaign`,
 		Long:  `Get a single Designation associated to a Campaign.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.CampaignDesignationsGetAll)
@@ -614,9 +696,11 @@ var Get_CampaignDesignations_cmd = &cobra.Command{
 	}
 
 var Get_CampaignFunds_cmd = &cobra.Command{
-		Use: `{"CampaignFundID":"string"} | CampaignFunds`,
+		Use: `CampaignFunds`,
+		Example: `{"CampaignFundID":"string"}`,
 		Short: `Get a single Fund associated to a Campaign`,
 		Long:  `Get a single Fund associated to a Campaign.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.CampaignFundsGetAll)
@@ -628,9 +712,11 @@ var Get_CampaignFunds_cmd = &cobra.Command{
 	}
 
 var Get_Campaigns_cmd = &cobra.Command{
-		Use: `{"CampaignID":"string"} | Campaigns`,
+		Use: `Campaigns`,
+		Example: `{"CampaignID":"string"}`,
 		Short: `Get summary of a specific campaign`,
 		Long:  `Get summary of a specific campaign.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				err = tq.Do(_tq, _tq.Get.CampaignsGetSummaries)
@@ -642,9 +728,11 @@ var Get_Campaigns_cmd = &cobra.Command{
 	}
 
 var Get_CardReaderTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | CardReaderTypes`,
+		Use: `CardReaderTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Card Reader Type by id`,
 		Long:  `Get the details of a Card Reader Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.CardReaderTypesGetAll)
@@ -658,9 +746,11 @@ var Get_CardReaderTypes_cmd = &cobra.Command{
 	}
 
 var Get_Cart_cmd = &cobra.Command{
-		Use: `{"MessageTypes":"string","SavedCart":"string","SessionKey":"string"} | Cart`,
+		Use: `Cart`,
+		Example: `{"MessageTypes":"string","SavedCart":"string","SessionKey":"string"}`,
 		Short: `Gets the cart details`,
 		Long:  `Gets the cart details`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("CartProperties"); test {
 				err = tq.Do(_tq, _tq.Get.CartGetCartProperties)
@@ -678,9 +768,11 @@ var Get_Cart_cmd = &cobra.Command{
 	}
 
 var Get_Colors_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | Colors`,
+		Use: `Colors`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a color by id`,
 		Long:  `Get the details of a color by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ColorsGetAll)
@@ -694,9 +786,11 @@ var Get_Colors_cmd = &cobra.Command{
 	}
 
 var Get_Composers_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | Composers`,
+		Use: `Composers`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a composer by id`,
 		Long:  `Get the details of a composer by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ComposersGetAll)
@@ -710,9 +804,11 @@ var Get_Composers_cmd = &cobra.Command{
 	}
 
 var Get_Constituencies_cmd = &cobra.Command{
-		Use: `{"ConstituencyID":"string"} | Constituencies`,
+		Use: `Constituencies`,
+		Example: `{"ConstituencyID":"string"}`,
 		Short: `Get details of constituency`,
 		Long:  `Get details of constituency.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ConstituenciesGetAll)
@@ -724,9 +820,11 @@ var Get_Constituencies_cmd = &cobra.Command{
 	}
 
 var Get_ConstituencyTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | ConstituencyTypes`,
+		Use: `ConstituencyTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituency type by id`,
 		Long:  `Get the details of a constituency type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ConstituencyTypesGetAll)
@@ -740,9 +838,11 @@ var Get_ConstituencyTypes_cmd = &cobra.Command{
 	}
 
 var Get_ConstituentContributions_cmd = &cobra.Command{
-		Use: `{"CampaignIds":"string","ConstituentID":"string","EndDate":"string","FundIds":"string","IncludeAffiliations":"string","StartDate":"string"} | ConstituentContributions`,
+		Use: `ConstituentContributions`,
+		Example: `{"CampaignIds":"string","ConstituentID":"string","EndDate":"string","FundIds":"string","IncludeAffiliations":"string","StartDate":"string"}`,
 		Short: `Get contributions for a constituent`,
 		Long:  `Get contributions for a constituent.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.ConstituentContributionsGetAll)
@@ -751,9 +851,11 @@ var Get_ConstituentContributions_cmd = &cobra.Command{
 	}
 
 var Get_ConstituentDocuments_cmd = &cobra.Command{
-		Use: `{"DocumentID":"string"} | ConstituentDocuments`,
+		Use: `ConstituentDocuments`,
+		Example: `{"DocumentID":"string"}`,
 		Short: `Get the details of a document for a constituent`,
 		Long:  `Get the details of a document for a constituent.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ConstituentDocumentsGetAll)
@@ -767,9 +869,11 @@ var Get_ConstituentDocuments_cmd = &cobra.Command{
 	}
 
 var Get_ConstituentGroups_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | ConstituentGroups`,
+		Use: `ConstituentGroups`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent group by id`,
 		Long:  `Get the details of a constituent group by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ConstituentGroupsGetAll)
@@ -783,9 +887,11 @@ var Get_ConstituentGroups_cmd = &cobra.Command{
 	}
 
 var Get_ConstituentInactives_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | ConstituentInactives`,
+		Use: `ConstituentInactives`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent inactive by id`,
 		Long:  `Get the details of a constituent inactive by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ConstituentInactivesGetAll)
@@ -799,9 +905,11 @@ var Get_ConstituentInactives_cmd = &cobra.Command{
 	}
 
 var Get_ConstituentProtectionTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | ConstituentProtectionTypes`,
+		Use: `ConstituentProtectionTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent protection type by id`,
 		Long:  `Get the details of a constituent protection type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ConstituentProtectionTypesGetAll)
@@ -815,9 +923,11 @@ var Get_ConstituentProtectionTypes_cmd = &cobra.Command{
 	}
 
 var Get_ConstituentTypeAffiliates_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | ConstituentTypeAffiliates`,
+		Use: `ConstituentTypeAffiliates`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent type affiliate by id`,
 		Long:  `Get the details of a constituent type affiliate by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ConstituentTypeAffiliatesGetAll)
@@ -831,9 +941,11 @@ var Get_ConstituentTypeAffiliates_cmd = &cobra.Command{
 	}
 
 var Get_ConstituentTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | ConstituentTypes`,
+		Use: `ConstituentTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent type by id`,
 		Long:  `Get the details of a constituent type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ConstituentTypesGetAll)
@@ -847,9 +959,11 @@ var Get_ConstituentTypes_cmd = &cobra.Command{
 	}
 
 var Get_Constituents_cmd = &cobra.Command{
-		Use: `{"ConstituentID":"string"} | Constituents`,
+		Use: `Constituents`,
+		Example: `{"ConstituentID":"string"}`,
 		Short: `Get the details of a Constituent using id`,
 		Long:  `Get the details of a Constituent using id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("Constituent"); test {
 				err = tq.Do(_tq, _tq.Get.ConstituentsGetConstituent)
@@ -877,9 +991,11 @@ var Get_Constituents_cmd = &cobra.Command{
 	}
 
 var Get_ContactPermissionCategories_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | ContactPermissionCategories`,
+		Use: `ContactPermissionCategories`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact permission category`,
 		Long:  `Get the details of a contact permission category. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ContactPermissionCategoriesGetAll)
@@ -893,9 +1009,11 @@ var Get_ContactPermissionCategories_cmd = &cobra.Command{
 	}
 
 var Get_ContactPermissionTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | ContactPermissionTypes`,
+		Use: `ContactPermissionTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact permission type`,
 		Long:  `Get the details of a contact permission type. To get the resource only if the user has write/edit access, pass filter="writeonly".  To get the resource in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ContactPermissionTypesGetAll)
@@ -911,9 +1029,11 @@ var Get_ContactPermissionTypes_cmd = &cobra.Command{
 	}
 
 var Get_ContactPermissions_cmd = &cobra.Command{
-		Use: `{"ContactPermissionID":"string"} | ContactPermissions`,
+		Use: `ContactPermissions`,
+		Example: `{"ContactPermissionID":"string"}`,
 		Short: `Get details of a contact permission`,
 		Long:  `Get details of a contact permission`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ContactPermissionsGetAll)
@@ -925,9 +1045,11 @@ var Get_ContactPermissions_cmd = &cobra.Command{
 	}
 
 var Get_ContactPointCategories_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | ContactPointCategories`,
+		Use: `ContactPointCategories`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact point category by id`,
 		Long:  `Get the details of a contact point category by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ContactPointCategoriesGetAll)
@@ -941,9 +1063,11 @@ var Get_ContactPointCategories_cmd = &cobra.Command{
 	}
 
 var Get_ContactPointCategoryPurposes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | ContactPointCategoryPurposes`,
+		Use: `ContactPointCategoryPurposes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact point category purpose by id`,
 		Long:  `Get the details of a contact point category purpose by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ContactPointCategoryPurposesGetAll)
@@ -957,9 +1081,11 @@ var Get_ContactPointCategoryPurposes_cmd = &cobra.Command{
 	}
 
 var Get_ContactPointPurposeCategories_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | ContactPointPurposeCategories`,
+		Use: `ContactPointPurposeCategories`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact point purpose category by id`,
 		Long:  `Get the details of a contact point purpose category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ContactPointPurposeCategoriesGetAll)
@@ -973,9 +1099,11 @@ var Get_ContactPointPurposeCategories_cmd = &cobra.Command{
 	}
 
 var Get_ContactPointPurposeMaps_cmd = &cobra.Command{
-		Use: `{"ContactPointPurposeMapID":"string"} | ContactPointPurposeMaps`,
+		Use: `ContactPointPurposeMaps`,
+		Example: `{"ContactPointPurposeMapID":"string"}`,
 		Short: `Get details of a contact point purpose`,
 		Long:  `Get details of a contact point purpose.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ContactPointPurposeMapsGetAll)
@@ -987,9 +1115,11 @@ var Get_ContactPointPurposeMaps_cmd = &cobra.Command{
 	}
 
 var Get_ContactPointPurposes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | ContactPointPurposes`,
+		Use: `ContactPointPurposes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact point purpose by id`,
 		Long:  `Get the details of a contact point purpose by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ContactPointPurposesGetAll)
@@ -1003,9 +1133,11 @@ var Get_ContactPointPurposes_cmd = &cobra.Command{
 	}
 
 var Get_ContactPoints_cmd = &cobra.Command{
-		Use: `{"ConstituentID":"string","IncludeAffiliations":"string"} | ContactPoints`,
+		Use: `ContactPoints`,
+		Example: `{"ConstituentID":"string","IncludeAffiliations":"string"}`,
 		Short: `Get all the delivery points for the specified constituent (constituentId) and all its visible affiliation's delivery point purposes as well`,
 		Long:  `Get all the delivery points for the specified constituent (constituentId) and all its visible affiliation's delivery point purposes as well. To exclude delivery point purposes of the visible affiliations pass includeAffiliations=false.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.ContactPointsGetAll)
@@ -1014,9 +1146,11 @@ var Get_ContactPoints_cmd = &cobra.Command{
 	}
 
 var Get_ContactTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | ContactTypes`,
+		Use: `ContactTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact type by id`,
 		Long:  `Get the details of a contact type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ContactTypesGetAll)
@@ -1030,9 +1164,11 @@ var Get_ContactTypes_cmd = &cobra.Command{
 	}
 
 var Get_ContextInformation_cmd = &cobra.Command{
-		Use: ` | ContextInformation`,
+		Use: `ContextInformation`,
+		Example: ``,
 		Short: `Get a commonly used set of default values for the user and usergroup in the current security context`,
 		Long:  `Get a commonly used set of default values for the user and usergroup in the current security context.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.ContextInformationGet)
@@ -1041,9 +1177,11 @@ var Get_ContextInformation_cmd = &cobra.Command{
 	}
 
 var Get_ContributionDesignations_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | ContributionDesignations`,
+		Use: `ContributionDesignations`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contribution designation by id`,
 		Long:  `Get the details of a contribution designation by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ContributionDesignationsGetAll)
@@ -1057,9 +1195,11 @@ var Get_ContributionDesignations_cmd = &cobra.Command{
 	}
 
 var Get_ContributionImportSets_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | ContributionImportSets`,
+		Use: `ContributionImportSets`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a contributionImportSet by id`,
 		Long:  `Get the details of a contributionImportSet by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ContributionImportSetsGetAll)
@@ -1073,9 +1213,11 @@ var Get_ContributionImportSets_cmd = &cobra.Command{
 	}
 
 var Get_ControlGroupUserGroups_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | ControlGroupUserGroups`,
+		Use: `ControlGroupUserGroups`,
+		Example: `{"ID":"string"}`,
 		Short: `Get the details of a control group/user group mapping by id`,
 		Long:  `Get the details of a control group/user group mapping by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ControlGroupUserGroupsGetAll)
@@ -1089,9 +1231,11 @@ var Get_ControlGroupUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_ControlGroups_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | ControlGroups`,
+		Use: `ControlGroups`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a control group by id`,
 		Long:  `Get the details of a control group by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ControlGroupsGetAll)
@@ -1105,9 +1249,11 @@ var Get_ControlGroups_cmd = &cobra.Command{
 	}
 
 var Get_CoreIdentity_cmd = &cobra.Command{
-		Use: ` | CoreIdentity`,
+		Use: `CoreIdentity`,
+		Example: ``,
 		Short: ``,
 		Long:  ``,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.CoreIdentityToken)
@@ -1116,9 +1262,11 @@ var Get_CoreIdentity_cmd = &cobra.Command{
 	}
 
 var Get_Countries_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | Countries`,
+		Use: `Countries`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a country by id`,
 		Long:  `Get the details of a country by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.CountriesGetAll)
@@ -1132,9 +1280,11 @@ var Get_Countries_cmd = &cobra.Command{
 	}
 
 var Get_CrediteeTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | CrediteeTypes`,
+		Use: `CrediteeTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a crediteeType by id`,
 		Long:  `Get the details of a crediteeType by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.CrediteeTypesGetAll)
@@ -1148,9 +1298,11 @@ var Get_CrediteeTypes_cmd = &cobra.Command{
 	}
 
 var Get_Credits_cmd = &cobra.Command{
-		Use: `{"ProductionElementIds":"string"} | Credits`,
+		Use: `Credits`,
+		Example: `{"ProductionElementIds":"string"}`,
 		Short: `Returns all credits for the requested production element`,
 		Long:  `Returns all credits for the requested production element, and all credits from above it in the production hierarchy.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.CreditsGetCredits)
@@ -1159,9 +1311,11 @@ var Get_Credits_cmd = &cobra.Command{
 	}
 
 var Get_CriterionOperators_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | CriterionOperators`,
+		Use: `CriterionOperators`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a criterion operator by id`,
 		Long:  `Get the details of a criterion operator by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.CriterionOperatorsGetAll)
@@ -1175,9 +1329,11 @@ var Get_CriterionOperators_cmd = &cobra.Command{
 	}
 
 var Get_CumulativeGivingReceipts_cmd = &cobra.Command{
-		Use: `{"CumulativeGivingReceiptID":"string"} | CumulativeGivingReceipts`,
+		Use: `CumulativeGivingReceipts`,
+		Example: `{"CumulativeGivingReceiptID":"string"}`,
 		Short: `Get details of an cumulativeGivingReceipt`,
 		Long:  `Get details of an cumulativeGivingReceipt.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.CumulativeGivingReceiptsGetAll)
@@ -1191,9 +1347,11 @@ var Get_CumulativeGivingReceipts_cmd = &cobra.Command{
 	}
 
 var Get_CurrencyTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | CurrencyTypes`,
+		Use: `CurrencyTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a currency type by id`,
 		Long:  `Get the details of a currency type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.CurrencyTypesGetAll)
@@ -1207,9 +1365,11 @@ var Get_CurrencyTypes_cmd = &cobra.Command{
 	}
 
 var Get_Custom_cmd = &cobra.Command{
-		Use: ` | Custom`,
+		Use: `Custom`,
+		Example: ``,
 		Short: `Get the metadata information of a custom table as defined by TR_DATASERVICE_TABLES and TR_DATASERVICE_COLUMNS`,
 		Long:  `Get the metadata information of a custom table as defined by TR_DATASERVICE_TABLES and TR_DATASERVICE_COLUMNS.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.CustomGetMetadata)
@@ -1218,9 +1378,11 @@ var Get_Custom_cmd = &cobra.Command{
 	}
 
 var Get_CustomDefaultCategories_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | CustomDefaultCategories`,
+		Use: `CustomDefaultCategories`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a custom default category by id`,
 		Long:  `Get the details of a custom default category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.CustomDefaultCategoriesGetAll)
@@ -1234,9 +1396,11 @@ var Get_CustomDefaultCategories_cmd = &cobra.Command{
 	}
 
 var Get_CustomDefaults_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | CustomDefaults`,
+		Use: `CustomDefaults`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a custom default by id`,
 		Long:  `Get the details of a custom default by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.CustomDefaultsGetAll)
@@ -1250,9 +1414,11 @@ var Get_CustomDefaults_cmd = &cobra.Command{
 	}
 
 var Get_DeliveryMethods_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | DeliveryMethods`,
+		Use: `DeliveryMethods`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a delivery method by id`,
 		Long:  `Get the details of a delivery method by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.DeliveryMethodsGetAll)
@@ -1266,9 +1432,11 @@ var Get_DeliveryMethods_cmd = &cobra.Command{
 	}
 
 var Get_DesignationCodes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | DesignationCodes`,
+		Use: `DesignationCodes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a designation code by id`,
 		Long:  `Get the details of a designation code by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.DesignationCodesGetAll)
@@ -1282,9 +1450,11 @@ var Get_DesignationCodes_cmd = &cobra.Command{
 	}
 
 var Get_Designs_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | Designs`,
+		Use: `Designs`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a design by id`,
 		Long:  `Get the details of a design by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.DesignsGetAll)
@@ -1298,9 +1468,11 @@ var Get_Designs_cmd = &cobra.Command{
 	}
 
 var Get_Diagnostics_cmd = &cobra.Command{
-		Use: ` | Diagnostics`,
+		Use: `Diagnostics`,
+		Example: ``,
 		Short: `Validates Encryption Key Dates`,
 		Long:  `Validates Encryption Key Dates.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("SeatServerStatus"); test {
 				err = tq.Do(_tq, _tq.Get.DiagnosticsGetSeatServerStatus)
@@ -1316,9 +1488,11 @@ var Get_Diagnostics_cmd = &cobra.Command{
 	}
 
 var Get_DirectDebitAccountTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | DirectDebitAccountTypes`,
+		Use: `DirectDebitAccountTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a direct debit account type by id`,
 		Long:  `Get the details of a direct debit account type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.DirectDebitAccountTypesGetAll)
@@ -1332,9 +1506,11 @@ var Get_DirectDebitAccountTypes_cmd = &cobra.Command{
 	}
 
 var Get_DiscountTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | DiscountTypes`,
+		Use: `DiscountTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a discount type by id`,
 		Long:  `Get the details of a discount type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.DiscountTypesGetAll)
@@ -1348,9 +1524,11 @@ var Get_DiscountTypes_cmd = &cobra.Command{
 	}
 
 var Get_Divisions_cmd = &cobra.Command{
-		Use: ` | Divisions`,
+		Use: `Divisions`,
+		Example: ``,
 		Short: `Get the control group/division mappings for the specified division`,
 		Long:  `Get the control group/division mappings for the specified division.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("ForDivision"); test {
 				err = tq.Do(_tq, _tq.Get.DivisionsGetForDivision)
@@ -1362,9 +1540,11 @@ var Get_Divisions_cmd = &cobra.Command{
 	}
 
 var Get_DocumentCategories_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | DocumentCategories`,
+		Use: `DocumentCategories`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a documentCategory by id`,
 		Long:  `Get the details of a documentCategory by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.DocumentCategoriesGetAll)
@@ -1378,9 +1558,11 @@ var Get_DocumentCategories_cmd = &cobra.Command{
 	}
 
 var Get_Documents_cmd = &cobra.Command{
-		Use: `{"DocumentID":"string"} | Documents`,
+		Use: `Documents`,
+		Example: `{"DocumentID":"string"}`,
 		Short: `Get the details of a document`,
 		Long:  `Get the details of a document.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.DocumentsGetAll)
@@ -1396,9 +1578,11 @@ var Get_Documents_cmd = &cobra.Command{
 	}
 
 var Get_DonationLevels_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | DonationLevels`,
+		Use: `DonationLevels`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a donation level by id`,
 		Long:  `Get the details of a donation level by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.DonationLevelsGetAll)
@@ -1412,9 +1596,11 @@ var Get_DonationLevels_cmd = &cobra.Command{
 	}
 
 var Get_EMV_cmd = &cobra.Command{
-		Use: `{"Cert":"string","Merchant":"string"} | EMV`,
+		Use: `EMV`,
+		Example: `{"Cert":"string","Merchant":"string"}`,
 		Short: `Retrieve information on all lanes associated with merchant`,
 		Long:  `Retrieve information on all lanes associated with merchant`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("ConnectionStatus"); test {
 				err = tq.Do(_tq, _tq.Get.EMVGetConnectionStatus)
@@ -1432,9 +1618,11 @@ var Get_EMV_cmd = &cobra.Command{
 	}
 
 var Get_ElectronicAddressTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | ElectronicAddressTypes`,
+		Use: `ElectronicAddressTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an electronic address type by id`,
 		Long:  `Get the details of an electronic address type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ElectronicAddressTypesGetAll)
@@ -1448,9 +1636,11 @@ var Get_ElectronicAddressTypes_cmd = &cobra.Command{
 	}
 
 var Get_ElectronicAddresses_cmd = &cobra.Command{
-		Use: `{"ElectronicAddressID":"string"} | ElectronicAddresses`,
+		Use: `ElectronicAddresses`,
+		Example: `{"ElectronicAddressID":"string"}`,
 		Short: `Get details of an electronic address`,
 		Long:  `Get details of an electronic address.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ElectronicAddressesGetAll)
@@ -1464,9 +1654,11 @@ var Get_ElectronicAddresses_cmd = &cobra.Command{
 	}
 
 var Get_EmailProfiles_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | EmailProfiles`,
+		Use: `EmailProfiles`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an email profile by id`,
 		Long:  `Get the details of an email profile by id`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.EmailProfilesGetAll)
@@ -1480,9 +1672,11 @@ var Get_EmailProfiles_cmd = &cobra.Command{
 	}
 
 var Get_EmarketIndicators_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | EmarketIndicators`,
+		Use: `EmarketIndicators`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an emarket indicator by id`,
 		Long:  `Get the details of an emarket indicator by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.EmarketIndicatorsGetAll)
@@ -1496,9 +1690,11 @@ var Get_EmarketIndicators_cmd = &cobra.Command{
 	}
 
 var Get_Eras_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | Eras`,
+		Use: `Eras`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an era by id`,
 		Long:  `Get the details of an era by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ErasGetAll)
@@ -1512,9 +1708,11 @@ var Get_Eras_cmd = &cobra.Command{
 	}
 
 var Get_EventControl_cmd = &cobra.Command{
-		Use: `{"EndDate":"string","StartDate":"string"} | EventControl`,
+		Use: `EventControl`,
+		Example: `{"EndDate":"string","StartDate":"string"}`,
 		Short: `Returns a response containing a list of EventControl rows for the N-Scan event control table`,
 		Long:  `Returns a response containing a list of EventControl rows for the N-Scan event control table.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.EventControlGetAll)
@@ -1523,9 +1721,11 @@ var Get_EventControl_cmd = &cobra.Command{
 	}
 
 var Get_Facilities_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | Facilities`,
+		Use: `Facilities`,
+		Example: `{"ID":"string"}`,
 		Short: `Get details of a Facility`,
 		Long:  `Get details of a Facility.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.FacilitiesGetAll)
@@ -1541,9 +1741,11 @@ var Get_Facilities_cmd = &cobra.Command{
 	}
 
 var Get_Fees_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | Fees`,
+		Use: `Fees`,
+		Example: `{"ID":"string"}`,
 		Short: `Get details of a fee`,
 		Long:  `Get details of a fee.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.FeesGetAll)
@@ -1557,9 +1759,11 @@ var Get_Fees_cmd = &cobra.Command{
 	}
 
 var Get_FinanceContributions_cmd = &cobra.Command{
-		Use: `{"ContributionID":"string"} | FinanceContributions`,
+		Use: `FinanceContributions`,
+		Example: `{"ContributionID":"string"}`,
 		Short: `Get details of a contribution`,
 		Long:  `Get details of a contribution.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.FinanceContributionsGetAll)
@@ -1571,9 +1775,11 @@ var Get_FinanceContributions_cmd = &cobra.Command{
 	}
 
 var Get_Formats_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | Formats`,
+		Use: `Formats`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a format by id`,
 		Long:  `Get the details of a format by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.FormatsGetAll)
@@ -1587,9 +1793,11 @@ var Get_Formats_cmd = &cobra.Command{
 	}
 
 var Get_Funds_cmd = &cobra.Command{
-		Use: `{"FundID":"string"} | Funds`,
+		Use: `Funds`,
+		Example: `{"FundID":"string"}`,
 		Short: `Get details of a specific fund`,
 		Long:  `Get details of a specific fund`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				err = tq.Do(_tq, _tq.Get.FundsGetSummaries)
@@ -1601,9 +1809,11 @@ var Get_Funds_cmd = &cobra.Command{
 	}
 
 var Get_GLAccounts_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | GLAccounts`,
+		Use: `GLAccounts`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gl account by id`,
 		Long:  `Get the details of a gl account by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.GLAccountsGetAll)
@@ -1617,9 +1827,11 @@ var Get_GLAccounts_cmd = &cobra.Command{
 	}
 
 var Get_Genders_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | Genders`,
+		Use: `Genders`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gender by id`,
 		Long:  `Get the details of a gender by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.GendersGetAll)
@@ -1633,9 +1845,11 @@ var Get_Genders_cmd = &cobra.Command{
 	}
 
 var Get_GiftAidContactMethods_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | GiftAidContactMethods`,
+		Use: `GiftAidContactMethods`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid contact method by id`,
 		Long:  `Get the details of a gift aid contact method by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.GiftAidContactMethodsGetAll)
@@ -1649,9 +1863,11 @@ var Get_GiftAidContactMethods_cmd = &cobra.Command{
 	}
 
 var Get_GiftAidDeclarations_cmd = &cobra.Command{
-		Use: `{"GiftAidDeclarationID":"string"} | GiftAidDeclarations`,
+		Use: `GiftAidDeclarations`,
+		Example: `{"GiftAidDeclarationID":"string"}`,
 		Short: `Gets a single Gift Aid Declaration`,
 		Long:  `Gets a single Gift Aid Declaration.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.GiftAidDeclarationsGetAll)
@@ -1663,9 +1879,11 @@ var Get_GiftAidDeclarations_cmd = &cobra.Command{
 	}
 
 var Get_GiftAidDocumentStatuses_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | GiftAidDocumentStatuses`,
+		Use: `GiftAidDocumentStatuses`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid document status by id`,
 		Long:  `Get the details of a gift aid document status by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.GiftAidDocumentStatusesGetAll)
@@ -1679,9 +1897,11 @@ var Get_GiftAidDocumentStatuses_cmd = &cobra.Command{
 	}
 
 var Get_GiftAidIneligibleReasons_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | GiftAidIneligibleReasons`,
+		Use: `GiftAidIneligibleReasons`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid ineligible reason by id`,
 		Long:  `Get the details of a gift aid ineligible reason by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.GiftAidIneligibleReasonsGetAll)
@@ -1695,9 +1915,11 @@ var Get_GiftAidIneligibleReasons_cmd = &cobra.Command{
 	}
 
 var Get_GiftAidRates_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | GiftAidRates`,
+		Use: `GiftAidRates`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid rate by id`,
 		Long:  `Get the details of a gift aid rate by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.GiftAidRatesGetAll)
@@ -1711,9 +1933,11 @@ var Get_GiftAidRates_cmd = &cobra.Command{
 	}
 
 var Get_GiftAidStatuses_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | GiftAidStatuses`,
+		Use: `GiftAidStatuses`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid status by id`,
 		Long:  `Get the details of a gift aid status by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.GiftAidStatusesGetAll)
@@ -1727,9 +1951,11 @@ var Get_GiftAidStatuses_cmd = &cobra.Command{
 	}
 
 var Get_GiftAidTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | GiftAidTypes`,
+		Use: `GiftAidTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid type by id`,
 		Long:  `Get the details of a gift aid type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.GiftAidTypesGetAll)
@@ -1743,10 +1969,12 @@ var Get_GiftAidTypes_cmd = &cobra.Command{
 	}
 
 var Get_GiftCertificates_cmd = &cobra.Command{
-		Use: `{"GiftCertificateNumber":"string"} | GiftCertificates`,
+		Use: `GiftCertificates`,
+		Example: `{"GiftCertificateNumber":"string"}`,
 		Short: `Get details of a specific gift certificate`,
 		Long:  `Get details of a specific gift certificate.
 The original amount, amount used and balance are all returned.  Amounts applied to a current web session are included.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.GiftCertificatesGet)
@@ -1755,9 +1983,11 @@ The original amount, amount used and balance are all returned.  Amounts applied 
 	}
 
 var Get_HoldCodeCategories_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | HoldCodeCategories`,
+		Use: `HoldCodeCategories`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Hold Code Category by id`,
 		Long:  `Get the details of a Hold Code Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.HoldCodeCategoriesGetAll)
@@ -1771,9 +2001,11 @@ var Get_HoldCodeCategories_cmd = &cobra.Command{
 	}
 
 var Get_HoldCodeUserGroups_cmd = &cobra.Command{
-		Use: `{"HoldCodeUserGroupID":"string"} | HoldCodeUserGroups`,
+		Use: `HoldCodeUserGroups`,
+		Example: `{"HoldCodeUserGroupID":"string"}`,
 		Short: `Get the details of a hold code/user group mapping by id`,
 		Long:  `Get the details of a hold code/user group mapping by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.HoldCodeUserGroupsGetAll)
@@ -1789,9 +2021,11 @@ var Get_HoldCodeUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_HoldCodes_cmd = &cobra.Command{
-		Use: `{"HoldCodeID":"string"} | HoldCodes`,
+		Use: `HoldCodes`,
+		Example: `{"HoldCodeID":"string"}`,
 		Short: `Get details of a Hold Code`,
 		Long:  `Get details of a Hold Code.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.HoldCodesGetAll)
@@ -1803,9 +2037,11 @@ var Get_HoldCodes_cmd = &cobra.Command{
 	}
 
 var Get_InactiveReasons_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | InactiveReasons`,
+		Use: `InactiveReasons`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an inactive reason by id`,
 		Long:  `Get the details of an inactive reason by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.InactiveReasonsGetAll)
@@ -1819,9 +2055,11 @@ var Get_InactiveReasons_cmd = &cobra.Command{
 	}
 
 var Get_IntegrationDefaults_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | IntegrationDefaults`,
+		Use: `IntegrationDefaults`,
+		Example: `{"ID":"string"}`,
 		Short: `Get the details of an Integration Default by id`,
 		Long:  `Get the details of an Integration Default by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.IntegrationDefaultsGetAll)
@@ -1835,9 +2073,11 @@ var Get_IntegrationDefaults_cmd = &cobra.Command{
 	}
 
 var Get_Integrations_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | Integrations`,
+		Use: `Integrations`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an action type by id`,
 		Long:  `Get the details of an action type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.IntegrationsGetAll)
@@ -1851,9 +2091,11 @@ var Get_Integrations_cmd = &cobra.Command{
 	}
 
 var Get_InterestCategories_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | InterestCategories`,
+		Use: `InterestCategories`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an interest category by id`,
 		Long:  `Get the details of an interest category by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.InterestCategoriesGetAll)
@@ -1867,9 +2109,11 @@ var Get_InterestCategories_cmd = &cobra.Command{
 	}
 
 var Get_InterestTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | InterestTypes`,
+		Use: `InterestTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an interest type by id`,
 		Long:  `Get the details of an interest type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.InterestTypesGetAll)
@@ -1883,9 +2127,11 @@ var Get_InterestTypes_cmd = &cobra.Command{
 	}
 
 var Get_Interests_cmd = &cobra.Command{
-		Use: `{"InterestID":"string"} | Interests`,
+		Use: `Interests`,
+		Example: `{"InterestID":"string"}`,
 		Short: `Get details of an interest`,
 		Long:  `Get details of an interest.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.InterestsGetAll)
@@ -1897,9 +2143,11 @@ var Get_Interests_cmd = &cobra.Command{
 	}
 
 var Get_Internal_cmd = &cobra.Command{
-		Use: `{"AddressID":"string"} | Internal`,
+		Use: `Internal`,
+		Example: `{"AddressID":"string"}`,
 		Short: `Get details of an address and all the phones attached to it`,
 		Long:  `Get details of an address and all the phones attached to it.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.InternalGetAll)
@@ -1913,9 +2161,11 @@ var Get_Internal_cmd = &cobra.Command{
 	}
 
 var Get_InventoryContactPermissionTypes_cmd = &cobra.Command{
-		Use: `{"InventoryContactPermissionTypeID":"string"} | InventoryContactPermissionTypes`,
+		Use: `InventoryContactPermissionTypes`,
+		Example: `{"InventoryContactPermissionTypeID":"string"}`,
 		Short: `Get details of an inventoryContactPermissionType`,
 		Long:  `Get details of an inventoryContactPermissionType.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.InventoryContactPermissionTypesGetAll)
@@ -1927,9 +2177,11 @@ var Get_InventoryContactPermissionTypes_cmd = &cobra.Command{
 	}
 
 var Get_InventoryWebContents_cmd = &cobra.Command{
-		Use: `{"InventoryWebContentID":"string"} | InventoryWebContents`,
+		Use: `InventoryWebContents`,
+		Example: `{"InventoryWebContentID":"string"}`,
 		Short: `Get details of an inventoryWebContent`,
 		Long:  `Get details of an inventoryWebContent.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.InventoryWebContentsGetAll)
@@ -1943,9 +2195,11 @@ var Get_InventoryWebContents_cmd = &cobra.Command{
 	}
 
 var Get_InvoiceBilling_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | InvoiceBilling`,
+		Use: `InvoiceBilling`,
+		Example: `{"ID":"string"}`,
 		Short: `Get status of a processing automated billing run`,
 		Long:  `Get status of a processing automated billing run.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.InvoiceBillingStatus)
@@ -1954,9 +2208,11 @@ var Get_InvoiceBilling_cmd = &cobra.Command{
 	}
 
 var Get_Issues_cmd = &cobra.Command{
-		Use: `{"IssueID":"string"} | Issues`,
+		Use: `Issues`,
+		Example: `{"IssueID":"string"}`,
 		Short: `Get details of a customer issue`,
 		Long:  `Get details of a customer issue.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.IssuesGetAll)
@@ -1968,9 +2224,11 @@ var Get_Issues_cmd = &cobra.Command{
 	}
 
 var Get_KeywordCategories_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | KeywordCategories`,
+		Use: `KeywordCategories`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a keyword category by id`,
 		Long:  `Get the details of a keyword category by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.KeywordCategoriesGetAll)
@@ -1984,9 +2242,11 @@ var Get_KeywordCategories_cmd = &cobra.Command{
 	}
 
 var Get_Keywords_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | Keywords`,
+		Use: `Keywords`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a keyword by id`,
 		Long:  `Get the details of a keyword by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.KeywordsGetAll)
@@ -2002,9 +2262,11 @@ var Get_Keywords_cmd = &cobra.Command{
 	}
 
 var Get_Languages_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | Languages`,
+		Use: `Languages`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a language by id`,
 		Long:  `Get the details of a language by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.LanguagesGetAll)
@@ -2018,9 +2280,11 @@ var Get_Languages_cmd = &cobra.Command{
 	}
 
 var Get_ListCategories_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | ListCategories`,
+		Use: `ListCategories`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a list category by id`,
 		Long:  `Get the details of a list category by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ListCategoriesGetAll)
@@ -2034,9 +2298,11 @@ var Get_ListCategories_cmd = &cobra.Command{
 	}
 
 var Get_Lists_cmd = &cobra.Command{
-		Use: `{"ListID":"string"} | Lists`,
+		Use: `Lists`,
+		Example: `{"ListID":"string"}`,
 		Short: `Get a single List without contents`,
 		Long:  `Get a single List without contents.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("Contents"); test {
 				err = tq.Do(_tq, _tq.Get.ListsGetContents)
@@ -2054,9 +2320,11 @@ var Get_Lists_cmd = &cobra.Command{
 	}
 
 var Get_LoginTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | LoginTypes`,
+		Use: `LoginTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a login type by id`,
 		Long:  `Get the details of a login type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.LoginTypesGetAll)
@@ -2070,9 +2338,11 @@ var Get_LoginTypes_cmd = &cobra.Command{
 	}
 
 var Get_MachineSettings_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | MachineSettings`,
+		Use: `MachineSettings`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Machine Setting by id`,
 		Long:  `Get the details of a Machine Setting by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.MachineSettingsGetAll)
@@ -2086,9 +2356,11 @@ var Get_MachineSettings_cmd = &cobra.Command{
 	}
 
 var Get_MailIndicators_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | MailIndicators`,
+		Use: `MailIndicators`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a mail indicator by id`,
 		Long:  `Get the details of a mail indicator by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.MailIndicatorsGetAll)
@@ -2102,9 +2374,11 @@ var Get_MailIndicators_cmd = &cobra.Command{
 	}
 
 var Get_MediaTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | MediaTypes`,
+		Use: `MediaTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a media type by id`,
 		Long:  `Get the details of a media type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.MediaTypesGetAll)
@@ -2118,9 +2392,11 @@ var Get_MediaTypes_cmd = &cobra.Command{
 	}
 
 var Get_MembershipLevelCategories_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | MembershipLevelCategories`,
+		Use: `MembershipLevelCategories`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a membership level category by id`,
 		Long:  `Get the details of a membership level category by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.MembershipLevelCategoriesGetAll)
@@ -2134,10 +2410,12 @@ var Get_MembershipLevelCategories_cmd = &cobra.Command{
 	}
 
 var Get_MembershipLevels_cmd = &cobra.Command{
-		Use: `{"MembershipLevelID":"string"} | MembershipLevels`,
+		Use: `MembershipLevels`,
+		Example: `{"MembershipLevelID":"string"}`,
 		Short: `Get a specific membership level`,
 		Long:  `Get a specific membership level.
 NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.MembershipLevelsGetAll)
@@ -2151,10 +2429,12 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 	}
 
 var Get_MembershipOrganizations_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | MembershipOrganizations`,
+		Use: `MembershipOrganizations`,
+		Example: `{"ID":"string"}`,
 		Short: `Get a specific membership organization`,
 		Long:  `Get a specific membership organization.
 NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.MembershipOrganizationsGetAll)
@@ -2168,9 +2448,11 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 	}
 
 var Get_MembershipStandings_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | MembershipStandings`,
+		Use: `MembershipStandings`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get a specific MembershipStanding by id`,
 		Long:  `Get a specific MembershipStanding by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.MembershipStandingsGetAll)
@@ -2184,10 +2466,12 @@ var Get_MembershipStandings_cmd = &cobra.Command{
 	}
 
 var Get_Memberships_cmd = &cobra.Command{
-		Use: `{"ConstituentID":"string","IncludeAffiliations":"string","MembershipOrgIds":"string","OnlyShowCurrent":"string","OnlyShowDefault":"string"} | Memberships`,
+		Use: `Memberships`,
+		Example: `{"ConstituentID":"string","IncludeAffiliations":"string","MembershipOrgIds":"string","OnlyShowCurrent":"string","OnlyShowDefault":"string"}`,
 		Short: `Returns membership details for a constituent`,
 		Long:  `Returns membership details for a constituent.
 NOTE: As part of the upcoming changes to membership functionality, this resource will change significantly in an upcoming major Tessitura release and likely break code that references it. Please make a note that code that references it will need to be revisited as part of that upgrade process.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.MembershipsGetAll)
@@ -2196,9 +2480,11 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 	}
 
 var Get_MerchantReferences_cmd = &cobra.Command{
-		Use: `{"MerchantAccount":"string","PaymentID":"string"} | MerchantReferences`,
+		Use: `MerchantReferences`,
+		Example: `{"MerchantAccount":"string","PaymentID":"string"}`,
 		Short: ``,
 		Long:  ``,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.MerchantReferencesReference)
@@ -2207,9 +2493,11 @@ var Get_MerchantReferences_cmd = &cobra.Command{
 	}
 
 var Get_Merchants_cmd = &cobra.Command{
-		Use: ` | Merchants`,
+		Use: `Merchants`,
+		Example: ``,
 		Short: `Retrieve Merchant List`,
 		Long:  `Retrieve Merchant List`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.MerchantsGetMerchants)
@@ -2218,9 +2506,11 @@ var Get_Merchants_cmd = &cobra.Command{
 	}
 
 var Get_ModeOfSaleCategories_cmd = &cobra.Command{
-		Use: `{"ModeOfSaleCategoryID":"string"} | ModeOfSaleCategories`,
+		Use: `ModeOfSaleCategories`,
+		Example: `{"ModeOfSaleCategoryID":"string"}`,
 		Short: `Get details of a mode of sale category`,
 		Long:  `Get details of a mode of sale category.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ModeOfSaleCategoriesGetAll)
@@ -2232,9 +2522,11 @@ var Get_ModeOfSaleCategories_cmd = &cobra.Command{
 	}
 
 var Get_ModeOfSaleOffers_cmd = &cobra.Command{
-		Use: `{"ModeOfSaleOfferID":"string"} | ModeOfSaleOffers`,
+		Use: `ModeOfSaleOffers`,
+		Example: `{"ModeOfSaleOfferID":"string"}`,
 		Short: `Get details of a mode of sale offer`,
 		Long:  `Get details of a mode of sale offer.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ModeOfSaleOffersGetAll)
@@ -2246,9 +2538,11 @@ var Get_ModeOfSaleOffers_cmd = &cobra.Command{
 	}
 
 var Get_ModeOfSalePriceTypes_cmd = &cobra.Command{
-		Use: `{"ModeOfSalePriceTypeID":"string"} | ModeOfSalePriceTypes`,
+		Use: `ModeOfSalePriceTypes`,
+		Example: `{"ModeOfSalePriceTypeID":"string"}`,
 		Short: `Get details of a mode of sale price type`,
 		Long:  `Get details of a mode of sale price type.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ModeOfSalePriceTypesGetAll)
@@ -2260,9 +2554,11 @@ var Get_ModeOfSalePriceTypes_cmd = &cobra.Command{
 	}
 
 var Get_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
-		Use: `{"ModeOfSaleSurveyQuestionID":"string"} | ModeOfSaleSurveyQuestions`,
+		Use: `ModeOfSaleSurveyQuestions`,
+		Example: `{"ModeOfSaleSurveyQuestionID":"string"}`,
 		Short: `Get details of a mode of sale survey question`,
 		Long:  `Get details of a mode of sale survey question.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ModeOfSaleSurveyQuestionsGetAll)
@@ -2274,9 +2570,11 @@ var Get_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 	}
 
 var Get_ModeOfSaleUserGroups_cmd = &cobra.Command{
-		Use: `{"ModeOfSaleUserGroupID":"string"} | ModeOfSaleUserGroups`,
+		Use: `ModeOfSaleUserGroups`,
+		Example: `{"ModeOfSaleUserGroupID":"string"}`,
 		Short: `Get the details of a mode of sale/user group mapping by id`,
 		Long:  `Get the details of a mode of sale/user group mapping by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ModeOfSaleUserGroupsGetAll)
@@ -2288,9 +2586,11 @@ var Get_ModeOfSaleUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_ModesOfSale_cmd = &cobra.Command{
-		Use: `{"ModeOfSaleID":"string"} | ModesOfSale`,
+		Use: `ModesOfSale`,
+		Example: `{"ModeOfSaleID":"string"}`,
 		Short: `Get details of an existing mode of sale`,
 		Long:  `Get details of an existing mode of sale.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ModesOfSaleGetAll)
@@ -2304,9 +2604,11 @@ var Get_ModesOfSale_cmd = &cobra.Command{
 	}
 
 var Get_NScanAccessAreas_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | NScanAccessAreas`,
+		Use: `NScanAccessAreas`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an NScan Access Area by id`,
 		Long:  `Get the details of an NScan Access Area by id. To get the resource only if the user has write/edit access, pass filter="writeonly".. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.NScanAccessAreasGetAll)
@@ -2320,9 +2622,11 @@ var Get_NScanAccessAreas_cmd = &cobra.Command{
 	}
 
 var Get_NameStatuses_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | NameStatuses`,
+		Use: `NameStatuses`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a name status by id`,
 		Long:  `Get the details of a name status by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.NameStatusesGetAll)
@@ -2336,9 +2640,11 @@ var Get_NameStatuses_cmd = &cobra.Command{
 	}
 
 var Get_ObjectPermissions_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | ObjectPermissions`,
+		Use: `ObjectPermissions`,
+		Example: `{"ID":"string"}`,
 		Short: `Get the details of an object permission by id`,
 		Long:  `Get the details of an object permission by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ObjectPermissionsGetAll)
@@ -2352,9 +2658,11 @@ var Get_ObjectPermissions_cmd = &cobra.Command{
 	}
 
 var Get_OrderBilling_cmd = &cobra.Command{
-		Use: `{"OrderBillingID":"string"} | OrderBilling`,
+		Use: `OrderBilling`,
+		Example: `{"OrderBillingID":"string"}`,
 		Short: `Reprint Order billing`,
 		Long:  `Reprint Order billing`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("Status"); test {
 				err = tq.Do(_tq, _tq.Get.OrderBillingStatus)
@@ -2366,9 +2674,11 @@ var Get_OrderBilling_cmd = &cobra.Command{
 	}
 
 var Get_OrderCategories_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | OrderCategories`,
+		Use: `OrderCategories`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an order category by id`,
 		Long:  `Get the details of an order category by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.OrderCategoriesGetAll)
@@ -2382,9 +2692,11 @@ var Get_OrderCategories_cmd = &cobra.Command{
 	}
 
 var Get_Orders_cmd = &cobra.Command{
-		Use: `{"OrderID":"string"} | Orders`,
+		Use: `Orders`,
+		Example: `{"OrderID":"string"}`,
 		Short: `Get the details of an existing Order as the contract OrderProductsView`,
 		Long:  `Get the details of an existing Order as the contract OrderProductsView, which mirrors the structure of the Cart response entity from GET Web/{sessionKey}/Cart. This resource can be used to fetch any saved order in this view. Order HTML templates use this response contract (OrdersProductsView) as the model within the template. Orders actively in a session/cart will not be available here until after checkout.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.OrdersGetProductsView)
@@ -2393,9 +2705,11 @@ var Get_Orders_cmd = &cobra.Command{
 	}
 
 var Get_Organizations_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | Organizations`,
+		Use: `Organizations`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an organization by ID`,
 		Long:  `Get the details of an organization by ID. To get the resource in maintenance mode (ignoring control groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.OrganizationsGetAll)
@@ -2409,9 +2723,11 @@ var Get_Organizations_cmd = &cobra.Command{
 	}
 
 var Get_OriginalSources_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | OriginalSources`,
+		Use: `OriginalSources`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an original source by id`,
 		Long:  `Get the details of an original source by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.OriginalSourcesGetAll)
@@ -2425,9 +2741,11 @@ var Get_OriginalSources_cmd = &cobra.Command{
 	}
 
 var Get_Origins_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | Origins`,
+		Use: `Origins`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an origin by id`,
 		Long:  `Get the details of an origin by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.OriginsGetAll)
@@ -2441,9 +2759,11 @@ var Get_Origins_cmd = &cobra.Command{
 	}
 
 var Get_OutputSets_cmd = &cobra.Command{
-		Use: `{"OutputSetID":"string"} | OutputSets`,
+		Use: `OutputSets`,
+		Example: `{"OutputSetID":"string"}`,
 		Short: `Get a single Output Set`,
 		Long:  `Get a single Output Set.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				err = tq.Do(_tq, _tq.Get.OutputSetsGetSummaries)
@@ -2455,9 +2775,11 @@ var Get_OutputSets_cmd = &cobra.Command{
 	}
 
 var Get_PackageHistory_cmd = &cobra.Command{
-		Use: `{"ConstituentID":"string","IncludeAffiliations":"string","OrderEndDate":"string","OrderStartDate":"string","PackageID":"string","PackageTypeID":"string","SeasonID":"string"} | PackageHistory`,
+		Use: `PackageHistory`,
+		Example: `{"ConstituentID":"string","IncludeAffiliations":"string","OrderEndDate":"string","OrderStartDate":"string","PackageID":"string","PackageTypeID":"string","SeasonID":"string"}`,
 		Short: `Gets history information for packages`,
 		Long:  `Gets history information for packages`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.PackageHistoryGetAll)
@@ -2466,9 +2788,11 @@ var Get_PackageHistory_cmd = &cobra.Command{
 	}
 
 var Get_PackagePriceTypes_cmd = &cobra.Command{
-		Use: `{"PackagePriceTypeID":"string"} | PackagePriceTypes`,
+		Use: `PackagePriceTypes`,
+		Example: `{"PackagePriceTypeID":"string"}`,
 		Short: `Get details of a specific package price type`,
 		Long:  `Get details of a specific package price type.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PackagePriceTypesGetAll)
@@ -2480,9 +2804,11 @@ var Get_PackagePriceTypes_cmd = &cobra.Command{
 	}
 
 var Get_PackageTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | PackageTypes`,
+		Use: `PackageTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a package type by id`,
 		Long:  `Get the details of a package type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PackageTypesGetAll)
@@ -2496,9 +2822,11 @@ var Get_PackageTypes_cmd = &cobra.Command{
 	}
 
 var Get_PackageWebContents_cmd = &cobra.Command{
-		Use: `{"PackageWebContentID":"string"} | PackageWebContents`,
+		Use: `PackageWebContents`,
+		Example: `{"PackageWebContentID":"string"}`,
 		Short: `Get details of a packageWebContent`,
 		Long:  `Get details of a packageWebContent.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PackageWebContentsGetAll)
@@ -2512,9 +2840,11 @@ var Get_PackageWebContents_cmd = &cobra.Command{
 	}
 
 var Get_Packages_cmd = &cobra.Command{
-		Use: `{"PackageID":"string"} | Packages`,
+		Use: `Packages`,
+		Example: `{"PackageID":"string"}`,
 		Short: `Get details of a package`,
 		Long:  `Get details of a package.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PackagesGetAll)
@@ -2540,9 +2870,11 @@ var Get_Packages_cmd = &cobra.Command{
 	}
 
 var Get_PaymentGatewayActivities_cmd = &cobra.Command{
-		Use: `{"PaymentGatewayActivityID":"string"} | PaymentGatewayActivities`,
+		Use: `PaymentGatewayActivities`,
+		Example: `{"PaymentGatewayActivityID":"string"}`,
 		Short: `Get a single Payment Gateway Activity`,
 		Long:  `Get a single Payment Gateway Activity`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PaymentGatewayActivitiesGetAll)
@@ -2554,9 +2886,11 @@ var Get_PaymentGatewayActivities_cmd = &cobra.Command{
 	}
 
 var Get_PaymentGatewayConfiguration_cmd = &cobra.Command{
-		Use: ` | PaymentGatewayConfiguration`,
+		Use: `PaymentGatewayConfiguration`,
+		Example: ``,
 		Short: `Retrieve Payment Gateway Configuration`,
 		Long:  `Retrieve Payment Gateway Configuration`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.PaymentGatewayConfigurationGetConfiguration)
@@ -2565,9 +2899,11 @@ var Get_PaymentGatewayConfiguration_cmd = &cobra.Command{
 	}
 
 var Get_PaymentGatewayNotifications_cmd = &cobra.Command{
-		Use: `{"NotificationType":"string","Reference":"string"} | PaymentGatewayNotifications`,
+		Use: `PaymentGatewayNotifications`,
+		Example: `{"NotificationType":"string","Reference":"string"}`,
 		Short: `Get all notification events by reference`,
 		Long:  `Get all notification events by reference.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("Check"); test {
 				err = tq.Do(_tq, _tq.Get.PaymentGatewayNotificationsCheck)
@@ -2583,9 +2919,11 @@ var Get_PaymentGatewayNotifications_cmd = &cobra.Command{
 	}
 
 var Get_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | PaymentGatewayTransactionTypes`,
+		Use: `PaymentGatewayTransactionTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Payment Gateway Transaction Type by id`,
 		Long:  `Get the details of a Payment Gateway Transaction Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PaymentGatewayTransactionTypesGetAll)
@@ -2599,9 +2937,11 @@ var Get_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 	}
 
 var Get_PaymentHistory_cmd = &cobra.Command{
-		Use: `{"ConstituentID":"string","EndDate":"string","IncludeAffiliates":"string","Page":"string","PageSize":"string","PaymentTypeID":"string","SortByDirection":"string","SortByField":"string","StartDate":"string","TransactionID":"string"} | PaymentHistory`,
+		Use: `PaymentHistory`,
+		Example: `{"ConstituentID":"string","EndDate":"string","IncludeAffiliates":"string","Page":"string","PageSize":"string","PaymentTypeID":"string","SortByDirection":"string","SortByField":"string","StartDate":"string","TransactionID":"string"}`,
 		Short: `Gets history information for payments by constituent`,
 		Long:  `Gets history information for payments by constituent.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.PaymentHistoryGetAll)
@@ -2610,9 +2950,11 @@ var Get_PaymentHistory_cmd = &cobra.Command{
 	}
 
 var Get_PaymentMethodGroups_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | PaymentMethodGroups`,
+		Use: `PaymentMethodGroups`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a payment method group by id`,
 		Long:  `Get the details of a payment method group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PaymentMethodGroupsGetAll)
@@ -2626,9 +2968,11 @@ var Get_PaymentMethodGroups_cmd = &cobra.Command{
 	}
 
 var Get_PaymentMethodUserGroups_cmd = &cobra.Command{
-		Use: `{"PaymentMethodUserGroupID":"string"} | PaymentMethodUserGroups`,
+		Use: `PaymentMethodUserGroups`,
+		Example: `{"PaymentMethodUserGroupID":"string"}`,
 		Short: `Get details of a payment method/user group mapping by id`,
 		Long:  `Get details of a payment method/user group mapping by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PaymentMethodUserGroupsGetAll)
@@ -2640,9 +2984,11 @@ var Get_PaymentMethodUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_PaymentMethods_cmd = &cobra.Command{
-		Use: `{"PaymentMethodID":"string"} | PaymentMethods`,
+		Use: `PaymentMethods`,
+		Example: `{"PaymentMethodID":"string"}`,
 		Short: `Get details of a payment method`,
 		Long:  `Get details of a payment method.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PaymentMethodsGetAll)
@@ -2658,9 +3004,11 @@ var Get_PaymentMethods_cmd = &cobra.Command{
 	}
 
 var Get_PaymentSignatures_cmd = &cobra.Command{
-		Use: `{"PaymentSignatureID":"string"} | PaymentSignatures`,
+		Use: `PaymentSignatures`,
+		Example: `{"PaymentSignatureID":"string"}`,
 		Short: `Get details of a payment signature`,
 		Long:  `Get details of a payment signature.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PaymentSignaturesGetAll)
@@ -2672,9 +3020,11 @@ var Get_PaymentSignatures_cmd = &cobra.Command{
 	}
 
 var Get_PaymentTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | PaymentTypes`,
+		Use: `PaymentTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a payment type by id`,
 		Long:  `Get the details of a payment type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PaymentTypesGetAll)
@@ -2688,9 +3038,11 @@ var Get_PaymentTypes_cmd = &cobra.Command{
 	}
 
 var Get_Payments_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | Payments`,
+		Use: `Payments`,
+		Example: `{"ID":"string"}`,
 		Short: `Get a single payment`,
 		Long:  `Get a single payment.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PaymentsGetAll)
@@ -2706,9 +3058,11 @@ var Get_Payments_cmd = &cobra.Command{
 	}
 
 var Get_PerformanceGroups_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | PerformanceGroups`,
+		Use: `PerformanceGroups`,
+		Example: `{"ID":"string"}`,
 		Short: `Get details of a Performance Group`,
 		Long:  `Get details of a Performance Group.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PerformanceGroupsGetAll)
@@ -2722,9 +3076,11 @@ var Get_PerformanceGroups_cmd = &cobra.Command{
 	}
 
 var Get_PerformancePackageModeOfSales_cmd = &cobra.Command{
-		Use: `{"PerformancePackageModeOfSaleID":"string"} | PerformancePackageModeOfSales`,
+		Use: `PerformancePackageModeOfSales`,
+		Example: `{"PerformancePackageModeOfSaleID":"string"}`,
 		Short: `Get details of a performance package mode of sale`,
 		Long:  `Get details of a performance package mode of sale.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PerformancePackageModeOfSalesGetAll)
@@ -2736,9 +3092,11 @@ var Get_PerformancePackageModeOfSales_cmd = &cobra.Command{
 	}
 
 var Get_PerformancePriceLayers_cmd = &cobra.Command{
-		Use: `{"AsOfDateTime":"string","PerformancePriceLayerID":"string"} | PerformancePriceLayers`,
+		Use: `PerformancePriceLayers`,
+		Example: `{"AsOfDateTime":"string","PerformancePriceLayerID":"string"}`,
 		Short: `Get details of a performance price layer`,
 		Long:  `Get details of a performance price layer.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("Counts"); test {
 				err = tq.Do(_tq, _tq.Get.PerformancePriceLayersGetCounts)
@@ -2752,9 +3110,11 @@ var Get_PerformancePriceLayers_cmd = &cobra.Command{
 	}
 
 var Get_PerformancePriceTypes_cmd = &cobra.Command{
-		Use: `{"AsOfDateTime":"string","PerformancePriceTypeID":"string"} | PerformancePriceTypes`,
+		Use: `PerformancePriceTypes`,
+		Example: `{"AsOfDateTime":"string","PerformancePriceTypeID":"string"}`,
 		Short: `Get details of a performance price type`,
 		Long:  `Get details of a performance price type.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PerformancePriceTypesGetAll)
@@ -2766,9 +3126,11 @@ var Get_PerformancePriceTypes_cmd = &cobra.Command{
 	}
 
 var Get_PerformancePrices_cmd = &cobra.Command{
-		Use: `{"AsOfDateTime":"string","PerformancePriceID":"string"} | PerformancePrices`,
+		Use: `PerformancePrices`,
+		Example: `{"AsOfDateTime":"string","PerformancePriceID":"string"}`,
 		Short: `Get details of a performance price`,
 		Long:  `Get details of a performance price.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PerformancePricesGetAll)
@@ -2784,9 +3146,11 @@ var Get_PerformancePrices_cmd = &cobra.Command{
 	}
 
 var Get_PerformanceStatuses_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | PerformanceStatuses`,
+		Use: `PerformanceStatuses`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a performance status by id`,
 		Long:  `Get the details of a performance status by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PerformanceStatusesGetAll)
@@ -2800,9 +3164,11 @@ var Get_PerformanceStatuses_cmd = &cobra.Command{
 	}
 
 var Get_PerformanceTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | PerformanceTypes`,
+		Use: `PerformanceTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a performance type by id`,
 		Long:  `Get the details of a performance type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PerformanceTypesGetAll)
@@ -2816,9 +3182,11 @@ var Get_PerformanceTypes_cmd = &cobra.Command{
 	}
 
 var Get_Performances_cmd = &cobra.Command{
-		Use: `{"PerformanceID":"string"} | Performances`,
+		Use: `Performances`,
+		Example: `{"PerformanceID":"string"}`,
 		Short: `Get details of a performance`,
 		Long:  `Get details of a performance.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PerformancesGetAll)
@@ -2848,9 +3216,11 @@ var Get_Performances_cmd = &cobra.Command{
 	}
 
 var Get_Philanthropy_cmd = &cobra.Command{
-		Use: `{"PhilanthropyEntryID":"string"} | Philanthropy`,
+		Use: `Philanthropy`,
+		Example: `{"PhilanthropyEntryID":"string"}`,
 		Short: `Get details of an philanthropyEntry`,
 		Long:  `Get details of an philanthropyEntry.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PhilanthropyGetAll)
@@ -2862,9 +3232,11 @@ var Get_Philanthropy_cmd = &cobra.Command{
 	}
 
 var Get_PhilanthropyTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | PhilanthropyTypes`,
+		Use: `PhilanthropyTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of philosophy type by id`,
 		Long:  `Get the details of philosophy type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PhilanthropyTypesGetAll)
@@ -2878,9 +3250,11 @@ var Get_PhilanthropyTypes_cmd = &cobra.Command{
 	}
 
 var Get_PhoneIndicators_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | PhoneIndicators`,
+		Use: `PhoneIndicators`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a phone indicator by id`,
 		Long:  `Get the details of a phone indicator by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PhoneIndicatorsGetAll)
@@ -2894,9 +3268,11 @@ var Get_PhoneIndicators_cmd = &cobra.Command{
 	}
 
 var Get_PhoneTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | PhoneTypes`,
+		Use: `PhoneTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a phone type by id`,
 		Long:  `Get the details of a phone type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PhoneTypesGetAll)
@@ -2910,9 +3286,11 @@ var Get_PhoneTypes_cmd = &cobra.Command{
 	}
 
 var Get_Phones_cmd = &cobra.Command{
-		Use: `{"PhoneID":"string"} | Phones`,
+		Use: `Phones`,
+		Example: `{"PhoneID":"string"}`,
 		Short: `Get details of a phone`,
 		Long:  `Get details of a phone.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PhonesGetAll)
@@ -2924,9 +3302,11 @@ var Get_Phones_cmd = &cobra.Command{
 	}
 
 var Get_PlanPriorities_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | PlanPriorities`,
+		Use: `PlanPriorities`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan priority by id`,
 		Long:  `Get the details of a plan priority by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PlanPrioritiesGetAll)
@@ -2940,9 +3320,11 @@ var Get_PlanPriorities_cmd = &cobra.Command{
 	}
 
 var Get_PlanSources_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | PlanSources`,
+		Use: `PlanSources`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan source by id`,
 		Long:  `Get the details of a plan source by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PlanSourcesGetAll)
@@ -2956,9 +3338,11 @@ var Get_PlanSources_cmd = &cobra.Command{
 	}
 
 var Get_PlanStatuses_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | PlanStatuses`,
+		Use: `PlanStatuses`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan status by id`,
 		Long:  `Get the details of a plan status by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PlanStatusesGetAll)
@@ -2972,9 +3356,11 @@ var Get_PlanStatuses_cmd = &cobra.Command{
 	}
 
 var Get_PlanTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | PlanTypes`,
+		Use: `PlanTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan type by id`,
 		Long:  `Get the details of a plan type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PlanTypesGetAll)
@@ -2988,9 +3374,11 @@ var Get_PlanTypes_cmd = &cobra.Command{
 	}
 
 var Get_PlanWorkers_cmd = &cobra.Command{
-		Use: `{"PlanWorkerID":"string"} | PlanWorkers`,
+		Use: `PlanWorkers`,
+		Example: `{"PlanWorkerID":"string"}`,
 		Short: `Get details of a plan worker`,
 		Long:  `Get details of a plan worker.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PlanWorkersGetAll)
@@ -3002,9 +3390,11 @@ var Get_PlanWorkers_cmd = &cobra.Command{
 	}
 
 var Get_Plans_cmd = &cobra.Command{
-		Use: `{"PlanID":"string"} | Plans`,
+		Use: `Plans`,
+		Example: `{"PlanID":"string"}`,
 		Short: `Get details of a plan`,
 		Long:  `Get details of a plan.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PlansGetAll)
@@ -3016,9 +3406,11 @@ var Get_Plans_cmd = &cobra.Command{
 	}
 
 var Get_PledgeBilling_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | PledgeBilling`,
+		Use: `PledgeBilling`,
+		Example: `{"ID":"string"}`,
 		Short: `Get status of a pledge billing run`,
 		Long:  `Get status of a pledge billing run. Job is finished processing when IsCompleted is true.  Only billing runs using automated billing will be running after the response from a POST to Txn/PledgeBilling.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.PledgeBillingGetStatus)
@@ -3027,9 +3419,11 @@ var Get_PledgeBilling_cmd = &cobra.Command{
 	}
 
 var Get_PortfolioCustomElements_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | PortfolioCustomElements`,
+		Use: `PortfolioCustomElements`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a portfolio custom element by id`,
 		Long:  `Get the details of a portfolio custom element by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PortfolioCustomElementsGetAll)
@@ -3043,9 +3437,11 @@ var Get_PortfolioCustomElements_cmd = &cobra.Command{
 	}
 
 var Get_Portfolios_cmd = &cobra.Command{
-		Use: `{"ConstituentID":"string","Page":"string","PageSize":"string","PlanCustomColumns":"string","PortfolioCustomColumns":"string","PrimaryOnly":"string","StatusIds":"string","WorkerRoleIds":"string"} | Portfolios`,
+		Use: `Portfolios`,
+		Example: `{"ConstituentID":"string","Page":"string","PageSize":"string","PlanCustomColumns":"string","PortfolioCustomColumns":"string","PrimaryOnly":"string","StatusIds":"string","WorkerRoleIds":"string"}`,
 		Short: `Get portfolio for a constituent`,
 		Long:  `Get portfolio for a constituent.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("PortfolioEntry"); test {
 				err = tq.Do(_tq, _tq.Get.PortfoliosGetPortfolioEntry)
@@ -3057,9 +3453,11 @@ var Get_Portfolios_cmd = &cobra.Command{
 	}
 
 var Get_Prefixes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | Prefixes`,
+		Use: `Prefixes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a prefix by id`,
 		Long:  `Get the details of a prefix by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PrefixesGetAll)
@@ -3073,9 +3471,11 @@ var Get_Prefixes_cmd = &cobra.Command{
 	}
 
 var Get_Premieres_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | Premieres`,
+		Use: `Premieres`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a premiere by id`,
 		Long:  `Get the details of a premiere by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PremieresGetAll)
@@ -3089,9 +3489,11 @@ var Get_Premieres_cmd = &cobra.Command{
 	}
 
 var Get_PriceCategories_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | PriceCategories`,
+		Use: `PriceCategories`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a price category by id`,
 		Long:  `Get the details of a price category by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PriceCategoriesGetAll)
@@ -3105,9 +3507,11 @@ var Get_PriceCategories_cmd = &cobra.Command{
 	}
 
 var Get_PriceEvents_cmd = &cobra.Command{
-		Use: `{"PriceEventID":"string"} | PriceEvents`,
+		Use: `PriceEvents`,
+		Example: `{"PriceEventID":"string"}`,
 		Short: `Get details of a price event`,
 		Long:  `Get details of a price event.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PriceEventsGetAll)
@@ -3121,9 +3525,11 @@ var Get_PriceEvents_cmd = &cobra.Command{
 	}
 
 var Get_PriceLayerTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | PriceLayerTypes`,
+		Use: `PriceLayerTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a price layer type by id`,
 		Long:  `Get the details of a price layer type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PriceLayerTypesGetAll)
@@ -3137,9 +3543,11 @@ var Get_PriceLayerTypes_cmd = &cobra.Command{
 	}
 
 var Get_PriceTemplates_cmd = &cobra.Command{
-		Use: `{"PriceTemplateID":"string"} | PriceTemplates`,
+		Use: `PriceTemplates`,
+		Example: `{"PriceTemplateID":"string"}`,
 		Short: `Get details of a price template`,
 		Long:  `Get details of a price template.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PriceTemplatesGetAll)
@@ -3153,9 +3561,11 @@ var Get_PriceTemplates_cmd = &cobra.Command{
 	}
 
 var Get_PriceTypeCategories_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | PriceTypeCategories`,
+		Use: `PriceTypeCategories`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a price type category by id`,
 		Long:  `Get the details of a price type category by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PriceTypeCategoriesGetAll)
@@ -3169,9 +3579,11 @@ var Get_PriceTypeCategories_cmd = &cobra.Command{
 	}
 
 var Get_PriceTypeGroups_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | PriceTypeGroups`,
+		Use: `PriceTypeGroups`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a price type group by id`,
 		Long:  `Get the details of a price type group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PriceTypeGroupsGetAll)
@@ -3185,9 +3597,11 @@ var Get_PriceTypeGroups_cmd = &cobra.Command{
 	}
 
 var Get_PriceTypeReasons_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | PriceTypeReasons`,
+		Use: `PriceTypeReasons`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a price type reason by id`,
 		Long:  `Get the details of a price type reason by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PriceTypeReasonsGetAll)
@@ -3201,9 +3615,11 @@ var Get_PriceTypeReasons_cmd = &cobra.Command{
 	}
 
 var Get_PriceTypeUserGroups_cmd = &cobra.Command{
-		Use: `{"PriceTypeUserGroupID":"string"} | PriceTypeUserGroups`,
+		Use: `PriceTypeUserGroups`,
+		Example: `{"PriceTypeUserGroupID":"string"}`,
 		Short: `Get details of a price type/user group mapping by id`,
 		Long:  `Get details of a price type/user group mapping by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PriceTypeUserGroupsGetAll)
@@ -3215,9 +3631,11 @@ var Get_PriceTypeUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_PriceTypes_cmd = &cobra.Command{
-		Use: `{"PriceTypeID":"string"} | PriceTypes`,
+		Use: `PriceTypes`,
+		Example: `{"PriceTypeID":"string"}`,
 		Short: `Get details of a price type`,
 		Long:  `Get details of a price type.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PriceTypesGetAll)
@@ -3237,9 +3655,11 @@ var Get_PriceTypes_cmd = &cobra.Command{
 	}
 
 var Get_PricingRuleCategories_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | PricingRuleCategories`,
+		Use: `PricingRuleCategories`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a pricing rule category by id`,
 		Long:  `Get the details of a pricing rule category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PricingRuleCategoriesGetAll)
@@ -3253,9 +3673,11 @@ var Get_PricingRuleCategories_cmd = &cobra.Command{
 	}
 
 var Get_PricingRuleMessageTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | PricingRuleMessageTypes`,
+		Use: `PricingRuleMessageTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a pricing rule message type by id`,
 		Long:  `Get the details of a pricing rule message type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PricingRuleMessageTypesGetAll)
@@ -3269,9 +3691,11 @@ var Get_PricingRuleMessageTypes_cmd = &cobra.Command{
 	}
 
 var Get_PricingRuleSets_cmd = &cobra.Command{
-		Use: `{"PricingRuleSetID":"string"} | PricingRuleSets`,
+		Use: `PricingRuleSets`,
+		Example: `{"PricingRuleSetID":"string"}`,
 		Short: `Get details of a pricing rule set`,
 		Long:  `Get details of a pricing rule set.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PricingRuleSetsGetAll)
@@ -3285,9 +3709,11 @@ var Get_PricingRuleSets_cmd = &cobra.Command{
 	}
 
 var Get_PricingRuleTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | PricingRuleTypes`,
+		Use: `PricingRuleTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a pricing rule type by id`,
 		Long:  `Get the details of a pricing rule type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PricingRuleTypesGetAll)
@@ -3301,9 +3727,11 @@ var Get_PricingRuleTypes_cmd = &cobra.Command{
 	}
 
 var Get_PricingRules_cmd = &cobra.Command{
-		Use: `{"PricingRuleID":"string"} | PricingRules`,
+		Use: `PricingRules`,
+		Example: `{"PricingRuleID":"string"}`,
 		Short: `Get details of a pricing rule`,
 		Long:  `Get details of a pricing rule.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PricingRulesGetAll)
@@ -3317,9 +3745,11 @@ var Get_PricingRules_cmd = &cobra.Command{
 	}
 
 var Get_Printers_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | Printers`,
+		Use: `Printers`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a printer by id`,
 		Long:  `Get the details of a printer by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PrintersGetAll)
@@ -3333,11 +3763,13 @@ var Get_Printers_cmd = &cobra.Command{
 	}
 
 var Get_ProductKeywords_cmd = &cobra.Command{
-		Use: `{"KeywordIds":"string","PackageIds":"string","ProductionElementIds":"string","ShowAll":"string"} | ProductKeywords`,
+		Use: `ProductKeywords`,
+		Example: `{"KeywordIds":"string","PackageIds":"string","ProductionElementIds":"string","ShowAll":"string"}`,
 		Short: `Returns keywords for the requested production elements or packages`,
 		Long:  `Returns keywords for the requested production elements or packages.
 
 For Production Elements: If the keyword is found, returns the keyword and the lowest level at which it was found in the production hierarchy (Title, Production, Production Season, Performance) for the requested element. Optionally, all matching keywords anywhere above the requested element in the production hierarchy can be returned with the ShowAll parameter.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.ProductKeywordsGetKeywords)
@@ -3346,9 +3778,11 @@ For Production Elements: If the keyword is found, returns the keyword and the lo
 	}
 
 var Get_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | ProductionSeasonMembershipOrganizations`,
+		Use: `ProductionSeasonMembershipOrganizations`,
+		Example: `{"ID":"string"}`,
 		Short: `Get details of a specific production season membership organization`,
 		Long:  `Get details of a specific production season membership organization.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ProductionSeasonMembershipOrganizationsGetAll)
@@ -3362,10 +3796,12 @@ var Get_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 	}
 
 var Get_ProductionSeasons_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | ProductionSeasons`,
+		Use: `ProductionSeasons`,
+		Example: `{"ID":"string"}`,
 		Short: `Get details of a specific production season`,
 		Long:  `Get details of a specific production season.
 Returns the full details for a single production season, including description and short description, season, first and last performance date, and the four ticket text lines.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ProductionSeasonsGetAll)
@@ -3379,9 +3815,11 @@ Returns the full details for a single production season, including description a
 	}
 
 var Get_Productions_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | Productions`,
+		Use: `Productions`,
+		Example: `{"ID":"string"}`,
 		Short: `Get details of a specific production`,
 		Long:  `Get details of a specific production.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ProductionsGetAll)
@@ -3395,9 +3833,11 @@ var Get_Productions_cmd = &cobra.Command{
 	}
 
 var Get_ProgramListings_cmd = &cobra.Command{
-		Use: `{"ProgramListingID":"string"} | ProgramListings`,
+		Use: `ProgramListings`,
+		Example: `{"ProgramListingID":"string"}`,
 		Short: `Get details of a program listing`,
 		Long:  `Get details of a program listing.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ProgramListingsGetAll)
@@ -3409,9 +3849,11 @@ var Get_ProgramListings_cmd = &cobra.Command{
 	}
 
 var Get_Programs_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | Programs`,
+		Use: `Programs`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a program by id`,
 		Long:  `Get the details of a program by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ProgramsGetAll)
@@ -3425,9 +3867,11 @@ var Get_Programs_cmd = &cobra.Command{
 	}
 
 var Get_Pronouns_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | Pronouns`,
+		Use: `Pronouns`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: ``,
 		Long:  ``,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.PronounsGetAll)
@@ -3441,9 +3885,11 @@ var Get_Pronouns_cmd = &cobra.Command{
 	}
 
 var Get_QualificationCategories_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | QualificationCategories`,
+		Use: `QualificationCategories`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Qualification Category by id`,
 		Long:  `Get the details of a Qualification Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.QualificationCategoriesGetAll)
@@ -3457,9 +3903,11 @@ var Get_QualificationCategories_cmd = &cobra.Command{
 	}
 
 var Get_Qualifications_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | Qualifications`,
+		Use: `Qualifications`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Qualification by id`,
 		Long:  `Get the details of a Qualification by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.QualificationsGetAll)
@@ -3473,9 +3921,11 @@ var Get_Qualifications_cmd = &cobra.Command{
 	}
 
 var Get_QueryElementFilters_cmd = &cobra.Command{
-		Use: `{"QueryElementFilterID":"string"} | QueryElementFilters`,
+		Use: `QueryElementFilters`,
+		Example: `{"QueryElementFilterID":"string"}`,
 		Short: `Get a specific query element filter`,
 		Long:  `Get a specific query element filter.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.QueryElementFiltersGetAll)
@@ -3491,9 +3941,11 @@ var Get_QueryElementFilters_cmd = &cobra.Command{
 	}
 
 var Get_QueryElementGroups_cmd = &cobra.Command{
-		Use: `{"QueryElementGroupID":"string"} | QueryElementGroups`,
+		Use: `QueryElementGroups`,
+		Example: `{"QueryElementGroupID":"string"}`,
 		Short: `Get the details of a query element group by id`,
 		Long:  `Get the details of a query element group by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.QueryElementGroupsGetAll)
@@ -3505,9 +3957,11 @@ var Get_QueryElementGroups_cmd = &cobra.Command{
 	}
 
 var Get_QueryElements_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | QueryElements`,
+		Use: `QueryElements`,
+		Example: `{"ID":"string"}`,
 		Short: `Get details of a query element by id`,
 		Long:  `Get details of a query element by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.QueryElementsGetAll)
@@ -3521,9 +3975,11 @@ var Get_QueryElements_cmd = &cobra.Command{
 	}
 
 var Get_RankTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | RankTypes`,
+		Use: `RankTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a rank type by id`,
 		Long:  `Get the details of a rank type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.RankTypesGetAll)
@@ -3537,9 +3993,11 @@ var Get_RankTypes_cmd = &cobra.Command{
 	}
 
 var Get_Rankings_cmd = &cobra.Command{
-		Use: `{"RankingID":"string"} | Rankings`,
+		Use: `Rankings`,
+		Example: `{"RankingID":"string"}`,
 		Short: `Get details of a ranking`,
 		Long:  `Get details of a ranking.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.RankingsGetAll)
@@ -3551,9 +4009,11 @@ var Get_Rankings_cmd = &cobra.Command{
 	}
 
 var Get_ReceiptSettings_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | ReceiptSettings`,
+		Use: `ReceiptSettings`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Receipt Setting by id`,
 		Long:  `Get the details of a Receipt Setting by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ReceiptSettingsGetAll)
@@ -3567,9 +4027,11 @@ var Get_ReceiptSettings_cmd = &cobra.Command{
 	}
 
 var Get_ReferenceColumns_cmd = &cobra.Command{
-		Use: `{"MaintenanceMode":"string"} | ReferenceColumns`,
+		Use: `ReferenceColumns`,
+		Example: `{"MaintenanceMode":"string"}`,
 		Short: `Get all reference columns`,
 		Long:  `Get all reference columns. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				err = tq.Do(_tq, _tq.Get.ReferenceColumnsGetSummaries)
@@ -3581,9 +4043,11 @@ var Get_ReferenceColumns_cmd = &cobra.Command{
 	}
 
 var Get_ReferenceTableUserGroups_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | ReferenceTableUserGroups`,
+		Use: `ReferenceTableUserGroups`,
+		Example: `{"ID":"string"}`,
 		Short: `Get the details of a reference table/user group mapping by id`,
 		Long:  `Get the details of a reference table/user group mapping by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ReferenceTableUserGroupsGetAll)
@@ -3597,9 +4061,11 @@ var Get_ReferenceTableUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_ReferenceTables_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | ReferenceTables`,
+		Use: `ReferenceTables`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get details for a reference table by Id`,
 		Long:  `Get details for a reference table by Id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ReferenceTablesGetAll)
@@ -3613,9 +4079,11 @@ var Get_ReferenceTables_cmd = &cobra.Command{
 	}
 
 var Get_RelationshipCategories_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | RelationshipCategories`,
+		Use: `RelationshipCategories`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a relationship category by id`,
 		Long:  `Get the details of a relationship category by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.RelationshipCategoriesGetAll)
@@ -3629,9 +4097,11 @@ var Get_RelationshipCategories_cmd = &cobra.Command{
 	}
 
 var Get_Relationships_cmd = &cobra.Command{
-		Use: `{"ActiveOnly":"string","AssociatedConstituentID":"string","ConstituentID":"string","EndActiveDate":"string","IncludeAffiliations":"string","StartActiveDate":"string"} | Relationships`,
+		Use: `Relationships`,
+		Example: `{"ActiveOnly":"string","AssociatedConstituentID":"string","ConstituentID":"string","EndActiveDate":"string","IncludeAffiliations":"string","StartActiveDate":"string"}`,
 		Short: `Get all affiliations and associations of the specified constituent id or get all affiliations and associations of the specified associated constituent id`,
 		Long:  `Get all affiliations and associations of the specified constituent id or get all affiliations and associations of the specified associated constituent id. If both are specified get all the associations and affiliations between them.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.RelationshipsGetAll)
@@ -3640,9 +4110,11 @@ var Get_Relationships_cmd = &cobra.Command{
 	}
 
 var Get_ReportRequests_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | ReportRequests`,
+		Use: `ReportRequests`,
+		Example: `{"ID":"string"}`,
 		Short: `Get a report request`,
 		Long:  `Get a report request.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ReportRequestsGetAll)
@@ -3658,9 +4130,11 @@ var Get_ReportRequests_cmd = &cobra.Command{
 	}
 
 var Get_ReportSchedules_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | ReportSchedules`,
+		Use: `ReportSchedules`,
+		Example: `{"ID":"string"}`,
 		Short: `Get a report schedule`,
 		Long:  `Get a report schedule.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ReportSchedulesGetAll)
@@ -3672,9 +4146,11 @@ var Get_ReportSchedules_cmd = &cobra.Command{
 	}
 
 var Get_ReportUserGroups_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | ReportUserGroups`,
+		Use: `ReportUserGroups`,
+		Example: `{"ID":"string"}`,
 		Short: `Get the details of a report/user group mapping by id`,
 		Long:  `Get the details of a report/user group mapping by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ReportUserGroupsGetAll)
@@ -3688,9 +4164,11 @@ var Get_ReportUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_Reports_cmd = &cobra.Command{
-		Use: `{"ReportID":"string"} | Reports`,
+		Use: `Reports`,
+		Example: `{"ReportID":"string"}`,
 		Short: `Get details of a report`,
 		Long:  `Get details of a report.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ReportsGetAll)
@@ -3710,9 +4188,11 @@ var Get_Reports_cmd = &cobra.Command{
 	}
 
 var Get_Research_cmd = &cobra.Command{
-		Use: `{"ResearchEntryID":"string"} | Research`,
+		Use: `Research`,
+		Example: `{"ResearchEntryID":"string"}`,
 		Short: `Get details of a research entry`,
 		Long:  `Get details of a research entry.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ResearchGetAll)
@@ -3724,9 +4204,11 @@ var Get_Research_cmd = &cobra.Command{
 	}
 
 var Get_ResearchTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | ResearchTypes`,
+		Use: `ResearchTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of research type by id`,
 		Long:  `Get the details of research type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ResearchTypesGetAll)
@@ -3740,9 +4222,11 @@ var Get_ResearchTypes_cmd = &cobra.Command{
 	}
 
 var Get_ResourceCategories_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | ResourceCategories`,
+		Use: `ResourceCategories`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Resource Category by id`,
 		Long:  `Get the details of a Resource Category by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ResourceCategoriesGetAll)
@@ -3756,9 +4240,11 @@ var Get_ResourceCategories_cmd = &cobra.Command{
 	}
 
 var Get_ResourceSchedules_cmd = &cobra.Command{
-		Use: `{"ResourceScheduleID":"string"} | ResourceSchedules`,
+		Use: `ResourceSchedules`,
+		Example: `{"ResourceScheduleID":"string"}`,
 		Short: `Get a single resource schedule`,
 		Long:  `Get a single resource schedule.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ResourceSchedulesGetAll)
@@ -3770,9 +4256,11 @@ var Get_ResourceSchedules_cmd = &cobra.Command{
 	}
 
 var Get_ResourceTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | ResourceTypes`,
+		Use: `ResourceTypes`,
+		Example: `{"ID":"string"}`,
 		Short: `Get all resource types`,
 		Long:  `Get all resource types.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ResourceTypesGetAll)
@@ -3786,9 +4274,11 @@ var Get_ResourceTypes_cmd = &cobra.Command{
 	}
 
 var Get_Resources_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | Resources`,
+		Use: `Resources`,
+		Example: `{"ID":"string"}`,
 		Short: `Get a specific Resource`,
 		Long:  `Get a specific Resource.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ResourcesGetAll)
@@ -3806,9 +4296,11 @@ var Get_Resources_cmd = &cobra.Command{
 	}
 
 var Get_SalesChannels_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | SalesChannels`,
+		Use: `SalesChannels`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a sales channel by id`,
 		Long:  `Get the details of a sales channel by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.SalesChannelsGetAll)
@@ -3822,9 +4314,11 @@ var Get_SalesChannels_cmd = &cobra.Command{
 	}
 
 var Get_SalesLayoutButtonTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | SalesLayoutButtonTypes`,
+		Use: `SalesLayoutButtonTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a sales layout button type by id`,
 		Long:  `Get the details of a sales layout button type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.SalesLayoutButtonTypesGetAll)
@@ -3838,9 +4332,11 @@ var Get_SalesLayoutButtonTypes_cmd = &cobra.Command{
 	}
 
 var Get_SalesLayouts_cmd = &cobra.Command{
-		Use: `{"SalesLayoutID":"string"} | SalesLayouts`,
+		Use: `SalesLayouts`,
+		Example: `{"SalesLayoutID":"string"}`,
 		Short: `Get details of a sales layout setup`,
 		Long:  `Get details of a sales layout setup.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("ForSale"); test {
 				err = tq.Do(_tq, _tq.Get.SalesLayoutsGetForSale)
@@ -3854,9 +4350,11 @@ var Get_SalesLayouts_cmd = &cobra.Command{
 	}
 
 var Get_SalutationTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | SalutationTypes`,
+		Use: `SalutationTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a salutation type by id`,
 		Long:  `Get the details of a salutation type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.SalutationTypesGetAll)
@@ -3870,9 +4368,11 @@ var Get_SalutationTypes_cmd = &cobra.Command{
 	}
 
 var Get_Salutations_cmd = &cobra.Command{
-		Use: `{"SalutationID":"string"} | Salutations`,
+		Use: `Salutations`,
+		Example: `{"SalutationID":"string"}`,
 		Short: `Get details of a salutation`,
 		Long:  `Get details of a salutation.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.SalutationsGetAll)
@@ -3886,9 +4386,11 @@ var Get_Salutations_cmd = &cobra.Command{
 	}
 
 var Get_SchedulePatternTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | SchedulePatternTypes`,
+		Use: `SchedulePatternTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Schedule Pattern by id`,
 		Long:  `Get the details of a Schedule Pattern by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.SchedulePatternTypesGetAll)
@@ -3902,9 +4404,11 @@ var Get_SchedulePatternTypes_cmd = &cobra.Command{
 	}
 
 var Get_ScheduleTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | ScheduleTypes`,
+		Use: `ScheduleTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Schedule Type by id`,
 		Long:  `Get the details of a Schedule Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ScheduleTypesGetAll)
@@ -3918,9 +4422,11 @@ var Get_ScheduleTypes_cmd = &cobra.Command{
 	}
 
 var Get_SeasonTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | SeasonTypes`,
+		Use: `SeasonTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a season type by id`,
 		Long:  `Get the details of a season type by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.SeasonTypesGetAll)
@@ -3934,9 +4440,11 @@ var Get_SeasonTypes_cmd = &cobra.Command{
 	}
 
 var Get_Seasons_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | Seasons`,
+		Use: `Seasons`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a season by id`,
 		Long:  `Get the details of a season by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.SeasonsGetAll)
@@ -3950,9 +4458,11 @@ var Get_Seasons_cmd = &cobra.Command{
 	}
 
 var Get_SeatCodes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | SeatCodes`,
+		Use: `SeatCodes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a seat code by id`,
 		Long:  `Get the details of a seat code by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.SeatCodesGetAll)
@@ -3966,9 +4476,11 @@ var Get_SeatCodes_cmd = &cobra.Command{
 	}
 
 var Get_SeatStatuses_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | SeatStatuses`,
+		Use: `SeatStatuses`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a seat status by id`,
 		Long:  `Get the details of a seat status by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.SeatStatusesGetAll)
@@ -3982,9 +4494,11 @@ var Get_SeatStatuses_cmd = &cobra.Command{
 	}
 
 var Get_Sections_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | Sections`,
+		Use: `Sections`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a section by id`,
 		Long:  `Get the details of a section by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.SectionsGetAll)
@@ -3998,9 +4512,11 @@ var Get_Sections_cmd = &cobra.Command{
 	}
 
 var Get_SecurityBatchTypes_cmd = &cobra.Command{
-		Use: ` | SecurityBatchTypes`,
+		Use: `SecurityBatchTypes`,
+		Example: ``,
 		Short: `Get all batch type/user group mappings valid for the context usergroup`,
 		Long:  `Get all batch type/user group mappings valid for the context usergroup.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.SecurityBatchTypesGetAll)
@@ -4009,9 +4525,11 @@ var Get_SecurityBatchTypes_cmd = &cobra.Command{
 	}
 
 var Get_SecurityControlGroups_cmd = &cobra.Command{
-		Use: ` | SecurityControlGroups`,
+		Use: `SecurityControlGroups`,
+		Example: ``,
 		Short: `Get all control group/user group mappings valid for the context usergroup`,
 		Long:  `Get all control group/user group mappings valid for the context usergroup.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.SecurityControlGroupsGetAll)
@@ -4020,9 +4538,11 @@ var Get_SecurityControlGroups_cmd = &cobra.Command{
 	}
 
 var Get_SecurityHoldCodes_cmd = &cobra.Command{
-		Use: ` | SecurityHoldCodes`,
+		Use: `SecurityHoldCodes`,
+		Example: ``,
 		Short: `Get all hold code/user group mappings valid for the context usergroup`,
 		Long:  `Get all hold code/user group mappings valid for the context usergroup.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.SecurityHoldCodesGetAll)
@@ -4031,9 +4551,11 @@ var Get_SecurityHoldCodes_cmd = &cobra.Command{
 	}
 
 var Get_SecurityModesOfSale_cmd = &cobra.Command{
-		Use: ` | SecurityModesOfSale`,
+		Use: `SecurityModesOfSale`,
+		Example: ``,
 		Short: `Get all mode of sale/user group mappings valid for the context usergroup`,
 		Long:  `Get all mode of sale/user group mappings valid for the context usergroup.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.SecurityModesOfSaleGetAll)
@@ -4042,9 +4564,11 @@ var Get_SecurityModesOfSale_cmd = &cobra.Command{
 	}
 
 var Get_SecurityObjectPermissions_cmd = &cobra.Command{
-		Use: `{"ConstituencyID":"string","ObjectIds":"string","Objectid":"string"} | SecurityObjectPermissions`,
+		Use: `SecurityObjectPermissions`,
+		Example: `{"ConstituencyID":"string","ObjectIds":"string","Objectid":"string"}`,
 		Short: `Get all the object permissions valid for the context usergroup`,
 		Long:  `Get all the object permissions valid for the context usergroup. Optionally filter by constituency id and/or object id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.SecurityObjectPermissionsGetAll)
@@ -4053,9 +4577,11 @@ var Get_SecurityObjectPermissions_cmd = &cobra.Command{
 	}
 
 var Get_SecurityPaymentMethods_cmd = &cobra.Command{
-		Use: `{"Amount":"string"} | SecurityPaymentMethods`,
+		Use: `SecurityPaymentMethods`,
+		Example: `{"Amount":"string"}`,
 		Short: `Get all payment method/user group mappings valid for the context usergroup`,
 		Long:  `Get all payment method/user group mappings valid for the context usergroup.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.SecurityPaymentMethodsGetAll)
@@ -4064,9 +4590,11 @@ var Get_SecurityPaymentMethods_cmd = &cobra.Command{
 	}
 
 var Get_SecurityPriceTypes_cmd = &cobra.Command{
-		Use: ` | SecurityPriceTypes`,
+		Use: `SecurityPriceTypes`,
+		Example: ``,
 		Short: `Get all price type/user group mappings valid for the context usergroup`,
 		Long:  `Get all price type/user group mappings valid for the context usergroup.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.SecurityPriceTypesGetAll)
@@ -4075,9 +4603,11 @@ var Get_SecurityPriceTypes_cmd = &cobra.Command{
 	}
 
 var Get_SecurityReferenceTables_cmd = &cobra.Command{
-		Use: ` | SecurityReferenceTables`,
+		Use: `SecurityReferenceTables`,
+		Example: ``,
 		Short: `Get all the reference table/user group mappings valid for the context usergroup`,
 		Long:  `Get all the reference table/user group mappings valid for the context usergroup.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.SecurityReferenceTablesGetAll)
@@ -4086,9 +4616,11 @@ var Get_SecurityReferenceTables_cmd = &cobra.Command{
 	}
 
 var Get_SecurityReports_cmd = &cobra.Command{
-		Use: ` | SecurityReports`,
+		Use: `SecurityReports`,
+		Example: ``,
 		Short: `Get all report/user group mappings valid for the context usergroup`,
 		Long:  `Get all report/user group mappings valid for the context usergroup.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.SecurityReportsGetAll)
@@ -4097,9 +4629,11 @@ var Get_SecurityReports_cmd = &cobra.Command{
 	}
 
 var Get_SecurityServiceResources_cmd = &cobra.Command{
-		Use: ` | SecurityServiceResources`,
+		Use: `SecurityServiceResources`,
+		Example: ``,
 		Short: `Get all service resource/user group mappings valid for the context usergroup`,
 		Long:  `Get all service resource/user group mappings valid for the context usergroup.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.SecurityServiceResourcesGetAll)
@@ -4108,9 +4642,11 @@ var Get_SecurityServiceResources_cmd = &cobra.Command{
 	}
 
 var Get_SecurityUserGroups_cmd = &cobra.Command{
-		Use: `{"Application":"string","UserName":"string"} | SecurityUserGroups`,
+		Use: `SecurityUserGroups`,
+		Example: `{"Application":"string","UserName":"string"}`,
 		Short: `Get all security user groups`,
 		Long:  `Get all security user groups.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("DefaultUserGroup"); test {
 				err = tq.Do(_tq, _tq.Get.SecurityUserGroupsGetDefaultUserGroup)
@@ -4124,9 +4660,11 @@ var Get_SecurityUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_ServiceResourceUserGroups_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | ServiceResourceUserGroups`,
+		Use: `ServiceResourceUserGroups`,
+		Example: `{"ID":"string"}`,
 		Short: `Get the details of a service resource/user group mapping by id`,
 		Long:  `Get the details of a service resource/user group mapping by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ServiceResourceUserGroupsGetAll)
@@ -4140,9 +4678,11 @@ var Get_ServiceResourceUserGroups_cmd = &cobra.Command{
 	}
 
 var Get_ServiceResources_cmd = &cobra.Command{
-		Use: `{"MaintenanceMode":"string"} | ServiceResources`,
+		Use: `ServiceResources`,
+		Example: `{"MaintenanceMode":"string"}`,
 		Short: `Get all service resources`,
 		Long:  `Get all service resources. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				err = tq.Do(_tq, _tq.Get.ServiceResourcesGetSummaries)
@@ -4154,10 +4694,12 @@ var Get_ServiceResources_cmd = &cobra.Command{
 	}
 
 var Get_Session_cmd = &cobra.Command{
-		Use: `{"SessionKey":"string"} | Session`,
+		Use: `Session`,
+		Example: `{"SessionKey":"string"}`,
 		Short: `Returns details summarizing a web session's state`,
 		Long:  `Returns details summarizing a web session's state.
 Includes counts of cart products, the login status, MOS and Source`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("Default"); test {
 				err = tq.Do(_tq, _tq.Get.SessionGetDefault)
@@ -4181,9 +4723,11 @@ Includes counts of cart products, the login status, MOS and Source`,
 	}
 
 var Get_SourceGroups_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | SourceGroups`,
+		Use: `SourceGroups`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a source group by id`,
 		Long:  `Get the details of a source group by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.SourceGroupsGetAll)
@@ -4197,9 +4741,11 @@ var Get_SourceGroups_cmd = &cobra.Command{
 	}
 
 var Get_Sources_cmd = &cobra.Command{
-		Use: `{"SourceID":"string"} | Sources`,
+		Use: `Sources`,
+		Example: `{"SourceID":"string"}`,
 		Short: `Get details of a Source`,
 		Long:  `Get details of a Source.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("Summaries"); test {
 				err = tq.Do(_tq, _tq.Get.SourcesGetSummaries)
@@ -4213,9 +4759,11 @@ var Get_Sources_cmd = &cobra.Command{
 	}
 
 var Get_SpecialActivities_cmd = &cobra.Command{
-		Use: `{"SpecialActivityID":"string"} | SpecialActivities`,
+		Use: `SpecialActivities`,
+		Example: `{"SpecialActivityID":"string"}`,
 		Short: `Get details of an activity record`,
 		Long:  `Get details of an activity record.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.SpecialActivitiesGetAll)
@@ -4227,9 +4775,11 @@ var Get_SpecialActivities_cmd = &cobra.Command{
 	}
 
 var Get_SpecialActivityStatuses_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | SpecialActivityStatuses`,
+		Use: `SpecialActivityStatuses`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Special Activity Status by id`,
 		Long:  `Get the details of a Special Activity Status by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.SpecialActivityStatusesGetAll)
@@ -4243,9 +4793,11 @@ var Get_SpecialActivityStatuses_cmd = &cobra.Command{
 	}
 
 var Get_SpecialActivityTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | SpecialActivityTypes`,
+		Use: `SpecialActivityTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a Special Activity Type by id`,
 		Long:  `Get the details of a Special Activity Type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.SpecialActivityTypesGetAll)
@@ -4259,9 +4811,11 @@ var Get_SpecialActivityTypes_cmd = &cobra.Command{
 	}
 
 var Get_States_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | States`,
+		Use: `States`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a state by id`,
 		Long:  `Get the details of a state by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.StatesGetAll)
@@ -4275,9 +4829,11 @@ var Get_States_cmd = &cobra.Command{
 	}
 
 var Get_StepTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | StepTypes`,
+		Use: `StepTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a step type by id`,
 		Long:  `Get the details of a step type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.StepTypesGetAll)
@@ -4291,9 +4847,11 @@ var Get_StepTypes_cmd = &cobra.Command{
 	}
 
 var Get_Steps_cmd = &cobra.Command{
-		Use: `{"StepID":"string"} | Steps`,
+		Use: `Steps`,
+		Example: `{"StepID":"string"}`,
 		Short: `Get details of a step`,
 		Long:  `Get details of a step.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.StepsGetAll)
@@ -4309,9 +4867,11 @@ var Get_Steps_cmd = &cobra.Command{
 	}
 
 var Get_SubLineItemStatuses_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | SubLineItemStatuses`,
+		Use: `SubLineItemStatuses`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a sub line item status by id`,
 		Long:  `Get the details of a sub line item status by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.SubLineItemStatusesGetAll)
@@ -4325,9 +4885,11 @@ var Get_SubLineItemStatuses_cmd = &cobra.Command{
 	}
 
 var Get_SubLineItems_cmd = &cobra.Command{
-		Use: `{"ConstituentID":"string","IncludeAffiliations":"string","IncludePackageBaseSubLineitems":"string","OrderEndDate":"string","OrderID":"string","OrderStartDate":"string","PerformanceEndDate":"string","PerformanceStartDate":"string","PerformanceTypeIds":"string","SubLineItemStatusIds":"string"} | SubLineItems`,
+		Use: `SubLineItems`,
+		Example: `{"ConstituentID":"string","IncludeAffiliations":"string","IncludePackageBaseSubLineitems":"string","OrderEndDate":"string","OrderID":"string","OrderStartDate":"string","PerformanceEndDate":"string","PerformanceStartDate":"string","PerformanceTypeIds":"string","SubLineItemStatusIds":"string"}`,
 		Short: `Returns sub line item summary data for a constituent`,
 		Long:  `Returns sub line item summary data for a constituent`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.SubLineItemsGetSubLineItemSummaries)
@@ -4336,9 +4898,11 @@ var Get_SubLineItems_cmd = &cobra.Command{
 	}
 
 var Get_Suffixes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | Suffixes`,
+		Use: `Suffixes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a suffix by id`,
 		Long:  `Get the details of a suffix by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.SuffixesGetAll)
@@ -4352,9 +4916,11 @@ var Get_Suffixes_cmd = &cobra.Command{
 	}
 
 var Get_SurveyQuestions_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | SurveyQuestions`,
+		Use: `SurveyQuestions`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a survey question by id`,
 		Long:  `Get the details of a survey question by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.SurveyQuestionsGetAll)
@@ -4370,9 +4936,11 @@ var Get_SurveyQuestions_cmd = &cobra.Command{
 	}
 
 var Get_SurveyResponses_cmd = &cobra.Command{
-		Use: `{"SurveyResponseID":"string"} | SurveyResponses`,
+		Use: `SurveyResponses`,
+		Example: `{"SurveyResponseID":"string"}`,
 		Short: `Get details of a survey response`,
 		Long:  `Get details of a survey response.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.SurveyResponsesGetAll)
@@ -4384,9 +4952,11 @@ var Get_SurveyResponses_cmd = &cobra.Command{
 	}
 
 var Get_SystemDefaults_cmd = &cobra.Command{
-		Use: `{"MaintenanceMode":"string"} | SystemDefaults`,
+		Use: `SystemDefaults`,
+		Example: `{"MaintenanceMode":"string"}`,
 		Short: `Get all system defaults`,
 		Long:  `Get all system defaults. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("Default"); test {
 				err = tq.Do(_tq, _tq.Get.SystemDefaultsGetDefault)
@@ -4400,9 +4970,11 @@ var Get_SystemDefaults_cmd = &cobra.Command{
 	}
 
 var Get_TemplateCategories_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | TemplateCategories`,
+		Use: `TemplateCategories`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a template category by id`,
 		Long:  `Get the details of a template category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.TemplateCategoriesGetAll)
@@ -4416,9 +4988,11 @@ var Get_TemplateCategories_cmd = &cobra.Command{
 	}
 
 var Get_TemplatePriceTypes_cmd = &cobra.Command{
-		Use: `{"TemplatePriceTypeID":"string"} | TemplatePriceTypes`,
+		Use: `TemplatePriceTypes`,
+		Example: `{"TemplatePriceTypeID":"string"}`,
 		Short: `Get details of a template price type`,
 		Long:  `Get details of a template price type.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.TemplatePriceTypesGetAll)
@@ -4430,9 +5004,11 @@ var Get_TemplatePriceTypes_cmd = &cobra.Command{
 	}
 
 var Get_TemplatePrices_cmd = &cobra.Command{
-		Use: `{"TemplatePriceID":"string"} | TemplatePrices`,
+		Use: `TemplatePrices`,
+		Example: `{"TemplatePriceID":"string"}`,
 		Short: `Get details of a template price`,
 		Long:  `Get details of a template price.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.TemplatePricesGetAll)
@@ -4444,9 +5020,11 @@ var Get_TemplatePrices_cmd = &cobra.Command{
 	}
 
 var Get_TemplateTypes_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | TemplateTypes`,
+		Use: `TemplateTypes`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a template type by id`,
 		Long:  `Get the details of a template type by id. To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.TemplateTypesGetAll)
@@ -4460,9 +5038,11 @@ var Get_TemplateTypes_cmd = &cobra.Command{
 	}
 
 var Get_Templates_cmd = &cobra.Command{
-		Use: `{"TemplateID":"string"} | Templates`,
+		Use: `Templates`,
+		Example: `{"TemplateID":"string"}`,
 		Short: `Get the details of a template by id`,
 		Long:  `Get the details of a template by id`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.TemplatesGetAll)
@@ -4476,9 +5056,11 @@ var Get_Templates_cmd = &cobra.Command{
 	}
 
 var Get_Theaters_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | Theaters`,
+		Use: `Theaters`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a theater by id`,
 		Long:  `Get the details of a theater by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.TheatersGetAll)
@@ -4492,9 +5074,11 @@ var Get_Theaters_cmd = &cobra.Command{
 	}
 
 var Get_TicketHistory_cmd = &cobra.Command{
-		Use: `{"ConstituentID":"string","IncludeAffiliations":"string","OrderEndDate":"string","OrderStartDate":"string","PerformanceEndDate":"string","PerformanceID":"string","PerformanceStartDate":"string","ProductionSeasonID":"string","SeasonID":"string"} | TicketHistory`,
+		Use: `TicketHistory`,
+		Example: `{"ConstituentID":"string","IncludeAffiliations":"string","OrderEndDate":"string","OrderStartDate":"string","PerformanceEndDate":"string","PerformanceID":"string","PerformanceStartDate":"string","ProductionSeasonID":"string","SeasonID":"string"}`,
 		Short: `Gets history information for tickets`,
 		Long:  `Gets history information for tickets`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.TicketHistoryGetAll)
@@ -4503,9 +5087,11 @@ var Get_TicketHistory_cmd = &cobra.Command{
 	}
 
 var Get_TimeSlots_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | TimeSlots`,
+		Use: `TimeSlots`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a time slot by id`,
 		Long:  `Get the details of a time slot by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.TimeSlotsGetAll)
@@ -4519,9 +5105,11 @@ var Get_TimeSlots_cmd = &cobra.Command{
 	}
 
 var Get_Titles_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | Titles`,
+		Use: `Titles`,
+		Example: `{"ID":"string"}`,
 		Short: `Get details of a specific title`,
 		Long:  `Get details of a specific title.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.TitlesGetAll)
@@ -4535,9 +5123,11 @@ var Get_Titles_cmd = &cobra.Command{
 	}
 
 var Get_TransactionHistory_cmd = &cobra.Command{
-		Use: `{"ConstituentID":"string","EndDate":"string","IncludeAffiliations":"string","Page":"string","PageSize":"string","PaymentID":"string","ReferenceID":"string","SortByDirection":"string","SortByField":"string","StartDate":"string"} | TransactionHistory`,
+		Use: `TransactionHistory`,
+		Example: `{"ConstituentID":"string","EndDate":"string","IncludeAffiliations":"string","Page":"string","PageSize":"string","PaymentID":"string","ReferenceID":"string","SortByDirection":"string","SortByField":"string","StartDate":"string"}`,
 		Short: `Get details of all transaction histories for the specified constituent id and all its visible affiliations' transaction histories as well`,
 		Long:  `Get details of all transaction histories for the specified constituent id and all its visible affiliations' transaction histories as well. To exclude transaction histories of the visible affiliations pass includeAffiliations=false. This resource is paged. Pass filters such as transaction reference id, payment id, or start and end date to limit the results. Results can also be sorted.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.TransactionHistoryGetAll)
@@ -4546,9 +5136,11 @@ var Get_TransactionHistory_cmd = &cobra.Command{
 	}
 
 var Get_TriPOSCloudConfigurations_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | TriPOSCloudConfigurations`,
+		Use: `TriPOSCloudConfigurations`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a TriPOS Cloud configuration by id`,
 		Long:  `Get the details of a TriPOS Cloud configuration by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.TriPOSCloudConfigurationsGetAll)
@@ -4562,9 +5154,11 @@ var Get_TriPOSCloudConfigurations_cmd = &cobra.Command{
 	}
 
 var Get_UpgradeCategories_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | UpgradeCategories`,
+		Use: `UpgradeCategories`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of an Upgrade Category by id`,
 		Long:  `Get the details of an Upgrade Category by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.UpgradeCategoriesGetAll)
@@ -4578,9 +5172,11 @@ var Get_UpgradeCategories_cmd = &cobra.Command{
 	}
 
 var Get_UpgradeLogs_cmd = &cobra.Command{
-		Use: `{"UpgradeLogID":"string"} | UpgradeLogs`,
+		Use: `UpgradeLogs`,
+		Example: `{"UpgradeLogID":"string"}`,
 		Short: `Returns an upgradeLog for the given id`,
 		Long:  `Returns an upgradeLog for the given id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.UpgradeLogsGetAll)
@@ -4592,9 +5188,11 @@ var Get_UpgradeLogs_cmd = &cobra.Command{
 	}
 
 var Get_UserGroups_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | UserGroups`,
+		Use: `UserGroups`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a user group by id`,
 		Long:  `Get the details of a user group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.UserGroupsGetAll)
@@ -4608,9 +5206,11 @@ var Get_UserGroups_cmd = &cobra.Command{
 	}
 
 var Get_UserPreferences_cmd = &cobra.Command{
-		Use: `{"Key":"string"} | UserPreferences`,
+		Use: `UserPreferences`,
+		Example: `{"Key":"string"}`,
 		Short: `Get a specific user preference by key`,
 		Long:  `Get a specific user preference by key.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.UserPreferencesGetAll)
@@ -4622,9 +5222,11 @@ var Get_UserPreferences_cmd = &cobra.Command{
 	}
 
 var Get_Users_cmd = &cobra.Command{
-		Use: `{"UserName":"string"} | Users`,
+		Use: `Users`,
+		Example: `{"UserName":"string"}`,
 		Short: `Get the details of a user for the specified username`,
 		Long:  `Get the details of a user for the specified username.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("ActiveDirectoryUser"); test {
 				err = tq.Do(_tq, _tq.Get.UsersGetActiveDirectoryUser)
@@ -4640,9 +5242,11 @@ var Get_Users_cmd = &cobra.Command{
 	}
 
 var Get_WebContentTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | WebContentTypes`,
+		Use: `WebContentTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get a specific web content type`,
 		Long:  `Get a specific web content type.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.WebContentTypesGetAll)
@@ -4658,11 +5262,13 @@ var Get_WebContentTypes_cmd = &cobra.Command{
 	}
 
 var Get_WebContents_cmd = &cobra.Command{
-		Use: `{"ContentTypeIds":"string","PackageIds":"string","ProductionElementIds":"string","ShowAll":"string"} | WebContents`,
+		Use: `WebContents`,
+		Example: `{"ContentTypeIds":"string","PackageIds":"string","ProductionElementIds":"string","ShowAll":"string"}`,
 		Short: `Returns web content for the requested production elements or packages`,
 		Long:  `Returns web content for the requested production elements or packages.
 The result can be filtered by content types.  At least one package id or production element id is required.
 If the content type is found, returns the content value at the lowest level at which it was found in the production hierarchy (Title, Production, Production Season, Performance) for the requested element. Optionally, all matching content anywhere above the requested element in the production hierarchy can be returned with the ShowAll parameter.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			
 			err = tq.Do(_tq, _tq.Get.WebContentsGetWebContents)
@@ -4671,9 +5277,11 @@ If the content type is found, returns the content value at the lowest level at w
 	}
 
 var Get_WebLogins_cmd = &cobra.Command{
-		Use: `{"WebLoginID":"string"} | WebLogins`,
+		Use: `WebLogins`,
+		Example: `{"WebLoginID":"string"}`,
 		Short: `Get details of a weblogin`,
 		Long:  `Get details of a weblogin.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.WebLoginsGetAll)
@@ -4689,9 +5297,11 @@ var Get_WebLogins_cmd = &cobra.Command{
 	}
 
 var Get_WorkerQualifications_cmd = &cobra.Command{
-		Use: `{"WorkerQualificationID":"string"} | WorkerQualifications`,
+		Use: `WorkerQualifications`,
+		Example: `{"WorkerQualificationID":"string"}`,
 		Short: `Get a single WorkerQualification by Id`,
 		Long:  `Get a single WorkerQualification by Id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.WorkerQualificationsGetAll)
@@ -4703,9 +5313,11 @@ var Get_WorkerQualifications_cmd = &cobra.Command{
 	}
 
 var Get_WorkerRoles_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | WorkerRoles`,
+		Use: `WorkerRoles`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a worker role by id`,
 		Long:  `Get the details of a worker role by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.WorkerRolesGetAll)
@@ -4719,9 +5331,11 @@ var Get_WorkerRoles_cmd = &cobra.Command{
 	}
 
 var Get_WorkerTypes_cmd = &cobra.Command{
-		Use: `{"Filter":"string","ID":"string","MaintenanceMode":"string"} | WorkerTypes`,
+		Use: `WorkerTypes`,
+		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a worker type by id`,
 		Long:  `Get the details of a worker type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.WorkerTypesGetAll)
@@ -4735,9 +5349,11 @@ var Get_WorkerTypes_cmd = &cobra.Command{
 	}
 
 var Get_Workers_cmd = &cobra.Command{
-		Use: `{"WorkerID":"string"} | Workers`,
+		Use: `Workers`,
+		Example: `{"WorkerID":"string"}`,
 		Short: `Get details of a worker`,
 		Long:  `Get details of a worker.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.WorkersGetAll)
@@ -4751,9 +5367,11 @@ var Get_Workers_cmd = &cobra.Command{
 	}
 
 var Get_ZoneGroups_cmd = &cobra.Command{
-		Use: `{"ID":"string","MaintenanceMode":"string"} | ZoneGroups`,
+		Use: `ZoneGroups`,
+		Example: `{"ID":"string","MaintenanceMode":"string"}`,
 		Short: `Get the details of a zone group by id`,
 		Long:  `Get the details of a zone group by id.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ZoneGroupsGetAll)
@@ -4767,9 +5385,11 @@ var Get_ZoneGroups_cmd = &cobra.Command{
 	}
 
 var Get_ZoneMaps_cmd = &cobra.Command{
-		Use: `{"ID":"string"} | ZoneMaps`,
+		Use: `ZoneMaps`,
+		Example: `{"ID":"string"}`,
 		Short: `Get details of a specific zone map`,
 		Long:  `Get details of a specific zone map.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ZoneMapsGetAll)
@@ -4783,9 +5403,11 @@ var Get_ZoneMaps_cmd = &cobra.Command{
 	}
 
 var Get_Zones_cmd = &cobra.Command{
-		Use: `{"ZoneID":"string","ZoneMapID":"string"} | Zones`,
+		Use: `Zones`,
+		Example: `{"ZoneID":"string","ZoneMapID":"string"}`,
 		Short: `Get details of a specific zone`,
 		Long:  `Get details of a specific zone.`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			if test, _ := cmd.Flags().GetBool("All"); test {
 				err = tq.Do(_tq, _tq.Get.ZonesGetAll)

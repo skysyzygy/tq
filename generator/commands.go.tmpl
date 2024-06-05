@@ -13,9 +13,11 @@ import (
 {{- range $key, $commands := .commands }}
 {{- $command := index $commands 0 }}
 var {{ print $op "_" $key "_cmd" }} = &cobra.Command{
-		Use: `{{ print $command.Usage " | " $key  }}`,
+		Use: `{{ $key }}`,
+		Example: `{{ $command.Usage }}`,
 		Short: `{{ $command.Short }}`,
 		Long:  `{{ $command.Long }}`,
+		PreRunE: initTq,
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			{{ if gt (len $commands) 1 -}}
 			{{- range slice $commands 1 -}}

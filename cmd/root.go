@@ -111,7 +111,7 @@ func init() {
 	})
 
 	rootCmd.SetUsageTemplate(
-		strings.NewReplacer("command", "verb", " Command", " Verb").
+		strings.NewReplacer("command", "verb", " Command", " Verb", "Examples", "Query").
 			Replace(rootCmd.UsageTemplate()))
 
 	keys, _ = keyring.Open(keyring.Config{
