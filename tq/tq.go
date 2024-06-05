@@ -278,6 +278,12 @@ func unmarshallNestedStructWithRemainder(query []byte, params any, except []stri
 				// Update the query with only unmatched fields
 				query, _ = json.Marshal(res)
 			}
+			if field.Type().Kind() == reflect.Pointer &&
+				field.Elem().IsZero() &&
+				field.CanAddr() {
+				// unset empty pointers
+				field.SetZero()
+			}
 		}
 	}
 

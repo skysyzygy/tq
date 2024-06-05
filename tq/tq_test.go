@@ -12,6 +12,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/go-openapi/strfmt"
 	"github.com/skysyzygy/tq/auth"
 	"github.com/skysyzygy/tq/client/g_e_t"
 	"github.com/skysyzygy/tq/models"
@@ -131,6 +132,24 @@ func Test_unmarshallNestedStructWithRemainder(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, 1, len(res))
 	assert.Equal(t, map[string]any{"Z": "zzz"}, res)
+}
+
+func Test_unmarshallNestedStructWithRemainder_Empty(t *testing.T) {
+	type P struct{ A, B, C string }
+	type Q struct{ D, E, F string }
+	type N struct {
+		Nest1 *P               `json:",omitempty"`
+		Nest2 *Q               `json:",omitempty"`
+		Time  strfmt.DateTime  `json:",omitempty"`
+		TimeP *strfmt.DateTime `json:",omitempty"`
+	}
+
+	// test that unmarshallNestedWithRemainder fills nested struct but doesn't instantiate unnecessarily
+	n := new(N)
+	res, err := unmarshallNestedStructWithRemainder([]byte(`{"A": "these", "B": "are", "C": "words"}`), n, nil)
+	assert.Equal(t, N{Nest1: &P{"these", "are", "words"}}, *n)
+	assert.NoError(t, err)
+	assert.Equal(t, 0, len(res))
 }
 
 // Test that unmarshallNestedStructWithRemainder doesn't recurse into `except`ed fields
