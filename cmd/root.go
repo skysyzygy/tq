@@ -40,7 +40,7 @@ import (
 )
 
 // Version number
-const version string = "0.1"
+const version string = "0.1.1"
 
 var (
 	cfgFile, jsonFile, logFile string
