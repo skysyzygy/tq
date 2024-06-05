@@ -34,7 +34,7 @@ type CartProductPerformanceSummary struct {
 
 	// performance date time
 	// Format: date-time
-	PerformanceDateTime strfmt.DateTime `json:"PerformanceDateTime,omitempty"`
+	PerformanceDateTime *strfmt.DateTime `json:"PerformanceDateTime,omitempty"`
 
 	// performance description
 	PerformanceDescription string `json:"PerformanceDescription,omitempty"`

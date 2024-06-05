@@ -36,7 +36,7 @@ type PayByLinkResponse struct {
 
 	// link expiry
 	// Format: date-time
-	LinkExpiry strfmt.DateTime `json:"LinkExpiry,omitempty"`
+	LinkExpiry *strfmt.DateTime `json:"LinkExpiry,omitempty"`
 
 	// link Id
 	LinkID string `json:"LinkId,omitempty"`

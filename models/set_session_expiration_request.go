@@ -21,7 +21,7 @@ type SetSessionExpirationRequest struct {
 
 	// expiration
 	// Format: date-time
-	Expiration strfmt.DateTime `json:"Expiration,omitempty"`
+	Expiration *strfmt.DateTime `json:"Expiration,omitempty"`
 
 	// time offset
 	TimeOffset int32 `json:"TimeOffset,omitempty"`

@@ -21,7 +21,7 @@ type BulkCopyEventRequest struct {
 
 	// copy to date
 	// Format: date-time
-	CopyToDate strfmt.DateTime `json:"CopyToDate,omitempty"`
+	CopyToDate *strfmt.DateTime `json:"CopyToDate,omitempty"`
 
 	// performance code counter
 	PerformanceCodeCounter int32 `json:"PerformanceCodeCounter,omitempty"`

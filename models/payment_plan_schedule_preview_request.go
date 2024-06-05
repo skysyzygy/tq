@@ -24,14 +24,14 @@ type PaymentPlanSchedulePreviewRequest struct {
 
 	// end date
 	// Format: date-time
-	EndDate strfmt.DateTime `json:"EndDate,omitempty"`
+	EndDate *strfmt.DateTime `json:"EndDate,omitempty"`
 
 	// override amount to schedule
 	OverrideAmountToSchedule float64 `json:"OverrideAmountToSchedule,omitempty"`
 
 	// start date
 	// Format: date-time
-	StartDate strfmt.DateTime `json:"StartDate,omitempty"`
+	StartDate *strfmt.DateTime `json:"StartDate,omitempty"`
 }
 
 // Validate validates this payment plan schedule preview request

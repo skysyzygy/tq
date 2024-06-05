@@ -24,7 +24,7 @@ type PriceUpdateRequest struct {
 
 	// effective date time
 	// Format: date-time
-	EffectiveDateTime strfmt.DateTime `json:"EffectiveDateTime,omitempty"`
+	EffectiveDateTime *strfmt.DateTime `json:"EffectiveDateTime,omitempty"`
 
 	// enabled
 	Enabled bool `json:"Enabled,omitempty"`

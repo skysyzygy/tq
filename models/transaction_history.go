@@ -42,7 +42,7 @@ type TransactionHistory struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// fund description
 	FundDescription string `json:"FundDescription,omitempty"`
@@ -64,7 +64,7 @@ type TransactionHistory struct {
 
 	// transaction date time
 	// Format: date-time
-	TransactionDateTime strfmt.DateTime `json:"TransactionDateTime,omitempty"`
+	TransactionDateTime *strfmt.DateTime `json:"TransactionDateTime,omitempty"`
 
 	// transaction Id
 	TransactionID int32 `json:"TransactionId,omitempty"`

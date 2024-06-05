@@ -45,7 +45,7 @@ type ListSummary struct {
 
 	// last used date time
 	// Format: date-time
-	LastUsedDateTime strfmt.DateTime `json:"LastUsedDateTime,omitempty"`
+	LastUsedDateTime *strfmt.DateTime `json:"LastUsedDateTime,omitempty"`
 }
 
 // Validate validates this list summary

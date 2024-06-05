@@ -39,7 +39,7 @@ type ContributionImportSet struct {
 
 	// contribution date time
 	// Format: date-time
-	ContributionDateTime strfmt.DateTime `json:"ContributionDateTime,omitempty"`
+	ContributionDateTime *strfmt.DateTime `json:"ContributionDateTime,omitempty"`
 
 	// contribution pay mode
 	ContributionPayMode int32 `json:"ContributionPayMode,omitempty"`
@@ -55,7 +55,7 @@ type ContributionImportSet struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// creditee mode
 	CrediteeMode int32 `json:"CrediteeMode,omitempty"`
@@ -122,7 +122,7 @@ type ContributionImportSet struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// worker
 	Worker *Entity `json:"Worker,omitempty"`

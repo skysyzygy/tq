@@ -24,7 +24,7 @@ type CartPackage struct {
 
 	// date
 	// Format: date-time
-	Date strfmt.DateTime `json:"Date,omitempty"`
+	Date *strfmt.DateTime `json:"Date,omitempty"`
 
 	// description
 	Description string `json:"Description,omitempty"`

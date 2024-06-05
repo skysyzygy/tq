@@ -30,7 +30,7 @@ type AffiliationInfo struct {
 
 	// end date
 	// Format: date-time
-	EndDate strfmt.DateTime `json:"EndDate,omitempty"`
+	EndDate *strfmt.DateTime `json:"EndDate,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`
@@ -103,7 +103,7 @@ type AffiliationInfo struct {
 
 	// start date
 	// Format: date-time
-	StartDate strfmt.DateTime `json:"StartDate,omitempty"`
+	StartDate *strfmt.DateTime `json:"StartDate,omitempty"`
 
 	// title
 	Title string `json:"Title,omitempty"`

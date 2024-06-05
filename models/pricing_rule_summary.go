@@ -24,7 +24,7 @@ type PricingRuleSummary struct {
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`
@@ -43,7 +43,7 @@ type PricingRuleSummary struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 }
 
 // Validate validates this pricing rule summary

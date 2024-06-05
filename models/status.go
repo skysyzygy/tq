@@ -28,7 +28,7 @@ type Status struct {
 
 	// time stamp
 	// Format: date-time
-	TimeStamp strfmt.DateTime `json:"TimeStamp,omitempty"`
+	TimeStamp *strfmt.DateTime `json:"TimeStamp,omitempty"`
 
 	// time zone
 	TimeZone string `json:"TimeZone,omitempty"`

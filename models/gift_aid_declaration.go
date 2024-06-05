@@ -21,7 +21,7 @@ type GiftAidDeclaration struct {
 
 	// confirm date time
 	// Format: date-time
-	ConfirmDateTime strfmt.DateTime `json:"ConfirmDateTime,omitempty"`
+	ConfirmDateTime *strfmt.DateTime `json:"ConfirmDateTime,omitempty"`
 
 	// constituent
 	Constituent *Entity `json:"Constituent,omitempty"`
@@ -37,7 +37,7 @@ type GiftAidDeclaration struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// document status
 	DocumentStatus *GiftAidDocumentStatusSummary `json:"DocumentStatus,omitempty"`
@@ -47,7 +47,7 @@ type GiftAidDeclaration struct {
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// gift aid type
 	GiftAidType *GiftAidTypeSummary `json:"GiftAidType,omitempty"`
@@ -63,18 +63,18 @@ type GiftAidDeclaration struct {
 
 	// received date time
 	// Format: date-time
-	ReceivedDateTime strfmt.DateTime `json:"ReceivedDateTime,omitempty"`
+	ReceivedDateTime *strfmt.DateTime `json:"ReceivedDateTime,omitempty"`
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 
 	// updated by
 	UpdatedBy string `json:"UpdatedBy,omitempty"`
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this gift aid declaration

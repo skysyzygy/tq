@@ -45,7 +45,7 @@ type PaymentAvailableForRefund struct {
 
 	// payment date time
 	// Format: date-time
-	PaymentDateTime strfmt.DateTime `json:"PaymentDateTime,omitempty"`
+	PaymentDateTime *strfmt.DateTime `json:"PaymentDateTime,omitempty"`
 
 	// payment method
 	PaymentMethod int32 `json:"PaymentMethod,omitempty"`

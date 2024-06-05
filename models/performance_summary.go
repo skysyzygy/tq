@@ -24,11 +24,11 @@ type PerformanceSummary struct {
 
 	// default end sale date time
 	// Format: date-time
-	DefaultEndSaleDateTime strfmt.DateTime `json:"DefaultEndSaleDateTime,omitempty"`
+	DefaultEndSaleDateTime *strfmt.DateTime `json:"DefaultEndSaleDateTime,omitempty"`
 
 	// default start sale date time
 	// Format: date-time
-	DefaultStartSaleDateTime strfmt.DateTime `json:"DefaultStartSaleDateTime,omitempty"`
+	DefaultStartSaleDateTime *strfmt.DateTime `json:"DefaultStartSaleDateTime,omitempty"`
 
 	// description
 	Description string `json:"Description,omitempty"`
@@ -44,7 +44,7 @@ type PerformanceSummary struct {
 
 	// performance date time
 	// Format: date-time
-	PerformanceDateTime strfmt.DateTime `json:"PerformanceDateTime,omitempty"`
+	PerformanceDateTime *strfmt.DateTime `json:"PerformanceDateTime,omitempty"`
 
 	// production season
 	ProductionSeason *Entity `json:"ProductionSeason,omitempty"`

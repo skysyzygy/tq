@@ -30,14 +30,14 @@ type ProductSearchResponse struct {
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// facility Id
 	FacilityID int32 `json:"FacilityId,omitempty"`
 
 	// first date time
 	// Format: date-time
-	FirstDateTime strfmt.DateTime `json:"FirstDateTime,omitempty"`
+	FirstDateTime *strfmt.DateTime `json:"FirstDateTime,omitempty"`
 
 	// gross availability
 	GrossAvailability int32 `json:"GrossAvailability,omitempty"`
@@ -56,14 +56,14 @@ type ProductSearchResponse struct {
 
 	// last date time
 	// Format: date-time
-	LastDateTime strfmt.DateTime `json:"LastDateTime,omitempty"`
+	LastDateTime *strfmt.DateTime `json:"LastDateTime,omitempty"`
 
 	// package code
 	PackageCode string `json:"PackageCode,omitempty"`
 
 	// package date time
 	// Format: date-time
-	PackageDateTime strfmt.DateTime `json:"PackageDateTime,omitempty"`
+	PackageDateTime *strfmt.DateTime `json:"PackageDateTime,omitempty"`
 
 	// package Id
 	PackageID int32 `json:"PackageId,omitempty"`
@@ -73,7 +73,7 @@ type ProductSearchResponse struct {
 
 	// performance date
 	// Format: date-time
-	PerformanceDate strfmt.DateTime `json:"PerformanceDate,omitempty"`
+	PerformanceDate *strfmt.DateTime `json:"PerformanceDate,omitempty"`
 
 	// performance Id
 	PerformanceID int32 `json:"PerformanceId,omitempty"`
@@ -110,7 +110,7 @@ type ProductSearchResponse struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 
 	// time slot Id
 	TimeSlotID int32 `json:"TimeSlotId,omitempty"`

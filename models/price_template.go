@@ -31,7 +31,7 @@ type PriceTemplate struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// default designation code
 	DefaultDesignationCode *DesignationCodeSummary `json:"DefaultDesignationCode,omitempty"`
@@ -71,7 +71,7 @@ type PriceTemplate struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// zone map
 	ZoneMap *ZoneMapSummary `json:"ZoneMap,omitempty"`

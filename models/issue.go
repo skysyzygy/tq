@@ -36,7 +36,7 @@ type Issue struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// edit indicator
 	EditIndicator bool `json:"EditIndicator,omitempty"`
@@ -49,7 +49,7 @@ type Issue struct {
 
 	// issue date
 	// Format: date-time
-	IssueDate strfmt.DateTime `json:"IssueDate,omitempty"`
+	IssueDate *strfmt.DateTime `json:"IssueDate,omitempty"`
 
 	// notes
 	Notes string `json:"Notes,omitempty"`
@@ -71,7 +71,7 @@ type Issue struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// urgent indicator
 	UrgentIndicator bool `json:"UrgentIndicator,omitempty"`

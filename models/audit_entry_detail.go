@@ -24,7 +24,7 @@ type AuditEntryDetail struct {
 
 	// action date time
 	// Format: date-time
-	ActionDateTime strfmt.DateTime `json:"ActionDateTime,omitempty"`
+	ActionDateTime *strfmt.DateTime `json:"ActionDateTime,omitempty"`
 
 	// audit detail
 	AuditDetail int32 `json:"AuditDetail,omitempty"`

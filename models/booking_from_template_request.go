@@ -33,7 +33,7 @@ type BookingFromTemplateRequest struct {
 
 	// default date time
 	// Format: date-time
-	DefaultDateTime strfmt.DateTime `json:"DefaultDateTime,omitempty"`
+	DefaultDateTime *strfmt.DateTime `json:"DefaultDateTime,omitempty"`
 
 	// default duration
 	DefaultDuration int32 `json:"DefaultDuration,omitempty"`

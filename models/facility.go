@@ -30,7 +30,7 @@ type Facility struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// default best seat map Id
 	DefaultBestSeatMapID int32 `json:"DefaultBestSeatMapId,omitempty"`
@@ -55,7 +55,7 @@ type Facility struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this facility

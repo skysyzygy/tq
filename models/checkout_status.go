@@ -21,7 +21,7 @@ type CheckoutStatus struct {
 
 	// date
 	// Format: date-time
-	Date strfmt.DateTime `json:"Date,omitempty"`
+	Date *strfmt.DateTime `json:"Date,omitempty"`
 
 	// status
 	Status string `json:"Status,omitempty"`

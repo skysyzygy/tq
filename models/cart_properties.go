@@ -36,7 +36,7 @@ type CartProperties struct {
 
 	// hold until date time
 	// Format: date-time
-	HoldUntilDateTime strfmt.DateTime `json:"HoldUntilDateTime,omitempty"`
+	HoldUntilDateTime *strfmt.DateTime `json:"HoldUntilDateTime,omitempty"`
 
 	// initiator Id
 	InitiatorID int32 `json:"InitiatorId,omitempty"`
@@ -49,7 +49,7 @@ type CartProperties struct {
 
 	// order date time
 	// Format: date-time
-	OrderDateTime strfmt.DateTime `json:"OrderDateTime,omitempty"`
+	OrderDateTime *strfmt.DateTime `json:"OrderDateTime,omitempty"`
 
 	// phone Id
 	PhoneID int32 `json:"PhoneId,omitempty"`

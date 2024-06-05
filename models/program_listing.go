@@ -30,7 +30,7 @@ type ProgramListing struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// donation level
 	DonationLevel *DonationLevelSummary `json:"DonationLevel,omitempty"`
@@ -55,7 +55,7 @@ type ProgramListing struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this program listing

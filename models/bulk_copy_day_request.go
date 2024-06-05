@@ -21,7 +21,7 @@ type BulkCopyDayRequest struct {
 
 	// copy to date
 	// Format: date-time
-	CopyToDate strfmt.DateTime `json:"CopyToDate,omitempty"`
+	CopyToDate *strfmt.DateTime `json:"CopyToDate,omitempty"`
 
 	// package code counter
 	PackageCodeCounter int32 `json:"PackageCodeCounter,omitempty"`

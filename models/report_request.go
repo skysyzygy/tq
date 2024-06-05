@@ -28,7 +28,7 @@ type ReportRequest struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// deleted indicator
 	DeletedIndicator bool `json:"DeletedIndicator,omitempty"`
@@ -44,7 +44,7 @@ type ReportRequest struct {
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`
@@ -69,7 +69,7 @@ type ReportRequest struct {
 
 	// request date time
 	// Format: date-time
-	RequestDateTime strfmt.DateTime `json:"RequestDateTime,omitempty"`
+	RequestDateTime *strfmt.DateTime `json:"RequestDateTime,omitempty"`
 
 	// result code
 	ResultCode string `json:"ResultCode,omitempty"`
@@ -88,7 +88,7 @@ type ReportRequest struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// user group Id
 	UserGroupID string `json:"UserGroupId,omitempty"`

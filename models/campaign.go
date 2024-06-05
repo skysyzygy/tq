@@ -36,7 +36,7 @@ type Campaign struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// description
 	Description string `json:"Description,omitempty"`
@@ -46,11 +46,11 @@ type Campaign struct {
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// event date time
 	// Format: date-time
-	EventDateTime strfmt.DateTime `json:"EventDateTime,omitempty"`
+	EventDateTime *strfmt.DateTime `json:"EventDateTime,omitempty"`
 
 	// event expense
 	EventExpense float64 `json:"EventExpense,omitempty"`
@@ -102,7 +102,7 @@ type Campaign struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 
 	// status
 	Status string `json:"Status,omitempty"`
@@ -118,7 +118,7 @@ type Campaign struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this campaign

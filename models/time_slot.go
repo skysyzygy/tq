@@ -27,14 +27,14 @@ type TimeSlot struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// description
 	Description string `json:"Description,omitempty"`
 
 	// end time
 	// Format: date-time
-	EndTime strfmt.DateTime `json:"EndTime,omitempty"`
+	EndTime *strfmt.DateTime `json:"EndTime,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`
@@ -44,14 +44,14 @@ type TimeSlot struct {
 
 	// start time
 	// Format: date-time
-	StartTime strfmt.DateTime `json:"StartTime,omitempty"`
+	StartTime *strfmt.DateTime `json:"StartTime,omitempty"`
 
 	// updated by
 	UpdatedBy string `json:"UpdatedBy,omitempty"`
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this time slot

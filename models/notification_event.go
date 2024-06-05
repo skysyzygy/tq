@@ -27,7 +27,7 @@ type NotificationEvent struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// event type
 	EventType string `json:"EventType,omitempty"`
@@ -40,11 +40,11 @@ type NotificationEvent struct {
 
 	// processed date
 	// Format: date-time
-	ProcessedDate strfmt.DateTime `json:"ProcessedDate,omitempty"`
+	ProcessedDate *strfmt.DateTime `json:"ProcessedDate,omitempty"`
 
 	// received date
 	// Format: date-time
-	ReceivedDate strfmt.DateTime `json:"ReceivedDate,omitempty"`
+	ReceivedDate *strfmt.DateTime `json:"ReceivedDate,omitempty"`
 
 	// reference
 	Reference string `json:"Reference,omitempty"`
@@ -57,7 +57,7 @@ type NotificationEvent struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this notification event

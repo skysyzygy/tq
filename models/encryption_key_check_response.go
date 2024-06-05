@@ -21,7 +21,7 @@ type EncryptionKeyCheckResponse struct {
 
 	// expiration date
 	// Format: date-time
-	ExpirationDate strfmt.DateTime `json:"ExpirationDate,omitempty"`
+	ExpirationDate *strfmt.DateTime `json:"ExpirationDate,omitempty"`
 
 	// is expired
 	IsExpired bool `json:"IsExpired,omitempty"`

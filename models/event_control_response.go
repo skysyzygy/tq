@@ -22,14 +22,14 @@ type EventControlResponse struct {
 
 	// end date
 	// Format: date-time
-	EndDate strfmt.DateTime `json:"EndDate,omitempty"`
+	EndDate *strfmt.DateTime `json:"EndDate,omitempty"`
 
 	// event control set
 	EventControlSet []*EventControl `json:"EventControlSet"`
 
 	// start date
 	// Format: date-time
-	StartDate strfmt.DateTime `json:"StartDate,omitempty"`
+	StartDate *strfmt.DateTime `json:"StartDate,omitempty"`
 }
 
 // Validate validates this event control response

@@ -31,7 +31,7 @@ type PortfolioPlan struct {
 
 	// complete by date time
 	// Format: date-time
-	CompleteByDateTime strfmt.DateTime `json:"CompleteByDateTime,omitempty"`
+	CompleteByDateTime *strfmt.DateTime `json:"CompleteByDateTime,omitempty"`
 
 	// constituent
 	Constituent *ConstituentDisplaySummary `json:"Constituent,omitempty"`
@@ -50,7 +50,7 @@ type PortfolioPlan struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// custom plan elements
 	CustomPlanElements []*PortfolioCustomDataItem `json:"CustomPlanElements"`
@@ -78,7 +78,7 @@ type PortfolioPlan struct {
 
 	// last step date
 	// Format: date-time
-	LastStepDate strfmt.DateTime `json:"LastStepDate,omitempty"`
+	LastStepDate *strfmt.DateTime `json:"LastStepDate,omitempty"`
 
 	// last step type
 	LastStepType *StepTypeSummary `json:"LastStepType,omitempty"`
@@ -88,7 +88,7 @@ type PortfolioPlan struct {
 
 	// next step date
 	// Format: date-time
-	NextStepDate strfmt.DateTime `json:"NextStepDate,omitempty"`
+	NextStepDate *strfmt.DateTime `json:"NextStepDate,omitempty"`
 
 	// next step type
 	NextStepType *StepTypeSummary `json:"NextStepType,omitempty"`
@@ -113,7 +113,7 @@ type PortfolioPlan struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 
 	// status
 	Status *PlanStatusSummary `json:"Status,omitempty"`
@@ -126,7 +126,7 @@ type PortfolioPlan struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this portfolio plan

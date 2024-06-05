@@ -39,7 +39,7 @@ type Package struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// description
 	Description string `json:"Description,omitempty"`
@@ -67,7 +67,7 @@ type Package struct {
 
 	// package date time
 	// Format: date-time
-	PackageDateTime strfmt.DateTime `json:"PackageDateTime,omitempty"`
+	PackageDateTime *strfmt.DateTime `json:"PackageDateTime,omitempty"`
 
 	// rank type
 	RankType *RankTypeSummary `json:"RankType,omitempty"`
@@ -110,7 +110,7 @@ type Package struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// zone map
 	ZoneMap *ZoneMapSummary `json:"ZoneMap,omitempty"`

@@ -54,7 +54,7 @@ type Contribution struct {
 
 	// contribution date time
 	// Format: date-time
-	ContributionDateTime strfmt.DateTime `json:"ContributionDateTime,omitempty"`
+	ContributionDateTime *strfmt.DateTime `json:"ContributionDateTime,omitempty"`
 
 	// contribution designation
 	ContributionDesignation int32 `json:"ContributionDesignation,omitempty"`
@@ -67,7 +67,7 @@ type Contribution struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// custom0
 	Custom0 string `json:"Custom0,omitempty"`
@@ -116,7 +116,7 @@ type Contribution struct {
 
 	// kind gift transfer date time
 	// Format: date-time
-	KindGiftTransferDateTime strfmt.DateTime `json:"KindGiftTransferDateTime,omitempty"`
+	KindGiftTransferDateTime *strfmt.DateTime `json:"KindGiftTransferDateTime,omitempty"`
 
 	// match indicator
 	MatchIndicator string `json:"MatchIndicator,omitempty"`
@@ -135,11 +135,11 @@ type Contribution struct {
 
 	// payment end date time
 	// Format: date-time
-	PaymentEndDateTime strfmt.DateTime `json:"PaymentEndDateTime,omitempty"`
+	PaymentEndDateTime *strfmt.DateTime `json:"PaymentEndDateTime,omitempty"`
 
 	// payment start date time
 	// Format: date-time
-	PaymentStartDateTime strfmt.DateTime `json:"PaymentStartDateTime,omitempty"`
+	PaymentStartDateTime *strfmt.DateTime `json:"PaymentStartDateTime,omitempty"`
 
 	// plan
 	Plan *PlanSummary `json:"Plan,omitempty"`
@@ -164,7 +164,7 @@ type Contribution struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this contribution

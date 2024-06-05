@@ -34,7 +34,7 @@ type ConstituentMiniSnapshot struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// emarket indicator
 	EmarketIndicator *EmarketIndicatorSummary `json:"EmarketIndicator,omitempty"`
@@ -56,7 +56,7 @@ type ConstituentMiniSnapshot struct {
 
 	// last activity date
 	// Format: date-time
-	LastActivityDate strfmt.DateTime `json:"LastActivityDate,omitempty"`
+	LastActivityDate *strfmt.DateTime `json:"LastActivityDate,omitempty"`
 
 	// last name
 	LastName string `json:"LastName,omitempty"`
@@ -90,7 +90,7 @@ type ConstituentMiniSnapshot struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this constituent mini snapshot

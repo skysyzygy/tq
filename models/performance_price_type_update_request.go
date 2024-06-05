@@ -27,7 +27,7 @@ type PerformancePriceTypeUpdateRequest struct {
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// gl account Id
 	GlAccountID int32 `json:"GlAccountId,omitempty"`
@@ -46,7 +46,7 @@ type PerformancePriceTypeUpdateRequest struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 
 	// ticket design Id
 	TicketDesignID int32 `json:"TicketDesignId,omitempty"`

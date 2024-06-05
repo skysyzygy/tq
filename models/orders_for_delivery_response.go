@@ -36,7 +36,7 @@ type OrdersForDeliveryResponse struct {
 
 	// order date time
 	// Format: date-time
-	OrderDateTime strfmt.DateTime `json:"OrderDateTime,omitempty"`
+	OrderDateTime *strfmt.DateTime `json:"OrderDateTime,omitempty"`
 
 	// order Id
 	OrderID int32 `json:"OrderId,omitempty"`

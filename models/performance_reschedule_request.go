@@ -28,7 +28,7 @@ type PerformanceRescheduleRequest struct {
 
 	// date time
 	// Format: date-time
-	DateTime strfmt.DateTime `json:"DateTime,omitempty"`
+	DateTime *strfmt.DateTime `json:"DateTime,omitempty"`
 
 	// default sale date option
 	// Enum: [0,1,2,3]

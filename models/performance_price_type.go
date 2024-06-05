@@ -31,18 +31,18 @@ type PerformancePriceType struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// designation code Id
 	DesignationCodeID int32 `json:"DesignationCodeId,omitempty"`
 
 	// effective date time
 	// Format: date-time
-	EffectiveDateTime strfmt.DateTime `json:"EffectiveDateTime,omitempty"`
+	EffectiveDateTime *strfmt.DateTime `json:"EffectiveDateTime,omitempty"`
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// gl account Id
 	GlAccountID int32 `json:"GlAccountId,omitempty"`
@@ -70,7 +70,7 @@ type PerformancePriceType struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 
 	// ticket design Id
 	TicketDesignID int32 `json:"TicketDesignId,omitempty"`
@@ -80,7 +80,7 @@ type PerformancePriceType struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this performance price type

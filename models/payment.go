@@ -42,7 +42,7 @@ type Payment struct {
 
 	// card expiry date time
 	// Format: date-time
-	CardExpiryDateTime strfmt.DateTime `json:"CardExpiryDateTime,omitempty"`
+	CardExpiryDateTime *strfmt.DateTime `json:"CardExpiryDateTime,omitempty"`
 
 	// check name
 	CheckName string `json:"CheckName,omitempty"`
@@ -58,7 +58,7 @@ type Payment struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// gift certificate
 	GiftCertificate *GiftCertificateSummary `json:"GiftCertificate,omitempty"`
@@ -77,7 +77,7 @@ type Payment struct {
 
 	// payment date time
 	// Format: date-time
-	PaymentDateTime strfmt.DateTime `json:"PaymentDateTime,omitempty"`
+	PaymentDateTime *strfmt.DateTime `json:"PaymentDateTime,omitempty"`
 
 	// payment method
 	PaymentMethod *PaymentMethod `json:"PaymentMethod,omitempty"`
@@ -87,7 +87,7 @@ type Payment struct {
 
 	// refund date time
 	// Format: date-time
-	RefundDateTime strfmt.DateTime `json:"RefundDateTime,omitempty"`
+	RefundDateTime *strfmt.DateTime `json:"RefundDateTime,omitempty"`
 
 	// tendered amount
 	TenderedAmount float64 `json:"TenderedAmount,omitempty"`

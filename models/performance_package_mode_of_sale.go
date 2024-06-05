@@ -24,11 +24,11 @@ type PerformancePackageModeOfSale struct {
 
 	// e ticket release date time
 	// Format: date-time
-	ETicketReleaseDateTime strfmt.DateTime `json:"ETicketReleaseDateTime,omitempty"`
+	ETicketReleaseDateTime *strfmt.DateTime `json:"ETicketReleaseDateTime,omitempty"`
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`
@@ -53,7 +53,7 @@ type PerformancePackageModeOfSale struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 }
 
 // Validate validates this performance package mode of sale

@@ -21,7 +21,7 @@ type PriceEventMoveRequest struct {
 
 	// event date time
 	// Format: date-time
-	EventDateTime strfmt.DateTime `json:"EventDateTime,omitempty"`
+	EventDateTime *strfmt.DateTime `json:"EventDateTime,omitempty"`
 
 	// event ids
 	EventIds string `json:"EventIds,omitempty"`

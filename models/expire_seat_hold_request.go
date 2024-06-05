@@ -21,7 +21,7 @@ type ExpireSeatHoldRequest struct {
 
 	// expire as of date
 	// Format: date-time
-	ExpireAsOfDate strfmt.DateTime `json:"ExpireAsOfDate,omitempty"`
+	ExpireAsOfDate *strfmt.DateTime `json:"ExpireAsOfDate,omitempty"`
 
 	// seat ids
 	SeatIds string `json:"SeatIds,omitempty"`

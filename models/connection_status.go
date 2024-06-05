@@ -24,7 +24,7 @@ type ConnectionStatus struct {
 
 	// time stamp
 	// Format: date-time
-	TimeStamp strfmt.DateTime `json:"TimeStamp,omitempty"`
+	TimeStamp *strfmt.DateTime `json:"TimeStamp,omitempty"`
 }
 
 // Validate validates this connection status

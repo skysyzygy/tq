@@ -24,7 +24,7 @@ type PaymentPlanPreview struct {
 
 	// date due
 	// Format: date-time
-	DateDue strfmt.DateTime `json:"DateDue,omitempty"`
+	DateDue *strfmt.DateTime `json:"DateDue,omitempty"`
 }
 
 // Validate validates this payment plan preview

@@ -39,7 +39,7 @@ type AuthorizationRequest struct {
 
 	// delivery date
 	// Format: date-time
-	DeliveryDate strfmt.DateTime `json:"DeliveryDate,omitempty"`
+	DeliveryDate *strfmt.DateTime `json:"DeliveryDate,omitempty"`
 
 	// is e commerce
 	IsECommerce bool `json:"IsECommerce,omitempty"`

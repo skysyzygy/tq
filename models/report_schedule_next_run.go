@@ -21,7 +21,7 @@ type ReportScheduleNextRun struct {
 
 	// next date time
 	// Format: date-time
-	NextDateTime strfmt.DateTime `json:"NextDateTime,omitempty"`
+	NextDateTime *strfmt.DateTime `json:"NextDateTime,omitempty"`
 }
 
 // Validate validates this report schedule next run

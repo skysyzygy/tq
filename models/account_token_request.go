@@ -27,7 +27,7 @@ type AccountTokenRequest struct {
 
 	// date used
 	// Format: date-time
-	DateUsed strfmt.DateTime `json:"DateUsed,omitempty"`
+	DateUsed *strfmt.DateTime `json:"DateUsed,omitempty"`
 
 	// is e commerce
 	IsECommerce bool `json:"IsECommerce,omitempty"`

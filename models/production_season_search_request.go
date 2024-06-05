@@ -48,11 +48,11 @@ type ProductionSeasonSearchRequest struct {
 
 	// performance end date
 	// Format: date-time
-	PerformanceEndDate strfmt.DateTime `json:"PerformanceEndDate,omitempty"`
+	PerformanceEndDate *strfmt.DateTime `json:"PerformanceEndDate,omitempty"`
 
 	// performance start date
 	// Format: date-time
-	PerformanceStartDate strfmt.DateTime `json:"PerformanceStartDate,omitempty"`
+	PerformanceStartDate *strfmt.DateTime `json:"PerformanceStartDate,omitempty"`
 
 	// season ids
 	SeasonIds string `json:"SeasonIds,omitempty"`

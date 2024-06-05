@@ -24,7 +24,7 @@ type ApplySingleHoldRequest struct {
 
 	// hold until date
 	// Format: date-time
-	HoldUntilDate strfmt.DateTime `json:"HoldUntilDate,omitempty"`
+	HoldUntilDate *strfmt.DateTime `json:"HoldUntilDate,omitempty"`
 
 	// replace mode
 	ReplaceMode int32 `json:"ReplaceMode,omitempty"`

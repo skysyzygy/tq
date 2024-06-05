@@ -30,11 +30,11 @@ type PerformanceSearchResponse struct {
 
 	// doors close
 	// Format: date-time
-	DoorsClose strfmt.DateTime `json:"DoorsClose,omitempty"`
+	DoorsClose *strfmt.DateTime `json:"DoorsClose,omitempty"`
 
 	// doors open
 	// Format: date-time
-	DoorsOpen strfmt.DateTime `json:"DoorsOpen,omitempty"`
+	DoorsOpen *strfmt.DateTime `json:"DoorsOpen,omitempty"`
 
 	// duration
 	Duration int32 `json:"Duration,omitempty"`
@@ -56,18 +56,18 @@ type PerformanceSearchResponse struct {
 
 	// mode of sale end date
 	// Format: date-time
-	ModeOfSaleEndDate strfmt.DateTime `json:"ModeOfSaleEndDate,omitempty"`
+	ModeOfSaleEndDate *strfmt.DateTime `json:"ModeOfSaleEndDate,omitempty"`
 
 	// mode of sale start date
 	// Format: date-time
-	ModeOfSaleStartDate strfmt.DateTime `json:"ModeOfSaleStartDate,omitempty"`
+	ModeOfSaleStartDate *strfmt.DateTime `json:"ModeOfSaleStartDate,omitempty"`
 
 	// performance code
 	PerformanceCode string `json:"PerformanceCode,omitempty"`
 
 	// performance date
 	// Format: date-time
-	PerformanceDate strfmt.DateTime `json:"PerformanceDate,omitempty"`
+	PerformanceDate *strfmt.DateTime `json:"PerformanceDate,omitempty"`
 
 	// performance description
 	PerformanceDescription string `json:"PerformanceDescription,omitempty"`
@@ -92,19 +92,19 @@ type PerformanceSearchResponse struct {
 
 	// publish client end date
 	// Format: date-time
-	PublishClientEndDate strfmt.DateTime `json:"PublishClientEndDate,omitempty"`
+	PublishClientEndDate *strfmt.DateTime `json:"PublishClientEndDate,omitempty"`
 
 	// publish client start date
 	// Format: date-time
-	PublishClientStartDate strfmt.DateTime `json:"PublishClientStartDate,omitempty"`
+	PublishClientStartDate *strfmt.DateTime `json:"PublishClientStartDate,omitempty"`
 
 	// publish web Api end date
 	// Format: date-time
-	PublishWebAPIEndDate strfmt.DateTime `json:"PublishWebApiEndDate,omitempty"`
+	PublishWebAPIEndDate *strfmt.DateTime `json:"PublishWebApiEndDate,omitempty"`
 
 	// publish web Api start date
 	// Format: date-time
-	PublishWebAPIStartDate strfmt.DateTime `json:"PublishWebApiStartDate,omitempty"`
+	PublishWebAPIStartDate *strfmt.DateTime `json:"PublishWebApiStartDate,omitempty"`
 
 	// rank type
 	RankType *EntitySummary `json:"RankType,omitempty"`

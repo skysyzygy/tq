@@ -36,7 +36,7 @@ type Affiliation struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// edit indicator
 	EditIndicator bool `json:"EditIndicator,omitempty"`
@@ -46,7 +46,7 @@ type Affiliation struct {
 
 	// end date
 	// Format: date-time
-	EndDate strfmt.DateTime `json:"EndDate,omitempty"`
+	EndDate *strfmt.DateTime `json:"EndDate,omitempty"`
 
 	// group constituent
 	GroupConstituent *Entity `json:"GroupConstituent,omitempty"`
@@ -95,7 +95,7 @@ type Affiliation struct {
 
 	// start date
 	// Format: date-time
-	StartDate strfmt.DateTime `json:"StartDate,omitempty"`
+	StartDate *strfmt.DateTime `json:"StartDate,omitempty"`
 
 	// title
 	Title string `json:"Title,omitempty"`
@@ -105,7 +105,7 @@ type Affiliation struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this affiliation

@@ -27,7 +27,7 @@ type OutputSetSummary struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// description
 	Description string `json:"Description,omitempty"`
@@ -37,14 +37,14 @@ type OutputSetSummary struct {
 
 	// last used date time
 	// Format: date-time
-	LastUsedDateTime strfmt.DateTime `json:"LastUsedDateTime,omitempty"`
+	LastUsedDateTime *strfmt.DateTime `json:"LastUsedDateTime,omitempty"`
 
 	// t m s indicator
 	TMSIndicator bool `json:"TMSIndicator,omitempty"`
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this output set summary

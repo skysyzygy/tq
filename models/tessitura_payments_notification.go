@@ -34,7 +34,7 @@ type TessituraPaymentsNotification struct {
 
 	// event date
 	// Format: date-time
-	EventDate strfmt.DateTime `json:"EventDate,omitempty"`
+	EventDate *strfmt.DateTime `json:"EventDate,omitempty"`
 
 	// expiration
 	Expiration string `json:"Expiration,omitempty"`

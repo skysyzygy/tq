@@ -30,7 +30,7 @@ type WebContentType struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// description
 	Description string `json:"Description,omitempty"`
@@ -49,7 +49,7 @@ type WebContentType struct {
 
 	// last content use update date time
 	// Format: date-time
-	LastContentUseUpdateDateTime strfmt.DateTime `json:"LastContentUseUpdateDateTime,omitempty"`
+	LastContentUseUpdateDateTime *strfmt.DateTime `json:"LastContentUseUpdateDateTime,omitempty"`
 
 	// limit
 	Limit int32 `json:"Limit,omitempty"`
@@ -74,7 +74,7 @@ type WebContentType struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// use web Api
 	UseWebAPI bool `json:"UseWebApi,omitempty"`

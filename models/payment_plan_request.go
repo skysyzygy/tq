@@ -30,14 +30,14 @@ type PaymentPlanRequest struct {
 
 	// end date
 	// Format: date-time
-	EndDate strfmt.DateTime `json:"EndDate,omitempty"`
+	EndDate *strfmt.DateTime `json:"EndDate,omitempty"`
 
 	// number of payments
 	NumberOfPayments int32 `json:"NumberOfPayments,omitempty"`
 
 	// start date
 	// Format: date-time
-	StartDate strfmt.DateTime `json:"StartDate,omitempty"`
+	StartDate *strfmt.DateTime `json:"StartDate,omitempty"`
 }
 
 // Validate validates this payment plan request

@@ -33,18 +33,18 @@ type MembershipDetail struct {
 
 	// expiration date
 	// Format: date-time
-	ExpirationDate strfmt.DateTime `json:"ExpirationDate,omitempty"`
+	ExpirationDate *strfmt.DateTime `json:"ExpirationDate,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`
 
 	// inception date
 	// Format: date-time
-	InceptionDate strfmt.DateTime `json:"InceptionDate,omitempty"`
+	InceptionDate *strfmt.DateTime `json:"InceptionDate,omitempty"`
 
 	// initiation date
 	// Format: date-time
-	InitiationDate strfmt.DateTime `json:"InitiationDate,omitempty"`
+	InitiationDate *strfmt.DateTime `json:"InitiationDate,omitempty"`
 
 	// is current
 	IsCurrent bool `json:"IsCurrent,omitempty"`
@@ -54,7 +54,7 @@ type MembershipDetail struct {
 
 	// lapse date
 	// Format: date-time
-	LapseDate strfmt.DateTime `json:"LapseDate,omitempty"`
+	LapseDate *strfmt.DateTime `json:"LapseDate,omitempty"`
 
 	// macro trend
 	MacroTrend string `json:"MacroTrend,omitempty"`
@@ -67,7 +67,7 @@ type MembershipDetail struct {
 
 	// renewal date
 	// Format: date-time
-	RenewalDate strfmt.DateTime `json:"RenewalDate,omitempty"`
+	RenewalDate *strfmt.DateTime `json:"RenewalDate,omitempty"`
 }
 
 // Validate validates this membership detail

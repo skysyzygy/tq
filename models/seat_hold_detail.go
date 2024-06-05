@@ -21,7 +21,7 @@ type SeatHoldDetail struct {
 
 	// end date
 	// Format: date-time
-	EndDate strfmt.DateTime `json:"EndDate,omitempty"`
+	EndDate *strfmt.DateTime `json:"EndDate,omitempty"`
 
 	// hold code detail
 	HoldCodeDetail *HoldCodeDetail `json:"HoldCodeDetail,omitempty"`

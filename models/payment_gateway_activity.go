@@ -60,7 +60,7 @@ type PaymentGatewayActivity struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// cvv result code
 	CvvResultCode string `json:"CvvResultCode,omitempty"`
@@ -124,7 +124,7 @@ type PaymentGatewayActivity struct {
 
 	// provider transaction date time
 	// Format: date-time
-	ProviderTransactionDateTime strfmt.DateTime `json:"ProviderTransactionDateTime,omitempty"`
+	ProviderTransactionDateTime *strfmt.DateTime `json:"ProviderTransactionDateTime,omitempty"`
 
 	// reference number
 	ReferenceNumber string `json:"ReferenceNumber,omitempty"`
@@ -149,7 +149,7 @@ type PaymentGatewayActivity struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// user data
 	UserData string `json:"UserData,omitempty"`

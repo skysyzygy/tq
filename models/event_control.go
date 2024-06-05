@@ -30,7 +30,7 @@ type EventControl struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// customer membership number
 	CustomerMembershipNumber int32 `json:"CustomerMembershipNumber,omitempty"`
@@ -61,7 +61,7 @@ type EventControl struct {
 
 	// performance date time
 	// Format: date-time
-	PerformanceDateTime strfmt.DateTime `json:"PerformanceDateTime,omitempty"`
+	PerformanceDateTime *strfmt.DateTime `json:"PerformanceDateTime,omitempty"`
 
 	// performance number
 	PerformanceNumber int32 `json:"PerformanceNumber,omitempty"`
@@ -92,14 +92,14 @@ type EventControl struct {
 
 	// update date time
 	// Format: date-time
-	UpdateDateTime strfmt.DateTime `json:"UpdateDateTime,omitempty"`
+	UpdateDateTime *strfmt.DateTime `json:"UpdateDateTime,omitempty"`
 
 	// updated by
 	UpdatedBy string `json:"UpdatedBy,omitempty"`
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// user Id
 	UserID string `json:"UserId,omitempty"`

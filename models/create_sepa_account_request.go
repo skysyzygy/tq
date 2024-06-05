@@ -42,7 +42,7 @@ type CreateSepaAccountRequest struct {
 
 	// signature date
 	// Format: date-time
-	SignatureDate strfmt.DateTime `json:"SignatureDate,omitempty"`
+	SignatureDate *strfmt.DateTime `json:"SignatureDate,omitempty"`
 }
 
 // Validate validates this create sepa account request

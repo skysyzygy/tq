@@ -24,7 +24,7 @@ type PaymentPlanInstallment struct {
 
 	// due date
 	// Format: date-time
-	DueDate strfmt.DateTime `json:"DueDate,omitempty"`
+	DueDate *strfmt.DateTime `json:"DueDate,omitempty"`
 }
 
 // Validate validates this payment plan installment

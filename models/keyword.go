@@ -36,7 +36,7 @@ type Keyword struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// custom default value
 	CustomDefaultValue string `json:"CustomDefaultValue,omitempty"`
@@ -73,7 +73,7 @@ type Keyword struct {
 
 	// frequent update date
 	// Format: date-time
-	FrequentUpdateDate strfmt.DateTime `json:"FrequentUpdateDate,omitempty"`
+	FrequentUpdateDate *strfmt.DateTime `json:"FrequentUpdateDate,omitempty"`
 
 	// help text
 	HelpText string `json:"HelpText,omitempty"`
@@ -122,7 +122,7 @@ type Keyword struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// use for search
 	UseForSearch bool `json:"UseForSearch,omitempty"`

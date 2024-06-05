@@ -36,7 +36,7 @@ type PerformanceAuditEntry struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`

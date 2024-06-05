@@ -30,15 +30,15 @@ type CalculateMembershipRequest struct {
 
 	// calc contribution date
 	// Format: date-time
-	CalcContributionDate strfmt.DateTime `json:"CalcContributionDate,omitempty"`
+	CalcContributionDate *strfmt.DateTime `json:"CalcContributionDate,omitempty"`
 
 	// calc expiration date
 	// Format: date-time
-	CalcExpirationDate strfmt.DateTime `json:"CalcExpirationDate,omitempty"`
+	CalcExpirationDate *strfmt.DateTime `json:"CalcExpirationDate,omitempty"`
 
 	// calc initial date
 	// Format: date-time
-	CalcInitialDate strfmt.DateTime `json:"CalcInitialDate,omitempty"`
+	CalcInitialDate *strfmt.DateTime `json:"CalcInitialDate,omitempty"`
 
 	// creditee Id
 	CrediteeID int32 `json:"CrediteeId,omitempty"`

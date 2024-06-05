@@ -33,22 +33,22 @@ type OrdersForDeliveryRequest struct {
 
 	// order end date time
 	// Format: date-time
-	OrderEndDateTime strfmt.DateTime `json:"OrderEndDateTime,omitempty"`
+	OrderEndDateTime *strfmt.DateTime `json:"OrderEndDateTime,omitempty"`
 
 	// order start date time
 	// Format: date-time
-	OrderStartDateTime strfmt.DateTime `json:"OrderStartDateTime,omitempty"`
+	OrderStartDateTime *strfmt.DateTime `json:"OrderStartDateTime,omitempty"`
 
 	// organization name
 	OrganizationName string `json:"OrganizationName,omitempty"`
 
 	// performance end date time
 	// Format: date-time
-	PerformanceEndDateTime strfmt.DateTime `json:"PerformanceEndDateTime,omitempty"`
+	PerformanceEndDateTime *strfmt.DateTime `json:"PerformanceEndDateTime,omitempty"`
 
 	// performance start date time
 	// Format: date-time
-	PerformanceStartDateTime strfmt.DateTime `json:"PerformanceStartDateTime,omitempty"`
+	PerformanceStartDateTime *strfmt.DateTime `json:"PerformanceStartDateTime,omitempty"`
 
 	// use primary email
 	UsePrimaryEmail bool `json:"UsePrimaryEmail,omitempty"`

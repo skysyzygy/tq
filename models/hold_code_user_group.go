@@ -27,7 +27,7 @@ type HoldCodeUserGroup struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// hold code
 	HoldCode *HoldCodeSummary `json:"HoldCode,omitempty"`
@@ -40,7 +40,7 @@ type HoldCodeUserGroup struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// user group Id
 	UserGroupID string `json:"UserGroupId,omitempty"`

@@ -30,7 +30,7 @@ type GiftCertificateInfo struct {
 
 	// last print date
 	// Format: date-time
-	LastPrintDate strfmt.DateTime `json:"LastPrintDate,omitempty"`
+	LastPrintDate *strfmt.DateTime `json:"LastPrintDate,omitempty"`
 
 	// notes
 	Notes string `json:"Notes,omitempty"`
@@ -40,7 +40,7 @@ type GiftCertificateInfo struct {
 
 	// original date
 	// Format: date-time
-	OriginalDate strfmt.DateTime `json:"OriginalDate,omitempty"`
+	OriginalDate *strfmt.DateTime `json:"OriginalDate,omitempty"`
 
 	// print count
 	PrintCount int32 `json:"PrintCount,omitempty"`

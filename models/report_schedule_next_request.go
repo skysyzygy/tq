@@ -27,22 +27,22 @@ type ReportScheduleNextRequest struct {
 
 	// end date
 	// Format: date-time
-	EndDate strfmt.DateTime `json:"EndDate,omitempty"`
+	EndDate *strfmt.DateTime `json:"EndDate,omitempty"`
 
 	// end time
 	// Format: date-time
-	EndTime strfmt.DateTime `json:"EndTime,omitempty"`
+	EndTime *strfmt.DateTime `json:"EndTime,omitempty"`
 
 	// interval
 	Interval int32 `json:"Interval,omitempty"`
 
 	// start date
 	// Format: date-time
-	StartDate strfmt.DateTime `json:"StartDate,omitempty"`
+	StartDate *strfmt.DateTime `json:"StartDate,omitempty"`
 
 	// start time
 	// Format: date-time
-	StartTime strfmt.DateTime `json:"StartTime,omitempty"`
+	StartTime *strfmt.DateTime `json:"StartTime,omitempty"`
 
 	// type
 	Type string `json:"Type,omitempty"`

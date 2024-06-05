@@ -30,7 +30,7 @@ type SessionLoginInfo struct {
 
 	// locked date
 	// Format: date-time
-	LockedDate strfmt.DateTime `json:"LockedDate,omitempty"`
+	LockedDate *strfmt.DateTime `json:"LockedDate,omitempty"`
 
 	// original constituent Id
 	OriginalConstituentID int32 `json:"OriginalConstituentId,omitempty"`

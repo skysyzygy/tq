@@ -37,7 +37,7 @@ type ConstituentSnapshot struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// display name
 	DisplayName string `json:"DisplayName,omitempty"`
@@ -68,7 +68,7 @@ type ConstituentSnapshot struct {
 
 	// last activity date
 	// Format: date-time
-	LastActivityDate strfmt.DateTime `json:"LastActivityDate,omitempty"`
+	LastActivityDate *strfmt.DateTime `json:"LastActivityDate,omitempty"`
 
 	// last name
 	LastName string `json:"LastName,omitempty"`
@@ -114,7 +114,7 @@ type ConstituentSnapshot struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this constituent snapshot

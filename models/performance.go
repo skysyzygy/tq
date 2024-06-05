@@ -42,30 +42,30 @@ type Performance struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// date
 	// Format: date-time
-	Date strfmt.DateTime `json:"Date,omitempty"`
+	Date *strfmt.DateTime `json:"Date,omitempty"`
 
 	// default end sale date time
 	// Format: date-time
-	DefaultEndSaleDateTime strfmt.DateTime `json:"DefaultEndSaleDateTime,omitempty"`
+	DefaultEndSaleDateTime *strfmt.DateTime `json:"DefaultEndSaleDateTime,omitempty"`
 
 	// default start sale date time
 	// Format: date-time
-	DefaultStartSaleDateTime strfmt.DateTime `json:"DefaultStartSaleDateTime,omitempty"`
+	DefaultStartSaleDateTime *strfmt.DateTime `json:"DefaultStartSaleDateTime,omitempty"`
 
 	// description
 	Description string `json:"Description,omitempty"`
 
 	// doors close
 	// Format: date-time
-	DoorsClose strfmt.DateTime `json:"DoorsClose,omitempty"`
+	DoorsClose *strfmt.DateTime `json:"DoorsClose,omitempty"`
 
 	// doors open
 	// Format: date-time
-	DoorsOpen strfmt.DateTime `json:"DoorsOpen,omitempty"`
+	DoorsOpen *strfmt.DateTime `json:"DoorsOpen,omitempty"`
 
 	// duration
 	Duration int32 `json:"Duration,omitempty"`
@@ -84,19 +84,19 @@ type Performance struct {
 
 	// publish client end date
 	// Format: date-time
-	PublishClientEndDate strfmt.DateTime `json:"PublishClientEndDate,omitempty"`
+	PublishClientEndDate *strfmt.DateTime `json:"PublishClientEndDate,omitempty"`
 
 	// publish client start date
 	// Format: date-time
-	PublishClientStartDate strfmt.DateTime `json:"PublishClientStartDate,omitempty"`
+	PublishClientStartDate *strfmt.DateTime `json:"PublishClientStartDate,omitempty"`
 
 	// publish web Api end date
 	// Format: date-time
-	PublishWebAPIEndDate strfmt.DateTime `json:"PublishWebApiEndDate,omitempty"`
+	PublishWebAPIEndDate *strfmt.DateTime `json:"PublishWebApiEndDate,omitempty"`
 
 	// publish web Api start date
 	// Format: date-time
-	PublishWebAPIStartDate strfmt.DateTime `json:"PublishWebApiStartDate,omitempty"`
+	PublishWebAPIStartDate *strfmt.DateTime `json:"PublishWebApiStartDate,omitempty"`
 
 	// rank type
 	RankType *RankTypeSummary `json:"RankType,omitempty"`
@@ -142,7 +142,7 @@ type Performance struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// zone map
 	ZoneMap *ZoneMapSummary `json:"ZoneMap,omitempty"`

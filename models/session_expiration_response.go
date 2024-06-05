@@ -21,7 +21,7 @@ type SessionExpirationResponse struct {
 
 	// expiration
 	// Format: date-time
-	Expiration strfmt.DateTime `json:"Expiration,omitempty"`
+	Expiration *strfmt.DateTime `json:"Expiration,omitempty"`
 }
 
 // Validate validates this session expiration response

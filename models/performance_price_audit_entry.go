@@ -24,7 +24,7 @@ type PerformancePriceAuditEntry struct {
 
 	// date
 	// Format: date-time
-	Date strfmt.DateTime `json:"Date,omitempty"`
+	Date *strfmt.DateTime `json:"Date,omitempty"`
 
 	// edit indicator
 	EditIndicator bool `json:"EditIndicator,omitempty"`
@@ -34,11 +34,11 @@ type PerformancePriceAuditEntry struct {
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// event date time
 	// Format: date-time
-	EventDateTime strfmt.DateTime `json:"EventDateTime,omitempty"`
+	EventDateTime *strfmt.DateTime `json:"EventDateTime,omitempty"`
 
 	// location
 	Location string `json:"Location,omitempty"`
@@ -72,7 +72,7 @@ type PerformancePriceAuditEntry struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 
 	// user
 	User string `json:"User,omitempty"`

@@ -43,7 +43,7 @@ type List struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// criteria
 	Criteria []*ListCriteria `json:"Criteria"`
@@ -77,7 +77,7 @@ type List struct {
 
 	// last used date time
 	// Format: date-time
-	LastUsedDateTime strfmt.DateTime `json:"LastUsedDateTime,omitempty"`
+	LastUsedDateTime *strfmt.DateTime `json:"LastUsedDateTime,omitempty"`
 
 	// list Sql
 	ListSQL string `json:"ListSql,omitempty"`
@@ -99,7 +99,7 @@ type List struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this list

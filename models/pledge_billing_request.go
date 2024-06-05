@@ -36,11 +36,11 @@ type PledgeBillingRequest struct {
 
 	// cutoff date time
 	// Format: date-time
-	CutoffDateTime strfmt.DateTime `json:"CutoffDateTime,omitempty"`
+	CutoffDateTime *strfmt.DateTime `json:"CutoffDateTime,omitempty"`
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// fund ids
 	FundIds string `json:"FundIds,omitempty"`
@@ -53,7 +53,7 @@ type PledgeBillingRequest struct {
 
 	// mail date time
 	// Format: date-time
-	MailDateTime strfmt.DateTime `json:"MailDateTime,omitempty"`
+	MailDateTime *strfmt.DateTime `json:"MailDateTime,omitempty"`
 
 	// mail type Id
 	MailTypeID int32 `json:"MailTypeId,omitempty"`
@@ -84,7 +84,7 @@ type PledgeBillingRequest struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 
 	// user Id
 	UserID string `json:"UserId,omitempty"`

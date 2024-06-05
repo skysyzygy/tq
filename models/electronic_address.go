@@ -45,7 +45,7 @@ type ElectronicAddress struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// edit indicator
 	EditIndicator bool `json:"EditIndicator,omitempty"`
@@ -55,7 +55,7 @@ type ElectronicAddress struct {
 
 	// end date
 	// Format: date-time
-	EndDate strfmt.DateTime `json:"EndDate,omitempty"`
+	EndDate *strfmt.DateTime `json:"EndDate,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`
@@ -77,14 +77,14 @@ type ElectronicAddress struct {
 
 	// start date
 	// Format: date-time
-	StartDate strfmt.DateTime `json:"StartDate,omitempty"`
+	StartDate *strfmt.DateTime `json:"StartDate,omitempty"`
 
 	// updated by
 	UpdatedBy string `json:"UpdatedBy,omitempty"`
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this electronic address

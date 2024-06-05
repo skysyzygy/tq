@@ -45,7 +45,7 @@ type Address struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// delivery point
 	DeliveryPoint string `json:"DeliveryPoint,omitempty"`
@@ -55,7 +55,7 @@ type Address struct {
 
 	// end date
 	// Format: date-time
-	EndDate strfmt.DateTime `json:"EndDate,omitempty"`
+	EndDate *strfmt.DateTime `json:"EndDate,omitempty"`
 
 	// geo area
 	GeoArea int32 `json:"GeoArea,omitempty"`
@@ -92,7 +92,7 @@ type Address struct {
 
 	// start date
 	// Format: date-time
-	StartDate strfmt.DateTime `json:"StartDate,omitempty"`
+	StartDate *strfmt.DateTime `json:"StartDate,omitempty"`
 
 	// state
 	State *StateSummary `json:"State,omitempty"`
@@ -114,7 +114,7 @@ type Address struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this address

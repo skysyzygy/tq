@@ -28,7 +28,7 @@ type PerformancePriceLayer struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// default designation code Id
 	DefaultDesignationCodeID int32 `json:"DefaultDesignationCodeId,omitempty"`
@@ -44,7 +44,7 @@ type PerformancePriceLayer struct {
 
 	// effective date time
 	// Format: date-time
-	EffectiveDateTime strfmt.DateTime `json:"EffectiveDateTime,omitempty"`
+	EffectiveDateTime *strfmt.DateTime `json:"EffectiveDateTime,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`
@@ -66,7 +66,7 @@ type PerformancePriceLayer struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this performance price layer

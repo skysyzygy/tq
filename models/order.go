@@ -61,7 +61,7 @@ type Order struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// custom0
 	Custom0 string `json:"Custom0,omitempty"`
@@ -95,14 +95,14 @@ type Order struct {
 
 	// delivery date
 	// Format: date-time
-	DeliveryDate strfmt.DateTime `json:"DeliveryDate,omitempty"`
+	DeliveryDate *strfmt.DateTime `json:"DeliveryDate,omitempty"`
 
 	// delivery method Id
 	DeliveryMethodID int32 `json:"DeliveryMethodId,omitempty"`
 
 	// hold until date time
 	// Format: date-time
-	HoldUntilDateTime strfmt.DateTime `json:"HoldUntilDateTime,omitempty"`
+	HoldUntilDateTime *strfmt.DateTime `json:"HoldUntilDateTime,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`
@@ -127,7 +127,7 @@ type Order struct {
 
 	// order date time
 	// Format: date-time
-	OrderDateTime strfmt.DateTime `json:"OrderDateTime,omitempty"`
+	OrderDateTime *strfmt.DateTime `json:"OrderDateTime,omitempty"`
 
 	// reload pricing rules
 	ReloadPricingRules bool `json:"ReloadPricingRules,omitempty"`
@@ -146,7 +146,7 @@ type Order struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// virtual constituencies
 	VirtualConstituencies string `json:"VirtualConstituencies,omitempty"`

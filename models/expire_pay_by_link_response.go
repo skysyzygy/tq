@@ -21,7 +21,7 @@ type ExpirePayByLinkResponse struct {
 
 	// expires at
 	// Format: date-time
-	ExpiresAt strfmt.DateTime `json:"ExpiresAt,omitempty"`
+	ExpiresAt *strfmt.DateTime `json:"ExpiresAt,omitempty"`
 
 	// Id
 	ID string `json:"Id,omitempty"`

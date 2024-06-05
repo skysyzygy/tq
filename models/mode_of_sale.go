@@ -48,7 +48,7 @@ type ModeOfSale struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// default ack format Id
 	DefaultAckFormatID int32 `json:"DefaultAckFormatId,omitempty"`
@@ -85,7 +85,7 @@ type ModeOfSale struct {
 
 	// hold until date
 	// Format: date-time
-	HoldUntilDate strfmt.DateTime `json:"HoldUntilDate,omitempty"`
+	HoldUntilDate *strfmt.DateTime `json:"HoldUntilDate,omitempty"`
 
 	// hold until days
 	HoldUntilDays int32 `json:"HoldUntilDays,omitempty"`
@@ -131,7 +131,7 @@ type ModeOfSale struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this mode of sale

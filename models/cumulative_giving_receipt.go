@@ -39,18 +39,18 @@ type CumulativeGivingReceipt struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// date sent
 	// Format: date-time
-	DateSent strfmt.DateTime `json:"DateSent,omitempty"`
+	DateSent *strfmt.DateTime `json:"DateSent,omitempty"`
 
 	// email address
 	EmailAddress string `json:"EmailAddress,omitempty"`
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// format
 	Format *Entity `json:"Format,omitempty"`
@@ -66,7 +66,7 @@ type CumulativeGivingReceipt struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 
 	// tax receipt Id
 	TaxReceiptID int32 `json:"TaxReceiptId,omitempty"`
@@ -76,7 +76,7 @@ type CumulativeGivingReceipt struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// year
 	Year int32 `json:"Year,omitempty"`

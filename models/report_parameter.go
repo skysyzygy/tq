@@ -27,7 +27,7 @@ type ReportParameter struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// data column
 	DataColumn string `json:"DataColumn,omitempty"`
@@ -94,7 +94,7 @@ type ReportParameter struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// validation
 	Validation string `json:"Validation,omitempty"`

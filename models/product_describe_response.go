@@ -24,7 +24,7 @@ type ProductDescribeResponse struct {
 
 	// product date
 	// Format: date-time
-	ProductDate strfmt.DateTime `json:"ProductDate,omitempty"`
+	ProductDate *strfmt.DateTime `json:"ProductDate,omitempty"`
 
 	// product description
 	ProductDescription string `json:"ProductDescription,omitempty"`

@@ -24,7 +24,7 @@ type CartInfo struct {
 
 	// first seat added date time
 	// Format: date-time
-	FirstSeatAddedDateTime strfmt.DateTime `json:"FirstSeatAddedDateTime,omitempty"`
+	FirstSeatAddedDateTime *strfmt.DateTime `json:"FirstSeatAddedDateTime,omitempty"`
 
 	// gift certificate count
 	GiftCertificateCount int32 `json:"GiftCertificateCount,omitempty"`

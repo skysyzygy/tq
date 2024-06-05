@@ -36,14 +36,14 @@ type ResourceSchedule struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// description
 	Description string `json:"Description,omitempty"`
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`
@@ -56,7 +56,7 @@ type ResourceSchedule struct {
 
 	// recurrence end date
 	// Format: date-time
-	RecurrenceEndDate strfmt.DateTime `json:"RecurrenceEndDate,omitempty"`
+	RecurrenceEndDate *strfmt.DateTime `json:"RecurrenceEndDate,omitempty"`
 
 	// recurrence interval
 	RecurrenceInterval int32 `json:"RecurrenceInterval,omitempty"`
@@ -72,7 +72,7 @@ type ResourceSchedule struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 
 	// type
 	Type *ScheduleTypeSummary `json:"Type,omitempty"`
@@ -82,7 +82,7 @@ type ResourceSchedule struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this resource schedule

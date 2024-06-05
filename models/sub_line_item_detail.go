@@ -33,7 +33,7 @@ type SubLineItemDetail struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// discount type Id
 	DiscountTypeID int32 `json:"DiscountTypeId,omitempty"`

@@ -48,7 +48,7 @@ type ConstituentContribution struct {
 
 	// contribution date
 	// Format: date-time
-	ContributionDate strfmt.DateTime `json:"ContributionDate,omitempty"`
+	ContributionDate *strfmt.DateTime `json:"ContributionDate,omitempty"`
 
 	// contribution type
 	ContributionType string `json:"ContributionType,omitempty"`

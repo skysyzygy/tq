@@ -30,7 +30,7 @@ type ResourceScheduleOccurrence struct {
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// is shared
 	IsShared bool `json:"IsShared,omitempty"`
@@ -49,7 +49,7 @@ type ResourceScheduleOccurrence struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 }
 
 // Validate validates this resource schedule occurrence

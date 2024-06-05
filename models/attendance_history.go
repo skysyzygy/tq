@@ -33,7 +33,7 @@ type AttendanceHistory struct {
 
 	// attend date time
 	// Format: date-time
-	AttendDateTime strfmt.DateTime `json:"AttendDateTime,omitempty"`
+	AttendDateTime *strfmt.DateTime `json:"AttendDateTime,omitempty"`
 
 	// composite Id
 	CompositeID int32 `json:"CompositeId,omitempty"`
@@ -49,7 +49,7 @@ type AttendanceHistory struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// device
 	Device string `json:"Device,omitempty"`
@@ -83,7 +83,7 @@ type AttendanceHistory struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// zone
 	Zone *HistoryZoneSummary `json:"Zone,omitempty"`

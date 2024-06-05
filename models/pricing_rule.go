@@ -70,7 +70,7 @@ type PricingRule struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// description
 	Description string `json:"Description,omitempty"`
@@ -92,7 +92,7 @@ type PricingRule struct {
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// exclude general public
 	ExcludeGeneralPublic bool `json:"ExcludeGeneralPublic,omitempty"`
@@ -111,7 +111,7 @@ type PricingRule struct {
 
 	// over the limit date time
 	// Format: date-time
-	OverTheLimitDateTime strfmt.DateTime `json:"OverTheLimitDateTime,omitempty"`
+	OverTheLimitDateTime *strfmt.DateTime `json:"OverTheLimitDateTime,omitempty"`
 
 	// promoted appeals
 	PromotedAppeals string `json:"PromotedAppeals,omitempty"`
@@ -196,14 +196,14 @@ type PricingRule struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 
 	// updated by
 	UpdatedBy string `json:"UpdatedBy,omitempty"`
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this pricing rule

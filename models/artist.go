@@ -30,7 +30,7 @@ type Artist struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// first name
 	FirstName string `json:"FirstName,omitempty"`
@@ -49,7 +49,7 @@ type Artist struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// voice Id
 	VoiceID int32 `json:"VoiceId,omitempty"`

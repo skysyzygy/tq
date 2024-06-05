@@ -30,7 +30,7 @@ type GiftCertificateTransaction struct {
 
 	// transaction date
 	// Format: date-time
-	TransactionDate strfmt.DateTime `json:"TransactionDate,omitempty"`
+	TransactionDate *strfmt.DateTime `json:"TransactionDate,omitempty"`
 }
 
 // Validate validates this gift certificate transaction

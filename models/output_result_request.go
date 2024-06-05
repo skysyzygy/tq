@@ -39,7 +39,7 @@ type OutputResultRequest struct {
 
 	// mailing date time
 	// Format: date-time
-	MailingDateTime strfmt.DateTime `json:"MailingDateTime,omitempty"`
+	MailingDateTime *strfmt.DateTime `json:"MailingDateTime,omitempty"`
 
 	// membership organization Id
 	MembershipOrganizationID int32 `json:"MembershipOrganizationId,omitempty"`

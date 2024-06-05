@@ -24,7 +24,7 @@ type Step struct {
 
 	// completed on date time
 	// Format: date-time
-	CompletedOnDateTime strfmt.DateTime `json:"CompletedOnDateTime,omitempty"`
+	CompletedOnDateTime *strfmt.DateTime `json:"CompletedOnDateTime,omitempty"`
 
 	// create location
 	CreateLocation string `json:"CreateLocation,omitempty"`
@@ -34,14 +34,14 @@ type Step struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// description
 	Description string `json:"Description,omitempty"`
 
 	// due date time
 	// Format: date-time
-	DueDateTime strfmt.DateTime `json:"DueDateTime,omitempty"`
+	DueDateTime *strfmt.DateTime `json:"DueDateTime,omitempty"`
 
 	// edit indicator
 	EditIndicator bool `json:"EditIndicator,omitempty"`
@@ -66,7 +66,7 @@ type Step struct {
 
 	// step date time
 	// Format: date-time
-	StepDateTime strfmt.DateTime `json:"StepDateTime,omitempty"`
+	StepDateTime *strfmt.DateTime `json:"StepDateTime,omitempty"`
 
 	// type
 	Type *StepTypeSummary `json:"Type,omitempty"`
@@ -76,7 +76,7 @@ type Step struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// warning days
 	WarningDays int32 `json:"WarningDays,omitempty"`

@@ -30,7 +30,7 @@ type SpecialActivity struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`
@@ -46,7 +46,7 @@ type SpecialActivity struct {
 
 	// special activity date time
 	// Format: date-time
-	SpecialActivityDateTime strfmt.DateTime `json:"SpecialActivityDateTime,omitempty"`
+	SpecialActivityDateTime *strfmt.DateTime `json:"SpecialActivityDateTime,omitempty"`
 
 	// status
 	Status *SpecialActivityStatusSummary `json:"Status,omitempty"`
@@ -59,7 +59,7 @@ type SpecialActivity struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// worker constituent Id
 	WorkerConstituentID int32 `json:"WorkerConstituentId,omitempty"`

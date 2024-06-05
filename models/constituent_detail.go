@@ -34,7 +34,7 @@ type ConstituentDetail struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// display name
 	DisplayName string `json:"DisplayName,omitempty"`
@@ -62,18 +62,18 @@ type ConstituentDetail struct {
 
 	// last activity date
 	// Format: date-time
-	LastActivityDate strfmt.DateTime `json:"LastActivityDate,omitempty"`
+	LastActivityDate *strfmt.DateTime `json:"LastActivityDate,omitempty"`
 
 	// last gift date
 	// Format: date-time
-	LastGiftDate strfmt.DateTime `json:"LastGiftDate,omitempty"`
+	LastGiftDate *strfmt.DateTime `json:"LastGiftDate,omitempty"`
 
 	// last name
 	LastName string `json:"LastName,omitempty"`
 
 	// last ticket date
 	// Format: date-time
-	LastTicketDate strfmt.DateTime `json:"LastTicketDate,omitempty"`
+	LastTicketDate *strfmt.DateTime `json:"LastTicketDate,omitempty"`
 
 	// mail indicator
 	MailIndicator *MailIndicatorSummary `json:"MailIndicator,omitempty"`
@@ -113,7 +113,7 @@ type ConstituentDetail struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this constituent detail

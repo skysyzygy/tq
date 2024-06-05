@@ -24,7 +24,7 @@ type SessionWebLogin struct {
 
 	// constituent update date
 	// Format: date-time
-	ConstituentUpdateDate strfmt.DateTime `json:"ConstituentUpdateDate,omitempty"`
+	ConstituentUpdateDate *strfmt.DateTime `json:"ConstituentUpdateDate,omitempty"`
 
 	// create location
 	CreateLocation string `json:"CreateLocation,omitempty"`
@@ -34,7 +34,7 @@ type SessionWebLogin struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// edit indicator
 	EditIndicator bool `json:"EditIndicator,omitempty"`
@@ -53,11 +53,11 @@ type SessionWebLogin struct {
 
 	// last login date
 	// Format: date-time
-	LastLoginDate strfmt.DateTime `json:"LastLoginDate,omitempty"`
+	LastLoginDate *strfmt.DateTime `json:"LastLoginDate,omitempty"`
 
 	// locked date
 	// Format: date-time
-	LockedDate strfmt.DateTime `json:"LockedDate,omitempty"`
+	LockedDate *strfmt.DateTime `json:"LockedDate,omitempty"`
 
 	// login
 	Login string `json:"Login,omitempty"`
@@ -79,7 +79,7 @@ type SessionWebLogin struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this session web login

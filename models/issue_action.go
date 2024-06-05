@@ -21,7 +21,7 @@ type IssueAction struct {
 
 	// action date
 	// Format: date-time
-	ActionDate strfmt.DateTime `json:"ActionDate,omitempty"`
+	ActionDate *strfmt.DateTime `json:"ActionDate,omitempty"`
 
 	// action type
 	ActionType *ActionTypeSummary `json:"ActionType,omitempty"`
@@ -37,7 +37,7 @@ type IssueAction struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// edit indicator
 	EditIndicator bool `json:"EditIndicator,omitempty"`
@@ -50,7 +50,7 @@ type IssueAction struct {
 
 	// letter printed date
 	// Format: date-time
-	LetterPrintedDate strfmt.DateTime `json:"LetterPrintedDate,omitempty"`
+	LetterPrintedDate *strfmt.DateTime `json:"LetterPrintedDate,omitempty"`
 
 	// notes
 	Notes string `json:"Notes,omitempty"`
@@ -63,7 +63,7 @@ type IssueAction struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this issue action

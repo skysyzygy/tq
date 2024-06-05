@@ -27,7 +27,7 @@ type Batch struct {
 
 	// close date time
 	// Format: date-time
-	CloseDateTime strfmt.DateTime `json:"CloseDateTime,omitempty"`
+	CloseDateTime *strfmt.DateTime `json:"CloseDateTime,omitempty"`
 
 	// closed by
 	ClosedBy string `json:"ClosedBy,omitempty"`
@@ -40,7 +40,7 @@ type Batch struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`
@@ -68,7 +68,7 @@ type Batch struct {
 
 	// posted date time
 	// Format: date-time
-	PostedDateTime strfmt.DateTime `json:"PostedDateTime,omitempty"`
+	PostedDateTime *strfmt.DateTime `json:"PostedDateTime,omitempty"`
 
 	// status
 	Status string `json:"Status,omitempty"`
@@ -87,7 +87,7 @@ type Batch struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this batch

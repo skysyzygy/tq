@@ -34,7 +34,7 @@ type PerformancePriceLayerSummary struct {
 
 	// effective date time
 	// Format: date-time
-	EffectiveDateTime strfmt.DateTime `json:"EffectiveDateTime,omitempty"`
+	EffectiveDateTime *strfmt.DateTime `json:"EffectiveDateTime,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`

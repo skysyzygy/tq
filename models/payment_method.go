@@ -42,7 +42,7 @@ type PaymentMethod struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// currency type Id
 	CurrencyTypeID int32 `json:"CurrencyTypeId,omitempty"`
@@ -112,7 +112,7 @@ type PaymentMethod struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// use with card reader
 	UseWithCardReader bool `json:"UseWithCardReader,omitempty"`

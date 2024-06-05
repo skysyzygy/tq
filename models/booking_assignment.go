@@ -33,7 +33,7 @@ type BookingAssignment struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// edit indicator
 	EditIndicator bool `json:"EditIndicator,omitempty"`
@@ -52,7 +52,7 @@ type BookingAssignment struct {
 
 	// override date time
 	// Format: date-time
-	OverrideDateTime strfmt.DateTime `json:"OverrideDateTime,omitempty"`
+	OverrideDateTime *strfmt.DateTime `json:"OverrideDateTime,omitempty"`
 
 	// qualifications
 	Qualifications []int32 `json:"Qualifications"`
@@ -71,7 +71,7 @@ type BookingAssignment struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// view indicator
 	ViewIndicator bool `json:"ViewIndicator,omitempty"`

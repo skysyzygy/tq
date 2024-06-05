@@ -27,7 +27,7 @@ type BulkDailyCopyExclusion struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// do not copy
 	DoNotCopy bool `json:"DoNotCopy,omitempty"`
@@ -52,7 +52,7 @@ type BulkDailyCopyExclusion struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this bulk daily copy exclusion

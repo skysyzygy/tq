@@ -30,7 +30,7 @@ type PackageSearchResponse struct {
 
 	// first performance date time
 	// Format: date-time
-	FirstPerformanceDateTime strfmt.DateTime `json:"FirstPerformanceDateTime,omitempty"`
+	FirstPerformanceDateTime *strfmt.DateTime `json:"FirstPerformanceDateTime,omitempty"`
 
 	// fixed seat indicator
 	FixedSeatIndicator bool `json:"FixedSeatIndicator,omitempty"`
@@ -40,7 +40,7 @@ type PackageSearchResponse struct {
 
 	// last performance date time
 	// Format: date-time
-	LastPerformanceDateTime strfmt.DateTime `json:"LastPerformanceDateTime,omitempty"`
+	LastPerformanceDateTime *strfmt.DateTime `json:"LastPerformanceDateTime,omitempty"`
 
 	// maximum performances
 	MaximumPerformances int32 `json:"MaximumPerformances,omitempty"`
@@ -56,18 +56,18 @@ type PackageSearchResponse struct {
 
 	// mode of sale end date
 	// Format: date-time
-	ModeOfSaleEndDate strfmt.DateTime `json:"ModeOfSaleEndDate,omitempty"`
+	ModeOfSaleEndDate *strfmt.DateTime `json:"ModeOfSaleEndDate,omitempty"`
 
 	// mode of sale start date
 	// Format: date-time
-	ModeOfSaleStartDate strfmt.DateTime `json:"ModeOfSaleStartDate,omitempty"`
+	ModeOfSaleStartDate *strfmt.DateTime `json:"ModeOfSaleStartDate,omitempty"`
 
 	// package code
 	PackageCode string `json:"PackageCode,omitempty"`
 
 	// package date time
 	// Format: date-time
-	PackageDateTime strfmt.DateTime `json:"PackageDateTime,omitempty"`
+	PackageDateTime *strfmt.DateTime `json:"PackageDateTime,omitempty"`
 
 	// package description
 	PackageDescription string `json:"PackageDescription,omitempty"`

@@ -36,11 +36,11 @@ type ProductSearchRequest struct {
 
 	// end date range
 	// Format: date-time
-	EndDateRange strfmt.DateTime `json:"EndDateRange,omitempty"`
+	EndDateRange *strfmt.DateTime `json:"EndDateRange,omitempty"`
 
 	// end date range package
 	// Format: date-time
-	EndDateRangePackage strfmt.DateTime `json:"EndDateRangePackage,omitempty"`
+	EndDateRangePackage *strfmt.DateTime `json:"EndDateRangePackage,omitempty"`
 
 	// facility Id
 	FacilityID int32 `json:"FacilityId,omitempty"`
@@ -116,11 +116,11 @@ type ProductSearchRequest struct {
 
 	// start date range
 	// Format: date-time
-	StartDateRange strfmt.DateTime `json:"StartDateRange,omitempty"`
+	StartDateRange *strfmt.DateTime `json:"StartDateRange,omitempty"`
 
 	// start date range package
 	// Format: date-time
-	StartDateRangePackage strfmt.DateTime `json:"StartDateRangePackage,omitempty"`
+	StartDateRangePackage *strfmt.DateTime `json:"StartDateRangePackage,omitempty"`
 
 	// time slot Id
 	TimeSlotID int32 `json:"TimeSlotId,omitempty"`

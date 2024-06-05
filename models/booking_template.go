@@ -37,7 +37,7 @@ type BookingTemplate struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// description
 	Description string `json:"Description,omitempty"`
@@ -56,14 +56,14 @@ type BookingTemplate struct {
 
 	// override time
 	// Format: date-time
-	OverrideTime strfmt.DateTime `json:"OverrideTime,omitempty"`
+	OverrideTime *strfmt.DateTime `json:"OverrideTime,omitempty"`
 
 	// updated by
 	UpdatedBy string `json:"UpdatedBy,omitempty"`
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this booking template

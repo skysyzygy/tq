@@ -24,7 +24,7 @@ type Source struct {
 
 	// acquisition date time
 	// Format: date-time
-	AcquisitionDateTime strfmt.DateTime `json:"AcquisitionDateTime,omitempty"`
+	AcquisitionDateTime *strfmt.DateTime `json:"AcquisitionDateTime,omitempty"`
 
 	// appeal
 	Appeal *AppealSummary `json:"Appeal,omitempty"`
@@ -37,7 +37,7 @@ type Source struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// delivery cost
 	DeliveryCost float64 `json:"DeliveryCost,omitempty"`
@@ -47,7 +47,7 @@ type Source struct {
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// fulfill cost
 	FulfillCost float64 `json:"FulfillCost,omitempty"`
@@ -93,14 +93,14 @@ type Source struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 
 	// updated by
 	UpdatedBy string `json:"UpdatedBy,omitempty"`
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this source

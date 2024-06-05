@@ -30,7 +30,7 @@ type SalesLayoutPriceType struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// foreground color
 	ForegroundColor int32 `json:"ForegroundColor,omitempty"`
@@ -46,7 +46,7 @@ type SalesLayoutPriceType struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// xpos
 	Xpos int32 `json:"Xpos,omitempty"`

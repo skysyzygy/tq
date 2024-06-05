@@ -39,7 +39,7 @@ type PackageSearchRequest struct {
 
 	// package end date
 	// Format: date-time
-	PackageEndDate strfmt.DateTime `json:"PackageEndDate,omitempty"`
+	PackageEndDate *strfmt.DateTime `json:"PackageEndDate,omitempty"`
 
 	// package facility ids
 	PackageFacilityIds string `json:"PackageFacilityIds,omitempty"`
@@ -52,14 +52,14 @@ type PackageSearchRequest struct {
 
 	// package start date
 	// Format: date-time
-	PackageStartDate strfmt.DateTime `json:"PackageStartDate,omitempty"`
+	PackageStartDate *strfmt.DateTime `json:"PackageStartDate,omitempty"`
 
 	// package type ids
 	PackageTypeIds string `json:"PackageTypeIds,omitempty"`
 
 	// performance end date
 	// Format: date-time
-	PerformanceEndDate strfmt.DateTime `json:"PerformanceEndDate,omitempty"`
+	PerformanceEndDate *strfmt.DateTime `json:"PerformanceEndDate,omitempty"`
 
 	// performance facility ids
 	PerformanceFacilityIds string `json:"PerformanceFacilityIds,omitempty"`
@@ -72,7 +72,7 @@ type PackageSearchRequest struct {
 
 	// performance start date
 	// Format: date-time
-	PerformanceStartDate strfmt.DateTime `json:"PerformanceStartDate,omitempty"`
+	PerformanceStartDate *strfmt.DateTime `json:"PerformanceStartDate,omitempty"`
 
 	// season ids
 	SeasonIds string `json:"SeasonIds,omitempty"`

@@ -24,7 +24,7 @@ type ApplySingleHoldResponse struct {
 
 	// hold until date
 	// Format: date-time
-	HoldUntilDate strfmt.DateTime `json:"HoldUntilDate,omitempty"`
+	HoldUntilDate *strfmt.DateTime `json:"HoldUntilDate,omitempty"`
 
 	// performance Id
 	PerformanceID int32 `json:"PerformanceId,omitempty"`

@@ -33,7 +33,7 @@ type Season struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// default indicator
 	DefaultIndicator bool `json:"DefaultIndicator,omitempty"`
@@ -46,7 +46,7 @@ type Season struct {
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// f year
 	FYear int32 `json:"FYear,omitempty"`
@@ -62,7 +62,7 @@ type Season struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 
 	// subscription fund1
 	SubscriptionFund1 int32 `json:"SubscriptionFund1,omitempty"`
@@ -78,7 +78,7 @@ type Season struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// yearly season
 	YearlySeason int32 `json:"YearlySeason,omitempty"`

@@ -30,7 +30,7 @@ type SLIPerformanceSummary struct {
 
 	// performance date time
 	// Format: date-time
-	PerformanceDateTime strfmt.DateTime `json:"PerformanceDateTime,omitempty"`
+	PerformanceDateTime *strfmt.DateTime `json:"PerformanceDateTime,omitempty"`
 
 	// production season Id
 	ProductionSeasonID int32 `json:"ProductionSeasonId,omitempty"`

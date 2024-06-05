@@ -42,15 +42,15 @@ type CalculatedMembership struct {
 
 	// expiration date
 	// Format: date-time
-	ExpirationDate strfmt.DateTime `json:"ExpirationDate,omitempty"`
+	ExpirationDate *strfmt.DateTime `json:"ExpirationDate,omitempty"`
 
 	// inception date
 	// Format: date-time
-	InceptionDate strfmt.DateTime `json:"InceptionDate,omitempty"`
+	InceptionDate *strfmt.DateTime `json:"InceptionDate,omitempty"`
 
 	// initial date
 	// Format: date-time
-	InitialDate strfmt.DateTime `json:"InitialDate,omitempty"`
+	InitialDate *strfmt.DateTime `json:"InitialDate,omitempty"`
 
 	// macro trend
 	MacroTrend int32 `json:"MacroTrend,omitempty"`

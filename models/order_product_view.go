@@ -52,7 +52,7 @@ type OrderProductView struct {
 
 	// hold until date time
 	// Format: date-time
-	HoldUntilDateTime strfmt.DateTime `json:"HoldUntilDateTime,omitempty"`
+	HoldUntilDateTime *strfmt.DateTime `json:"HoldUntilDateTime,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`
@@ -68,7 +68,7 @@ type OrderProductView struct {
 
 	// order date time
 	// Format: date-time
-	OrderDateTime strfmt.DateTime `json:"OrderDateTime,omitempty"`
+	OrderDateTime *strfmt.DateTime `json:"OrderDateTime,omitempty"`
 
 	// order fees
 	OrderFees []*OrderProductViewFeeDetail `json:"OrderFees"`

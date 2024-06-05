@@ -34,7 +34,7 @@ type AnalyticsCube struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// data security
 	DataSecurity []*AnalyticsCubeDataSecurity `json:"DataSecurity"`
@@ -53,7 +53,7 @@ type AnalyticsCube struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this analytics cube

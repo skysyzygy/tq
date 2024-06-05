@@ -24,7 +24,7 @@ type HistoryOrderSummary struct {
 
 	// order date time
 	// Format: date-time
-	OrderDateTime strfmt.DateTime `json:"OrderDateTime,omitempty"`
+	OrderDateTime *strfmt.DateTime `json:"OrderDateTime,omitempty"`
 }
 
 // Validate validates this history order summary

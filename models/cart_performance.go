@@ -39,7 +39,7 @@ type CartPerformance struct {
 
 	// performance date time
 	// Format: date-time
-	PerformanceDateTime strfmt.DateTime `json:"PerformanceDateTime,omitempty"`
+	PerformanceDateTime *strfmt.DateTime `json:"PerformanceDateTime,omitempty"`
 
 	// production season
 	ProductionSeason *EntitySummary `json:"ProductionSeason,omitempty"`

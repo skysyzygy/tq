@@ -18,4 +18,10 @@
             ["paths","/Custom/{resourceName}/{id}"]
     ]) |
 # fix duplicate enum
-.definitions.Response.properties.StatusCode.enum |= unique
+ .definitions.Response.properties.StatusCode.enum |= unique |
+# make date-time nullable
+.definitions |= map_values(
+    .properties |= map_values( 
+        select(.format == "date-time") += {"x-nullable":true}
+    )
+)

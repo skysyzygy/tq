@@ -22,7 +22,7 @@ type UpdateSeatHoldRequest struct {
 
 	// hold until date
 	// Format: date-time
-	HoldUntilDate strfmt.DateTime `json:"HoldUntilDate,omitempty"`
+	HoldUntilDate *strfmt.DateTime `json:"HoldUntilDate,omitempty"`
 
 	// only affect available
 	OnlyAffectAvailable bool `json:"OnlyAffectAvailable,omitempty"`

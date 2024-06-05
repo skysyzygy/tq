@@ -24,7 +24,7 @@ type CurrentMembership struct {
 
 	// create date
 	// Format: date-time
-	CreateDate strfmt.DateTime `json:"CreateDate,omitempty"`
+	CreateDate *strfmt.DateTime `json:"CreateDate,omitempty"`
 
 	// current record
 	CurrentRecord string `json:"CurrentRecord,omitempty"`
@@ -34,11 +34,11 @@ type CurrentMembership struct {
 
 	// expiration date
 	// Format: date-time
-	ExpirationDate strfmt.DateTime `json:"ExpirationDate,omitempty"`
+	ExpirationDate *strfmt.DateTime `json:"ExpirationDate,omitempty"`
 
 	// initial date
 	// Format: date-time
-	InitialDate strfmt.DateTime `json:"InitialDate,omitempty"`
+	InitialDate *strfmt.DateTime `json:"InitialDate,omitempty"`
 
 	// membership level
 	MembershipLevel *CurrentMembershipLevelSummary `json:"MembershipLevel,omitempty"`

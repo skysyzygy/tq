@@ -21,7 +21,7 @@ type ReportSchedule struct {
 
 	// as of date time
 	// Format: date-time
-	AsOfDateTime strfmt.DateTime `json:"AsOfDateTime,omitempty"`
+	AsOfDateTime *strfmt.DateTime `json:"AsOfDateTime,omitempty"`
 
 	// control group
 	ControlGroup *ControlGroupSummary `json:"ControlGroup,omitempty"`
@@ -34,7 +34,7 @@ type ReportSchedule struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// day of week
 	DayOfWeek int32 `json:"DayOfWeek,omitempty"`
@@ -44,11 +44,11 @@ type ReportSchedule struct {
 
 	// end date
 	// Format: date-time
-	EndDate strfmt.DateTime `json:"EndDate,omitempty"`
+	EndDate *strfmt.DateTime `json:"EndDate,omitempty"`
 
 	// end time
 	// Format: date-time
-	EndTime strfmt.DateTime `json:"EndTime,omitempty"`
+	EndTime *strfmt.DateTime `json:"EndTime,omitempty"`
 
 	// header request
 	HeaderRequest *ReportRequest `json:"HeaderRequest,omitempty"`
@@ -67,11 +67,11 @@ type ReportSchedule struct {
 
 	// start date
 	// Format: date-time
-	StartDate strfmt.DateTime `json:"StartDate,omitempty"`
+	StartDate *strfmt.DateTime `json:"StartDate,omitempty"`
 
 	// start time
 	// Format: date-time
-	StartTime strfmt.DateTime `json:"StartTime,omitempty"`
+	StartTime *strfmt.DateTime `json:"StartTime,omitempty"`
 
 	// type
 	Type string `json:"Type,omitempty"`
@@ -81,7 +81,7 @@ type ReportSchedule struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this report schedule

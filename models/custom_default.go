@@ -27,7 +27,7 @@ type CustomDefault struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// custom default category
 	CustomDefaultCategory *CustomDefaultCategorySummary `json:"CustomDefaultCategory,omitempty"`
@@ -52,7 +52,7 @@ type CustomDefault struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this custom default

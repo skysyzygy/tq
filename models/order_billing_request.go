@@ -30,11 +30,11 @@ type OrderBillingRequest struct {
 
 	// cutoff date time
 	// Format: date-time
-	CutoffDateTime strfmt.DateTime `json:"CutoffDateTime,omitempty"`
+	CutoffDateTime *strfmt.DateTime `json:"CutoffDateTime,omitempty"`
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// list Id
 	ListID int32 `json:"ListId,omitempty"`
@@ -59,22 +59,22 @@ type OrderBillingRequest struct {
 
 	// order end date time
 	// Format: date-time
-	OrderEndDateTime strfmt.DateTime `json:"OrderEndDateTime,omitempty"`
+	OrderEndDateTime *strfmt.DateTime `json:"OrderEndDateTime,omitempty"`
 
 	// order start date time
 	// Format: date-time
-	OrderStartDateTime strfmt.DateTime `json:"OrderStartDateTime,omitempty"`
+	OrderStartDateTime *strfmt.DateTime `json:"OrderStartDateTime,omitempty"`
 
 	// payment method group Id
 	PaymentMethodGroupID int32 `json:"PaymentMethodGroupId,omitempty"`
 
 	// performance end date time
 	// Format: date-time
-	PerformanceEndDateTime strfmt.DateTime `json:"PerformanceEndDateTime,omitempty"`
+	PerformanceEndDateTime *strfmt.DateTime `json:"PerformanceEndDateTime,omitempty"`
 
 	// performance start date time
 	// Format: date-time
-	PerformanceStartDateTime strfmt.DateTime `json:"PerformanceStartDateTime,omitempty"`
+	PerformanceStartDateTime *strfmt.DateTime `json:"PerformanceStartDateTime,omitempty"`
 
 	// seasons
 	Seasons string `json:"Seasons,omitempty"`
@@ -84,7 +84,7 @@ type OrderBillingRequest struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 
 	// user Id
 	UserID string `json:"UserId,omitempty"`

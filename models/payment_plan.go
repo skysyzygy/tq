@@ -33,7 +33,7 @@ type PaymentPlan struct {
 
 	// date due
 	// Format: date-time
-	DateDue strfmt.DateTime `json:"DateDue,omitempty"`
+	DateDue *strfmt.DateTime `json:"DateDue,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`

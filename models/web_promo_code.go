@@ -30,7 +30,7 @@ type WebPromoCode struct {
 
 	// promotion date
 	// Format: date-time
-	PromotionDate strfmt.DateTime `json:"PromotionDate,omitempty"`
+	PromotionDate *strfmt.DateTime `json:"PromotionDate,omitempty"`
 
 	// source
 	Source *SourceSummary `json:"Source,omitempty"`

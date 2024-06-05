@@ -24,7 +24,7 @@ type WebOrderSearchResponse struct {
 
 	// create date
 	// Format: date-time
-	CreateDate strfmt.DateTime `json:"CreateDate,omitempty"`
+	CreateDate *strfmt.DateTime `json:"CreateDate,omitempty"`
 
 	// is ok to print
 	IsOkToPrint bool `json:"IsOkToPrint,omitempty"`
@@ -46,7 +46,7 @@ type WebOrderSearchResponse struct {
 
 	// order date
 	// Format: date-time
-	OrderDate strfmt.DateTime `json:"OrderDate,omitempty"`
+	OrderDate *strfmt.DateTime `json:"OrderDate,omitempty"`
 
 	// order Id
 	OrderID int32 `json:"OrderId,omitempty"`

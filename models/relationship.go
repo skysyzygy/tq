@@ -30,7 +30,7 @@ type Relationship struct {
 
 	// birth date
 	// Format: date-time
-	BirthDate strfmt.DateTime `json:"BirthDate,omitempty"`
+	BirthDate *strfmt.DateTime `json:"BirthDate,omitempty"`
 
 	// constituent Id
 	ConstituentID int32 `json:"ConstituentId,omitempty"`
@@ -43,11 +43,11 @@ type Relationship struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// end date
 	// Format: date-time
-	EndDate strfmt.DateTime `json:"EndDate,omitempty"`
+	EndDate *strfmt.DateTime `json:"EndDate,omitempty"`
 
 	// gender Id
 	GenderID int32 `json:"GenderId,omitempty"`
@@ -102,7 +102,7 @@ type Relationship struct {
 
 	// start date
 	// Format: date-time
-	StartDate strfmt.DateTime `json:"StartDate,omitempty"`
+	StartDate *strfmt.DateTime `json:"StartDate,omitempty"`
 
 	// title
 	Title string `json:"Title,omitempty"`
@@ -112,7 +112,7 @@ type Relationship struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this relationship

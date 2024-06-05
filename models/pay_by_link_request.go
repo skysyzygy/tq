@@ -42,7 +42,7 @@ type PayByLinkRequest struct {
 
 	// link expiry
 	// Format: date-time
-	LinkExpiry strfmt.DateTime `json:"LinkExpiry,omitempty"`
+	LinkExpiry *strfmt.DateTime `json:"LinkExpiry,omitempty"`
 
 	// locale
 	Locale string `json:"Locale,omitempty"`

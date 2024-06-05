@@ -30,7 +30,7 @@ type Production struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// description
 	Description string `json:"Description,omitempty"`
@@ -43,11 +43,11 @@ type Production struct {
 
 	// fulltext complete date time
 	// Format: date-time
-	FulltextCompleteDateTime strfmt.DateTime `json:"FulltextCompleteDateTime,omitempty"`
+	FulltextCompleteDateTime *strfmt.DateTime `json:"FulltextCompleteDateTime,omitempty"`
 
 	// fulltext request date time
 	// Format: date-time
-	FulltextRequestDateTime strfmt.DateTime `json:"FulltextRequestDateTime,omitempty"`
+	FulltextRequestDateTime *strfmt.DateTime `json:"FulltextRequestDateTime,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`
@@ -87,7 +87,7 @@ type Production struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this production

@@ -27,7 +27,7 @@ type EmailPromotionUpdateRequest struct {
 
 	// event date time
 	// Format: date-time
-	EventDateTime strfmt.DateTime `json:"EventDateTime,omitempty"`
+	EventDateTime *strfmt.DateTime `json:"EventDateTime,omitempty"`
 
 	// event name
 	EventName string `json:"EventName,omitempty"`

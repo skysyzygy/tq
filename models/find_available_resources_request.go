@@ -21,7 +21,7 @@ type FindAvailableResourcesRequest struct {
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// qualification ids
 	QualificationIds string `json:"QualificationIds,omitempty"`
@@ -34,7 +34,7 @@ type FindAvailableResourcesRequest struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 }
 
 // Validate validates this find available resources request

@@ -24,11 +24,11 @@ type ProductionSeasonSearchResponse struct {
 
 	// first performance date
 	// Format: date-time
-	FirstPerformanceDate strfmt.DateTime `json:"FirstPerformanceDate,omitempty"`
+	FirstPerformanceDate *strfmt.DateTime `json:"FirstPerformanceDate,omitempty"`
 
 	// last performance date
 	// Format: date-time
-	LastPerformanceDate strfmt.DateTime `json:"LastPerformanceDate,omitempty"`
+	LastPerformanceDate *strfmt.DateTime `json:"LastPerformanceDate,omitempty"`
 
 	// premiere description
 	PremiereDescription string `json:"PremiereDescription,omitempty"`

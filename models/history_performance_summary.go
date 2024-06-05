@@ -30,7 +30,7 @@ type HistoryPerformanceSummary struct {
 
 	// performance date time
 	// Format: date-time
-	PerformanceDateTime strfmt.DateTime `json:"PerformanceDateTime,omitempty"`
+	PerformanceDateTime *strfmt.DateTime `json:"PerformanceDateTime,omitempty"`
 }
 
 // Validate validates this history performance summary

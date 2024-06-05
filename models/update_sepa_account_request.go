@@ -33,7 +33,7 @@ type UpdateSepaAccountRequest struct {
 
 	// signature date
 	// Format: date-time
-	SignatureDate strfmt.DateTime `json:"SignatureDate,omitempty"`
+	SignatureDate *strfmt.DateTime `json:"SignatureDate,omitempty"`
 }
 
 // Validate validates this update sepa account request

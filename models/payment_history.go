@@ -27,7 +27,7 @@ type PaymentHistory struct {
 
 	// card expiration
 	// Format: date-time
-	CardExpiration strfmt.DateTime `json:"CardExpiration,omitempty"`
+	CardExpiration *strfmt.DateTime `json:"CardExpiration,omitempty"`
 
 	// check number
 	CheckNumber string `json:"CheckNumber,omitempty"`
@@ -52,7 +52,7 @@ type PaymentHistory struct {
 
 	// payment date
 	// Format: date-time
-	PaymentDate strfmt.DateTime `json:"PaymentDate,omitempty"`
+	PaymentDate *strfmt.DateTime `json:"PaymentDate,omitempty"`
 
 	// payment Id
 	PaymentID int32 `json:"PaymentId,omitempty"`

@@ -45,7 +45,7 @@ type AccountResponse struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// direct debit account type
 	DirectDebitAccountType *DirectDebitAccountTypeSummary `json:"DirectDebitAccountType,omitempty"`
@@ -82,7 +82,7 @@ type AccountResponse struct {
 
 	// signature date
 	// Format: date-time
-	SignatureDate strfmt.DateTime `json:"SignatureDate,omitempty"`
+	SignatureDate *strfmt.DateTime `json:"SignatureDate,omitempty"`
 
 	// token
 	Token string `json:"Token,omitempty"`
@@ -92,7 +92,7 @@ type AccountResponse struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this account response

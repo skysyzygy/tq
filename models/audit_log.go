@@ -22,7 +22,7 @@ type AuditLog struct {
 
 	// action date time
 	// Format: date-time
-	ActionDateTime strfmt.DateTime `json:"ActionDateTime,omitempty"`
+	ActionDateTime *strfmt.DateTime `json:"ActionDateTime,omitempty"`
 
 	// audit details
 	AuditDetails []*AuditDetail `json:"AuditDetails"`

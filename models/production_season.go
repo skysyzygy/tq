@@ -27,25 +27,25 @@ type ProductionSeason struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// description
 	Description string `json:"Description,omitempty"`
 
 	// first performance date
 	// Format: date-time
-	FirstPerformanceDate strfmt.DateTime `json:"FirstPerformanceDate,omitempty"`
+	FirstPerformanceDate *strfmt.DateTime `json:"FirstPerformanceDate,omitempty"`
 
 	// fulltext
 	Fulltext string `json:"Fulltext,omitempty"`
 
 	// fulltext complete date time
 	// Format: date-time
-	FulltextCompleteDateTime strfmt.DateTime `json:"FulltextCompleteDateTime,omitempty"`
+	FulltextCompleteDateTime *strfmt.DateTime `json:"FulltextCompleteDateTime,omitempty"`
 
 	// fulltext request date time
 	// Format: date-time
-	FulltextRequestDateTime strfmt.DateTime `json:"FulltextRequestDateTime,omitempty"`
+	FulltextRequestDateTime *strfmt.DateTime `json:"FulltextRequestDateTime,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`
@@ -55,7 +55,7 @@ type ProductionSeason struct {
 
 	// last performance date
 	// Format: date-time
-	LastPerformanceDate strfmt.DateTime `json:"LastPerformanceDate,omitempty"`
+	LastPerformanceDate *strfmt.DateTime `json:"LastPerformanceDate,omitempty"`
 
 	// premiere
 	Premiere *PremiereSummary `json:"Premiere,omitempty"`
@@ -86,7 +86,7 @@ type ProductionSeason struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this production season

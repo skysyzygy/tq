@@ -27,7 +27,7 @@ type UpgradeLog struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// hot fix number
 	HotFixNumber int32 `json:"HotFixNumber,omitempty"`
@@ -46,7 +46,7 @@ type UpgradeLog struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// upgrade category summary
 	UpgradeCategorySummary *UpgradeCategorySummary `json:"UpgradeCategorySummary,omitempty"`

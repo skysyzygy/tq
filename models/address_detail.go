@@ -54,7 +54,7 @@ type AddressDetail struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// day evening indicator1
 	DayEveningIndicator1 string `json:"DayEveningIndicator1,omitempty"`
@@ -82,7 +82,7 @@ type AddressDetail struct {
 
 	// end date
 	// Format: date-time
-	EndDate strfmt.DateTime `json:"EndDate,omitempty"`
+	EndDate *strfmt.DateTime `json:"EndDate,omitempty"`
 
 	// geo area
 	GeoArea int32 `json:"GeoArea,omitempty"`
@@ -152,7 +152,7 @@ type AddressDetail struct {
 
 	// start date
 	// Format: date-time
-	StartDate strfmt.DateTime `json:"StartDate,omitempty"`
+	StartDate *strfmt.DateTime `json:"StartDate,omitempty"`
 
 	// state
 	State *StateSummary `json:"State,omitempty"`
@@ -171,19 +171,19 @@ type AddressDetail struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// updated date time1
 	// Format: date-time
-	UpdatedDateTime1 strfmt.DateTime `json:"UpdatedDateTime1,omitempty"`
+	UpdatedDateTime1 *strfmt.DateTime `json:"UpdatedDateTime1,omitempty"`
 
 	// updated date time2
 	// Format: date-time
-	UpdatedDateTime2 strfmt.DateTime `json:"UpdatedDateTime2,omitempty"`
+	UpdatedDateTime2 *strfmt.DateTime `json:"UpdatedDateTime2,omitempty"`
 
 	// updated date time3
 	// Format: date-time
-	UpdatedDateTime3 strfmt.DateTime `json:"UpdatedDateTime3,omitempty"`
+	UpdatedDateTime3 *strfmt.DateTime `json:"UpdatedDateTime3,omitempty"`
 }
 
 // Validate validates this address detail

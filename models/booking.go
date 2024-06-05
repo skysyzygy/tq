@@ -43,14 +43,14 @@ type Booking struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// default count
 	DefaultCount int32 `json:"DefaultCount,omitempty"`
 
 	// default date time
 	// Format: date-time
-	DefaultDateTime strfmt.DateTime `json:"DefaultDateTime,omitempty"`
+	DefaultDateTime *strfmt.DateTime `json:"DefaultDateTime,omitempty"`
 
 	// default duration
 	DefaultDuration int32 `json:"DefaultDuration,omitempty"`
@@ -72,7 +72,7 @@ type Booking struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this booking

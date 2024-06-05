@@ -58,7 +58,7 @@ type PackageDetail struct {
 
 	// package date time
 	// Format: date-time
-	PackageDateTime strfmt.DateTime `json:"PackageDateTime,omitempty"`
+	PackageDateTime *strfmt.DateTime `json:"PackageDateTime,omitempty"`
 
 	// performance group details
 	PerformanceGroupDetails []*PerformanceGroupDetail `json:"PerformanceGroupDetails"`

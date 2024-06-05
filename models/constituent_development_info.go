@@ -33,7 +33,7 @@ type ConstituentDevelopmentInfo struct {
 
 	// last contribution date
 	// Format: date-time
-	LastContributionDate strfmt.DateTime `json:"LastContributionDate,omitempty"`
+	LastContributionDate *strfmt.DateTime `json:"LastContributionDate,omitempty"`
 
 	// last contribution fund
 	LastContributionFund string `json:"LastContributionFund,omitempty"`
@@ -46,7 +46,7 @@ type ConstituentDevelopmentInfo struct {
 
 	// membership expiration
 	// Format: date-time
-	MembershipExpiration strfmt.DateTime `json:"MembershipExpiration,omitempty"`
+	MembershipExpiration *strfmt.DateTime `json:"MembershipExpiration,omitempty"`
 
 	// membership level
 	MembershipLevel string `json:"MembershipLevel,omitempty"`

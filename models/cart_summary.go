@@ -46,7 +46,7 @@ type CartSummary struct {
 
 	// delivery date
 	// Format: date-time
-	DeliveryDate strfmt.DateTime `json:"DeliveryDate,omitempty"`
+	DeliveryDate *strfmt.DateTime `json:"DeliveryDate,omitempty"`
 
 	// delivery method
 	DeliveryMethod *EntitySummary `json:"DeliveryMethod,omitempty"`
@@ -56,7 +56,7 @@ type CartSummary struct {
 
 	// first seat added date time
 	// Format: date-time
-	FirstSeatAddedDateTime strfmt.DateTime `json:"FirstSeatAddedDateTime,omitempty"`
+	FirstSeatAddedDateTime *strfmt.DateTime `json:"FirstSeatAddedDateTime,omitempty"`
 
 	// Id
 	ID int32 `json:"Id,omitempty"`
@@ -75,7 +75,7 @@ type CartSummary struct {
 
 	// order date time
 	// Format: date-time
-	OrderDateTime strfmt.DateTime `json:"OrderDateTime,omitempty"`
+	OrderDateTime *strfmt.DateTime `json:"OrderDateTime,omitempty"`
 
 	// order notes
 	OrderNotes string `json:"OrderNotes,omitempty"`

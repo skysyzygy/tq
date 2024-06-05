@@ -28,7 +28,7 @@ type Plan struct {
 
 	// complete by date time
 	// Format: date-time
-	CompleteByDateTime strfmt.DateTime `json:"CompleteByDateTime,omitempty"`
+	CompleteByDateTime *strfmt.DateTime `json:"CompleteByDateTime,omitempty"`
 
 	// constituent
 	Constituent *ConstituentDisplaySummary `json:"Constituent,omitempty"`
@@ -47,7 +47,7 @@ type Plan struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// custom data items
 	CustomDataItems []*CustomDataItem `json:"CustomDataItems"`
@@ -72,7 +72,7 @@ type Plan struct {
 
 	// last step date
 	// Format: date-time
-	LastStepDate strfmt.DateTime `json:"LastStepDate,omitempty"`
+	LastStepDate *strfmt.DateTime `json:"LastStepDate,omitempty"`
 
 	// last step type
 	LastStepType *StepTypeSummary `json:"LastStepType,omitempty"`
@@ -82,7 +82,7 @@ type Plan struct {
 
 	// next step date
 	// Format: date-time
-	NextStepDate strfmt.DateTime `json:"NextStepDate,omitempty"`
+	NextStepDate *strfmt.DateTime `json:"NextStepDate,omitempty"`
 
 	// next step type
 	NextStepType *StepTypeSummary `json:"NextStepType,omitempty"`
@@ -110,7 +110,7 @@ type Plan struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 
 	// status
 	Status *PlanStatusSummary `json:"Status,omitempty"`
@@ -123,7 +123,7 @@ type Plan struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this plan

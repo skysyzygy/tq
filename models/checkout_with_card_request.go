@@ -42,7 +42,7 @@ type CheckoutWithCardRequest struct {
 
 	// delivery date
 	// Format: date-time
-	DeliveryDate strfmt.DateTime `json:"DeliveryDate,omitempty"`
+	DeliveryDate *strfmt.DateTime `json:"DeliveryDate,omitempty"`
 
 	// e commerce
 	ECommerce bool `json:"ECommerce,omitempty"`

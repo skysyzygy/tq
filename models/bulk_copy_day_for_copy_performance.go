@@ -30,7 +30,7 @@ type BulkCopyDayForCopyPerformance struct {
 
 	// performance date
 	// Format: date-time
-	PerformanceDate strfmt.DateTime `json:"PerformanceDate,omitempty"`
+	PerformanceDate *strfmt.DateTime `json:"PerformanceDate,omitempty"`
 }
 
 // Validate validates this bulk copy day for copy performance

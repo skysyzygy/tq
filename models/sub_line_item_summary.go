@@ -39,7 +39,7 @@ type SubLineItemSummary struct {
 
 	// order date
 	// Format: date-time
-	OrderDate strfmt.DateTime `json:"OrderDate,omitempty"`
+	OrderDate *strfmt.DateTime `json:"OrderDate,omitempty"`
 
 	// order Id
 	OrderID int32 `json:"OrderId,omitempty"`

@@ -21,7 +21,7 @@ type ExpiredReportRequest struct {
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// report Url
 	ReportURL string `json:"ReportUrl,omitempty"`

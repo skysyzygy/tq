@@ -45,7 +45,7 @@ type SalesLayoutButton struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// foreground color
 	ForegroundColor int32 `json:"ForegroundColor,omitempty"`
@@ -82,7 +82,7 @@ type SalesLayoutButton struct {
 
 	// product end date time
 	// Format: date-time
-	ProductEndDateTime strfmt.DateTime `json:"ProductEndDateTime,omitempty"`
+	ProductEndDateTime *strfmt.DateTime `json:"ProductEndDateTime,omitempty"`
 
 	// product end day add
 	ProductEndDayAdd int32 `json:"ProductEndDayAdd,omitempty"`
@@ -95,7 +95,7 @@ type SalesLayoutButton struct {
 
 	// product start date time
 	// Format: date-time
-	ProductStartDateTime strfmt.DateTime `json:"ProductStartDateTime,omitempty"`
+	ProductStartDateTime *strfmt.DateTime `json:"ProductStartDateTime,omitempty"`
 
 	// product start day add
 	ProductStartDayAdd int32 `json:"ProductStartDayAdd,omitempty"`
@@ -108,7 +108,7 @@ type SalesLayoutButton struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 
 	// xpos
 	Xpos int32 `json:"Xpos,omitempty"`

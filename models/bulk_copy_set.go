@@ -45,7 +45,7 @@ type BulkCopySet struct {
 
 	// create from date time
 	// Format: date-time
-	CreateFromDateTime strfmt.DateTime `json:"CreateFromDateTime,omitempty"`
+	CreateFromDateTime *strfmt.DateTime `json:"CreateFromDateTime,omitempty"`
 
 	// create location
 	CreateLocation string `json:"CreateLocation,omitempty"`
@@ -67,7 +67,7 @@ type BulkCopySet struct {
 
 	// create to date time
 	// Format: date-time
-	CreateToDateTime strfmt.DateTime `json:"CreateToDateTime,omitempty"`
+	CreateToDateTime *strfmt.DateTime `json:"CreateToDateTime,omitempty"`
 
 	// create tuesday
 	CreateTuesday bool `json:"CreateTuesday,omitempty"`
@@ -80,7 +80,7 @@ type BulkCopySet struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// default relative dates
 	DefaultRelativeDates string `json:"DefaultRelativeDates,omitempty"`
@@ -138,7 +138,7 @@ type BulkCopySet struct {
 
 	// reference day
 	// Format: date-time
-	ReferenceDay strfmt.DateTime `json:"ReferenceDay,omitempty"`
+	ReferenceDay *strfmt.DateTime `json:"ReferenceDay,omitempty"`
 
 	// reference performance Id
 	ReferencePerformanceID int32 `json:"ReferencePerformanceId,omitempty"`
@@ -163,7 +163,7 @@ type BulkCopySet struct {
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this bulk copy set

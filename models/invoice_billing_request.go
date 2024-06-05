@@ -33,7 +33,7 @@ type InvoiceBillingRequest struct {
 
 	// cutoff date time
 	// Format: date-time
-	CutoffDateTime strfmt.DateTime `json:"CutoffDateTime,omitempty"`
+	CutoffDateTime *strfmt.DateTime `json:"CutoffDateTime,omitempty"`
 
 	// electronic address purpose Id
 	ElectronicAddressPurposeID int32 `json:"ElectronicAddressPurposeId,omitempty"`
@@ -43,15 +43,15 @@ type InvoiceBillingRequest struct {
 
 	// end date time
 	// Format: date-time
-	EndDateTime strfmt.DateTime `json:"EndDateTime,omitempty"`
+	EndDateTime *strfmt.DateTime `json:"EndDateTime,omitempty"`
 
 	// invoice end date time
 	// Format: date-time
-	InvoiceEndDateTime strfmt.DateTime `json:"InvoiceEndDateTime,omitempty"`
+	InvoiceEndDateTime *strfmt.DateTime `json:"InvoiceEndDateTime,omitempty"`
 
 	// invoice start date time
 	// Format: date-time
-	InvoiceStartDateTime strfmt.DateTime `json:"InvoiceStartDateTime,omitempty"`
+	InvoiceStartDateTime *strfmt.DateTime `json:"InvoiceStartDateTime,omitempty"`
 
 	// is label
 	IsLabel bool `json:"IsLabel,omitempty"`
@@ -61,7 +61,7 @@ type InvoiceBillingRequest struct {
 
 	// mail date time
 	// Format: date-time
-	MailDateTime strfmt.DateTime `json:"MailDateTime,omitempty"`
+	MailDateTime *strfmt.DateTime `json:"MailDateTime,omitempty"`
 
 	// mail type Id
 	MailTypeID int32 `json:"MailTypeId,omitempty"`
@@ -101,7 +101,7 @@ type InvoiceBillingRequest struct {
 
 	// start date time
 	// Format: date-time
-	StartDateTime strfmt.DateTime `json:"StartDateTime,omitempty"`
+	StartDateTime *strfmt.DateTime `json:"StartDateTime,omitempty"`
 
 	// user Id
 	UserID string `json:"UserId,omitempty"`

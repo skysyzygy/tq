@@ -21,7 +21,7 @@ type Asset struct {
 
 	// acquisition date time
 	// Format: date-time
-	AcquisitionDateTime strfmt.DateTime `json:"AcquisitionDateTime,omitempty"`
+	AcquisitionDateTime *strfmt.DateTime `json:"AcquisitionDateTime,omitempty"`
 
 	// asset type
 	AssetType *AssetTypeSummary `json:"AssetType,omitempty"`
@@ -37,7 +37,7 @@ type Asset struct {
 
 	// created date time
 	// Format: date-time
-	CreatedDateTime strfmt.DateTime `json:"CreatedDateTime,omitempty"`
+	CreatedDateTime *strfmt.DateTime `json:"CreatedDateTime,omitempty"`
 
 	// description
 	Description string `json:"Description,omitempty"`
@@ -56,14 +56,14 @@ type Asset struct {
 
 	// sale date time
 	// Format: date-time
-	SaleDateTime strfmt.DateTime `json:"SaleDateTime,omitempty"`
+	SaleDateTime *strfmt.DateTime `json:"SaleDateTime,omitempty"`
 
 	// updated by
 	UpdatedBy string `json:"UpdatedBy,omitempty"`
 
 	// updated date time
 	// Format: date-time
-	UpdatedDateTime strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
+	UpdatedDateTime *strfmt.DateTime `json:"UpdatedDateTime,omitempty"`
 }
 
 // Validate validates this asset
