@@ -179,7 +179,7 @@ func initTq(cmd *cobra.Command, args []string) (err error) {
 		if _err != nil {
 			err = errors.Join(fmt.Errorf("cannot open input file %v for reading", jsonFile), _err, err)
 		}
-	} else if !term.IsTerminal(syscall.Stdin) {
+	} else if !term.IsTerminal(int(syscall.Stdin)) {
 		input = cmd.InOrStdin()
 	}
 
