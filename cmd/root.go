@@ -24,9 +24,11 @@ package cmd
 import (
 	"errors"
 	"fmt"
+	"io"
 	"os"
 	"runtime/debug"
 	"strings"
+	"syscall"
 
 	"github.com/99designs/keyring"
 	"github.com/skysyzygy/tq/auth"
@@ -34,6 +36,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
+	"golang.org/x/term"
 )
 
 // Version number
@@ -168,7 +171,7 @@ func initLog() {
 // Shouldn't be called until the last minute in order to make sure
 // all flags are set and that we don't unnecessarily ping the server.
 func initTq(cmd *cobra.Command, args []string) (err error) {
-	var input *os.File
+	var input io.Reader
 	var _err error
 	if jsonFile != "" {
 		// open input file for reading
@@ -176,8 +179,8 @@ func initTq(cmd *cobra.Command, args []string) (err error) {
 		if _err != nil {
 			err = errors.Join(fmt.Errorf("cannot open input file %v for reading", jsonFile), _err, err)
 		}
-	} else {
-		input = os.Stdin
+	} else if !term.IsTerminal(syscall.Stdin) {
+		input = cmd.InOrStdin()
 	}
 
 	a, _err := auth.FromString(viper.GetString("Login"))

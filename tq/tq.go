@@ -43,7 +43,7 @@ type TqConfig struct {
 	dryRun  bool
 
 	// input / output
-	input  io.ReadCloser
+	input  io.Reader
 	output []byte
 }
 
@@ -62,11 +62,12 @@ func New(logFile *os.File, verbose bool, dryRun bool) *TqConfig {
 
 }
 
-func (tq *TqConfig) SetInput(input io.ReadCloser) { tq.input = input }
+func (tq *TqConfig) SetInput(input io.Reader) { tq.input = input }
 func (tq TqConfig) ReadInput() ([]byte, error) {
-	out, err := io.ReadAll(tq.input)
-	tq.input.Close()
-	return out, err
+	if tq.input != nil {
+		return io.ReadAll(tq.input)
+	}
+	return nil, nil
 }
 func (tq TqConfig) GetOutput() []byte { return tq.output }
 
