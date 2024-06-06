@@ -35,7 +35,7 @@ func (h *logHandler) Enabled(context.Context, slog.Level) bool { return true }
 func (h *logHandler) Handle(_ context.Context, record slog.Record) (err error) {
 	var fileErr, consoleErr error
 
-	messages := regexp.MustCompile("\r?\n|(\\+r)?\\+n").Split(record.Message, -1)
+	messages := regexp.MustCompile("\r?\n|(\\\\+r)?\\\\+n").Split(record.Message, -1)
 	for _, message := range messages {
 
 		if h.fileLogger.Enabled(context.TODO(), record.Level) {

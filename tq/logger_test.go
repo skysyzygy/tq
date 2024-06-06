@@ -105,4 +105,17 @@ func Test_LoggerNewlines(t *testing.T) {
 
 	assert.Len(t, strings.Split(string(consoleOutput), "\n"), 3)
 	assert.Len(t, strings.Split(string(fileOutput), "\n"), 3)
+
+	// and escaped newlines
+	_, consoleOutput = CaptureOutput(func() {
+		log = slog.New(NewLogHandler(pipeW, level))
+		log.Error("Error\\nAnother Error\\r\\nAnd another")
+	})
+
+	fileOutput = make([]byte, 1024)
+	pipeR.Read(fileOutput)
+
+	assert.Len(t, strings.Split(string(consoleOutput), "\n"), 4)
+	assert.Len(t, strings.Split(string(fileOutput), "\n"), 4)
+
 }
