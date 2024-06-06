@@ -5,15 +5,31 @@
 
 **tq** is a wrapper around the Tessitura API that reads JSON-formatted data and executes a series of API calls to Tessitura. It internally handles authentication, session creation and closure, and batch/concurrent processing so that humans like you (or bots or scripts) can focus on the data and not the intricacies of the Tessitura API.                                                       
                      
-**tq** is basically a command-line interface for Tessitura. 🚀
+> **tq** is basically a command-line interface for Tessitura. 🚀
 
-## installation:
+# 📓 Table of Contents
+- [tq - json 🔀 tessitura](#tq---json--tessitura)
+- [📓 Table of Contents](#-table-of-contents)
+- [🏗️ installation](#️-installation)
+  - [from binary](#from-binary)
+  - [from source](#from-source)
+- [🪪 authentication](#-authentication)
+- [🍳 recipes](#-recipes)
+- [🛠️ usage](#️-usage)
+  - [flags:](#flags)
+      - [configuration file:](#configuration-file)
+    - [verbs:](#verbs)
+  - [queries:](#queries)
+  - [objects](#objects)
 
-### from binary:
+
+# 🏗️ installation
+
+## from binary
 
 Download the latest release from the [releases page!](https://github.com/skysyzygy/tq/releases/) 
 
-### from source:
+## from source
 
 The only prerequisite to using **tq** is [installing go](https://go.dev/doc/install).
 
@@ -25,7 +41,7 @@ go build -o bin/tq .
 ```
 The build command will create an executable file `tq` or `tq.exe` in the `bin` project directory.
 
-### authentication:
+# 🪪 authentication
 
 To authenticate with the API server you need to select at least one authentication method. 
 ```shell
@@ -35,14 +51,28 @@ tq auth add --host hostname --user username --group usergroup --location locatio
 tq auth sel --host hostname --user username --group usergroup --location location
 ```
 
+# 🍳 recipes
 
-## usage: 
+**get constituent info**
+```shell
+tq get constituents <<< '{"constituentid": "12345"}'
+```
+**update a constituent address**
+```shell
+tq update addresses <<< '{"addressid": "12345", "street1": "123 New Street"}'
+```
+**add a plan step**
+```shell
+tq create steps <<< '{"plan": {"Id": 12345}, "type": {"Id": 1}, "Description": "New step!", "Notes": "Created by tq :)"}'
+```
+
+# 🛠️ usage
 
 ```shell 
 tq [flags] [verb] [object]
 ```
 
-### flags:
+## flags:
 * **-n, --dryrun**         : don't actually do anything, just show what would have happened
 * **-f, --file** *string*  : JSON file to read (default is to read from stdin)
 * **-h, --help**           : help for tq
@@ -61,7 +91,7 @@ A yaml configuration file `.tq` placed in your home directory can be used to set
 *  **completion** :   Generate the autocompletion script for the specified shell
 *  **help** :         Help about any command
 
-### queries:
+## queries:
 Queries are simply JSON objects and can be batched by combining multiple query objects into a single JSON array, e.g. 
 
 ```json
@@ -69,53 +99,61 @@ Queries are simply JSON objects and can be batched by combining multiple query o
 ```
 Query object details are detailed in the help for each command.
 
-#### queries on the command line:
-Queries can be sent to `tq` by writing them to a file, e.g.:
-```shell
-echo '{"CustomerId":"12345"}' > test.json
+**Queries can be sent to `tq` by:**
 
-tq -f test.json get constituents
-# or
-tq get constituents < test.json
-```
+1. writing them to a file, e.g. a file like this:
 
-By piping them on the command line to `tq` directly:
-```shell
-echo {"CustomerId":"12345"} | tq get constituents
-```
+   > query.json
+   > ```json
+   > {"CustomerId":"12345"}
+   > ```
+   ```shell
+   tq -f query.json get constituents
+   # ...or
+   tq get constituents < query.json
+   ```
 
-... or using a here-string:
-```shell
-# bash
-tq get constituents <<< '{"CustomerId":"12345"}'
-# powershell
-'{\"CustomerId\":\"12345\"}' | tq get constituents
-```
+2. By piping them on the command line to `tq` directly:
+   ```shell
+   echo {"CustomerId":"12345"} | tq get constituents
+   ```
 
-... or using a here-doc for longer queries!
-```shell
-# bash
-tq get constituents <<EOF 
-[
-    {"CustomerId":"12345"},
-    {"CustomerId":"12346"},
-    {"CustomerId":"12347"},
-    {"CustomerId":"12348"}
-]
-EOF
-# powershell
-@'
-[
-    {"CustomerId":"12345"},
-    {"CustomerId":"12346"},
-    {"CustomerId":"12347"},
-    {"CustomerId":"12348"}
-]
-'@ | tq get constituents
-```
+3. By using a here-string:
+   ```shell
+   # bash
+   tq get constituents <<< '{"CustomerId":"12345"}'
+   ```
+   ```shell
+   # powershell
+   '{\"CustomerId\":\"12345\"}' | tq get constituents
+   ```
+
+4. Or for longer queries, using a here-doc!
+   ```shell
+   # bash
+   tq get constituents <<EOF 
+   [
+       {"CustomerId":"12345"},
+       {"CustomerId":"12346"},
+       {"CustomerId":"12347"},
+       {"CustomerId":"12348"}
+   ]
+   EOF
+   ```
+   ```shell
+   # powershell
+   @'
+   [
+       {"CustomerId":"12345"},
+       {"CustomerId":"12346"},
+       {"CustomerId":"12347"},
+       {"CustomerId":"12348"}
+   ]
+   '@ | tq get constituents
+   ```
 
 
-### objects:
+## objects
 These are the gettable objects with a brief description from the Tessi API docs. 
 Additional command variants are available (e.g. `--All`, `--Summary`, etc.) and are detailed in the help for each object.
 
