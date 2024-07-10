@@ -22,6 +22,7 @@ THE SOFTWARE.
 package cmd
 
 import (
+	"bytes"
 	"errors"
 	"fmt"
 	"io"
@@ -31,6 +32,10 @@ import (
 	"syscall"
 
 	"github.com/99designs/keyring"
+	"github.com/muesli/reflow/indent"
+	"github.com/muesli/reflow/wordwrap"
+	"github.com/muesli/reflow/wrap"
+
 	"github.com/skysyzygy/tq/auth"
 	"github.com/skysyzygy/tq/tq"
 	"github.com/spf13/cobra"
@@ -110,9 +115,18 @@ func init() {
 		return rootCmd.UsageFunc()(cmd)
 	})
 
+	width, _, err := term.GetSize(int(syscall.Stdin))
+	if err != nil {
+		width = 255
+	}
+
 	rootCmd.SetUsageTemplate(
-		strings.NewReplacer("command", "verb", " Command", " Verb", "Examples", "Query").
+		strings.NewReplacer("command", "verb", " Command", " Verb", "Examples", "Query",
+			".FlagUsages", " | flagUsagesWrapped "+fmt.Sprint(width),
+			"{{.Example}}", "  {{.Example}}").
 			Replace(rootCmd.UsageTemplate()))
+
+	cobra.AddTemplateFunc("flagUsagesWrapped", flagUsagesWrapped)
 
 	keys, _ = keyring.Open(keyring.Config{
 		ServiceName: "tq",
@@ -205,4 +219,87 @@ func initTq(cmd *cobra.Command, args []string) (err error) {
 
 	_tq.SetInput(input)
 	return _tq.Login(a)
+}
+
+// FlagUsagesWrapped is borrowed from pflag, lightly modified for
+// ANSI-aware wrapping using Reflow. Wrapped to `cols` columns (0 for no
+// wrapping)
+func flagUsagesWrapped(cols int, f *pflag.FlagSet) string {
+	buf := new(bytes.Buffer)
+
+	lines := make([]string, 0, f.NFlag())
+
+	maxlen := 0
+	f.VisitAll(func(flag *pflag.Flag) {
+		if flag.Hidden {
+			return
+		}
+
+		line := ""
+		if flag.Shorthand != "" && flag.ShorthandDeprecated == "" {
+			line = fmt.Sprintf("  -%s, --%s", flag.Shorthand, flag.Name)
+		} else {
+			line = fmt.Sprintf("      --%s", flag.Name)
+		}
+
+		varname, usage := pflag.UnquoteUsage(flag)
+		if varname != "" {
+			line += " " + varname
+		}
+		if flag.NoOptDefVal != "" {
+			switch flag.Value.Type() {
+			case "string":
+				line += fmt.Sprintf("[=\"%s\"]", flag.NoOptDefVal)
+			case "bool":
+				if flag.NoOptDefVal != "true" {
+					line += fmt.Sprintf("[=%s]", flag.NoOptDefVal)
+				}
+			case "count":
+				if flag.NoOptDefVal != "+1" {
+					line += fmt.Sprintf("[=%s]", flag.NoOptDefVal)
+				}
+			default:
+				line += fmt.Sprintf("[=%s]", flag.NoOptDefVal)
+			}
+		}
+
+		// This special character will be replaced with spacing once the
+		// correct alignment is calculated
+		line += "\x00"
+		if len(line) > maxlen {
+			maxlen = len(line)
+		}
+
+		line += usage
+		// if !flag.defaultIsZeroValue() {
+		// 	if flag.Value.Type() == "string" {
+		// 		line += fmt.Sprintf(" (default %q)", flag.DefValue)
+		// 	} else {
+		// 		line += fmt.Sprintf(" (default %s)", flag.DefValue)
+		// 	}
+		// }
+		if len(flag.Deprecated) != 0 {
+			line += fmt.Sprintf(" (DEPRECATED: %s)", flag.Deprecated)
+		}
+
+		lines = append(lines, line)
+	})
+
+	for _, line := range lines {
+		sidx := strings.Index(line, "\x00")
+		spacing := strings.Repeat(" ", maxlen-sidx)
+		fmt.Fprint(buf, line[:sidx])
+		// maxlen + 2 comes from + 1 for the \x00 and + 1 for the (deliberate) off-by-one in maxlen-sidx
+		// try to wrap at cols-8 and if that fails enforce at cols wide
+		wrapped := wrap.String(wordwrap.String(line[sidx+1:], cols-maxlen-10), cols-maxlen-2)
+		for i, subline := range strings.Split(wrapped, "\n") {
+			if i == 0 {
+				fmt.Fprintln(buf, spacing, subline)
+			} else {
+				fmt.Fprintln(buf, indent.String(subline, uint(maxlen+1)))
+			}
+		}
+	}
+
+	return buf.String()
 }
