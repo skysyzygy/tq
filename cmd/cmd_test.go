@@ -6,6 +6,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/charmbracelet/x/ansi"
 	"github.com/skysyzygy/tq/tq"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -13,7 +14,7 @@ import (
 )
 
 func testCommand(t *testing.T, command *cobra.Command, flagName string) {
-	use := command.Example
+	use := ansi.Strip(command.Example)
 
 	r, w, _ := os.Pipe()
 	command.SetIn(r)
@@ -23,7 +24,7 @@ func testCommand(t *testing.T, command *cobra.Command, flagName string) {
 		if flag != nil {
 			flag.Value.Set("true")
 			defer flag.Value.Set("false")
-			use = flag.Usage
+			use = ansi.Strip(flag.Usage)
 		}
 	}
 	input := regexp.MustCompile(`\{.+\}$`).FindString(
