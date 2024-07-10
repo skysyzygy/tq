@@ -117,12 +117,15 @@ func init() {
 
 	width, _, err := term.GetSize(int(syscall.Stdin))
 	if err != nil {
-		width = 255
+		width = 0 // no wrapping
 	}
 
 	rootCmd.SetUsageTemplate(
+		// Rename some things so that they align better with how they are used
 		strings.NewReplacer("command", "verb", " Command", " Verb", "Examples", "Query",
+			// Wrap flag usages using ANSI-aware function
 			".FlagUsages", " | flagUsagesWrapped "+fmt.Sprint(width),
+			// Indent example
 			"{{.Example}}", "  {{.Example}}").
 			Replace(rootCmd.UsageTemplate()))
 
