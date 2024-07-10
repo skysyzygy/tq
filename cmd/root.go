@@ -25,6 +25,7 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+	"html/template"
 	"io"
 	"os"
 	"runtime/debug"
@@ -126,10 +127,14 @@ func init() {
 			// Wrap flag usages using ANSI-aware function
 			".FlagUsages", " | flagUsagesWrapped "+fmt.Sprint(width),
 			// Indent example
-			"{{.Example}}", "  {{.Example}}").
+			".Example", ".Example | exampleWrapped "+fmt.Sprint(width)).
 			Replace(rootCmd.UsageTemplate()))
 
-	cobra.AddTemplateFunc("flagUsagesWrapped", flagUsagesWrapped)
+	cobra.AddTemplateFuncs(
+		template.FuncMap{
+			"flagUsagesWrapped": flagUsagesWrapped,
+			"exampleWrapped":    exampleWrapped,
+		})
 
 	keys, _ = keyring.Open(keyring.Config{
 		ServiceName: "tq",
@@ -224,9 +229,9 @@ func initTq(cmd *cobra.Command, args []string) (err error) {
 	return _tq.Login(a)
 }
 
-// FlagUsagesWrapped is borrowed from pflag, lightly modified for
-// ANSI-aware wrapping using Reflow. Wrapped to `cols` columns (0 for no
-// wrapping)
+// flagUsagesWrapped returns a string containing the usage information
+// for all flags in the FlagSet. Borrowed from pflag, and made ANSI-aware
+// using Reflow. Wrapped to `cols` columns (0 for no wrapping)
 func flagUsagesWrapped(cols int, f *pflag.FlagSet) string {
 	buf := new(bytes.Buffer)
 
@@ -304,5 +309,18 @@ func flagUsagesWrapped(cols int, f *pflag.FlagSet) string {
 		}
 	}
 
+	return buf.String()
+}
+
+// exampleWrapped indents and wraps the `example` (query) text
+// for tq / cobra commands using ANSI-aware wrapping to `cols` width and a
+// 2-column indent
+func exampleWrapped(cols int, example string) string {
+	buf := new(bytes.Buffer)
+	// try to wrap at cols-8 and if that fails enforce at cols wide
+	wrapped := wrap.String(wordwrap.String(example, cols-8), cols)
+	for _, subline := range strings.Split(wrapped, "\n") {
+		fmt.Fprintln(buf, indent.String(subline, 2))
+	}
 	return buf.String()
 }
