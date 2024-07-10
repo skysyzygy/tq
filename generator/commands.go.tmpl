@@ -14,7 +14,7 @@ import (
 {{- $command := index $commands 0 }}
 var {{ print $op "_" $key "_cmd" }} = &cobra.Command{
 		Use: `{{ $key }}`,
-		Example: `{{ $command.Usage }}`,
+		Example: tq.JSONHighlight(`{{ $command.Usage }}`),
 		Short: `{{ $command.Short }}`,
 		Long:  `{{ $command.Long }}`,
 		PreRunE: initTq,
@@ -42,7 +42,7 @@ func init() {
 		{{- if gt (len $commands) 1 }}
 			{{- range slice $commands 1 }} 
 				{{ print $op "_" $key "_cmd" }}.Flags().Bool("{{ .Variant }}", false, 
-					`{{ printf "%v\n%v" .Long .Usage }}`)
+					`{{ .Long }}` + "\nQuery:\n" + tq.JSONHighlight(`{{ .Usage }}`) + "\n")
 			{{- end }} 
 		{{- end }}
 	{{ end }}

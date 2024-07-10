@@ -213,6 +213,9 @@ func usage(method reflect.Method) string {
 	usage = strings.ReplaceAll(regexp.MustCompile(`,?"[^"]+":null`).
 		ReplaceAllString(usage, ""), "{,", "{")
 
+	// add some spacing
+	usage = strings.ReplaceAll(usage, ",", ", ")
+
 	// // fix case of duplicated keys
 	// if strings.Contains(usage, `"ID":"string"`) {
 	// 	usage = strings.ReplaceAll(usage, `"Id":123,`, "")

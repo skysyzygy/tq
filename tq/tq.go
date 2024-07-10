@@ -1,6 +1,7 @@
 package tq
 
 import (
+	"bytes"
 	"errors"
 	"fmt"
 	"io"
@@ -14,6 +15,7 @@ import (
 
 	"encoding/json"
 
+	"github.com/alecthomas/chroma/v2/quick"
 	"github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
@@ -315,4 +317,13 @@ func mapFields(m map[string]any) []string {
 		fields = append(fields, field)
 	}
 	return fields
+}
+
+func JSONHighlight(json string) string {
+	w := new(bytes.Buffer)
+	err := quick.Highlight(w, json, "json", "terminal16m", "github")
+	if err != nil {
+		panic(err)
+	}
+	return w.String()
 }
