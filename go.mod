@@ -8,6 +8,7 @@ require (
 	github.com/99designs/keyring v1.2.2
 	github.com/alecthomas/chroma/v2 v2.14.0
 	github.com/charmbracelet/lipgloss v0.10.0
+	github.com/charmbracelet/x/ansi v0.1.3
 	github.com/go-openapi/errors v0.22.0
 	github.com/go-openapi/runtime v0.28.0
 	github.com/go-openapi/spec v0.21.0
@@ -20,7 +21,6 @@ require (
 
 require (
 	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2 // indirect
-	github.com/charmbracelet/x/ansi v0.1.3 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/dlclark/regexp2 v1.11.0 // indirect
 	github.com/go-logr/logr v1.4.1 // indirect
