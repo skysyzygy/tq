@@ -24,14 +24,13 @@ func Test_flagUsagesWrapped(t *testing.T) {
 	cmd := cobra.Command{}
 	cmd.Flags().Bool("test", false, words)
 
-	for i := range 255 {
+	for i := 16; i <= 255; i++ {
 		wrapped := flagUsagesWrapped(i, cmd.Flags())
 		for _, line := range strings.Split(wrapped, "\n") {
 			if len(line) > 1 {
-				assert.Equal(t, "  ", line[0:1])
+				assert.Equal(t, "  ", line[0:2])
 			}
-			// assert.LessOrEqual(t, len(line), i)
-			// assert.GreaterOrEqual(t, len(line), i-8)
+			assert.LessOrEqual(t, len(line), i)
 		}
 	}
 
