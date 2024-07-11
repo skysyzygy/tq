@@ -114,9 +114,8 @@ func init() {
 
 	width, _, err := term.GetSize(int(syscall.Stdout))
 	if err != nil {
-		panic(err)
+		width = 0
 	}
-	fmt.Println(width)
 
 	rootCmd.SetUsageTemplate(
 		// Rename some things so that they align better with how they are used
