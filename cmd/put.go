@@ -10,7 +10,7 @@ import (
 
 var Put_AccountTypes_cmd = &cobra.Command{
 		Use: `AccountTypes`,
-		Example: tq.JSONHighlight(`{"CardLength":"string", "CardPrefix":"string", "CardtypeIndicator":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditMask":"string", "Id":123, "Inactive":true, "Mod10Indicator":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CardLength":"string", "CardPrefix":"string", "CardtypeIndicator":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditMask":"string", "Id":123, "Inactive":true, "Mod10Indicator":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing account type`,
 		Long:  `Update an existing account type.`,
 		PreRunE: initTq,
@@ -23,7 +23,7 @@ var Put_AccountTypes_cmd = &cobra.Command{
 
 var Put_Accounts_cmd = &cobra.Command{
 		Use: `Accounts`,
-		Example: tq.JSONHighlight(`{"AccountID":"string", "CardExpiryMonth":123, "CardExpiryYear":123, "Inactive":true, "Name":"string", "PaymentMethodGroupId":123, "TransactionOrigin":"string"}`),
+		Example: `{"AccountID":"string", "CardExpiryMonth":123, "CardExpiryYear":123, "Inactive":true, "Name":"string", "PaymentMethodGroupId":123, "TransactionOrigin":"string"}`,
 		Short: `Update expiration date or name on a credit card account or token`,
 		Long:  `Update expiration date or name on a credit card account or token. Will also tokenize the credit card if tokenization is enabled.
 PaymentMethodGroupId is ignored if the account already has a PaymentMethodGroupId assigned.  This value cannot be updated.
@@ -43,7 +43,7 @@ If tokenizing a non-tokenized card, PaymentMethodGroupId is required if one has 
 
 var Put_ActionTypes_cmd = &cobra.Command{
 		Use: `ActionTypes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LetterIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LetterIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing action type`,
 		Long:  `Update an existing action type.`,
 		PreRunE: initTq,
@@ -56,7 +56,7 @@ var Put_ActionTypes_cmd = &cobra.Command{
 
 var Put_Actions_cmd = &cobra.Command{
 		Use: `Actions`,
-		Example: tq.JSONHighlight(`{"ActionID":"string", "ActionDate":"2000-01-01T00:00:00.000Z", "ActionType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Issue":{"Id":123}, "LetterPrintedDate":"2000-01-01T00:00:00.000Z", "Notes":"string", "Resolved":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`),
+		Example: `{"ActionID":"string", "ActionDate":"2000-01-01T00:00:00.000Z", "ActionType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Issue":{"Id":123}, "LetterPrintedDate":"2000-01-01T00:00:00.000Z", "Notes":"string", "Resolved":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Update an issue action for a Constituent`,
 		Long:  `Update an issue action for a Constituent`,
 		PreRunE: initTq,
@@ -69,7 +69,7 @@ var Put_Actions_cmd = &cobra.Command{
 
 var Put_ActivityCategories_cmd = &cobra.Command{
 		Use: `ActivityCategories`,
-		Example: tq.JSONHighlight(`{"AutoClose":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"AutoClose":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing activity category`,
 		Long:  `Update an existing activity category.`,
 		PreRunE: initTq,
@@ -82,7 +82,7 @@ var Put_ActivityCategories_cmd = &cobra.Command{
 
 var Put_ActivityTypes_cmd = &cobra.Command{
 		Use: `ActivityTypes`,
-		Example: tq.JSONHighlight(`{"Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PerfIndicator":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PerfIndicator":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing activity type`,
 		Long:  `Update an existing activity type.`,
 		PreRunE: initTq,
@@ -95,7 +95,7 @@ var Put_ActivityTypes_cmd = &cobra.Command{
 
 var Put_AddressTypes_cmd = &cobra.Command{
 		Use: `AddressTypes`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing address type`,
 		Long:  `Update an existing address type.`,
 		PreRunE: initTq,
@@ -108,7 +108,7 @@ var Put_AddressTypes_cmd = &cobra.Command{
 
 var Put_Addresses_cmd = &cobra.Command{
 		Use: `Addresses`,
-		Example: tq.JSONHighlight(`{"AddressType":{"Id":123}, "AffiliatedConstituent":{"Id":123}, "AltSalutationType":{"Id":123}, "City":"string", "Constituent":{"Id":123}, "Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DeliveryPoint":"string", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "GeoArea":123, "Id":123, "Inactive":true, "IsFromAffiliation":true, "Label":true, "Months":"string", "NcoaAction":123, "NcoaSession":123, "PostalCode":"string", "PostalCodeFormatted":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "State":{"Id":123}, "Street1":"string", "Street1Address":{"Number":"string", "Street":"string"}, "Street2":"string", "Street3":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AddressID":"string"}`),
+		Example: `{"AddressType":{"Id":123}, "AffiliatedConstituent":{"Id":123}, "AltSalutationType":{"Id":123}, "City":"string", "Constituent":{"Id":123}, "Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DeliveryPoint":"string", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "GeoArea":123, "Id":123, "Inactive":true, "IsFromAffiliation":true, "Label":true, "Months":"string", "NcoaAction":123, "NcoaSession":123, "PostalCode":"string", "PostalCodeFormatted":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "State":{"Id":123}, "Street1":"string", "Street1Address":{"Number":"string", "Street":"string"}, "Street2":"string", "Street3":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AddressID":"string"}`,
 		Short: `Update an address for a Constituent by sending an XML or JSON representation of an existing Address object using HTTP PUT`,
 		Long:  `Update an address for a Constituent by sending an XML or JSON representation of an existing Address object using HTTP PUT.`,
 		PreRunE: initTq,
@@ -121,7 +121,7 @@ var Put_Addresses_cmd = &cobra.Command{
 
 var Put_AffiliationTypes_cmd = &cobra.Command{
 		Use: `AffiliationTypes`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsAllowedToTransactDefault":true, "IsIncludedInSearchResultsDefault":true, "RelationshipCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseSalary":true, "UseTitle":true, "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsAllowedToTransactDefault":true, "IsIncludedInSearchResultsDefault":true, "RelationshipCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseSalary":true, "UseTitle":true, "ID":"string"}`,
 		Short: `Update an existing affiliation type`,
 		Long:  `Update an existing affiliation type.`,
 		PreRunE: initTq,
@@ -134,7 +134,7 @@ var Put_AffiliationTypes_cmd = &cobra.Command{
 
 var Put_Affiliations_cmd = &cobra.Command{
 		Use: `Affiliations`,
-		Example: tq.JSONHighlight(`{"AddressId":123, "AffiliatedName":"string", "AffiliationType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "ElectronicAddressId":123, "EndDate":"2000-01-01T00:00:00.000Z", "GroupConstituent":{"Id":123}, "GroupConstituentName":"string", "GroupConstituentSortName":"string", "Id":123, "Inactive":true, "IndividualConstituent":{"Id":123}, "IndividualConstituentName":"string", "IndividualConstituentSortName":"string", "IsAllowedToTransact":true, "IsIncludedInSearchResults":true, "NameIndicator":123, "Note":"string", "PrimaryIndicator":true, "Salary":123.456, "SalutationId":123, "StartDate":"2000-01-01T00:00:00.000Z", "Title":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AffiliationID":"string"}`),
+		Example: `{"AddressId":123, "AffiliatedName":"string", "AffiliationType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "ElectronicAddressId":123, "EndDate":"2000-01-01T00:00:00.000Z", "GroupConstituent":{"Id":123}, "GroupConstituentName":"string", "GroupConstituentSortName":"string", "Id":123, "Inactive":true, "IndividualConstituent":{"Id":123}, "IndividualConstituentName":"string", "IndividualConstituentSortName":"string", "IsAllowedToTransact":true, "IsIncludedInSearchResults":true, "NameIndicator":123, "Note":"string", "PrimaryIndicator":true, "Salary":123.456, "SalutationId":123, "StartDate":"2000-01-01T00:00:00.000Z", "Title":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AffiliationID":"string"}`,
 		Short: `Update an affiliation`,
 		Long:  `Update an affiliation.`,
 		PreRunE: initTq,
@@ -147,7 +147,7 @@ var Put_Affiliations_cmd = &cobra.Command{
 
 var Put_AliasTypes_cmd = &cobra.Command{
 		Use: `AliasTypes`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing alias type`,
 		Long:  `Update an existing alias type.`,
 		PreRunE: initTq,
@@ -160,7 +160,7 @@ var Put_AliasTypes_cmd = &cobra.Command{
 
 var Put_Aliases_cmd = &cobra.Command{
 		Use: `Aliases`,
-		Example: tq.JSONHighlight(`{"AliasFirstName":"string", "AliasLastName":"string", "AliasType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AliasID":"string"}`),
+		Example: `{"AliasFirstName":"string", "AliasLastName":"string", "AliasType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AliasID":"string"}`,
 		Short: `Update an alias`,
 		Long:  `Update an alias.`,
 		PreRunE: initTq,
@@ -173,7 +173,7 @@ var Put_Aliases_cmd = &cobra.Command{
 
 var Put_AnalyticsReports_cmd = &cobra.Command{
 		Use: `AnalyticsReports`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Division":{"Id":"string"}, "Id":123, "Inactive":true, "ReportPath":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AnalyticsReportID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Division":{"Id":"string"}, "Id":123, "Inactive":true, "ReportPath":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AnalyticsReportID":"string"}`,
 		Short: `Update SSRS Reports for display in Analytics`,
 		Long:  `Update SSRS Reports for display in Analytics.`,
 		PreRunE: initTq,
@@ -186,7 +186,7 @@ var Put_AnalyticsReports_cmd = &cobra.Command{
 
 var Put_AppScreenTexts_cmd = &cobra.Command{
 		Use: `AppScreenTexts`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Name":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Name":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}`,
 		Short: `Create or update a new App Screen Text`,
 		Long:  `Create or update a new App Screen Text.`,
 		PreRunE: initTq,
@@ -199,7 +199,7 @@ var Put_AppScreenTexts_cmd = &cobra.Command{
 
 var Put_AppealCategories_cmd = &cobra.Command{
 		Use: `AppealCategories`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing appeal category`,
 		Long:  `Update an existing appeal category.`,
 		PreRunE: initTq,
@@ -212,7 +212,7 @@ var Put_AppealCategories_cmd = &cobra.Command{
 
 var Put_Artists_cmd = &cobra.Command{
 		Use: `Artists`,
-		Example: tq.JSONHighlight(`{"Bio":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "FirstName":"string", "Id":123, "LastName":"string", "MiddleName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "VoiceId":123, "ArtistID":"string"}`),
+		Example: `{"Bio":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "FirstName":"string", "Id":123, "LastName":"string", "MiddleName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "VoiceId":123, "ArtistID":"string"}`,
 		Short: `Update an existing artist`,
 		Long:  `Update an existing artist.`,
 		PreRunE: initTq,
@@ -225,7 +225,7 @@ var Put_Artists_cmd = &cobra.Command{
 
 var Put_AssetTypes_cmd = &cobra.Command{
 		Use: `AssetTypes`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing asset type`,
 		Long:  `Update an existing asset type.`,
 		PreRunE: initTq,
@@ -238,7 +238,7 @@ var Put_AssetTypes_cmd = &cobra.Command{
 
 var Put_Assets_cmd = &cobra.Command{
 		Use: `Assets`,
-		Example: tq.JSONHighlight(`{"AcquisitionDateTime":"2000-01-01T00:00:00.000Z", "AssetType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "EstimatedValue":123.456, "Id":123, "Notes":"string", "SaleDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AssetID":"string"}`),
+		Example: `{"AcquisitionDateTime":"2000-01-01T00:00:00.000Z", "AssetType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "EstimatedValue":123.456, "Id":123, "Notes":"string", "SaleDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AssetID":"string"}`,
 		Short: `Update an existing asset for a constituent`,
 		Long:  `Update an existing asset for a constituent.`,
 		PreRunE: initTq,
@@ -251,7 +251,7 @@ var Put_Assets_cmd = &cobra.Command{
 
 var Put_AssociationTypes_cmd = &cobra.Command{
 		Use: `AssociationTypes`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsIncludedInSearchResultsDefault":true, "ReciprocalType":{"Id":123}, "RelationshipCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseBirthDate":true, "UseGender":true, "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsIncludedInSearchResultsDefault":true, "ReciprocalType":{"Id":123}, "RelationshipCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseBirthDate":true, "UseGender":true, "ID":"string"}`,
 		Short: `Update an existing association type`,
 		Long:  `Update an existing association type.`,
 		PreRunE: initTq,
@@ -264,7 +264,7 @@ var Put_AssociationTypes_cmd = &cobra.Command{
 
 var Put_Associations_cmd = &cobra.Command{
 		Use: `Associations`,
-		Example: tq.JSONHighlight(`{"AssociatedConstituent":{"Id":123}, "AssociatedName":"string", "AssociationType":{"Id":123}, "BirthDate":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "Gender":{"Id":123}, "Id":123, "Inactive":true, "IsIncludedInSearchResults":true, "Note":"string", "ReciprocalAssociation":{"Id":123}, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AssociationID":"string"}`),
+		Example: `{"AssociatedConstituent":{"Id":123}, "AssociatedName":"string", "AssociationType":{"Id":123}, "BirthDate":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "Gender":{"Id":123}, "Id":123, "Inactive":true, "IsIncludedInSearchResults":true, "Note":"string", "ReciprocalAssociation":{"Id":123}, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AssociationID":"string"}`,
 		Short: `Update a association`,
 		Long:  `Update a association.`,
 		PreRunE: initTq,
@@ -277,7 +277,7 @@ var Put_Associations_cmd = &cobra.Command{
 
 var Put_Attributes_cmd = &cobra.Command{
 		Use: `Attributes`,
-		Example: tq.JSONHighlight(`{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Keyword":{"Id":123}, "KeywordConstituentType":{"Inactive":true, "Rank":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string", "AttributeID":"string"}`),
+		Example: `{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Keyword":{"Id":123}, "KeywordConstituentType":{"Inactive":true, "Rank":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string", "AttributeID":"string"}`,
 		Short: `Update an attribute`,
 		Long:  `Update an attribute.`,
 		PreRunE: initTq,
@@ -290,7 +290,7 @@ var Put_Attributes_cmd = &cobra.Command{
 
 var Put_Authorization_cmd = &cobra.Command{
 		Use: `Authorization`,
-		Example: tq.JSONHighlight(`{"PaymentID":"string"}`),
+		Example: `{"PaymentID":"string"}`,
 		Short: `NOTE: THIS IS FOR TESSITURA USE ONLY`,
 		Long:  `NOTE: THIS IS FOR TESSITURA USE ONLY. Custom implementations of this endpoint are not supported.
 Expire a payment link which has yet to be authorized or already expired.  For Tessitura Merchant Services only.`,
@@ -304,7 +304,7 @@ Expire a payment link which has yet to be authorized or already expired.  For Te
 
 var Put_BatchTypeGroups_cmd = &cobra.Command{
 		Use: `BatchTypeGroups`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing batch type group`,
 		Long:  `Update an existing batch type group.`,
 		PreRunE: initTq,
@@ -317,7 +317,7 @@ var Put_BatchTypeGroups_cmd = &cobra.Command{
 
 var Put_BatchTypes_cmd = &cobra.Command{
 		Use: `BatchTypes`,
-		Example: tq.JSONHighlight(`{"BatchTypeGroup":{"Id":123}, "BusinessUnit":{"Id":123}, "Category":123, "CntlIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"BatchTypeGroup":{"Id":123}, "BusinessUnit":{"Id":123}, "Category":123, "CntlIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing batch type`,
 		Long:  `Update an existing batch type.`,
 		PreRunE: initTq,
@@ -330,7 +330,7 @@ var Put_BatchTypes_cmd = &cobra.Command{
 
 var Put_BillingSchedules_cmd = &cobra.Command{
 		Use: `BillingSchedules`,
-		Example: tq.JSONHighlight(`{"BillAmounts":"string", "BillDates":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LongDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"BillAmounts":"string", "BillDates":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LongDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing Billing Schedule`,
 		Long:  `Update an existing Billing Schedule.`,
 		PreRunE: initTq,
@@ -343,7 +343,7 @@ var Put_BillingSchedules_cmd = &cobra.Command{
 
 var Put_BillingTypes_cmd = &cobra.Command{
 		Use: `BillingTypes`,
-		Example: tq.JSONHighlight(`{"AutoBillingIndicator":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"AutoBillingIndicator":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing Billing Type`,
 		Long:  `Update an existing Billing Type.`,
 		PreRunE: initTq,
@@ -356,7 +356,7 @@ var Put_BillingTypes_cmd = &cobra.Command{
 
 var Put_BookingCategories_cmd = &cobra.Command{
 		Use: `BookingCategories`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing Booking Category`,
 		Long:  `Update an existing Booking Category.`,
 		PreRunE: initTq,
@@ -369,7 +369,7 @@ var Put_BookingCategories_cmd = &cobra.Command{
 
 var Put_BookingTemplates_cmd = &cobra.Command{
 		Use: `BookingTemplates`,
-		Example: tq.JSONHighlight(`{"Assignments":[{"Id":123}, ...], "Category":{"Id":123}, "ConfirmationText":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Notes":"string", "OverrideTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BookingTemplateID":"string"}`),
+		Example: `{"Assignments":[{"Id":123}, ...], "Category":{"Id":123}, "ConfirmationText":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Notes":"string", "OverrideTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BookingTemplateID":"string"}`,
 		Short: `Update an existing Booking Template`,
 		Long:  `Update an existing Booking Template`,
 		PreRunE: initTq,
@@ -382,7 +382,7 @@ var Put_BookingTemplates_cmd = &cobra.Command{
 
 var Put_Bookings_cmd = &cobra.Command{
 		Use: `Bookings`,
-		Example: tq.JSONHighlight(`{"Assignments":[{"Id":123}, ...], "BookingSource":123, "Category":{"Id":123}, "ConfirmationText":"string", "Context":{}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultCount":123, "DefaultDateTime":"2000-01-01T00:00:00.000Z", "DefaultDuration":123, "Description":"string", "EditIndicator":true, "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BookingID":"string"}`),
+		Example: `{"Assignments":[{"Id":123}, ...], "BookingSource":123, "Category":{"Id":123}, "ConfirmationText":"string", "Context":{}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultCount":123, "DefaultDateTime":"2000-01-01T00:00:00.000Z", "DefaultDuration":123, "Description":"string", "EditIndicator":true, "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BookingID":"string"}`,
 		Short: `Update an existing Booking`,
 		Long:  `Update an existing Booking`,
 		PreRunE: initTq,
@@ -395,7 +395,7 @@ var Put_Bookings_cmd = &cobra.Command{
 
 var Put_BulkCopySets_cmd = &cobra.Command{
 		Use: `BulkCopySets`,
-		Example: tq.JSONHighlight(`{"AvailableForSaleIndicator":true, "ControlGroup":{"Id":123}, "CopyCredits":true, "CopyNotes":true, "CopyOffers":true, "CopyPriceEvents":true, "CopyPrices":true, "CreateFriday":true, "CreateFromDateTime":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreateMode":"string", "CreateMonday":true, "CreateSaturday":true, "CreateSunday":true, "CreateThursday":true, "CreateToDateTime":"2000-01-01T00:00:00.000Z", "CreateTuesday":true, "CreateWednesday":true, "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultRelativeDates":"string", "Id":123, "Inactive":true, "OverrideOnSale":true, "PackageCode":"string", "PackageCodeSeed":123, "PackageModeOfSaleRelativeDates":"string", "PerformanceCode":"string", "PerformanceCodeSeed":123, "PerformanceDescription":"string", "PerformanceModeOfSaleRelativeDates":"string", "PerformanceStatus":{"Id":123}, "PerformanceTime":"string", "PerformanceType":{"Id":123}, "PriceEventRelativeDates":"string", "PriceTypeRelativeDates":"string", "ProductionSeason":{"Id":123}, "PublishRelativeDates":"string", "ReferenceDay":"2000-01-01T00:00:00.000Z", "ReferencePerformanceId":123, "ReferenceSeasonString":"string", "SetDescription":"string", "SetType":123, "ShortName":"string", "TimeSlot":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BulkCopySetID":"string"}`),
+		Example: `{"AvailableForSaleIndicator":true, "ControlGroup":{"Id":123}, "CopyCredits":true, "CopyNotes":true, "CopyOffers":true, "CopyPriceEvents":true, "CopyPrices":true, "CreateFriday":true, "CreateFromDateTime":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreateMode":"string", "CreateMonday":true, "CreateSaturday":true, "CreateSunday":true, "CreateThursday":true, "CreateToDateTime":"2000-01-01T00:00:00.000Z", "CreateTuesday":true, "CreateWednesday":true, "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultRelativeDates":"string", "Id":123, "Inactive":true, "OverrideOnSale":true, "PackageCode":"string", "PackageCodeSeed":123, "PackageModeOfSaleRelativeDates":"string", "PerformanceCode":"string", "PerformanceCodeSeed":123, "PerformanceDescription":"string", "PerformanceModeOfSaleRelativeDates":"string", "PerformanceStatus":{"Id":123}, "PerformanceTime":"string", "PerformanceType":{"Id":123}, "PriceEventRelativeDates":"string", "PriceTypeRelativeDates":"string", "ProductionSeason":{"Id":123}, "PublishRelativeDates":"string", "ReferenceDay":"2000-01-01T00:00:00.000Z", "ReferencePerformanceId":123, "ReferenceSeasonString":"string", "SetDescription":"string", "SetType":123, "ShortName":"string", "TimeSlot":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BulkCopySetID":"string"}`,
 		Short: `Updates an existing bulk copy set`,
 		Long:  `Updates an existing bulk copy set.`,
 		PreRunE: initTq,
@@ -408,7 +408,7 @@ var Put_BulkCopySets_cmd = &cobra.Command{
 
 var Put_BulkDailyCopyExclusions_cmd = &cobra.Command{
 		Use: `BulkDailyCopyExclusions`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DoNotCopy":true, "Id":123, "IncludeWithoutCopy":true, "PackageId":123, "PerformanceId":123, "SetId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BulkDailyCopyExclusionID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DoNotCopy":true, "Id":123, "IncludeWithoutCopy":true, "PackageId":123, "PerformanceId":123, "SetId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BulkDailyCopyExclusionID":"string"}`,
 		Short: `Updates an existing bulk daily copy exclusion`,
 		Long:  `Updates an existing bulk daily copy exclusion.`,
 		PreRunE: initTq,
@@ -421,7 +421,7 @@ var Put_BulkDailyCopyExclusions_cmd = &cobra.Command{
 
 var Put_BusinessUnits_cmd = &cobra.Command{
 		Use: `BusinessUnits`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing business unit`,
 		Long:  `Update an existing business unit.`,
 		PreRunE: initTq,
@@ -434,7 +434,7 @@ var Put_BusinessUnits_cmd = &cobra.Command{
 
 var Put_CampaignDesignations_cmd = &cobra.Command{
 		Use: `CampaignDesignations`,
-		Example: tq.JSONHighlight(`{"Campaign":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Designation":{"Id":123}, "EditIndicator":true, "GoalAmount":123.456, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "CampaignDesignationID":"string"}`),
+		Example: `{"Campaign":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Designation":{"Id":123}, "EditIndicator":true, "GoalAmount":123.456, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "CampaignDesignationID":"string"}`,
 		Short: `Update an association between a Designation and a Campaign`,
 		Long:  `Update an association between a Designation and a Campaign.`,
 		PreRunE: initTq,
@@ -447,7 +447,7 @@ var Put_CampaignDesignations_cmd = &cobra.Command{
 
 var Put_CampaignFunds_cmd = &cobra.Command{
 		Use: `CampaignFunds`,
-		Example: tq.JSONHighlight(`{"Campaign":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "Fund":{"Id":123}, "GoalAmount":123.456, "Id":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "CampaignFundID":"string"}`),
+		Example: `{"Campaign":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "Fund":{"Id":123}, "GoalAmount":123.456, "Id":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "CampaignFundID":"string"}`,
 		Short: `Update a Fund association to a Campaign`,
 		Long:  `Update a Fund association to a Campaign.`,
 		PreRunE: initTq,
@@ -460,7 +460,7 @@ var Put_CampaignFunds_cmd = &cobra.Command{
 
 var Put_CardReaderTypes_cmd = &cobra.Command{
 		Use: `CardReaderTypes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing Card Reader Type`,
 		Long:  `Update an existing Card Reader Type.`,
 		PreRunE: initTq,
@@ -473,7 +473,7 @@ var Put_CardReaderTypes_cmd = &cobra.Command{
 
 var Put_Cart_cmd = &cobra.Command{
 		Use: `Cart`,
-		Example: tq.JSONHighlight(`{"LineItemID":"string", "DiscountTypeId":123, "SessionKey":"string"}`),
+		Example: `{"LineItemID":"string", "DiscountTypeId":123, "SessionKey":"string"}`,
 		Short: `Applies a discounted price to all sub line items for a line item`,
 		Long:  `Applies a discounted price to all sub line items for a line item
 For packages, the discount can only be applied to package line items.
@@ -515,7 +515,7 @@ The status field in the response will return as S if the discount can be used or
 
 var Put_Colors_cmd = &cobra.Command{
 		Use: `Colors`,
-		Example: tq.JSONHighlight(`{"ColorValue":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ColorValue":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing color`,
 		Long:  `Update an existing color.`,
 		PreRunE: initTq,
@@ -528,7 +528,7 @@ var Put_Colors_cmd = &cobra.Command{
 
 var Put_Composers_cmd = &cobra.Command{
 		Use: `Composers`,
-		Example: tq.JSONHighlight(`{"Bio":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "FirstName":"string", "Id":123, "Inactive":true, "LastName":"string", "MiddleName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"Bio":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "FirstName":"string", "Id":123, "Inactive":true, "LastName":"string", "MiddleName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing composer`,
 		Long:  `Update an existing composer.`,
 		PreRunE: initTq,
@@ -541,7 +541,7 @@ var Put_Composers_cmd = &cobra.Command{
 
 var Put_Constituencies_cmd = &cobra.Command{
 		Use: `Constituencies`,
-		Example: tq.JSONHighlight(`{"ConstituencyType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "Id":123, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ConstituencyID":"string"}`),
+		Example: `{"ConstituencyType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "Id":123, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ConstituencyID":"string"}`,
 		Short: `Update a constituency`,
 		Long:  `Update a constituency.`,
 		PreRunE: initTq,
@@ -554,7 +554,7 @@ var Put_Constituencies_cmd = &cobra.Command{
 
 var Put_ConstituencyTypes_cmd = &cobra.Command{
 		Use: `ConstituencyTypes`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing constituency type`,
 		Long:  `Update an existing constituency type.`,
 		PreRunE: initTq,
@@ -567,7 +567,7 @@ var Put_ConstituencyTypes_cmd = &cobra.Command{
 
 var Put_ConstituentDocuments_cmd = &cobra.Command{
 		Use: `ConstituentDocuments`,
-		Example: tq.JSONHighlight(`{"Category":{"Id":123}, "ConstituentId":123, "Contents":"AA==", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "FileName":"string", "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "DocumentID":"string"}`),
+		Example: `{"Category":{"Id":123}, "ConstituentId":123, "Contents":"AA==", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "FileName":"string", "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "DocumentID":"string"}`,
 		Short: `Update an existing document for a constituent`,
 		Long:  `Update an existing document for a constituent.`,
 		PreRunE: initTq,
@@ -580,7 +580,7 @@ var Put_ConstituentDocuments_cmd = &cobra.Command{
 
 var Put_ConstituentGroups_cmd = &cobra.Command{
 		Use: `ConstituentGroups`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing constituent group`,
 		Long:  `Update an existing constituent group.`,
 		PreRunE: initTq,
@@ -593,7 +593,7 @@ var Put_ConstituentGroups_cmd = &cobra.Command{
 
 var Put_ConstituentInactives_cmd = &cobra.Command{
 		Use: `ConstituentInactives`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing constituent inactive`,
 		Long:  `Update an existing constituent inactive.`,
 		PreRunE: initTq,
@@ -606,7 +606,7 @@ var Put_ConstituentInactives_cmd = &cobra.Command{
 
 var Put_ConstituentProtectionTypes_cmd = &cobra.Command{
 		Use: `ConstituentProtectionTypes`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing constituent protection type`,
 		Long:  `Update an existing constituent protection type.`,
 		PreRunE: initTq,
@@ -619,7 +619,7 @@ var Put_ConstituentProtectionTypes_cmd = &cobra.Command{
 
 var Put_ConstituentTypeAffiliates_cmd = &cobra.Command{
 		Use: `ConstituentTypeAffiliates`,
-		Example: tq.JSONHighlight(`{"AffiliationType":{"Id":123}, "ConstituentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HouseholdPrimary":true, "Id":123, "Rank":123, "ShowWithGroup":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"AffiliationType":{"Id":123}, "ConstituentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HouseholdPrimary":true, "Id":123, "Rank":123, "ShowWithGroup":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing constituent type affiliate`,
 		Long:  `Update an existing constituent type affiliate.`,
 		PreRunE: initTq,
@@ -632,7 +632,7 @@ var Put_ConstituentTypeAffiliates_cmd = &cobra.Command{
 
 var Put_ConstituentTypes_cmd = &cobra.Command{
 		Use: `ConstituentTypes`,
-		Example: tq.JSONHighlight(`{"AddressTypeId":123, "ConstituentGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultAffiliatedConstituentTypeId":123, "DefaultAffiliationTypeId":123, "DefaultIndicator":true, "DefaultSalutationId":123, "Description":"string", "ElectronicAddressTypeId":123, "GiftAidIndicator":true, "Id":123, "Inactive":true, "LoginTypeId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"AddressTypeId":123, "ConstituentGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultAffiliatedConstituentTypeId":123, "DefaultAffiliationTypeId":123, "DefaultIndicator":true, "DefaultSalutationId":123, "Description":"string", "ElectronicAddressTypeId":123, "GiftAidIndicator":true, "Id":123, "Inactive":true, "LoginTypeId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing constituent type`,
 		Long:  `Update an existing constituent type.`,
 		PreRunE: initTq,
@@ -645,7 +645,7 @@ var Put_ConstituentTypes_cmd = &cobra.Command{
 
 var Put_Constituents_cmd = &cobra.Command{
 		Use: `Constituents`,
-		Example: tq.JSONHighlight(`{"ConstituentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DisplayName":"string", "EmarketIndicator":{"Id":123}, "FirstName":"string", "Gender":{"Id":123}, "Id":123, "Inactive":{"Id":123}, "InactiveReason":{"Id":123}, "LastActivityDate":"2000-01-01T00:00:00.000Z", "LastGiftDate":"2000-01-01T00:00:00.000Z", "LastName":"string", "LastTicketDate":"2000-01-01T00:00:00.000Z", "MailIndicator":{"Id":123}, "MiddleName":"string", "NameStatus":{"Id":123}, "OriginalSource":{"Id":123}, "PhoneIndicator":{"Id":123}, "Prefix":{"Id":123}, "ProtectionType":{"Id":123}, "SortName":"string", "Suffix":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ConstituentID":"string"}`),
+		Example: `{"ConstituentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DisplayName":"string", "EmarketIndicator":{"Id":123}, "FirstName":"string", "Gender":{"Id":123}, "Id":123, "Inactive":{"Id":123}, "InactiveReason":{"Id":123}, "LastActivityDate":"2000-01-01T00:00:00.000Z", "LastGiftDate":"2000-01-01T00:00:00.000Z", "LastName":"string", "LastTicketDate":"2000-01-01T00:00:00.000Z", "MailIndicator":{"Id":123}, "MiddleName":"string", "NameStatus":{"Id":123}, "OriginalSource":{"Id":123}, "PhoneIndicator":{"Id":123}, "Prefix":{"Id":123}, "ProtectionType":{"Id":123}, "SortName":"string", "Suffix":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ConstituentID":"string"}`,
 		Short: `Update a constituent`,
 		Long:  `Update a constituent. Only the information about constituent can be updated. If addresses, electronicAddresses, salutations or phones data are passed, they will be ignored.`,
 		PreRunE: initTq,
@@ -658,7 +658,7 @@ var Put_Constituents_cmd = &cobra.Command{
 
 var Put_ContactPermissionCategories_cmd = &cobra.Command{
 		Use: `ContactPermissionCategories`,
-		Example: tq.JSONHighlight(`{"AskFrequencyMonths":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"AskFrequencyMonths":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing contact permission category`,
 		Long:  `Update an existing contact permission category.`,
 		PreRunE: initTq,
@@ -671,7 +671,7 @@ var Put_ContactPermissionCategories_cmd = &cobra.Command{
 
 var Put_ContactPermissionTypes_cmd = &cobra.Command{
 		Use: `ContactPermissionTypes`,
-		Example: tq.JSONHighlight(`{"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultValueForAdd":"string", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Presenter":true, "Rank":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultValueForAdd":"string", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Presenter":true, "Rank":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing contact permission type`,
 		Long:  `Update an existing contact permission type.`,
 		PreRunE: initTq,
@@ -684,7 +684,7 @@ var Put_ContactPermissionTypes_cmd = &cobra.Command{
 
 var Put_ContactPermissions_cmd = &cobra.Command{
 		Use: `ContactPermissions`,
-		Example: tq.JSONHighlight(`{"Answer":"string", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "LastAskedDateTime":"2000-01-01T00:00:00.000Z", "ShouldAsk":true, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ContactPermissionID":"string"}`),
+		Example: `{"Answer":"string", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "LastAskedDateTime":"2000-01-01T00:00:00.000Z", "ShouldAsk":true, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ContactPermissionID":"string"}`,
 		Short: `Update a contact permission`,
 		Long:  `Update a contact permission`,
 		PreRunE: initTq,
@@ -697,7 +697,7 @@ var Put_ContactPermissions_cmd = &cobra.Command{
 
 var Put_ContactPointCategories_cmd = &cobra.Command{
 		Use: `ContactPointCategories`,
-		Example: tq.JSONHighlight(`{"ContactPointKey":"string", "ContactPointTable":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ContactPointKey":"string", "ContactPointTable":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing contact point category`,
 		Long:  `Update an existing contact point category.`,
 		PreRunE: initTq,
@@ -710,7 +710,7 @@ var Put_ContactPointCategories_cmd = &cobra.Command{
 
 var Put_ContactPointCategoryPurposes_cmd = &cobra.Command{
 		Use: `ContactPointCategoryPurposes`,
-		Example: tq.JSONHighlight(`{"ContactPointCategory":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Purpose":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ContactPointCategory":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Purpose":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing contact point category purpose`,
 		Long:  `Update an existing contact point category purpose.`,
 		PreRunE: initTq,
@@ -723,7 +723,7 @@ var Put_ContactPointCategoryPurposes_cmd = &cobra.Command{
 
 var Put_ContactPointPurposeCategories_cmd = &cobra.Command{
 		Use: `ContactPointPurposeCategories`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing contact point purpose category`,
 		Long:  `Update an existing contact point purpose category.`,
 		PreRunE: initTq,
@@ -736,7 +736,7 @@ var Put_ContactPointPurposeCategories_cmd = &cobra.Command{
 
 var Put_ContactPointPurposeMaps_cmd = &cobra.Command{
 		Use: `ContactPointPurposeMaps`,
-		Example: tq.JSONHighlight(`{"ContactPoint":{"Id":123}, "ContactPointCategory":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Purpose":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ContactPointPurposeMapID":"string"}`),
+		Example: `{"ContactPoint":{"Id":123}, "ContactPointCategory":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Purpose":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ContactPointPurposeMapID":"string"}`,
 		Short: `Update a contact point purpose`,
 		Long:  `Update a contact point purpose.`,
 		PreRunE: initTq,
@@ -749,7 +749,7 @@ var Put_ContactPointPurposeMaps_cmd = &cobra.Command{
 
 var Put_ContactPointPurposes_cmd = &cobra.Command{
 		Use: `ContactPointPurposes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PurposeCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PurposeCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing contact point purpose`,
 		Long:  `Update an existing contact point purpose.`,
 		PreRunE: initTq,
@@ -762,7 +762,7 @@ var Put_ContactPointPurposes_cmd = &cobra.Command{
 
 var Put_ContactTypes_cmd = &cobra.Command{
 		Use: `ContactTypes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing contact type`,
 		Long:  `Update an existing contact type.`,
 		PreRunE: initTq,
@@ -775,7 +775,7 @@ var Put_ContactTypes_cmd = &cobra.Command{
 
 var Put_ContributionDesignations_cmd = &cobra.Command{
 		Use: `ContributionDesignations`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LetterText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LetterText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing contribution designation`,
 		Long:  `Update an existing contribution designation.`,
 		PreRunE: initTq,
@@ -788,7 +788,7 @@ var Put_ContributionDesignations_cmd = &cobra.Command{
 
 var Put_ContributionImportSets_cmd = &cobra.Command{
 		Use: `ContributionImportSets`,
-		Example: tq.JSONHighlight(`{"AccountMatchKeyword":{"Id":123}, "AcknowledgmentLetterMode":123, "BatchType":{"Id":123}, "BillingSchedule":{"Id":123}, "BillingType":{"Id":123}, "Campaign":{"Id":123}, "ContributionDateTime":"2000-01-01T00:00:00.000Z", "ContributionPayMode":123, "CreateLocation":"string", "CreatePotentialDuplicate":true, "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CrediteeMode":123, "CrediteeType":{"Id":123}, "DefaultConstituentType":{"Id":123}, "DefaultCountryCode":"string", "DefaultHouseholdConstituentType":{"Id":123}, "DefaultOriginalSource":{"Id":123}, "Description":"string", "Designation":{"Id":123}, "FilePath":"string", "FormatFile":"string", "Fund":{"Id":123}, "Id":123, "ImportRefNoLocation":123, "Inactive":true, "PaymentMethod":{"Id":123}, "SalesChannel":{"Id":123}, "Source":{"Id":123}, "StripPhoneFormatting":true, "TransactAsHousehold":true, "TransactAsHouseholdCreditee":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Worker":{"Id":123}, "ID":"string"}`),
+		Example: `{"AccountMatchKeyword":{"Id":123}, "AcknowledgmentLetterMode":123, "BatchType":{"Id":123}, "BillingSchedule":{"Id":123}, "BillingType":{"Id":123}, "Campaign":{"Id":123}, "ContributionDateTime":"2000-01-01T00:00:00.000Z", "ContributionPayMode":123, "CreateLocation":"string", "CreatePotentialDuplicate":true, "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CrediteeMode":123, "CrediteeType":{"Id":123}, "DefaultConstituentType":{"Id":123}, "DefaultCountryCode":"string", "DefaultHouseholdConstituentType":{"Id":123}, "DefaultOriginalSource":{"Id":123}, "Description":"string", "Designation":{"Id":123}, "FilePath":"string", "FormatFile":"string", "Fund":{"Id":123}, "Id":123, "ImportRefNoLocation":123, "Inactive":true, "PaymentMethod":{"Id":123}, "SalesChannel":{"Id":123}, "Source":{"Id":123}, "StripPhoneFormatting":true, "TransactAsHousehold":true, "TransactAsHouseholdCreditee":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Worker":{"Id":123}, "ID":"string"}`,
 		Short: `Update an existing contributionImportSet`,
 		Long:  `Update an existing contributionImportSet.`,
 		PreRunE: initTq,
@@ -801,7 +801,7 @@ var Put_ContributionImportSets_cmd = &cobra.Command{
 
 var Put_Contributions_cmd = &cobra.Command{
 		Use: `Contributions`,
-		Example: tq.JSONHighlight(`{"AccountId":123, "AppealId":123, "BatchId":123, "BillingAccount":"string", "BillingTypeId":123, "BusinessUnitId":123, "Campaign":{"Id":123}, "Cancel":"string", "Channel":{"Id":123}, "Constituent":{"Id":123}, "ContributionAmount":123.456, "ContributionDateTime":"2000-01-01T00:00:00.000Z", "ContributionDesignation":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Custom0":"string", "Custom1":"string", "Custom2":"string", "Custom3":"string", "Custom4":"string", "Custom5":"string", "Custom6":"string", "Custom7":"string", "Custom8":"string", "Custom9":"string", "EditIndicator":true, "Fund":{"Id":123}, "Id":123, "Initiator":{"Id":123}, "KindGiftDescription":"string", "KindGiftTransferDateTime":"2000-01-01T00:00:00.000Z", "MatchIndicator":"string", "MatchingContributionId":123, "MediaType":{"Id":123}, "MirrorLock":123, "Notes":"string", "PaymentEndDateTime":"2000-01-01T00:00:00.000Z", "PaymentStartDateTime":"2000-01-01T00:00:00.000Z", "Plan":{"Id":123}, "PledgeStatusId":123, "ReceivedAmount":123.456, "Solicitor":"string", "SourceId":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ContributionID":"string"}`),
+		Example: `{"AccountId":123, "AppealId":123, "BatchId":123, "BillingAccount":"string", "BillingTypeId":123, "BusinessUnitId":123, "Campaign":{"Id":123}, "Cancel":"string", "Channel":{"Id":123}, "Constituent":{"Id":123}, "ContributionAmount":123.456, "ContributionDateTime":"2000-01-01T00:00:00.000Z", "ContributionDesignation":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Custom0":"string", "Custom1":"string", "Custom2":"string", "Custom3":"string", "Custom4":"string", "Custom5":"string", "Custom6":"string", "Custom7":"string", "Custom8":"string", "Custom9":"string", "EditIndicator":true, "Fund":{"Id":123}, "Id":123, "Initiator":{"Id":123}, "KindGiftDescription":"string", "KindGiftTransferDateTime":"2000-01-01T00:00:00.000Z", "MatchIndicator":"string", "MatchingContributionId":123, "MediaType":{"Id":123}, "MirrorLock":123, "Notes":"string", "PaymentEndDateTime":"2000-01-01T00:00:00.000Z", "PaymentStartDateTime":"2000-01-01T00:00:00.000Z", "Plan":{"Id":123}, "PledgeStatusId":123, "ReceivedAmount":123.456, "Solicitor":"string", "SourceId":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ContributionID":"string"}`,
 		Short: `This resource is currently strictly for interceptor plugin use`,
 		Long:  `This resource is currently strictly for interceptor plugin use. This is called any time an existing contribution is updated from contribution editor in the client application. Only Id (ref_no) is provided in the request content.`,
 		PreRunE: initTq,
@@ -814,7 +814,7 @@ var Put_Contributions_cmd = &cobra.Command{
 
 var Put_ControlGroupUserGroups_cmd = &cobra.Command{
 		Use: `ControlGroupUserGroups`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "EditIndicator":true, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "EditIndicator":true, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ID":"string"}`,
 		Short: `Update an existing control group/user group mapping`,
 		Long:  `Update an existing control group/user group mapping.`,
 		PreRunE: initTq,
@@ -827,7 +827,7 @@ var Put_ControlGroupUserGroups_cmd = &cobra.Command{
 
 var Put_ControlGroups_cmd = &cobra.Command{
 		Use: `ControlGroups`,
-		Example: tq.JSONHighlight(`{"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Permission":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Permission":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing control group`,
 		Long:  `Update an existing control group.`,
 		PreRunE: initTq,
@@ -840,7 +840,7 @@ var Put_ControlGroups_cmd = &cobra.Command{
 
 var Put_Countries_cmd = &cobra.Command{
 		Use: `Countries`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DecimalSeparator":"string", "Description":"string", "Id":123, "Inactive":true, "IsoAlpha2Code":"string", "IsoAlpha3Code":"string", "PhoneCode":"string", "PhoneEditstring":"string", "PhoneMask":"string", "PhoneValidLengths":"string", "ReqCity":true, "ReqPcode":true, "ShortDesc":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseAvs":"string", "UseStateField":"string", "ZipEditstring":"string", "ZipMask":"string", "ZipValidLengths":"string", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DecimalSeparator":"string", "Description":"string", "Id":123, "Inactive":true, "IsoAlpha2Code":"string", "IsoAlpha3Code":"string", "PhoneCode":"string", "PhoneEditstring":"string", "PhoneMask":"string", "PhoneValidLengths":"string", "ReqCity":true, "ReqPcode":true, "ShortDesc":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseAvs":"string", "UseStateField":"string", "ZipEditstring":"string", "ZipMask":"string", "ZipValidLengths":"string", "ID":"string"}`,
 		Short: `Update an existing country`,
 		Long:  `Update an existing country.`,
 		PreRunE: initTq,
@@ -853,7 +853,7 @@ var Put_Countries_cmd = &cobra.Command{
 
 var Put_CrediteeTypes_cmd = &cobra.Command{
 		Use: `CrediteeTypes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CreditMembershipIndicator":true, "Description":"string", "GiftAidIndicator":true, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CreditMembershipIndicator":true, "Description":"string", "GiftAidIndicator":true, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing crediteeType`,
 		Long:  `Update an existing crediteeType.`,
 		PreRunE: initTq,
@@ -866,7 +866,7 @@ var Put_CrediteeTypes_cmd = &cobra.Command{
 
 var Put_CurrencyTypes_cmd = &cobra.Command{
 		Use: `CurrencyTypes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rate":123.456, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rate":123.456, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing currency type`,
 		Long:  `Update an existing currency type.`,
 		PreRunE: initTq,
@@ -879,7 +879,7 @@ var Put_CurrencyTypes_cmd = &cobra.Command{
 
 var Put_CustomDefaultCategories_cmd = &cobra.Command{
 		Use: `CustomDefaultCategories`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing custom default category`,
 		Long:  `Update an existing custom default category.`,
 		PreRunE: initTq,
@@ -892,7 +892,7 @@ var Put_CustomDefaultCategories_cmd = &cobra.Command{
 
 var Put_CustomDefaults_cmd = &cobra.Command{
 		Use: `CustomDefaults`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDefaultCategory":{"Id":123}, "DefaultValue":"string", "Description":"string", "FieldName":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDefaultCategory":{"Id":123}, "DefaultValue":"string", "Description":"string", "FieldName":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing custom default`,
 		Long:  `Update an existing custom default.`,
 		PreRunE: initTq,
@@ -905,7 +905,7 @@ var Put_CustomDefaults_cmd = &cobra.Command{
 
 var Put_DeliveryMethods_cmd = &cobra.Command{
 		Use: `DeliveryMethods`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PrintAtHome":true, "RequireAddress":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PrintAtHome":true, "RequireAddress":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing delivery method`,
 		Long:  `Update an existing delivery method.`,
 		PreRunE: initTq,
@@ -918,7 +918,7 @@ var Put_DeliveryMethods_cmd = &cobra.Command{
 
 var Put_DesignationCodes_cmd = &cobra.Command{
 		Use: `DesignationCodes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing designation code`,
 		Long:  `Update an existing designation code.`,
 		PreRunE: initTq,
@@ -931,7 +931,7 @@ var Put_DesignationCodes_cmd = &cobra.Command{
 
 var Put_Diagnostics_cmd = &cobra.Command{
 		Use: `Diagnostics`,
-		Example: tq.JSONHighlight(`{"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "DiagnosticID":"string"}`),
+		Example: `{"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "DiagnosticID":"string"}`,
 		Short: `Dummy end point to check availability of HTTP PUT`,
 		Long:  `Dummy end point to check availability of HTTP PUT.`,
 		PreRunE: initTq,
@@ -944,7 +944,7 @@ var Put_Diagnostics_cmd = &cobra.Command{
 
 var Put_DirectDebitAccountTypes_cmd = &cobra.Command{
 		Use: `DirectDebitAccountTypes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing direct debit account type`,
 		Long:  `Update an existing direct debit account type.`,
 		PreRunE: initTq,
@@ -957,7 +957,7 @@ var Put_DirectDebitAccountTypes_cmd = &cobra.Command{
 
 var Put_DiscountTypes_cmd = &cobra.Command{
 		Use: `DiscountTypes`,
-		Example: tq.JSONHighlight(`{"Amount":123.456, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PercentIndicator":true, "RespectMinimumPrice":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"Amount":123.456, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PercentIndicator":true, "RespectMinimumPrice":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing discount type`,
 		Long:  `Update an existing discount type.`,
 		PreRunE: initTq,
@@ -970,7 +970,7 @@ var Put_DiscountTypes_cmd = &cobra.Command{
 
 var Put_DocumentCategories_cmd = &cobra.Command{
 		Use: `DocumentCategories`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ParentTableName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ParentTableName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing documentCategory`,
 		Long:  `Update an existing documentCategory.`,
 		PreRunE: initTq,
@@ -983,7 +983,7 @@ var Put_DocumentCategories_cmd = &cobra.Command{
 
 var Put_DonationLevels_cmd = &cobra.Command{
 		Use: `DonationLevels`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ProgramType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ProgramType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing donation level`,
 		Long:  `Update an existing donation level.`,
 		PreRunE: initTq,
@@ -996,7 +996,7 @@ var Put_DonationLevels_cmd = &cobra.Command{
 
 var Put_EMV_cmd = &cobra.Command{
 		Use: `EMV`,
-		Example: tq.JSONHighlight(`{"Cert":"string", "LaneID":"string", "Merchant":"string", "IdleMessage":"string"}`),
+		Example: `{"Cert":"string", "LaneID":"string", "Merchant":"string", "IdleMessage":"string"}`,
 		Short: `Set idle message for a specific lane`,
 		Long:  `Set idle message for a specific lane`,
 		PreRunE: initTq,
@@ -1009,7 +1009,7 @@ var Put_EMV_cmd = &cobra.Command{
 
 var Put_ElectronicAddressTypes_cmd = &cobra.Command{
 		Use: `ElectronicAddressTypes`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsEmail":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsEmail":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing electronic address type`,
 		Long:  `Update an existing electronic address type.`,
 		PreRunE: initTq,
@@ -1022,7 +1022,7 @@ var Put_ElectronicAddressTypes_cmd = &cobra.Command{
 
 var Put_ElectronicAddresses_cmd = &cobra.Command{
 		Use: `ElectronicAddresses`,
-		Example: tq.JSONHighlight(`{"Address":"string", "AffiliatedConstituent":{"Id":123}, "AllowHtmlFormat":true, "AllowMarketing":true, "AltSalutationType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "ElectronicAddressType":{"Id":123}, "EndDate":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "IsEmail":true, "IsFromAffiliation":true, "Months":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ElectronicAddressID":"string"}`),
+		Example: `{"Address":"string", "AffiliatedConstituent":{"Id":123}, "AllowHtmlFormat":true, "AllowMarketing":true, "AltSalutationType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "ElectronicAddressType":{"Id":123}, "EndDate":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "IsEmail":true, "IsFromAffiliation":true, "Months":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ElectronicAddressID":"string"}`,
 		Short: `Update an electronic address`,
 		Long:  `Update an electronic address.`,
 		PreRunE: initTq,
@@ -1035,7 +1035,7 @@ var Put_ElectronicAddresses_cmd = &cobra.Command{
 
 var Put_EmailProfiles_cmd = &cobra.Command{
 		Use: `EmailProfiles`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EmailBcc":"string", "EmailCc":"string", "EmailDefaultSubject":"string", "EmailFrom":"string", "Id":123, "Inactive":true, "SMTPPassword":"string", "SMTPPort":123, "SMTPServer":"string", "SMTPUserName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseSsl":true, "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EmailBcc":"string", "EmailCc":"string", "EmailDefaultSubject":"string", "EmailFrom":"string", "Id":123, "Inactive":true, "SMTPPassword":"string", "SMTPPort":123, "SMTPServer":"string", "SMTPUserName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseSsl":true, "ID":"string"}`,
 		Short: `Update an existing email profile`,
 		Long:  `Update an existing email profile`,
 		PreRunE: initTq,
@@ -1048,7 +1048,7 @@ var Put_EmailProfiles_cmd = &cobra.Command{
 
 var Put_EmarketIndicators_cmd = &cobra.Command{
 		Use: `EmarketIndicators`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing emarket indicator`,
 		Long:  `Update an existing emarket indicator.`,
 		PreRunE: initTq,
@@ -1061,7 +1061,7 @@ var Put_EmarketIndicators_cmd = &cobra.Command{
 
 var Put_Eras_cmd = &cobra.Command{
 		Use: `Eras`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing era`,
 		Long:  `Update an existing era.`,
 		PreRunE: initTq,
@@ -1074,7 +1074,7 @@ var Put_Eras_cmd = &cobra.Command{
 
 var Put_Facilities_cmd = &cobra.Command{
 		Use: `Facilities`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultBestSeatMapId":123, "DefaultZoneMapId":123, "Description":"string", "Id":123, "SeatMap":{"Id":123}, "Theater":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultBestSeatMapId":123, "DefaultZoneMapId":123, "Description":"string", "Id":123, "SeatMap":{"Id":123}, "Theater":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update a Facility`,
 		Long:  `Update a Facility.`,
 		PreRunE: initTq,
@@ -1087,7 +1087,7 @@ var Put_Facilities_cmd = &cobra.Command{
 
 var Put_Genders_cmd = &cobra.Command{
 		Use: `Genders`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultPrefix":{"Id":123}, "Description":"string", "Id":123, "Inactive":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultPrefix":{"Id":123}, "Description":"string", "Id":123, "Inactive":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing gender`,
 		Long:  `Update an existing gender.`,
 		PreRunE: initTq,
@@ -1100,7 +1100,7 @@ var Put_Genders_cmd = &cobra.Command{
 
 var Put_GiftAidContactMethods_cmd = &cobra.Command{
 		Use: `GiftAidContactMethods`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing gift aid contact method`,
 		Long:  `Update an existing gift aid contact method.`,
 		PreRunE: initTq,
@@ -1113,7 +1113,7 @@ var Put_GiftAidContactMethods_cmd = &cobra.Command{
 
 var Put_GiftAidDeclarations_cmd = &cobra.Command{
 		Use: `GiftAidDeclarations`,
-		Example: tq.JSONHighlight(`{"ConfirmDateTime":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "ContactMethod":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DocumentStatus":{"Id":123}, "EligibleIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "GiftAidType":{"Id":123}, "Id":123, "IneligibleReason":{"Id":123}, "Notes":"string", "ReceivedDateTime":"2000-01-01T00:00:00.000Z", "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "GiftAidDeclarationID":"string"}`),
+		Example: `{"ConfirmDateTime":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "ContactMethod":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DocumentStatus":{"Id":123}, "EligibleIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "GiftAidType":{"Id":123}, "Id":123, "IneligibleReason":{"Id":123}, "Notes":"string", "ReceivedDateTime":"2000-01-01T00:00:00.000Z", "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "GiftAidDeclarationID":"string"}`,
 		Short: `Update a Gift Aid Declaration`,
 		Long:  `Update a Gift Aid Declaration.`,
 		PreRunE: initTq,
@@ -1126,7 +1126,7 @@ var Put_GiftAidDeclarations_cmd = &cobra.Command{
 
 var Put_GiftAidDocumentStatuses_cmd = &cobra.Command{
 		Use: `GiftAidDocumentStatuses`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing gift aid document status`,
 		Long:  `Update an existing gift aid document status.`,
 		PreRunE: initTq,
@@ -1139,7 +1139,7 @@ var Put_GiftAidDocumentStatuses_cmd = &cobra.Command{
 
 var Put_GiftAidIneligibleReasons_cmd = &cobra.Command{
 		Use: `GiftAidIneligibleReasons`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing gift aid ineligible reason`,
 		Long:  `Update an existing gift aid ineligible reason.`,
 		PreRunE: initTq,
@@ -1152,7 +1152,7 @@ var Put_GiftAidIneligibleReasons_cmd = &cobra.Command{
 
 var Put_GiftAidRates_cmd = &cobra.Command{
 		Use: `GiftAidRates`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Rate":123.456, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Rate":123.456, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing gift aid rate`,
 		Long:  `Update an existing gift aid rate.`,
 		PreRunE: initTq,
@@ -1165,7 +1165,7 @@ var Put_GiftAidRates_cmd = &cobra.Command{
 
 var Put_GiftAidStatuses_cmd = &cobra.Command{
 		Use: `GiftAidStatuses`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing gift aid status`,
 		Long:  `Update an existing gift aid status.`,
 		PreRunE: initTq,
@@ -1178,7 +1178,7 @@ var Put_GiftAidStatuses_cmd = &cobra.Command{
 
 var Put_GiftAidTypes_cmd = &cobra.Command{
 		Use: `GiftAidTypes`,
-		Example: tq.JSONHighlight(`{"CharityClaimsRef":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CharityClaimsRef":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing gift aid type`,
 		Long:  `Update an existing gift aid type.`,
 		PreRunE: initTq,
@@ -1191,7 +1191,7 @@ var Put_GiftAidTypes_cmd = &cobra.Command{
 
 var Put_HoldCodeCategories_cmd = &cobra.Command{
 		Use: `HoldCodeCategories`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing Hold Code Category`,
 		Long:  `Update an existing Hold Code Category.`,
 		PreRunE: initTq,
@@ -1204,7 +1204,7 @@ var Put_HoldCodeCategories_cmd = &cobra.Command{
 
 var Put_HoldCodeUserGroups_cmd = &cobra.Command{
 		Use: `HoldCodeUserGroups`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HoldCode":{"Id":123}, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "HoldCodeUserGroupID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HoldCode":{"Id":123}, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "HoldCodeUserGroupID":"string"}`,
 		Short: `Update an existing hold code/user group mapping`,
 		Long:  `Update an existing hold code/user group mapping.`,
 		PreRunE: initTq,
@@ -1217,7 +1217,7 @@ var Put_HoldCodeUserGroups_cmd = &cobra.Command{
 
 var Put_HoldCodes_cmd = &cobra.Command{
 		Use: `HoldCodes`,
-		Example: tq.JSONHighlight(`{"BlackoutIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Legend":"string", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "HoldCodeID":"string"}`),
+		Example: `{"BlackoutIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Legend":"string", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "HoldCodeID":"string"}`,
 		Short: `Update an existing Hold Code`,
 		Long:  `Update an existing Hold Code.`,
 		PreRunE: initTq,
@@ -1230,7 +1230,7 @@ var Put_HoldCodes_cmd = &cobra.Command{
 
 var Put_InactiveReasons_cmd = &cobra.Command{
 		Use: `InactiveReasons`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing inactive reason`,
 		Long:  `Update an existing inactive reason.`,
 		PreRunE: initTq,
@@ -1243,7 +1243,7 @@ var Put_InactiveReasons_cmd = &cobra.Command{
 
 var Put_IntegrationDefaults_cmd = &cobra.Command{
 		Use: `IntegrationDefaults`,
-		Example: tq.JSONHighlight(`{"AccessId":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultValue":"string", "Description":"string", "FieldName":"string", "Id":123, "Integration":{"Id":123}, "Organization":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"AccessId":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultValue":"string", "Description":"string", "FieldName":"string", "Id":123, "Integration":{"Id":123}, "Organization":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing Integration Default`,
 		Long:  `Update an existing Integration Default.`,
 		PreRunE: initTq,
@@ -1256,7 +1256,7 @@ var Put_IntegrationDefaults_cmd = &cobra.Command{
 
 var Put_Integrations_cmd = &cobra.Command{
 		Use: `Integrations`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing action type`,
 		Long:  `Update an existing action type.`,
 		PreRunE: initTq,
@@ -1269,7 +1269,7 @@ var Put_Integrations_cmd = &cobra.Command{
 
 var Put_InterestCategories_cmd = &cobra.Command{
 		Use: `InterestCategories`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing interest category`,
 		Long:  `Update an existing interest category.`,
 		PreRunE: initTq,
@@ -1282,7 +1282,7 @@ var Put_InterestCategories_cmd = &cobra.Command{
 
 var Put_InterestTypes_cmd = &cobra.Command{
 		Use: `InterestTypes`,
-		Example: tq.JSONHighlight(`{"Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "SearchIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UsedIn":"string", "ID":"string"}`),
+		Example: `{"Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "SearchIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UsedIn":"string", "ID":"string"}`,
 		Short: `Update an existing interest type`,
 		Long:  `Update an existing interest type.`,
 		PreRunE: initTq,
@@ -1295,7 +1295,7 @@ var Put_InterestTypes_cmd = &cobra.Command{
 
 var Put_Interests_cmd = &cobra.Command{
 		Use: `Interests`,
-		Example: tq.JSONHighlight(`{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "InterestType":{"Id":123}, "Selected":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Weight":123, "InterestID":"string"}`),
+		Example: `{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "InterestType":{"Id":123}, "Selected":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Weight":123, "InterestID":"string"}`,
 		Short: `Update an interest`,
 		Long:  `Update an interest. If the interest is not selected and the weight is 0 or null, it will be deleted.
 For bulk interest edits, consider the CRM/Interests/CreateOrUpdate batching resource which allows multiple interests to be created, updated, or removed in a single request.`,
@@ -1309,7 +1309,7 @@ For bulk interest edits, consider the CRM/Interests/CreateOrUpdate batching reso
 
 var Put_Internal_cmd = &cobra.Command{
 		Use: `Internal`,
-		Example: tq.JSONHighlight(`{"AddressType":{"Id":123}, "AffiliatedConstituent":{"Id":123}, "AllowTelemarketing1":true, "AllowTelemarketing2":true, "AllowTelemarketing3":true, "AltSalutationType":{"Id":123}, "City":"string", "Constituent":{"Id":123}, "Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator1":"string", "DayEveningIndicator2":"string", "DayEveningIndicator3":"string", "DeliveryPoint":"string", "EditIndicator":true, "EditIndicator1":true, "EditIndicator2":true, "EditIndicator3":true, "EndDate":"2000-01-01T00:00:00.000Z", "GeoArea":123, "Id":123, "Inactive":true, "Label":true, "Months":"string", "NcoaAction":123, "NcoaSession":123, "PhoneId1":123, "PhoneId2":123, "PhoneId3":123, "PhoneNumber1":"string", "PhoneNumber1Formatted":"string", "PhoneNumber2":"string", "PhoneNumber2Formatted":"string", "PhoneNumber3":"string", "PhoneNumber3Formatted":"string", "PhoneSearch1":"string", "PhoneSearch2":"string", "PhoneSearch3":"string", "PostalCode":"string", "PostalCodeFormatted":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "State":{"Id":123}, "Street1":"string", "Street2":"string", "Street3":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UpdatedDateTime1":"2000-01-01T00:00:00.000Z", "UpdatedDateTime2":"2000-01-01T00:00:00.000Z", "UpdatedDateTime3":"2000-01-01T00:00:00.000Z", "AddressID":"string"}`),
+		Example: `{"AddressType":{"Id":123}, "AffiliatedConstituent":{"Id":123}, "AllowTelemarketing1":true, "AllowTelemarketing2":true, "AllowTelemarketing3":true, "AltSalutationType":{"Id":123}, "City":"string", "Constituent":{"Id":123}, "Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator1":"string", "DayEveningIndicator2":"string", "DayEveningIndicator3":"string", "DeliveryPoint":"string", "EditIndicator":true, "EditIndicator1":true, "EditIndicator2":true, "EditIndicator3":true, "EndDate":"2000-01-01T00:00:00.000Z", "GeoArea":123, "Id":123, "Inactive":true, "Label":true, "Months":"string", "NcoaAction":123, "NcoaSession":123, "PhoneId1":123, "PhoneId2":123, "PhoneId3":123, "PhoneNumber1":"string", "PhoneNumber1Formatted":"string", "PhoneNumber2":"string", "PhoneNumber2Formatted":"string", "PhoneNumber3":"string", "PhoneNumber3Formatted":"string", "PhoneSearch1":"string", "PhoneSearch2":"string", "PhoneSearch3":"string", "PostalCode":"string", "PostalCodeFormatted":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "State":{"Id":123}, "Street1":"string", "Street2":"string", "Street3":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UpdatedDateTime1":"2000-01-01T00:00:00.000Z", "UpdatedDateTime2":"2000-01-01T00:00:00.000Z", "UpdatedDateTime3":"2000-01-01T00:00:00.000Z", "AddressID":"string"}`,
 		Short: `Update an address and phones`,
 		Long:  `Update an address and phones. If the entire information about a phone is added newly then create a new phone. If the phone number of a phone is not given then delete that phone.`,
 		PreRunE: initTq,
@@ -1322,7 +1322,7 @@ var Put_Internal_cmd = &cobra.Command{
 
 var Put_InventoryContactPermissionTypes_cmd = &cobra.Command{
 		Use: `InventoryContactPermissionTypes`,
-		Example: tq.JSONHighlight(`{"ContactPermissionType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ProductionElementId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "InventoryContactPermissionTypeID":"string"}`),
+		Example: `{"ContactPermissionType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ProductionElementId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "InventoryContactPermissionTypeID":"string"}`,
 		Short: `Updated an existing inventoryContactPermissionType`,
 		Long:  `Updated an existing inventoryContactPermissionType.`,
 		PreRunE: initTq,
@@ -1335,7 +1335,7 @@ var Put_InventoryContactPermissionTypes_cmd = &cobra.Command{
 
 var Put_InventoryWebContents_cmd = &cobra.Command{
 		Use: `InventoryWebContents`,
-		Example: tq.JSONHighlight(`{"ContentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ProductionElementId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string", "InventoryWebContentID":"string"}`),
+		Example: `{"ContentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ProductionElementId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string", "InventoryWebContentID":"string"}`,
 		Short: `Update an existing inventoryWebContent`,
 		Long:  `Update an existing inventoryWebContent.`,
 		PreRunE: initTq,
@@ -1348,7 +1348,7 @@ var Put_InventoryWebContents_cmd = &cobra.Command{
 
 var Put_Issues_cmd = &cobra.Command{
 		Use: `Issues`,
-		Example: tq.JSONHighlight(`{"ActivityType":{"Id":123}, "Constituent":{"Id":123}, "ContactType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "HasReminder":true, "Id":123, "IssueDate":"2000-01-01T00:00:00.000Z", "Notes":"string", "Origin":{"Id":123}, "PackageId":123, "PerformanceId":123, "ResolvedIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UrgentIndicator":true, "IssueID":"string"}`),
+		Example: `{"ActivityType":{"Id":123}, "Constituent":{"Id":123}, "ContactType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "HasReminder":true, "Id":123, "IssueDate":"2000-01-01T00:00:00.000Z", "Notes":"string", "Origin":{"Id":123}, "PackageId":123, "PerformanceId":123, "ResolvedIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UrgentIndicator":true, "IssueID":"string"}`,
 		Short: `Update an issue for a Constituent`,
 		Long:  `Update an issue for a Constituent`,
 		PreRunE: initTq,
@@ -1361,7 +1361,7 @@ var Put_Issues_cmd = &cobra.Command{
 
 var Put_KeywordCategories_cmd = &cobra.Command{
 		Use: `KeywordCategories`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing keyword category`,
 		Long:  `Update an existing keyword category.`,
 		PreRunE: initTq,
@@ -1374,7 +1374,7 @@ var Put_KeywordCategories_cmd = &cobra.Command{
 
 var Put_Keywords_cmd = &cobra.Command{
 		Use: `Keywords`,
-		Example: tq.JSONHighlight(`{"Category":{"Id":123}, "ConstituentType":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDefaultValue":"string", "CustomId":123, "CustomLimit":123, "CustomRequired":true, "DataType":"string", "Description":"string", "DetailColumn":"string", "DetailTable":"string", "EditIndicator":true, "EditMask":"string", "ExtendedDescription":"string", "FrequentUpdateDate":"2000-01-01T00:00:00.000Z", "HelpText":"string", "Id":123, "KeyColumn":"string", "KeywordUse":"string", "MultipleValue":true, "ParentKeyColumn":"string", "ParentTable":"string", "PrimaryGroupDefault":"string", "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "SortOrder":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseForSearch":true, "ValuesCodedIndicator":true, "ID":"string"}`),
+		Example: `{"Category":{"Id":123}, "ConstituentType":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDefaultValue":"string", "CustomId":123, "CustomLimit":123, "CustomRequired":true, "DataType":"string", "Description":"string", "DetailColumn":"string", "DetailTable":"string", "EditIndicator":true, "EditMask":"string", "ExtendedDescription":"string", "FrequentUpdateDate":"2000-01-01T00:00:00.000Z", "HelpText":"string", "Id":123, "KeyColumn":"string", "KeywordUse":"string", "MultipleValue":true, "ParentKeyColumn":"string", "ParentTable":"string", "PrimaryGroupDefault":"string", "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "SortOrder":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseForSearch":true, "ValuesCodedIndicator":true, "ID":"string"}`,
 		Short: `Update an existing keyword`,
 		Long:  `Update an existing keyword.`,
 		PreRunE: initTq,
@@ -1387,7 +1387,7 @@ var Put_Keywords_cmd = &cobra.Command{
 
 var Put_Languages_cmd = &cobra.Command{
 		Use: `Languages`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing language`,
 		Long:  `Update an existing language.`,
 		PreRunE: initTq,
@@ -1400,7 +1400,7 @@ var Put_Languages_cmd = &cobra.Command{
 
 var Put_ListCategories_cmd = &cobra.Command{
 		Use: `ListCategories`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing list category`,
 		Long:  `Update an existing list category.`,
 		PreRunE: initTq,
@@ -1413,7 +1413,7 @@ var Put_ListCategories_cmd = &cobra.Command{
 
 var Put_Lists_cmd = &cobra.Command{
 		Use: `Lists`,
-		Example: tq.JSONHighlight(`{"AffiliatedIndividuals":123, "AnalyticsIndicator":true, "Category":{"Id":123}, "ConstituentCount":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Criteria":[{"Id":123}, ...], "Description":"string", "EditIndicator":true, "EditMode":"string", "Generate":true, "Households":123, "Id":123, "Inactive":true, "Individuals":123, "IsDynamic":true, "LastUsedDateTime":"2000-01-01T00:00:00.000Z", "ListSql":"string", "Organizations":123, "OutputSet":{"Id":123}, "RelationshipOptions":{"AffiliatedGroupInactive":true, "AffiliatedGroupTypes":"string", "AffiliatedGroupUseDates":true, "AffiliatedIndividualInactive":true, "AffiliatedIndividualTypes":"string", "AffiliatedIndividualUseDates":true, "AssociatedInactive":true, "AssociatedTypes":"string", "AssociatedUseDates":true, "CreateLocation":"string", "CreatedBy":"string", "KeepOrReplaceOriginal":"string", "ReplaceIndividuals":"string", "UpdatedBy":"string"}, "TMSIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ListID":"string"}`),
+		Example: `{"AffiliatedIndividuals":123, "AnalyticsIndicator":true, "Category":{"Id":123}, "ConstituentCount":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Criteria":[{"Id":123}, ...], "Description":"string", "EditIndicator":true, "EditMode":"string", "Generate":true, "Households":123, "Id":123, "Inactive":true, "Individuals":123, "IsDynamic":true, "LastUsedDateTime":"2000-01-01T00:00:00.000Z", "ListSql":"string", "Organizations":123, "OutputSet":{"Id":123}, "RelationshipOptions":{"AffiliatedGroupInactive":true, "AffiliatedGroupTypes":"string", "AffiliatedGroupUseDates":true, "AffiliatedIndividualInactive":true, "AffiliatedIndividualTypes":"string", "AffiliatedIndividualUseDates":true, "AssociatedInactive":true, "AssociatedTypes":"string", "AssociatedUseDates":true, "CreateLocation":"string", "CreatedBy":"string", "KeepOrReplaceOriginal":"string", "ReplaceIndividuals":"string", "UpdatedBy":"string"}, "TMSIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ListID":"string"}`,
 		Short: `Update an existing List`,
 		Long:  `Update an existing List.`,
 		PreRunE: initTq,
@@ -1429,7 +1429,7 @@ var Put_Lists_cmd = &cobra.Command{
 
 var Put_LoginTypes_cmd = &cobra.Command{
 		Use: `LoginTypes`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing login type`,
 		Long:  `Update an existing login type.`,
 		PreRunE: initTq,
@@ -1442,7 +1442,7 @@ var Put_LoginTypes_cmd = &cobra.Command{
 
 var Put_MachineSettings_cmd = &cobra.Command{
 		Use: `MachineSettings`,
-		Example: tq.JSONHighlight(`{"CardReaderHost":"string", "CardReaderPort":123, "CardReaderType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "MerchantId":"string", "PXStation":"string", "PXUserKey":"string", "PXUserName":"string", "TessituraPaymentsPosDevice":"string", "TessituraPaymentsPosDeviceModel":"string", "TnspaySoftwareTerminal":true, "TriPOSCloudConfiguration":{"Id":123}, "TriposLane":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkstationName":"string", "ID":"string"}`),
+		Example: `{"CardReaderHost":"string", "CardReaderPort":123, "CardReaderType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "MerchantId":"string", "PXStation":"string", "PXUserKey":"string", "PXUserName":"string", "TessituraPaymentsPosDevice":"string", "TessituraPaymentsPosDeviceModel":"string", "TnspaySoftwareTerminal":true, "TriPOSCloudConfiguration":{"Id":123}, "TriposLane":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkstationName":"string", "ID":"string"}`,
 		Short: `Update an existing Machine Setting`,
 		Long:  `Update an existing Machine Setting.`,
 		PreRunE: initTq,
@@ -1455,7 +1455,7 @@ var Put_MachineSettings_cmd = &cobra.Command{
 
 var Put_MailIndicators_cmd = &cobra.Command{
 		Use: `MailIndicators`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing mail indicator`,
 		Long:  `Update an existing mail indicator.`,
 		PreRunE: initTq,
@@ -1468,7 +1468,7 @@ var Put_MailIndicators_cmd = &cobra.Command{
 
 var Put_MediaTypes_cmd = &cobra.Command{
 		Use: `MediaTypes`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "GenerateCost":123.456, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "GenerateCost":123.456, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing media type`,
 		Long:  `Update an existing media type.`,
 		PreRunE: initTq,
@@ -1481,7 +1481,7 @@ var Put_MediaTypes_cmd = &cobra.Command{
 
 var Put_MembershipLevelCategories_cmd = &cobra.Command{
 		Use: `MembershipLevelCategories`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing membership level category`,
 		Long:  `Update an existing membership level category.`,
 		PreRunE: initTq,
@@ -1494,7 +1494,7 @@ var Put_MembershipLevelCategories_cmd = &cobra.Command{
 
 var Put_ModeOfSaleCategories_cmd = &cobra.Command{
 		Use: `ModeOfSaleCategories`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Sequence":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleCategoryID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Sequence":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleCategoryID":"string"}`,
 		Short: `Update an existing mode of sale category`,
 		Long:  `Update an existing mode of sale category.`,
 		PreRunE: initTq,
@@ -1507,7 +1507,7 @@ var Put_ModeOfSaleCategories_cmd = &cobra.Command{
 
 var Put_ModeOfSaleOffers_cmd = &cobra.Command{
 		Use: `ModeOfSaleOffers`,
-		Example: tq.JSONHighlight(`{"AppealId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "MaxSeats":123, "ModeOfSaleId":123, "OverrideDefaultPriceTypeIndicator":true, "PackageId":123, "PerformanceId":123, "PriceTypeId":123, "Rank":123, "SourceId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "Terms":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleOfferID":"string"}`),
+		Example: `{"AppealId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "MaxSeats":123, "ModeOfSaleId":123, "OverrideDefaultPriceTypeIndicator":true, "PackageId":123, "PerformanceId":123, "PriceTypeId":123, "Rank":123, "SourceId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "Terms":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleOfferID":"string"}`,
 		Short: `Update an existing mode of sale offer`,
 		Long:  `Update an existing mode of sale offer.`,
 		PreRunE: initTq,
@@ -1520,7 +1520,7 @@ var Put_ModeOfSaleOffers_cmd = &cobra.Command{
 
 var Put_ModeOfSalePriceTypes_cmd = &cobra.Command{
 		Use: `ModeOfSalePriceTypes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Id":123, "ModeOfSale":{"Id":123}, "PriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSalePriceTypeID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Id":123, "ModeOfSale":{"Id":123}, "PriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSalePriceTypeID":"string"}`,
 		Short: `Update an existing mode of sale price type`,
 		Long:  `Update an existing mode of sale price type.`,
 		PreRunE: initTq,
@@ -1533,7 +1533,7 @@ var Put_ModeOfSalePriceTypes_cmd = &cobra.Command{
 
 var Put_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 		Use: `ModeOfSaleSurveyQuestions`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ModeOfSale":{"Id":123}, "Question":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleSurveyQuestionID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ModeOfSale":{"Id":123}, "Question":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleSurveyQuestionID":"string"}`,
 		Short: `Update an existing mode of sale survey question`,
 		Long:  `Update an existing mode of sale survey question.`,
 		PreRunE: initTq,
@@ -1546,7 +1546,7 @@ var Put_ModeOfSaleSurveyQuestions_cmd = &cobra.Command{
 
 var Put_ModeOfSaleUserGroups_cmd = &cobra.Command{
 		Use: `ModeOfSaleUserGroups`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Id":123, "ModeOfSale":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ModeOfSaleUserGroupID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Id":123, "ModeOfSale":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ModeOfSaleUserGroupID":"string"}`,
 		Short: `Update an existing mode of sale/user group mapping`,
 		Long:  `Update an existing mode of sale/user group mapping.`,
 		PreRunE: initTq,
@@ -1559,7 +1559,7 @@ var Put_ModeOfSaleUserGroups_cmd = &cobra.Command{
 
 var Put_ModesOfSale_cmd = &cobra.Command{
 		Use: `ModesOfSale`,
-		Example: tq.JSONHighlight(`{"AllowUnseatedPaidInd":true, "Category":{"Id":123}, "CategoryRequired":true, "ClearSourceNoInd":true, "ClearSourceOnReload":true, "ConfirmationMode":true, "ConstLinkRequired":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultAckFormatId":123, "DefaultChannelId":123, "DefaultDeliveryMethodId":123, "DefaultHeaderFormatId":123, "DefaultSalesLayoutId":123, "Description":"string", "EditDate":true, "EditSourceOnReload":true, "GeneralPublicInd":true, "HaboDays":123, "HaboForeign":true, "HoldUntilDate":"2000-01-01T00:00:00.000Z", "HoldUntilDays":123, "HoldUntilMethod":"string", "Id":123, "Inactive":true, "MustBePaidInd":true, "MustBeSeatedInd":true, "MustBeTicketedInd":true, "PricingRuleSetId":123, "SampleForGeneralPublic":123, "SampleForKnownConstituent":123, "SliAutoDeleteInd":true, "StartPkgOrPerf":"string", "SubsSummaryRequired":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleID":"string"}`),
+		Example: `{"AllowUnseatedPaidInd":true, "Category":{"Id":123}, "CategoryRequired":true, "ClearSourceNoInd":true, "ClearSourceOnReload":true, "ConfirmationMode":true, "ConstLinkRequired":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultAckFormatId":123, "DefaultChannelId":123, "DefaultDeliveryMethodId":123, "DefaultHeaderFormatId":123, "DefaultSalesLayoutId":123, "Description":"string", "EditDate":true, "EditSourceOnReload":true, "GeneralPublicInd":true, "HaboDays":123, "HaboForeign":true, "HoldUntilDate":"2000-01-01T00:00:00.000Z", "HoldUntilDays":123, "HoldUntilMethod":"string", "Id":123, "Inactive":true, "MustBePaidInd":true, "MustBeSeatedInd":true, "MustBeTicketedInd":true, "PricingRuleSetId":123, "SampleForGeneralPublic":123, "SampleForKnownConstituent":123, "SliAutoDeleteInd":true, "StartPkgOrPerf":"string", "SubsSummaryRequired":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleID":"string"}`,
 		Short: `Update an existing mode of sale`,
 		Long:  `Update an existing mode of sale.`,
 		PreRunE: initTq,
@@ -1572,7 +1572,7 @@ var Put_ModesOfSale_cmd = &cobra.Command{
 
 var Put_NScanAccessAreas_cmd = &cobra.Command{
 		Use: `NScanAccessAreas`,
-		Example: tq.JSONHighlight(`{"AreaCode":"string", "ConstituencyIds":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "KeywordId":123, "KeywordValue":"string", "ListId":123, "MaxEntries":123, "MembershipLevelIds":"string", "PerformanceIds":"string", "PriceTypeIds":"string", "PriceZoneIds":"string", "PromptQuantity":true, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"AreaCode":"string", "ConstituencyIds":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "KeywordId":123, "KeywordValue":"string", "ListId":123, "MaxEntries":123, "MembershipLevelIds":"string", "PerformanceIds":"string", "PriceTypeIds":"string", "PriceZoneIds":"string", "PromptQuantity":true, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing NScan Access Area`,
 		Long:  `Update an existing NScan Access Area.`,
 		PreRunE: initTq,
@@ -1585,7 +1585,7 @@ var Put_NScanAccessAreas_cmd = &cobra.Command{
 
 var Put_NameStatuses_cmd = &cobra.Command{
 		Use: `NameStatuses`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing name status`,
 		Long:  `Update an existing name status.`,
 		PreRunE: initTq,
@@ -1598,7 +1598,7 @@ var Put_NameStatuses_cmd = &cobra.Command{
 
 var Put_ObjectPermissions_cmd = &cobra.Command{
 		Use: `ObjectPermissions`,
-		Example: tq.JSONHighlight(`{"ApplicationObject":{"Id":123}, "CanCreate":"string", "CanDelete":"string", "CanEdit":"string", "CanView":"string", "Constituency":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroup":{"Id":"string"}, "ID":"string"}`),
+		Example: `{"ApplicationObject":{"Id":123}, "CanCreate":"string", "CanDelete":"string", "CanEdit":"string", "CanView":"string", "Constituency":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroup":{"Id":"string"}, "ID":"string"}`,
 		Short: `Update an existing object permission`,
 		Long:  `Update an existing object permission.`,
 		PreRunE: initTq,
@@ -1611,7 +1611,7 @@ var Put_ObjectPermissions_cmd = &cobra.Command{
 
 var Put_OrderCategories_cmd = &cobra.Command{
 		Use: `OrderCategories`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing order category`,
 		Long:  `Update an existing order category.`,
 		PreRunE: initTq,
@@ -1624,7 +1624,7 @@ var Put_OrderCategories_cmd = &cobra.Command{
 
 var Put_Orders_cmd = &cobra.Command{
 		Use: `Orders`,
-		Example: tq.JSONHighlight(`{"AcceptingRollovers":true, "AccountId":123, "AltAddressId":123, "AltElectronicAddressId":123, "AppealId":123, "AppliedMessageRules":"string", "BatchId":123, "BusinessUnitId":123, "CategoryId":123, "ChannelId":123, "ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Custom0":"string", "Custom1":"string", "Custom2":"string", "Custom3":"string", "Custom4":"string", "Custom5":"string", "Custom6":"string", "Custom7":"string", "Custom8":"string", "Custom9":"string", "DeliveryDate":"2000-01-01T00:00:00.000Z", "DeliveryMethodId":123, "HoldUntilDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "InitiatorId":123, "LineItems":[{"Id":123}, ...], "Messages":[{"Id":123}, ...], "MirrorLock":123, "ModeOfSaleId":123, "Notes":"string", "OrderDateTime":"2000-01-01T00:00:00.000Z", "ReloadPricingRules":true, "Solicitor":"string", "SourceId":123, "TotalDue":123.456, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "VirtualConstituencies":"string", "OrderID":"string"}`),
+		Example: `{"AcceptingRollovers":true, "AccountId":123, "AltAddressId":123, "AltElectronicAddressId":123, "AppealId":123, "AppliedMessageRules":"string", "BatchId":123, "BusinessUnitId":123, "CategoryId":123, "ChannelId":123, "ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Custom0":"string", "Custom1":"string", "Custom2":"string", "Custom3":"string", "Custom4":"string", "Custom5":"string", "Custom6":"string", "Custom7":"string", "Custom8":"string", "Custom9":"string", "DeliveryDate":"2000-01-01T00:00:00.000Z", "DeliveryMethodId":123, "HoldUntilDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "InitiatorId":123, "LineItems":[{"Id":123}, ...], "Messages":[{"Id":123}, ...], "MirrorLock":123, "ModeOfSaleId":123, "Notes":"string", "OrderDateTime":"2000-01-01T00:00:00.000Z", "ReloadPricingRules":true, "Solicitor":"string", "SourceId":123, "TotalDue":123.456, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "VirtualConstituencies":"string", "OrderID":"string"}`,
 		Short: `This resource is currently strictly for interceptor plugin use`,
 		Long:  `This resource is currently strictly for interceptor plugin use. This is called any time an order is saved via the API or from the client application. Only OrderId is provided in the request content.
             
@@ -1639,7 +1639,7 @@ This resource will be invoked from a cart checkout.`,
 
 var Put_Organizations_cmd = &cobra.Command{
 		Use: `Organizations`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LicenseeAccountCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LicenseeAccountCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing organization`,
 		Long:  `Update an existing organization.`,
 		PreRunE: initTq,
@@ -1652,7 +1652,7 @@ var Put_Organizations_cmd = &cobra.Command{
 
 var Put_OriginalSources_cmd = &cobra.Command{
 		Use: `OriginalSources`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing original source`,
 		Long:  `Update an existing original source.`,
 		PreRunE: initTq,
@@ -1665,7 +1665,7 @@ var Put_OriginalSources_cmd = &cobra.Command{
 
 var Put_Origins_cmd = &cobra.Command{
 		Use: `Origins`,
-		Example: tq.JSONHighlight(`{"ActivityType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ActivityType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing origin`,
 		Long:  `Update an existing origin.`,
 		PreRunE: initTq,
@@ -1678,7 +1678,7 @@ var Put_Origins_cmd = &cobra.Command{
 
 var Put_OutputSets_cmd = &cobra.Command{
 		Use: `OutputSets`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "ElementGroups":[{"IncludePrimaryAffiliation":true, "IsSingleRow":true, "KeywordId":123}, ...], "Id":123, "LastUsedDateTime":"2000-01-01T00:00:00.000Z", "TMSIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "OutputSetID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "ElementGroups":[{"IncludePrimaryAffiliation":true, "IsSingleRow":true, "KeywordId":123}, ...], "Id":123, "LastUsedDateTime":"2000-01-01T00:00:00.000Z", "TMSIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "OutputSetID":"string"}`,
 		Short: `Update an existing Output Set`,
 		Long:  `Update an existing Output Set.`,
 		PreRunE: initTq,
@@ -1691,7 +1691,7 @@ var Put_OutputSets_cmd = &cobra.Command{
 
 var Put_PackagePriceTypes_cmd = &cobra.Command{
 		Use: `PackagePriceTypes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PackageId":123, "PriceTypeId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PackagePriceTypeID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PackageId":123, "PriceTypeId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PackagePriceTypeID":"string"}`,
 		Short: `Update an existing package price type`,
 		Long:  `Update an existing package price type.`,
 		PreRunE: initTq,
@@ -1704,7 +1704,7 @@ var Put_PackagePriceTypes_cmd = &cobra.Command{
 
 var Put_PackageTypes_cmd = &cobra.Command{
 		Use: `PackageTypes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing package type`,
 		Long:  `Update an existing package type.`,
 		PreRunE: initTq,
@@ -1717,7 +1717,7 @@ var Put_PackageTypes_cmd = &cobra.Command{
 
 var Put_PackageWebContents_cmd = &cobra.Command{
 		Use: `PackageWebContents`,
-		Example: tq.JSONHighlight(`{"ContentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PackageId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string", "PackageWebContentID":"string"}`),
+		Example: `{"ContentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PackageId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string", "PackageWebContentID":"string"}`,
 		Short: `Update an existing packageWebContent`,
 		Long:  `Update an existing packageWebContent.`,
 		PreRunE: initTq,
@@ -1730,7 +1730,7 @@ var Put_PackageWebContents_cmd = &cobra.Command{
 
 var Put_PaymentGatewayActivities_cmd = &cobra.Command{
 		Use: `PaymentGatewayActivities`,
-		Example: tq.JSONHighlight(`{"AccountId":123, "AccountNumber":"string", "ActivityData":"string", "Amount":123.456, "AuthCode":"string", "AvsAddress":"string", "AvsPostalcode":"string", "AvsResultCode":"string", "BalanceAmount":123.456, "BalanceCurrencyCode":"string", "ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CvvResultCode":"string", "EcommerceIndicator":"string", "EmvApplicationIdentifier":"string", "EmvApplicationName":"string", "EmvCryptogram":"string", "EmvHostResponseCode":"string", "EmvHostResponseMessage":"string", "EmvPinVerified":"string", "EntryMethod":"string", "ExpirationDate":"string", "Id":123, "MerchantId":"string", "Name":"string", "NetworkTransactionId":"string", "Origin":"string", "PaymentGatewayTransactionType":{"Id":123}, "PaymentId":123, "PaymentMethodGroupId":123, "PaymentMethodId":123, "ProviderCommunicationDurationMs":123, "ProviderTransactionDateTime":"2000-01-01T00:00:00.000Z", "ReferenceNumber":"string", "ResponseCode":"string", "ResponseMessage":"string", "Success":"string", "TerminalIdentifier":"string", "TotalDurationMs":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserData":"string", "PaymentGatewayActivityID":"string"}`),
+		Example: `{"AccountId":123, "AccountNumber":"string", "ActivityData":"string", "Amount":123.456, "AuthCode":"string", "AvsAddress":"string", "AvsPostalcode":"string", "AvsResultCode":"string", "BalanceAmount":123.456, "BalanceCurrencyCode":"string", "ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CvvResultCode":"string", "EcommerceIndicator":"string", "EmvApplicationIdentifier":"string", "EmvApplicationName":"string", "EmvCryptogram":"string", "EmvHostResponseCode":"string", "EmvHostResponseMessage":"string", "EmvPinVerified":"string", "EntryMethod":"string", "ExpirationDate":"string", "Id":123, "MerchantId":"string", "Name":"string", "NetworkTransactionId":"string", "Origin":"string", "PaymentGatewayTransactionType":{"Id":123}, "PaymentId":123, "PaymentMethodGroupId":123, "PaymentMethodId":123, "ProviderCommunicationDurationMs":123, "ProviderTransactionDateTime":"2000-01-01T00:00:00.000Z", "ReferenceNumber":"string", "ResponseCode":"string", "ResponseMessage":"string", "Success":"string", "TerminalIdentifier":"string", "TotalDurationMs":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserData":"string", "PaymentGatewayActivityID":"string"}`,
 		Short: `Update an existing Payment Gateway Activity`,
 		Long:  `Update an existing Payment Gateway Activity`,
 		PreRunE: initTq,
@@ -1743,7 +1743,7 @@ var Put_PaymentGatewayActivities_cmd = &cobra.Command{
 
 var Put_PaymentGatewayNotifications_cmd = &cobra.Command{
 		Use: `PaymentGatewayNotifications`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EventType":"string", "Id":123, "Payload":"string", "ProcessedDate":"2000-01-01T00:00:00.000Z", "ReceivedDate":"2000-01-01T00:00:00.000Z", "Reference":"string", "Topic":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "NotificationEventID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EventType":"string", "Id":123, "Payload":"string", "ProcessedDate":"2000-01-01T00:00:00.000Z", "ReceivedDate":"2000-01-01T00:00:00.000Z", "Reference":"string", "Topic":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "NotificationEventID":"string"}`,
 		Short: `Update a notification event`,
 		Long:  `Update a notification event.`,
 		PreRunE: initTq,
@@ -1756,7 +1756,7 @@ var Put_PaymentGatewayNotifications_cmd = &cobra.Command{
 
 var Put_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 		Use: `PaymentGatewayTransactionTypes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing Payment Gateway Transaction Type`,
 		Long:  `Update an existing Payment Gateway Transaction Type.`,
 		PreRunE: initTq,
@@ -1769,7 +1769,7 @@ var Put_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 
 var Put_PaymentMethodGroups_cmd = &cobra.Command{
 		Use: `PaymentMethodGroups`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "MerchantId":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "MerchantId":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing payment method group`,
 		Long:  `Update an existing payment method group.`,
 		PreRunE: initTq,
@@ -1782,7 +1782,7 @@ var Put_PaymentMethodGroups_cmd = &cobra.Command{
 
 var Put_PaymentMethodUserGroups_cmd = &cobra.Command{
 		Use: `PaymentMethodUserGroups`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "IncomeIndicator":true, "MaxRefund":123.456, "PaymentMethod":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "PaymentMethodUserGroupID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "IncomeIndicator":true, "MaxRefund":123.456, "PaymentMethod":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "PaymentMethodUserGroupID":"string"}`,
 		Short: `Update an existing payment method/user group mapping`,
 		Long:  `Update an existing payment method/user group mapping.`,
 		PreRunE: initTq,
@@ -1795,7 +1795,7 @@ var Put_PaymentMethodUserGroups_cmd = &cobra.Command{
 
 var Put_PaymentMethods_cmd = &cobra.Command{
 		Use: `PaymentMethods`,
-		Example: tq.JSONHighlight(`{"AccountType":{"Id":123}, "AuthIndicator":true, "BusinessUnitId":123, "CanRefund":true, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CurrencyTypeId":123, "DefaultIndicator":true, "Description":"string", "GiftAidIndicator":true, "GlAccountId":"string", "Id":123, "Inactive":true, "Income":true, "MerchantId":"string", "MerchantIdForSwipe":"string", "NoCopiesOnAuth":123, "NoCopiesOnSave":123, "OpenCashDrawer":true, "PaymentMethodGroup":{"Id":123}, "PaymentType":{"Id":123}, "ReceiptFormatId":123, "RequireCheckIndicator":true, "RequireCvv":true, "RequirePostalCode":"string", "ShortDesc":"string", "StoreTenderedAmount":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseWithCardReader":true, "PaymentMethodID":"string"}`),
+		Example: `{"AccountType":{"Id":123}, "AuthIndicator":true, "BusinessUnitId":123, "CanRefund":true, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CurrencyTypeId":123, "DefaultIndicator":true, "Description":"string", "GiftAidIndicator":true, "GlAccountId":"string", "Id":123, "Inactive":true, "Income":true, "MerchantId":"string", "MerchantIdForSwipe":"string", "NoCopiesOnAuth":123, "NoCopiesOnSave":123, "OpenCashDrawer":true, "PaymentMethodGroup":{"Id":123}, "PaymentType":{"Id":123}, "ReceiptFormatId":123, "RequireCheckIndicator":true, "RequireCvv":true, "RequirePostalCode":"string", "ShortDesc":"string", "StoreTenderedAmount":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseWithCardReader":true, "PaymentMethodID":"string"}`,
 		Short: `Update an existing payment method`,
 		Long:  `Update an existing payment method.`,
 		PreRunE: initTq,
@@ -1808,7 +1808,7 @@ var Put_PaymentMethods_cmd = &cobra.Command{
 
 var Put_PaymentSignatures_cmd = &cobra.Command{
 		Use: `PaymentSignatures`,
-		Example: tq.JSONHighlight(`{"Id":123, "PaymentSignatureID":"string"}`),
+		Example: `{"Id":123, "PaymentSignatureID":"string"}`,
 		Short: `Update an existing payment signature`,
 		Long:  `Update an existing payment signature.`,
 		PreRunE: initTq,
@@ -1821,7 +1821,7 @@ var Put_PaymentSignatures_cmd = &cobra.Command{
 
 var Put_PaymentTypes_cmd = &cobra.Command{
 		Use: `PaymentTypes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing payment type`,
 		Long:  `Update an existing payment type.`,
 		PreRunE: initTq,
@@ -1834,7 +1834,7 @@ var Put_PaymentTypes_cmd = &cobra.Command{
 
 var Put_PerformanceGroups_cmd = &cobra.Command{
 		Use: `PerformanceGroups`,
-		Example: tq.JSONHighlight(`{"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DisplayByZone":true, "Facility":{"Id":123}, "FixedSeatIndicator":true, "Id":123, "Season":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneMap":{"Id":123}}`),
+		Example: `{"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DisplayByZone":true, "Facility":{"Id":123}, "FixedSeatIndicator":true, "Id":123, "Season":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneMap":{"Id":123}}`,
 		Short: `Update a Performance Group`,
 		Long:  `Update a Performance Group.`,
 		PreRunE: initTq,
@@ -1847,7 +1847,7 @@ var Put_PerformanceGroups_cmd = &cobra.Command{
 
 var Put_PerformancePackageModeOfSales_cmd = &cobra.Command{
 		Use: `PerformancePackageModeOfSales`,
-		Example: tq.JSONHighlight(`{"AutoAttend":"string", "ETicketReleaseDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ModeOfSaleId":123, "PackageId":123, "PerformanceId":123, "PrintIndicator":true, "PrintOnAutoAttend":true, "SeatIndicator":true, "StartDateTime":"2000-01-01T00:00:00.000Z", "PerformancePackageModeOfSaleID":"string"}`),
+		Example: `{"AutoAttend":"string", "ETicketReleaseDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ModeOfSaleId":123, "PackageId":123, "PerformanceId":123, "PrintIndicator":true, "PrintOnAutoAttend":true, "SeatIndicator":true, "StartDateTime":"2000-01-01T00:00:00.000Z", "PerformancePackageModeOfSaleID":"string"}`,
 		Short: `Update an existing performance package mode of sale`,
 		Long:  `Update an existing performance package mode of sale.`,
 		PreRunE: initTq,
@@ -1860,7 +1860,7 @@ var Put_PerformancePackageModeOfSales_cmd = &cobra.Command{
 
 var Put_PerformancePriceLayers_cmd = &cobra.Command{
 		Use: `PerformancePriceLayers`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultDesignationCodeId":123, "DefaultGlAccountId":123, "DefaultResaleAccountId":123, "Description":"string", "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PerformanceId":123, "PerformancePriceTypes":[{"Id":123}, ...], "PriceLayerType":{"Id":123}, "TemplateId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PerformancePriceLayerID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultDesignationCodeId":123, "DefaultGlAccountId":123, "DefaultResaleAccountId":123, "Description":"string", "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PerformanceId":123, "PerformancePriceTypes":[{"Id":123}, ...], "PriceLayerType":{"Id":123}, "TemplateId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PerformancePriceLayerID":"string"}`,
 		Short: `Update an existing performance price layer`,
 		Long:  `Update an existing performance price layer.`,
 		PreRunE: initTq,
@@ -1876,7 +1876,7 @@ var Put_PerformancePriceLayers_cmd = &cobra.Command{
 
 var Put_PerformancePriceTypes_cmd = &cobra.Command{
 		Use: `PerformancePriceTypes`,
-		Example: tq.JSONHighlight(`{"BaseIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DesignationCodeId":123, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "GlAccountId":123, "Id":123, "IsWithinDateRange":true, "PerformanceId":123, "PerformancePriceLayerId":123, "PerformancePrices":[{"Id":123}, ...], "PriceTypeId":123, "ResaleAccountId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "TicketDesignId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PerformancePriceTypeID":"string"}`),
+		Example: `{"BaseIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DesignationCodeId":123, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "GlAccountId":123, "Id":123, "IsWithinDateRange":true, "PerformanceId":123, "PerformancePriceLayerId":123, "PerformancePrices":[{"Id":123}, ...], "PriceTypeId":123, "ResaleAccountId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "TicketDesignId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PerformancePriceTypeID":"string"}`,
 		Short: `Update an existing performance price type`,
 		Long:  `Update an existing performance price type.`,
 		PreRunE: initTq,
@@ -1894,7 +1894,7 @@ var Put_PerformancePriceTypes_cmd = &cobra.Command{
 
 var Put_PerformancePrices_cmd = &cobra.Command{
 		Use: `PerformancePrices`,
-		Example: tq.JSONHighlight(`{"EditIndicator":true, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Enabled":true, "HasEvents":true, "Id":123, "IsPriceBasedOnCurrentEvent":true, "MinPrice":123.456, "PerformanceId":123, "PerformancePriceTypeId":123, "Price":123.456, "ZoneId":123, "PerformancePriceID":"string"}`),
+		Example: `{"EditIndicator":true, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Enabled":true, "HasEvents":true, "Id":123, "IsPriceBasedOnCurrentEvent":true, "MinPrice":123.456, "PerformanceId":123, "PerformancePriceTypeId":123, "Price":123.456, "ZoneId":123, "PerformancePriceID":"string"}`,
 		Short: `Update an existing performance price`,
 		Long:  `Update an existing performance price.`,
 		PreRunE: initTq,
@@ -1907,7 +1907,7 @@ var Put_PerformancePrices_cmd = &cobra.Command{
 
 var Put_PerformanceStatuses_cmd = &cobra.Command{
 		Use: `PerformanceStatuses`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing performance status`,
 		Long:  `Update an existing performance status.`,
 		PreRunE: initTq,
@@ -1920,7 +1920,7 @@ var Put_PerformanceStatuses_cmd = &cobra.Command{
 
 var Put_PerformanceTypes_cmd = &cobra.Command{
 		Use: `PerformanceTypes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ValidCountryList":"string", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ValidCountryList":"string", "ID":"string"}`,
 		Short: `Update an existing performance type`,
 		Long:  `Update an existing performance type.`,
 		PreRunE: initTq,
@@ -1933,7 +1933,7 @@ var Put_PerformanceTypes_cmd = &cobra.Command{
 
 var Put_Performances_cmd = &cobra.Command{
 		Use: `Performances`,
-		Example: tq.JSONHighlight(`{"ExpireAsOfDate":"2000-01-01T00:00:00.000Z", "SeatIds":"string", "HoldCodeID":"string", "PerformanceID":"string"}`),
+		Example: `{"ExpireAsOfDate":"2000-01-01T00:00:00.000Z", "SeatIds":"string", "HoldCodeID":"string", "PerformanceID":"string"}`,
 		Short: `Expires seat holds for a performance and hold code`,
 		Long:  `Expires seat holds for a performance and hold code`,
 		PreRunE: initTq,
@@ -1946,7 +1946,7 @@ var Put_Performances_cmd = &cobra.Command{
 
 var Put_Philanthropy_cmd = &cobra.Command{
 		Use: `Philanthropy`,
-		Example: tq.JSONHighlight(`{"Activity":"string", "Amount":123.456, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DonatedTo":"string", "DonatedToConstituent":{"Id":123}, "DonationDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PhilanthropyType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PhilanthropyEntryID":"string"}`),
+		Example: `{"Activity":"string", "Amount":123.456, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DonatedTo":"string", "DonatedToConstituent":{"Id":123}, "DonationDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PhilanthropyType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PhilanthropyEntryID":"string"}`,
 		Short: `Updated an existing philanthropyEntry for a constituent`,
 		Long:  `Updated an existing philanthropyEntry for a constituent.`,
 		PreRunE: initTq,
@@ -1959,7 +1959,7 @@ var Put_Philanthropy_cmd = &cobra.Command{
 
 var Put_PhilanthropyTypes_cmd = &cobra.Command{
 		Use: `PhilanthropyTypes`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing philosophy type`,
 		Long:  `Update an existing philosophy type.`,
 		PreRunE: initTq,
@@ -1972,7 +1972,7 @@ var Put_PhilanthropyTypes_cmd = &cobra.Command{
 
 var Put_PhoneIndicators_cmd = &cobra.Command{
 		Use: `PhoneIndicators`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing phone indicator`,
 		Long:  `Update an existing phone indicator.`,
 		PreRunE: initTq,
@@ -1985,7 +1985,7 @@ var Put_PhoneIndicators_cmd = &cobra.Command{
 
 var Put_PhoneTypes_cmd = &cobra.Command{
 		Use: `PhoneTypes`,
-		Example: tq.JSONHighlight(`{"AllowMarketing":true, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator":"string", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"AllowMarketing":true, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator":"string", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing phone type`,
 		Long:  `Update an existing phone type.`,
 		PreRunE: initTq,
@@ -1998,7 +1998,7 @@ var Put_PhoneTypes_cmd = &cobra.Command{
 
 var Put_Phones_cmd = &cobra.Command{
 		Use: `Phones`,
-		Example: tq.JSONHighlight(`{"Address":{"Id":123}, "AllowTelemarketing":true, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator":"string", "EditIndicator":true, "Id":123, "Inactive":true, "PhoneFormatted":"string", "PhoneNumber":"string", "PhoneSearch":"string", "PhoneType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PhoneID":"string"}`),
+		Example: `{"Address":{"Id":123}, "AllowTelemarketing":true, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator":"string", "EditIndicator":true, "Id":123, "Inactive":true, "PhoneFormatted":"string", "PhoneNumber":"string", "PhoneSearch":"string", "PhoneType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PhoneID":"string"}`,
 		Short: `Update a phone`,
 		Long:  `Update a phone.`,
 		PreRunE: initTq,
@@ -2011,7 +2011,7 @@ var Put_Phones_cmd = &cobra.Command{
 
 var Put_PlanPriorities_cmd = &cobra.Command{
 		Use: `PlanPriorities`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Ranking":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Ranking":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing plan priority`,
 		Long:  `Update an existing plan priority.`,
 		PreRunE: initTq,
@@ -2024,7 +2024,7 @@ var Put_PlanPriorities_cmd = &cobra.Command{
 
 var Put_PlanSources_cmd = &cobra.Command{
 		Use: `PlanSources`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing plan source`,
 		Long:  `Update an existing plan source.`,
 		PreRunE: initTq,
@@ -2037,7 +2037,7 @@ var Put_PlanSources_cmd = &cobra.Command{
 
 var Put_PlanStatuses_cmd = &cobra.Command{
 		Use: `PlanStatuses`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing plan status`,
 		Long:  `Update an existing plan status.`,
 		PreRunE: initTq,
@@ -2050,7 +2050,7 @@ var Put_PlanStatuses_cmd = &cobra.Command{
 
 var Put_PlanTypes_cmd = &cobra.Command{
 		Use: `PlanTypes`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing plan type`,
 		Long:  `Update an existing plan type.`,
 		PreRunE: initTq,
@@ -2063,7 +2063,7 @@ var Put_PlanTypes_cmd = &cobra.Command{
 
 var Put_PlanWorkers_cmd = &cobra.Command{
 		Use: `PlanWorkers`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Plan":{"Id":123}, "PrimaryIndicator":true, "Role":{"Id":123}, "ShowInPortfolio":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Worker":{"Id":123}, "PlanWorkerID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Plan":{"Id":123}, "PrimaryIndicator":true, "Role":{"Id":123}, "ShowInPortfolio":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Worker":{"Id":123}, "PlanWorkerID":"string"}`,
 		Short: `Update an existing plan worker`,
 		Long:  `Update an existing plan worker.`,
 		PreRunE: initTq,
@@ -2076,7 +2076,7 @@ var Put_PlanWorkers_cmd = &cobra.Command{
 
 var Put_Plans_cmd = &cobra.Command{
 		Use: `Plans`,
-		Example: tq.JSONHighlight(`{"AskAmount":123.456, "Campaign":{"Id":123}, "CompleteByDateTime":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "ContributionAmount":123.456, "ContributionDesignation":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDataItems":[{"DataType":"string", "Description":"string", "EditIndicator":true, "Index":123, "IsDropdown":true, "KeywordId":123, "Name":"string", "Value":"string"}, ...], "EditIndicator":true, "Fund":{"Id":123}, "GoalAmount":123.456, "HasOpenSteps":true, "HasSteps":true, "Id":123, "LastStepDate":"2000-01-01T00:00:00.000Z", "LastStepType":{"Id":123}, "LastWorkerDisplayName":"string", "NextStepDate":"2000-01-01T00:00:00.000Z", "NextStepType":{"Id":123}, "Notes":"string", "OriginalSource":{"Id":123}, "PlanAssociates":"string", "PrimaryWorker":{"Id":123}, "Priority":{"Id":123}, "Probability":123.456, "RecordedAmount":123.456, "StartDateTime":"2000-01-01T00:00:00.000Z", "Status":{"Id":123}, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PlanID":"string"}`),
+		Example: `{"AskAmount":123.456, "Campaign":{"Id":123}, "CompleteByDateTime":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "ContributionAmount":123.456, "ContributionDesignation":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDataItems":[{"DataType":"string", "Description":"string", "EditIndicator":true, "Index":123, "IsDropdown":true, "KeywordId":123, "Name":"string", "Value":"string"}, ...], "EditIndicator":true, "Fund":{"Id":123}, "GoalAmount":123.456, "HasOpenSteps":true, "HasSteps":true, "Id":123, "LastStepDate":"2000-01-01T00:00:00.000Z", "LastStepType":{"Id":123}, "LastWorkerDisplayName":"string", "NextStepDate":"2000-01-01T00:00:00.000Z", "NextStepType":{"Id":123}, "Notes":"string", "OriginalSource":{"Id":123}, "PlanAssociates":"string", "PrimaryWorker":{"Id":123}, "Priority":{"Id":123}, "Probability":123.456, "RecordedAmount":123.456, "StartDateTime":"2000-01-01T00:00:00.000Z", "Status":{"Id":123}, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PlanID":"string"}`,
 		Short: `Update an existing plan`,
 		Long:  `Update an existing plan.`,
 		PreRunE: initTq,
@@ -2089,7 +2089,7 @@ var Put_Plans_cmd = &cobra.Command{
 
 var Put_PortfolioCustomElements_cmd = &cobra.Command{
 		Use: `PortfolioCustomElements`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "Description":"string", "Id":123, "Inactive":true, "SqlQuery":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "Description":"string", "Id":123, "Inactive":true, "SqlQuery":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing portfolio custom element`,
 		Long:  `Update an existing portfolio custom element.`,
 		PreRunE: initTq,
@@ -2102,7 +2102,7 @@ var Put_PortfolioCustomElements_cmd = &cobra.Command{
 
 var Put_Prefixes_cmd = &cobra.Command{
 		Use: `Prefixes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing prefix`,
 		Long:  `Update an existing prefix.`,
 		PreRunE: initTq,
@@ -2115,7 +2115,7 @@ var Put_Prefixes_cmd = &cobra.Command{
 
 var Put_Premieres_cmd = &cobra.Command{
 		Use: `Premieres`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing premiere`,
 		Long:  `Update an existing premiere.`,
 		PreRunE: initTq,
@@ -2128,7 +2128,7 @@ var Put_Premieres_cmd = &cobra.Command{
 
 var Put_PriceCategories_cmd = &cobra.Command{
 		Use: `PriceCategories`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing price category`,
 		Long:  `Update an existing price category.`,
 		PreRunE: initTq,
@@ -2141,7 +2141,7 @@ var Put_PriceCategories_cmd = &cobra.Command{
 
 var Put_PriceEvents_cmd = &cobra.Command{
 		Use: `PriceEvents`,
-		Example: tq.JSONHighlight(`{"EventDateTime":"2000-01-01T00:00:00.000Z", "EventIds":"string"}`),
+		Example: `{"EventDateTime":"2000-01-01T00:00:00.000Z", "EventIds":"string"}`,
 		Short: `Move a set of price events to a new date`,
 		Long:  `Move a set of price events to a new date.`,
 		PreRunE: initTq,
@@ -2154,7 +2154,7 @@ var Put_PriceEvents_cmd = &cobra.Command{
 
 var Put_PriceLayerTypes_cmd = &cobra.Command{
 		Use: `PriceLayerTypes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "ExcludeFromRules":true, "Id":123, "Inactive":true, "PriceCategory":{"Id":123}, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "ExcludeFromRules":true, "Id":123, "Inactive":true, "PriceCategory":{"Id":123}, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing price layer type`,
 		Long:  `Update an existing price layer type.`,
 		PreRunE: initTq,
@@ -2167,7 +2167,7 @@ var Put_PriceLayerTypes_cmd = &cobra.Command{
 
 var Put_PriceTemplates_cmd = &cobra.Command{
 		Use: `PriceTemplates`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultDesignationCode":{"Id":123}, "DefaultGlAccount":{"Id":123}, "DefaultPriceLayerType":{"Id":123}, "DefaultResaleAccount":{"Id":123}, "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Name":"string", "PriceCategory":{"Id":123}, "TemplatePriceTypes":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneMap":{"Id":123}, "PriceTemplateID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultDesignationCode":{"Id":123}, "DefaultGlAccount":{"Id":123}, "DefaultPriceLayerType":{"Id":123}, "DefaultResaleAccount":{"Id":123}, "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Name":"string", "PriceCategory":{"Id":123}, "TemplatePriceTypes":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneMap":{"Id":123}, "PriceTemplateID":"string"}`,
 		Short: `Update an existing price template`,
 		Long:  `Update an existing price template.`,
 		PreRunE: initTq,
@@ -2180,7 +2180,7 @@ var Put_PriceTemplates_cmd = &cobra.Command{
 
 var Put_PriceTypeCategories_cmd = &cobra.Command{
 		Use: `PriceTypeCategories`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing price type category`,
 		Long:  `Update an existing price type category.`,
 		PreRunE: initTq,
@@ -2193,7 +2193,7 @@ var Put_PriceTypeCategories_cmd = &cobra.Command{
 
 var Put_PriceTypeGroups_cmd = &cobra.Command{
 		Use: `PriceTypeGroups`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing price type group`,
 		Long:  `Update an existing price type group.`,
 		PreRunE: initTq,
@@ -2206,7 +2206,7 @@ var Put_PriceTypeGroups_cmd = &cobra.Command{
 
 var Put_PriceTypeReasons_cmd = &cobra.Command{
 		Use: `PriceTypeReasons`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ShortDescription":"string", "TicketText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ShortDescription":"string", "TicketText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing price type reason`,
 		Long:  `Update an existing price type reason.`,
 		PreRunE: initTq,
@@ -2219,7 +2219,7 @@ var Put_PriceTypeReasons_cmd = &cobra.Command{
 
 var Put_PriceTypeUserGroups_cmd = &cobra.Command{
 		Use: `PriceTypeUserGroups`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "PriceTypeUserGroupID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "PriceTypeUserGroupID":"string"}`,
 		Short: `Update an existing price type/user group mapping`,
 		Long:  `Update an existing price type/user group mapping.`,
 		PreRunE: initTq,
@@ -2232,7 +2232,7 @@ var Put_PriceTypeUserGroups_cmd = &cobra.Command{
 
 var Put_PriceTypes_cmd = &cobra.Command{
 		Use: `PriceTypes`,
-		Example: tq.JSONHighlight(`{"AliasDescription":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultTicketDesign":{"Id":123}, "Description":"string", "EditIndicator":true, "EditableIndicator":true, "Id":123, "Inactive":true, "PriceTypeCategory":{"Id":123}, "PriceTypeGroup":{"Id":123}, "ReasonIndicator":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PriceTypeID":"string"}`),
+		Example: `{"AliasDescription":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultTicketDesign":{"Id":123}, "Description":"string", "EditIndicator":true, "EditableIndicator":true, "Id":123, "Inactive":true, "PriceTypeCategory":{"Id":123}, "PriceTypeGroup":{"Id":123}, "ReasonIndicator":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PriceTypeID":"string"}`,
 		Short: `Update an existing price type`,
 		Long:  `Update an existing price type.`,
 		PreRunE: initTq,
@@ -2245,7 +2245,7 @@ var Put_PriceTypes_cmd = &cobra.Command{
 
 var Put_PricingRuleCategories_cmd = &cobra.Command{
 		Use: `PricingRuleCategories`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing pricing rule category`,
 		Long:  `Update an existing pricing rule category.`,
 		PreRunE: initTq,
@@ -2258,7 +2258,7 @@ var Put_PricingRuleCategories_cmd = &cobra.Command{
 
 var Put_PricingRuleMessageTypes_cmd = &cobra.Command{
 		Use: `PricingRuleMessageTypes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing pricing rule message type`,
 		Long:  `Update an existing pricing rule message type.`,
 		PreRunE: initTq,
@@ -2271,7 +2271,7 @@ var Put_PricingRuleMessageTypes_cmd = &cobra.Command{
 
 var Put_PricingRuleSets_cmd = &cobra.Command{
 		Use: `PricingRuleSets`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Rules":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PricingRuleSetID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Rules":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PricingRuleSetID":"string"}`,
 		Short: `Update an existing pricing rule set`,
 		Long:  `Update an existing pricing rule set.`,
 		PreRunE: initTq,
@@ -2284,7 +2284,7 @@ var Put_PricingRuleSets_cmd = &cobra.Command{
 
 var Put_PricingRules_cmd = &cobra.Command{
 		Use: `PricingRules`,
-		Example: tq.JSONHighlight(`{"Appeals":"string", "ApplyOncePerOrder":true, "ApplyToLowestCommonNumberOfSeats":true, "Constituencies":"string", "ConstituentAttribute":123, "ConstituentAttributeOperator":{"Id":123}, "ConstituentAttributeValue1":"string", "ConstituentAttributeValue2":"string", "ConstituentExclusionListId":123, "ConstituentListId":123, "ConstituentRankType":123, "ConstituentRankingOperator":{"Id":123}, "ConstituentRankingValue1":123, "ConstituentRankingValue2":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DiscountAmount":123.456, "DiscountIsPercent":true, "DiscountPercentRound":123, "DiscountPriceTypeId":123, "EditIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "ExcludeGeneralPublic":true, "Id":123, "Inactive":true, "MaxSeats":123, "Messages":[{"Id":123}, ...], "OverTheLimitDateTime":"2000-01-01T00:00:00.000Z", "PromotedAppeals":"string", "PromotedSources":"string", "QualifyingPackage":"string", "QualifyingPerformance":"string", "QualifyingPriceType1":"string", "QualifyingPriceType2":"string", "QualifyingProductionSeason":"string", "QualifyingSeasonPackageType":"string", "QualifyingSeatCount1Value1":123, "QualifyingSeatCount1Value2":123, "QualifyingSeatCount2Value1":123, "QualifyingSeatCount2Value2":123, "QualifyingZone":"string", "RespectMinimumPrice":true, "ResultMaximumSeats":123, "ResultMaximumSeats2":123, "ResultPackage":"string", "ResultPerformance":"string", "ResultPriceType":"string", "ResultProductionSeason":"string", "ResultSeasonPackageType":"string", "ResultSeatCount":123, "ResultZone":"string", "RuleAction":123, "RuleCategory":{"Id":123}, "RuleType":{"Id":123}, "Sources":"string", "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PricingRuleID":"string"}`),
+		Example: `{"Appeals":"string", "ApplyOncePerOrder":true, "ApplyToLowestCommonNumberOfSeats":true, "Constituencies":"string", "ConstituentAttribute":123, "ConstituentAttributeOperator":{"Id":123}, "ConstituentAttributeValue1":"string", "ConstituentAttributeValue2":"string", "ConstituentExclusionListId":123, "ConstituentListId":123, "ConstituentRankType":123, "ConstituentRankingOperator":{"Id":123}, "ConstituentRankingValue1":123, "ConstituentRankingValue2":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DiscountAmount":123.456, "DiscountIsPercent":true, "DiscountPercentRound":123, "DiscountPriceTypeId":123, "EditIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "ExcludeGeneralPublic":true, "Id":123, "Inactive":true, "MaxSeats":123, "Messages":[{"Id":123}, ...], "OverTheLimitDateTime":"2000-01-01T00:00:00.000Z", "PromotedAppeals":"string", "PromotedSources":"string", "QualifyingPackage":"string", "QualifyingPerformance":"string", "QualifyingPriceType1":"string", "QualifyingPriceType2":"string", "QualifyingProductionSeason":"string", "QualifyingSeasonPackageType":"string", "QualifyingSeatCount1Value1":123, "QualifyingSeatCount1Value2":123, "QualifyingSeatCount2Value1":123, "QualifyingSeatCount2Value2":123, "QualifyingZone":"string", "RespectMinimumPrice":true, "ResultMaximumSeats":123, "ResultMaximumSeats2":123, "ResultPackage":"string", "ResultPerformance":"string", "ResultPriceType":"string", "ResultProductionSeason":"string", "ResultSeasonPackageType":"string", "ResultSeatCount":123, "ResultZone":"string", "RuleAction":123, "RuleCategory":{"Id":123}, "RuleType":{"Id":123}, "Sources":"string", "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PricingRuleID":"string"}`,
 		Short: `Update an existing pricing rule`,
 		Long:  `Update an existing pricing rule.`,
 		PreRunE: initTq,
@@ -2297,7 +2297,7 @@ var Put_PricingRules_cmd = &cobra.Command{
 
 var Put_Printers_cmd = &cobra.Command{
 		Use: `Printers`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "MaxCol":123, "MaxRow":123, "MaxX2val":123, "MaxY2val":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "MaxCol":123, "MaxRow":123, "MaxX2val":123, "MaxY2val":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing printer`,
 		Long:  `Update an existing printer.`,
 		PreRunE: initTq,
@@ -2310,7 +2310,7 @@ var Put_Printers_cmd = &cobra.Command{
 
 var Put_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 		Use: `ProductionSeasonMembershipOrganizations`,
-		Example: tq.JSONHighlight(`{"ID":"string", "AllowMultipleEntry":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "MembershipOrganization":{"Id":123}, "ProductionSeason":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`),
+		Example: `{"ID":"string", "AllowMultipleEntry":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "MembershipOrganization":{"Id":123}, "ProductionSeason":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Update an existing production season membership organization`,
 		Long:  `Update an existing production season membership organization.`,
 		PreRunE: initTq,
@@ -2323,7 +2323,7 @@ var Put_ProductionSeasonMembershipOrganizations_cmd = &cobra.Command{
 
 var Put_ProgramListings_cmd = &cobra.Command{
 		Use: `ProgramListings`,
-		Example: tq.JSONHighlight(`{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DonationLevel":{"Id":123}, "EditIndicator":true, "Id":123, "ProgramName":"string", "ProgramType":{"Id":123}, "SortName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ProgramListingID":"string"}`),
+		Example: `{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DonationLevel":{"Id":123}, "EditIndicator":true, "Id":123, "ProgramName":"string", "ProgramType":{"Id":123}, "SortName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ProgramListingID":"string"}`,
 		Short: `Update a program listing`,
 		Long:  `Update a program listing.`,
 		PreRunE: initTq,
@@ -2336,7 +2336,7 @@ var Put_ProgramListings_cmd = &cobra.Command{
 
 var Put_Programs_cmd = &cobra.Command{
 		Use: `Programs`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing program`,
 		Long:  `Update an existing program.`,
 		PreRunE: initTq,
@@ -2349,7 +2349,7 @@ var Put_Programs_cmd = &cobra.Command{
 
 var Put_Pronouns_cmd = &cobra.Command{
 		Use: `Pronouns`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: ``,
 		Long:  ``,
 		PreRunE: initTq,
@@ -2362,7 +2362,7 @@ var Put_Pronouns_cmd = &cobra.Command{
 
 var Put_QualificationCategories_cmd = &cobra.Command{
 		Use: `QualificationCategories`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing Qualification Category`,
 		Long:  `Update an existing Qualification Category.`,
 		PreRunE: initTq,
@@ -2375,7 +2375,7 @@ var Put_QualificationCategories_cmd = &cobra.Command{
 
 var Put_Qualifications_cmd = &cobra.Command{
 		Use: `Qualifications`,
-		Example: tq.JSONHighlight(`{"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing Qualification`,
 		Long:  `Update an existing Qualification.`,
 		PreRunE: initTq,
@@ -2388,7 +2388,7 @@ var Put_Qualifications_cmd = &cobra.Command{
 
 var Put_QueryElementFilters_cmd = &cobra.Command{
 		Use: `QueryElementFilters`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "Description":"string", "EndOfDay":true, "FilterElement":"string", "Group":{"Id":123}, "Id":123, "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "QueryElementFilterID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "Description":"string", "EndOfDay":true, "FilterElement":"string", "Group":{"Id":123}, "Id":123, "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "QueryElementFilterID":"string"}`,
 		Short: `Update an existing query element filter`,
 		Long:  `Update an existing query element filter.`,
 		PreRunE: initTq,
@@ -2401,7 +2401,7 @@ var Put_QueryElementFilters_cmd = &cobra.Command{
 
 var Put_QueryElementGroups_cmd = &cobra.Command{
 		Use: `QueryElementGroups`,
-		Example: tq.JSONHighlight(`{"Category":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataFrom":"string", "DataWhere":"string", "Description":"string", "Id":123, "IsVirtual":true, "NumberOfParameters":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "QueryElementGroupID":"string"}`),
+		Example: `{"Category":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataFrom":"string", "DataWhere":"string", "Description":"string", "Id":123, "IsVirtual":true, "NumberOfParameters":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "QueryElementGroupID":"string"}`,
 		Short: `Update an existing query element group`,
 		Long:  `Update an existing query element group.`,
 		PreRunE: initTq,
@@ -2414,7 +2414,7 @@ var Put_QueryElementGroups_cmd = &cobra.Command{
 
 var Put_QueryElements_cmd = &cobra.Command{
 		Use: `QueryElements`,
-		Example: tq.JSONHighlight(`{"ID":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataSelect":"string", "Description":"string", "Group":{"Id":123}, "Id":123, "Inactive":true, "IsSingleRow":true, "KeywordId":123, "PrimaryGroupDefault":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`),
+		Example: `{"ID":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataSelect":"string", "Description":"string", "Group":{"Id":123}, "Id":123, "Inactive":true, "IsSingleRow":true, "KeywordId":123, "PrimaryGroupDefault":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Update an existing query element`,
 		Long:  `Update an existing query element.`,
 		PreRunE: initTq,
@@ -2427,7 +2427,7 @@ var Put_QueryElements_cmd = &cobra.Command{
 
 var Put_RankTypes_cmd = &cobra.Command{
 		Use: `RankTypes`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing rank type`,
 		Long:  `Update an existing rank type.`,
 		PreRunE: initTq,
@@ -2440,7 +2440,7 @@ var Put_RankTypes_cmd = &cobra.Command{
 
 var Put_Rankings_cmd = &cobra.Command{
 		Use: `Rankings`,
-		Example: tq.JSONHighlight(`{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Rank":123, "RankType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "RankingID":"string"}`),
+		Example: `{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Rank":123, "RankType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "RankingID":"string"}`,
 		Short: `Update a ranking`,
 		Long:  `Update a ranking.`,
 		PreRunE: initTq,
@@ -2453,7 +2453,7 @@ var Put_Rankings_cmd = &cobra.Command{
 
 var Put_ReceiptSettings_cmd = &cobra.Command{
 		Use: `ReceiptSettings`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EmailFooter":"string", "EmailHeader":"string", "EmailSubject":"string", "Id":123, "Inactive":true, "PrintFooter":"string", "PrintHeader":"string", "ReceiptEmailProfile":{"Id":123}, "TicketEmailProfile":{"Id":123}, "TicketEmailSubject":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EmailFooter":"string", "EmailHeader":"string", "EmailSubject":"string", "Id":123, "Inactive":true, "PrintFooter":"string", "PrintHeader":"string", "ReceiptEmailProfile":{"Id":123}, "TicketEmailProfile":{"Id":123}, "TicketEmailSubject":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing Receipt Setting`,
 		Long:  `Update an existing Receipt Setting.`,
 		PreRunE: initTq,
@@ -2466,7 +2466,7 @@ var Put_ReceiptSettings_cmd = &cobra.Command{
 
 var Put_ReferenceTableUserGroups_cmd = &cobra.Command{
 		Use: `ReferenceTableUserGroups`,
-		Example: tq.JSONHighlight(`{"CanEdit":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ReferenceTable":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ID":"string"}`),
+		Example: `{"CanEdit":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ReferenceTable":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ID":"string"}`,
 		Short: `Update an existing reference table/user group mapping`,
 		Long:  `Update an existing reference table/user group mapping.`,
 		PreRunE: initTq,
@@ -2479,7 +2479,7 @@ var Put_ReferenceTableUserGroups_cmd = &cobra.Command{
 
 var Put_RelationshipCategories_cmd = &cobra.Command{
 		Use: `RelationshipCategories`,
-		Example: tq.JSONHighlight(`{"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing relationship category`,
 		Long:  `Update an existing relationship category.`,
 		PreRunE: initTq,
@@ -2492,7 +2492,7 @@ var Put_RelationshipCategories_cmd = &cobra.Command{
 
 var Put_ReportRequests_cmd = &cobra.Command{
 		Use: `ReportRequests`,
-		Example: tq.JSONHighlight(`{"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DeletedIndicator":true, "EmailBody":"string", "EmailRecipients":"string", "EmailSubject":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OutputOption":"string", "Parameters":[{"ParameterId":123, "ReportId":"string", "RequestId":123, "Value":"string"}, ...], "PublicIndicator":true, "QueueStatus":"string", "ReportId":"string", "ReportType":123, "RequestDateTime":"2000-01-01T00:00:00.000Z", "ResultCode":"string", "ResultText":"string", "ScheduleId":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "UserId":"string"}`),
+		Example: `{"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DeletedIndicator":true, "EmailBody":"string", "EmailRecipients":"string", "EmailSubject":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OutputOption":"string", "Parameters":[{"ParameterId":123, "ReportId":"string", "RequestId":123, "Value":"string"}, ...], "PublicIndicator":true, "QueueStatus":"string", "ReportId":"string", "ReportType":123, "RequestDateTime":"2000-01-01T00:00:00.000Z", "ResultCode":"string", "ResultText":"string", "ScheduleId":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "UserId":"string"}`,
 		Short: `Update the details of a report request`,
 		Long:  `Update the details of a report request.`,
 		PreRunE: initTq,
@@ -2508,7 +2508,7 @@ var Put_ReportRequests_cmd = &cobra.Command{
 
 var Put_ReportSchedules_cmd = &cobra.Command{
 		Use: `ReportSchedules`,
-		Example: tq.JSONHighlight(`{"ID":"string", "AsOfDateTime":"2000-01-01T00:00:00.000Z", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayOfWeek":123, "DayWeekNumber":123, "EndDate":"2000-01-01T00:00:00.000Z", "EndTime":"2000-01-01T00:00:00.000Z", "HeaderRequest":{"Id":123}, "Id":123, "Inactive":true, "Interval":123, "Name":"string", "StartDate":"2000-01-01T00:00:00.000Z", "StartTime":"2000-01-01T00:00:00.000Z", "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`),
+		Example: `{"ID":"string", "AsOfDateTime":"2000-01-01T00:00:00.000Z", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayOfWeek":123, "DayWeekNumber":123, "EndDate":"2000-01-01T00:00:00.000Z", "EndTime":"2000-01-01T00:00:00.000Z", "HeaderRequest":{"Id":123}, "Id":123, "Inactive":true, "Interval":123, "Name":"string", "StartDate":"2000-01-01T00:00:00.000Z", "StartTime":"2000-01-01T00:00:00.000Z", "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Update the details of a report schedule`,
 		Long:  `Update the details of a report schedule.`,
 		PreRunE: initTq,
@@ -2521,7 +2521,7 @@ var Put_ReportSchedules_cmd = &cobra.Command{
 
 var Put_ReportUserGroups_cmd = &cobra.Command{
 		Use: `ReportUserGroups`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ReportId":"string", "RunRight":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ViewRight":"string", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ReportId":"string", "RunRight":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ViewRight":"string", "ID":"string"}`,
 		Short: `Update an existing report/user group mapping`,
 		Long:  `Update an existing report/user group mapping.`,
 		PreRunE: initTq,
@@ -2534,7 +2534,7 @@ var Put_ReportUserGroups_cmd = &cobra.Command{
 
 var Put_Research_cmd = &cobra.Command{
 		Use: `Research`,
-		Example: tq.JSONHighlight(`{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "ResearchDate":"2000-01-01T00:00:00.000Z", "ResearchSource":"string", "ResearchType":{"Id":123}, "Researcher":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ResearchEntryID":"string"}`),
+		Example: `{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "ResearchDate":"2000-01-01T00:00:00.000Z", "ResearchSource":"string", "ResearchType":{"Id":123}, "Researcher":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ResearchEntryID":"string"}`,
 		Short: `Updated an existing research entry for a constituent`,
 		Long:  `Updated an existing research entry for a constituent.`,
 		PreRunE: initTq,
@@ -2547,7 +2547,7 @@ var Put_Research_cmd = &cobra.Command{
 
 var Put_ResearchTypes_cmd = &cobra.Command{
 		Use: `ResearchTypes`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing research type`,
 		Long:  `Update an existing research type.`,
 		PreRunE: initTq,
@@ -2560,7 +2560,7 @@ var Put_ResearchTypes_cmd = &cobra.Command{
 
 var Put_ResourceCategories_cmd = &cobra.Command{
 		Use: `ResourceCategories`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing Resource Category`,
 		Long:  `Update an existing Resource Category.`,
 		PreRunE: initTq,
@@ -2573,7 +2573,7 @@ var Put_ResourceCategories_cmd = &cobra.Command{
 
 var Put_ResourceSchedules_cmd = &cobra.Command{
 		Use: `ResourceSchedules`,
-		Example: tq.JSONHighlight(`{"BookingAssignmentId":123, "ConstituentId":123, "Count":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OverrideConflicts":true, "RecurrenceDayOfWeek":"string", "RecurrenceEndDate":"2000-01-01T00:00:00.000Z", "RecurrenceInterval":123, "RecurrenceOrdinal":123, "RecurrencePattern":123, "ResourceId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ResourceScheduleID":"string"}`),
+		Example: `{"BookingAssignmentId":123, "ConstituentId":123, "Count":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OverrideConflicts":true, "RecurrenceDayOfWeek":"string", "RecurrenceEndDate":"2000-01-01T00:00:00.000Z", "RecurrenceInterval":123, "RecurrenceOrdinal":123, "RecurrencePattern":123, "ResourceId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ResourceScheduleID":"string"}`,
 		Short: `Update a specific resource schedule`,
 		Long:  `Update a specific resource schedule.  Only Busy or Available types can be updated.`,
 		PreRunE: initTq,
@@ -2586,7 +2586,7 @@ var Put_ResourceSchedules_cmd = &cobra.Command{
 
 var Put_ResourceTypes_cmd = &cobra.Command{
 		Use: `ResourceTypes`,
-		Example: tq.JSONHighlight(`{"ID":"string", "CanBeShared":true, "Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "HasCapacity":true, "Id":123, "Inactive":true, "RequireAvailability":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`),
+		Example: `{"ID":"string", "CanBeShared":true, "Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "HasCapacity":true, "Id":123, "Inactive":true, "RequireAvailability":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Update an existing resource type`,
 		Long:  `Update an existing resource type.`,
 		PreRunE: initTq,
@@ -2599,7 +2599,7 @@ var Put_ResourceTypes_cmd = &cobra.Command{
 
 var Put_Resources_cmd = &cobra.Command{
 		Use: `Resources`,
-		Example: tq.JSONHighlight(`{"ID":"string", "Capacity":123, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultConfirmationText":"string", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Notes":"string", "ResourceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`),
+		Example: `{"ID":"string", "Capacity":123, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultConfirmationText":"string", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Notes":"string", "ResourceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Update an existing Resource`,
 		Long:  `Update an existing Resource.`,
 		PreRunE: initTq,
@@ -2612,7 +2612,7 @@ var Put_Resources_cmd = &cobra.Command{
 
 var Put_SalesChannels_cmd = &cobra.Command{
 		Use: `SalesChannels`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing sales channel`,
 		Long:  `Update an existing sales channel.`,
 		PreRunE: initTq,
@@ -2625,7 +2625,7 @@ var Put_SalesChannels_cmd = &cobra.Command{
 
 var Put_SalesLayoutButtonTypes_cmd = &cobra.Command{
 		Use: `SalesLayoutButtonTypes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing sales layout button type`,
 		Long:  `Update an existing sales layout button type.`,
 		PreRunE: initTq,
@@ -2638,7 +2638,7 @@ var Put_SalesLayoutButtonTypes_cmd = &cobra.Command{
 
 var Put_SalesLayouts_cmd = &cobra.Command{
 		Use: `SalesLayouts`,
-		Example: tq.JSONHighlight(`{"Columns":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PaymentMethods":[{"Id":123}, ...], "PriceTypes":[{"Id":123}, ...], "PrimaryIndicator":true, "Rows":123, "SalesLayoutButtons":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "SalesLayoutID":"string"}`),
+		Example: `{"Columns":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PaymentMethods":[{"Id":123}, ...], "PriceTypes":[{"Id":123}, ...], "PrimaryIndicator":true, "Rows":123, "SalesLayoutButtons":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "SalesLayoutID":"string"}`,
 		Short: `Update an existing sales layout setup`,
 		Long:  `Update an existing sales layout setup.`,
 		PreRunE: initTq,
@@ -2651,7 +2651,7 @@ var Put_SalesLayouts_cmd = &cobra.Command{
 
 var Put_SalutationTypes_cmd = &cobra.Command{
 		Use: `SalutationTypes`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing salutation type`,
 		Long:  `Update an existing salutation type.`,
 		PreRunE: initTq,
@@ -2664,7 +2664,7 @@ var Put_SalutationTypes_cmd = &cobra.Command{
 
 var Put_Salutations_cmd = &cobra.Command{
 		Use: `Salutations`,
-		Example: tq.JSONHighlight(`{"BusinessTitle":"string", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "EditIndicator":true, "EnvelopeSalutation1":"string", "EnvelopeSalutation2":"string", "Id":123, "IsFromAffiliation":true, "Label":true, "LetterSalutation":"string", "SalutationType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "SalutationID":"string"}`),
+		Example: `{"BusinessTitle":"string", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "EditIndicator":true, "EnvelopeSalutation1":"string", "EnvelopeSalutation2":"string", "Id":123, "IsFromAffiliation":true, "Label":true, "LetterSalutation":"string", "SalutationType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "SalutationID":"string"}`,
 		Short: `Update a salutation`,
 		Long:  `Update a salutation.`,
 		PreRunE: initTq,
@@ -2677,7 +2677,7 @@ var Put_Salutations_cmd = &cobra.Command{
 
 var Put_SchedulePatternTypes_cmd = &cobra.Command{
 		Use: `SchedulePatternTypes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing Schedule Pattern`,
 		Long:  `Update an existing Schedule Pattern.`,
 		PreRunE: initTq,
@@ -2690,7 +2690,7 @@ var Put_SchedulePatternTypes_cmd = &cobra.Command{
 
 var Put_ScheduleTypes_cmd = &cobra.Command{
 		Use: `ScheduleTypes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing Schedule Type`,
 		Long:  `Update an existing Schedule Type.`,
 		PreRunE: initTq,
@@ -2703,7 +2703,7 @@ var Put_ScheduleTypes_cmd = &cobra.Command{
 
 var Put_SeasonTypes_cmd = &cobra.Command{
 		Use: `SeasonTypes`,
-		Example: tq.JSONHighlight(`{"BusinessUnit":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"BusinessUnit":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing season type`,
 		Long:  `Update an existing season type.`,
 		PreRunE: initTq,
@@ -2716,7 +2716,7 @@ var Put_SeasonTypes_cmd = &cobra.Command{
 
 var Put_Seasons_cmd = &cobra.Command{
 		Use: `Seasons`,
-		Example: tq.JSONHighlight(`{"ConfirmationNoticeFormat":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Description":"string", "DisplayInSeasonOverview":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "FYear":123, "Id":123, "Inactive":true, "RenewalNoticeFormat":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "SubscriptionFund1":123, "SubscriptionFund2":123, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "YearlySeason":123, "ID":"string"}`),
+		Example: `{"ConfirmationNoticeFormat":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Description":"string", "DisplayInSeasonOverview":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "FYear":123, "Id":123, "Inactive":true, "RenewalNoticeFormat":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "SubscriptionFund1":123, "SubscriptionFund2":123, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "YearlySeason":123, "ID":"string"}`,
 		Short: `Update an existing season`,
 		Long:  `Update an existing season.`,
 		PreRunE: initTq,
@@ -2729,7 +2729,7 @@ var Put_Seasons_cmd = &cobra.Command{
 
 var Put_SeatCodes_cmd = &cobra.Command{
 		Use: `SeatCodes`,
-		Example: tq.JSONHighlight(`{"BackColor":123, "Context":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DisplayLetter":"string", "ForeColor":123, "Id":123, "Inactive":true, "IsSeat":123, "TicketText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"BackColor":123, "Context":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DisplayLetter":"string", "ForeColor":123, "Id":123, "Inactive":true, "IsSeat":123, "TicketText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing seat code`,
 		Long:  `Update an existing seat code.`,
 		PreRunE: initTq,
@@ -2742,7 +2742,7 @@ var Put_SeatCodes_cmd = &cobra.Command{
 
 var Put_SeatStatuses_cmd = &cobra.Command{
 		Use: `SeatStatuses`,
-		Example: tq.JSONHighlight(`{"BackColor":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "ForeColor":123, "Id":123, "Inactive":true, "StatusCode":"string", "StatusLegend":"string", "StatusPriority":123, "Tck":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"BackColor":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "ForeColor":123, "Id":123, "Inactive":true, "StatusCode":"string", "StatusLegend":"string", "StatusPriority":123, "Tck":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing seat status`,
 		Long:  `Update an existing seat status.`,
 		PreRunE: initTq,
@@ -2755,7 +2755,7 @@ var Put_SeatStatuses_cmd = &cobra.Command{
 
 var Put_Sections_cmd = &cobra.Command{
 		Use: `Sections`,
-		Example: tq.JSONHighlight(`{"AdditionalText":"string", "AdditionalText2":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "PrintDesc":"string", "PrintSequence":123, "SectionLegend":"string", "ShortDesc":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"AdditionalText":"string", "AdditionalText2":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "PrintDesc":"string", "PrintSequence":123, "SectionLegend":"string", "ShortDesc":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing section`,
 		Long:  `Update an existing section.`,
 		PreRunE: initTq,
@@ -2768,7 +2768,7 @@ var Put_Sections_cmd = &cobra.Command{
 
 var Put_ServiceResourceUserGroups_cmd = &cobra.Command{
 		Use: `ServiceResourceUserGroups`,
-		Example: tq.JSONHighlight(`{"CanCreate":true, "CanDelete":true, "CanRead":true, "CanUpdate":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ServiceResource":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ID":"string"}`),
+		Example: `{"CanCreate":true, "CanDelete":true, "CanRead":true, "CanUpdate":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ServiceResource":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ID":"string"}`,
 		Short: `Update an existing service resource/user group mapping`,
 		Long:  `Update an existing service resource/user group mapping.`,
 		PreRunE: initTq,
@@ -2781,7 +2781,7 @@ var Put_ServiceResourceUserGroups_cmd = &cobra.Command{
 
 var Put_Session_cmd = &cobra.Command{
 		Use: `Session`,
-		Example: tq.JSONHighlight(`{"ConstituentId":123, "OverridePrompt":true, "SessionKey":"string"}`),
+		Example: `{"ConstituentId":123, "OverridePrompt":true, "SessionKey":"string"}`,
 		Short: `Sets the current constituent on the cart for a business facing session`,
 		Long:  `Sets the current constituent on the cart for a business facing session
 If the Constituent is a primary affiliate of a household, the method obeys the "TRANSACT_AS_HOUSEHOLD_ORDER" entry in T_DEFAULTS to determine if the household constituent should be set. 
@@ -2803,7 +2803,7 @@ If the default is set to "Prompt", both the household and individual are returne
 
 var Put_SourceGroups_cmd = &cobra.Command{
 		Use: `SourceGroups`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing source group`,
 		Long:  `Update an existing source group.`,
 		PreRunE: initTq,
@@ -2816,7 +2816,7 @@ var Put_SourceGroups_cmd = &cobra.Command{
 
 var Put_SpecialActivities_cmd = &cobra.Command{
 		Use: `SpecialActivities`,
-		Example: tq.JSONHighlight(`{"ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Notes":"string", "NumberOfAttendees":123, "Performance":"string", "SpecialActivityDateTime":"2000-01-01T00:00:00.000Z", "Status":{"Id":123}, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerConstituentId":123, "SpecialActivityID":"string"}`),
+		Example: `{"ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Notes":"string", "NumberOfAttendees":123, "Performance":"string", "SpecialActivityDateTime":"2000-01-01T00:00:00.000Z", "Status":{"Id":123}, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerConstituentId":123, "SpecialActivityID":"string"}`,
 		Short: `Update an activity record`,
 		Long:  `Update an activity record.`,
 		PreRunE: initTq,
@@ -2829,7 +2829,7 @@ var Put_SpecialActivities_cmd = &cobra.Command{
 
 var Put_SpecialActivityStatuses_cmd = &cobra.Command{
 		Use: `SpecialActivityStatuses`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an Special Activity Status`,
 		Long:  `Update an Special Activity Status.`,
 		PreRunE: initTq,
@@ -2842,7 +2842,7 @@ var Put_SpecialActivityStatuses_cmd = &cobra.Command{
 
 var Put_SpecialActivityTypes_cmd = &cobra.Command{
 		Use: `SpecialActivityTypes`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing Special Activity Type`,
 		Long:  `Update an existing Special Activity Type.`,
 		PreRunE: initTq,
@@ -2855,7 +2855,7 @@ var Put_SpecialActivityTypes_cmd = &cobra.Command{
 
 var Put_States_cmd = &cobra.Command{
 		Use: `States`,
-		Example: tq.JSONHighlight(`{"Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "StateCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "StateCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing state`,
 		Long:  `Update an existing state.`,
 		PreRunE: initTq,
@@ -2868,7 +2868,7 @@ var Put_States_cmd = &cobra.Command{
 
 var Put_StepTypes_cmd = &cobra.Command{
 		Use: `StepTypes`,
-		Example: tq.JSONHighlight(`{"AllowAttachments":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseAssociate":"string", "UseCompletedOnDateTime":"string", "UseDueDateTime":"string", "UseNote":"string", "UseWarningDays":"string", "UseWorker":"string", "ID":"string"}`),
+		Example: `{"AllowAttachments":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseAssociate":"string", "UseCompletedOnDateTime":"string", "UseDueDateTime":"string", "UseNote":"string", "UseWarningDays":"string", "UseWorker":"string", "ID":"string"}`,
 		Short: `Update an existing step type`,
 		Long:  `Update an existing step type.`,
 		PreRunE: initTq,
@@ -2881,7 +2881,7 @@ var Put_StepTypes_cmd = &cobra.Command{
 
 var Put_Steps_cmd = &cobra.Command{
 		Use: `Steps`,
-		Example: tq.JSONHighlight(`{"Associate":{"Id":123}, "CompletedOnDateTime":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DueDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "NewValue":"string", "Notes":"string", "OldValue":"string", "Plan":{"Id":123}, "Priority":123, "StepDateTime":"2000-01-01T00:00:00.000Z", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WarningDays":123, "Worker":{"Id":123}, "StepID":"string"}`),
+		Example: `{"Associate":{"Id":123}, "CompletedOnDateTime":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DueDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "NewValue":"string", "Notes":"string", "OldValue":"string", "Plan":{"Id":123}, "Priority":123, "StepDateTime":"2000-01-01T00:00:00.000Z", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WarningDays":123, "Worker":{"Id":123}, "StepID":"string"}`,
 		Short: `Update an existing step`,
 		Long:  `Update an existing step.`,
 		PreRunE: initTq,
@@ -2897,7 +2897,7 @@ var Put_Steps_cmd = &cobra.Command{
 
 var Put_SubLineItemStatuses_cmd = &cobra.Command{
 		Use: `SubLineItemStatuses`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Priority":123, "StatusCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Priority":123, "StatusCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing sub line item status`,
 		Long:  `Update an existing sub line item status.`,
 		PreRunE: initTq,
@@ -2910,7 +2910,7 @@ var Put_SubLineItemStatuses_cmd = &cobra.Command{
 
 var Put_Suffixes_cmd = &cobra.Command{
 		Use: `Suffixes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing suffix`,
 		Long:  `Update an existing suffix.`,
 		PreRunE: initTq,
@@ -2923,7 +2923,7 @@ var Put_Suffixes_cmd = &cobra.Command{
 
 var Put_SurveyQuestions_cmd = &cobra.Command{
 		Use: `SurveyQuestions`,
-		Example: tq.JSONHighlight(`{"AskType":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "DefaultValue":"string", "Id":123, "Inactive":true, "Question":"string", "ReferenceTable":"string", "ReferenceTableDescriptionColumn":"string", "ReferenceTableIdColumn":"string", "ReferenceTableSort":"string", "ReferenceTableWhereClause":"string", "Required":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"AskType":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "DefaultValue":"string", "Id":123, "Inactive":true, "Question":"string", "ReferenceTable":"string", "ReferenceTableDescriptionColumn":"string", "ReferenceTableIdColumn":"string", "ReferenceTableSort":"string", "ReferenceTableWhereClause":"string", "Required":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing survey question`,
 		Long:  `Update an existing survey question.`,
 		PreRunE: initTq,
@@ -2936,7 +2936,7 @@ var Put_SurveyQuestions_cmd = &cobra.Command{
 
 var Put_SurveyResponses_cmd = &cobra.Command{
 		Use: `SurveyResponses`,
-		Example: tq.JSONHighlight(`{"Answer":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OrderId":123, "QuestionId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "SurveyResponseID":"string"}`),
+		Example: `{"Answer":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OrderId":123, "QuestionId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "SurveyResponseID":"string"}`,
 		Short: `Update an existing survey response`,
 		Long:  `Update an existing survey response.`,
 		PreRunE: initTq,
@@ -2949,7 +2949,7 @@ var Put_SurveyResponses_cmd = &cobra.Command{
 
 var Put_TemplateCategories_cmd = &cobra.Command{
 		Use: `TemplateCategories`,
-		Example: tq.JSONHighlight(`{"ID":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`),
+		Example: `{"ID":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Update an existing template category`,
 		Long:  `Update an existing template category`,
 		PreRunE: initTq,
@@ -2962,7 +2962,7 @@ var Put_TemplateCategories_cmd = &cobra.Command{
 
 var Put_TemplatePriceTypes_cmd = &cobra.Command{
 		Use: `TemplatePriceTypes`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DesignationCode":{"Id":123}, "GlAccount":{"Id":123}, "Id":123, "PriceTemplate":{"Id":123}, "PriceType":{"Id":123}, "ResaleAccount":{"Id":123}, "TemplatePrices":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "TemplatePriceTypeID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DesignationCode":{"Id":123}, "GlAccount":{"Id":123}, "Id":123, "PriceTemplate":{"Id":123}, "PriceType":{"Id":123}, "ResaleAccount":{"Id":123}, "TemplatePrices":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "TemplatePriceTypeID":"string"}`,
 		Short: `Update an existing template price type`,
 		Long:  `Update an existing template price type.`,
 		PreRunE: initTq,
@@ -2975,7 +2975,7 @@ var Put_TemplatePriceTypes_cmd = &cobra.Command{
 
 var Put_TemplatePrices_cmd = &cobra.Command{
 		Use: `TemplatePrices`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Enabled":true, "Id":123, "MinPrice":123.456, "Price":123.456, "TemplatePriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Zone":{"Id":123}, "TemplatePriceID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Enabled":true, "Id":123, "MinPrice":123.456, "Price":123.456, "TemplatePriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Zone":{"Id":123}, "TemplatePriceID":"string"}`,
 		Short: `Update an existing template price`,
 		Long:  `Update an existing template price.`,
 		PreRunE: initTq,
@@ -2988,7 +2988,7 @@ var Put_TemplatePrices_cmd = &cobra.Command{
 
 var Put_Templates_cmd = &cobra.Command{
 		Use: `Templates`,
-		Example: tq.JSONHighlight(`{"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "IsHtmlBody":true, "TemplateBody":"string", "TemplateSubject":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "TemplateID":"string"}`),
+		Example: `{"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "IsHtmlBody":true, "TemplateBody":"string", "TemplateSubject":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "TemplateID":"string"}`,
 		Short: `Update an existing template`,
 		Long:  `Update an existing template`,
 		PreRunE: initTq,
@@ -3001,7 +3001,7 @@ var Put_Templates_cmd = &cobra.Command{
 
 var Put_Theaters_cmd = &cobra.Command{
 		Use: `Theaters`,
-		Example: tq.JSONHighlight(`{"City":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataWindowDefinition":"string", "Description":"string", "DrivingDirections":"string", "Id":123, "Inactive":true, "MaximumNumberOfSeats":123, "Phone":"string", "PostalCode":"string", "State":"string", "Street":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"City":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataWindowDefinition":"string", "Description":"string", "DrivingDirections":"string", "Id":123, "Inactive":true, "MaximumNumberOfSeats":123, "Phone":"string", "PostalCode":"string", "State":"string", "Street":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing theater`,
 		Long:  `Update an existing theater.`,
 		PreRunE: initTq,
@@ -3014,7 +3014,7 @@ var Put_Theaters_cmd = &cobra.Command{
 
 var Put_TimeSlots_cmd = &cobra.Command{
 		Use: `TimeSlots`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "StartTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "StartTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing time slot`,
 		Long:  `Update an existing time slot.`,
 		PreRunE: initTq,
@@ -3027,7 +3027,7 @@ var Put_TimeSlots_cmd = &cobra.Command{
 
 var Put_TriPOSCloudConfigurations_cmd = &cobra.Command{
 		Use: `TriPOSCloudConfigurations`,
-		Example: tq.JSONHighlight(`{"ConfigSetting":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ConfigSetting":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing TriPOS Cloud configuration`,
 		Long:  `Update an existing TriPOS Cloud configuration.`,
 		PreRunE: initTq,
@@ -3040,7 +3040,7 @@ var Put_TriPOSCloudConfigurations_cmd = &cobra.Command{
 
 var Put_UpgradeCategories_cmd = &cobra.Command{
 		Use: `UpgradeCategories`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing Upgrade Category`,
 		Long:  `Update an existing Upgrade Category.`,
 		PreRunE: initTq,
@@ -3053,7 +3053,7 @@ var Put_UpgradeCategories_cmd = &cobra.Command{
 
 var Put_UpgradeLogs_cmd = &cobra.Command{
 		Use: `UpgradeLogs`,
-		Example: tq.JSONHighlight(`{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HotFixNumber":123, "Id":123, "ReleaseDescription":"string", "ScriptId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UpgradeCategorySummary":{"Id":123}, "Version":"string", "UpgradeLogID":"string"}`),
+		Example: `{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HotFixNumber":123, "Id":123, "ReleaseDescription":"string", "ScriptId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UpgradeCategorySummary":{"Id":123}, "Version":"string", "UpgradeLogID":"string"}`,
 		Short: `Updates the given upgradeLog`,
 		Long:  `Updates the given upgradeLog.`,
 		PreRunE: initTq,
@@ -3066,7 +3066,7 @@ var Put_UpgradeLogs_cmd = &cobra.Command{
 
 var Put_UserPreferences_cmd = &cobra.Command{
 		Use: `UserPreferences`,
-		Example: tq.JSONHighlight(`{"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Key":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}`),
+		Example: `{"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Key":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}`,
 		Short: `Update a user preference by id`,
 		Long:  `Update a user preference by id.`,
 		PreRunE: initTq,
@@ -3079,7 +3079,7 @@ var Put_UserPreferences_cmd = &cobra.Command{
 
 var Put_WebContentTypes_cmd = &cobra.Command{
 		Use: `WebContentTypes`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditMask":"string", "FullTextSearchIndicator":true, "Id":123, "Inactive":true, "LastContentUseUpdateDateTime":"2000-01-01T00:00:00.000Z", "Limit":123, "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseWebApi":true, "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditMask":"string", "FullTextSearchIndicator":true, "Id":123, "Inactive":true, "LastContentUseUpdateDateTime":"2000-01-01T00:00:00.000Z", "Limit":123, "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseWebApi":true, "ID":"string"}`,
 		Short: `Update an existing Web Content Type`,
 		Long:  `Update an existing Web Content Type.`,
 		PreRunE: initTq,
@@ -3092,7 +3092,7 @@ var Put_WebContentTypes_cmd = &cobra.Command{
 
 var Put_WebLogins_cmd = &cobra.Command{
 		Use: `WebLogins`,
-		Example: tq.JSONHighlight(`{"Constituent":{"Id":123}, "ConstituentUpdateDate":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Email":{"Id":123}, "FailedAttempts":123, "Id":123, "Inactive":true, "LastLoginDate":"2000-01-01T00:00:00.000Z", "LockedDate":"2000-01-01T00:00:00.000Z", "Login":"string", "LoginType":{"Id":123}, "PrimaryIndicator":true, "TemporaryIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "LoginID":"string"}`),
+		Example: `{"Constituent":{"Id":123}, "ConstituentUpdateDate":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Email":{"Id":123}, "FailedAttempts":123, "Id":123, "Inactive":true, "LastLoginDate":"2000-01-01T00:00:00.000Z", "LockedDate":"2000-01-01T00:00:00.000Z", "Login":"string", "LoginType":{"Id":123}, "PrimaryIndicator":true, "TemporaryIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "LoginID":"string"}`,
 		Short: `Update a weblogin`,
 		Long:  `Update a weblogin.`,
 		PreRunE: initTq,
@@ -3105,7 +3105,7 @@ var Put_WebLogins_cmd = &cobra.Command{
 
 var Put_WorkerQualifications_cmd = &cobra.Command{
 		Use: `WorkerQualifications`,
-		Example: tq.JSONHighlight(`{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Qualification":{"Id":123}, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerQualificationID":"string"}`),
+		Example: `{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Qualification":{"Id":123}, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerQualificationID":"string"}`,
 		Short: `Update an existing WorkerQualification`,
 		Long:  `Update an existing WorkerQualification.`,
 		PreRunE: initTq,
@@ -3118,7 +3118,7 @@ var Put_WorkerQualifications_cmd = &cobra.Command{
 
 var Put_WorkerRoles_cmd = &cobra.Command{
 		Use: `WorkerRoles`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ShowInPortfolioDefault":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ShowInPortfolioDefault":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing worker role`,
 		Long:  `Update an existing worker role.`,
 		PreRunE: initTq,
@@ -3131,7 +3131,7 @@ var Put_WorkerRoles_cmd = &cobra.Command{
 
 var Put_WorkerTypes_cmd = &cobra.Command{
 		Use: `WorkerTypes`,
-		Example: tq.JSONHighlight(`{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing worker type`,
 		Long:  `Update an existing worker type.`,
 		PreRunE: initTq,
@@ -3144,7 +3144,7 @@ var Put_WorkerTypes_cmd = &cobra.Command{
 
 var Put_Workers_cmd = &cobra.Command{
 		Use: `Workers`,
-		Example: tq.JSONHighlight(`{"ConstituentId":123, "ConstituentInactive":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "FirstName":"string", "Id":123, "Inactive":true, "LastName":"string", "Prefix":{"Id":123}, "ShortDisplayName":"string", "SortName":"string", "Suffix":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerType":{"Id":123}, "WorkerID":"string"}`),
+		Example: `{"ConstituentId":123, "ConstituentInactive":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "FirstName":"string", "Id":123, "Inactive":true, "LastName":"string", "Prefix":{"Id":123}, "ShortDisplayName":"string", "SortName":"string", "Suffix":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerType":{"Id":123}, "WorkerID":"string"}`,
 		Short: `Update an existing worker`,
 		Long:  `Update an existing worker.`,
 		PreRunE: initTq,
@@ -3157,7 +3157,7 @@ var Put_Workers_cmd = &cobra.Command{
 
 var Put_ZoneGroups_cmd = &cobra.Command{
 		Use: `ZoneGroups`,
-		Example: tq.JSONHighlight(`{"AliasDescription":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`),
+		Example: `{"AliasDescription":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}`,
 		Short: `Update an existing zone group`,
 		Long:  `Update an existing zone group.`,
 		PreRunE: initTq,
@@ -3170,7 +3170,7 @@ var Put_ZoneGroups_cmd = &cobra.Command{
 
 var Put_ZoneMaps_cmd = &cobra.Command{
 		Use: `ZoneMaps`,
-		Example: tq.JSONHighlight(`{"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "SeatMap":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`),
+		Example: `{"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "SeatMap":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}`,
 		Short: `Update an existing zone map`,
 		Long:  `Update an existing zone map.`,
 		PreRunE: initTq,
@@ -3183,7 +3183,7 @@ var Put_ZoneMaps_cmd = &cobra.Command{
 
 var Put_Zones_cmd = &cobra.Command{
 		Use: `Zones`,
-		Example: tq.JSONHighlight(`{"Abbreviation":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndTime":"string", "Id":123, "Rank":123, "ShortDescription":"string", "StartTime":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneGroup":{"Id":123}, "ZoneLegend":"string", "ZoneMapId":123, "ZoneTime":"string", "ZoneID":"string", "ZoneMapID":"string"}`),
+		Example: `{"Abbreviation":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndTime":"string", "Id":123, "Rank":123, "ShortDescription":"string", "StartTime":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneGroup":{"Id":123}, "ZoneLegend":"string", "ZoneMapId":123, "ZoneTime":"string", "ZoneID":"string", "ZoneMapID":"string"}`,
 		Short: `Update an existing zone`,
 		Long:  `Update an existing zone.`,
 		PreRunE: initTq,
@@ -3200,9 +3200,9 @@ func init() {
 	
 		Put_cmd.AddCommand(Put_Accounts_cmd) 
 				Put_Accounts_cmd.Flags().Bool("DirectDebitAccount", false, 
-					`Updates expiration date or name on a direct debit account.` + "\nQuery:\n" + tq.JSONHighlight(`{"AccountID":"string", "CardExpiryMonth":123, "CardExpiryYear":123, "DirectDebitAccountType":{"Id":123}, "Inactive":true, "Name":"string"}`) + "\n") 
+					`Updates expiration date or name on a direct debit account.` + "\nQuery:\n" + `{"AccountID":"string", "CardExpiryMonth":123, "CardExpiryYear":123, "DirectDebitAccountType":{"Id":123}, "Inactive":true, "Name":"string"}`) 
 				Put_Accounts_cmd.Flags().Bool("SepaAccount", false, 
-					`Updates information on a SEPA Direct Debit Account.` + "\nQuery:\n" + tq.JSONHighlight(`{"AccountID":"string", "BankIdentifierCode":"string", "Inactive":true, "MandateType":123, "Name":"string", "SignatureDate":"2000-01-01T00:00:00.000Z"}`) + "\n")
+					`Updates information on a SEPA Direct Debit Account.` + "\nQuery:\n" + `{"AccountID":"string", "BankIdentifierCode":"string", "Inactive":true, "MandateType":123, "Name":"string", "SignatureDate":"2000-01-01T00:00:00.000Z"}`)
 	
 		Put_cmd.AddCommand(Put_ActionTypes_cmd)
 	
@@ -3274,42 +3274,42 @@ func init() {
 				Put_Cart_cmd.Flags().Bool("ApplySubLineItemDiscount", false, 
 					`Applies a discounted price to a sub line item
 
-The status field in the response will return as S if the discount can be used or E with a description of the error if the discount cannot be used.` + "\nQuery:\n" + tq.JSONHighlight(`{"DiscountTypeId":123, "SessionKey":"string", "SubLineItemID":"string"}`) + "\n") 
+The status field in the response will return as S if the discount can be used or E with a description of the error if the discount cannot be used.` + "\nQuery:\n" + `{"DiscountTypeId":123, "SessionKey":"string", "SubLineItemID":"string"}`) 
 				Put_Cart_cmd.Flags().Bool("CartFlags", false, 
-					`Updates flags on the cart` + "\nQuery:\n" + tq.JSONHighlight(`{"ShouldCalculateFees":true, "ShouldCalculatePrices":true, "SessionKey":"string"}`) + "\n") 
+					`Updates flags on the cart` + "\nQuery:\n" + `{"ShouldCalculateFees":true, "ShouldCalculatePrices":true, "SessionKey":"string"}`) 
 				Put_Cart_cmd.Flags().Bool("CartProperties", false, 
 					`Updates cart properties
 See the notes on the request for specific documentation on each item that can be set. <br /> 
-Before making a request to PUT cart properties, you should make a GET request to obtain all current property values. Make updates to any of the properties that need changing, and pass the entire cart properties object back into your put request. This ensures that all property values that are set, but should not change, persist and are not overwritten unintentioanlly.` + "\nQuery:\n" + tq.JSONHighlight(`{"AddressId":123, "CategoryId":123, "ChannelId":123, "DeliveryMethodId":123, "ElectronicAddressId":123, "HoldUntilDateTime":"2000-01-01T00:00:00.000Z", "InitiatorId":123, "ModeOfSaleId":123, "Notes":"string", "OrderDateTime":"2000-01-01T00:00:00.000Z", "PhoneId":123, "Solicitor":"string", "SourceId":123, "SessionKey":"string"}`) + "\n") 
+Before making a request to PUT cart properties, you should make a GET request to obtain all current property values. Make updates to any of the properties that need changing, and pass the entire cart properties object back into your put request. This ensures that all property values that are set, but should not change, persist and are not overwritten unintentioanlly.` + "\nQuery:\n" + `{"AddressId":123, "CategoryId":123, "ChannelId":123, "DeliveryMethodId":123, "ElectronicAddressId":123, "HoldUntilDateTime":"2000-01-01T00:00:00.000Z", "InitiatorId":123, "ModeOfSaleId":123, "Notes":"string", "OrderDateTime":"2000-01-01T00:00:00.000Z", "PhoneId":123, "Solicitor":"string", "SourceId":123, "SessionKey":"string"}`) 
 				Put_Cart_cmd.Flags().Bool("CartPropertiesCustomData", false, 
 					`Updates a custom data value in the cart properties
-Note: Only the Index and Value properties in the request should be used.` + "\nQuery:\n" + tq.JSONHighlight(`{"DataType":"string", "Description":"string", "EditIndicator":true, "Index":123, "IsDropdown":true, "KeywordId":123, "Name":"string", "Value":"string", "CustomID":"string", "SessionKey":"string"}`) + "\n") 
+Note: Only the Index and Value properties in the request should be used.` + "\nQuery:\n" + `{"DataType":"string", "Description":"string", "EditIndicator":true, "Index":123, "IsDropdown":true, "KeywordId":123, "Name":"string", "Value":"string", "CustomID":"string", "SessionKey":"string"}`) 
 				Put_Cart_cmd.Flags().Bool("ContributionCustomData", false, 
 					`Updates a custom data value for a contribution in the cart
-Note: Only the Index and Value properties in the request object should be used.` + "\nQuery:\n" + tq.JSONHighlight(`{"DataType":"string", "Description":"string", "EditIndicator":true, "Index":123, "IsDropdown":true, "KeywordId":123, "Name":"string", "Value":"string", "CustomID":"string", "LineItemID":"string", "SessionKey":"string"}`) + "\n") 
+Note: Only the Index and Value properties in the request object should be used.` + "\nQuery:\n" + `{"DataType":"string", "Description":"string", "EditIndicator":true, "Index":123, "IsDropdown":true, "KeywordId":123, "Name":"string", "Value":"string", "CustomID":"string", "LineItemID":"string", "SessionKey":"string"}`) 
 				Put_Cart_cmd.Flags().Bool("LineItemPrice", false, 
 					`Updates the price on all sub line items for the line item
 A price can only be edited if the price type has been marked as editable, zones on the price map have been designated as editable, and the seat is in one of the editable zones.
-The status field in the response will return as S if the price can be applied or E with a description of the error if the price cannot be applied.` + "\nQuery:\n" + tq.JSONHighlight(`{"LineItemID":"string", "NewPrice":123.456, "SessionKey":"string"}`) + "\n") 
+The status field in the response will return as S if the price can be applied or E with a description of the error if the price cannot be applied.` + "\nQuery:\n" + `{"LineItemID":"string", "NewPrice":123.456, "SessionKey":"string"}`) 
 				Put_Cart_cmd.Flags().Bool("LineItemPriceType", false, 
 					`Updates the price type on all sub line items for a given lineitem
-Can be filtered by those have a current price type as specified by OriginalPriceType` + "\nQuery:\n" + tq.JSONHighlight(`{"LineItemID":"string", "NewPriceType":123, "NewPriceTypeReason":123, "OriginalPriceType":123, "SessionKey":"string"}`) + "\n") 
+Can be filtered by those have a current price type as specified by OriginalPriceType` + "\nQuery:\n" + `{"LineItemID":"string", "NewPriceType":123, "NewPriceTypeReason":123, "OriginalPriceType":123, "SessionKey":"string"}`) 
 				Put_Cart_cmd.Flags().Bool("LineItemSource", false, 
 					`Updates the source on a line item
 Allows the source of an individual line to be updated.  When a line is created, by reserving a tickets for a performance or package, the line source is copied from the session source. This method allows the line source to be updated.
-Offers and Pricing Rules consider line source, not the session source.` + "\nQuery:\n" + tq.JSONHighlight(`{"LineItemID":"string", "SourceId":123, "SessionKey":"string"}`) + "\n") 
+Offers and Pricing Rules consider line source, not the session source.` + "\nQuery:\n" + `{"LineItemID":"string", "SourceId":123, "SessionKey":"string"}`) 
 				Put_Cart_cmd.Flags().Bool("LineItemSpecialRequest", false, 
-					`Updates Special Request info on a line item` + "\nQuery:\n" + tq.JSONHighlight(`{"LineItemID":"string", "AisleSeat":"string", "Category":{"Id":123}, "ContiguousSeats":123, "EndPrice":123.456, "EndingRow":"string", "EndingSeat":"string", "HoldCode":123, "LeaveSingleSeats":true, "NoStairs":true, "Notes":"string", "StartPrice":123.456, "StartingRow":"string", "StartingSeat":"string", "WheelchairSeats":123, "SessionKey":"string"}`) + "\n") 
+					`Updates Special Request info on a line item` + "\nQuery:\n" + `{"LineItemID":"string", "AisleSeat":"string", "Category":{"Id":123}, "ContiguousSeats":123, "EndPrice":123.456, "EndingRow":"string", "EndingSeat":"string", "HoldCode":123, "LeaveSingleSeats":true, "NoStairs":true, "Notes":"string", "StartPrice":123.456, "StartingRow":"string", "StartingSeat":"string", "WheelchairSeats":123, "SessionKey":"string"}`) 
 				Put_Cart_cmd.Flags().Bool("PaymentPlan", false, 
-					`Allows the billing and credit card information to be updated on an existing payment plan for the cart.` + "\nQuery:\n" + tq.JSONHighlight(`{"AccountId":123, "BillingTypeId":123, "Card":{"ExpiryMonth":123, "ExpiryYear":123, "Name":"string", "Number":"string", "PaymentMethodGroupId":123}, "SessionKey":"string"}`) + "\n") 
+					`Allows the billing and credit card information to be updated on an existing payment plan for the cart.` + "\nQuery:\n" + `{"AccountId":123, "BillingTypeId":123, "Card":{"ExpiryMonth":123, "ExpiryYear":123, "Name":"string", "Number":"string", "PaymentMethodGroupId":123}, "SessionKey":"string"}`) 
 				Put_Cart_cmd.Flags().Bool("SubLineItemPrice", false, 
 					`Updates the price on a sub line item.
 A price can only be edited if the price type has been marked as editable, zones on the price map have been designated as editable, and the seat is in one of the editable zones.
-The status field in the response will return as S if the price can be applied or E with a description of the error if the price cannot be applied.` + "\nQuery:\n" + tq.JSONHighlight(`{"NewPrice":123.456, "SessionKey":"string", "SubLineItemID":"string"}`) + "\n") 
+The status field in the response will return as S if the price can be applied or E with a description of the error if the price cannot be applied.` + "\nQuery:\n" + `{"NewPrice":123.456, "SessionKey":"string", "SubLineItemID":"string"}`) 
 				Put_Cart_cmd.Flags().Bool("SubLineItemPriceType", false, 
-					`Updates the price type on a sub line item` + "\nQuery:\n" + tq.JSONHighlight(`{"NewPriceType":123, "NewPriceTypeReason":123, "OriginalPriceType":123, "SessionKey":"string", "SubLineItemID":"string"}`) + "\n") 
+					`Updates the price type on a sub line item` + "\nQuery:\n" + `{"NewPriceType":123, "NewPriceTypeReason":123, "OriginalPriceType":123, "SessionKey":"string", "SubLineItemID":"string"}`) 
 				Put_Cart_cmd.Flags().Bool("SubLineItemRecipient", false, 
-					`Updates the recipient on a sub line item` + "\nQuery:\n" + tq.JSONHighlight(`{"RecipientId":123, "SessionKey":"string", "SubLineItemID":"string"}`) + "\n")
+					`Updates the recipient on a sub line item` + "\nQuery:\n" + `{"RecipientId":123, "SessionKey":"string", "SubLineItemID":"string"}`)
 	
 		Put_cmd.AddCommand(Put_Colors_cmd)
 	
@@ -3451,7 +3451,7 @@ The status field in the response will return as S if the price can be applied or
 	
 		Put_cmd.AddCommand(Put_Lists_cmd) 
 				Put_Lists_cmd.Flags().Bool("Contents", false, 
-					`Import constituent ids into an existing list.` + "\nQuery:\n" + tq.JSONHighlight(`{"ListID":"string", "ConstituentIds":[0, ...]}`) + "\n")
+					`Import constituent ids into an existing list.` + "\nQuery:\n" + `{"ListID":"string", "ConstituentIds":[0, ...]}`)
 	
 		Put_cmd.AddCommand(Put_LoginTypes_cmd)
 	
@@ -3521,13 +3521,13 @@ The status field in the response will return as S if the price can be applied or
 	
 		Put_cmd.AddCommand(Put_PerformancePriceLayers_cmd) 
 				Put_PerformancePriceLayers_cmd.Flags().Bool("Prices", false, 
-					`Update a set of prices across one or more performances.` + "\nQuery:\n" + tq.JSONHighlight(`{"PriceUpdateRequests":[{"Editable":true, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Enabled":true, "MinPrice":123.456, "PerformanceIds":"string", "Price":123.456, "PriceLayerTypeId":123, "PriceTypeId":123, "ZoneId":123}, ...]}`) + "\n")
+					`Update a set of prices across one or more performances.` + "\nQuery:\n" + `{"PriceUpdateRequests":[{"Editable":true, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Enabled":true, "MinPrice":123.456, "PerformanceIds":"string", "Price":123.456, "PriceLayerTypeId":123, "PriceTypeId":123, "ZoneId":123}, ...]}`)
 	
 		Put_cmd.AddCommand(Put_PerformancePriceTypes_cmd) 
 				Put_PerformancePriceTypes_cmd.Flags().Bool("Base", false, 
-					`Update base indicator on performance price types for a set of performances and price type.` + "\nQuery:\n" + tq.JSONHighlight(`{"PerformanceIds":"string", "PriceLayerTypeIds":"string", "PriceTypeID":"string"}`) + "\n") 
+					`Update base indicator on performance price types for a set of performances and price type.` + "\nQuery:\n" + `{"PerformanceIds":"string", "PriceLayerTypeIds":"string", "PriceTypeID":"string"}`) 
 				Put_PerformancePriceTypes_cmd.Flags().Bool("Bulk", false, 
-					`Update the performance price types for a set of performances.` + "\nQuery:\n" + tq.JSONHighlight(`{"PerformancePriceType":[{"BaseIndicator":true, "DesignationCodeId":123, "EndDateTime":"2000-01-01T00:00:00.000Z", "GlAccountId":123, "PerformanceIds":"string", "PriceLayerTypeIds":"string", "PriceTypeIds":"string", "ResaleAccountId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "TicketDesignId":123}, ...]}`) + "\n")
+					`Update the performance price types for a set of performances.` + "\nQuery:\n" + `{"PerformancePriceType":[{"BaseIndicator":true, "DesignationCodeId":123, "EndDateTime":"2000-01-01T00:00:00.000Z", "GlAccountId":123, "PerformanceIds":"string", "PriceLayerTypeIds":"string", "PriceTypeIds":"string", "ResaleAccountId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "TicketDesignId":123}, ...]}`)
 	
 		Put_cmd.AddCommand(Put_PerformancePrices_cmd)
 	
@@ -3623,7 +3623,7 @@ The status field in the response will return as S if the price can be applied or
 	
 		Put_cmd.AddCommand(Put_ReportRequests_cmd) 
 				Put_ReportRequests_cmd.Flags().Bool("FlushIncomplete", false, 
-					`Update the status of all the running requests to error.` + "\nQuery:\n" + tq.JSONHighlight(``) + "\n")
+					`Update the status of all the running requests to error.` + "\nQuery:\n" + ``)
 	
 		Put_cmd.AddCommand(Put_ReportSchedules_cmd)
 	
@@ -3670,15 +3670,15 @@ The status field in the response will return as S if the price can be applied or
 		Put_cmd.AddCommand(Put_Session_cmd) 
 				Put_Session_cmd.Flags().Bool("SetExpiration", false, 
 					`Changes the deadline after which a session's reserved seats are released
-All times are relative to the machine on which the Tessitura Seat Server runs, including the time zone. The method either takes an absolute deadline time or an offset in seconds which is used to shorten or lengthen the time until expiration. The deadline is not the exact moment at which the seats are released, but rather when they are marked as expired. The Tessitura Seat Server will terminate the session when the next cleanup cycle is run (every 60 seconds or so). The method will return the new expiration date/time of the session.  The expiration date/time takes precendence over the offset if both are provided in the request.` + "\nQuery:\n" + tq.JSONHighlight(`{"Expiration":"2000-01-01T00:00:00.000Z", "TimeOffset":123, "SessionKey":"string"}`) + "\n") 
+All times are relative to the machine on which the Tessitura Seat Server runs, including the time zone. The method either takes an absolute deadline time or an offset in seconds which is used to shorten or lengthen the time until expiration. The deadline is not the exact moment at which the seats are released, but rather when they are marked as expired. The Tessitura Seat Server will terminate the session when the next cleanup cycle is run (every 60 seconds or so). The method will return the new expiration date/time of the session.  The expiration date/time takes precendence over the offset if both are provided in the request.` + "\nQuery:\n" + `{"Expiration":"2000-01-01T00:00:00.000Z", "TimeOffset":123, "SessionKey":"string"}`) 
 				Put_Session_cmd.Flags().Bool("Variable", false, 
-					`Update the value of an existing session variable.` + "\nQuery:\n" + tq.JSONHighlight(`{"SessionKey":"string", "Name":"string", "Value":"string"}`) + "\n") 
+					`Update the value of an existing session variable.` + "\nQuery:\n" + `{"SessionKey":"string", "Name":"string", "Value":"string"}`) 
 				Put_Session_cmd.Flags().Bool("WebLogin", false, 
 					`Updates the login information for a user and logs back into the session using new credentials.
 
 Current and new values must be submitted for login username, password, and email.  To retain any of the current values pass the same value for both the current and the new parameter.  After successfully updating the user account, the user is automatically logged in with the new login information.
 
-When updating a login where the password has been forgotten, submit the request with a null password.` + "\nQuery:\n" + tq.JSONHighlight(`{"EmailAddress":"string", "LoginName":"string", "LoginTypeId":123, "NewEmailAddress":"string", "NewLoginName":"string", "NewPassword":"string", "Password":"string", "PromotionCode":123, "SessionKey":"string"}`) + "\n")
+When updating a login where the password has been forgotten, submit the request with a null password.` + "\nQuery:\n" + `{"EmailAddress":"string", "LoginName":"string", "LoginTypeId":123, "NewEmailAddress":"string", "NewLoginName":"string", "NewPassword":"string", "Password":"string", "PromotionCode":123, "SessionKey":"string"}`)
 	
 		Put_cmd.AddCommand(Put_SourceGroups_cmd)
 	
@@ -3694,7 +3694,7 @@ When updating a login where the password has been forgotten, submit the request 
 	
 		Put_cmd.AddCommand(Put_Steps_cmd) 
 				Put_Steps_cmd.Flags().Bool("Document", false, 
-					`Update a document attached to a step.` + "\nQuery:\n" + tq.JSONHighlight(`{"Category":{"Id":123}, "ConstituentId":123, "Contents":"AA==", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "FileName":"string", "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "DocumentID":"string", "StepID":"string"}`) + "\n")
+					`Update a document attached to a step.` + "\nQuery:\n" + `{"Category":{"Id":123}, "ConstituentId":123, "Contents":"AA==", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "FileName":"string", "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "DocumentID":"string", "StepID":"string"}`)
 	
 		Put_cmd.AddCommand(Put_SubLineItemStatuses_cmd)
 	

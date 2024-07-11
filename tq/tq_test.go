@@ -380,10 +380,3 @@ func Test_Do(t *testing.T) {
 	assert.Equal(t, int32(6), (*constituents)[2].ID)
 	assert.ErrorContains(t, err, "cannot unmarshal array")
 }
-
-func Test_JSONHighlight(t *testing.T) {
-
-	json := JSONHighlight(`{"Filter":"string","ID":"string","MaintenanceMode":"string"}`)
-	// contains ANSI escape sequence
-	assert.Contains(t, json, "\033")
-}
