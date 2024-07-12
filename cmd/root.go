@@ -24,6 +24,7 @@ package cmd
 import (
 	"errors"
 	"fmt"
+	"html/template"
 	"io"
 	"os"
 	"runtime/debug"
@@ -31,11 +32,13 @@ import (
 	"syscall"
 
 	"github.com/99designs/keyring"
+
 	"github.com/skysyzygy/tq/auth"
 	"github.com/skysyzygy/tq/tq"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
+	prettify "github.com/tidwall/pretty"
 	"golang.org/x/term"
 )
 
@@ -44,7 +47,7 @@ const version string = "0.1.1"
 
 var (
 	cfgFile, jsonFile, logFile string
-	verbose, dryRun            bool
+	verbose, dryRun, pretty    bool
 	_tq                        *tq.TqConfig
 	keys                       auth.Keyring
 )
@@ -67,7 +70,11 @@ var rootCmd = &cobra.Command{
 func Execute() {
 	err := rootCmd.Execute()
 	if _tq != nil {
-		fmt.Println(string(_tq.GetOutput()))
+		out := _tq.GetOutput()
+		if pretty {
+			out = prettify.Pretty(out)
+		}
+		fmt.Println(jsonHighlight(string(out)))
 	}
 	if err != nil {
 		if _tq != nil && _tq.Log != nil {
@@ -103,6 +110,7 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&logFile, "log", "l", "", "log file to write to (default is no log)")
 	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "turns on additional diagnostic output")
 	rootCmd.PersistentFlags().BoolVarP(&dryRun, "dryrun", "n", false, "don't actually do anything, just show what would have happened")
+	rootCmd.PersistentFlags().BoolVarP(&pretty, "pretty", "p", false, "prettify the JSON output with indenting")
 
 	// Hide global flags from auth command
 	authenticateCmd.SetUsageFunc(func(cmd *cobra.Command) error {
@@ -110,9 +118,25 @@ func init() {
 		return rootCmd.UsageFunc()(cmd)
 	})
 
+	width, _, err := term.GetSize(int(syscall.Stdout))
+	if err != nil {
+		width = 0
+	}
+
 	rootCmd.SetUsageTemplate(
-		strings.NewReplacer("command", "verb", " Command", " Verb", "Examples", "Query").
+		// Rename some things so that they align better with how they are used
+		strings.NewReplacer("command", "verb", " Command", " Verb", "Examples", "Query",
+			// Wrap flag usages and syntax highlight
+			".FlagUsages", " | flagUsagesWrapped "+fmt.Sprint(width),
+			// Indent example and syntax highlight
+			".Example", ".Example | exampleWrapped "+fmt.Sprint(width)).
 			Replace(rootCmd.UsageTemplate()))
+
+	cobra.AddTemplateFuncs(
+		template.FuncMap{
+			"flagUsagesWrapped": flagUsagesWrapped,
+			"exampleWrapped":    exampleWrapped,
+		})
 
 	keys, _ = keyring.Open(keyring.Config{
 		ServiceName: "tq",

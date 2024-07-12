@@ -42,7 +42,7 @@ func init() {
 		{{- if gt (len $commands) 1 }}
 			{{- range slice $commands 1 }} 
 				{{ print $op "_" $key "_cmd" }}.Flags().Bool("{{ .Variant }}", false, 
-					`{{ printf "%v\n%v" .Long .Usage }}`)
+					`{{ .Long }}` + "\nQuery:\n" + `{{ .Usage }}`)
 			{{- end }} 
 		{{- end }}
 	{{ end }}

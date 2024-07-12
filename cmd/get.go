@@ -10,7 +10,7 @@ import (
 
 var Get_AccountTypes_cmd = &cobra.Command{
 		Use: `AccountTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an account type by id`,
 		Long:  `Get the details of an account type by id.`,
 		PreRunE: initTq,
@@ -44,7 +44,7 @@ var Get_Accounts_cmd = &cobra.Command{
 
 var Get_ActionTypes_cmd = &cobra.Command{
 		Use: `ActionTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an action type by id`,
 		Long:  `Get the details of an action type by id.`,
 		PreRunE: initTq,
@@ -78,7 +78,7 @@ var Get_Actions_cmd = &cobra.Command{
 
 var Get_ActivityCategories_cmd = &cobra.Command{
 		Use: `ActivityCategories`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an activity category by id`,
 		Long:  `Get the details of an activity category by id.`,
 		PreRunE: initTq,
@@ -96,7 +96,7 @@ var Get_ActivityCategories_cmd = &cobra.Command{
 
 var Get_ActivityTypes_cmd = &cobra.Command{
 		Use: `ActivityTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an activity type by id`,
 		Long:  `Get the details of an activity type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -114,7 +114,7 @@ var Get_ActivityTypes_cmd = &cobra.Command{
 
 var Get_AddressTypes_cmd = &cobra.Command{
 		Use: `AddressTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an address type by id`,
 		Long:  `Get the details of an address type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -148,7 +148,7 @@ var Get_Addresses_cmd = &cobra.Command{
 
 var Get_AffiliationTypes_cmd = &cobra.Command{
 		Use: `AffiliationTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an affiliation type by id`,
 		Long:  `Get the details of an affiliation type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -182,7 +182,7 @@ var Get_Affiliations_cmd = &cobra.Command{
 
 var Get_AliasTypes_cmd = &cobra.Command{
 		Use: `AliasTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an alias type by id`,
 		Long:  `Get the details of an alias type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -216,7 +216,7 @@ var Get_Aliases_cmd = &cobra.Command{
 
 var Get_AnalyticsCubes_cmd = &cobra.Command{
 		Use: `AnalyticsCubes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an analytics cube`,
 		Long:  `Get the details of an analytics cube.`,
 		PreRunE: initTq,
@@ -248,7 +248,7 @@ var Get_AnalyticsReports_cmd = &cobra.Command{
 
 var Get_AppScreenTexts_cmd = &cobra.Command{
 		Use: `AppScreenTexts`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an App Screen Text by id`,
 		Long:  `Get the details of an App Screen Text by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -266,7 +266,7 @@ var Get_AppScreenTexts_cmd = &cobra.Command{
 
 var Get_AppealCategories_cmd = &cobra.Command{
 		Use: `AppealCategories`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an appeal category by id`,
 		Long:  `Get the details of an appeal category by id.`,
 		PreRunE: initTq,
@@ -329,7 +329,7 @@ var Get_Artists_cmd = &cobra.Command{
 
 var Get_AssetTypes_cmd = &cobra.Command{
 		Use: `AssetTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an asset type by id`,
 		Long:  `Get the details of an asset type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -363,7 +363,7 @@ var Get_Assets_cmd = &cobra.Command{
 
 var Get_AssociationTypes_cmd = &cobra.Command{
 		Use: `AssociationTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an association type by id`,
 		Long:  `Get the details of an association type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -397,7 +397,7 @@ var Get_Associations_cmd = &cobra.Command{
 
 var Get_AttendanceHistory_cmd = &cobra.Command{
 		Use: `AttendanceHistory`,
-		Example: `{"ConstituentID":"string","IncludeAffiliations":"string"}`,
+		Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`,
 		Short: `Attendance History for a selected constituent optionally including primary affiliates`,
 		Long:  `Attendance History for a selected constituent optionally including primary affiliates.  Does not return history based on recipient for the selected constituent(s).`,
 		PreRunE: initTq,
@@ -473,7 +473,7 @@ var Get_BatchMaintenance_cmd = &cobra.Command{
 
 var Get_BatchTypeGroups_cmd = &cobra.Command{
 		Use: `BatchTypeGroups`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a batch type group by id`,
 		Long:  `Get the details of a batch type group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -504,7 +504,7 @@ var Get_BatchTypeUserGroup_cmd = &cobra.Command{
 
 var Get_BatchTypes_cmd = &cobra.Command{
 		Use: `BatchTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a batch type by id`,
 		Long:  `Get the details of a batch type by id.`,
 		PreRunE: initTq,
@@ -522,7 +522,7 @@ var Get_BatchTypes_cmd = &cobra.Command{
 
 var Get_BillingSchedules_cmd = &cobra.Command{
 		Use: `BillingSchedules`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a Billing Schedule`,
 		Long:  `Get the details of a Billing Schedule. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -540,7 +540,7 @@ var Get_BillingSchedules_cmd = &cobra.Command{
 
 var Get_BillingTypes_cmd = &cobra.Command{
 		Use: `BillingTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a Billing Type by id`,
 		Long:  `Get the details of a Billing Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -558,7 +558,7 @@ var Get_BillingTypes_cmd = &cobra.Command{
 
 var Get_BookingCategories_cmd = &cobra.Command{
 		Use: `BookingCategories`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a Booking Category by id`,
 		Long:  `Get the details of a Booking Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -650,7 +650,7 @@ var Get_BulkDailyCopyExclusions_cmd = &cobra.Command{
 
 var Get_BusinessUnits_cmd = &cobra.Command{
 		Use: `BusinessUnits`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a business unit by id`,
 		Long:  `Get the details of a business unit by id.`,
 		PreRunE: initTq,
@@ -729,7 +729,7 @@ var Get_Campaigns_cmd = &cobra.Command{
 
 var Get_CardReaderTypes_cmd = &cobra.Command{
 		Use: `CardReaderTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a Card Reader Type by id`,
 		Long:  `Get the details of a Card Reader Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -747,7 +747,7 @@ var Get_CardReaderTypes_cmd = &cobra.Command{
 
 var Get_Cart_cmd = &cobra.Command{
 		Use: `Cart`,
-		Example: `{"MessageTypes":"string","SavedCart":"string","SessionKey":"string"}`,
+		Example: `{"MessageTypes":"string", "SavedCart":"string", "SessionKey":"string"}`,
 		Short: `Gets the cart details`,
 		Long:  `Gets the cart details`,
 		PreRunE: initTq,
@@ -769,7 +769,7 @@ var Get_Cart_cmd = &cobra.Command{
 
 var Get_Colors_cmd = &cobra.Command{
 		Use: `Colors`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a color by id`,
 		Long:  `Get the details of a color by id.`,
 		PreRunE: initTq,
@@ -787,7 +787,7 @@ var Get_Colors_cmd = &cobra.Command{
 
 var Get_Composers_cmd = &cobra.Command{
 		Use: `Composers`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a composer by id`,
 		Long:  `Get the details of a composer by id.`,
 		PreRunE: initTq,
@@ -821,7 +821,7 @@ var Get_Constituencies_cmd = &cobra.Command{
 
 var Get_ConstituencyTypes_cmd = &cobra.Command{
 		Use: `ConstituencyTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituency type by id`,
 		Long:  `Get the details of a constituency type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -839,7 +839,7 @@ var Get_ConstituencyTypes_cmd = &cobra.Command{
 
 var Get_ConstituentContributions_cmd = &cobra.Command{
 		Use: `ConstituentContributions`,
-		Example: `{"CampaignIds":"string","ConstituentID":"string","EndDate":"string","FundIds":"string","IncludeAffiliations":"string","StartDate":"string"}`,
+		Example: `{"CampaignIds":"string", "ConstituentID":"string", "EndDate":"string", "FundIds":"string", "IncludeAffiliations":"string", "StartDate":"string"}`,
 		Short: `Get contributions for a constituent`,
 		Long:  `Get contributions for a constituent.`,
 		PreRunE: initTq,
@@ -870,7 +870,7 @@ var Get_ConstituentDocuments_cmd = &cobra.Command{
 
 var Get_ConstituentGroups_cmd = &cobra.Command{
 		Use: `ConstituentGroups`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent group by id`,
 		Long:  `Get the details of a constituent group by id.`,
 		PreRunE: initTq,
@@ -888,7 +888,7 @@ var Get_ConstituentGroups_cmd = &cobra.Command{
 
 var Get_ConstituentInactives_cmd = &cobra.Command{
 		Use: `ConstituentInactives`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent inactive by id`,
 		Long:  `Get the details of a constituent inactive by id.`,
 		PreRunE: initTq,
@@ -906,7 +906,7 @@ var Get_ConstituentInactives_cmd = &cobra.Command{
 
 var Get_ConstituentProtectionTypes_cmd = &cobra.Command{
 		Use: `ConstituentProtectionTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent protection type by id`,
 		Long:  `Get the details of a constituent protection type by id.`,
 		PreRunE: initTq,
@@ -924,7 +924,7 @@ var Get_ConstituentProtectionTypes_cmd = &cobra.Command{
 
 var Get_ConstituentTypeAffiliates_cmd = &cobra.Command{
 		Use: `ConstituentTypeAffiliates`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent type affiliate by id`,
 		Long:  `Get the details of a constituent type affiliate by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -942,7 +942,7 @@ var Get_ConstituentTypeAffiliates_cmd = &cobra.Command{
 
 var Get_ConstituentTypes_cmd = &cobra.Command{
 		Use: `ConstituentTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a constituent type by id`,
 		Long:  `Get the details of a constituent type by id.`,
 		PreRunE: initTq,
@@ -992,7 +992,7 @@ var Get_Constituents_cmd = &cobra.Command{
 
 var Get_ContactPermissionCategories_cmd = &cobra.Command{
 		Use: `ContactPermissionCategories`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact permission category`,
 		Long:  `Get the details of a contact permission category. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -1010,7 +1010,7 @@ var Get_ContactPermissionCategories_cmd = &cobra.Command{
 
 var Get_ContactPermissionTypes_cmd = &cobra.Command{
 		Use: `ContactPermissionTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact permission type`,
 		Long:  `Get the details of a contact permission type. To get the resource only if the user has write/edit access, pass filter="writeonly".  To get the resource in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -1046,7 +1046,7 @@ var Get_ContactPermissions_cmd = &cobra.Command{
 
 var Get_ContactPointCategories_cmd = &cobra.Command{
 		Use: `ContactPointCategories`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact point category by id`,
 		Long:  `Get the details of a contact point category by id.`,
 		PreRunE: initTq,
@@ -1064,7 +1064,7 @@ var Get_ContactPointCategories_cmd = &cobra.Command{
 
 var Get_ContactPointCategoryPurposes_cmd = &cobra.Command{
 		Use: `ContactPointCategoryPurposes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact point category purpose by id`,
 		Long:  `Get the details of a contact point category purpose by id.`,
 		PreRunE: initTq,
@@ -1082,7 +1082,7 @@ var Get_ContactPointCategoryPurposes_cmd = &cobra.Command{
 
 var Get_ContactPointPurposeCategories_cmd = &cobra.Command{
 		Use: `ContactPointPurposeCategories`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact point purpose category by id`,
 		Long:  `Get the details of a contact point purpose category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -1116,7 +1116,7 @@ var Get_ContactPointPurposeMaps_cmd = &cobra.Command{
 
 var Get_ContactPointPurposes_cmd = &cobra.Command{
 		Use: `ContactPointPurposes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact point purpose by id`,
 		Long:  `Get the details of a contact point purpose by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -1134,7 +1134,7 @@ var Get_ContactPointPurposes_cmd = &cobra.Command{
 
 var Get_ContactPoints_cmd = &cobra.Command{
 		Use: `ContactPoints`,
-		Example: `{"ConstituentID":"string","IncludeAffiliations":"string"}`,
+		Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`,
 		Short: `Get all the delivery points for the specified constituent (constituentId) and all its visible affiliation's delivery point purposes as well`,
 		Long:  `Get all the delivery points for the specified constituent (constituentId) and all its visible affiliation's delivery point purposes as well. To exclude delivery point purposes of the visible affiliations pass includeAffiliations=false.`,
 		PreRunE: initTq,
@@ -1147,7 +1147,7 @@ var Get_ContactPoints_cmd = &cobra.Command{
 
 var Get_ContactTypes_cmd = &cobra.Command{
 		Use: `ContactTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a contact type by id`,
 		Long:  `Get the details of a contact type by id.`,
 		PreRunE: initTq,
@@ -1178,7 +1178,7 @@ var Get_ContextInformation_cmd = &cobra.Command{
 
 var Get_ContributionDesignations_cmd = &cobra.Command{
 		Use: `ContributionDesignations`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a contribution designation by id`,
 		Long:  `Get the details of a contribution designation by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -1196,7 +1196,7 @@ var Get_ContributionDesignations_cmd = &cobra.Command{
 
 var Get_ContributionImportSets_cmd = &cobra.Command{
 		Use: `ContributionImportSets`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a contributionImportSet by id`,
 		Long:  `Get the details of a contributionImportSet by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -1232,7 +1232,7 @@ var Get_ControlGroupUserGroups_cmd = &cobra.Command{
 
 var Get_ControlGroups_cmd = &cobra.Command{
 		Use: `ControlGroups`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a control group by id`,
 		Long:  `Get the details of a control group by id.`,
 		PreRunE: initTq,
@@ -1263,7 +1263,7 @@ var Get_CoreIdentity_cmd = &cobra.Command{
 
 var Get_Countries_cmd = &cobra.Command{
 		Use: `Countries`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a country by id`,
 		Long:  `Get the details of a country by id.`,
 		PreRunE: initTq,
@@ -1281,7 +1281,7 @@ var Get_Countries_cmd = &cobra.Command{
 
 var Get_CrediteeTypes_cmd = &cobra.Command{
 		Use: `CrediteeTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a crediteeType by id`,
 		Long:  `Get the details of a crediteeType by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -1312,7 +1312,7 @@ var Get_Credits_cmd = &cobra.Command{
 
 var Get_CriterionOperators_cmd = &cobra.Command{
 		Use: `CriterionOperators`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a criterion operator by id`,
 		Long:  `Get the details of a criterion operator by id.`,
 		PreRunE: initTq,
@@ -1348,7 +1348,7 @@ var Get_CumulativeGivingReceipts_cmd = &cobra.Command{
 
 var Get_CurrencyTypes_cmd = &cobra.Command{
 		Use: `CurrencyTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a currency type by id`,
 		Long:  `Get the details of a currency type by id.`,
 		PreRunE: initTq,
@@ -1379,7 +1379,7 @@ var Get_Custom_cmd = &cobra.Command{
 
 var Get_CustomDefaultCategories_cmd = &cobra.Command{
 		Use: `CustomDefaultCategories`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a custom default category by id`,
 		Long:  `Get the details of a custom default category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -1397,7 +1397,7 @@ var Get_CustomDefaultCategories_cmd = &cobra.Command{
 
 var Get_CustomDefaults_cmd = &cobra.Command{
 		Use: `CustomDefaults`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a custom default by id`,
 		Long:  `Get the details of a custom default by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -1415,7 +1415,7 @@ var Get_CustomDefaults_cmd = &cobra.Command{
 
 var Get_DeliveryMethods_cmd = &cobra.Command{
 		Use: `DeliveryMethods`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a delivery method by id`,
 		Long:  `Get the details of a delivery method by id.`,
 		PreRunE: initTq,
@@ -1433,7 +1433,7 @@ var Get_DeliveryMethods_cmd = &cobra.Command{
 
 var Get_DesignationCodes_cmd = &cobra.Command{
 		Use: `DesignationCodes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a designation code by id`,
 		Long:  `Get the details of a designation code by id.`,
 		PreRunE: initTq,
@@ -1451,7 +1451,7 @@ var Get_DesignationCodes_cmd = &cobra.Command{
 
 var Get_Designs_cmd = &cobra.Command{
 		Use: `Designs`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a design by id`,
 		Long:  `Get the details of a design by id.`,
 		PreRunE: initTq,
@@ -1489,7 +1489,7 @@ var Get_Diagnostics_cmd = &cobra.Command{
 
 var Get_DirectDebitAccountTypes_cmd = &cobra.Command{
 		Use: `DirectDebitAccountTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a direct debit account type by id`,
 		Long:  `Get the details of a direct debit account type by id.`,
 		PreRunE: initTq,
@@ -1507,7 +1507,7 @@ var Get_DirectDebitAccountTypes_cmd = &cobra.Command{
 
 var Get_DiscountTypes_cmd = &cobra.Command{
 		Use: `DiscountTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a discount type by id`,
 		Long:  `Get the details of a discount type by id.`,
 		PreRunE: initTq,
@@ -1541,7 +1541,7 @@ var Get_Divisions_cmd = &cobra.Command{
 
 var Get_DocumentCategories_cmd = &cobra.Command{
 		Use: `DocumentCategories`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a documentCategory by id`,
 		Long:  `Get the details of a documentCategory by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -1579,7 +1579,7 @@ var Get_Documents_cmd = &cobra.Command{
 
 var Get_DonationLevels_cmd = &cobra.Command{
 		Use: `DonationLevels`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a donation level by id`,
 		Long:  `Get the details of a donation level by id.`,
 		PreRunE: initTq,
@@ -1597,7 +1597,7 @@ var Get_DonationLevels_cmd = &cobra.Command{
 
 var Get_EMV_cmd = &cobra.Command{
 		Use: `EMV`,
-		Example: `{"Cert":"string","Merchant":"string"}`,
+		Example: `{"Cert":"string", "Merchant":"string"}`,
 		Short: `Retrieve information on all lanes associated with merchant`,
 		Long:  `Retrieve information on all lanes associated with merchant`,
 		PreRunE: initTq,
@@ -1619,7 +1619,7 @@ var Get_EMV_cmd = &cobra.Command{
 
 var Get_ElectronicAddressTypes_cmd = &cobra.Command{
 		Use: `ElectronicAddressTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an electronic address type by id`,
 		Long:  `Get the details of an electronic address type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -1655,7 +1655,7 @@ var Get_ElectronicAddresses_cmd = &cobra.Command{
 
 var Get_EmailProfiles_cmd = &cobra.Command{
 		Use: `EmailProfiles`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an email profile by id`,
 		Long:  `Get the details of an email profile by id`,
 		PreRunE: initTq,
@@ -1673,7 +1673,7 @@ var Get_EmailProfiles_cmd = &cobra.Command{
 
 var Get_EmarketIndicators_cmd = &cobra.Command{
 		Use: `EmarketIndicators`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an emarket indicator by id`,
 		Long:  `Get the details of an emarket indicator by id.`,
 		PreRunE: initTq,
@@ -1691,7 +1691,7 @@ var Get_EmarketIndicators_cmd = &cobra.Command{
 
 var Get_Eras_cmd = &cobra.Command{
 		Use: `Eras`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an era by id`,
 		Long:  `Get the details of an era by id.`,
 		PreRunE: initTq,
@@ -1709,7 +1709,7 @@ var Get_Eras_cmd = &cobra.Command{
 
 var Get_EventControl_cmd = &cobra.Command{
 		Use: `EventControl`,
-		Example: `{"EndDate":"string","StartDate":"string"}`,
+		Example: `{"EndDate":"string", "StartDate":"string"}`,
 		Short: `Returns a response containing a list of EventControl rows for the N-Scan event control table`,
 		Long:  `Returns a response containing a list of EventControl rows for the N-Scan event control table.`,
 		PreRunE: initTq,
@@ -1776,7 +1776,7 @@ var Get_FinanceContributions_cmd = &cobra.Command{
 
 var Get_Formats_cmd = &cobra.Command{
 		Use: `Formats`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a format by id`,
 		Long:  `Get the details of a format by id.`,
 		PreRunE: initTq,
@@ -1810,7 +1810,7 @@ var Get_Funds_cmd = &cobra.Command{
 
 var Get_GLAccounts_cmd = &cobra.Command{
 		Use: `GLAccounts`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a gl account by id`,
 		Long:  `Get the details of a gl account by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -1828,7 +1828,7 @@ var Get_GLAccounts_cmd = &cobra.Command{
 
 var Get_Genders_cmd = &cobra.Command{
 		Use: `Genders`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a gender by id`,
 		Long:  `Get the details of a gender by id.`,
 		PreRunE: initTq,
@@ -1846,7 +1846,7 @@ var Get_Genders_cmd = &cobra.Command{
 
 var Get_GiftAidContactMethods_cmd = &cobra.Command{
 		Use: `GiftAidContactMethods`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid contact method by id`,
 		Long:  `Get the details of a gift aid contact method by id.`,
 		PreRunE: initTq,
@@ -1880,7 +1880,7 @@ var Get_GiftAidDeclarations_cmd = &cobra.Command{
 
 var Get_GiftAidDocumentStatuses_cmd = &cobra.Command{
 		Use: `GiftAidDocumentStatuses`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid document status by id`,
 		Long:  `Get the details of a gift aid document status by id.`,
 		PreRunE: initTq,
@@ -1898,7 +1898,7 @@ var Get_GiftAidDocumentStatuses_cmd = &cobra.Command{
 
 var Get_GiftAidIneligibleReasons_cmd = &cobra.Command{
 		Use: `GiftAidIneligibleReasons`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid ineligible reason by id`,
 		Long:  `Get the details of a gift aid ineligible reason by id.`,
 		PreRunE: initTq,
@@ -1916,7 +1916,7 @@ var Get_GiftAidIneligibleReasons_cmd = &cobra.Command{
 
 var Get_GiftAidRates_cmd = &cobra.Command{
 		Use: `GiftAidRates`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid rate by id`,
 		Long:  `Get the details of a gift aid rate by id.`,
 		PreRunE: initTq,
@@ -1934,7 +1934,7 @@ var Get_GiftAidRates_cmd = &cobra.Command{
 
 var Get_GiftAidStatuses_cmd = &cobra.Command{
 		Use: `GiftAidStatuses`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid status by id`,
 		Long:  `Get the details of a gift aid status by id.`,
 		PreRunE: initTq,
@@ -1952,7 +1952,7 @@ var Get_GiftAidStatuses_cmd = &cobra.Command{
 
 var Get_GiftAidTypes_cmd = &cobra.Command{
 		Use: `GiftAidTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a gift aid type by id`,
 		Long:  `Get the details of a gift aid type by id.`,
 		PreRunE: initTq,
@@ -1984,7 +1984,7 @@ The original amount, amount used and balance are all returned.  Amounts applied 
 
 var Get_HoldCodeCategories_cmd = &cobra.Command{
 		Use: `HoldCodeCategories`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a Hold Code Category by id`,
 		Long:  `Get the details of a Hold Code Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -2038,7 +2038,7 @@ var Get_HoldCodes_cmd = &cobra.Command{
 
 var Get_InactiveReasons_cmd = &cobra.Command{
 		Use: `InactiveReasons`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an inactive reason by id`,
 		Long:  `Get the details of an inactive reason by id.`,
 		PreRunE: initTq,
@@ -2074,7 +2074,7 @@ var Get_IntegrationDefaults_cmd = &cobra.Command{
 
 var Get_Integrations_cmd = &cobra.Command{
 		Use: `Integrations`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an action type by id`,
 		Long:  `Get the details of an action type by id.`,
 		PreRunE: initTq,
@@ -2092,7 +2092,7 @@ var Get_Integrations_cmd = &cobra.Command{
 
 var Get_InterestCategories_cmd = &cobra.Command{
 		Use: `InterestCategories`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an interest category by id`,
 		Long:  `Get the details of an interest category by id.`,
 		PreRunE: initTq,
@@ -2110,7 +2110,7 @@ var Get_InterestCategories_cmd = &cobra.Command{
 
 var Get_InterestTypes_cmd = &cobra.Command{
 		Use: `InterestTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an interest type by id`,
 		Long:  `Get the details of an interest type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -2225,7 +2225,7 @@ var Get_Issues_cmd = &cobra.Command{
 
 var Get_KeywordCategories_cmd = &cobra.Command{
 		Use: `KeywordCategories`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a keyword category by id`,
 		Long:  `Get the details of a keyword category by id.`,
 		PreRunE: initTq,
@@ -2243,7 +2243,7 @@ var Get_KeywordCategories_cmd = &cobra.Command{
 
 var Get_Keywords_cmd = &cobra.Command{
 		Use: `Keywords`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a keyword by id`,
 		Long:  `Get the details of a keyword by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -2263,7 +2263,7 @@ var Get_Keywords_cmd = &cobra.Command{
 
 var Get_Languages_cmd = &cobra.Command{
 		Use: `Languages`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a language by id`,
 		Long:  `Get the details of a language by id.`,
 		PreRunE: initTq,
@@ -2281,7 +2281,7 @@ var Get_Languages_cmd = &cobra.Command{
 
 var Get_ListCategories_cmd = &cobra.Command{
 		Use: `ListCategories`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a list category by id`,
 		Long:  `Get the details of a list category by id.`,
 		PreRunE: initTq,
@@ -2321,7 +2321,7 @@ var Get_Lists_cmd = &cobra.Command{
 
 var Get_LoginTypes_cmd = &cobra.Command{
 		Use: `LoginTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a login type by id`,
 		Long:  `Get the details of a login type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -2339,7 +2339,7 @@ var Get_LoginTypes_cmd = &cobra.Command{
 
 var Get_MachineSettings_cmd = &cobra.Command{
 		Use: `MachineSettings`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a Machine Setting by id`,
 		Long:  `Get the details of a Machine Setting by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -2357,7 +2357,7 @@ var Get_MachineSettings_cmd = &cobra.Command{
 
 var Get_MailIndicators_cmd = &cobra.Command{
 		Use: `MailIndicators`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a mail indicator by id`,
 		Long:  `Get the details of a mail indicator by id.`,
 		PreRunE: initTq,
@@ -2375,7 +2375,7 @@ var Get_MailIndicators_cmd = &cobra.Command{
 
 var Get_MediaTypes_cmd = &cobra.Command{
 		Use: `MediaTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a media type by id`,
 		Long:  `Get the details of a media type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -2393,7 +2393,7 @@ var Get_MediaTypes_cmd = &cobra.Command{
 
 var Get_MembershipLevelCategories_cmd = &cobra.Command{
 		Use: `MembershipLevelCategories`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a membership level category by id`,
 		Long:  `Get the details of a membership level category by id.`,
 		PreRunE: initTq,
@@ -2449,7 +2449,7 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 
 var Get_MembershipStandings_cmd = &cobra.Command{
 		Use: `MembershipStandings`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get a specific MembershipStanding by id`,
 		Long:  `Get a specific MembershipStanding by id.`,
 		PreRunE: initTq,
@@ -2467,7 +2467,7 @@ var Get_MembershipStandings_cmd = &cobra.Command{
 
 var Get_Memberships_cmd = &cobra.Command{
 		Use: `Memberships`,
-		Example: `{"ConstituentID":"string","IncludeAffiliations":"string","MembershipOrgIds":"string","OnlyShowCurrent":"string","OnlyShowDefault":"string"}`,
+		Example: `{"ConstituentID":"string", "IncludeAffiliations":"string", "MembershipOrgIds":"string", "OnlyShowCurrent":"string", "OnlyShowDefault":"string"}`,
 		Short: `Returns membership details for a constituent`,
 		Long:  `Returns membership details for a constituent.
 NOTE: As part of the upcoming changes to membership functionality, this resource will change significantly in an upcoming major Tessitura release and likely break code that references it. Please make a note that code that references it will need to be revisited as part of that upgrade process.`,
@@ -2481,7 +2481,7 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 
 var Get_MerchantReferences_cmd = &cobra.Command{
 		Use: `MerchantReferences`,
-		Example: `{"MerchantAccount":"string","PaymentID":"string"}`,
+		Example: `{"MerchantAccount":"string", "PaymentID":"string"}`,
 		Short: ``,
 		Long:  ``,
 		PreRunE: initTq,
@@ -2605,7 +2605,7 @@ var Get_ModesOfSale_cmd = &cobra.Command{
 
 var Get_NScanAccessAreas_cmd = &cobra.Command{
 		Use: `NScanAccessAreas`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an NScan Access Area by id`,
 		Long:  `Get the details of an NScan Access Area by id. To get the resource only if the user has write/edit access, pass filter="writeonly".. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -2623,7 +2623,7 @@ var Get_NScanAccessAreas_cmd = &cobra.Command{
 
 var Get_NameStatuses_cmd = &cobra.Command{
 		Use: `NameStatuses`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a name status by id`,
 		Long:  `Get the details of a name status by id.`,
 		PreRunE: initTq,
@@ -2675,7 +2675,7 @@ var Get_OrderBilling_cmd = &cobra.Command{
 
 var Get_OrderCategories_cmd = &cobra.Command{
 		Use: `OrderCategories`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an order category by id`,
 		Long:  `Get the details of an order category by id.`,
 		PreRunE: initTq,
@@ -2706,7 +2706,7 @@ var Get_Orders_cmd = &cobra.Command{
 
 var Get_Organizations_cmd = &cobra.Command{
 		Use: `Organizations`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an organization by ID`,
 		Long:  `Get the details of an organization by ID. To get the resource in maintenance mode (ignoring control groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -2724,7 +2724,7 @@ var Get_Organizations_cmd = &cobra.Command{
 
 var Get_OriginalSources_cmd = &cobra.Command{
 		Use: `OriginalSources`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an original source by id`,
 		Long:  `Get the details of an original source by id.`,
 		PreRunE: initTq,
@@ -2742,7 +2742,7 @@ var Get_OriginalSources_cmd = &cobra.Command{
 
 var Get_Origins_cmd = &cobra.Command{
 		Use: `Origins`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an origin by id`,
 		Long:  `Get the details of an origin by id.`,
 		PreRunE: initTq,
@@ -2776,7 +2776,7 @@ var Get_OutputSets_cmd = &cobra.Command{
 
 var Get_PackageHistory_cmd = &cobra.Command{
 		Use: `PackageHistory`,
-		Example: `{"ConstituentID":"string","IncludeAffiliations":"string","OrderEndDate":"string","OrderStartDate":"string","PackageID":"string","PackageTypeID":"string","SeasonID":"string"}`,
+		Example: `{"ConstituentID":"string", "IncludeAffiliations":"string", "OrderEndDate":"string", "OrderStartDate":"string", "PackageID":"string", "PackageTypeID":"string", "SeasonID":"string"}`,
 		Short: `Gets history information for packages`,
 		Long:  `Gets history information for packages`,
 		PreRunE: initTq,
@@ -2805,7 +2805,7 @@ var Get_PackagePriceTypes_cmd = &cobra.Command{
 
 var Get_PackageTypes_cmd = &cobra.Command{
 		Use: `PackageTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a package type by id`,
 		Long:  `Get the details of a package type by id.`,
 		PreRunE: initTq,
@@ -2900,7 +2900,7 @@ var Get_PaymentGatewayConfiguration_cmd = &cobra.Command{
 
 var Get_PaymentGatewayNotifications_cmd = &cobra.Command{
 		Use: `PaymentGatewayNotifications`,
-		Example: `{"NotificationType":"string","Reference":"string"}`,
+		Example: `{"NotificationType":"string", "Reference":"string"}`,
 		Short: `Get all notification events by reference`,
 		Long:  `Get all notification events by reference.`,
 		PreRunE: initTq,
@@ -2920,7 +2920,7 @@ var Get_PaymentGatewayNotifications_cmd = &cobra.Command{
 
 var Get_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 		Use: `PaymentGatewayTransactionTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a Payment Gateway Transaction Type by id`,
 		Long:  `Get the details of a Payment Gateway Transaction Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -2938,7 +2938,7 @@ var Get_PaymentGatewayTransactionTypes_cmd = &cobra.Command{
 
 var Get_PaymentHistory_cmd = &cobra.Command{
 		Use: `PaymentHistory`,
-		Example: `{"ConstituentID":"string","EndDate":"string","IncludeAffiliates":"string","Page":"string","PageSize":"string","PaymentTypeID":"string","SortByDirection":"string","SortByField":"string","StartDate":"string","TransactionID":"string"}`,
+		Example: `{"ConstituentID":"string", "EndDate":"string", "IncludeAffiliates":"string", "Page":"string", "PageSize":"string", "PaymentTypeID":"string", "SortByDirection":"string", "SortByField":"string", "StartDate":"string", "TransactionID":"string"}`,
 		Short: `Gets history information for payments by constituent`,
 		Long:  `Gets history information for payments by constituent.`,
 		PreRunE: initTq,
@@ -2951,7 +2951,7 @@ var Get_PaymentHistory_cmd = &cobra.Command{
 
 var Get_PaymentMethodGroups_cmd = &cobra.Command{
 		Use: `PaymentMethodGroups`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a payment method group by id`,
 		Long:  `Get the details of a payment method group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -3021,7 +3021,7 @@ var Get_PaymentSignatures_cmd = &cobra.Command{
 
 var Get_PaymentTypes_cmd = &cobra.Command{
 		Use: `PaymentTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a payment type by id`,
 		Long:  `Get the details of a payment type by id.`,
 		PreRunE: initTq,
@@ -3093,7 +3093,7 @@ var Get_PerformancePackageModeOfSales_cmd = &cobra.Command{
 
 var Get_PerformancePriceLayers_cmd = &cobra.Command{
 		Use: `PerformancePriceLayers`,
-		Example: `{"AsOfDateTime":"string","PerformancePriceLayerID":"string"}`,
+		Example: `{"AsOfDateTime":"string", "PerformancePriceLayerID":"string"}`,
 		Short: `Get details of a performance price layer`,
 		Long:  `Get details of a performance price layer.`,
 		PreRunE: initTq,
@@ -3111,7 +3111,7 @@ var Get_PerformancePriceLayers_cmd = &cobra.Command{
 
 var Get_PerformancePriceTypes_cmd = &cobra.Command{
 		Use: `PerformancePriceTypes`,
-		Example: `{"AsOfDateTime":"string","PerformancePriceTypeID":"string"}`,
+		Example: `{"AsOfDateTime":"string", "PerformancePriceTypeID":"string"}`,
 		Short: `Get details of a performance price type`,
 		Long:  `Get details of a performance price type.`,
 		PreRunE: initTq,
@@ -3127,7 +3127,7 @@ var Get_PerformancePriceTypes_cmd = &cobra.Command{
 
 var Get_PerformancePrices_cmd = &cobra.Command{
 		Use: `PerformancePrices`,
-		Example: `{"AsOfDateTime":"string","PerformancePriceID":"string"}`,
+		Example: `{"AsOfDateTime":"string", "PerformancePriceID":"string"}`,
 		Short: `Get details of a performance price`,
 		Long:  `Get details of a performance price.`,
 		PreRunE: initTq,
@@ -3147,7 +3147,7 @@ var Get_PerformancePrices_cmd = &cobra.Command{
 
 var Get_PerformanceStatuses_cmd = &cobra.Command{
 		Use: `PerformanceStatuses`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a performance status by id`,
 		Long:  `Get the details of a performance status by id.`,
 		PreRunE: initTq,
@@ -3165,7 +3165,7 @@ var Get_PerformanceStatuses_cmd = &cobra.Command{
 
 var Get_PerformanceTypes_cmd = &cobra.Command{
 		Use: `PerformanceTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a performance type by id`,
 		Long:  `Get the details of a performance type by id.`,
 		PreRunE: initTq,
@@ -3233,7 +3233,7 @@ var Get_Philanthropy_cmd = &cobra.Command{
 
 var Get_PhilanthropyTypes_cmd = &cobra.Command{
 		Use: `PhilanthropyTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of philosophy type by id`,
 		Long:  `Get the details of philosophy type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -3251,7 +3251,7 @@ var Get_PhilanthropyTypes_cmd = &cobra.Command{
 
 var Get_PhoneIndicators_cmd = &cobra.Command{
 		Use: `PhoneIndicators`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a phone indicator by id`,
 		Long:  `Get the details of a phone indicator by id.`,
 		PreRunE: initTq,
@@ -3269,7 +3269,7 @@ var Get_PhoneIndicators_cmd = &cobra.Command{
 
 var Get_PhoneTypes_cmd = &cobra.Command{
 		Use: `PhoneTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a phone type by id`,
 		Long:  `Get the details of a phone type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -3303,7 +3303,7 @@ var Get_Phones_cmd = &cobra.Command{
 
 var Get_PlanPriorities_cmd = &cobra.Command{
 		Use: `PlanPriorities`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan priority by id`,
 		Long:  `Get the details of a plan priority by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -3321,7 +3321,7 @@ var Get_PlanPriorities_cmd = &cobra.Command{
 
 var Get_PlanSources_cmd = &cobra.Command{
 		Use: `PlanSources`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan source by id`,
 		Long:  `Get the details of a plan source by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -3339,7 +3339,7 @@ var Get_PlanSources_cmd = &cobra.Command{
 
 var Get_PlanStatuses_cmd = &cobra.Command{
 		Use: `PlanStatuses`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan status by id`,
 		Long:  `Get the details of a plan status by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -3357,7 +3357,7 @@ var Get_PlanStatuses_cmd = &cobra.Command{
 
 var Get_PlanTypes_cmd = &cobra.Command{
 		Use: `PlanTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a plan type by id`,
 		Long:  `Get the details of a plan type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -3420,7 +3420,7 @@ var Get_PledgeBilling_cmd = &cobra.Command{
 
 var Get_PortfolioCustomElements_cmd = &cobra.Command{
 		Use: `PortfolioCustomElements`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a portfolio custom element by id`,
 		Long:  `Get the details of a portfolio custom element by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -3438,7 +3438,7 @@ var Get_PortfolioCustomElements_cmd = &cobra.Command{
 
 var Get_Portfolios_cmd = &cobra.Command{
 		Use: `Portfolios`,
-		Example: `{"ConstituentID":"string","Page":"string","PageSize":"string","PlanCustomColumns":"string","PortfolioCustomColumns":"string","PrimaryOnly":"string","StatusIds":"string","WorkerRoleIds":"string"}`,
+		Example: `{"ConstituentID":"string", "Page":"string", "PageSize":"string", "PlanCustomColumns":"string", "PortfolioCustomColumns":"string", "PrimaryOnly":"string", "StatusIds":"string", "WorkerRoleIds":"string"}`,
 		Short: `Get portfolio for a constituent`,
 		Long:  `Get portfolio for a constituent.`,
 		PreRunE: initTq,
@@ -3454,7 +3454,7 @@ var Get_Portfolios_cmd = &cobra.Command{
 
 var Get_Prefixes_cmd = &cobra.Command{
 		Use: `Prefixes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a prefix by id`,
 		Long:  `Get the details of a prefix by id.`,
 		PreRunE: initTq,
@@ -3472,7 +3472,7 @@ var Get_Prefixes_cmd = &cobra.Command{
 
 var Get_Premieres_cmd = &cobra.Command{
 		Use: `Premieres`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a premiere by id`,
 		Long:  `Get the details of a premiere by id.`,
 		PreRunE: initTq,
@@ -3490,7 +3490,7 @@ var Get_Premieres_cmd = &cobra.Command{
 
 var Get_PriceCategories_cmd = &cobra.Command{
 		Use: `PriceCategories`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a price category by id`,
 		Long:  `Get the details of a price category by id.`,
 		PreRunE: initTq,
@@ -3526,7 +3526,7 @@ var Get_PriceEvents_cmd = &cobra.Command{
 
 var Get_PriceLayerTypes_cmd = &cobra.Command{
 		Use: `PriceLayerTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a price layer type by id`,
 		Long:  `Get the details of a price layer type by id.`,
 		PreRunE: initTq,
@@ -3562,7 +3562,7 @@ var Get_PriceTemplates_cmd = &cobra.Command{
 
 var Get_PriceTypeCategories_cmd = &cobra.Command{
 		Use: `PriceTypeCategories`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a price type category by id`,
 		Long:  `Get the details of a price type category by id.`,
 		PreRunE: initTq,
@@ -3580,7 +3580,7 @@ var Get_PriceTypeCategories_cmd = &cobra.Command{
 
 var Get_PriceTypeGroups_cmd = &cobra.Command{
 		Use: `PriceTypeGroups`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a price type group by id`,
 		Long:  `Get the details of a price type group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -3598,7 +3598,7 @@ var Get_PriceTypeGroups_cmd = &cobra.Command{
 
 var Get_PriceTypeReasons_cmd = &cobra.Command{
 		Use: `PriceTypeReasons`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a price type reason by id`,
 		Long:  `Get the details of a price type reason by id.`,
 		PreRunE: initTq,
@@ -3656,7 +3656,7 @@ var Get_PriceTypes_cmd = &cobra.Command{
 
 var Get_PricingRuleCategories_cmd = &cobra.Command{
 		Use: `PricingRuleCategories`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a pricing rule category by id`,
 		Long:  `Get the details of a pricing rule category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -3674,7 +3674,7 @@ var Get_PricingRuleCategories_cmd = &cobra.Command{
 
 var Get_PricingRuleMessageTypes_cmd = &cobra.Command{
 		Use: `PricingRuleMessageTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a pricing rule message type by id`,
 		Long:  `Get the details of a pricing rule message type by id.`,
 		PreRunE: initTq,
@@ -3710,7 +3710,7 @@ var Get_PricingRuleSets_cmd = &cobra.Command{
 
 var Get_PricingRuleTypes_cmd = &cobra.Command{
 		Use: `PricingRuleTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a pricing rule type by id`,
 		Long:  `Get the details of a pricing rule type by id.`,
 		PreRunE: initTq,
@@ -3746,7 +3746,7 @@ var Get_PricingRules_cmd = &cobra.Command{
 
 var Get_Printers_cmd = &cobra.Command{
 		Use: `Printers`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a printer by id`,
 		Long:  `Get the details of a printer by id.`,
 		PreRunE: initTq,
@@ -3764,7 +3764,7 @@ var Get_Printers_cmd = &cobra.Command{
 
 var Get_ProductKeywords_cmd = &cobra.Command{
 		Use: `ProductKeywords`,
-		Example: `{"KeywordIds":"string","PackageIds":"string","ProductionElementIds":"string","ShowAll":"string"}`,
+		Example: `{"KeywordIds":"string", "PackageIds":"string", "ProductionElementIds":"string", "ShowAll":"string"}`,
 		Short: `Returns keywords for the requested production elements or packages`,
 		Long:  `Returns keywords for the requested production elements or packages.
 
@@ -3850,7 +3850,7 @@ var Get_ProgramListings_cmd = &cobra.Command{
 
 var Get_Programs_cmd = &cobra.Command{
 		Use: `Programs`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a program by id`,
 		Long:  `Get the details of a program by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -3868,7 +3868,7 @@ var Get_Programs_cmd = &cobra.Command{
 
 var Get_Pronouns_cmd = &cobra.Command{
 		Use: `Pronouns`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: ``,
 		Long:  ``,
 		PreRunE: initTq,
@@ -3886,7 +3886,7 @@ var Get_Pronouns_cmd = &cobra.Command{
 
 var Get_QualificationCategories_cmd = &cobra.Command{
 		Use: `QualificationCategories`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a Qualification Category by id`,
 		Long:  `Get the details of a Qualification Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -3904,7 +3904,7 @@ var Get_QualificationCategories_cmd = &cobra.Command{
 
 var Get_Qualifications_cmd = &cobra.Command{
 		Use: `Qualifications`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a Qualification by id`,
 		Long:  `Get the details of a Qualification by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -3976,7 +3976,7 @@ var Get_QueryElements_cmd = &cobra.Command{
 
 var Get_RankTypes_cmd = &cobra.Command{
 		Use: `RankTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a rank type by id`,
 		Long:  `Get the details of a rank type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -4010,7 +4010,7 @@ var Get_Rankings_cmd = &cobra.Command{
 
 var Get_ReceiptSettings_cmd = &cobra.Command{
 		Use: `ReceiptSettings`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a Receipt Setting by id`,
 		Long:  `Get the details of a Receipt Setting by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -4062,7 +4062,7 @@ var Get_ReferenceTableUserGroups_cmd = &cobra.Command{
 
 var Get_ReferenceTables_cmd = &cobra.Command{
 		Use: `ReferenceTables`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get details for a reference table by Id`,
 		Long:  `Get details for a reference table by Id.`,
 		PreRunE: initTq,
@@ -4080,7 +4080,7 @@ var Get_ReferenceTables_cmd = &cobra.Command{
 
 var Get_RelationshipCategories_cmd = &cobra.Command{
 		Use: `RelationshipCategories`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a relationship category by id`,
 		Long:  `Get the details of a relationship category by id.`,
 		PreRunE: initTq,
@@ -4098,7 +4098,7 @@ var Get_RelationshipCategories_cmd = &cobra.Command{
 
 var Get_Relationships_cmd = &cobra.Command{
 		Use: `Relationships`,
-		Example: `{"ActiveOnly":"string","AssociatedConstituentID":"string","ConstituentID":"string","EndActiveDate":"string","IncludeAffiliations":"string","StartActiveDate":"string"}`,
+		Example: `{"ActiveOnly":"string", "AssociatedConstituentID":"string", "ConstituentID":"string", "EndActiveDate":"string", "IncludeAffiliations":"string", "StartActiveDate":"string"}`,
 		Short: `Get all affiliations and associations of the specified constituent id or get all affiliations and associations of the specified associated constituent id`,
 		Long:  `Get all affiliations and associations of the specified constituent id or get all affiliations and associations of the specified associated constituent id. If both are specified get all the associations and affiliations between them.`,
 		PreRunE: initTq,
@@ -4205,7 +4205,7 @@ var Get_Research_cmd = &cobra.Command{
 
 var Get_ResearchTypes_cmd = &cobra.Command{
 		Use: `ResearchTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of research type by id`,
 		Long:  `Get the details of research type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -4223,7 +4223,7 @@ var Get_ResearchTypes_cmd = &cobra.Command{
 
 var Get_ResourceCategories_cmd = &cobra.Command{
 		Use: `ResourceCategories`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a Resource Category by id`,
 		Long:  `Get the details of a Resource Category by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -4297,7 +4297,7 @@ var Get_Resources_cmd = &cobra.Command{
 
 var Get_SalesChannels_cmd = &cobra.Command{
 		Use: `SalesChannels`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a sales channel by id`,
 		Long:  `Get the details of a sales channel by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -4315,7 +4315,7 @@ var Get_SalesChannels_cmd = &cobra.Command{
 
 var Get_SalesLayoutButtonTypes_cmd = &cobra.Command{
 		Use: `SalesLayoutButtonTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a sales layout button type by id`,
 		Long:  `Get the details of a sales layout button type by id.`,
 		PreRunE: initTq,
@@ -4351,7 +4351,7 @@ var Get_SalesLayouts_cmd = &cobra.Command{
 
 var Get_SalutationTypes_cmd = &cobra.Command{
 		Use: `SalutationTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a salutation type by id`,
 		Long:  `Get the details of a salutation type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -4387,7 +4387,7 @@ var Get_Salutations_cmd = &cobra.Command{
 
 var Get_SchedulePatternTypes_cmd = &cobra.Command{
 		Use: `SchedulePatternTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a Schedule Pattern by id`,
 		Long:  `Get the details of a Schedule Pattern by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -4405,7 +4405,7 @@ var Get_SchedulePatternTypes_cmd = &cobra.Command{
 
 var Get_ScheduleTypes_cmd = &cobra.Command{
 		Use: `ScheduleTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a Schedule Type by id`,
 		Long:  `Get the details of a Schedule Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -4423,7 +4423,7 @@ var Get_ScheduleTypes_cmd = &cobra.Command{
 
 var Get_SeasonTypes_cmd = &cobra.Command{
 		Use: `SeasonTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a season type by id`,
 		Long:  `Get the details of a season type by id.`,
 		PreRunE: initTq,
@@ -4441,7 +4441,7 @@ var Get_SeasonTypes_cmd = &cobra.Command{
 
 var Get_Seasons_cmd = &cobra.Command{
 		Use: `Seasons`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a season by id`,
 		Long:  `Get the details of a season by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -4459,7 +4459,7 @@ var Get_Seasons_cmd = &cobra.Command{
 
 var Get_SeatCodes_cmd = &cobra.Command{
 		Use: `SeatCodes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a seat code by id`,
 		Long:  `Get the details of a seat code by id.`,
 		PreRunE: initTq,
@@ -4477,7 +4477,7 @@ var Get_SeatCodes_cmd = &cobra.Command{
 
 var Get_SeatStatuses_cmd = &cobra.Command{
 		Use: `SeatStatuses`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a seat status by id`,
 		Long:  `Get the details of a seat status by id.`,
 		PreRunE: initTq,
@@ -4495,7 +4495,7 @@ var Get_SeatStatuses_cmd = &cobra.Command{
 
 var Get_Sections_cmd = &cobra.Command{
 		Use: `Sections`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a section by id`,
 		Long:  `Get the details of a section by id.`,
 		PreRunE: initTq,
@@ -4565,7 +4565,7 @@ var Get_SecurityModesOfSale_cmd = &cobra.Command{
 
 var Get_SecurityObjectPermissions_cmd = &cobra.Command{
 		Use: `SecurityObjectPermissions`,
-		Example: `{"ConstituencyID":"string","ObjectIds":"string","Objectid":"string"}`,
+		Example: `{"ConstituencyID":"string", "ObjectIds":"string", "Objectid":"string"}`,
 		Short: `Get all the object permissions valid for the context usergroup`,
 		Long:  `Get all the object permissions valid for the context usergroup. Optionally filter by constituency id and/or object id.`,
 		PreRunE: initTq,
@@ -4643,7 +4643,7 @@ var Get_SecurityServiceResources_cmd = &cobra.Command{
 
 var Get_SecurityUserGroups_cmd = &cobra.Command{
 		Use: `SecurityUserGroups`,
-		Example: `{"Application":"string","UserName":"string"}`,
+		Example: `{"Application":"string", "UserName":"string"}`,
 		Short: `Get all security user groups`,
 		Long:  `Get all security user groups.`,
 		PreRunE: initTq,
@@ -4724,7 +4724,7 @@ Includes counts of cart products, the login status, MOS and Source`,
 
 var Get_SourceGroups_cmd = &cobra.Command{
 		Use: `SourceGroups`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a source group by id`,
 		Long:  `Get the details of a source group by id.`,
 		PreRunE: initTq,
@@ -4776,7 +4776,7 @@ var Get_SpecialActivities_cmd = &cobra.Command{
 
 var Get_SpecialActivityStatuses_cmd = &cobra.Command{
 		Use: `SpecialActivityStatuses`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a Special Activity Status by id`,
 		Long:  `Get the details of a Special Activity Status by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -4794,7 +4794,7 @@ var Get_SpecialActivityStatuses_cmd = &cobra.Command{
 
 var Get_SpecialActivityTypes_cmd = &cobra.Command{
 		Use: `SpecialActivityTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a Special Activity Type by id`,
 		Long:  `Get the details of a Special Activity Type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -4812,7 +4812,7 @@ var Get_SpecialActivityTypes_cmd = &cobra.Command{
 
 var Get_States_cmd = &cobra.Command{
 		Use: `States`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a state by id`,
 		Long:  `Get the details of a state by id.`,
 		PreRunE: initTq,
@@ -4830,7 +4830,7 @@ var Get_States_cmd = &cobra.Command{
 
 var Get_StepTypes_cmd = &cobra.Command{
 		Use: `StepTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a step type by id`,
 		Long:  `Get the details of a step type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -4868,7 +4868,7 @@ var Get_Steps_cmd = &cobra.Command{
 
 var Get_SubLineItemStatuses_cmd = &cobra.Command{
 		Use: `SubLineItemStatuses`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a sub line item status by id`,
 		Long:  `Get the details of a sub line item status by id.`,
 		PreRunE: initTq,
@@ -4886,7 +4886,7 @@ var Get_SubLineItemStatuses_cmd = &cobra.Command{
 
 var Get_SubLineItems_cmd = &cobra.Command{
 		Use: `SubLineItems`,
-		Example: `{"ConstituentID":"string","IncludeAffiliations":"string","IncludePackageBaseSubLineitems":"string","OrderEndDate":"string","OrderID":"string","OrderStartDate":"string","PerformanceEndDate":"string","PerformanceStartDate":"string","PerformanceTypeIds":"string","SubLineItemStatusIds":"string"}`,
+		Example: `{"ConstituentID":"string", "IncludeAffiliations":"string", "IncludePackageBaseSubLineitems":"string", "OrderEndDate":"string", "OrderID":"string", "OrderStartDate":"string", "PerformanceEndDate":"string", "PerformanceStartDate":"string", "PerformanceTypeIds":"string", "SubLineItemStatusIds":"string"}`,
 		Short: `Returns sub line item summary data for a constituent`,
 		Long:  `Returns sub line item summary data for a constituent`,
 		PreRunE: initTq,
@@ -4899,7 +4899,7 @@ var Get_SubLineItems_cmd = &cobra.Command{
 
 var Get_Suffixes_cmd = &cobra.Command{
 		Use: `Suffixes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a suffix by id`,
 		Long:  `Get the details of a suffix by id.`,
 		PreRunE: initTq,
@@ -4917,7 +4917,7 @@ var Get_Suffixes_cmd = &cobra.Command{
 
 var Get_SurveyQuestions_cmd = &cobra.Command{
 		Use: `SurveyQuestions`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a survey question by id`,
 		Long:  `Get the details of a survey question by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -4971,7 +4971,7 @@ var Get_SystemDefaults_cmd = &cobra.Command{
 
 var Get_TemplateCategories_cmd = &cobra.Command{
 		Use: `TemplateCategories`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a template category by id`,
 		Long:  `Get the details of a template category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -5021,7 +5021,7 @@ var Get_TemplatePrices_cmd = &cobra.Command{
 
 var Get_TemplateTypes_cmd = &cobra.Command{
 		Use: `TemplateTypes`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a template type by id`,
 		Long:  `Get the details of a template type by id. To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -5057,7 +5057,7 @@ var Get_Templates_cmd = &cobra.Command{
 
 var Get_Theaters_cmd = &cobra.Command{
 		Use: `Theaters`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a theater by id`,
 		Long:  `Get the details of a theater by id.`,
 		PreRunE: initTq,
@@ -5075,7 +5075,7 @@ var Get_Theaters_cmd = &cobra.Command{
 
 var Get_TicketHistory_cmd = &cobra.Command{
 		Use: `TicketHistory`,
-		Example: `{"ConstituentID":"string","IncludeAffiliations":"string","OrderEndDate":"string","OrderStartDate":"string","PerformanceEndDate":"string","PerformanceID":"string","PerformanceStartDate":"string","ProductionSeasonID":"string","SeasonID":"string"}`,
+		Example: `{"ConstituentID":"string", "IncludeAffiliations":"string", "OrderEndDate":"string", "OrderStartDate":"string", "PerformanceEndDate":"string", "PerformanceID":"string", "PerformanceStartDate":"string", "ProductionSeasonID":"string", "SeasonID":"string"}`,
 		Short: `Gets history information for tickets`,
 		Long:  `Gets history information for tickets`,
 		PreRunE: initTq,
@@ -5088,7 +5088,7 @@ var Get_TicketHistory_cmd = &cobra.Command{
 
 var Get_TimeSlots_cmd = &cobra.Command{
 		Use: `TimeSlots`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a time slot by id`,
 		Long:  `Get the details of a time slot by id.`,
 		PreRunE: initTq,
@@ -5124,7 +5124,7 @@ var Get_Titles_cmd = &cobra.Command{
 
 var Get_TransactionHistory_cmd = &cobra.Command{
 		Use: `TransactionHistory`,
-		Example: `{"ConstituentID":"string","EndDate":"string","IncludeAffiliations":"string","Page":"string","PageSize":"string","PaymentID":"string","ReferenceID":"string","SortByDirection":"string","SortByField":"string","StartDate":"string"}`,
+		Example: `{"ConstituentID":"string", "EndDate":"string", "IncludeAffiliations":"string", "Page":"string", "PageSize":"string", "PaymentID":"string", "ReferenceID":"string", "SortByDirection":"string", "SortByField":"string", "StartDate":"string"}`,
 		Short: `Get details of all transaction histories for the specified constituent id and all its visible affiliations' transaction histories as well`,
 		Long:  `Get details of all transaction histories for the specified constituent id and all its visible affiliations' transaction histories as well. To exclude transaction histories of the visible affiliations pass includeAffiliations=false. This resource is paged. Pass filters such as transaction reference id, payment id, or start and end date to limit the results. Results can also be sorted.`,
 		PreRunE: initTq,
@@ -5137,7 +5137,7 @@ var Get_TransactionHistory_cmd = &cobra.Command{
 
 var Get_TriPOSCloudConfigurations_cmd = &cobra.Command{
 		Use: `TriPOSCloudConfigurations`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a TriPOS Cloud configuration by id`,
 		Long:  `Get the details of a TriPOS Cloud configuration by id.`,
 		PreRunE: initTq,
@@ -5155,7 +5155,7 @@ var Get_TriPOSCloudConfigurations_cmd = &cobra.Command{
 
 var Get_UpgradeCategories_cmd = &cobra.Command{
 		Use: `UpgradeCategories`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of an Upgrade Category by id`,
 		Long:  `Get the details of an Upgrade Category by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -5189,7 +5189,7 @@ var Get_UpgradeLogs_cmd = &cobra.Command{
 
 var Get_UserGroups_cmd = &cobra.Command{
 		Use: `UserGroups`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a user group by id`,
 		Long:  `Get the details of a user group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -5243,7 +5243,7 @@ var Get_Users_cmd = &cobra.Command{
 
 var Get_WebContentTypes_cmd = &cobra.Command{
 		Use: `WebContentTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get a specific web content type`,
 		Long:  `Get a specific web content type.`,
 		PreRunE: initTq,
@@ -5263,7 +5263,7 @@ var Get_WebContentTypes_cmd = &cobra.Command{
 
 var Get_WebContents_cmd = &cobra.Command{
 		Use: `WebContents`,
-		Example: `{"ContentTypeIds":"string","PackageIds":"string","ProductionElementIds":"string","ShowAll":"string"}`,
+		Example: `{"ContentTypeIds":"string", "PackageIds":"string", "ProductionElementIds":"string", "ShowAll":"string"}`,
 		Short: `Returns web content for the requested production elements or packages`,
 		Long:  `Returns web content for the requested production elements or packages.
 The result can be filtered by content types.  At least one package id or production element id is required.
@@ -5314,7 +5314,7 @@ var Get_WorkerQualifications_cmd = &cobra.Command{
 
 var Get_WorkerRoles_cmd = &cobra.Command{
 		Use: `WorkerRoles`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a worker role by id`,
 		Long:  `Get the details of a worker role by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -5332,7 +5332,7 @@ var Get_WorkerRoles_cmd = &cobra.Command{
 
 var Get_WorkerTypes_cmd = &cobra.Command{
 		Use: `WorkerTypes`,
-		Example: `{"Filter":"string","ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a worker type by id`,
 		Long:  `Get the details of a worker type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`,
 		PreRunE: initTq,
@@ -5368,7 +5368,7 @@ var Get_Workers_cmd = &cobra.Command{
 
 var Get_ZoneGroups_cmd = &cobra.Command{
 		Use: `ZoneGroups`,
-		Example: `{"ID":"string","MaintenanceMode":"string"}`,
+		Example: `{"ID":"string", "MaintenanceMode":"string"}`,
 		Short: `Get the details of a zone group by id`,
 		Long:  `Get the details of a zone group by id.`,
 		PreRunE: initTq,
@@ -5404,7 +5404,7 @@ var Get_ZoneMaps_cmd = &cobra.Command{
 
 var Get_Zones_cmd = &cobra.Command{
 		Use: `Zones`,
-		Example: `{"ZoneID":"string","ZoneMapID":"string"}`,
+		Example: `{"ZoneID":"string", "ZoneMapID":"string"}`,
 		Short: `Get details of a specific zone`,
 		Long:  `Get details of a specific zone.`,
 		PreRunE: initTq,
@@ -5424,405 +5424,311 @@ var Get_Zones_cmd = &cobra.Command{
 func init() {
 		Get_cmd.AddCommand(Get_AccountTypes_cmd) 
 				Get_AccountTypes_cmd.Flags().Bool("All", false, 
-					`Get all account types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all account types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_AccountTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all account types.
-`)
+					`Get a summary representation of all account types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Accounts_cmd) 
 				Get_Accounts_cmd.Flags().Bool("All", false, 
 					`Get details of all the credit card, direct debit, and SEPA accounts for the specified constituent id and all its visible affiliates' accounts as well.
-To exclude accounts of the visible affiliates pass includeAffiliations=false.
-{"AccountTypeID":"string","ConstituentID":"string","IncludeAffiliates":"string","IncludeInactive":"string"}`)
+To exclude accounts of the visible affiliates pass includeAffiliations=false.` + "\nQuery:\n" + `{"AccountTypeID":"string", "ConstituentID":"string", "IncludeAffiliates":"string", "IncludeInactive":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ActionTypes_cmd) 
 				Get_ActionTypes_cmd.Flags().Bool("All", false, 
-					`Get all action types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all action types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_ActionTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all action types.
-`)
+					`Get a summary representation of all action types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Actions_cmd) 
 				Get_Actions_cmd.Flags().Bool("All", false, 
-					`Get details of all the actions for the given constituent or issue.
-{"ConstituentID":"string","IssueID":"string"}`)
+					`Get details of all the actions for the given constituent or issue.` + "\nQuery:\n" + `{"ConstituentID":"string", "IssueID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ActivityCategories_cmd) 
 				Get_ActivityCategories_cmd.Flags().Bool("All", false, 
-					`Get all activity categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all activity categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_ActivityCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all activity categories.
-`)
+					`Get a summary representation of all activity categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ActivityTypes_cmd) 
 				Get_ActivityTypes_cmd.Flags().Bool("All", false, 
-					`Get all activity types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all activity types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_ActivityTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all activity types.
-`)
+					`Get a summary representation of all activity types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_AddressTypes_cmd) 
 				Get_AddressTypes_cmd.Flags().Bool("All", false, 
-					`Get all address types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all address types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_AddressTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all address types.
-`)
+					`Get a summary representation of all address types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Addresses_cmd) 
 				Get_Addresses_cmd.Flags().Bool("All", false, 
-					`Get details of all the addresses for the specified constituent id and all its visible affiliation's addresses as well. To exclude addresses of the visible affiliations pass includeAffiliations=false. To get only the primary addresses, pass primaryOnly=true.
-{"ConstituentID":"string","IncludeAffiliations":"string","IncludeFromAffiliations":"string","PrimaryOnly":"string"}`)
+					`Get details of all the addresses for the specified constituent id and all its visible affiliation's addresses as well. To exclude addresses of the visible affiliations pass includeAffiliations=false. To get only the primary addresses, pass primaryOnly=true.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string", "IncludeFromAffiliations":"string", "PrimaryOnly":"string"}`)
 	
 		Get_cmd.AddCommand(Get_AffiliationTypes_cmd) 
 				Get_AffiliationTypes_cmd.Flags().Bool("All", false, 
-					`
-{"ConstituentTypeID":"string","Filter":"string","MaintenanceMode":"string"}`) 
+					`` + "\nQuery:\n" + `{"ConstituentTypeID":"string", "Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_AffiliationTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all affiliation types.
-`)
+					`Get a summary representation of all affiliation types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Affiliations_cmd) 
 				Get_Affiliations_cmd.Flags().Bool("All", false, 
-					`Get details of all the affiliation of the specified individual constituent id or get all the affiliations of the specified group constituent id. If both individual constituent id and group constituent id are specified get all the affiliations between them. To filter the affiliations that are active within certain date then pass values for start date and end date.To fetch primary affiliations alone pass primaryOnly=true. To limit the associations returned to those that are primary or that are marked as showWithGroup, pass showWithGroup=true.
-{"EndActiveDate":"string","GroupConstituentID":"string","IndividualConstituentID":"string","PrimaryOnly":"string","ShowWithGroup":"string","StartActiveDate":"string"}`)
+					`Get details of all the affiliation of the specified individual constituent id or get all the affiliations of the specified group constituent id. If both individual constituent id and group constituent id are specified get all the affiliations between them. To filter the affiliations that are active within certain date then pass values for start date and end date.To fetch primary affiliations alone pass primaryOnly=true. To limit the associations returned to those that are primary or that are marked as showWithGroup, pass showWithGroup=true.` + "\nQuery:\n" + `{"EndActiveDate":"string", "GroupConstituentID":"string", "IndividualConstituentID":"string", "PrimaryOnly":"string", "ShowWithGroup":"string", "StartActiveDate":"string"}`)
 	
 		Get_cmd.AddCommand(Get_AliasTypes_cmd) 
 				Get_AliasTypes_cmd.Flags().Bool("All", false, 
-					`Get all alias types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all alias types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_AliasTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all alias types.
-`)
+					`Get a summary representation of all alias types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Aliases_cmd) 
 				Get_Aliases_cmd.Flags().Bool("All", false, 
-					`Get details of all the aliases for the specified constituent id and all its visible affiliation's aliases as well. To exclude aliases of the visible affiliations pass includeAffiliations=false.
-{"ConstituentID":"string","IncludeAffiliations":"string"}`)
+					`Get details of all the aliases for the specified constituent id and all its visible affiliation's aliases as well. To exclude aliases of the visible affiliations pass includeAffiliations=false.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string"}`)
 	
 		Get_cmd.AddCommand(Get_AnalyticsCubes_cmd) 
 				Get_AnalyticsCubes_cmd.Flags().Bool("All", false, 
-					`Get all analytics cubes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`)
+					`Get all analytics cubes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`)
 	
 		Get_cmd.AddCommand(Get_AnalyticsReports_cmd) 
 				Get_AnalyticsReports_cmd.Flags().Bool("All", false, 
-					`Get all SSRS Reports for display in Analytics.
-`)
+					`Get all SSRS Reports for display in Analytics.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_AppScreenTexts_cmd) 
 				Get_AppScreenTexts_cmd.Flags().Bool("All", false, 
-					`Get details of all App Screen Texts. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"MaintenanceMode":"string"}`) 
+					`Get details of all App Screen Texts. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_AppScreenTexts_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all App Screen Texts.
-`)
+					`Get a summary representation of all App Screen Texts.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_AppealCategories_cmd) 
 				Get_AppealCategories_cmd.Flags().Bool("All", false, 
-					`Get all appeal categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all appeal categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_AppealCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all appeal categories.
-`)
+					`Get a summary representation of all appeal categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Appeals_cmd) 
 				Get_Appeals_cmd.Flags().Bool("Summaries", false, 
-					`Get summary of all Appeals.
-{"ActiveOnly":"string"}`)
+					`Get summary of all Appeals.` + "\nQuery:\n" + `{"ActiveOnly":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ApplicationObjects_cmd)
 	
 		Get_cmd.AddCommand(Get_Artists_cmd) 
 				Get_Artists_cmd.Flags().Bool("All", false, 
-					`Get details of all artists.
-`)
+					`Get details of all artists.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_AssetTypes_cmd) 
 				Get_AssetTypes_cmd.Flags().Bool("All", false, 
-					`Get all asset types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all asset types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_AssetTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all asset types.
-`)
+					`Get a summary representation of all asset types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Assets_cmd) 
 				Get_Assets_cmd.Flags().Bool("All", false, 
-					`Get details of all the assets for the specified constituent id and all its visible affiliations' assets as well. To exclude assets of the visible affiliations pass includeAffiliations=false.
-{"ConstituentID":"string","IncludeAffiliations":"string"}`)
+					`Get details of all the assets for the specified constituent id and all its visible affiliations' assets as well. To exclude assets of the visible affiliations pass includeAffiliations=false.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string"}`)
 	
 		Get_cmd.AddCommand(Get_AssociationTypes_cmd) 
 				Get_AssociationTypes_cmd.Flags().Bool("All", false, 
-					`Get all association types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all association types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_AssociationTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all association types.
-`)
+					`Get a summary representation of all association types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Associations_cmd) 
 				Get_Associations_cmd.Flags().Bool("All", false, 
-					`Get details of all the association of the specified constituent id or get all the associations of the specified associated constituent id. If both constituent id and associated constituent id are specified get all the associations between them. To filter the associations that are active within certain date then pass values for start date and end date.
-{"AssociatedConstituentID":"string","ConstituentID":"string","EndActiveDate":"string","StartActiveDate":"string"}`)
+					`Get details of all the association of the specified constituent id or get all the associations of the specified associated constituent id. If both constituent id and associated constituent id are specified get all the associations between them. To filter the associations that are active within certain date then pass values for start date and end date.` + "\nQuery:\n" + `{"AssociatedConstituentID":"string", "ConstituentID":"string", "EndActiveDate":"string", "StartActiveDate":"string"}`)
 	
 		Get_cmd.AddCommand(Get_AttendanceHistory_cmd)
 	
 		Get_cmd.AddCommand(Get_Attributes_cmd) 
 				Get_Attributes_cmd.Flags().Bool("All", false, 
-					`Get details of all the attributes for the specified constituent id and all its visible affiliation's attributes as well. To exclude attributes of the visible affiliations pass includeAffiliations=false.
-{"ConstituentID":"string","IncludeAffiliations":"string"}`)
+					`Get details of all the attributes for the specified constituent id and all its visible affiliation's attributes as well. To exclude attributes of the visible affiliations pass includeAffiliations=false.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string"}`)
 	
 		Get_cmd.AddCommand(Get_AuditLogs_cmd) 
 				Get_AuditLogs_cmd.Flags().Bool("All", false, 
 					`Get all audit logs. The audit log response is paginated with default pageIndex = 1 and pageSize = 100. To get the
 audit log between a specific time interval specify auditStartTime and auditEndTime. If only auditStartTime is
 specified then all audit entries after that time would be returned. If only auditEndTime is specified then all
-audit entries before that time would be returned.
-{"Action":"string","AuditEndTime":"string","AuditStartTime":"string","EntityIds":"string","IncludeSubEntities":"string","PageIndex":"string","PageSize":"string","Table":"string"}`) 
+audit entries before that time would be returned.` + "\nQuery:\n" + `{"Action":"string", "AuditEndTime":"string", "AuditStartTime":"string", "EntityIds":"string", "IncludeSubEntities":"string", "PageIndex":"string", "PageSize":"string", "Table":"string"}`) 
 				Get_AuditLogs_cmd.Flags().Bool("Details", false, 
-					`Get audit log details.
-{"Action":"string","AuditEndTime":"string","AuditStartTime":"string","EntityIds":"string","IncludeSubEntities":"string","PageIndex":"string","PageSize":"string","Table":"string"}`)
+					`Get audit log details.` + "\nQuery:\n" + `{"Action":"string", "AuditEndTime":"string", "AuditStartTime":"string", "EntityIds":"string", "IncludeSubEntities":"string", "PageIndex":"string", "PageSize":"string", "Table":"string"}`)
 	
 		Get_cmd.AddCommand(Get_Authenticate_cmd)
 	
 		Get_cmd.AddCommand(Get_BatchMaintenance_cmd) 
 				Get_BatchMaintenance_cmd.Flags().Bool("Active", false, 
-					`Returns all open or held batches owned by the service user. Optionally filters out controlled batches
-{"IncludeControlled":"string"}`)
+					`Returns all open or held batches owned by the service user. Optionally filters out controlled batches` + "\nQuery:\n" + `{"IncludeControlled":"string"}`)
 	
 		Get_cmd.AddCommand(Get_BatchTypeGroups_cmd) 
 				Get_BatchTypeGroups_cmd.Flags().Bool("All", false, 
-					`Get all batch type groups. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all batch type groups. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_BatchTypeGroups_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all batch type groups.
-`)
+					`Get a summary representation of all batch type groups.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_BatchTypeUserGroup_cmd)
 	
 		Get_cmd.AddCommand(Get_BatchTypes_cmd) 
 				Get_BatchTypes_cmd.Flags().Bool("All", false, 
-					`Get all batch types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all batch types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_BatchTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all batch types.
-`)
+					`Get a summary representation of all batch types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_BillingSchedules_cmd) 
 				Get_BillingSchedules_cmd.Flags().Bool("All", false, 
-					`Get all Billing Schedules. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all Billing Schedules. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_BillingSchedules_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all Billing Schedules.
-`)
+					`Get a summary representation of all Billing Schedules.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_BillingTypes_cmd) 
 				Get_BillingTypes_cmd.Flags().Bool("All", false, 
-					`Get details of all Billing Types. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true".
-{"MaintenanceMode":"string"}`) 
+					`Get details of all Billing Types. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true".` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_BillingTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all Billing Types.
-`)
+					`Get a summary representation of all Billing Types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_BookingCategories_cmd) 
 				Get_BookingCategories_cmd.Flags().Bool("All", false, 
-					`Get all Booking Categories. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all Booking Categories. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_BookingCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all Booking Categories.
-`)
+					`Get a summary representation of all Booking Categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_BookingTemplates_cmd) 
 				Get_BookingTemplates_cmd.Flags().Bool("Summaries", false, 
-					`Get summary of all Booking Templates, filtered optionally by category.
-{"CategoryID":"string"}`)
+					`Get summary of all Booking Templates, filtered optionally by category.` + "\nQuery:\n" + `{"CategoryID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_Bookings_cmd) 
 				Get_Bookings_cmd.Flags().Bool("AllDocumentSummaries", false, 
-					`Get summary of all the documents associated with the booking. (Excluding the file contents)
-{"BookingID":"string"}`) 
+					`Get summary of all the documents associated with the booking. (Excluding the file contents)` + "\nQuery:\n" + `{"BookingID":"string"}`) 
 				Get_Bookings_cmd.Flags().Bool("AllDocuments", false, 
-					`Get all the documents associated with the booking (Including the file contents).
-{"BookingID":"string"}`) 
+					`Get all the documents associated with the booking (Including the file contents).` + "\nQuery:\n" + `{"BookingID":"string"}`) 
 				Get_Bookings_cmd.Flags().Bool("Document", false, 
-					`Get the document associated with the documentId (Including the file contents).
-{"BookingID":"string","DocumentID":"string"}`) 
+					`Get the document associated with the documentId (Including the file contents).` + "\nQuery:\n" + `{"BookingID":"string", "DocumentID":"string"}`) 
 				Get_Bookings_cmd.Flags().Bool("Summary", false, 
-					`Get a summary for a single Booking.
-{"BookingID":"string"}`)
+					`Get a summary for a single Booking.` + "\nQuery:\n" + `{"BookingID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_BulkCopySets_cmd) 
 				Get_BulkCopySets_cmd.Flags().Bool("All", false, 
-					`Get all bulk copy sets.
-`) 
+					`Get all bulk copy sets.` + "\nQuery:\n" + ``) 
 				Get_BulkCopySets_cmd.Flags().Bool("DayForCopy", false, 
-					`Returns the packages and performances that will be copied for the daily bulk copy set
-{"BulkCopySetID":"string"}`) 
+					`Returns the packages and performances that will be copied for the daily bulk copy set` + "\nQuery:\n" + `{"BulkCopySetID":"string"}`) 
 				Get_BulkCopySets_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary of all bulk copy sets.
-`)
+					`Get a summary of all bulk copy sets.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_BulkDailyCopyExclusions_cmd) 
 				Get_BulkDailyCopyExclusions_cmd.Flags().Bool("All", false, 
-					`Get all bulk daily copy exclusions for a given bulk copy set.
-{"BulkCopySetID":"string"}`)
+					`Get all bulk daily copy exclusions for a given bulk copy set.` + "\nQuery:\n" + `{"BulkCopySetID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_BusinessUnits_cmd) 
 				Get_BusinessUnits_cmd.Flags().Bool("All", false, 
-					`Get all business units. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all business units. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_BusinessUnits_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all business units.
-`)
+					`Get a summary representation of all business units.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Cache_cmd)
 	
 		Get_cmd.AddCommand(Get_CampaignDesignations_cmd) 
 				Get_CampaignDesignations_cmd.Flags().Bool("All", false, 
-					`Get all Designations associated to a Campaign.
-{"CampaignID":"string"}`)
+					`Get all Designations associated to a Campaign.` + "\nQuery:\n" + `{"CampaignID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_CampaignFunds_cmd) 
 				Get_CampaignFunds_cmd.Flags().Bool("All", false, 
-					`Get all Funds associated to a Campaign.
-{"AsOfDateTime":"string","CampaignID":"string"}`)
+					`Get all Funds associated to a Campaign.` + "\nQuery:\n" + `{"AsOfDateTime":"string", "CampaignID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_Campaigns_cmd) 
 				Get_Campaigns_cmd.Flags().Bool("Summaries", false, 
-					`Return a collection of all campaigns in summary, optionally excluding inactive campaigns.
-{"ActiveOnly":"string"}`)
+					`Return a collection of all campaigns in summary, optionally excluding inactive campaigns.` + "\nQuery:\n" + `{"ActiveOnly":"string"}`)
 	
 		Get_cmd.AddCommand(Get_CardReaderTypes_cmd) 
 				Get_CardReaderTypes_cmd.Flags().Bool("All", false, 
-					`Get details of all Card Reader Types. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"MaintenanceMode":"string"}`) 
+					`Get details of all Card Reader Types. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_CardReaderTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all Card Reader Types.
-`)
+					`Get a summary representation of all Card Reader Types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Cart_cmd) 
 				Get_Cart_cmd.Flags().Bool("CartProperties", false, 
-					`Returns cart properties
-{"SessionKey":"string"}`) 
+					`Returns cart properties` + "\nQuery:\n" + `{"SessionKey":"string"}`) 
 				Get_Cart_cmd.Flags().Bool("Messages", false, 
 					`Gets the pricing rule messages for the current cart.
-Both Message Only and Rule messages are returned.
-{"MessageTypes":"string","SavedCart":"string","SessionKey":"string"}`) 
+Both Message Only and Rule messages are returned.` + "\nQuery:\n" + `{"MessageTypes":"string", "SavedCart":"string", "SessionKey":"string"}`) 
 				Get_Cart_cmd.Flags().Bool("ReceiptString", false, 
-					`Returns a formatted receipt for a cart
-{"ReceiptSettingsID":"string","SessionKey":"string","TargetFormat":"string"}`) 
+					`Returns a formatted receipt for a cart` + "\nQuery:\n" + `{"ReceiptSettingsID":"string", "SessionKey":"string", "TargetFormat":"string"}`) 
 				Get_Cart_cmd.Flags().Bool("Summary", false, 
 					`Gets the cart summary
-Used by TRBO.  Returns the cart with product lines summarized by price type, zone and price.
-{"MessageTypes":"string","SavedCart":"string","SessionKey":"string"}`)
+Used by TRBO.  Returns the cart with product lines summarized by price type, zone and price.` + "\nQuery:\n" + `{"MessageTypes":"string", "SavedCart":"string", "SessionKey":"string"}`)
 	
 		Get_cmd.AddCommand(Get_Colors_cmd) 
 				Get_Colors_cmd.Flags().Bool("All", false, 
-					`Get all colors. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all colors. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_Colors_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all colors.
-`)
+					`Get a summary representation of all colors.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Composers_cmd) 
 				Get_Composers_cmd.Flags().Bool("All", false, 
-					`Get all composers. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all composers. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_Composers_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all composers.
-`)
+					`Get a summary representation of all composers.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Constituencies_cmd) 
 				Get_Constituencies_cmd.Flags().Bool("All", false, 
-					`Get details of all the constituencies for the specified constituent id and all its visible affiliation's constituencies as well. To exclude constituencies of the visible affiliations pass includeAffiliations=false.
-{"ConstituentID":"string","IncludeAffiliations":"string"}`)
+					`Get details of all the constituencies for the specified constituent id and all its visible affiliation's constituencies as well. To exclude constituencies of the visible affiliations pass includeAffiliations=false.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ConstituencyTypes_cmd) 
 				Get_ConstituencyTypes_cmd.Flags().Bool("All", false, 
-					`Get all constituency types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all constituency types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_ConstituencyTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all constituency types.
-`)
+					`Get a summary representation of all constituency types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ConstituentContributions_cmd)
 	
 		Get_cmd.AddCommand(Get_ConstituentDocuments_cmd) 
 				Get_ConstituentDocuments_cmd.Flags().Bool("All", false, 
-					`Get all the documents for a particular constituent including file contents.
-{"ConstituentID":"string","IncludeAffiliations":"string"}`) 
+					`Get all the documents for a particular constituent including file contents.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string"}`) 
 				Get_ConstituentDocuments_cmd.Flags().Bool("AllSummary", false, 
-					`Get summary of all the documents for the constituent. Only a summary of file information is returned.
-{"ConstituentID":"string","IncludeAffiliations":"string"}`)
+					`Get summary of all the documents for the constituent. Only a summary of file information is returned.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ConstituentGroups_cmd) 
 				Get_ConstituentGroups_cmd.Flags().Bool("All", false, 
-					`Get all constituent groups. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all constituent groups. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_ConstituentGroups_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all constituent groups.
-`)
+					`Get a summary representation of all constituent groups.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ConstituentInactives_cmd) 
 				Get_ConstituentInactives_cmd.Flags().Bool("All", false, 
-					`Get all constituent inactives. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all constituent inactives. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_ConstituentInactives_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all constituent inactives.
-`)
+					`Get a summary representation of all constituent inactives.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ConstituentProtectionTypes_cmd) 
 				Get_ConstituentProtectionTypes_cmd.Flags().Bool("All", false, 
-					`Get all constituent protection types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all constituent protection types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_ConstituentProtectionTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all constituent protection types.
-`)
+					`Get a summary representation of all constituent protection types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ConstituentTypeAffiliates_cmd) 
 				Get_ConstituentTypeAffiliates_cmd.Flags().Bool("All", false, 
-					`Get all constituent type affiliates. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all constituent type affiliates. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_ConstituentTypeAffiliates_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all constituent type affiliates.
-`)
+					`Get a summary representation of all constituent type affiliates.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ConstituentTypes_cmd) 
 				Get_ConstituentTypes_cmd.Flags().Bool("All", false, 
-					`Get all constituent types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all constituent types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_ConstituentTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all constituent types.
-`)
+					`Get a summary representation of all constituent types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Constituents_cmd) 
 				Get_Constituents_cmd.Flags().Bool("Constituent", false, 
-					`Get constituent details with addresses, electronicAddresses, salutations and phones. To exclude information about visible affiliations pass includeAffiliations="false"
-{"ConstituentID":"string","IncludeAffiliations":"string"}`) 
+					`Get constituent details with addresses, electronicAddresses, salutations and phones. To exclude information about visible affiliations pass includeAffiliations="false"` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string"}`) 
 				Get_Constituents_cmd.Flags().Bool("ConstituentDevelopmentInfo", false, 
-					`Get constituent information for fundraising.
-{"ConstituentID":"string"}`) 
+					`Get constituent information for fundraising.` + "\nQuery:\n" + `{"ConstituentID":"string"}`) 
 				Get_Constituents_cmd.Flags().Bool("ConstituentSnapshot", false, 
-					`Get constituent details along with primary address, primary salutation, primary electronic address, phones and affiliates information.
-{"ConstituentID":"string"}`) 
+					`Get constituent details along with primary address, primary salutation, primary electronic address, phones and affiliates information.` + "\nQuery:\n" + `{"ConstituentID":"string"}`) 
 				Get_Constituents_cmd.Flags().Bool("Constituents", false, 
-					`Get multiple Constituents given a set of constituentIds.
-{"ConstituentIds":"string"}`) 
+					`Get multiple Constituents given a set of constituentIds.` + "\nQuery:\n" + `{"ConstituentIds":"string"}`) 
 				Get_Constituents_cmd.Flags().Bool("DefaultHeader", false, 
-					`Return the default header for the constituent, including configured flexible header names and values.
-{"ConstituentID":"string"}`) 
+					`Return the default header for the constituent, including configured flexible header names and values.` + "\nQuery:\n" + `{"ConstituentID":"string"}`) 
 				Get_Constituents_cmd.Flags().Bool("FlexHeader", false, 
-					`Get the details of a flex header for a constituent
-{"ConstituentID":"string","HeaderID":"string"}`) 
+					`Get the details of a flex header for a constituent` + "\nQuery:\n" + `{"ConstituentID":"string", "HeaderID":"string"}`) 
 				Get_Constituents_cmd.Flags().Bool("Header", false, 
-					`Return constituent header details, including configured flexible header names and values.
-{"ConstituentID":"string","HeaderID":"string"}`) 
+					`Return constituent header details, including configured flexible header names and values.` + "\nQuery:\n" + `{"ConstituentID":"string", "HeaderID":"string"}`) 
 				Get_Constituents_cmd.Flags().Bool("PrimaryHousehold", false, 
-					`Get primary household constituent details for a provided constituentId.
-{"ConstituentID":"string"}`) 
+					`Get primary household constituent details for a provided constituentId.` + "\nQuery:\n" + `{"ConstituentID":"string"}`) 
 				Get_Constituents_cmd.Flags().Bool("Search", false, 
 					`Search for constituents using one of four possible search modes.  Querystring parameters are valid based on the "type" parameter value.
 Single Line (type=fluent)
@@ -5835,638 +5741,485 @@ Single Line search type (or fluent) is the default search if not provided in que
 	Value containing alpha and numeric characters is interpreted as a postal code.  UK and other countries should omit spaces for postal code search values.
 Basic search type permits parameters constituentId, ln, fn, street, and post. Sample URL: CRM/Constituents/Search?type=basic&amp;ln=Huff&amp;fn=Frank&amp;post=20746
 Advanced search type permits parameters atype, op, and value. Sample URL:  CRM/Constituents/Search?type=advanced&amp;atype=Email&amp;op=Like&amp;value=%25@gmail.com
-Attribute search type permits parameters key, op, value. Sample URL:  CRM/Constituents/Search?type=attribute&amp;key=Board+Affiliation&amp;op=Equals&amp;value=Association+Member
-{"Atype":"string","ConstituencyIds":"string","ConstituentGroups":"string","ConstituentID":"string","Dup":"string","Fn":"string","IncludeAffiliates":"string","Key":"string","ListID":"string","Ln":"string","Op":"string","Page":"string","PageSize":"string","Post":"string","Q":"string","Street":"string","Type":"string","Value":"string"}`)
+Attribute search type permits parameters key, op, value. Sample URL:  CRM/Constituents/Search?type=attribute&amp;key=Board+Affiliation&amp;op=Equals&amp;value=Association+Member` + "\nQuery:\n" + `{"Atype":"string", "ConstituencyIds":"string", "ConstituentGroups":"string", "ConstituentID":"string", "Dup":"string", "Fn":"string", "IncludeAffiliates":"string", "Key":"string", "ListID":"string", "Ln":"string", "Op":"string", "Page":"string", "PageSize":"string", "Post":"string", "Q":"string", "Street":"string", "Type":"string", "Value":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ContactPermissionCategories_cmd) 
 				Get_ContactPermissionCategories_cmd.Flags().Bool("All", false, 
-					`Get all contact permission categories.  To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all contact permission categories.  To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_ContactPermissionCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all contact permission categories.
-`)
+					`Get a summary representation of all contact permission categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ContactPermissionTypes_cmd) 
 				Get_ContactPermissionTypes_cmd.Flags().Bool("All", false, 
-					`Get all contact permission types. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all contact permission types. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_ContactPermissionTypes_cmd.Flags().Bool("ForProductionSeasons", false, 
-					`Get all contact permission types assigned to a set of production seasons.
-{"ProductionSeasonIds":"string"}`) 
+					`Get all contact permission types assigned to a set of production seasons.` + "\nQuery:\n" + `{"ProductionSeasonIds":"string"}`) 
 				Get_ContactPermissionTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all contact permission types.
-`)
+					`Get a summary representation of all contact permission types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ContactPermissions_cmd) 
 				Get_ContactPermissions_cmd.Flags().Bool("All", false, 
-					`Get all the contact permissions for the specified constituent and its affiliations if requested
-{"ActiveOnly":"string","ConstituentID":"string","IncludeAffiliations":"string"}`)
+					`Get all the contact permissions for the specified constituent and its affiliations if requested` + "\nQuery:\n" + `{"ActiveOnly":"string", "ConstituentID":"string", "IncludeAffiliations":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ContactPointCategories_cmd) 
 				Get_ContactPointCategories_cmd.Flags().Bool("All", false, 
-					`Get all contact point categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all contact point categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_ContactPointCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all contact point categories.
-`)
+					`Get a summary representation of all contact point categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ContactPointCategoryPurposes_cmd) 
 				Get_ContactPointCategoryPurposes_cmd.Flags().Bool("All", false, 
-					`Get all contact point category purposes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all contact point category purposes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_ContactPointCategoryPurposes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all contact point category purposes.
-`)
+					`Get a summary representation of all contact point category purposes.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ContactPointPurposeCategories_cmd) 
 				Get_ContactPointPurposeCategories_cmd.Flags().Bool("All", false, 
-					`Get all contact point purpose categories. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all contact point purpose categories. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_ContactPointPurposeCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all contact point purpose categories.
-`)
+					`Get a summary representation of all contact point purpose categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ContactPointPurposeMaps_cmd) 
 				Get_ContactPointPurposeMaps_cmd.Flags().Bool("All", false, 
-					`Get details of all the contact point purposes for the specified constituent (constituentId) and all its visible affiliation's contact point purposes as well. To exclude contact point purposes of the visible affiliations pass includeAffiliations=false. To get contact point purposes for a contact point pass contactPointId.
-{"ConstituentID":"string","ContactPointCategoryID":"string","ContactPointID":"string","IncludeAffiliations":"string","PurposeID":"string"}`)
+					`Get details of all the contact point purposes for the specified constituent (constituentId) and all its visible affiliation's contact point purposes as well. To exclude contact point purposes of the visible affiliations pass includeAffiliations=false. To get contact point purposes for a contact point pass contactPointId.` + "\nQuery:\n" + `{"ConstituentID":"string", "ContactPointCategoryID":"string", "ContactPointID":"string", "IncludeAffiliations":"string", "PurposeID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ContactPointPurposes_cmd) 
 				Get_ContactPointPurposes_cmd.Flags().Bool("All", false, 
-					`Get all contact point purposes. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all contact point purposes. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_ContactPointPurposes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all contact point purposes.
-`)
+					`Get a summary representation of all contact point purposes.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ContactPoints_cmd)
 	
 		Get_cmd.AddCommand(Get_ContactTypes_cmd) 
 				Get_ContactTypes_cmd.Flags().Bool("All", false, 
-					`Get all contact types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all contact types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_ContactTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all contact types.
-`)
+					`Get a summary representation of all contact types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ContextInformation_cmd)
 	
 		Get_cmd.AddCommand(Get_ContributionDesignations_cmd) 
 				Get_ContributionDesignations_cmd.Flags().Bool("All", false, 
-					`Get all contribution designations. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all contribution designations. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_ContributionDesignations_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all contribution designations.
-`)
+					`Get a summary representation of all contribution designations.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ContributionImportSets_cmd) 
 				Get_ContributionImportSets_cmd.Flags().Bool("All", false, 
-					`Get all contributionImportSets. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups if this is a secured resource), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all contributionImportSets. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups if this is a secured resource), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_ContributionImportSets_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all contributionImportSets.
-`)
+					`Get a summary representation of all contributionImportSets.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ControlGroupUserGroups_cmd) 
 				Get_ControlGroupUserGroups_cmd.Flags().Bool("All", false, 
-					`Get all control group/user group mappings.
-`) 
+					`Get all control group/user group mappings.` + "\nQuery:\n" + ``) 
 				Get_ControlGroupUserGroups_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all control group/user group mappings.
-`)
+					`Get a summary representation of all control group/user group mappings.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ControlGroups_cmd) 
 				Get_ControlGroups_cmd.Flags().Bool("All", false, 
-					`Get all control groups. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all control groups. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_ControlGroups_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all control groups.
-`)
+					`Get a summary representation of all control groups.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_CoreIdentity_cmd)
 	
 		Get_cmd.AddCommand(Get_Countries_cmd) 
 				Get_Countries_cmd.Flags().Bool("All", false, 
-					`Get all countries. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all countries. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_Countries_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all countries.
-`)
+					`Get a summary representation of all countries.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_CrediteeTypes_cmd) 
 				Get_CrediteeTypes_cmd.Flags().Bool("All", false, 
-					`Get all crediteeTypes. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups if this is a secured resource), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all crediteeTypes. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups if this is a secured resource), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_CrediteeTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all crediteeTypes.
-`)
+					`Get a summary representation of all crediteeTypes.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Credits_cmd)
 	
 		Get_cmd.AddCommand(Get_CriterionOperators_cmd) 
 				Get_CriterionOperators_cmd.Flags().Bool("All", false, 
-					`Get all criterion operators. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all criterion operators. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_CriterionOperators_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all criterion operators.
-`)
+					`Get a summary representation of all criterion operators.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_CumulativeGivingReceipts_cmd) 
 				Get_CumulativeGivingReceipts_cmd.Flags().Bool("All", false, 
-					`Get Cumulative Giving Receipts for the specified constituent id and affiliation Cumulative Giving Receipts as well. To exclude receipts of the visible affiliations pass includeAffiliations=false.
-{"ConstituentID":"string","IncludeAffiliations":"string"}`) 
+					`Get Cumulative Giving Receipts for the specified constituent id and affiliation Cumulative Giving Receipts as well. To exclude receipts of the visible affiliations pass includeAffiliations=false.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string"}`) 
 				Get_CumulativeGivingReceipts_cmd.Flags().Bool("ForSession", false, 
-					`To retrieve a specific receipt for a session, pass sessionId and constituentId.
-{"ConstituentID":"string","SessionID":"string"}`)
+					`To retrieve a specific receipt for a session, pass sessionId and constituentId.` + "\nQuery:\n" + `{"ConstituentID":"string", "SessionID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_CurrencyTypes_cmd) 
 				Get_CurrencyTypes_cmd.Flags().Bool("All", false, 
-					`Get all currency types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all currency types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_CurrencyTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all currency types.
-`)
+					`Get a summary representation of all currency types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Custom_cmd)
 	
 		Get_cmd.AddCommand(Get_CustomDefaultCategories_cmd) 
 				Get_CustomDefaultCategories_cmd.Flags().Bool("All", false, 
-					`Get all custom default categories. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all custom default categories. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_CustomDefaultCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all custom default categories.
-`)
+					`Get a summary representation of all custom default categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_CustomDefaults_cmd) 
 				Get_CustomDefaults_cmd.Flags().Bool("All", false, 
-					`Get all custom defaults. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all custom defaults. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_CustomDefaults_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all custom defaults.
-`)
+					`Get a summary representation of all custom defaults.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_DeliveryMethods_cmd) 
 				Get_DeliveryMethods_cmd.Flags().Bool("All", false, 
-					`Get all delivery methods. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all delivery methods. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_DeliveryMethods_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all delivery methods.
-`)
+					`Get a summary representation of all delivery methods.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_DesignationCodes_cmd) 
 				Get_DesignationCodes_cmd.Flags().Bool("All", false, 
-					`Get all designation codes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all designation codes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_DesignationCodes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all designation codes.
-`)
+					`Get a summary representation of all designation codes.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Designs_cmd) 
 				Get_Designs_cmd.Flags().Bool("All", false, 
-					`Get all designs. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all designs. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_Designs_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all designs.
-`)
+					`Get a summary representation of all designs.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Diagnostics_cmd) 
 				Get_Diagnostics_cmd.Flags().Bool("SeatServerStatus", false, 
-					`Returns status of the seat server connection.
-`) 
+					`Returns status of the seat server connection.` + "\nQuery:\n" + ``) 
 				Get_Diagnostics_cmd.Flags().Bool("Status", false, 
-					`Returns status of the application connection to database and service version information.
-`) 
+					`Returns status of the application connection to database and service version information.` + "\nQuery:\n" + ``) 
 				Get_Diagnostics_cmd.Flags().Bool("StatusReport", false, 
-					`Returns status of the application connection to database and service version information as an html page.
-`)
+					`Returns status of the application connection to database and service version information as an html page.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_DirectDebitAccountTypes_cmd) 
 				Get_DirectDebitAccountTypes_cmd.Flags().Bool("All", false, 
-					`Get all direct debit currency types.
-{"MaintenanceMode":"string"}`) 
+					`Get all direct debit currency types.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_DirectDebitAccountTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all direct debit account types.
-`)
+					`Get a summary representation of all direct debit account types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_DiscountTypes_cmd) 
 				Get_DiscountTypes_cmd.Flags().Bool("All", false, 
-					`Get all discount types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all discount types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_DiscountTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all discount types.
-`)
+					`Get a summary representation of all discount types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Divisions_cmd) 
 				Get_Divisions_cmd.Flags().Bool("ForDivision", false, 
-					`Get the control group/division mappings for the specified division.
-{"DivisionID":"string"}`)
+					`Get the control group/division mappings for the specified division.` + "\nQuery:\n" + `{"DivisionID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_DocumentCategories_cmd) 
 				Get_DocumentCategories_cmd.Flags().Bool("All", false, 
-					`Get all documentCategories. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all documentCategories. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_DocumentCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all documentCategories.
-`)
+					`Get a summary representation of all documentCategories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Documents_cmd) 
 				Get_Documents_cmd.Flags().Bool("All", false, 
-					`Get all the documents for a particular resource including file contents.  Only documents associated with steps may be returned at this time.
-{"StepID":"string"}`) 
+					`Get all the documents for a particular resource including file contents.  Only documents associated with steps may be returned at this time.` + "\nQuery:\n" + `{"StepID":"string"}`) 
 				Get_Documents_cmd.Flags().Bool("AllSummary", false, 
-					`Get summary of all the documents for the step.  Only a summary of file information is returned.
-{"StepID":"string"}`) 
+					`Get summary of all the documents for the step.  Only a summary of file information is returned.` + "\nQuery:\n" + `{"StepID":"string"}`) 
 				Get_Documents_cmd.Flags().Bool("Settings", false, 
-					`Get configuration settings for uploading documents.
-`)
+					`Get configuration settings for uploading documents.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_DonationLevels_cmd) 
 				Get_DonationLevels_cmd.Flags().Bool("All", false, 
-					`Get all donation levels. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all donation levels. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_DonationLevels_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all donation levels.
-`)
+					`Get a summary representation of all donation levels.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_EMV_cmd) 
 				Get_EMV_cmd.Flags().Bool("ConnectionStatus", false, 
-					`Get connection status for a lane
-{"Cert":"string","LaneID":"string","Merchant":"string"}`) 
+					`Get connection status for a lane` + "\nQuery:\n" + `{"Cert":"string", "LaneID":"string", "Merchant":"string"}`) 
 				Get_EMV_cmd.Flags().Bool("ConnectionStatusHistory", false, 
-					`Get connection status history for a lane
-{"Cert":"string","LaneID":"string","Merchant":"string"}`) 
+					`Get connection status history for a lane` + "\nQuery:\n" + `{"Cert":"string", "LaneID":"string", "Merchant":"string"}`) 
 				Get_EMV_cmd.Flags().Bool("IdleMessage", false, 
-					`Retrieve idle message for a specific lane
-{"Cert":"string","LaneID":"string","Merchant":"string"}`) 
+					`Retrieve idle message for a specific lane` + "\nQuery:\n" + `{"Cert":"string", "LaneID":"string", "Merchant":"string"}`) 
 				Get_EMV_cmd.Flags().Bool("Lane", false, 
-					`Retrieve information for a specific lane
-{"Cert":"string","LaneID":"string","Merchant":"string"}`)
+					`Retrieve information for a specific lane` + "\nQuery:\n" + `{"Cert":"string", "LaneID":"string", "Merchant":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ElectronicAddressTypes_cmd) 
 				Get_ElectronicAddressTypes_cmd.Flags().Bool("All", false, 
-					`Get all electronic address types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all electronic address types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_ElectronicAddressTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all electronic address types.
-`)
+					`Get a summary representation of all electronic address types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ElectronicAddresses_cmd) 
 				Get_ElectronicAddresses_cmd.Flags().Bool("All", false, 
 					`Get electronic addresses for constituent(s) or query general public electronic addresses for a specific address.
             
-Either constituentIds, useGeneralPublic, or address must be specified in request. For constituent electronic address, visible affiliation electronic addresses can be included with includeAffiliations=true. To exclude electronic addresses of the visible affiliations pass includeAffiliations=false. To retrieve only the primary electronic addresses, pass primaryOnly=true.
-{"Address":"string","ConstituentIds":"string","ElectronicAddressTypeID":"string","IncludeAffiliations":"string","IncludeFromAffiliations":"string","PrimaryOnly":"string","UseGeneralPublic":"string"}`) 
+Either constituentIds, useGeneralPublic, or address must be specified in request. For constituent electronic address, visible affiliation electronic addresses can be included with includeAffiliations=true. To exclude electronic addresses of the visible affiliations pass includeAffiliations=false. To retrieve only the primary electronic addresses, pass primaryOnly=true.` + "\nQuery:\n" + `{"Address":"string", "ConstituentIds":"string", "ElectronicAddressTypeID":"string", "IncludeAffiliations":"string", "IncludeFromAffiliations":"string", "PrimaryOnly":"string", "UseGeneralPublic":"string"}`) 
 				Get_ElectronicAddresses_cmd.Flags().Bool("IsAttachedToLogin", false, 
-					`Check if the specified electronic address is attached to a web login.
-{"ElectronicAddressID":"string"}`)
+					`Check if the specified electronic address is attached to a web login.` + "\nQuery:\n" + `{"ElectronicAddressID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_EmailProfiles_cmd) 
 				Get_EmailProfiles_cmd.Flags().Bool("All", false, 
-					`Get all email profiles
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all email profiles` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_EmailProfiles_cmd.Flags().Bool("Summaries", false, 
-					`Get summary of all email profiles
-`)
+					`Get summary of all email profiles` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_EmarketIndicators_cmd) 
 				Get_EmarketIndicators_cmd.Flags().Bool("All", false, 
-					`Get all emarket indicators. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all emarket indicators. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_EmarketIndicators_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all emarket indicators.
-`)
+					`Get a summary representation of all emarket indicators.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Eras_cmd) 
 				Get_Eras_cmd.Flags().Bool("All", false, 
-					`Get all eras. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all eras. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_Eras_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all eras.
-`)
+					`Get a summary representation of all eras.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_EventControl_cmd)
 	
 		Get_cmd.AddCommand(Get_Facilities_cmd) 
 				Get_Facilities_cmd.Flags().Bool("All", false, 
-					`Get details of all the Facilities.
-`) 
+					`Get details of all the Facilities.` + "\nQuery:\n" + ``) 
 				Get_Facilities_cmd.Flags().Bool("Screens", false, 
-					`Returns details of all screens and the HouseMap for the facility.  The screen details include which other screens are assigned to each screen navigation arrow button.
-{"FacilityID":"string"}`) 
+					`Returns details of all screens and the HouseMap for the facility.  The screen details include which other screens are assigned to each screen navigation arrow button.` + "\nQuery:\n" + `{"FacilityID":"string"}`) 
 				Get_Facilities_cmd.Flags().Bool("Summaries", false, 
-					`Get summary representation of all Facilities.
-`)
+					`Get summary representation of all Facilities.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Fees_cmd) 
 				Get_Fees_cmd.Flags().Bool("All", false, 
-					`Get all fees.
-{"FeeCategoryIds":"string","SeasonID":"string","UserDefined":"string"}`) 
+					`Get all fees.` + "\nQuery:\n" + `{"FeeCategoryIds":"string", "SeasonID":"string", "UserDefined":"string"}`) 
 				Get_Fees_cmd.Flags().Bool("Summaries", false, 
-					`Get summary representation of all fees.
-{"FeeCategoryIds":"string","SeasonID":"string","UserDefined":"string"}`)
+					`Get summary representation of all fees.` + "\nQuery:\n" + `{"FeeCategoryIds":"string", "SeasonID":"string", "UserDefined":"string"}`)
 	
 		Get_cmd.AddCommand(Get_FinanceContributions_cmd) 
 				Get_FinanceContributions_cmd.Flags().Bool("All", false, 
-					`Get details of all the contributions for the specified plan.
-{"PlanID":"string"}`)
+					`Get details of all the contributions for the specified plan.` + "\nQuery:\n" + `{"PlanID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_Formats_cmd) 
 				Get_Formats_cmd.Flags().Bool("All", false, 
-					`Get all formats. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all formats. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_Formats_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all formats.
-`)
+					`Get a summary representation of all formats.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Funds_cmd) 
 				Get_Funds_cmd.Flags().Bool("Summaries", false, 
-					`Get summary of all funds.
-{"TicketingIndicator":"string"}`)
+					`Get summary of all funds.` + "\nQuery:\n" + `{"TicketingIndicator":"string"}`)
 	
 		Get_cmd.AddCommand(Get_GLAccounts_cmd) 
 				Get_GLAccounts_cmd.Flags().Bool("All", false, 
-					`Get all gl accounts. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all gl accounts. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_GLAccounts_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all gl accounts.
-`)
+					`Get a summary representation of all gl accounts.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Genders_cmd) 
 				Get_Genders_cmd.Flags().Bool("All", false, 
-					`Get all available gender values. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all available gender values. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_Genders_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all gender values.
-`)
+					`Get a summary representation of all gender values.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_GiftAidContactMethods_cmd) 
 				Get_GiftAidContactMethods_cmd.Flags().Bool("All", false, 
-					`Get all gift aid contact methods. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all gift aid contact methods. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_GiftAidContactMethods_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all gift aid contact methods.
-`)
+					`Get a summary representation of all gift aid contact methods.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_GiftAidDeclarations_cmd) 
 				Get_GiftAidDeclarations_cmd.Flags().Bool("All", false, 
-					`Gets all Gift Aid Declarations for a provided constituent including primary affiliates by default.
-{"ConstituentID":"string","IncludeAffiliations":"string"}`)
+					`Gets all Gift Aid Declarations for a provided constituent including primary affiliates by default.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string"}`)
 	
 		Get_cmd.AddCommand(Get_GiftAidDocumentStatuses_cmd) 
 				Get_GiftAidDocumentStatuses_cmd.Flags().Bool("All", false, 
-					`Get all gift aid document statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all gift aid document statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_GiftAidDocumentStatuses_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all gift aid document statuses.
-`)
+					`Get a summary representation of all gift aid document statuses.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_GiftAidIneligibleReasons_cmd) 
 				Get_GiftAidIneligibleReasons_cmd.Flags().Bool("All", false, 
-					`Get all gift aid ineligible reasons. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all gift aid ineligible reasons. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_GiftAidIneligibleReasons_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all gift aid ineligible reasons.
-`)
+					`Get a summary representation of all gift aid ineligible reasons.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_GiftAidRates_cmd) 
 				Get_GiftAidRates_cmd.Flags().Bool("All", false, 
-					`Get all gift aid rates. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all gift aid rates. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_GiftAidRates_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all gift aid rates.
-`)
+					`Get a summary representation of all gift aid rates.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_GiftAidStatuses_cmd) 
 				Get_GiftAidStatuses_cmd.Flags().Bool("All", false, 
-					`Get all gift aid statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all gift aid statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_GiftAidStatuses_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all gift aid statuses.
-`)
+					`Get a summary representation of all gift aid statuses.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_GiftAidTypes_cmd) 
 				Get_GiftAidTypes_cmd.Flags().Bool("All", false, 
-					`Get all gift aid types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all gift aid types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_GiftAidTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all gift aid types.
-`)
+					`Get a summary representation of all gift aid types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_GiftCertificates_cmd)
 	
 		Get_cmd.AddCommand(Get_HoldCodeCategories_cmd) 
 				Get_HoldCodeCategories_cmd.Flags().Bool("All", false, 
-					`Get all Hold Code Categories. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all Hold Code Categories. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_HoldCodeCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all Hold Code Categories.
-`)
+					`Get a summary representation of all Hold Code Categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_HoldCodeUserGroups_cmd) 
 				Get_HoldCodeUserGroups_cmd.Flags().Bool("All", false, 
-					`Get all hold code/user group mappings.  Optional filter for a UserGroup or HoldCode.
-{"HoldCode":"string","UserGroup":"string"}`) 
+					`Get all hold code/user group mappings.  Optional filter for a UserGroup or HoldCode.` + "\nQuery:\n" + `{"HoldCode":"string", "UserGroup":"string"}`) 
 				Get_HoldCodeUserGroups_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all hold code/user group mappings.  Optional filter for a UserGroup or HoldCode.
-{"HoldCode":"string","UserGroup":"string"}`) 
+					`Get a summary representation of all hold code/user group mappings.  Optional filter for a UserGroup or HoldCode.` + "\nQuery:\n" + `{"HoldCode":"string", "UserGroup":"string"}`) 
 				Get_HoldCodeUserGroups_cmd.Flags().Bool("Summary", false, 
-					`Get summary representation of a hold code/user group mapping by id.
-{"HoldCodeUserGroupID":"string"}`)
+					`Get summary representation of a hold code/user group mapping by id.` + "\nQuery:\n" + `{"HoldCodeUserGroupID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_HoldCodes_cmd) 
 				Get_HoldCodes_cmd.Flags().Bool("All", false, 
-					`Get details of all Hold Codes.
-`)
+					`Get details of all Hold Codes.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_InactiveReasons_cmd) 
 				Get_InactiveReasons_cmd.Flags().Bool("All", false, 
-					`Get all inactive reasons. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all inactive reasons. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_InactiveReasons_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all inactive reasons.
-`)
+					`Get a summary representation of all inactive reasons.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_IntegrationDefaults_cmd) 
 				Get_IntegrationDefaults_cmd.Flags().Bool("All", false, 
-					`Get all Integration Defaults. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-`) 
+					`Get all Integration Defaults. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + ``) 
 				Get_IntegrationDefaults_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all Integration Defaults.
-`)
+					`Get a summary representation of all Integration Defaults.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Integrations_cmd) 
 				Get_Integrations_cmd.Flags().Bool("All", false, 
-					`Get all action types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all action types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_Integrations_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all action types.
-`)
+					`Get a summary representation of all action types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_InterestCategories_cmd) 
 				Get_InterestCategories_cmd.Flags().Bool("All", false, 
-					`Get all interest categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all interest categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_InterestCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all interest categories.
-`)
+					`Get a summary representation of all interest categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_InterestTypes_cmd) 
 				Get_InterestTypes_cmd.Flags().Bool("All", false, 
-					`Get all interest types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all interest types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_InterestTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all interest types.
-`)
+					`Get a summary representation of all interest types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Interests_cmd) 
 				Get_Interests_cmd.Flags().Bool("All", false, 
-					`Get all the interests of the specified constituent id. To exclude attributes of the visible affiliations pass includeAffiliations=false. To filter the interests of specific categories pass comma separted values under categories.
-{"CategoryIds":"string","ConstituentID":"string","IncludeAffiliations":"string"}`)
+					`Get all the interests of the specified constituent id. To exclude attributes of the visible affiliations pass includeAffiliations=false. To filter the interests of specific categories pass comma separted values under categories.` + "\nQuery:\n" + `{"CategoryIds":"string", "ConstituentID":"string", "IncludeAffiliations":"string"}`)
 	
 		Get_cmd.AddCommand(Get_Internal_cmd) 
 				Get_Internal_cmd.Flags().Bool("All", false, 
-					`Get details of all the addresses and the phones attached to them of the constituent id. To exclude addresses and the phones of the visible affiliations pass includeAffiliations=false.
-{"ConstituentID":"string","IncludeAffiliations":"string","IncludeFromAffiliations":"string"}`) 
+					`Get details of all the addresses and the phones attached to them of the constituent id. To exclude addresses and the phones of the visible affiliations pass includeAffiliations=false.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string", "IncludeFromAffiliations":"string"}`) 
 				Get_Internal_cmd.Flags().Bool("ConstituentMiniSnapshot", false, 
-					`Get constituent details along with primary address, primary salutation, primary electronic address, primary &amp; general phones.
-{"ConstituentID":"string"}`)
+					`Get constituent details along with primary address, primary salutation, primary electronic address, primary &amp; general phones.` + "\nQuery:\n" + `{"ConstituentID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_InventoryContactPermissionTypes_cmd) 
 				Get_InventoryContactPermissionTypes_cmd.Flags().Bool("All", false, 
-					`Get details of all the Contact Permission Types associated to Production Seasons.  Inventory Contact Permission Type is a mapping of a Contact Permission Type to a Production Season.
-{"ProductionSeasonIds":"string"}`)
+					`Get details of all the Contact Permission Types associated to Production Seasons.  Inventory Contact Permission Type is a mapping of a Contact Permission Type to a Production Season.` + "\nQuery:\n" + `{"ProductionSeasonIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_InventoryWebContents_cmd) 
 				Get_InventoryWebContents_cmd.Flags().Bool("All", false, 
-					`Get details of all the inventoryWebContents.
-{"ContentTypeIds":"string","ProductionElementIds":"string"}`) 
+					`Get details of all the inventoryWebContents.` + "\nQuery:\n" + `{"ContentTypeIds":"string", "ProductionElementIds":"string"}`) 
 				Get_InventoryWebContents_cmd.Flags().Bool("AllSummaries", false, 
-					`Get details of all the inventoryWebContents.
-{"ContentTypeIds":"string","ProductionElementIds":"string"}`)
+					`Get details of all the inventoryWebContents.` + "\nQuery:\n" + `{"ContentTypeIds":"string", "ProductionElementIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_InvoiceBilling_cmd)
 	
 		Get_cmd.AddCommand(Get_Issues_cmd) 
 				Get_Issues_cmd.Flags().Bool("All", false, 
-					`Get all the details of all the issues for the specified constituent id. If you want to filter the issues based on date pass in the values for 'startDate' and 'endDate'. If you want to filter issues based on contact type, category, activity type, origin, performance number or package number pass in the corresponding values in comma separated values.
-{"ActivityTypeIds":"string","CategoryIds":"string","ConstituentID":"string","ContactTypeIds":"string","EndDate":"string","IncludeAffiliations":"string","OriginIds":"string","PackageIds":"string","PerformanceIds":"string","Resolved":"string","StartDate":"string"}`)
+					`Get all the details of all the issues for the specified constituent id. If you want to filter the issues based on date pass in the values for 'startDate' and 'endDate'. If you want to filter issues based on contact type, category, activity type, origin, performance number or package number pass in the corresponding values in comma separated values.` + "\nQuery:\n" + `{"ActivityTypeIds":"string", "CategoryIds":"string", "ConstituentID":"string", "ContactTypeIds":"string", "EndDate":"string", "IncludeAffiliations":"string", "OriginIds":"string", "PackageIds":"string", "PerformanceIds":"string", "Resolved":"string", "StartDate":"string"}`)
 	
 		Get_cmd.AddCommand(Get_KeywordCategories_cmd) 
 				Get_KeywordCategories_cmd.Flags().Bool("All", false, 
-					`Get all keyword categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all keyword categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_KeywordCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all keyword categories.
-`)
+					`Get a summary representation of all keyword categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Keywords_cmd) 
 				Get_Keywords_cmd.Flags().Bool("All", false, 
-					`Get all keywords. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all keywords. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_Keywords_cmd.Flags().Bool("DataFor", false, 
-					`Gets potential values for a Keyword as KeywordDataItems.
-{"KeywordID":"string"}`) 
+					`Gets potential values for a Keyword as KeywordDataItems.` + "\nQuery:\n" + `{"KeywordID":"string"}`) 
 				Get_Keywords_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all keywords.
-`)
+					`Get a summary representation of all keywords.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Languages_cmd) 
 				Get_Languages_cmd.Flags().Bool("All", false, 
-					`Get all languages. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all languages. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_Languages_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all languages.
-`)
+					`Get a summary representation of all languages.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ListCategories_cmd) 
 				Get_ListCategories_cmd.Flags().Bool("All", false, 
-					`Get all list categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all list categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_ListCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all list categories.
-`)
+					`Get a summary representation of all list categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Lists_cmd) 
 				Get_Lists_cmd.Flags().Bool("Contents", false, 
-					`Gets Constituent ids for the contents of a List.
-{"ListID":"string"}`) 
+					`Gets Constituent ids for the contents of a List.` + "\nQuery:\n" + `{"ListID":"string"}`) 
 				Get_Lists_cmd.Flags().Bool("ContentsDetail", false, 
-					`Gets Constituent details for the contents of a List.
-{"ListID":"string"}`) 
+					`Gets Constituent details for the contents of a List.` + "\nQuery:\n" + `{"ListID":"string"}`) 
 				Get_Lists_cmd.Flags().Bool("ListCriterionMatchReasons", false, 
-					`Returns list criteria match reasons for a constituent in a list.
-{"ConstituentID":"string","ListID":"string"}`) 
+					`Returns list criteria match reasons for a constituent in a list.` + "\nQuery:\n" + `{"ConstituentID":"string", "ListID":"string"}`) 
 				Get_Lists_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary of all Lists.
-{"ListIds":"string"}`)
+					`Get a summary of all Lists.` + "\nQuery:\n" + `{"ListIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_LoginTypes_cmd) 
 				Get_LoginTypes_cmd.Flags().Bool("All", false, 
-					`Get all login types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all login types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_LoginTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all login types.
-`)
+					`Get a summary representation of all login types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_MachineSettings_cmd) 
 				Get_MachineSettings_cmd.Flags().Bool("All", false, 
-					`Get details of all Machine Settings. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"MaintenanceMode":"string"}`) 
+					`Get details of all Machine Settings. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_MachineSettings_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all Machine Settings.
-`)
+					`Get a summary representation of all Machine Settings.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_MailIndicators_cmd) 
 				Get_MailIndicators_cmd.Flags().Bool("All", false, 
-					`Get all mail indicators. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all mail indicators. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_MailIndicators_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all mail indicators.
-`)
+					`Get a summary representation of all mail indicators.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_MediaTypes_cmd) 
 				Get_MediaTypes_cmd.Flags().Bool("All", false, 
-					`Get all media types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all media types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_MediaTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all media types.
-`)
+					`Get a summary representation of all media types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_MembershipLevelCategories_cmd) 
 				Get_MembershipLevelCategories_cmd.Flags().Bool("All", false, 
-					`Get all membership level categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all membership level categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_MembershipLevelCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all membership level categories.
-`)
+					`Get a summary representation of all membership level categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_MembershipLevels_cmd) 
 				Get_MembershipLevels_cmd.Flags().Bool("All", false, 
 					`Get a summary list of all membership levels. MembershipOrgId is required.
-NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.
-{"MembershipOrgID":"string"}`) 
+NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.` + "\nQuery:\n" + `{"MembershipOrgID":"string"}`) 
 				Get_MembershipLevels_cmd.Flags().Bool("Summaries", false, 
 					`Get a list of membership levels. MembershipOrgId is required.
-NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.
-{"MembershipOrgID":"string"}`)
+NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.` + "\nQuery:\n" + `{"MembershipOrgID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_MembershipOrganizations_cmd) 
 				Get_MembershipOrganizations_cmd.Flags().Bool("All", false, 
 					`Get a list of all membership organizations.
-NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.
-`) 
+NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.` + "\nQuery:\n" + ``) 
 				Get_MembershipOrganizations_cmd.Flags().Bool("Summaries", false, 
 					`Get a list of all membership organizations in summary.
-NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.
-`)
+NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_MembershipStandings_cmd) 
 				Get_MembershipStandings_cmd.Flags().Bool("All", false, 
-					`Get all Membership Standings.
-{"MaintenanceMode":"string"}`) 
+					`Get all Membership Standings.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_MembershipStandings_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all MembershipStandings.
-`)
+					`Get a summary representation of all MembershipStandings.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Memberships_cmd)
 	
@@ -6476,889 +6229,675 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 	
 		Get_cmd.AddCommand(Get_ModeOfSaleCategories_cmd) 
 				Get_ModeOfSaleCategories_cmd.Flags().Bool("All", false, 
-					`Get all mode of sale categories.
-`)
+					`Get all mode of sale categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ModeOfSaleOffers_cmd) 
 				Get_ModeOfSaleOffers_cmd.Flags().Bool("All", false, 
-					`Get all mode of sale offers. The mode of sale id, performace ids, or package ids is required. Performance ids and package ids used together will return no results.
-{"AsOfDateTime":"string","ModeOfSaleID":"string","PackageIds":"string","PerformanceIds":"string"}`)
+					`Get all mode of sale offers. The mode of sale id, performace ids, or package ids is required. Performance ids and package ids used together will return no results.` + "\nQuery:\n" + `{"AsOfDateTime":"string", "ModeOfSaleID":"string", "PackageIds":"string", "PerformanceIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ModeOfSalePriceTypes_cmd) 
 				Get_ModeOfSalePriceTypes_cmd.Flags().Bool("All", false, 
-					`Get all mode of sale price types.
-{"ModeOfSaleID":"string","PriceTypeID":"string"}`)
+					`Get all mode of sale price types.` + "\nQuery:\n" + `{"ModeOfSaleID":"string", "PriceTypeID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ModeOfSaleSurveyQuestions_cmd) 
 				Get_ModeOfSaleSurveyQuestions_cmd.Flags().Bool("All", false, 
-					`Get all mode of sale survey questions.
-{"ModeOfSaleID":"string"}`)
+					`Get all mode of sale survey questions.` + "\nQuery:\n" + `{"ModeOfSaleID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ModeOfSaleUserGroups_cmd) 
 				Get_ModeOfSaleUserGroups_cmd.Flags().Bool("All", false, 
-					`Get all mode of sale/user group mappings.
-`)
+					`Get all mode of sale/user group mappings.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ModesOfSale_cmd) 
 				Get_ModesOfSale_cmd.Flags().Bool("All", false, 
-					`Get all modes of sale.
-`) 
+					`Get all modes of sale.` + "\nQuery:\n" + ``) 
 				Get_ModesOfSale_cmd.Flags().Bool("Summaries", false, 
-					`Get summary of all modes of sale.
-`)
+					`Get summary of all modes of sale.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_NScanAccessAreas_cmd) 
 				Get_NScanAccessAreas_cmd.Flags().Bool("All", false, 
-					`Get details of all NScan Access Areas. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get details of all NScan Access Areas. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_NScanAccessAreas_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all NScan Access Areas.
-`)
+					`Get a summary representation of all NScan Access Areas.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_NameStatuses_cmd) 
 				Get_NameStatuses_cmd.Flags().Bool("All", false, 
-					`Get all name statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all name statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_NameStatuses_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all name statuses.
-`)
+					`Get a summary representation of all name statuses.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ObjectPermissions_cmd) 
 				Get_ObjectPermissions_cmd.Flags().Bool("All", false, 
-					`Get all object permissions.
-`) 
+					`Get all object permissions.` + "\nQuery:\n" + ``) 
 				Get_ObjectPermissions_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all object permissions.
-`)
+					`Get a summary representation of all object permissions.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_OrderBilling_cmd) 
 				Get_OrderBilling_cmd.Flags().Bool("Status", false, 
-					`Get status of a processing automated billing run.
-{"OrderBillingID":"string"}`)
+					`Get status of a processing automated billing run.` + "\nQuery:\n" + `{"OrderBillingID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_OrderCategories_cmd) 
 				Get_OrderCategories_cmd.Flags().Bool("All", false, 
-					`Get all order categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all order categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_OrderCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all order categories.
-`)
+					`Get a summary representation of all order categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Orders_cmd)
 	
 		Get_cmd.AddCommand(Get_Organizations_cmd) 
 				Get_Organizations_cmd.Flags().Bool("All", false, 
-					`Get all organizations. To get the resources in maintenance mode (ignoring control groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all organizations. To get the resources in maintenance mode (ignoring control groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_Organizations_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all organizations.
-`)
+					`Get a summary representation of all organizations.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_OriginalSources_cmd) 
 				Get_OriginalSources_cmd.Flags().Bool("All", false, 
-					`Get all original sources. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all original sources. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_OriginalSources_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all original sources.
-`)
+					`Get a summary representation of all original sources.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Origins_cmd) 
 				Get_Origins_cmd.Flags().Bool("All", false, 
-					`Get all origins. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all origins. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_Origins_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all origins.
-`)
+					`Get a summary representation of all origins.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_OutputSets_cmd) 
 				Get_OutputSets_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary of all Output Sets.
-{"MineOnly":"string"}`)
+					`Get a summary of all Output Sets.` + "\nQuery:\n" + `{"MineOnly":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PackageHistory_cmd)
 	
 		Get_cmd.AddCommand(Get_PackagePriceTypes_cmd) 
 				Get_PackagePriceTypes_cmd.Flags().Bool("All", false, 
-					`Get all package price types.
-{"PackageIds":"string"}`)
+					`Get all package price types.` + "\nQuery:\n" + `{"PackageIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PackageTypes_cmd) 
 				Get_PackageTypes_cmd.Flags().Bool("All", false, 
-					`Get all package types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all package types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_PackageTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all package types.
-`)
+					`Get a summary representation of all package types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PackageWebContents_cmd) 
 				Get_PackageWebContents_cmd.Flags().Bool("All", false, 
-					`Get full package web contents for passed packageIds or contentTypeIds.  At least on parameter value is required.  For production element web contents, use TXN/InventoryWebContents.  To filter based on useWebAPI flag on content type and other parameters, use Txn/WebContents. This is mainly used for PackageWebContent setup.
-{"ContentTypeIds":"string","PackageIds":"string"}`) 
+					`Get full package web contents for passed packageIds or contentTypeIds.  At least on parameter value is required.  For production element web contents, use TXN/InventoryWebContents.  To filter based on useWebAPI flag on content type and other parameters, use Txn/WebContents. This is mainly used for PackageWebContent setup.` + "\nQuery:\n" + `{"ContentTypeIds":"string", "PackageIds":"string"}`) 
 				Get_PackageWebContents_cmd.Flags().Bool("AllSummaries", false, 
-					`Get summary package web contents for passed packageIds and contentTypeIds.  At least on parameter value is required.  For production element web contents, use TXN/InventoryWebContents.  To filter based on useWebAPI flag on content type and other parameters, use Txn/WebContents. This is mainly used for PackageWebContent setup.
-{"ContentTypeIds":"string","PackageIds":"string"}`)
+					`Get summary package web contents for passed packageIds and contentTypeIds.  At least on parameter value is required.  For production element web contents, use TXN/InventoryWebContents.  To filter based on useWebAPI flag on content type and other parameters, use Txn/WebContents. This is mainly used for PackageWebContent setup.` + "\nQuery:\n" + `{"ContentTypeIds":"string", "PackageIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_Packages_cmd) 
 				Get_Packages_cmd.Flags().Bool("All", false, 
-					`Get all packages filtered by a selected season.
-{"SeasonID":"string"}`) 
+					`Get all packages filtered by a selected season.` + "\nQuery:\n" + `{"SeasonID":"string"}`) 
 				Get_Packages_cmd.Flags().Bool("PackageDetail", false, 
-					`Gets detailed information about the package including sub packages and performance groups.
-{"AsOfDateTime":"string","ModeOfSaleID":"string","PackageID":"string","PriceTypeID":"string","SourceID":"string"}`) 
+					`Gets detailed information about the package including sub packages and performance groups.` + "\nQuery:\n" + `{"AsOfDateTime":"string", "ModeOfSaleID":"string", "PackageID":"string", "PriceTypeID":"string", "SourceID":"string"}`) 
 				Get_Packages_cmd.Flags().Bool("PerformanceGroupDetails", false, 
-					`Get details of Performance Groups and their Performances for flex package selection.
-{"AsOfDateTime":"string","ModeOfSaleID":"string","PackageID":"string","PriceTypeID":"string","SourceID":"string"}`) 
+					`Get details of Performance Groups and their Performances for flex package selection.` + "\nQuery:\n" + `{"AsOfDateTime":"string", "ModeOfSaleID":"string", "PackageID":"string", "PriceTypeID":"string", "SourceID":"string"}`) 
 				Get_Packages_cmd.Flags().Bool("Prices", false, 
 					`Get the package and its pricing details.
-Mode Of Sale and Price Type parameters can be used to filter the returned prices.
-{"AsOfDateTime":"string","ExpandPerformancePriceType":"string","IncludeOnlyBasePrice":"string","ModeOfSaleID":"string","PackageID":"string","PerformanceIds":"string","PriceTypeID":"string","SourceID":"string"}`) 
+Mode Of Sale and Price Type parameters can be used to filter the returned prices.` + "\nQuery:\n" + `{"AsOfDateTime":"string", "ExpandPerformancePriceType":"string", "IncludeOnlyBasePrice":"string", "ModeOfSaleID":"string", "PackageID":"string", "PerformanceIds":"string", "PriceTypeID":"string", "SourceID":"string"}`) 
 				Get_Packages_cmd.Flags().Bool("SeatFees", false, 
-					`Returns price, per seat fees, for each zone and price type for the specified package.
-{"AsOfDateTime":"string","ModeOfSaleID":"string","PackageID":"string","PriceTypeIds":"string"}`) 
+					`Returns price, per seat fees, for each zone and price type for the specified package.` + "\nQuery:\n" + `{"AsOfDateTime":"string", "ModeOfSaleID":"string", "PackageID":"string", "PriceTypeIds":"string"}`) 
 				Get_Packages_cmd.Flags().Bool("SeatSummaries", false, 
 					`Returns summary for seats in a package.
 Seat availability is summarized by screen, section and zone.
 The seats returned can be filtered by screen, section, or price zone. Allocation is returned based on MOS and constituent.
-Available seats can be filtered by price type availability, causing any seats that are not available for the specified price types to be listed with a status of 5, Not In Allocation.
-{"CheckPriceTypeIds":"string","ConstituentID":"string","ModeOfSaleID":"string","PackageID":"string","ScreenIds":"string","SectionIds":"string","ZoneIds":"string"}`) 
+Available seats can be filtered by price type availability, causing any seats that are not available for the specified price types to be listed with a status of 5, Not In Allocation.` + "\nQuery:\n" + `{"CheckPriceTypeIds":"string", "ConstituentID":"string", "ModeOfSaleID":"string", "PackageID":"string", "ScreenIds":"string", "SectionIds":"string", "ZoneIds":"string"}`) 
 				Get_Packages_cmd.Flags().Bool("Seats", false, 
 					`Returns details for seats in a fixed-seat package.
 The seats returned can be filtered by screen, section, or price zone. Allocation is returned based on MOS and constituent.
-Available seats can be filtered by price type availability, causing any seats that are not available for the specified price types to be listed with a status of 5, Not In Allocation.
-{"CheckPriceTypeIds":"string","ConstituentID":"string","ModeOfSaleID":"string","PackageID":"string","ReturnNonSeats":"string","ScreenIds":"string","SectionIds":"string","ZoneIds":"string"}`) 
+Available seats can be filtered by price type availability, causing any seats that are not available for the specified price types to be listed with a status of 5, Not In Allocation.` + "\nQuery:\n" + `{"CheckPriceTypeIds":"string", "ConstituentID":"string", "ModeOfSaleID":"string", "PackageID":"string", "ReturnNonSeats":"string", "ScreenIds":"string", "SectionIds":"string", "ZoneIds":"string"}`) 
 				Get_Packages_cmd.Flags().Bool("Summaries", false, 
-					`Get summary of all packages filtered by a selected season.
-{"SeasonID":"string"}`)
+					`Get summary of all packages filtered by a selected season.` + "\nQuery:\n" + `{"SeasonID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PaymentGatewayActivities_cmd) 
 				Get_PaymentGatewayActivities_cmd.Flags().Bool("All", false, 
-					`Retrieve all Payment Gateway Activity
-`)
+					`Retrieve all Payment Gateway Activity` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PaymentGatewayConfiguration_cmd)
 	
 		Get_cmd.AddCommand(Get_PaymentGatewayNotifications_cmd) 
 				Get_PaymentGatewayNotifications_cmd.Flags().Bool("Check", false, 
-					`
-{"MerchantReference":"string","SinceDateTime":"string"}`) 
+					`` + "\nQuery:\n" + `{"MerchantReference":"string", "SinceDateTime":"string"}`) 
 				Get_PaymentGatewayNotifications_cmd.Flags().Bool("Notification", false, 
-					`Retrieve notification events from Tessitura Merchant Services for a given merchant (PSP) reference.
-{"MerchantReference":"string"}`) 
+					`Retrieve notification events from Tessitura Merchant Services for a given merchant (PSP) reference.` + "\nQuery:\n" + `{"MerchantReference":"string"}`) 
 				Get_PaymentGatewayNotifications_cmd.Flags().Bool("NotificationEvent", false, 
-					`Get notification event by Id.
-{"NotificationEventID":"string"}`)
+					`Get notification event by Id.` + "\nQuery:\n" + `{"NotificationEventID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PaymentGatewayTransactionTypes_cmd) 
 				Get_PaymentGatewayTransactionTypes_cmd.Flags().Bool("All", false, 
-					`Get details of all Payment Gateway Transaction Types. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"MaintenanceMode":"string"}`) 
+					`Get details of all Payment Gateway Transaction Types. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_PaymentGatewayTransactionTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all Payment Gateway Transaction Types.
-`)
+					`Get a summary representation of all Payment Gateway Transaction Types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PaymentHistory_cmd)
 	
 		Get_cmd.AddCommand(Get_PaymentMethodGroups_cmd) 
 				Get_PaymentMethodGroups_cmd.Flags().Bool("All", false, 
-					`Get all payment method groups. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all payment method groups. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_PaymentMethodGroups_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all payment method groups.
-`)
+					`Get a summary representation of all payment method groups.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PaymentMethodUserGroups_cmd) 
 				Get_PaymentMethodUserGroups_cmd.Flags().Bool("All", false, 
-					`Get all payment method/user group mappings. Optional filter on UserGroup, Amount and MaintenanceMode (which overrides the filter on UserGroup)
-{"Amount":"string","MaintenanceMode":"string","UserGroup":"string"}`)
+					`Get all payment method/user group mappings. Optional filter on UserGroup, Amount and MaintenanceMode (which overrides the filter on UserGroup)` + "\nQuery:\n" + `{"Amount":"string", "MaintenanceMode":"string", "UserGroup":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PaymentMethods_cmd) 
 				Get_PaymentMethods_cmd.Flags().Bool("All", false, 
-					`Get all payment methods. This resource looks similar to referenceData resources, but is functionally different.  When maintenanceMode is false, control groups are considered when returning payment methods. The default for maintenanceMode is false. This endpoint should not generally be used for transaction based screens because it does not account for assigned payment methods based on user group security. For cart available payment methods, consider Security/PaymentMethods?amount={amount}.
-{"MaintenanceMode":"string","PaymentTypeIds":"string"}`) 
+					`Get all payment methods. This resource looks similar to referenceData resources, but is functionally different.  When maintenanceMode is false, control groups are considered when returning payment methods. The default for maintenanceMode is false. This endpoint should not generally be used for transaction based screens because it does not account for assigned payment methods based on user group security. For cart available payment methods, consider Security/PaymentMethods?amount={amount}.` + "\nQuery:\n" + `{"MaintenanceMode":"string", "PaymentTypeIds":"string"}`) 
 				Get_PaymentMethods_cmd.Flags().Bool("Check", false, 
-					`Check PaymentMethod setup for EMV or Hosted Payment charges.
-{"CardReaderTypeID":"string"}`) 
+					`Check PaymentMethod setup for EMV or Hosted Payment charges.` + "\nQuery:\n" + `{"CardReaderTypeID":"string"}`) 
 				Get_PaymentMethods_cmd.Flags().Bool("TranslateMnemonic", false, 
-					`Translate a card mnemonic into the matching system PaymentMethod or the default fallback PaymentMethod for that CardReaderType
-{"CardReaderTypeID":"string","Mnemonic":"string"}`)
+					`Translate a card mnemonic into the matching system PaymentMethod or the default fallback PaymentMethod for that CardReaderType` + "\nQuery:\n" + `{"CardReaderTypeID":"string", "Mnemonic":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PaymentSignatures_cmd) 
 				Get_PaymentSignatures_cmd.Flags().Bool("All", false, 
-					`Get all payment signatures.
-{"PaymentID":"string"}`)
+					`Get all payment signatures.` + "\nQuery:\n" + `{"PaymentID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PaymentTypes_cmd) 
 				Get_PaymentTypes_cmd.Flags().Bool("All", false, 
-					`Get all payment types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all payment types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_PaymentTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all payment types.
-`)
+					`Get a summary representation of all payment types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Payments_cmd) 
 				Get_Payments_cmd.Flags().Bool("All", false, 
-					`Get payments for a specified referenceId (order or contribution id).
-{"ReferenceID":"string"}`) 
+					`Get payments for a specified referenceId (order or contribution id).` + "\nQuery:\n" + `{"ReferenceID":"string"}`) 
 				Get_Payments_cmd.Flags().Bool("AvailableForRefund", false, 
-					`Retrieve cc payments available for refund by processor reference number
-{"OrderIdsOrContributionIds":"string"}`) 
+					`Retrieve cc payments available for refund by processor reference number` + "\nQuery:\n" + `{"OrderIdsOrContributionIds":"string"}`) 
 				Get_Payments_cmd.Flags().Bool("OnAccountBalances", false, 
-					`Gets a constituent's balance(s) for on-account payment methods
-{"ConstituentID":"string","PaymentMethodID":"string"}`)
+					`Gets a constituent's balance(s) for on-account payment methods` + "\nQuery:\n" + `{"ConstituentID":"string", "PaymentMethodID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PerformanceGroups_cmd) 
 				Get_PerformanceGroups_cmd.Flags().Bool("All", false, 
-					`Get all performance groups.
-{"SeasonID":"string"}`) 
+					`Get all performance groups.` + "\nQuery:\n" + `{"SeasonID":"string"}`) 
 				Get_PerformanceGroups_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all performance groups.
-{"SeasonID":"string"}`)
+					`Get a summary representation of all performance groups.` + "\nQuery:\n" + `{"SeasonID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PerformancePackageModeOfSales_cmd) 
 				Get_PerformancePackageModeOfSales_cmd.Flags().Bool("All", false, 
 					`Get all performance package mode of sales. This entity shows the Mode of Sale assignment to either a package or a performance.
-Filter using at least one parameter.  All parameters work to filter the result set collectively, so passing packageIds and performanceIds in the same request will retrieve no rows.
-{"AsOfDateTime":"string","ModeOfSaleID":"string","PackageIds":"string","PerformanceIds":"string"}`)
+Filter using at least one parameter.  All parameters work to filter the result set collectively, so passing packageIds and performanceIds in the same request will retrieve no rows.` + "\nQuery:\n" + `{"AsOfDateTime":"string", "ModeOfSaleID":"string", "PackageIds":"string", "PerformanceIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PerformancePriceLayers_cmd) 
 				Get_PerformancePriceLayers_cmd.Flags().Bool("Counts", false, 
-					`Get count of performance price layers for a set of performances.
-{"PerformanceIds":"string"}`) 
+					`Get count of performance price layers for a set of performances.` + "\nQuery:\n" + `{"PerformanceIds":"string"}`) 
 				Get_PerformancePriceLayers_cmd.Flags().Bool("PriceCount", false, 
-					`Gets the total count of price objects that will be collected when calling for the full price layer contract on these performanceIds.
-{"PerformanceIds":"string"}`)
+					`Gets the total count of price objects that will be collected when calling for the full price layer contract on these performanceIds.` + "\nQuery:\n" + `{"PerformanceIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PerformancePriceTypes_cmd) 
 				Get_PerformancePriceTypes_cmd.Flags().Bool("All", false, 
-					`Get all performance price type for the list of performances. (Pass comma separated list of performance Ids as parameter)
-{"AsOfDateTime":"string","PerformanceIds":"string","PriceTypeIds":"string"}`)
+					`Get all performance price type for the list of performances. (Pass comma separated list of performance Ids as parameter)` + "\nQuery:\n" + `{"AsOfDateTime":"string", "PerformanceIds":"string", "PriceTypeIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PerformancePrices_cmd) 
 				Get_PerformancePrices_cmd.Flags().Bool("All", false, 
-					`Get all performance prices for a set of performance price types. Pass in asOfDateTime to get prices effective for that date/time.
-{"AsOfDateTime":"string","PerformancePriceTypeIds":"string"}`) 
+					`Get all performance prices for a set of performance price types. Pass in asOfDateTime to get prices effective for that date/time.` + "\nQuery:\n" + `{"AsOfDateTime":"string", "PerformancePriceTypeIds":"string"}`) 
 				Get_PerformancePrices_cmd.Flags().Bool("AllWithEvents", false, 
-					`Get details of a set of performance prices along with events associated with those prices.
-{"PerformancePriceIds":"string"}`) 
+					`Get details of a set of performance prices along with events associated with those prices.` + "\nQuery:\n" + `{"PerformancePriceIds":"string"}`) 
 				Get_PerformancePrices_cmd.Flags().Bool("Audit", false, 
-					`Get the performance price audit entries for a set of performance prices.
-{"PerformancePriceIds":"string"}`)
+					`Get the performance price audit entries for a set of performance prices.` + "\nQuery:\n" + `{"PerformancePriceIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PerformanceStatuses_cmd) 
 				Get_PerformanceStatuses_cmd.Flags().Bool("All", false, 
-					`Get all performance statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all performance statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_PerformanceStatuses_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all performance statuses.
-`)
+					`Get a summary representation of all performance statuses.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PerformanceTypes_cmd) 
 				Get_PerformanceTypes_cmd.Flags().Bool("All", false, 
-					`Get all performance types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all performance types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_PerformanceTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all performance types.
-`)
+					`Get a summary representation of all performance types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Performances_cmd) 
 				Get_Performances_cmd.Flags().Bool("All", false, 
 					`Get performance detail information
-For single production season, a comma separated list of performances, seasons, or a single production season.  At least one filter parameter is required.
-{"PerformanceIds":"string","ProductionSeasonID":"string","SeasonIds":"string"}`) 
+For single production season, a comma separated list of performances, seasons, or a single production season.  At least one filter parameter is required.` + "\nQuery:\n" + `{"PerformanceIds":"string", "ProductionSeasonID":"string", "SeasonIds":"string"}`) 
 				Get_Performances_cmd.Flags().Bool("AuditEntries", false, 
-					`Audit log entries for changes to Performance properties such as descriptions, publish dates, and the production season. This does not include sub performance/event setup items like pricing or modes of sale.
-{"Actions":"string","Columns":"string","EndDateTime":"string","GreaterThanID":"string","OrderByIDAsc":"string","Page":"string","PageSize":"string","PerformanceIds":"string","StartDateTime":"string","Tables":"string"}`) 
+					`Audit log entries for changes to Performance properties such as descriptions, publish dates, and the production season. This does not include sub performance/event setup items like pricing or modes of sale.` + "\nQuery:\n" + `{"Actions":"string", "Columns":"string", "EndDateTime":"string", "GreaterThanID":"string", "OrderByIDAsc":"string", "Page":"string", "PageSize":"string", "PerformanceIds":"string", "StartDateTime":"string", "Tables":"string"}`) 
 				Get_Performances_cmd.Flags().Bool("PerformanceZoneAvailabilities", false, 
 					`Get performance zone availability for a set of performances.  If sectionIds are specified only zones with
-matching sections will be returned and the SectionSummaries node will be populated.
-{"PerformanceIds":"string","SectionIds":"string"}`) 
+matching sections will be returned and the SectionSummaries node will be populated.` + "\nQuery:\n" + `{"PerformanceIds":"string", "SectionIds":"string"}`) 
 				Get_Performances_cmd.Flags().Bool("PerformanceZoneAvailabilityWithConstituent", false, 
-					`Get performance zone availability for a set of performances. If ConstituentId and MOS are provided, will also return availability based on allocations and constituent rank.
-{"ConstituentID":"string","ModeOfSaleID":"string","PerformanceIds":"string"}`) 
+					`Get performance zone availability for a set of performances. If ConstituentId and MOS are provided, will also return availability based on allocations and constituent rank.` + "\nQuery:\n" + `{"ConstituentID":"string", "ModeOfSaleID":"string", "PerformanceIds":"string"}`) 
 				Get_Performances_cmd.Flags().Bool("Prices", false, 
 					`Get pricing details for a set of performances.
-Mode Of Sale and Price Type parameters can be used to filter the returned prices.
-{"AsOfDateTime":"string","ExpandPerformancePriceType":"string","IncludeOnlyBasePrice":"string","ModeOfSaleID":"string","PerformanceIds":"string","PriceTypeID":"string","SourceID":"string"}`) 
+Mode Of Sale and Price Type parameters can be used to filter the returned prices.` + "\nQuery:\n" + `{"AsOfDateTime":"string", "ExpandPerformancePriceType":"string", "IncludeOnlyBasePrice":"string", "ModeOfSaleID":"string", "PerformanceIds":"string", "PriceTypeID":"string", "SourceID":"string"}`) 
 				Get_Performances_cmd.Flags().Bool("SeatFees", false, 
-					`Returns price, per seat fees, for each zone and price type for a the specified performance
-{"AsOfDateTime":"string","ModeOfSaleID":"string","PerformanceID":"string","PriceTypeIds":"string"}`) 
+					`Returns price, per seat fees, for each zone and price type for a the specified performance` + "\nQuery:\n" + `{"AsOfDateTime":"string", "ModeOfSaleID":"string", "PerformanceID":"string", "PriceTypeIds":"string"}`) 
 				Get_Performances_cmd.Flags().Bool("SeatHoldDetails", false, 
-					`Get seat holds for a performance
-{"HoldCodeIds":"string","IncludeAllHolds":"string","PerformanceID":"string","SeatIds":"string"}`) 
+					`Get seat holds for a performance` + "\nQuery:\n" + `{"HoldCodeIds":"string", "IncludeAllHolds":"string", "PerformanceID":"string", "SeatIds":"string"}`) 
 				Get_Performances_cmd.Flags().Bool("SeatSummaries", false, 
 					`Returns summary for seats in a performance
 Seat availability is summarized by screen, section and zone.
 The seats returned can be filtered by screen, section, or price zone. Allocation is returned based on MOS and constituent.
-Available seats can be filtered by price type availability, causing any seats that are not available for the specified price types to be listed with a status of 5, Not In Allocation.
-{"CheckPriceTypeIds":"string","ConstituentID":"string","ModeOfSaleID":"string","PerformanceID":"string","ScreenIds":"string","SectionIds":"string","ZoneIds":"string"}`) 
+Available seats can be filtered by price type availability, causing any seats that are not available for the specified price types to be listed with a status of 5, Not In Allocation.` + "\nQuery:\n" + `{"CheckPriceTypeIds":"string", "ConstituentID":"string", "ModeOfSaleID":"string", "PerformanceID":"string", "ScreenIds":"string", "SectionIds":"string", "ZoneIds":"string"}`) 
 				Get_Performances_cmd.Flags().Bool("Seats", false, 
 					`Returns details for seats in a performance
 The seats returned can be filtered by screen, section, or price zone. Allocation is returned based on MOS and constituent.
-Available seats can be filtered by price type availability, causing any seats that are not available for the specified price types to be listed with a status of 5, Not In Allocation.
-{"CheckPriceTypeIds":"string","ConstituentID":"string","ModeOfSaleID":"string","PerformanceID":"string","ReturnNonSeats":"string","ScreenIds":"string","SectionIds":"string","ZoneIds":"string"}`) 
+Available seats can be filtered by price type availability, causing any seats that are not available for the specified price types to be listed with a status of 5, Not In Allocation.` + "\nQuery:\n" + `{"CheckPriceTypeIds":"string", "ConstituentID":"string", "ModeOfSaleID":"string", "PerformanceID":"string", "ReturnNonSeats":"string", "ScreenIds":"string", "SectionIds":"string", "ZoneIds":"string"}`) 
 				Get_Performances_cmd.Flags().Bool("Summaries", false, 
 					`Get Summary performance information
-For single production season, a comma separated list of performances, seasons, or a single production season. At least one filter parameter is required.
-{"PerformanceIds":"string","ProductionSeasonID":"string","SeasonIds":"string"}`)
+For single production season, a comma separated list of performances, seasons, or a single production season. At least one filter parameter is required.` + "\nQuery:\n" + `{"PerformanceIds":"string", "ProductionSeasonID":"string", "SeasonIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_Philanthropy_cmd) 
 				Get_Philanthropy_cmd.Flags().Bool("All", false, 
-					`Get details of all the philanthropyEntries for the specified constituent id and all its visible affiliation's philanthropyEntries as well. To exclude philanthropyEntries of the visible affiliations pass includeAffiliations=false.
-{"ConstituentID":"string","IncludeAffiliations":"string"}`)
+					`Get details of all the philanthropyEntries for the specified constituent id and all its visible affiliation's philanthropyEntries as well. To exclude philanthropyEntries of the visible affiliations pass includeAffiliations=false.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PhilanthropyTypes_cmd) 
 				Get_PhilanthropyTypes_cmd.Flags().Bool("All", false, 
-					`Get all philosophy types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all philosophy types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_PhilanthropyTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all philosophy types.
-`)
+					`Get a summary representation of all philosophy types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PhoneIndicators_cmd) 
 				Get_PhoneIndicators_cmd.Flags().Bool("All", false, 
-					`Get all phone indicators. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all phone indicators. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_PhoneIndicators_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all phone indicators.
-`)
+					`Get a summary representation of all phone indicators.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PhoneTypes_cmd) 
 				Get_PhoneTypes_cmd.Flags().Bool("All", false, 
-					`Get all phone types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all phone types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_PhoneTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all phone types.
-`)
+					`Get a summary representation of all phone types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Phones_cmd) 
 				Get_Phones_cmd.Flags().Bool("All", false, 
-					`Get details of all the phones for the specified constituent (constituentId) and all its visible affiliation's phones as well or address (addressId). To exclude phones of the visible affiliations pass includeAffiliations=false. If addressId is passed, constituentId or includeAffiliations parameters are ignored. To Get the phones attached to the primary address pass primary=true.
-{"AddressID":"string","ConstituentID":"string","IncludeAffiliations":"string","PrimaryOnly":"string"}`)
+					`Get details of all the phones for the specified constituent (constituentId) and all its visible affiliation's phones as well or address (addressId). To exclude phones of the visible affiliations pass includeAffiliations=false. If addressId is passed, constituentId or includeAffiliations parameters are ignored. To Get the phones attached to the primary address pass primary=true.` + "\nQuery:\n" + `{"AddressID":"string", "ConstituentID":"string", "IncludeAffiliations":"string", "PrimaryOnly":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PlanPriorities_cmd) 
 				Get_PlanPriorities_cmd.Flags().Bool("All", false, 
-					`Get all plan priorities. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all plan priorities. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_PlanPriorities_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all plan priorities.
-`)
+					`Get a summary representation of all plan priorities.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PlanSources_cmd) 
 				Get_PlanSources_cmd.Flags().Bool("All", false, 
-					`Get all plan sources. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all plan sources. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_PlanSources_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all plan sources.
-`)
+					`Get a summary representation of all plan sources.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PlanStatuses_cmd) 
 				Get_PlanStatuses_cmd.Flags().Bool("All", false, 
-					`Get all plan statuses. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all plan statuses. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_PlanStatuses_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all plan statuses.
-`)
+					`Get a summary representation of all plan statuses.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PlanTypes_cmd) 
 				Get_PlanTypes_cmd.Flags().Bool("All", false, 
-					`Get all plan types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all plan types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_PlanTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all plan types.
-`)
+					`Get a summary representation of all plan types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PlanWorkers_cmd) 
 				Get_PlanWorkers_cmd.Flags().Bool("All", false, 
-					`Get details of all the plan workers for the specified constituent.
-{"PlanID":"string"}`)
+					`Get details of all the plan workers for the specified constituent.` + "\nQuery:\n" + `{"PlanID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_Plans_cmd) 
 				Get_Plans_cmd.Flags().Bool("All", false, 
-					`Get details of all the plans for the specified constituent, campaign, worker or fund.
-{"CampaignID":"string","ConstituentID":"string","ContributionDesignationID":"string","FundID":"string","IncludeAffiliations":"string","IncludeAssociates":"string","ListID":"string","OnlyNullFund":"string","WorkerID":"string"}`)
+					`Get details of all the plans for the specified constituent, campaign, worker or fund.` + "\nQuery:\n" + `{"CampaignID":"string", "ConstituentID":"string", "ContributionDesignationID":"string", "FundID":"string", "IncludeAffiliations":"string", "IncludeAssociates":"string", "ListID":"string", "OnlyNullFund":"string", "WorkerID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PledgeBilling_cmd)
 	
 		Get_cmd.AddCommand(Get_PortfolioCustomElements_cmd) 
 				Get_PortfolioCustomElements_cmd.Flags().Bool("All", false, 
-					`Get all portfolio custom elements. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all portfolio custom elements. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_PortfolioCustomElements_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all portfolio custom elements.
-`)
+					`Get a summary representation of all portfolio custom elements.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Portfolios_cmd) 
 				Get_Portfolios_cmd.Flags().Bool("PortfolioEntry", false, 
-					`Get details of a portfolio entry for a plan.
-{"PlanID":"string"}`)
+					`Get details of a portfolio entry for a plan.` + "\nQuery:\n" + `{"PlanID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_Prefixes_cmd) 
 				Get_Prefixes_cmd.Flags().Bool("All", false, 
-					`Get all prefixes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all prefixes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_Prefixes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all prefixes.
-`)
+					`Get a summary representation of all prefixes.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Premieres_cmd) 
 				Get_Premieres_cmd.Flags().Bool("All", false, 
-					`Get all premieres. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all premieres. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_Premieres_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all premieres.
-`)
+					`Get a summary representation of all premieres.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PriceCategories_cmd) 
 				Get_PriceCategories_cmd.Flags().Bool("All", false, 
-					`Get all price categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all price categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_PriceCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all price categories.
-`)
+					`Get a summary representation of all price categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PriceEvents_cmd) 
 				Get_PriceEvents_cmd.Flags().Bool("All", false, 
-					`Get all price events for a performance, performance price type or performance price detail. From and To Date parameters can be used to filter the events. If both are specified, then events between those dates would be returned. If only fromDate is specified then all events with a startDate greater than that date would be returned. If only toDate is specified then all events with a startDate less than that date would be returned.
-{"FromDate":"string","PerformanceIds":"string","PerformancePriceIds":"string","PerformancePriceLayerIds":"string","PerformancePriceTypeIds":"string","ToDate":"string"}`) 
+					`Get all price events for a performance, performance price type or performance price detail. From and To Date parameters can be used to filter the events. If both are specified, then events between those dates would be returned. If only fromDate is specified then all events with a startDate greater than that date would be returned. If only toDate is specified then all events with a startDate less than that date would be returned.` + "\nQuery:\n" + `{"FromDate":"string", "PerformanceIds":"string", "PerformancePriceIds":"string", "PerformancePriceLayerIds":"string", "PerformancePriceTypeIds":"string", "ToDate":"string"}`) 
 				Get_PriceEvents_cmd.Flags().Bool("Dates", false, 
-					`Gets a distinct set of dates that contain events for the given list of performances.
-{"PerformanceIds":"string"}`)
+					`Gets a distinct set of dates that contain events for the given list of performances.` + "\nQuery:\n" + `{"PerformanceIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PriceLayerTypes_cmd) 
 				Get_PriceLayerTypes_cmd.Flags().Bool("All", false, 
-					`Get all price layer types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all price layer types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_PriceLayerTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all price layer types.
-`)
+					`Get a summary representation of all price layer types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PriceTemplates_cmd) 
 				Get_PriceTemplates_cmd.Flags().Bool("All", false, 
-					`Get all price templates. Optionally filtered by zoneMap and/or facility.
-{"FacilityID":"string","ZoneMapID":"string"}`) 
+					`Get all price templates. Optionally filtered by zoneMap and/or facility.` + "\nQuery:\n" + `{"FacilityID":"string", "ZoneMapID":"string"}`) 
 				Get_PriceTemplates_cmd.Flags().Bool("Summaries", false, 
-					`Get summary of all price templates. Optionally filtered by zoneMap and/or facility.
-{"FacilityID":"string","ZoneMapID":"string"}`)
+					`Get summary of all price templates. Optionally filtered by zoneMap and/or facility.` + "\nQuery:\n" + `{"FacilityID":"string", "ZoneMapID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PriceTypeCategories_cmd) 
 				Get_PriceTypeCategories_cmd.Flags().Bool("All", false, 
-					`Get all price type categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all price type categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_PriceTypeCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all price type categories.
-`)
+					`Get a summary representation of all price type categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PriceTypeGroups_cmd) 
 				Get_PriceTypeGroups_cmd.Flags().Bool("All", false, 
-					`Get all price type groups. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all price type groups. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_PriceTypeGroups_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all price type groups.
-`)
+					`Get a summary representation of all price type groups.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PriceTypeReasons_cmd) 
 				Get_PriceTypeReasons_cmd.Flags().Bool("All", false, 
-					`Get all price type reasons. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all price type reasons. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_PriceTypeReasons_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all price type categories.
-`)
+					`Get a summary representation of all price type categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PriceTypeUserGroups_cmd) 
 				Get_PriceTypeUserGroups_cmd.Flags().Bool("All", false, 
-					`Get all price type/user group mappings.  Optional filter on UserGroup and PriceType.
-{"PriceTypeID":"string","UserGroup":"string"}`)
+					`Get all price type/user group mappings.  Optional filter on UserGroup and PriceType.` + "\nQuery:\n" + `{"PriceTypeID":"string", "UserGroup":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PriceTypes_cmd) 
 				Get_PriceTypes_cmd.Flags().Bool("All", false, 
-					`Get all price types.
-{"MaintenanceMode":"string"}`) 
+					`Get all price types.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_PriceTypes_cmd.Flags().Bool("Reasons", false, 
-					`Gets valid price type reasons for the specified price type
-{"PriceTypeID":"string"}`) 
+					`Gets valid price type reasons for the specified price type` + "\nQuery:\n" + `{"PriceTypeID":"string"}`) 
 				Get_PriceTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get summary of all price types.
-{"MaintenanceMode":"string"}`) 
+					`Get summary of all price types.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_PriceTypes_cmd.Flags().Bool("ValidPriceTypes", false, 
-					`Get all valid price types for a performance/package and a mode of sale. A comma separated list of performance ids can be specified for a flex package.
-{"ModeOfSaleID":"string","OrderDateTime":"string","PackageID":"string","PerformanceIds":"string","SourceID":"string"}`) 
+					`Get all valid price types for a performance/package and a mode of sale. A comma separated list of performance ids can be specified for a flex package.` + "\nQuery:\n" + `{"ModeOfSaleID":"string", "OrderDateTime":"string", "PackageID":"string", "PerformanceIds":"string", "SourceID":"string"}`) 
 				Get_PriceTypes_cmd.Flags().Bool("ValidZones", false, 
-					`Get valid zones for a set of performances or packages.
-{"OrderDateTime":"string","PackageID":"string","PerformanceID":"string","PriceTypeID":"string"}`)
+					`Get valid zones for a set of performances or packages.` + "\nQuery:\n" + `{"OrderDateTime":"string", "PackageID":"string", "PerformanceID":"string", "PriceTypeID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_PricingRuleCategories_cmd) 
 				Get_PricingRuleCategories_cmd.Flags().Bool("All", false, 
-					`Get all pricing rule categories. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all pricing rule categories. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_PricingRuleCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all pricing rule categories.
-`)
+					`Get a summary representation of all pricing rule categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PricingRuleMessageTypes_cmd) 
 				Get_PricingRuleMessageTypes_cmd.Flags().Bool("All", false, 
-					`Get all pricing rule message types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all pricing rule message types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_PricingRuleMessageTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all pricing rule message types.
-`)
+					`Get a summary representation of all pricing rule message types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PricingRuleSets_cmd) 
 				Get_PricingRuleSets_cmd.Flags().Bool("All", false, 
-					`Get all pricing rule sets.
-`) 
+					`Get all pricing rule sets.` + "\nQuery:\n" + ``) 
 				Get_PricingRuleSets_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary of all pricing rule sets.
-`)
+					`Get a summary of all pricing rule sets.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PricingRuleTypes_cmd) 
 				Get_PricingRuleTypes_cmd.Flags().Bool("All", false, 
-					`Get all pricing rule types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all pricing rule types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_PricingRuleTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all pricing rule types.
-`)
+					`Get a summary representation of all pricing rule types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PricingRules_cmd) 
 				Get_PricingRules_cmd.Flags().Bool("All", false, 
-					`Gets all pricing rules or filtered set
-{"ModeOfSaleID":"string","OrderDate":"string","PackageIds":"string","PerformanceIds":"string"}`) 
+					`Gets all pricing rules or filtered set` + "\nQuery:\n" + `{"ModeOfSaleID":"string", "OrderDate":"string", "PackageIds":"string", "PerformanceIds":"string"}`) 
 				Get_PricingRules_cmd.Flags().Bool("AllSummary", false, 
-					`Get a summary of all pricing rules.
-`)
+					`Get a summary of all pricing rules.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Printers_cmd) 
 				Get_Printers_cmd.Flags().Bool("All", false, 
-					`Get all printers. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all printers. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_Printers_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all printers.
-`)
+					`Get a summary representation of all printers.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ProductKeywords_cmd)
 	
 		Get_cmd.AddCommand(Get_ProductionSeasonMembershipOrganizations_cmd) 
 				Get_ProductionSeasonMembershipOrganizations_cmd.Flags().Bool("All", false, 
-					`Get all production season membership organizations for a production season.
-{"ProductionSeasonID":"string"}`) 
+					`Get all production season membership organizations for a production season.` + "\nQuery:\n" + `{"ProductionSeasonID":"string"}`) 
 				Get_ProductionSeasonMembershipOrganizations_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary of all production season membership organizations for a production season.
-{"ProductionSeasonID":"string"}`)
+					`Get a summary of all production season membership organizations for a production season.` + "\nQuery:\n" + `{"ProductionSeasonID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ProductionSeasons_cmd) 
 				Get_ProductionSeasons_cmd.Flags().Bool("All", false, 
 					`Get production season details.
-Returns the full details for multiple production seasons (based on a string of production IDs or season IDs), including description and short description, season, first and last performance date, and the four ticket text lines.
-{"Ids":"string","ProductionIds":"string","SeasonIds":"string"}`) 
+Returns the full details for multiple production seasons (based on a string of production IDs or season IDs), including description and short description, season, first and last performance date, and the four ticket text lines.` + "\nQuery:\n" + `{"Ids":"string", "ProductionIds":"string", "SeasonIds":"string"}`) 
 				Get_ProductionSeasons_cmd.Flags().Bool("Summaries", false, 
 					`Get production season summaries.
-Returns the production season summary (description, ID, and related production and season summaries) for all production seasons, all production seasons of a string of specific productions, or all production seasons in a string of specified seasons.
-{"Ids":"string","ProductionIds":"string","SeasonIds":"string"}`)
+Returns the production season summary (description, ID, and related production and season summaries) for all production seasons, all production seasons of a string of specific productions, or all production seasons in a string of specified seasons.` + "\nQuery:\n" + `{"Ids":"string", "ProductionIds":"string", "SeasonIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_Productions_cmd) 
 				Get_Productions_cmd.Flags().Bool("All", false, 
-					`Get all productions, Optionally filtered by one or more titles.
-{"TitleIds":"string"}`) 
+					`Get all productions, Optionally filtered by one or more titles.` + "\nQuery:\n" + `{"TitleIds":"string"}`) 
 				Get_Productions_cmd.Flags().Bool("Summaries", false, 
-					`Get all production summaries, Optionally filtered by one or more titles.
-{"TitleIds":"string"}`)
+					`Get all production summaries, Optionally filtered by one or more titles.` + "\nQuery:\n" + `{"TitleIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ProgramListings_cmd) 
 				Get_ProgramListings_cmd.Flags().Bool("All", false, 
-					`Get details of all the program listings for the specified constituent id and all its visible affiliation's program listings as well. To exclude program listings of the visible affiliations pass includeAffiliations=false. To Get The primary program listings alone, pass primaryOnly=true.
-{"ConstituentID":"string","IncludeAffiliations":"string"}`)
+					`Get details of all the program listings for the specified constituent id and all its visible affiliation's program listings as well. To exclude program listings of the visible affiliations pass includeAffiliations=false. To Get The primary program listings alone, pass primaryOnly=true.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string"}`)
 	
 		Get_cmd.AddCommand(Get_Programs_cmd) 
 				Get_Programs_cmd.Flags().Bool("All", false, 
-					`Get all programs. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all programs. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_Programs_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all programs.
-`)
+					`Get a summary representation of all programs.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Pronouns_cmd) 
 				Get_Pronouns_cmd.Flags().Bool("All", false, 
-					`
-{"MaintenanceMode":"string"}`) 
+					`` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_Pronouns_cmd.Flags().Bool("Summaries", false, 
-					`
-`)
+					`` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_QualificationCategories_cmd) 
 				Get_QualificationCategories_cmd.Flags().Bool("All", false, 
-					`Get the details of all Qualification Categories. To get the resources only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get the details of all Qualification Categories. To get the resources only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_QualificationCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all Qualification Categories.
-`)
+					`Get a summary representation of all Qualification Categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Qualifications_cmd) 
 				Get_Qualifications_cmd.Flags().Bool("All", false, 
-					`Get all Qualifications. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).S
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all Qualifications. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).S` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_Qualifications_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all Qualifications.
-`)
+					`Get a summary representation of all Qualifications.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_QueryElementFilters_cmd) 
 				Get_QueryElementFilters_cmd.Flags().Bool("All", false, 
-					`Get available query element filters for one or more query element groups.
-{"GroupIds":"string"}`) 
+					`Get available query element filters for one or more query element groups.` + "\nQuery:\n" + `{"GroupIds":"string"}`) 
 				Get_QueryElementFilters_cmd.Flags().Bool("DataFor", false, 
-					`Get values for a query element filter.
-{"QueryElementFilterID":"string"}`) 
+					`Get values for a query element filter.` + "\nQuery:\n" + `{"QueryElementFilterID":"string"}`) 
 				Get_QueryElementFilters_cmd.Flags().Bool("Summaries", false, 
-					`Get summary of query element filters for one or more query element groups.
-{"GroupIds":"string"}`)
+					`Get summary of query element filters for one or more query element groups.` + "\nQuery:\n" + `{"GroupIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_QueryElementGroups_cmd) 
 				Get_QueryElementGroups_cmd.Flags().Bool("All", false, 
-					`Get all query element groups.
-`)
+					`Get all query element groups.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_QueryElements_cmd) 
 				Get_QueryElements_cmd.Flags().Bool("All", false, 
-					`Get a list of query elements optionally filtered by one or more GroupIds or if they're active only.
-{"ActiveOnly":"string","GroupIds":"string"}`) 
+					`Get a list of query elements optionally filtered by one or more GroupIds or if they're active only.` + "\nQuery:\n" + `{"ActiveOnly":"string", "GroupIds":"string"}`) 
 				Get_QueryElements_cmd.Flags().Bool("Summaries", false, 
-					`Get a list of query elements in summary optionally filtered by one or more GroupIds or if they're active only.
-{"ActiveOnly":"string","GroupIds":"string"}`)
+					`Get a list of query elements in summary optionally filtered by one or more GroupIds or if they're active only.` + "\nQuery:\n" + `{"ActiveOnly":"string", "GroupIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_RankTypes_cmd) 
 				Get_RankTypes_cmd.Flags().Bool("All", false, 
-					`Get all rank types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all rank types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_RankTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all rank types.
-`)
+					`Get a summary representation of all rank types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Rankings_cmd) 
 				Get_Rankings_cmd.Flags().Bool("All", false, 
-					`Get details of all the rankings for the specified constituent id and all its visible affiliation's rankings as well. To exclude rankings of the visible affiliations pass includeAffiliations=false. To Get The primary rankings alone, pass primaryOnly=true.
-{"ConstituentID":"string","IncludeAffiliations":"string"}`)
+					`Get details of all the rankings for the specified constituent id and all its visible affiliation's rankings as well. To exclude rankings of the visible affiliations pass includeAffiliations=false. To Get The primary rankings alone, pass primaryOnly=true.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ReceiptSettings_cmd) 
 				Get_ReceiptSettings_cmd.Flags().Bool("All", false, 
-					`Get all Receipt Settings. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all Receipt Settings. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_ReceiptSettings_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all Receipt Settings.
-`)
+					`Get a summary representation of all Receipt Settings.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ReferenceColumns_cmd) 
 				Get_ReferenceColumns_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all reference columns.
-`)
+					`Get a summary representation of all reference columns.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ReferenceTableUserGroups_cmd) 
 				Get_ReferenceTableUserGroups_cmd.Flags().Bool("All", false, 
-					`Get all the reference table/user group mappings.
-`) 
+					`Get all the reference table/user group mappings.` + "\nQuery:\n" + ``) 
 				Get_ReferenceTableUserGroups_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all reference table/user group mappings.
-`)
+					`Get a summary representation of all reference table/user group mappings.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ReferenceTables_cmd) 
 				Get_ReferenceTables_cmd.Flags().Bool("All", false, 
-					`Get all reference tables. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all reference tables. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_ReferenceTables_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all reference tables.
-`)
+					`Get a summary representation of all reference tables.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_RelationshipCategories_cmd) 
 				Get_RelationshipCategories_cmd.Flags().Bool("All", false, 
-					`Get all relationship categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all relationship categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_RelationshipCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all relationship categories.
-`)
+					`Get a summary representation of all relationship categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Relationships_cmd)
 	
 		Get_cmd.AddCommand(Get_ReportRequests_cmd) 
 				Get_ReportRequests_cmd.Flags().Bool("All", false, 
-					`Get all requests, optionally filtered by active requests only.
-{"ActiveOnly":"string"}`) 
+					`Get all requests, optionally filtered by active requests only.` + "\nQuery:\n" + `{"ActiveOnly":"string"}`) 
 				Get_ReportRequests_cmd.Flags().Bool("AllExpired", false, 
-					`Get a list of all the expired requests of the specified report types as of the provided date time.
-{"AsOfDateTime":"string","ReportTypes":"string"}`) 
+					`Get a list of all the expired requests of the specified report types as of the provided date time.` + "\nQuery:\n" + `{"AsOfDateTime":"string", "ReportTypes":"string"}`) 
 				Get_ReportRequests_cmd.Flags().Bool("Queued", false, 
-					`Get a list of all the requests queued to be run as of the current date/time.
-`)
+					`Get a list of all the requests queued to be run as of the current date/time.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ReportSchedules_cmd) 
 				Get_ReportSchedules_cmd.Flags().Bool("All", false, 
-					`Get all report schedules, optionally filtered by active only.
-{"ActiveOnly":"string"}`)
+					`Get all report schedules, optionally filtered by active only.` + "\nQuery:\n" + `{"ActiveOnly":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ReportUserGroups_cmd) 
 				Get_ReportUserGroups_cmd.Flags().Bool("All", false, 
-					`Get all report/user group mappings.
-`) 
+					`Get all report/user group mappings.` + "\nQuery:\n" + ``) 
 				Get_ReportUserGroups_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all report/user group mappings.
-`)
+					`Get a summary representation of all report/user group mappings.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Reports_cmd) 
 				Get_Reports_cmd.Flags().Bool("All", false, 
-					`Get all reports, Optionally filtered by type.
-{"Type":"string"}`) 
+					`Get all reports, Optionally filtered by type.` + "\nQuery:\n" + `{"Type":"string"}`) 
 				Get_Reports_cmd.Flags().Bool("CustomData", false, 
-					`Get custom data for a report parameter.
-{"ParameterID":"string","ReportID":"string"}`) 
+					`Get custom data for a report parameter.` + "\nQuery:\n" + `{"ParameterID":"string", "ReportID":"string"}`) 
 				Get_Reports_cmd.Flags().Bool("ReportCategories", false, 
-					`Get all report categories.
-`) 
+					`Get all report categories.` + "\nQuery:\n" + ``) 
 				Get_Reports_cmd.Flags().Bool("ReportDefaults", false, 
-					`Get report defaults for the specified user group.
-{"UserGroup":"string"}`) 
+					`Get report defaults for the specified user group.` + "\nQuery:\n" + `{"UserGroup":"string"}`) 
 				Get_Reports_cmd.Flags().Bool("ReportParameters", false, 
-					`Get report parameters.
-{"ReportID":"string"}`)
+					`Get report parameters.` + "\nQuery:\n" + `{"ReportID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_Research_cmd) 
 				Get_Research_cmd.Flags().Bool("All", false, 
-					`Get details of all the research for the specified constituent id and all its visible affiliation's researches as well. To exclude researches of the visible affiliations pass includeAffiliations=false.
-{"ConstituentID":"string","IncludeAffiliations":"string"}`)
+					`Get details of all the research for the specified constituent id and all its visible affiliation's researches as well. To exclude researches of the visible affiliations pass includeAffiliations=false.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ResearchTypes_cmd) 
 				Get_ResearchTypes_cmd.Flags().Bool("All", false, 
-					`Get all research types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all research types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_ResearchTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all research types.
-`)
+					`Get a summary representation of all research types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ResourceCategories_cmd) 
 				Get_ResourceCategories_cmd.Flags().Bool("All", false, 
-					`Get details of all Resource Categories. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"MaintenanceMode":"string"}`) 
+					`Get details of all Resource Categories. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_ResourceCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all Resource Categories.
-`)
+					`Get a summary representation of all Resource Categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ResourceSchedules_cmd) 
 				Get_ResourceSchedules_cmd.Flags().Bool("All", false, 
-					`Get a list of resource schedules for resources or workers. One of 'resourceIds' or 'constituentIds' parameters must be provided.
-{"ConstituentIds":"string","EndDate":"string","ResourceIds":"string","StartDate":"string","TypeIds":"string"}`)
+					`Get a list of resource schedules for resources or workers. One of 'resourceIds' or 'constituentIds' parameters must be provided.` + "\nQuery:\n" + `{"ConstituentIds":"string", "EndDate":"string", "ResourceIds":"string", "StartDate":"string", "TypeIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ResourceTypes_cmd) 
 				Get_ResourceTypes_cmd.Flags().Bool("All", false, 
-					`Get all resource types.
-{"CategoryIds":"string"}`) 
+					`Get all resource types.` + "\nQuery:\n" + `{"CategoryIds":"string"}`) 
 				Get_ResourceTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get summary of all resource types.
-{"CategoryIds":"string"}`)
+					`Get summary of all resource types.` + "\nQuery:\n" + `{"CategoryIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_Resources_cmd) 
 				Get_Resources_cmd.Flags().Bool("All", false, 
-					`Get all resources optionally filtered by Resource Type, Category, or ConstituentId (for Worker type only). IncludeAffiliations parameter only accepted when ConstituentId provided.
-{"CategoryIds":"string","ConstituentID":"string","IncludeAffiliations":"string","ResourceTypeIds":"string"}`) 
+					`Get all resources optionally filtered by Resource Type, Category, or ConstituentId (for Worker type only). IncludeAffiliations parameter only accepted when ConstituentId provided.` + "\nQuery:\n" + `{"CategoryIds":"string", "ConstituentID":"string", "IncludeAffiliations":"string", "ResourceTypeIds":"string"}`) 
 				Get_Resources_cmd.Flags().Bool("Details", false, 
-					`Get schedules and qualifications that apply to a set of resources and/or constituents during certain period of time.
-{"ConstituentIds":"string","EndDateTime":"string","ExpandWorkerAssignments":"string","ResourceIds":"string","StartDateTime":"string"}`) 
+					`Get schedules and qualifications that apply to a set of resources and/or constituents during certain period of time.` + "\nQuery:\n" + `{"ConstituentIds":"string", "EndDateTime":"string", "ExpandWorkerAssignments":"string", "ResourceIds":"string", "StartDateTime":"string"}`) 
 				Get_Resources_cmd.Flags().Bool("HasUsages", false, 
-					`Get the resource usage information.
-{"ID":"string"}`) 
+					`Get the resource usage information.` + "\nQuery:\n" + `{"ID":"string"}`) 
 				Get_Resources_cmd.Flags().Bool("Summaries", false, 
-					`Get all resources in summary optionally filtered by Resource Type, Category, or Constituent (for Worker Type only). IncludeAffiliations parameter only accepted when ConstituentId provided.
-{"CategoryIds":"string","ConstituentID":"string","IncludeAffiliations":"string","ResourceTypeIds":"string"}`)
+					`Get all resources in summary optionally filtered by Resource Type, Category, or Constituent (for Worker Type only). IncludeAffiliations parameter only accepted when ConstituentId provided.` + "\nQuery:\n" + `{"CategoryIds":"string", "ConstituentID":"string", "IncludeAffiliations":"string", "ResourceTypeIds":"string"}`)
 	
 		Get_cmd.AddCommand(Get_SalesChannels_cmd) 
 				Get_SalesChannels_cmd.Flags().Bool("All", false, 
-					`Get all sales channels. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all sales channels. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_SalesChannels_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all sales channels.
-`)
+					`Get a summary representation of all sales channels.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_SalesLayoutButtonTypes_cmd) 
 				Get_SalesLayoutButtonTypes_cmd.Flags().Bool("All", false, 
-					`Get all sales layout button types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all sales layout button types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_SalesLayoutButtonTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all sales layout button types.
-`)
+					`Get a summary representation of all sales layout button types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_SalesLayouts_cmd) 
 				Get_SalesLayouts_cmd.Flags().Bool("ForSale", false, 
-					`Get details of a sales layout for use in orders.
-{"ModeOfSaleID":"string","OrderDateTime":"string","SalesLayoutID":"string"}`) 
+					`Get details of a sales layout for use in orders.` + "\nQuery:\n" + `{"ModeOfSaleID":"string", "OrderDateTime":"string", "SalesLayoutID":"string"}`) 
 				Get_SalesLayouts_cmd.Flags().Bool("Summaries", false, 
-					`Get all sales layouts setup.
-{"PrimaryOnly":"string"}`)
+					`Get all sales layouts setup.` + "\nQuery:\n" + `{"PrimaryOnly":"string"}`)
 	
 		Get_cmd.AddCommand(Get_SalutationTypes_cmd) 
 				Get_SalutationTypes_cmd.Flags().Bool("All", false, 
-					`Get all salutation types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all salutation types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_SalutationTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all salutation types.
-`)
+					`Get a summary representation of all salutation types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Salutations_cmd) 
 				Get_Salutations_cmd.Flags().Bool("All", false, 
-					`Get details of all the salutations for the specified constituent id and all its visible affiliation's salutations as well. To exclude salutations of the visible affiliations pass includeAffiliations=false.To fetch default salutations alone pass defaultOnly=true.
-{"ConstituentID":"string","DefaultOnly":"string","IncludeAffiliations":"string","IncludeFromAffiliations":"string"}`) 
+					`Get details of all the salutations for the specified constituent id and all its visible affiliation's salutations as well. To exclude salutations of the visible affiliations pass includeAffiliations=false.To fetch default salutations alone pass defaultOnly=true.` + "\nQuery:\n" + `{"ConstituentID":"string", "DefaultOnly":"string", "IncludeAffiliations":"string", "IncludeFromAffiliations":"string"}`) 
 				Get_Salutations_cmd.Flags().Bool("Generate", false, 
-					`Generates values for the fields required for the salutation, last name and sort name using the values passed as query parameters. If you pass in value for 'constituentId' there is no need to pass values for any other parameters. Even if it is passed they are ignored. If value for constituentId is not passed, values for other parameters should be passed. In this case values for either 'constituentTypeId' or 'formulaId' should be passed.
-{"ConstituentID":"string","ConstituentTypeID":"string","Fname1":"string","Fname2":"string","FormulaID":"string","Gender1":"string","Gender2":"string","Lname1":"string","Lname2":"string","LnameGroup":"string","MaxLength":"string","Mname1":"string","Mname2":"string","Prefix1":"string","Prefix2":"string","Status1":"string","Status2":"string","Suffix1":"string","Suffix2":"string"}`)
+					`Generates values for the fields required for the salutation, last name and sort name using the values passed as query parameters. If you pass in value for 'constituentId' there is no need to pass values for any other parameters. Even if it is passed they are ignored. If value for constituentId is not passed, values for other parameters should be passed. In this case values for either 'constituentTypeId' or 'formulaId' should be passed.` + "\nQuery:\n" + `{"ConstituentID":"string", "ConstituentTypeID":"string", "Fname1":"string", "Fname2":"string", "FormulaID":"string", "Gender1":"string", "Gender2":"string", "Lname1":"string", "Lname2":"string", "LnameGroup":"string", "MaxLength":"string", "Mname1":"string", "Mname2":"string", "Prefix1":"string", "Prefix2":"string", "Status1":"string", "Status2":"string", "Suffix1":"string", "Suffix2":"string"}`)
 	
 		Get_cmd.AddCommand(Get_SchedulePatternTypes_cmd) 
 				Get_SchedulePatternTypes_cmd.Flags().Bool("All", false, 
-					`Get details of all Schedule Patterns. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"MaintenanceMode":"string"}`) 
+					`Get details of all Schedule Patterns. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_SchedulePatternTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all Schedule Patterns.
-`)
+					`Get a summary representation of all Schedule Patterns.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ScheduleTypes_cmd) 
 				Get_ScheduleTypes_cmd.Flags().Bool("All", false, 
-					`Get details of all Schedule Types. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"MaintenanceMode":"string"}`) 
+					`Get details of all Schedule Types. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_ScheduleTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all Schedule Types.
-`)
+					`Get a summary representation of all Schedule Types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_SeasonTypes_cmd) 
 				Get_SeasonTypes_cmd.Flags().Bool("All", false, 
-					`Get all season types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all season types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_SeasonTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all season types.
-`)
+					`Get a summary representation of all season types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Seasons_cmd) 
 				Get_Seasons_cmd.Flags().Bool("All", false, 
-					`Get all seasons. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all seasons. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_Seasons_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all seasons.
-`)
+					`Get a summary representation of all seasons.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_SeatCodes_cmd) 
 				Get_SeatCodes_cmd.Flags().Bool("All", false, 
-					`Get all seat codes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all seat codes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_SeatCodes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all seat codes.
-`)
+					`Get a summary representation of all seat codes.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_SeatStatuses_cmd) 
 				Get_SeatStatuses_cmd.Flags().Bool("All", false, 
-					`Get all seat statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all seat statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_SeatStatuses_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all seat statuses.
-`)
+					`Get a summary representation of all seat statuses.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Sections_cmd) 
 				Get_Sections_cmd.Flags().Bool("All", false, 
-					`Get all sections. To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"MaintenanceMode":"string","SeatMapID":"string"}`) 
+					`Get all sections. To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"MaintenanceMode":"string", "SeatMapID":"string"}`) 
 				Get_Sections_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all sections.
-`)
+					`Get a summary representation of all sections.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_SecurityBatchTypes_cmd)
 	
@@ -7382,341 +6921,259 @@ Returns the production season summary (description, ID, and related production a
 	
 		Get_cmd.AddCommand(Get_SecurityUserGroups_cmd) 
 				Get_SecurityUserGroups_cmd.Flags().Bool("DefaultUserGroup", false, 
-					`Get the default security user group.
-{"UserName":"string"}`) 
+					`Get the default security user group.` + "\nQuery:\n" + `{"UserName":"string"}`) 
 				Get_SecurityUserGroups_cmd.Flags().Bool("ManagedGroups", false, 
-					`Get all managed security user groups.
-{"UserName":"string"}`)
+					`Get all managed security user groups.` + "\nQuery:\n" + `{"UserName":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ServiceResourceUserGroups_cmd) 
 				Get_ServiceResourceUserGroups_cmd.Flags().Bool("All", false, 
-					`Get all service resource/user group mappings.
-`) 
+					`Get all service resource/user group mappings.` + "\nQuery:\n" + ``) 
 				Get_ServiceResourceUserGroups_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all service resource/user group mappings.
-`)
+					`Get a summary representation of all service resource/user group mappings.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ServiceResources_cmd) 
 				Get_ServiceResources_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all service resources.
-`)
+					`Get a summary representation of all service resources.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Session_cmd) 
 				Get_Session_cmd.Flags().Bool("Default", false, 
-					`Returns summary information for the specified default, including value
-{"FieldName":"string","SessionKey":"string"}`) 
+					`Returns summary information for the specified default, including value` + "\nQuery:\n" + `{"FieldName":"string", "SessionKey":"string"}`) 
 				Get_Session_cmd.Flags().Bool("DeliveryMethods", false, 
 					`Returns the available delivery methods for the session
-Delivery method availability is based on the mode of sale. NOTE:  The Hold at Box Office delivery method(ID -1) is always returned. Web code must be used to filter out this delivery method as needed.
-{"SessionKey":"string"}`) 
+Delivery method availability is based on the mode of sale. NOTE:  The Hold at Box Office delivery method(ID -1) is always returned. Web code must be used to filter out this delivery method as needed.` + "\nQuery:\n" + `{"SessionKey":"string"}`) 
 				Get_Session_cmd.Flags().Bool("Expiration", false, 
 					`Returns the deadline after which a session's reserved seats will be released
-When called on a session without an established Seat Server session, one will be created for it.  Once the session is created, the deadline will apply regardless of whether or not any tickets have been added to the cart.
-{"SessionKey":"string"}`) 
+When called on a session without an established Seat Server session, one will be created for it.  Once the session is created, the deadline will apply regardless of whether or not any tickets have been added to the cart.` + "\nQuery:\n" + `{"SessionKey":"string"}`) 
 				Get_Session_cmd.Flags().Bool("OnAccountBalances", false, 
 					`Returns the balance of on account money held by the constituent associated to the provided session key.
-Results can be filtered by specific on-account payment methods. The Amount used in current session is also indicated.
-{"PaymentMethodIds":"string","SessionKey":"string"}`) 
+Results can be filtered by specific on-account payment methods. The Amount used in current session is also indicated.` + "\nQuery:\n" + `{"PaymentMethodIds":"string", "SessionKey":"string"}`) 
 				Get_Session_cmd.Flags().Bool("OrderSearch", false, 
 					`Returns summary details for all orders belonging to the session's authenticated constituent. 
-Returned orders can be filtered by print status, performance date, season, mode of sale, delivery method, and whether or not an order was created by a rollover.
-{"DeliveryMethodID":"string","IncludeAffiliations":"string","IncludeUnfulfilledRollovers":"string","ModeOfSaleID":"string","PerfEndDate":"string","PerfStartDate":"string","RenewalsOnly":"string","SeasonID":"string","SessionKey":"string","UnprintedOnly":"string"}`) 
+Returned orders can be filtered by print status, performance date, season, mode of sale, delivery method, and whether or not an order was created by a rollover.` + "\nQuery:\n" + `{"DeliveryMethodID":"string", "IncludeAffiliations":"string", "IncludeUnfulfilledRollovers":"string", "ModeOfSaleID":"string", "PerfEndDate":"string", "PerfStartDate":"string", "RenewalsOnly":"string", "SeasonID":"string", "SessionKey":"string", "UnprintedOnly":"string"}`) 
 				Get_Session_cmd.Flags().Bool("Variable", false, 
-					`Returns the value of the specified session variable.
-{"SessionKey":"string","VariableName":"string"}`) 
+					`Returns the value of the specified session variable.` + "\nQuery:\n" + `{"SessionKey":"string", "VariableName":"string"}`) 
 				Get_Session_cmd.Flags().Bool("Variables", false, 
-					`Returns a list of all name/value pair variables for the specified session.
-{"SessionKey":"string"}`)
+					`Returns a list of all name/value pair variables for the specified session.` + "\nQuery:\n" + `{"SessionKey":"string"}`)
 	
 		Get_cmd.AddCommand(Get_SourceGroups_cmd) 
 				Get_SourceGroups_cmd.Flags().Bool("All", false, 
-					`Get all source groups. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all source groups. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_SourceGroups_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all source groups.
-`)
+					`Get a summary representation of all source groups.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Sources_cmd) 
 				Get_Sources_cmd.Flags().Bool("Summaries", false, 
-					`Get summary of all Sources.
-{"ActiveOnly":"string","AppealIds":"string"}`) 
+					`Get summary of all Sources.` + "\nQuery:\n" + `{"ActiveOnly":"string", "AppealIds":"string"}`) 
 				Get_Sources_cmd.Flags().Bool("WebExpiring", false, 
-					`Gets the source codes configured as the web default that are expiring in 15 days without an overlapping source code.
-`)
+					`Gets the source codes configured as the web default that are expiring in 15 days without an overlapping source code.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_SpecialActivities_cmd) 
 				Get_SpecialActivities_cmd.Flags().Bool("All", false, 
-					`Get details of all the activity records for the specified constituent id and all its visible affiliations' activity records as well. To exclude activity records of the visible affiliations, pass includeAffiliations=false.
-{"ConstituentID":"string","IncludeAffiliations":"string"}`)
+					`Get details of all the activity records for the specified constituent id and all its visible affiliations' activity records as well. To exclude activity records of the visible affiliations, pass includeAffiliations=false.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string"}`)
 	
 		Get_cmd.AddCommand(Get_SpecialActivityStatuses_cmd) 
 				Get_SpecialActivityStatuses_cmd.Flags().Bool("All", false, 
-					`Get details of all Special Activity Statuses. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"MaintenanceMode":"string"}`) 
+					`Get details of all Special Activity Statuses. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_SpecialActivityStatuses_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all Special Activity Statuses.
-`)
+					`Get a summary representation of all Special Activity Statuses.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_SpecialActivityTypes_cmd) 
 				Get_SpecialActivityTypes_cmd.Flags().Bool("All", false, 
-					`Get all Special Activity Types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all Special Activity Types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_SpecialActivityTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all Special Activity Types.
-`)
+					`Get a summary representation of all Special Activity Types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_States_cmd) 
 				Get_States_cmd.Flags().Bool("All", false, 
-					`Get all states. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all states. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_States_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all states.
-`)
+					`Get a summary representation of all states.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_StepTypes_cmd) 
 				Get_StepTypes_cmd.Flags().Bool("All", false, 
-					`Get all step types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all step types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_StepTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all step types.
-`)
+					`Get a summary representation of all step types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Steps_cmd) 
 				Get_Steps_cmd.Flags().Bool("All", false, 
-					`Get details of all the steps for the specified plan, constituent or associate.
-{"AssociateID":"string","ConstituentID":"string","IncludeAffiliations":"string","IncludeAssociates":"string","PlanID":"string"}`) 
+					`Get details of all the steps for the specified plan, constituent or associate.` + "\nQuery:\n" + `{"AssociateID":"string", "ConstituentID":"string", "IncludeAffiliations":"string", "IncludeAssociates":"string", "PlanID":"string"}`) 
 				Get_Steps_cmd.Flags().Bool("AllDocumentSummaries", false, 
-					`Get summary of all the documents associated with the step. (Excluding the file contents)
-{"StepID":"string"}`) 
+					`Get summary of all the documents associated with the step. (Excluding the file contents)` + "\nQuery:\n" + `{"StepID":"string"}`) 
 				Get_Steps_cmd.Flags().Bool("AllDocuments", false, 
-					`Get all the documents associated with the step (Including the file contents).
-{"StepID":"string"}`)
+					`Get all the documents associated with the step (Including the file contents).` + "\nQuery:\n" + `{"StepID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_SubLineItemStatuses_cmd) 
 				Get_SubLineItemStatuses_cmd.Flags().Bool("All", false, 
-					`Get all sub line item statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all sub line item statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_SubLineItemStatuses_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all sub line item statuses.
-`)
+					`Get a summary representation of all sub line item statuses.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_SubLineItems_cmd)
 	
 		Get_cmd.AddCommand(Get_Suffixes_cmd) 
 				Get_Suffixes_cmd.Flags().Bool("All", false, 
-					`Get all suffixes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all suffixes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_Suffixes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all suffixes.
-`)
+					`Get a summary representation of all suffixes.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_SurveyQuestions_cmd) 
 				Get_SurveyQuestions_cmd.Flags().Bool("All", false, 
-					`Get details of all survey questions. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). Optionally provide a mode of sale id.
-{"Filter":"string","MaintenanceMode":"string","ModeOfSaleID":"string"}`) 
+					`Get details of all survey questions. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). Optionally provide a mode of sale id.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string", "ModeOfSaleID":"string"}`) 
 				Get_SurveyQuestions_cmd.Flags().Bool("DataFor", false, 
-					`Get answer data for a survey question if it refers to another reference table.
-{"QuestionID":"string"}`) 
+					`Get answer data for a survey question if it refers to another reference table.` + "\nQuery:\n" + `{"QuestionID":"string"}`) 
 				Get_SurveyQuestions_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all survey questions.
-`)
+					`Get a summary representation of all survey questions.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_SurveyResponses_cmd) 
 				Get_SurveyResponses_cmd.Flags().Bool("All", false, 
-					`Get all survey responses.
-{"OrderID":"string"}`)
+					`Get all survey responses.` + "\nQuery:\n" + `{"OrderID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_SystemDefaults_cmd) 
 				Get_SystemDefaults_cmd.Flags().Bool("Default", false, 
-					`Get default summaries for specified keys, delimited by comma ("?keys=COMPANY_NAME,REQUIRE_ADDRESS").  This resource resolves organizational and global defaults to ensure that only one is returned per key (field name).  No default will be returned if one does not exist.
-{"Keys":"string"}`) 
+					`Get default summaries for specified keys, delimited by comma ("?keys=COMPANY_NAME,REQUIRE_ADDRESS").  This resource resolves organizational and global defaults to ensure that only one is returned per key (field name).  No default will be returned if one does not exist.` + "\nQuery:\n" + `{"Keys":"string"}`) 
 				Get_SystemDefaults_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all system defaults.
-`)
+					`Get a summary representation of all system defaults.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_TemplateCategories_cmd) 
 				Get_TemplateCategories_cmd.Flags().Bool("All", false, 
-					`Get all template categories. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all template categories. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_TemplateCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all template categories.
-`)
+					`Get a summary representation of all template categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_TemplatePriceTypes_cmd) 
 				Get_TemplatePriceTypes_cmd.Flags().Bool("All", false, 
-					`Get all template price type.
-{"TemplateID":"string"}`)
+					`Get all template price type.` + "\nQuery:\n" + `{"TemplateID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_TemplatePrices_cmd) 
 				Get_TemplatePrices_cmd.Flags().Bool("All", false, 
-					`Get all template prices.
-{"TemplateID":"string"}`)
+					`Get all template prices.` + "\nQuery:\n" + `{"TemplateID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_TemplateTypes_cmd) 
 				Get_TemplateTypes_cmd.Flags().Bool("All", false, 
-					`Get all template types. To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all template types. To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_TemplateTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all template types
-`)
+					`Get a summary representation of all template types` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Templates_cmd) 
 				Get_Templates_cmd.Flags().Bool("All", false, 
-					`Get all templates
-`) 
+					`Get all templates` + "\nQuery:\n" + ``) 
 				Get_Templates_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all templates
-`)
+					`Get a summary representation of all templates` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Theaters_cmd) 
 				Get_Theaters_cmd.Flags().Bool("All", false, 
-					`Get all theaters. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all theaters. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_Theaters_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all theaters.
-`)
+					`Get a summary representation of all theaters.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_TicketHistory_cmd)
 	
 		Get_cmd.AddCommand(Get_TimeSlots_cmd) 
 				Get_TimeSlots_cmd.Flags().Bool("All", false, 
-					`Get all time slots. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all time slots. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_TimeSlots_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all time slots.
-`)
+					`Get a summary representation of all time slots.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Titles_cmd) 
 				Get_Titles_cmd.Flags().Bool("All", false, 
-					`Get all titles
-`) 
+					`Get all titles` + "\nQuery:\n" + ``) 
 				Get_Titles_cmd.Flags().Bool("Summaries", false, 
-					`Get all title summaries
-`)
+					`Get all title summaries` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_TransactionHistory_cmd)
 	
 		Get_cmd.AddCommand(Get_TriPOSCloudConfigurations_cmd) 
 				Get_TriPOSCloudConfigurations_cmd.Flags().Bool("All", false, 
-					`Get all TriPOS Cloud configurations.
-{"MaintenanceMode":"string"}`) 
+					`Get all TriPOS Cloud configurations.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_TriPOSCloudConfigurations_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all TriPOS Cloud configurations.
-`)
+					`Get a summary representation of all TriPOS Cloud configurations.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_UpgradeCategories_cmd) 
 				Get_UpgradeCategories_cmd.Flags().Bool("All", false, 
-					`Get details of all Upgrade Categories. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"MaintenanceMode":"string"}`) 
+					`Get details of all Upgrade Categories. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_UpgradeCategories_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all Upgrade Categories.
-`)
+					`Get a summary representation of all Upgrade Categories.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_UpgradeLogs_cmd) 
 				Get_UpgradeLogs_cmd.Flags().Bool("All", false, 
-					`Returns a list of UpgradeLog objects.
-`)
+					`Returns a list of UpgradeLog objects.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_UserGroups_cmd) 
 				Get_UserGroups_cmd.Flags().Bool("All", false, 
-					`Get all User Groups. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all User Groups. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_UserGroups_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all user groups.
-`)
+					`Get a summary representation of all user groups.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_UserPreferences_cmd) 
 				Get_UserPreferences_cmd.Flags().Bool("All", false, 
-					`Get all user preferences valid for the context username and user group.
-{"Keys":"string"}`)
+					`Get all user preferences valid for the context username and user group.` + "\nQuery:\n" + `{"Keys":"string"}`)
 	
 		Get_cmd.AddCommand(Get_Users_cmd) 
 				Get_Users_cmd.Flags().Bool("ActiveDirectoryUser", false, 
-					`Get details of a user for the specified activeDirectoryUsername.
-{"ActiveDirectoryUsername":"string"}`) 
+					`Get details of a user for the specified activeDirectoryUsername.` + "\nQuery:\n" + `{"ActiveDirectoryUsername":"string"}`) 
 				Get_Users_cmd.Flags().Bool("UserInformationForActiveDirectoryUser", false, 
-					`Gets user information for the specified activeDirectoryUsername.
-{"ActiveDirectoryUsername":"string"}`) 
+					`Gets user information for the specified activeDirectoryUsername.` + "\nQuery:\n" + `{"ActiveDirectoryUsername":"string"}`) 
 				Get_Users_cmd.Flags().Bool("UsersForUserGroup", false, 
-					`Get list of users in summary for the current user's group.
-{"UserGroupID":"string"}`)
+					`Get list of users in summary for the current user's group.` + "\nQuery:\n" + `{"UserGroupID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_WebContentTypes_cmd) 
 				Get_WebContentTypes_cmd.Flags().Bool("All", false, 
-					`Get all web content types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all web content types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_WebContentTypes_cmd.Flags().Bool("DataFor", false, 
-					`Gets potential values for a referenced WebContentType as a collection of WebContentTypeDataItem.
-{"ID":"string"}`) 
+					`Gets potential values for a referenced WebContentType as a collection of WebContentTypeDataItem.` + "\nQuery:\n" + `{"ID":"string"}`) 
 				Get_WebContentTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all web content types.
-`)
+					`Get a summary representation of all web content types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_WebContents_cmd)
 	
 		Get_cmd.AddCommand(Get_WebLogins_cmd) 
 				Get_WebLogins_cmd.Flags().Bool("All", false, 
-					`Get details of all the weblogins for the specified constituent id and all its visible affiliation's weblogins as well. To exclude weblogins of the visible affiliations pass includeAffiliations=false. To fetch primary web logins alone pass primaryOnly=true.
-{"ConstituentID":"string","IncludeAffiliations":"string","PrimaryOnly":"string"}`) 
+					`Get details of all the weblogins for the specified constituent id and all its visible affiliation's weblogins as well. To exclude weblogins of the visible affiliations pass includeAffiliations=false. To fetch primary web logins alone pass primaryOnly=true.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string", "PrimaryOnly":"string"}`) 
 				Get_WebLogins_cmd.Flags().Bool("LoginCredentials", false, 
-					`Returns web login credential information
-{"LoginID":"string"}`) 
+					`Returns web login credential information` + "\nQuery:\n" + `{"LoginID":"string"}`) 
 				Get_WebLogins_cmd.Flags().Bool("Search", false, 
-					`Get weblogins by email address and login type
-{"EmailAddress":"string","LoginTypeID":"string"}`)
+					`Get weblogins by email address and login type` + "\nQuery:\n" + `{"EmailAddress":"string", "LoginTypeID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_WorkerQualifications_cmd) 
 				Get_WorkerQualifications_cmd.Flags().Bool("All", false, 
-					`Get all Worker Qualifications for a comma separated list of constituents, optionally including qualifications from affiliated constituents.
-{"ConstituentIds":"string","IncludeAffiliations":"string"}`)
+					`Get all Worker Qualifications for a comma separated list of constituents, optionally including qualifications from affiliated constituents.` + "\nQuery:\n" + `{"ConstituentIds":"string", "IncludeAffiliations":"string"}`)
 	
 		Get_cmd.AddCommand(Get_WorkerRoles_cmd) 
 				Get_WorkerRoles_cmd.Flags().Bool("All", false, 
-					`Get all worker roles. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all worker roles. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_WorkerRoles_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all worker roles.
-`)
+					`Get a summary representation of all worker roles.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_WorkerTypes_cmd) 
 				Get_WorkerTypes_cmd.Flags().Bool("All", false, 
-					`Get all worker types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"Filter":"string","MaintenanceMode":"string"}`) 
+					`Get all worker types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_WorkerTypes_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all worker types.
-`)
+					`Get a summary representation of all worker types.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_Workers_cmd) 
 				Get_Workers_cmd.Flags().Bool("All", false, 
-					`Get details of all the workers for the specified constituent.
-{"ConstituentID":"string","IncludeAffiliations":"string"}`) 
+					`Get details of all the workers for the specified constituent.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string"}`) 
 				Get_Workers_cmd.Flags().Bool("Summaries", false, 
-					`Get summary of all the workers for the specified constituent.
-{"ConstituentID":"string","IncludeAffiliations":"string"}`)
+					`Get summary of all the workers for the specified constituent.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string"}`)
 	
 		Get_cmd.AddCommand(Get_ZoneGroups_cmd) 
 				Get_ZoneGroups_cmd.Flags().Bool("All", false, 
-					`Get all zone groups. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
-{"MaintenanceMode":"string"}`) 
+					`Get all zone groups. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_ZoneGroups_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary representation of all zone groups.
-`)
+					`Get a summary representation of all zone groups.` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_ZoneMaps_cmd) 
 				Get_ZoneMaps_cmd.Flags().Bool("All", false, 
-					`Get all zone maps, optionally filtered by facility and/or seat map.
-{"FacilityID":"string","SeatMapID":"string"}`) 
+					`Get all zone maps, optionally filtered by facility and/or seat map.` + "\nQuery:\n" + `{"FacilityID":"string", "SeatMapID":"string"}`) 
 				Get_ZoneMaps_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary of all zone maps, optionally filtered by facility and/or seat map.
-{"FacilityID":"string","SeatMapID":"string"}`)
+					`Get a summary of all zone maps, optionally filtered by facility and/or seat map.` + "\nQuery:\n" + `{"FacilityID":"string", "SeatMapID":"string"}`)
 	
 		Get_cmd.AddCommand(Get_Zones_cmd) 
 				Get_Zones_cmd.Flags().Bool("All", false, 
-					`Get all zones, optionally filtered by a set of zone maps.
-{"ZoneMapIds":"string"}`) 
+					`Get all zones, optionally filtered by a set of zone maps.` + "\nQuery:\n" + `{"ZoneMapIds":"string"}`) 
 				Get_Zones_cmd.Flags().Bool("Summaries", false, 
-					`Get a summary of all zones, optionally filtered by a set of zone maps.
-{"ZoneMapIds":"string"}`)
+					`Get a summary of all zones, optionally filtered by a set of zone maps.` + "\nQuery:\n" + `{"ZoneMapIds":"string"}`)
 	
 }
 

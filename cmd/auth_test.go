@@ -82,6 +82,7 @@ func Test_authenticateSelectCmd(t *testing.T) {
 
 func Test_authenticateSelectCmd_ExistingFile(t *testing.T) {
 	os.WriteFile("tq.yaml", []byte("verbose: true\nlogin: null"), 0644)
+	defer func() { os.Remove("tq.yaml") }()
 	cfgFile = "tq.yaml"
 	// root command calls this to read in the config file
 	initConfig()

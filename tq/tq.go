@@ -71,6 +71,9 @@ func (tq TqConfig) ReadInput() ([]byte, error) {
 }
 func (tq TqConfig) GetOutput() []byte { return tq.output }
 
+// For testing only
+func (tq *TqConfig) SetOutput(test []byte) { tq.output = test }
+
 // Log in the Tessitura client with the given authentication info and cache the login data
 func (tq *TqConfig) Login(a auth.Auth) error {
 
@@ -128,10 +131,10 @@ func Do[P any, R any, O any, F func(*P, ...O) (*R, error)](
 		wait := new(sync.WaitGroup)
 		wait.Add(len(*queries))
 		for i, q := range *queries {
-			go func(i int) {
+			go func(i int, q json.RawMessage) {
 				out[i], errs[i] = DoOne(*tq, function, q)
 				wait.Done()
-			}(i)
+			}(i, q)
 		}
 		wait.Wait()
 		errs = slices.DeleteFunc(errs, func(e error) bool { return e == nil })
