@@ -3,8 +3,10 @@ package cmd
 import (
 	"fmt"
 	"os"
+	"regexp"
 	"testing"
 
+	"github.com/charmbracelet/x/ansi"
 	"github.com/skysyzygy/tq/tq"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -84,5 +86,27 @@ func Test_tqInit_Errors(t *testing.T) {
 	})
 	assert.Regexp(t, "cannot open input file .* for reading", err.Error())
 	jsonFile = ""
+
+}
+
+// Test that execute returns errors and output and handles
+func Test_Execute(t *testing.T) {
+	rootCmd.SetArgs(nil)
+	stdout, _ := tq.CaptureOutput(Execute)
+
+	assert.Contains(t, string(stdout), "Usage:")
+
+	initLog()
+	_tq.SetOutput([]byte(`{"test":"json"}`))
+	stdout, _ = tq.CaptureOutput(Execute)
+
+	assert.Contains(t, ansi.Strip(string(stdout)), `{"test":"json"}`)
+
+	pretty = true
+	defer func() { pretty = false }()
+
+	stdout, _ = tq.CaptureOutput(Execute)
+
+	assert.Regexp(t, regexp.MustCompile(`\{\n\s+"test":\s+"json"\n\}`), ansi.Strip(string(stdout)))
 
 }

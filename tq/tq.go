@@ -71,6 +71,9 @@ func (tq TqConfig) ReadInput() ([]byte, error) {
 }
 func (tq TqConfig) GetOutput() []byte { return tq.output }
 
+// For testing only
+func (tq *TqConfig) SetOutput(test []byte) { tq.output = test }
+
 // Log in the Tessitura client with the given authentication info and cache the login data
 func (tq *TqConfig) Login(a auth.Auth) error {
 
