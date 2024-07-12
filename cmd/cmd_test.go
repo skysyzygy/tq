@@ -28,7 +28,7 @@ func testCommand(t *testing.T, command *cobra.Command, flagName string) {
 		}
 	}
 	input := regexp.MustCompile(`\{.+\}$`).FindString(
-		strings.ReplaceAll(use, ",...", ""))
+		strings.ReplaceAll(use, ", ...", ""))
 
 	viper.Set("login", authString)
 	_tq = tq.New(nil, false, false)
