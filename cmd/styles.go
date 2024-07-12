@@ -3,6 +3,7 @@ package cmd
 import (
 	"bytes"
 	"fmt"
+	"regexp"
 	"strings"
 
 	"github.com/alecthomas/chroma/v2/quick"
@@ -99,11 +100,10 @@ func flagUsagesWrapped(cols int, f *pflag.FlagSet) string {
 			maxlen = len(line)
 		}
 
-		usages := strings.SplitAfterN(usage, "Query:", 2)
-		line += usages[0]
-		if len(usages) > 1 {
-			line += jsonHighlight(usages[1])
-		}
+		prose := regexp.MustCompile("{.+}$").ReplaceAllString(usage, "")
+		json := regexp.MustCompile("{.+}$").FindString(usage)
+
+		line += prose + jsonHighlight(json)
 
 		// if !flag.defaultIsZeroValue() {
 		// 	if flag.Value.Type() == "string" {
