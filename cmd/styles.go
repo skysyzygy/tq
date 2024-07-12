@@ -155,9 +155,9 @@ func exampleWrapped(cols int, example string) string {
 // Syntax highlighting for json strings using chroma
 func jsonHighlight(json string) string {
 	w := new(bytes.Buffer)
-	err := quick.Highlight(w, json, "json", "terminal16m", "github")
+	err := quick.Highlight(w, json, "json", "terminal16m", "vulcan")
 	if err != nil {
-		panic(err)
+		return json
 	}
 	return w.String()
 }
