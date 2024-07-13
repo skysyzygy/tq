@@ -16,26 +16,21 @@ import (
 	"golang.org/x/term"
 )
 
+type xTerm struct{}
+
+func (t xTerm) IsTerminal(fd int) bool { return term.IsTerminal(fd) }
+
+type terminaler interface {
+	IsTerminal(int) bool
+}
+
 var (
-	width  = 80
-	subtle = lipgloss.AdaptiveColor{Light: "#D9DCCF", Dark: "#383838"}
-	// highlight = lipgloss.AdaptiveColor{Light: "#874BFD", Dark: "#7D56F4"}
-	// success   = lipgloss.AdaptiveColor{Light: "#43BF6D", Dark: "#73F59F"}
-
-	// successStyle = lipgloss.NewStyle().Foreground(success)
-
-	paraStyle = lipgloss.NewStyle().
+	width                = 80
+	terminal  terminaler = xTerm{}
+	subtle               = lipgloss.AdaptiveColor{Light: "#D9DCCF", Dark: "#383838"}
+	paraStyle            = lipgloss.NewStyle().
 			Align(lipgloss.Left).
-		//Foreground(lipgloss.Color("#FAFAFA")).
-		//Background(highlight).
-		Padding(1, 2)
-
-	// titleStyle = lipgloss.NewStyle().
-	// 		MarginLeft(1).
-	// 		MarginRight(5).
-	// 		Padding(0, 1).
-	// 		Italic(true) //.
-	// 	//Foreground(highlight)
+			Padding(1, 2)
 
 	hiliteStyle = lipgloss.NewStyle().
 		//Foreground(lipgloss.Color("#FFFDF5")).
@@ -158,7 +153,7 @@ func exampleWrapped(cols int, example string) string {
 func jsonHighlight(json string) string {
 	w := new(bytes.Buffer)
 	var err error
-	if highlight || term.IsTerminal(syscall.Stdout) && !noHighlight {
+	if highlight || terminal.IsTerminal(syscall.Stdout) && !noHighlight {
 		err = quick.Highlight(w, json, "json", "terminal256", "vulcan")
 		if err == nil {
 			return w.String()
