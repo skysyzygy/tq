@@ -100,13 +100,12 @@ func Test_Execute(t *testing.T) {
 	_tq.SetOutput([]byte(`{"test":"json"}`))
 	stdout, _ = tq.CaptureOutput(Execute)
 
-	assert.Contains(t, ansi.Strip(string(stdout)), `{"test":"json"}`)
+	assert.Regexp(t, regexp.MustCompile(`\{\n\s+"test":\s+"json"\n\}`), ansi.Strip(string(stdout)))
 
-	pretty = true
-	defer func() { pretty = false }()
+	compact = true
+	defer func() { compact = false }()
 
 	stdout, _ = tq.CaptureOutput(Execute)
-
-	assert.Regexp(t, regexp.MustCompile(`\{\n\s+"test":\s+"json"\n\}`), ansi.Strip(string(stdout)))
+	assert.Contains(t, ansi.Strip(string(stdout)), `{"test":"json"}`)
 
 }

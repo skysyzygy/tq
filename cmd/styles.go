@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"regexp"
 	"strings"
+	"syscall"
 
 	"github.com/alecthomas/chroma/v2/quick"
 	"github.com/charmbracelet/lipgloss"
@@ -12,6 +13,7 @@ import (
 	"github.com/muesli/reflow/wordwrap"
 	"github.com/muesli/reflow/wrap"
 	"github.com/spf13/pflag"
+	"golang.org/x/term"
 )
 
 var (
@@ -155,9 +157,13 @@ func exampleWrapped(cols int, example string) string {
 // Syntax highlighting for json strings using chroma
 func jsonHighlight(json string) string {
 	w := new(bytes.Buffer)
-	err := quick.Highlight(w, json, "json", "terminal16m", "vulcan")
-	if err != nil {
-		return json
+	var err error
+	if highlight || term.IsTerminal(syscall.Stdout) && !noHighlight {
+		err = quick.Highlight(w, json, "json", "terminal256", "vulcan")
+		if err == nil {
+			return w.String()
+		}
 	}
-	return w.String()
+	// fallback - return input unchanged
+	return json
 }

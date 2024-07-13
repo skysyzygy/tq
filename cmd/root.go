@@ -47,9 +47,10 @@ const version string = "0.1.1"
 
 var (
 	cfgFile, jsonFile, logFile string
-	verbose, dryRun, pretty    bool
-	_tq                        *tq.TqConfig
-	keys                       auth.Keyring
+	verbose, dryRun, compact,
+	highlight, noHighlight bool
+	_tq  *tq.TqConfig
+	keys auth.Keyring
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -71,7 +72,7 @@ func Execute() {
 	err := rootCmd.Execute()
 	if _tq != nil {
 		out := _tq.GetOutput()
-		if pretty {
+		if !compact {
 			out = prettify.Pretty(out)
 		}
 		fmt.Println(jsonHighlight(string(out)))
@@ -110,7 +111,9 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&logFile, "log", "l", "", "log file to write to (default is no log)")
 	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "turns on additional diagnostic output")
 	rootCmd.PersistentFlags().BoolVarP(&dryRun, "dryrun", "n", false, "don't actually do anything, just show what would have happened")
-	rootCmd.PersistentFlags().BoolVarP(&pretty, "pretty", "p", false, "prettify the JSON output with indenting")
+	rootCmd.PersistentFlags().BoolVarP(&compact, "compact", "c", false, "compact instead of indented output")
+	rootCmd.PersistentFlags().BoolVar(&highlight, "highlight", false, "render json with syntax highlighting; default is to use highlighting when output is to terminal")
+	rootCmd.PersistentFlags().BoolVar(&noHighlight, "no-highlight", false, "render json without syntax highlighting; default is to use highlighting when output is to terminal")
 
 	// Hide global flags from auth command
 	authenticateCmd.SetUsageFunc(func(cmd *cobra.Command) error {
