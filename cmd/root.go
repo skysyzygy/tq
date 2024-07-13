@@ -43,10 +43,11 @@ import (
 )
 
 var (
-	cfgFile, inFile, logFile string
-	verbose, pretty          bool
-	_tq                      *tq.TqConfig
-	keys                     auth.Keyring
+	cfgFile, inFile, logFile                 string
+	verbose, compact, highlight, noHighlight bool
+	flatHelp                                 *bool
+	_tq                                      *tq.TqConfig
+	keys                                     auth.Keyring
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -69,7 +70,7 @@ func Execute() {
 	var out []byte
 	if _tq != nil {
 		out, err = _tq.GetOutput()
-		if pretty {
+		if !compact {
 			out = prettify.Pretty(out)
 		}
 		fmt.Println(jsonHighlight(string(out), false))
@@ -115,11 +116,14 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&_tq.InFmt, "in", "i", "json", "input format (csv or json; default is json); implies --inflat")
 	rootCmd.PersistentFlags().StringVarP(&_tq.OutFmt, "out", "o", "json", "output format (csv or json; default is json); implies --outflat")
 	rootCmd.PersistentFlags().BoolVar(&_tq.InFlat, "inflat", false, "use input flattened by JSONPath dot notation. Combining this with --help will show the flattened format")
+	flatHelp = &_tq.InFlat
 	rootCmd.PersistentFlags().BoolVar(&_tq.OutFlat, "outflat", false, "use output flattened by JSONPath dot notation")
 	rootCmd.PersistentFlags().BoolVarP(&_tq.DryRun, "dryrun", "n", false, "don't actually do anything, just show what would have happened")
 
 	//used at output stage only
-	rootCmd.PersistentFlags().BoolVarP(&pretty, "pretty", "p", false, "prettify the JSON output with indenting")
+	rootCmd.PersistentFlags().BoolVarP(&compact, "compact", "c", false, "compact instead of indented output")
+	rootCmd.PersistentFlags().BoolVar(&highlight, "highlight", false, "render json with syntax highlighting; default is to use highlighting when output is to terminal")
+	rootCmd.PersistentFlags().BoolVar(&noHighlight, "no-highlight", false, "render json without syntax highlighting; default is to use highlighting when output is to terminal")
 
 	// Hide global flags from auth command
 	authenticateCmd.SetUsageFunc(func(cmd *cobra.Command) error {
@@ -136,9 +140,9 @@ func init() {
 		// Rename some things so that they align better with how they are used
 		strings.NewReplacer("command", "verb", " Command", " Verb", "Examples", "Query",
 			// Wrap flag usages and syntax highlight
-			".FlagUsages", " | flagUsagesWrapped "+fmt.Sprint(width)+" (.Flag \"inflat\").Changed",
+			".FlagUsages", " | flagUsagesWrapped "+fmt.Sprint(width),
 			// Indent example and syntax highlight
-			".Example", ".Example | exampleWrapped "+fmt.Sprint(width)+" (.Flag \"inflat\").Changed").
+			".Example", ".Example | exampleWrapped "+fmt.Sprint(width)).
 			Replace(rootCmd.UsageTemplate()))
 
 	cobra.AddTemplateFuncs(

@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"regexp"
 	"strings"
+	"syscall"
 
 	"github.com/alecthomas/chroma/v2/quick"
 	"github.com/charmbracelet/lipgloss"
@@ -14,6 +15,7 @@ import (
 	"github.com/muesli/reflow/wrap"
 	"github.com/skysyzygy/tq/tq"
 	"github.com/spf13/pflag"
+	"golang.org/x/term"
 )
 
 var (
@@ -167,9 +169,12 @@ func jsonHighlight(json string, flatten bool) string {
 			json = strings.ReplaceAll(json, ",", ", ")
 		}
 	}
-	err := quick.Highlight(w, json, "json", "terminal16m", "vulcan")
-	if err != nil {
-		return json
+	if highlight || term.IsTerminal(syscall.Stdout) && !noHighlight {
+		err := quick.Highlight(w, json, "json", "terminal256", "vulcan")
+		if err == nil {
+			return w.String()
+		}
 	}
-	return w.String()
+	// fallback - return input unchanged
+	return json
 }
