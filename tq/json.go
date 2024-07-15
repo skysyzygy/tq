@@ -3,12 +3,18 @@ package tq
 import (
 	"encoding/json"
 	"strconv"
+	"strings"
+
+	"golang.org/x/exp/maps"
 )
 
+// String map of json raw strings
 type jsonMap map[string]json.RawMessage
 
-// Flattens possibly nested JSON object to an unnested object with each
-// key defined by the JSONPath location in the input object.
+// Flattens a jsonMap with possibly nested values to an unnested
+// (flat) jsonMap such that each key is the JSONPath location of the value
+// in the input object.
+//
 // Assumption:
 // All json is built from key/value `<objects>` like:
 // `{"key1":<value1>,"key2":<value2>}`
@@ -55,6 +61,22 @@ func flattenJSONMap(nestedMap jsonMap, prefix string) (flatMap jsonMap,
 	return
 }
 
+// Unflattens a jsonMap by parsing each key as the JSONPath location of the
+// value in the final jsonMap.
+func unflattenJSONMap(flatMap jsonMap) (nestedMap jsonMap) {
+	keys := maps.Keys(flatMap)
+	nestedMap = make(jsonMap)
+	for key, value := range flatMap {
+		nestedMapPart := make(jsonMap)
+		sep := strings.Index(key, ".")
+		if sep == -1 {
+			continue
+		}
+		prefix := key[0:]
+	}
+	return nestedMap
+}
+
 func updateJSONMap(in jsonMap,
 	out jsonMap) {
 	for key, value := range in {
@@ -68,4 +90,8 @@ func jsonToMap(in []byte) (out jsonMap, err error) {
 		return nil, err
 	}
 	return
+}
+
+func jsonFromMap(in jsonMap) (out []byte, err error) {
+	return json.Marshal(in)
 }
