@@ -1,6 +1,7 @@
 package tq
 
 import (
+	"bytes"
 	"encoding/json"
 	"strconv"
 	"strings"
@@ -64,18 +65,78 @@ func flattenJSONMap(nestedMap jsonMap, prefix string) (flatMap jsonMap,
 
 // Unflattens a jsonMap by parsing each key as the JSONPath location of the
 // value in the final jsonMap.
-func unflattenJSONMap(flatMap jsonMap) (nestedMap jsonMap) {
+func unflattenJSONMap(flatMap jsonMap) (nestedMap jsonMap, err error) {
 	keys := maps.Keys(flatMap)
 	nestedMap = make(jsonMap)
-	for key, value := range flatMap {
-		nestedMapPart := make(jsonMap)
-		sep := strings.Index(key, ".")
-		if sep == -1 {
-			continue
+	for len(keys) > 0 {
+		key := keys[0]
+		if sep := strings.IndexAny(key, ".[]"); sep == -1 {
+			nestedMap[key] = flatMap[key]
+			keys = slicesRemoveOne(keys, key)
+		} else {
+			prefix := key[0:sep]
+			flatMapPart := make([]jsonMap, 0)
+			for key, value := range flatMap {
+				if strings.HasPrefix(key, prefix) {
+					index := 0
+					subkey := strings.TrimPrefix(key, prefix)
+					if i, _subkey, found := strings.Cut(subkey, "]"); found && !strings.Contains(i, ".") {
+						index, _ = strconv.Atoi(i)
+						subkey = _subkey
+					}
+					flatMapPart[index][subkey] = value
+					keys = slicesRemoveOne(keys, key)
+				}
+			}
+			unflat := make([]json.RawMessage, len(flatMapPart))
+			for i := range flatMapPart {
+				unflat_i, err := unflattenJSONMap(flatMapPart[i])
+				if err != nil {
+					return nil, err
+				}
+				unflat[i], err = json.Marshal(unflat_i)
+				if err != nil {
+					return nil, err
+				}
+			}
+			if len(unflat) > 1 {
+				nestedMap[prefix], err = json.Marshal(unflat)
+			} else {
+				nestedMap[prefix] = unflat[0]
+			}
 		}
-		prefix := key[0:]
 	}
-	return nestedMap
+	return
+}
+
+func slicesRemove[S any](slice []S, remove []S) (cleanedSlice []S) {
+	keep := make(map[any]bool, len(slice)+len(remove))
+	for _, item := range slice {
+		keep[item] = true
+	}
+	for _, item := range remove {
+		keep[item] = false
+	}
+	for key, value := range keep {
+		if value {
+			cleanedSlice = append(cleanedSlice, key.(S))
+		}
+	}
+	return
+}
+
+func slicesRemoveOne[S any](slice []S, remove S) (cleanedSlice []S) {
+	keep := make(map[any]bool, len(slice)+1)
+	for _, item := range slice {
+		keep[item] = true
+	}
+	keep[remove] = false
+	for key, value := range keep {
+		if value {
+			cleanedSlice = append(cleanedSlice, key.(S))
+		}
+	}
+	return
 }
 
 func updateJSONMap(in jsonMap,
