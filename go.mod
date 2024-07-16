@@ -19,7 +19,7 @@ require (
 	github.com/spf13/viper v1.18.2
 )
 
-require github.com/tidwall/pretty v1.2.1 // indirect
+require github.com/tidwall/pretty v1.2.1
 
 require (
 	github.com/XANi/loremipsum v1.1.0
