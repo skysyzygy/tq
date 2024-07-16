@@ -72,7 +72,7 @@ func unflattenJSONMap(flatMap jsonMap) (nestedMap jsonMap, err error) {
 		key := keys[0]
 		if sep := strings.IndexAny(key, ".[]"); sep == -1 {
 			nestedMap[key] = flatMap[key]
-			keys = slicesRemoveOne(keys, key)
+			keys = slicesRemove(keys, []string{key})
 		} else {
 			prefix := key[0:sep]
 			flatMapPart := make([]jsonMap, 0)
@@ -83,8 +83,11 @@ func unflattenJSONMap(flatMap jsonMap) (nestedMap jsonMap, err error) {
 					index := 0
 					subkey := strings.TrimPrefix(key, prefix)
 					if i, _subkey, found := strings.Cut(subkey, "]"); found && !strings.Contains(i, ".") {
-						index, _ = strconv.Atoi(i)
+						index, err = strconv.Atoi(i)
 						subkey = _subkey
+						if err != nil {
+							return nil, err
+						}
 					}
 					flatMapPart[index][subkey] = value
 				}
@@ -108,9 +111,13 @@ func unflattenJSONMap(flatMap jsonMap) (nestedMap jsonMap, err error) {
 			}
 		}
 	}
+	if err != nil {
+		return nil, err
+	}
 	return
 }
 
+// simple O(N) algorithm for removing elements from a slice
 func slicesRemove[S any](slice []S, remove []S) (cleanedSlice []S) {
 	keep := make(map[any]bool, len(slice)+len(remove))
 	for _, item := range slice {
@@ -119,20 +126,6 @@ func slicesRemove[S any](slice []S, remove []S) (cleanedSlice []S) {
 	for _, item := range remove {
 		keep[item] = false
 	}
-	for key, value := range keep {
-		if value {
-			cleanedSlice = append(cleanedSlice, key.(S))
-		}
-	}
-	return
-}
-
-func slicesRemoveOne[S any](slice []S, remove S) (cleanedSlice []S) {
-	keep := make(map[any]bool, len(slice)+1)
-	for _, item := range slice {
-		keep[item] = true
-	}
-	keep[remove] = false
 	for key, value := range keep {
 		if value {
 			cleanedSlice = append(cleanedSlice, key.(S))
