@@ -76,8 +76,10 @@ func unflattenJSONMap(flatMap jsonMap) (nestedMap jsonMap, err error) {
 		} else {
 			prefix := key[0:sep]
 			flatMapPart := make([]jsonMap, 0)
+			matchedKeys := make([]string, len(keys), 0)
 			for key, value := range flatMap {
 				if strings.HasPrefix(key, prefix) {
+					matchedKeys = append(matchedKeys, key)
 					index := 0
 					subkey := strings.TrimPrefix(key, prefix)
 					if i, _subkey, found := strings.Cut(subkey, "]"); found && !strings.Contains(i, ".") {
@@ -85,9 +87,9 @@ func unflattenJSONMap(flatMap jsonMap) (nestedMap jsonMap, err error) {
 						subkey = _subkey
 					}
 					flatMapPart[index][subkey] = value
-					keys = slicesRemoveOne(keys, key)
 				}
 			}
+			keys = slicesRemove(keys, matchedKeys)
 			unflat := make([]json.RawMessage, len(flatMapPart))
 			for i := range flatMapPart {
 				unflat_i, err := unflattenJSONMap(flatMapPart[i])
