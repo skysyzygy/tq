@@ -28,6 +28,7 @@ func flattenJSONMap(nestedMap jsonMap, prefix string) (flatMap jsonMap,
 	}
 	for key, value := range nestedMap {
 		flatMapPart := make(jsonMap)
+		value = bytes.TrimSpace(value)
 		switch string(value[0]) {
 		case "{":
 			nestedMapPart, _err := jsonToMap(value)

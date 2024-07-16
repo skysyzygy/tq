@@ -68,6 +68,33 @@ func Test_flattenJSONMapError(t *testing.T) {
 
 }
 
+// flattenJSONMap works when there is whitespace in the JSON
+func Test_flattenJSONMapWhitespace(t *testing.T) {
+	j := jsonMap{
+		"a": []byte(` "apple" `),
+		"b": []byte(` [ { "badger" : "mammal" } , { "banana" : "fruit" } ]`),
+		"c": []byte(` { "cucumber" : "vegetable or fruit?" } `),
+		"d": []byte(` null `),
+		"e": []byte(` 1 `),
+		"f": []byte(` false `),
+	}
+	f := jsonMap{
+		"a":           []byte(`"apple"`),
+		"b[0].badger": []byte(`"mammal"`),
+		"b[1].banana": []byte(`"fruit"`),
+		"c.cucumber":  []byte(`"vegetable or fruit?"`),
+		"d":           []byte(`null`),
+		"e":           []byte(`1`),
+		"f":           []byte(`false`),
+	}
+	flattened, err := flattenJSONMap(j, "")
+	assert.NoError(t, err)
+	assert.Equal(t, jsonMapToStringMap(f), jsonMapToStringMap(flattened))
+	assert.Equal(t, json.RawMessage(`1`), flattened["e"])
+	assert.Equal(t, json.RawMessage(`false`), flattened["f"])
+
+}
+
 func Test_updateJSONMap(t *testing.T) {
 	a := jsonMap{
 		"one":   []byte("two"),
