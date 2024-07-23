@@ -18,7 +18,7 @@ func jsonMapToStringMap(in jsonMap) (out map[string]string) {
 func Test_flattenJSONMap(t *testing.T) {
 	j := jsonMap{
 		"a": []byte(`"apple"`),
-		"b": []byte(`[{"badger":"mammal"},{"banana":"fruit"}]`),
+		"b": []byte(`[{"badger":"mammal"},{"banana":"fruit"},"bagel"]`),
 		"c": []byte(`{"cucumber":"vegetable or fruit?"}`),
 		"d": []byte(`null`),
 		"e": []byte(`1`),
@@ -28,6 +28,7 @@ func Test_flattenJSONMap(t *testing.T) {
 		"a":           []byte(`"apple"`),
 		"b[0].badger": []byte(`"mammal"`),
 		"b[1].banana": []byte(`"fruit"`),
+		"b[2]":        []byte(`"bagel"`),
 		"c.cucumber":  []byte(`"vegetable or fruit?"`),
 		"d":           []byte(`null`),
 		"e":           []byte(`1`),
