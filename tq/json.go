@@ -109,20 +109,27 @@ func flattenJSONMap(nestedMap jsonMap, prefix string) (flatMap jsonMap,
 // Unflattens a jsonMap by parsing each key as the JSONPath location of the
 // value in the final jsonMap.
 func unflattenJSONMap(flatMap jsonMap) (nestedMap jsonMap, err error) {
-	keys := maps.Keys(flatMap)
-	sort.Slice(keys, func(i, j int) bool {
-		return i < j
-	})
-	nestedMap = make(jsonMap)
+
 	var (
 		key   string
+		index int
 		value json.RawMessage
 	)
+	nestedMap = make(jsonMap)
+	// nestedMapPart := make(map[string][]jsonMap)
+
 	defer func() {
 		if r := recover(); r != nil {
 			err = unflattenJSONError(key, r)
 		}
 	}()
+	keys := maps.Keys(flatMap)
+	sort.Slice(keys, func(i, j int) bool {
+		return i < j
+	})
+	for _, key = range keys {
+
+	}
 	// len(keys) is an upper bound
 	for len(keys) > 0 {
 		flatMapPart := make([]jsonMap, 0, len(keys))
