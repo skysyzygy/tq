@@ -1,6 +1,7 @@
 package tq
 
 import (
+	"bytes"
 	"encoding/json"
 	"testing"
 
@@ -34,7 +35,9 @@ func Test_flattenJSONMap(t *testing.T) {
 		"e":           []byte(`1`),
 		"f":           []byte(`false`),
 	}
-	flattened, err := flattenJSONMap(j, "")
+	jMarshaled, _ := json.Marshal(j)
+
+	flattened, err := flattenJSONMap(jMarshaled, "")
 	assert.NoError(t, err)
 	assert.Equal(t, jsonMapToStringMap(f), jsonMapToStringMap(flattened))
 	assert.Equal(t, json.RawMessage(`1`), flattened["e"])
@@ -45,27 +48,27 @@ func Test_flattenJSONMap(t *testing.T) {
 func Test_flattenJSONMapError(t *testing.T) {
 	j := jsonMap{
 		"a": []byte(`"apple"`),
-		"b": []byte(`[{"badger":"mammal"},{"banana":"fruit"}]`),
+		"b": []byte(`[{"badger":"mammal"},{"banana":"fruit"},"bagel"]`),
 		"c": []byte(`{"cucumber":"vegetable or fruit?"}`),
 		"d": []byte(`null`),
 		"e": []byte(`1`),
 		"f": []byte(`false`),
 	}
-	_, err := flattenJSONMap(j, "")
-	assert.NoError(t, err)
 
-	j["b"] = []byte(`[{"badger":"mammal"},{"banana":"fruit"}`)
-	_, err = flattenJSONMap(j, "")
-	assert.ErrorContains(t, err, "unexpected end")
+	jMarshaled, _ := json.Marshal(j)
 
-	j["b"] = []byte(`[{"badger":"mammal"},{"banana":"fruit"]`)
-	_, err = flattenJSONMap(j, "")
-	assert.ErrorContains(t, err, "]")
+	jMarshaled = bytes.Replace(jMarshaled, j["b"], []byte(`[{"badger":"mammal"},{"banana":"fruit"}`), 1)
+	_, err := flattenJSONMap(jMarshaled, "")
+	assert.ErrorContains(t, err, "invalid character")
 
-	j["b"] = []byte(`[{"badger":"mammal"},{"banana":"fruit"}]`)
-	j["c"] = []byte(`{"cucumber":"vegetable or fruit?"`)
-	_, err = flattenJSONMap(j, "")
-	assert.ErrorContains(t, err, "unexpected end")
+	jMarshaled = bytes.Replace(jMarshaled, j["b"], []byte(`[{"badger":"mammal"},{"banana":"fruit"]`), 1)
+	_, err = flattenJSONMap(jMarshaled, "")
+	assert.ErrorContains(t, err, "invalid character")
+
+	jMarshaled = bytes.Replace(jMarshaled, j["b"], []byte(`[{"badger":"mammal"},{"banana":"fruit"}]`), 1)
+	jMarshaled = bytes.Replace(jMarshaled, j["c"], []byte(`{"cucumber":"vegetable or fruit?"`), 1)
+	_, err = flattenJSONMap(jMarshaled, "")
+	assert.ErrorContains(t, err, "invalid character")
 
 }
 
@@ -88,7 +91,8 @@ func Test_flattenJSONMapWhitespace(t *testing.T) {
 		"e":           []byte(`1`),
 		"f":           []byte(`false`),
 	}
-	flattened, err := flattenJSONMap(j, "")
+	jMarshaled, _ := json.Marshal(j)
+	flattened, err := flattenJSONMap(jMarshaled, "")
 	assert.NoError(t, err)
 	assert.Equal(t, jsonMapToStringMap(f), jsonMapToStringMap(flattened))
 	assert.Equal(t, json.RawMessage(`1`), flattened["e"])
@@ -99,24 +103,28 @@ func Test_flattenJSONMapWhitespace(t *testing.T) {
 func Test_unflattenJSONMap(t *testing.T) {
 	j := jsonMap{
 		"a": []byte(`"apple"`),
-		"b": []byte(`[{"badger":"mammal"},{"banana":"fruit"}]`),
+		"b": []byte(`[{"badger":"mammal"},null,{"banana":"fruit"},["bagel","beignet",[{"beagle":"dog"}]]]`),
 		"c": []byte(`{"cucumber":"vegetable or fruit?"}`),
 		"d": []byte(`null`),
 		"e": []byte(`1`),
 		"f": []byte(`false`),
 	}
 	f := jsonMap{
-		"a":           []byte(`"apple"`),
-		"b[0].badger": []byte(`"mammal"`),
-		"b[1].banana": []byte(`"fruit"`),
-		"c.cucumber":  []byte(`"vegetable or fruit?"`),
-		"d":           []byte(`null`),
-		"e":           []byte(`1`),
-		"f":           []byte(`false`),
+		"a":                 []byte(`"apple"`),
+		"b[0].badger":       []byte(`"mammal"`),
+		"b[2].banana":       []byte(`"fruit"`),
+		"b[3][0]":           []byte(`"bagel"`),
+		"b[3][1]":           []byte(`"beignet"`),
+		"b[3][2][0].beagle": []byte(`"dog"`),
+		"c.cucumber":        []byte(`"vegetable or fruit?"`),
+		"d":                 []byte(`null`),
+		"e":                 []byte(`1`),
+		"f":                 []byte(`false`),
 	}
 	unflattened, err := unflattenJSONMap(f)
 	assert.NoError(t, err)
-	assert.Equal(t, jsonMapToStringMap(j), jsonMapToStringMap(unflattened))
+	jMarshaled, _ := json.Marshal(j)
+	assert.Equal(t, string(jMarshaled), string(unflattened))
 }
 
 func Test_unflattenJSONMapError(t *testing.T) {
@@ -133,14 +141,16 @@ func Test_unflattenJSONMapError(t *testing.T) {
 	_, err := unflattenJSONMap(f)
 	assert.NoError(t, err)
 
-	f["b[a].bah"] = []byte(`"sheep"`)
+	f["b[A].bah"] = []byte(`"sheep"`)
 	_, err = unflattenJSONMap(f)
-	assert.Regexp(t, "(?s)key b\\[a\\].+invalid syntax", err.Error())
+	assert.Error(t, err)
+	assert.Regexp(t, "(?s)key b.+invalid syntax", err.Error())
 
-	delete(f, "b[a]")
-	f["j[5].jaberwocky"] = []byte(`"doesn't exist"`)
+	delete(f, "b[A].bah")
+	f["j[5].jaberwocky"] = []byte(`{"doesn't exist":`)
 	_, err = unflattenJSONMap(f)
-	assert.Regexp(t, "(?s)key j\\[5\\].+index out of range", err.Error())
+	assert.Error(t, err)
+	assert.Regexp(t, "(?s)key j.+5.+unexpected end of JSON", err.Error())
 
 }
 
