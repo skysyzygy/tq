@@ -95,6 +95,54 @@ func Test_flattenJSONMapWhitespace(t *testing.T) {
 
 }
 
+func Test_unflattenJSONMap(t *testing.T) {
+	j := jsonMap{
+		"a": []byte(`"apple"`),
+		"b": []byte(`[{"badger":"mammal"},{"banana":"fruit"}]`),
+		"c": []byte(`{"cucumber":"vegetable or fruit?"}`),
+		"d": []byte(`null`),
+		"e": []byte(`1`),
+		"f": []byte(`false`),
+	}
+	f := jsonMap{
+		"a":           []byte(`"apple"`),
+		"b[0].badger": []byte(`"mammal"`),
+		"b[1].banana": []byte(`"fruit"`),
+		"c.cucumber":  []byte(`"vegetable or fruit?"`),
+		"d":           []byte(`null`),
+		"e":           []byte(`1`),
+		"f":           []byte(`false`),
+	}
+	unflattened, err := unflattenJSONMap(f)
+	assert.NoError(t, err)
+	assert.Equal(t, jsonMapToStringMap(j), jsonMapToStringMap(unflattened))
+}
+
+func Test_unflattenJSONMapError(t *testing.T) {
+	f := jsonMap{
+		"a":           []byte(`"apple"`),
+		"b[0].badger": []byte(`"mammal"`),
+		"b[1].banana": []byte(`"fruit"`),
+		"c.cucumber":  []byte(`"vegetable or fruit?"`),
+		"d":           []byte(`null`),
+		"e":           []byte(`1`),
+		"f":           []byte(`false`),
+	}
+
+	_, err := unflattenJSONMap(f)
+	assert.NoError(t, err)
+
+	f["b[a].bah"] = []byte(`"sheep"`)
+	_, err = unflattenJSONMap(f)
+	assert.Regexp(t, "(?s)key b\\[a\\].+invalid syntax", err.Error())
+
+	delete(f, "b[a]")
+	f["j[5].jaberwocky"] = []byte(`"doesn't exist"`)
+	_, err = unflattenJSONMap(f)
+	assert.Regexp(t, "(?s)key j\\[5\\].+index out of range", err.Error())
+
+}
+
 func Test_updateJSONMap(t *testing.T) {
 	a := jsonMap{
 		"one":   []byte("two"),
@@ -110,14 +158,4 @@ func Test_updateJSONMap(t *testing.T) {
 	assert.Equal(t, "two", string(b["one"]))
 	assert.Equal(t, "two", string(b["two"]))
 	assert.Equal(t, "four", string(b["three"]))
-}
-
-func Test_jsonToMap(t *testing.T) {
-	j := []byte(`{"a": "apple", "b": [{"badger":"mammal"},"banana"]}`)
-	m, _ := jsonToMap(j)
-
-	assert.Equal(t, jsonMap{
-		"a": []byte(`"apple"`),
-		"b": []byte(`[{"badger":"mammal"},"banana"]`),
-	}, m)
 }

@@ -3,6 +3,9 @@ package tq
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
+	"fmt"
+	"sort"
 	"strconv"
 	"strings"
 
@@ -12,8 +15,32 @@ import (
 // String map of json raw strings
 type jsonMap map[string]json.RawMessage
 
-func flattenJSONError(key string, err error) error {
-		errors.Wrap(errors.New("couldn't flatten))
+func flattenJSONError(key string, v any) error {
+	if err, ok := v.(error); ok {
+		return errors.Join(errors.New(fmt.Sprintf("couldn't flatten key %s", key)), err)
+	} else {
+		panic(v)
+	}
+}
+
+func unflattenJSONError(key string, v any) error {
+	if err, ok := v.(error); ok {
+		return errors.Join(errors.New(fmt.Sprintf("couldn't unflatten key %s", key)), err)
+	} else {
+		panic(v)
+	}
+}
+
+func flattenJSON(in json.RawMessage, prefix string) (out jsonMap, err error) {
+	inMap := make(jsonMap)
+	out = make(jsonMap)
+	err = json.Unmarshal(in, &inMap)
+	if err != nil {
+		out[prefix] = in
+		err = nil
+		return
+	}
+	return flattenJSONMap(inMap, prefix)
 }
 
 // Flattens a jsonMap with possibly nested values to an unnested
@@ -21,41 +48,56 @@ func flattenJSONError(key string, err error) error {
 // in the input object.
 //
 // Assumptions:
-// There are no duplicate keys 
+// There are no duplicate keys
 // No keys contain the characters .,[,]
 func flattenJSONMap(nestedMap jsonMap, prefix string) (flatMap jsonMap,
 	err error) {
 	flatMap = make(jsonMap)
+	var (
+		key   string
+		value json.RawMessage
+	)
+	defer func() {
+		if r := recover(); r != nil {
+			err = flattenJSONError(key, r)
+		}
+	}()
 	if prefix != "" {
 		prefix = prefix + "."
 	}
-	for key, value := range nestedMap {
+	for key, value = range nestedMap {
 		flatMapPart := make(jsonMap)
 		value = bytes.TrimSpace(value)
 		switch string(value[0]) {
 		case "{":
-// make json a map
+			// make json a map
 			nestedMapPart := make(jsonMap)
 			err = json.Unmarshal(value, &nestedMapPart)
-// recurse
+			if err != nil {
+				panic(err)
+			}
+			// recurse
 			flatMapPart, err = flattenJSONMap(nestedMapPart, prefix+key)
+			if err != nil {
+				panic(err)
+			}
 		case "[":
-// split json array
-			array := make([]json.RawMessage)
+			// split json array
+			array := make([]json.RawMessage, 0, strings.Count(string(value), ","))
 			err = json.Unmarshal(value, &array)
 			if err != nil {
-				return nil, err
+				panic(err)
 			}
 			for i, value := range array {
-// recurse back to flattenJSON to allow atomic elements
+				// recurse back to flattenJSON to allow atomic elements
 				flatMapPartPart, err := flattenJSON(value, prefix+key+"["+strconv.Itoa(i)+"]")
 				if err != nil {
-					return nil, err
+					panic(err)
 				}
 				updateJSONMap(flatMapPartPart, flatMapPart)
 			}
 		default:
-// handle atomic values
+			// handle atomic values
 			flatMapPart = make(jsonMap)
 			flatMapPart[prefix+key] = value
 		}
@@ -68,58 +110,72 @@ func flattenJSONMap(nestedMap jsonMap, prefix string) (flatMap jsonMap,
 // value in the final jsonMap.
 func unflattenJSONMap(flatMap jsonMap) (nestedMap jsonMap, err error) {
 	keys := maps.Keys(flatMap)
+	sort.Slice(keys, func(i, j int) bool {
+		return i < j
+	})
 	nestedMap = make(jsonMap)
-// len(keys) is an upper bound
-			flatMapPart := make([]jsonMap, 0, len(keys))
-			matchedKeys := make([]string, 0, len(keys))
+	var (
+		key   string
+		value json.RawMessage
+	)
+	defer func() {
+		if r := recover(); r != nil {
+			err = unflattenJSONError(key, r)
+		}
+	}()
+	// len(keys) is an upper bound
 	for len(keys) > 0 {
-		key := keys[0]
-// handle bare key
+		flatMapPart := make([]jsonMap, 0, len(keys))
+		matchedKeys := make([]string, 0, len(keys))
+		key = keys[0]
+		// handle bare key
 		if sep := strings.IndexAny(key, ".[]"); sep == -1 {
 			nestedMap[key] = flatMap[key]
 			keys = slicesRemove(keys, []string{key})
 		} else {
-			prefix := key[0:sep]
+			prefix := key[0 : sep+1]
+			// collect keys
 			for _, key := range keys {
 				if strings.HasPrefix(key, prefix) {
-value := flatMap[key]
+					value = flatMap[key]
+					index = 0
 					matchedKeys = append(matchedKeys, key)
-					index := 0
 					key = strings.TrimPrefix(key, prefix)
-					if i, _key, found := strings.Cut(key, "]"); found && !strings.Contains(i, ".") {
+					if i, _key, found := strings.Cut(key, "]."); found && !strings.Contains(i, ".") {
 						index, err = strconv.Atoi(i)
 						key = _key
 						if err != nil {
-							return nil, err
+							panic(err)
 						}
 					}
+					flatMapPart = append(flatMapPart, make(jsonMap))
 					flatMapPart[index][key] = value
 				}
 			}
 			keys = slicesRemove(keys, matchedKeys)
 			unflat := make([]json.RawMessage, len(flatMapPart))
 			for i := range flatMapPart {
-// recurse
+				// recurse
 				_unflat, err := unflattenJSONMap(flatMapPart[i])
 				if err != nil {
-					return nil, err
+					panic(err)
 				}
-// combine into json message
+				// combine into json message
 				unflat[i], err = json.Marshal(_unflat)
 				if err != nil {
-					return nil, err
+					panic(err)
 				}
 			}
 			if len(unflat) > 1 {
-// and comine array if necessary
-				nestedMap[prefix], err = json.Marshal(unflat)
+				// and comine array if necessary
+				nestedMap[prefix[0:len(prefix)-1]], err = json.Marshal(unflat)
 			} else {
-				nestedMap[prefix] = unflat[0]
+				nestedMap[prefix[0:len(prefix)-1]] = unflat[0]
 			}
 		}
 	}
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 	return
 }
@@ -141,7 +197,7 @@ func slicesRemove[S any](slice []S, remove []S) (cleanedSlice []S) {
 	return
 }
 
-// convenience function for copying values from one 
+// convenience function for copying values from one
 // map to anothet
 func updateJSONMap(in jsonMap,
 	out jsonMap) {
@@ -149,5 +205,3 @@ func updateJSONMap(in jsonMap,
 		out[key] = value
 	}
 }
-
-
