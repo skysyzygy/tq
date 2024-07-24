@@ -31,7 +31,8 @@ func testCommand(t *testing.T, command *cobra.Command, flagName string) {
 		strings.ReplaceAll(use, ", ...", ""))
 
 	viper.Set("login", authString)
-	_tq = tq.New(nil, false, false)
+	_tq = new(tq.TqConfig)
+	_tq.SetLogger(nil, false)
 	initTq(command, nil)
 
 	w.Write([]byte(input))

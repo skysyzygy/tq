@@ -51,8 +51,8 @@ func Test_tqInit(t *testing.T) {
 	os.WriteFile("test.json", test_json, 0644)
 	defer os.Remove("test.json")
 
-	jsonFile = "test.json"
-	defer func() { jsonFile = "" }()
+	inFile = "test.json"
+	defer func() { inFile = "" }()
 
 	viper.Set("login", authString)
 
@@ -74,9 +74,9 @@ func Test_tqInit(t *testing.T) {
 }
 
 func Test_tqInit_Errors(t *testing.T) {
-	jsonFile = "test.json"
+	inFile = "test.json"
 	viper.Set("login", authString)
-	os.Remove(jsonFile)
+	os.Remove(inFile)
 	var err error
 
 	initLog()
@@ -85,7 +85,7 @@ func Test_tqInit_Errors(t *testing.T) {
 		err = test_cmd.Execute()
 	})
 	assert.Regexp(t, "cannot open input file .* for reading", err.Error())
-	jsonFile = ""
+	inFile = ""
 
 }
 

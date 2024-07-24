@@ -23,9 +23,10 @@ func Test_NewLogging(t *testing.T) {
 	r, w, _ := os.Pipe()
 	fileOutput := make([]byte, 1024)
 	defer w.Close()
+	tq := TqConfig{}
 
 	_, consoleOutput := CaptureOutput(func() {
-		tq := New(w, false, false)
+		tq.SetLogger(w, false)
 
 		tq.Log.Warn("Warn")
 		tq.Log.Info("Info")
@@ -38,7 +39,7 @@ func Test_NewLogging(t *testing.T) {
 	assert.NotContains(t, string(consoleOutput), "Info")
 
 	_, consoleOutput = CaptureOutput(func() {
-		tq := New(w, true, false)
+		tq.SetLogger(w, true)
 
 		tq.Log.Info("Info")
 		tq.Log.Debug("Debug")
@@ -235,7 +236,7 @@ func Test_mapFields(t *testing.T) {
 
 // test that Login builds Tessitura API client and saves BasicAuth info for future use
 func Test_Login(t *testing.T) {
-	tq := New(nil, false, false)
+	tq := TqConfig{}
 	tq.Login(auth.New("hostname", "user", "", "", nil))
 	assert.NotNil(t, tq.Get)
 	assert.NotNil(t, tq.basicAuth)
@@ -293,7 +294,7 @@ func Test_DoOne(t *testing.T) {
 	}
 	server := testServer(t)
 	defer server.Close()
-	tq := New(nil, false, false)
+	tq := new(TqConfig)
 	query := []byte(`{"ConstituentId": "0"}`)
 	tq.Login(auth.New(strings.Replace(server.URL, "https://", "", 1), "user", "", "", []byte("password")))
 
@@ -325,7 +326,7 @@ func Test_DoOne(t *testing.T) {
 func Test_DoOneNoop(t *testing.T) {
 	server := testServer(t)
 	defer server.Close()
-	tq := New(nil, false, false)
+	tq := new(TqConfig)
 	query := []byte(`{"Not a key": 0}`)
 	tq.Login(auth.New(strings.Replace(server.URL, "https://", "", 1), "user", "", "", []byte("password")))
 
@@ -340,7 +341,8 @@ func Test_DoOneNoop(t *testing.T) {
 func Test_Do(t *testing.T) {
 	server := testServer(t)
 	defer server.Close()
-	tq := New(nil, false, false)
+	tq := new(TqConfig)
+	tq.SetLogger(nil, false)
 	tq.Login(auth.New(strings.Replace(server.URL, "https://", "", 1), "user", "", "", []byte("password")))
 
 	r, w, _ := os.Pipe()

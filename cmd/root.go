@@ -46,10 +46,10 @@ import (
 const version string = "0.1.1"
 
 var (
-	cfgFile, jsonFile, logFile string
-	verbose, dryRun, pretty    bool
-	_tq                        *tq.TqConfig
-	keys                       auth.Keyring
+	cfgFile, inFile, logFile string
+	verbose, pretty          bool
+	_tq                      *tq.TqConfig
+	keys                     auth.Keyring
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -105,11 +105,22 @@ func init() {
 	commit := strings.Join([]string{settings["vcs"], settings["vcs.revision"], settings["vcs.time"]}, " ")
 	rootCmd.Version = rootCmd.Version + " (" + commit + ")"
 
+	_tq = new(tq.TqConfig)
+
 	//rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "", "config file (default is $HOME/.tq)")
-	rootCmd.PersistentFlags().StringVarP(&jsonFile, "file", "f", "", "JSON file to read (default is to read from stdin)")
+	//handled early on for tq i/o initialization
+	rootCmd.PersistentFlags().StringVarP(&inFile, "file", "f", "", "input file to read (default is to read from stdin)")
 	rootCmd.PersistentFlags().StringVarP(&logFile, "log", "l", "", "log file to write to (default is no log)")
 	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "turns on additional diagnostic output")
-	rootCmd.PersistentFlags().BoolVarP(&dryRun, "dryrun", "n", false, "don't actually do anything, just show what would have happened")
+
+	//used within tq for wrangling formats
+	rootCmd.PersistentFlags().StringVarP(&_tq.InFmt, "in", "i", "json", "input format (csv or json; default is json); implies --inflat")
+	rootCmd.PersistentFlags().StringVarP(&_tq.OutFmt, "out", "o", "json", "output format (csv or json; default is json); implies --outflat")
+	rootCmd.PersistentFlags().BoolVar(&_tq.InFlat, "inflat", false, "use input flattened by JSONPath dot notation")
+	rootCmd.PersistentFlags().BoolVar(&_tq.OutFlat, "outflat", false, "use output flattened by JSONPath dot notation")
+	rootCmd.PersistentFlags().BoolVarP(&_tq.DryRun, "dryrun", "n", false, "don't actually do anything, just show what would have happened")
+
+	//used at output stage only
 	rootCmd.PersistentFlags().BoolVarP(&pretty, "pretty", "p", false, "prettify the JSON output with indenting")
 
 	// Hide global flags from auth command
@@ -187,7 +198,7 @@ func initLog() {
 			fmt.Fprintf(os.Stderr, "Error: cannot open log file %v for appending.", logFile)
 		}
 	}
-	_tq = tq.New(log, verbose, dryRun)
+	_tq.SetLogger(log, verbose)
 }
 
 // Initializes a tq instance with input from file or stdin
@@ -197,11 +208,11 @@ func initLog() {
 func initTq(cmd *cobra.Command, args []string) (err error) {
 	var input io.Reader
 	var _err error
-	if jsonFile != "" {
+	if inFile != "" {
 		// open input file for reading
-		input, _err = os.OpenFile(jsonFile, os.O_RDONLY, 0644)
+		input, _err = os.OpenFile(inFile, os.O_RDONLY, 0644)
 		if _err != nil {
-			err = errors.Join(fmt.Errorf("cannot open input file %v for reading", jsonFile), _err, err)
+			err = errors.Join(fmt.Errorf("cannot open input file %v for reading", inFile), _err, err)
 		}
 	} else if !term.IsTerminal(int(syscall.Stdin)) {
 		input = cmd.InOrStdin()
@@ -222,7 +233,7 @@ func initTq(cmd *cobra.Command, args []string) (err error) {
 		authString, _ := a.String()
 		_tq.Log.Error(err.Error(),
 			"logFile", logFile,
-			"jsonFile", jsonFile,
+			"jsonFile", inFile,
 			"auth", authString)
 		return err
 	}

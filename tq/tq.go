@@ -39,27 +39,23 @@ type TqConfig struct {
 	Log *slog.Logger
 
 	// some flags, set by New
-	verbose bool
-	dryRun  bool
+	verbose, DryRun, InFlat, OutFlat bool
+	InFmt, OutFmt                    string
 
 	// input / output
 	input  io.Reader
 	output []byte
 }
 
-func New(logFile *os.File, verbose bool, dryRun bool) *TqConfig {
+func (tq *TqConfig) SetLogger(logFile *os.File, verbose bool) {
 	logLevel := new(slog.LevelVar)
 	if verbose {
 		logLevel.Set(slog.LevelInfo)
 	} else {
 		logLevel.Set(slog.LevelWarn)
 	}
-	return &TqConfig{
-		Log:     slog.New(NewLogHandler(logFile, logLevel)),
-		verbose: verbose,
-		dryRun:  dryRun,
-	}
-
+	tq.Log = slog.New(NewLogHandler(logFile, logLevel))
+	tq.verbose = verbose
 }
 
 func (tq *TqConfig) SetInput(input io.Reader) { tq.input = input }
@@ -189,7 +185,7 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 			err = errors.Join(fmt.Errorf("query could not be parsed"), err)
 		}
 	}
-	if tq.dryRun || err != nil {
+	if tq.DryRun || err != nil {
 		return nil, err
 	}
 
