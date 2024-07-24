@@ -177,51 +177,55 @@ func unflattenJSONMap(flatMap jsonMap) (out json.RawMessage, err error) {
 	return json.Marshal(outMap)
 }
 
-// Convert a slice of jsonMap to a slice of csv records plus a header row ([]string)
-func jsonMapsToCsv(in []jsonMap) (out csv) {
-	keys := make(map[string]bool)
-	out = make(csv, len(in)+1)
-
-	// gather all keys
-	for _, row := range in {
-		for key := range row {
-			keys[key] = true
-		}
+// unmarshal json.RawMessage into a slice of jsonMaps
+func jsonToJSONMaps(in json.RawMessage) (out []jsonMap, err error) {
+	in = bytes.TrimSpace(in)
+	if in[0] == '[' {
+		err = json.Unmarshal(in, &out)
+		return
+	} else {
+		out = make([]jsonMap, 1)
+		err = json.Unmarshal(in, &out[0])
+		return
 	}
+}
 
-	// fill in the csv
-	i := 0
-	out[0] = make([]string, len(keys))
-	for key := range keys {
-		out[0][i] = key
-		for j, row := range in {
-			if out[j+1] == nil {
-				out[j+1] = make([]string, len(keys))
-			}
-			out[j+1][i] = string(row[key])
+// Call flattenJSONMap for a json.RawMessage and return a slice of jsonMaps
+func flattenJSONMaps(in json.RawMessage) (out []jsonMap, err error) {
+	var inArr []json.RawMessage
+	in = bytes.TrimSpace(in)
+	if in[0] == '[' {
+		err = json.Unmarshal(in, &inArr)
+		if err != nil {
+			return nil, err
 		}
-		i++
+		out = make([]jsonMap, len(inArr))
+		for i, j := range inArr {
+			out[i], err = flattenJSONMap(j, "")
+			if err != nil {
+				return nil, err
+			}
+		}
+	} else {
+		out = make([]jsonMap, 1)
+		out[0], err = flattenJSONMap(in, "")
+		if err != nil {
+			return nil, err
+		}
 	}
 	return
 }
 
-// Convert a slice of csv records plus a header row ([]string) to a slice of jsonMap
-func jsonMapsFromCsv(in csv) (out []jsonMap, err error) {
-	if len(in) == 0 {
-		return nil, errors.New("csv has no rows")
-	}
-
-	keys := in[0]
-	out = make([]jsonMap, len(in)-1)
-
-	for i := 1; i < len(in); i++ {
-		out[i-1] = make(jsonMap)
-		for j, key := range keys {
-			out[i-1][key] = []byte(in[i][j])
+// Call unflattenJSONMap for a slice of jsonMaps and return a json.RawMessage byte slice
+func unflattenJSONMaps(in []jsonMap) (out json.RawMessage, err error) {
+	outArr := make([]json.RawMessage, len(in))
+	for i, j := range in {
+		outArr[i], err = unflattenJSONMap(j)
+		if err != nil {
+			return nil, err
 		}
 	}
-
-	return
+	return json.Marshal(outArr)
 }
 
 func sliceMax(s []string) (int, error) {
@@ -236,23 +240,6 @@ func sliceMax(s []string) (int, error) {
 		}
 	}
 	return maxIndex, nil
-}
-
-// simple O(N) algorithm for removing elements from a slice
-func slicesRemove[S any](slice []S, remove []S) (cleanedSlice []S) {
-	keep := make(map[any]bool, len(slice)+len(remove))
-	for _, item := range slice {
-		keep[item] = true
-	}
-	for _, item := range remove {
-		keep[item] = false
-	}
-	for key, value := range keep {
-		if value {
-			cleanedSlice = append(cleanedSlice, key.(S))
-		}
-	}
-	return
 }
 
 // convenience function for copying values from one
