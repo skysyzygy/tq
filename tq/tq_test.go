@@ -228,18 +228,18 @@ func Test_structFields(t *testing.T) {
 	pps := &ps
 	ppi := &pi
 
-	assert.Equal(t, []string{"A", "B", "C"}, structFields(pp, ""))
-	assert.Equal(t, []string{"A", "B", "C"}, structFields(ps, ""))
-	assert.Equal(t, []string{"A", "B", "C"}, structFields(pi, ""))
-	assert.Equal(t, []string{"A", "B", "C"}, structFields(ppp, ""))
-	assert.Equal(t, []string{"A", "B", "C"}, structFields(pps, ""))
-	assert.Equal(t, []string{"A", "B", "C"}, structFields(ppi, ""))
+	assert.Equal(t, []string{"A", "B", "C"}, structFields(pp))
+	assert.Equal(t, []string{"A", "B", "C"}, structFields(ps))
+	assert.Equal(t, []string{"A", "B", "C"}, structFields(pi))
+	assert.Equal(t, []string{"A", "B", "C"}, structFields(ppp))
+	assert.Equal(t, []string{"A", "B", "C"}, structFields(pps))
+	assert.Equal(t, []string{"A", "B", "C"}, structFields(ppi))
 
 	pq := q{pp, ps, pi}
 	pqp := qp{ppp, pps, ppi, nil}
 
-	assert.Equal(t, []string{"P.A", "P.B", "P.C", "S.A", "S.B", "S.C", "I.A", "I.B", "I.C"}, structFields(pq, ""))
-	assert.Equal(t, []string{"P.A", "P.B", "P.C", "S.A", "S.B", "S.C", "I.A", "I.B", "I.C"}, structFields(pqp, ""))
+	assert.Equal(t, []string{"I.A", "I.B", "I.C", "P.A", "P.B", "P.C", "S.A", "S.B", "S.C"}, structFields(pq))
+	assert.Equal(t, []string{"I.A", "I.B", "I.C", "P.A", "P.B", "P.C", "S.A", "S.B", "S.C"}, structFields(pqp))
 
 }
 

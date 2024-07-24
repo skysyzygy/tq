@@ -217,7 +217,7 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 		}
 
 		if tq.verbose {
-			tq.Log.Info("query fields mapped:", "fields", fmt.Sprint(structFields(*params, "")))
+			tq.Log.Info("query fields mapped:", "fields", fmt.Sprint(structFields(*params)))
 			tq.Log.Info("query fields ignored:", "fields", fmt.Sprint(mapFields(remainder)))
 			if err != nil {
 				tq.Log.Info("unmarshalling returned error:", "error", err)
@@ -225,7 +225,7 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 		}
 	}
 
-	if len(structFields(*params, "")) == 0 && len(remainder) > 0 {
+	if len(structFields(*params)) == 0 && len(remainder) > 0 {
 		if tq.verbose {
 			err = errors.Join(fmt.Errorf("query %v could not be parsed into %#v",
 				string(query),
@@ -338,28 +338,18 @@ func unmarshallNestedStructWithRemainder(query []byte, params any, except []stri
 	return
 }
 
-// Return the field names from struct `s` that are not zero/nil
-func structFields(s any, prefix string) []string {
-	typ := reflect.TypeOf(s)
-	val := reflect.ValueOf(s)
-	if typ.Kind() == reflect.Pointer {
-		typ = typ.Elem()
-		val = val.Elem()
-	}
-	if prefix != "" {
-		prefix = prefix + "."
-	}
-	usedFields := make([]string, 0, typ.NumField())
-	for i := 0; i < typ.NumField(); i++ {
-		// Get the fields actually assigned in the params struct
-		if val.Field(i).Kind() == reflect.Struct ||
-			val.Field(i).Kind() == reflect.Pointer && val.Field(i).Elem().Kind() == reflect.Struct {
-			usedFields = slices.Concat(usedFields, structFields(val.Field(i).Interface(), prefix+typ.Field(i).Name))
-		} else if !val.Field(i).IsZero() {
-			usedFields = append(usedFields, prefix+typ.Field(i).Name)
+// Return the field names from struct `s` that are not zero/null
+func structFields(s any) []string {
+	f, _ := json.Marshal(s)
+	m, _ := flattenJSONMap(f, "")
+	keys := make([]string, 0, len(m))
+	for k, v := range m {
+		if string(v) != "null" && string(v) != "false" && string(v) != "0" && string(v) != `""` {
+			keys = append(keys, k)
 		}
 	}
-	return usedFields
+	slices.Sort(keys)
+	return keys
 }
 
 // Return the field names from map `m`
