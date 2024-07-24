@@ -2,7 +2,9 @@ package tq
 
 import (
 	"errors"
+	"slices"
 
+	"golang.org/x/exp/maps"
 	"golang.org/x/text/transform"
 )
 
@@ -56,10 +58,12 @@ func jsonMapsToRecords(in []jsonMap) (out records) {
 		}
 	}
 
+	keysSorted := maps.Keys(keys)
+	slices.Sort(keysSorted)
 	// fill in the csv
 	i := 0
 	out[0] = make([]string, len(keys))
-	for key := range keys {
+	for _, key := range keysSorted {
 		out[0][i] = key
 		for j, row := range in {
 			if out[j+1] == nil {
