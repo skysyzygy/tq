@@ -3,6 +3,7 @@ package tq
 import (
 	"bytes"
 	"encoding/json"
+	"slices"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -169,4 +170,47 @@ func Test_updateJSONMap(t *testing.T) {
 	assert.Equal(t, "two", string(b["one"]))
 	assert.Equal(t, "two", string(b["two"]))
 	assert.Equal(t, "four", string(b["three"]))
+}
+
+func Test_jsonMapsToCsv(t *testing.T) {
+	a := []jsonMap{{
+		`"one key with spaces"`:            []byte(`"one"`),
+		"another[one].with.control[chars]": []byte(`2`),
+		"nil":                              []byte(`null`),
+		"not":                              []byte(`false`),
+	}}
+	as := slices.Concat(a, a, a, a)
+
+	csv := jsonMapsToCsv(as)
+
+	assert.Equal(t, 5, len(csv))
+	assert.Equal(t, 4, len(csv[0]))
+	assert.Equal(t, []string{"\"one key with spaces\"", "another[one].with.control[chars]", "nil", "not"}, csv[0])
+	assert.Equal(t, []string{"\"one\"", "2", "null", "false"}, csv[1])
+}
+
+func Test_jsonMapsFromCsv(t *testing.T) {
+	a := csv{{
+		"one key with spaces",
+		"another[one].with.control[chars]",
+		"nil",
+		"not",
+	}, {`"one"`,
+		`2`,
+		`null`,
+		`false`,
+	}}
+	b := []jsonMap{{
+		"another[one].with.control[chars]": []byte(`2`),
+		"nil":                              []byte(`null`),
+		"not":                              []byte(`false`),
+		"one key with spaces":              []byte(`"one"`),
+	}}
+	as := slices.Concat(a, a[1:], a[1:])
+	bs := slices.Concat(b, b, b)
+
+	js, _ := jsonMapsFromCsv(as)
+
+	assert.Equal(t, len(as)-1, len(js))
+	assert.Equal(t, bs, js)
 }

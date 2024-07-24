@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"slices"
 	"strconv"
 	"strings"
 
@@ -101,6 +100,9 @@ func flattenJSONMap(in json.RawMessage, prefix string) (flatMap jsonMap, err err
 
 // Unflattens a jsonMap by parsing each key as the JSONPath location of the
 // value in the final jsonMap.
+//
+// Assumptions:
+// There are no duplicate keys
 func unflattenJSONMap(flatMap jsonMap) (out json.RawMessage, err error) {
 	var (
 		prefix string
@@ -115,18 +117,18 @@ func unflattenJSONMap(flatMap jsonMap) (out json.RawMessage, err error) {
 		}
 	}()
 
-	keys := maps.Keys(flatMap)
-	slices.Sort(keys)
-
-	for _, key := range keys {
+	for key := range flatMap {
 		value = flatMap[key]
 		prefix = ""
 		if sep := strings.IndexAny(key, ".[]"); sep != -1 {
 			prefix = key[0:sep]
 			key = key[sep+1:]
-		} else if key == "" {
-			return value, nil
+			// keep removing control characters
+			for len(key) > 0 && strings.ContainsAny(key[0:1], ".[]") {
+				key = key[1:]
+			}
 		} else {
+			// don't recurse on bare keys
 			outMap[key] = value
 			continue
 		}
@@ -139,9 +141,6 @@ func unflattenJSONMap(flatMap jsonMap) (out json.RawMessage, err error) {
 	prefixes := maps.Keys(nestedMap)
 	if len(prefixes) > 0 {
 		prefix = prefixes[0]
-		if prefix == "" {
-			return unflattenJSONMap(nestedMap[""])
-		} else
 		// is array
 		if _, err := strconv.Atoi(prefix); err == nil {
 			maxIndex, err := sliceMax(prefixes)
@@ -151,7 +150,13 @@ func unflattenJSONMap(flatMap jsonMap) (out json.RawMessage, err error) {
 			outArr := make([]json.RawMessage, maxIndex+1)
 			for _, prefix = range prefixes {
 				i, _ := strconv.Atoi(prefix)
-				outArr[i], err = unflattenJSONMap(nestedMap[prefix])
+				keys := maps.Keys(nestedMap[prefix])
+				// unkeyed values in arrays are atomic and don't need recursion
+				if len(keys) == 1 && keys[0] == "" {
+					outArr[i] = nestedMap[prefix][""]
+				} else {
+					outArr[i], err = unflattenJSONMap(nestedMap[prefix])
+				}
 				if err != nil {
 					panic(err)
 				}
@@ -164,13 +169,13 @@ func unflattenJSONMap(flatMap jsonMap) (out json.RawMessage, err error) {
 					panic(err)
 				}
 			}
-			return json.Marshal(outMap)
 		}
 	}
 
 	return json.Marshal(outMap)
 }
 
+// Convert a slice of jsonMap to a slice of csv records plus a header row ([]string)
 func jsonMapsToCsv(in []jsonMap) (out csv) {
 	keys := make(map[string]bool)
 	out = make(csv, len(in)+1)
@@ -184,17 +189,21 @@ func jsonMapsToCsv(in []jsonMap) (out csv) {
 
 	// fill in the csv
 	i := 0
+	out[0] = make([]string, len(keys))
 	for key := range keys {
-		out[0] = make([]string, len(keys))
 		out[0][i] = key
 		for j, row := range in {
-			out[i+1][j] = string(row[key])
+			if out[j+1] == nil {
+				out[j+1] = make([]string, len(keys))
+			}
+			out[j+1][i] = string(row[key])
 		}
 		i++
 	}
 	return
 }
 
+// Convert a slice of csv records plus a header row ([]string) to a slice of jsonMap
 func jsonMapsFromCsv(in csv) (out []jsonMap, err error) {
 	if len(in) == 0 {
 		return nil, errors.New("csv has no rows")
@@ -204,6 +213,7 @@ func jsonMapsFromCsv(in csv) (out []jsonMap, err error) {
 	out = make([]jsonMap, len(in)-1)
 
 	for i := 1; i < len(in); i++ {
+		out[i-1] = make(jsonMap)
 		for j, key := range keys {
 			out[i-1][key] = []byte(in[i][j])
 		}
