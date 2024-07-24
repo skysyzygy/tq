@@ -204,21 +204,40 @@ func Test_unmarshallNestedStructWithRemainder_Conflict(t *testing.T) {
 
 // test that structFields returns used elements of struct pointer, string, and int types
 func Test_structFields(t *testing.T) {
-
+	type p struct{ A, B, C, empty *string }
+	type s struct{ A, B, C, empty string }
+	type i struct{ A, B, C, empty int }
+	type q struct {
+		P p
+		S s
+		I i
+	}
+	type qp struct {
+		P  *p
+		S  *s
+		I  *i
+		I2 *i
+	}
 	strings := []string{"these", "are", "words"}
-	pp := struct{ A, B, C, empty *string }{&strings[0], &strings[1], &strings[2], nil}
-	ps := struct{ A, B, C, empty string }{strings[0], strings[1], strings[2], ""}
-	pi := struct{ A, B, C, empty int }{1, 2, 3, 0}
+	pp := p{&strings[0], &strings[1], &strings[2], nil}
+	ps := s{strings[0], strings[1], strings[2], ""}
+	pi := i{1, 2, 3, 0}
 	ppp := &pp
 	pps := &ps
 	ppi := &pi
 
-	assert.Equal(t, []string{"A", "B", "C"}, structFields(pp))
-	assert.Equal(t, []string{"A", "B", "C"}, structFields(ps))
-	assert.Equal(t, []string{"A", "B", "C"}, structFields(pi))
-	assert.Equal(t, []string{"A", "B", "C"}, structFields(ppp))
-	assert.Equal(t, []string{"A", "B", "C"}, structFields(pps))
-	assert.Equal(t, []string{"A", "B", "C"}, structFields(ppi))
+	assert.Equal(t, []string{"A", "B", "C"}, structFields(pp, ""))
+	assert.Equal(t, []string{"A", "B", "C"}, structFields(ps, ""))
+	assert.Equal(t, []string{"A", "B", "C"}, structFields(pi, ""))
+	assert.Equal(t, []string{"A", "B", "C"}, structFields(ppp, ""))
+	assert.Equal(t, []string{"A", "B", "C"}, structFields(pps, ""))
+	assert.Equal(t, []string{"A", "B", "C"}, structFields(ppi, ""))
+
+	pq := q{pp, ps, pi}
+	pqp := qp{ppp, pps, ppi, nil}
+
+	assert.Equal(t, []string{"P.A", "P.B", "P.C", "S.A", "S.B", "S.C", "I.A", "I.B", "I.C"}, structFields(pq, ""))
+	assert.Equal(t, []string{"P.A", "P.B", "P.C", "S.A", "S.B", "S.C", "I.A", "I.B", "I.C"}, structFields(pqp, ""))
 
 }
 

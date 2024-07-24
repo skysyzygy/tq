@@ -290,18 +290,24 @@ func unmarshallNestedStructWithRemainder(query []byte, params any, except []stri
 }
 
 // Return the field names from struct `s` that are not zero/nil
-func structFields(s any) []string {
+func structFields(s any, prefix string) []string {
 	typ := reflect.TypeOf(s)
 	val := reflect.ValueOf(s)
 	if typ.Kind() == reflect.Pointer {
 		typ = typ.Elem()
 		val = val.Elem()
 	}
+	if prefix != "" {
+		prefix = prefix + "."
+	}
 	usedFields := make([]string, 0, typ.NumField())
 	for i := 0; i < typ.NumField(); i++ {
 		// Get the fields actually assigned in the params struct
-		if !val.Field(i).IsZero() {
-			usedFields = append(usedFields, typ.Field(i).Name)
+		if val.Field(i).Kind() == reflect.Struct ||
+			val.Field(i).Kind() == reflect.Pointer && val.Field(i).Elem().Kind() == reflect.Struct {
+			usedFields = slices.Concat(usedFields, structFields(val.Field(i).Interface(), prefix+typ.Field(i).Name))
+		} else if !val.Field(i).IsZero() {
+			usedFields = append(usedFields, prefix+typ.Field(i).Name)
 		}
 	}
 	return usedFields
