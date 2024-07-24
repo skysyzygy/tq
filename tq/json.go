@@ -180,6 +180,9 @@ func unflattenJSONMap(flatMap jsonMap) (out json.RawMessage, err error) {
 // unmarshal json.RawMessage into a slice of jsonMaps
 func jsonToJSONMaps(in json.RawMessage) (out []jsonMap, err error) {
 	in = bytes.TrimSpace(in)
+	if len(in) == 0 {
+		return nil, errors.New("input JSON has length 0")
+	}
 	if in[0] == '[' {
 		err = json.Unmarshal(in, &out)
 		return
@@ -194,6 +197,9 @@ func jsonToJSONMaps(in json.RawMessage) (out []jsonMap, err error) {
 func flattenJSONMaps(in json.RawMessage) (out []jsonMap, err error) {
 	var inArr []json.RawMessage
 	in = bytes.TrimSpace(in)
+	if len(in) == 0 {
+		return nil, errors.New("input JSON has length 0")
+	}
 	if in[0] == '[' {
 		err = json.Unmarshal(in, &inArr)
 		if err != nil {
