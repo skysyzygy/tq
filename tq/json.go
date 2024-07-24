@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"slices"
 	"strconv"
 	"strings"
 
@@ -139,6 +140,7 @@ func unflattenJSONMap(flatMap jsonMap) (out json.RawMessage, err error) {
 	}
 
 	prefixes := maps.Keys(nestedMap)
+	slices.Sort(prefixes)
 	if len(prefixes) > 0 {
 		prefix = prefixes[0]
 		// is array
