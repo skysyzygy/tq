@@ -1,7 +1,9 @@
 package tq
 
 import (
+	"bytes"
 	"encoding/base64"
+	"encoding/csv"
 	"encoding/json"
 	"io"
 	"net/http"
@@ -400,4 +402,60 @@ func Test_Do(t *testing.T) {
 	assert.Equal(t, int32(0), (*constituents)[1].ID)
 	assert.Equal(t, int32(6), (*constituents)[2].ID)
 	assert.ErrorContains(t, err, "cannot unmarshal array")
+}
+
+func Test_tqInput(t *testing.T) {
+	tq := TqConfig{}
+	j := []byte(`[{"a":"apple","b":[{"badger":"mammal"},{"banana":"fruit"},"bagel"],"c":{"cucumber":"vegetable or fruit?"},"d":null,"e":1,"f":false}]`)
+	f := []byte(`{"a":"apple","b[0].badger":"mammal","b[1].banana":"fruit","b[2]":"bagel","c.cucumber":"vegetable or fruit?","d":null,"e":1,"f":false}`)
+	c := records{{"a", "b[0].badger", "b[1].banana", "b[2]", "c.cucumber", "d", "e", "f"},
+		{`"apple"`, `"mammal"`, `"fruit"`, `"bagel"`, `"vegetable or fruit?"`, `null`, `1`, `false`},
+	}
+	buf := bytes.NewBuffer([]byte{})
+	csv.NewWriter(buf).WriteAll(c)
+	cb, _ := io.ReadAll(buf)
+
+	tq.input = bytes.NewReader(j)
+	in, err := tq.ReadInput()
+	assert.Equal(t, string(j), string(in))
+	assert.NoError(t, err)
+
+	tq.input = bytes.NewReader(f)
+	tq.InFlat = true
+	in, err = tq.ReadInput()
+	assert.Equal(t, string(j), string(in))
+	assert.NoError(t, err)
+
+	tq.input = bytes.NewReader(cb)
+	tq.InFmt = "csv"
+	in, err = tq.ReadInput()
+	assert.Equal(t, string(j), string(in))
+	assert.NoError(t, err)
+}
+
+func Test_tqOutput(t *testing.T) {
+	tq := TqConfig{}
+	j := []byte(`[{"a":"apple","b":[{"badger":"mammal"},{"banana":"fruit"},"bagel"],"c":{"cucumber":"vegetable or fruit?"},"d":null,"e":1,"f":false}]`)
+	f := []byte(`[{"a":"apple","b[0].badger":"mammal","b[1].banana":"fruit","b[2]":"bagel","c.cucumber":"vegetable or fruit?","d":null,"e":1,"f":false}]`)
+	c := records{{"a", "b[0].badger", "b[1].banana", "b[2]", "c.cucumber", "d", "e", "f"},
+		{`"apple"`, `"mammal"`, `"fruit"`, `"bagel"`, `"vegetable or fruit?"`, `null`, `1`, `false`},
+	}
+	buf := bytes.NewBuffer([]byte{})
+	csv.NewWriter(buf).WriteAll(c)
+	cb, _ := io.ReadAll(buf)
+
+	tq.SetOutput(j)
+	out, err := tq.GetOutput()
+	assert.Equal(t, string(j), string(out))
+	assert.NoError(t, err)
+
+	tq.OutFlat = true
+	out, err = tq.GetOutput()
+	assert.Equal(t, string(f), string(out))
+	assert.NoError(t, err)
+
+	tq.OutFmt = "csv"
+	out, err = tq.GetOutput()
+	assert.Equal(t, string(cb), string(out))
+	assert.NoError(t, err)
 }
