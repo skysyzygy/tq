@@ -14,7 +14,7 @@ import (
 
 // String map of json raw strings
 type jsonMap map[string]json.RawMessage
-type csv [][]string
+type records [][]string
 
 func flattenJSONError(key string, v any) error {
 	if err, ok := v.(error); ok {

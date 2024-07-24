@@ -45,9 +45,9 @@ func (c *csvQuoter) Reset() {
 }
 
 // Convert a slice of jsonMap to a slice of csv records plus a header row ([]string)
-func jsonMapsToCsv(in []jsonMap) (out csv) {
+func jsonMapsToRecords(in []jsonMap) (out records) {
 	keys := make(map[string]bool)
-	out = make(csv, len(in)+1)
+	out = make(records, len(in)+1)
 
 	// gather all keys
 	for _, row := range in {
@@ -73,7 +73,7 @@ func jsonMapsToCsv(in []jsonMap) (out csv) {
 }
 
 // Convert a slice of csv records plus a header row ([]string) to a slice of jsonMap
-func jsonMapsFromCsv(in csv) (out []jsonMap, err error) {
+func jsonMapsFromRecords(in records) (out []jsonMap, err error) {
 	if len(in) == 0 {
 		return nil, errors.New("csv has no rows")
 	}

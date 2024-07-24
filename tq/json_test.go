@@ -181,7 +181,7 @@ func Test_jsonMapsToCsv(t *testing.T) {
 	}}
 	as := slices.Concat(a, a, a, a)
 
-	csv := jsonMapsToCsv(as)
+	csv := jsonMapsToRecords(as)
 
 	assert.Equal(t, 5, len(csv))
 	assert.Equal(t, 4, len(csv[0]))
@@ -190,7 +190,7 @@ func Test_jsonMapsToCsv(t *testing.T) {
 }
 
 func Test_jsonMapsFromCsv(t *testing.T) {
-	a := csv{{
+	a := records{{
 		"one key with spaces",
 		"another[one].with.control[chars]",
 		"nil",
@@ -209,7 +209,7 @@ func Test_jsonMapsFromCsv(t *testing.T) {
 	as := slices.Concat(a, a[1:], a[1:])
 	bs := slices.Concat(b, b, b)
 
-	js, _ := jsonMapsFromCsv(as)
+	js, _ := jsonMapsFromRecords(as)
 
 	assert.Equal(t, len(as)-1, len(js))
 	assert.Equal(t, bs, js)

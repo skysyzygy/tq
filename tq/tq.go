@@ -13,7 +13,7 @@ import (
 	"strings"
 	"sync"
 
-	csvReader "encoding/csv"
+	"encoding/csv"
 	"encoding/json"
 
 	"github.com/go-openapi/runtime"
@@ -64,11 +64,11 @@ func (tq *TqConfig) SetInput(input io.Reader) { tq.input = input }
 func (tq *TqConfig) ReadInput() (in []byte, err error) {
 	var m []jsonMap
 	if tq.InFmt == "csv" {
-		c, err := csvReader.NewReader(tq.input).ReadAll()
+		c, err := csv.NewReader(tq.input).ReadAll()
 		if err != nil {
 			return nil, err
 		}
-		m, err = jsonMapsFromCsv(c)
+		m, err = jsonMapsFromRecords(c)
 		if err != nil {
 			return nil, err
 		}
@@ -98,9 +98,13 @@ func (tq TqConfig) GetOutput() (out []byte, err error) {
 		}
 	}
 	if tq.OutFmt == "csv" {
-		c := jsonMapsToCsv(m)
+		c := jsonMapsToRecords(m)
 		w := bytes.NewBuffer(out)
-		err = csvReader.NewWriter(w).WriteAll(c)
+		err = csv.NewWriter(w).WriteAll(c)
+		if err != nil {
+			return nil, err
+		}
+		out, err = io.ReadAll(w)
 	} else {
 		if m != nil {
 			out, err = json.Marshal(m)
