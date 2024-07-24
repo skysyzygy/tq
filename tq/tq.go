@@ -1,6 +1,7 @@
 package tq
 
 import (
+	"bytes"
 	"errors"
 	"fmt"
 	"io"
@@ -12,6 +13,7 @@ import (
 	"strings"
 	"sync"
 
+	csvReader "encoding/csv"
 	"encoding/json"
 
 	"github.com/go-openapi/runtime"
@@ -59,13 +61,56 @@ func (tq *TqConfig) SetLogger(logFile *os.File, verbose bool) {
 }
 
 func (tq *TqConfig) SetInput(input io.Reader) { tq.input = input }
-func (tq TqConfig) ReadInput() ([]byte, error) {
-	if tq.input != nil {
-		return io.ReadAll(tq.input)
+func (tq *TqConfig) ReadInput() (in []byte, err error) {
+	var m []jsonMap
+	if tq.InFmt == "csv" {
+		c, err := csvReader.NewReader(tq.input).ReadAll()
+		if err != nil {
+			return nil, err
+		}
+		m, err = jsonMapsFromCsv(c)
+		if err != nil {
+			return nil, err
+		}
+	} else {
+		in, err = io.ReadAll(tq.input)
+		if err != nil {
+			return nil, err
+		}
 	}
-	return nil, nil
+	if tq.InFlat || tq.InFmt == "csv" {
+		if m == nil {
+			m, err = jsonToJSONMaps(in)
+		}
+		if err != nil {
+			return nil, err
+		}
+		in, err = unflattenJSONMaps(m)
+	}
+	return
 }
-func (tq TqConfig) GetOutput() []byte { return tq.output }
+func (tq TqConfig) GetOutput() (out []byte, err error) {
+	var m []jsonMap
+	if tq.OutFlat || tq.OutFmt == "csv" {
+		m, err = flattenJSONMaps(tq.output)
+		if err != nil {
+			return nil, err
+		}
+	}
+	if tq.OutFmt == "csv" {
+		c := jsonMapsToCsv(m)
+		w := bytes.NewBuffer(out)
+		err = csvReader.NewWriter(w).WriteAll(c)
+	} else {
+		if m != nil {
+			out, err = json.Marshal(m)
+		} else {
+			out = tq.output
+		}
+	}
+
+	return
+}
 
 // For testing only
 func (tq *TqConfig) SetOutput(test []byte) { tq.output = test }
@@ -168,7 +213,7 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 		}
 
 		if tq.verbose {
-			tq.Log.Info("query fields mapped:", "fields", fmt.Sprint(structFields(*params)))
+			tq.Log.Info("query fields mapped:", "fields", fmt.Sprint(structFields(*params, "")))
 			tq.Log.Info("query fields ignored:", "fields", fmt.Sprint(mapFields(remainder)))
 			if err != nil {
 				tq.Log.Info("unmarshalling returned error:", "error", err)
@@ -176,7 +221,7 @@ func DoOne[P any, R any, O any, F func(*P, ...O) (*R, error)](
 		}
 	}
 
-	if len(structFields(*params)) == 0 && len(remainder) > 0 {
+	if len(structFields(*params, "")) == 0 && len(remainder) > 0 {
 		if tq.verbose {
 			err = errors.Join(fmt.Errorf("query %v could not be parsed into %#v",
 				string(query),
