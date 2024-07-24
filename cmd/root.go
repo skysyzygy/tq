@@ -69,8 +69,9 @@ var rootCmd = &cobra.Command{
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	err := rootCmd.Execute()
+	var out []byte
 	if _tq != nil {
-		out := _tq.GetOutput()
+		out, err = _tq.GetOutput()
 		if pretty {
 			out = prettify.Pretty(out)
 		}

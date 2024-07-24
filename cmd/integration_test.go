@@ -46,5 +46,7 @@ func Test_Get_Integration_valid(t *testing.T) {
 	_, stderr := tq.CaptureOutput(func() { err = rootCmd.Execute() })
 	assert.NoError(t, err)
 	assert.Regexp(t, "Using config file: .+tq\n$", string(stderr))
-	assert.Contains(t, string(_tq.GetOutput()), "Dummy")
+	out, err := _tq.GetOutput()
+	assert.Contains(t, string(out), "Dummy")
+	assert.NoError(t, err)
 }

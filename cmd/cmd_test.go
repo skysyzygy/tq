@@ -41,6 +41,8 @@ func testCommand(t *testing.T, command *cobra.Command, flagName string) {
 
 	assert.NoError(t, err)
 	// Note: need to test output better
-	assert.NotEmpty(t, string(_tq.GetOutput()))
+	out, err := _tq.GetOutput()
+	assert.NotEmpty(t, string(out))
+	assert.NoError(t, err)
 
 }
