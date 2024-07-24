@@ -19,7 +19,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_NewLogging(t *testing.T) {
+func Test_Logging(t *testing.T) {
 	r, w, _ := os.Pipe()
 	fileOutput := make([]byte, 1024)
 	defer w.Close()
