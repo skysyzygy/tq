@@ -102,7 +102,7 @@ func flagUsagesWrapped(cols int, f *pflag.FlagSet) string {
 		prose := regexp.MustCompile("{.+}$").ReplaceAllString(usage, "")
 		json := regexp.MustCompile("{.+}$").FindString(usage)
 
-		line += prose + jsonHighlight(json)
+		line += prose + jsonStyle(json, *flatHelp)
 
 		// if !flag.defaultIsZeroValue() {
 		// 	if flag.Value.Type() == "string" {
@@ -142,7 +142,7 @@ func flagUsagesWrapped(cols int, f *pflag.FlagSet) string {
 // 2-column indent
 func exampleWrapped(cols int, example string) string {
 	buf := new(bytes.Buffer)
-	example = jsonHighlight(example)
+	example = jsonStyle(example, *flatHelp)
 	// try to wrap at cols-8 and if that fails enforce at cols wide
 	wrapped := wrap.String(wordwrap.String(example, cols-8), cols)
 	for _, subline := range strings.Split(wrapped, "\n") {
@@ -152,8 +152,8 @@ func exampleWrapped(cols int, example string) string {
 }
 
 // Syntax highlighting for json strings using chroma
-// and ptionally flatten using FlattenJSONMap
-func jsonHighlight(json string) string {
+// and flatten using tq.FlattenJSONMap
+func jsonStyle(json string, flatten bool) string {
 	w := new(bytes.Buffer)
 	if *flatHelp && len(json) > 0 {
 		json = strings.ReplaceAll(json, ", ...", "")
