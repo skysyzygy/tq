@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"bytes"
+	jsonEnc "encoding/json"
 	"fmt"
 	"regexp"
 	"strings"
@@ -11,6 +12,7 @@ import (
 	"github.com/muesli/reflow/indent"
 	"github.com/muesli/reflow/wordwrap"
 	"github.com/muesli/reflow/wrap"
+	"github.com/skysyzygy/tq/tq"
 	"github.com/spf13/pflag"
 )
 
@@ -54,7 +56,7 @@ func helpParagraph(para string) string {
 // flagUsagesWrapped returns a string containing the usage information
 // for all flags in the FlagSet. Borrowed from pflag, and made ANSI-aware
 // using Reflow. Wrapped to `cols` columns (0 for no wrapping)
-func flagUsagesWrapped(cols int, f *pflag.FlagSet) string {
+func flagUsagesWrapped(cols int, flatten bool, f *pflag.FlagSet) string {
 	buf := new(bytes.Buffer)
 
 	lines := make([]string, 0, f.NFlag())
@@ -103,7 +105,7 @@ func flagUsagesWrapped(cols int, f *pflag.FlagSet) string {
 		prose := regexp.MustCompile("{.+}$").ReplaceAllString(usage, "")
 		json := regexp.MustCompile("{.+}$").FindString(usage)
 
-		line += prose + jsonHighlight(json)
+		line += prose + jsonHighlight(json, flatten)
 
 		// if !flag.defaultIsZeroValue() {
 		// 	if flag.Value.Type() == "string" {
@@ -141,9 +143,9 @@ func flagUsagesWrapped(cols int, f *pflag.FlagSet) string {
 // exampleWrapped indents and wraps the `example` (query) text
 // for tq / cobra commands using ANSI-aware wrapping to `cols` width and a
 // 2-column indent
-func exampleWrapped(cols int, example string) string {
+func exampleWrapped(cols int, flatten bool, example string) string {
 	buf := new(bytes.Buffer)
-	example = jsonHighlight(example)
+	example = jsonHighlight(example, flatten)
 	// try to wrap at cols-8 and if that fails enforce at cols wide
 	wrapped := wrap.String(wordwrap.String(example, cols-8), cols)
 	for _, subline := range strings.Split(wrapped, "\n") {
@@ -153,8 +155,18 @@ func exampleWrapped(cols int, example string) string {
 }
 
 // Syntax highlighting for json strings using chroma
-func jsonHighlight(json string) string {
+// and ptionally flatten using FlattenJSONMap
+func jsonHighlight(json string, flatten bool) string {
 	w := new(bytes.Buffer)
+	if flatten && len(json) > 0 {
+		json = strings.ReplaceAll(json, ", ...", "")
+		j, err := tq.FlattenJSONMap([]byte(json), "")
+		if err == nil {
+			jm, _ := jsonEnc.Marshal(j)
+			json = string(jm)
+			json = strings.ReplaceAll(json, ",", ", ")
+		}
+	}
 	err := quick.Highlight(w, json, "json", "terminal16m", "vulcan")
 	if err != nil {
 		return json
