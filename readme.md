@@ -64,6 +64,8 @@ tq update addresses <<< '{"addressid": "12345", "street1": "123 New Street"}'
 **add a plan step**
 ```shell
 tq create steps <<< '{"plan": {"Id": 12345}, "type": {"Id": 1}, "Description": "New step!", "Notes": "Created by tq :)"}'
+# or using flattened syntax
+tq create steps <<< '{"plan.Id": 12345, "type.Id": 1, "Description": "New step!", "Notes": "Created by tq :)"}'
 ```
 
 # 🛠️ usage
@@ -73,11 +75,18 @@ tq [flags] [verb] [object]
 ```
 
 ## flags:
-* **-n, --dryrun**         : don't actually do anything, just show what would have happened
-* **-f, --file** *string*  : JSON file to read (default is to read from stdin)
-* **-h, --help**           : help for tq
-* **-l, --log** *string*   : log file to write to (default is no log)
-* **-v, --verbose**        : turns on additional diagnostic output
+*  **-c, --compact** compact instead of indented output
+*  **-n, --dryrun** don't actually do anything, just show what would have happened
+*  **-f, --file** input file to read (default is to read from stdin)
+*  **--highlight** render json with syntax highlighting; default is to use highlighting when output is to terminal
+*  **-i, --in** input format (csv or json; default is json); csv implies --inflat
+*  **--inflat** use input flattened by JSONPath dot notation. Combining this with --help will show the flattened format
+*  **-l, --log** log file to write to (default is no log)
+*  **--no-highlight** render json without syntax highlighting; default is to use highlighting when output is to terminal
+*  **-o, --out** output format (csv or json; default is json); csv implies --outflat
+*  **--outflat** use output flattened by JSONPath dot notation
+*  **-v, --verbose** turns on additional diagnostic output
+
 
 #### configuration file:
 A yaml configuration file `.tq` placed in your home directory can be used to set defaults for these flags; it is also used to save the current authentication method. See `tq auth select --help` for more information. 
