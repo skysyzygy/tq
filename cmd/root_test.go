@@ -99,6 +99,7 @@ func Test_Execute(t *testing.T) {
 
 	initLog()
 	_tq.SetOutput([]byte(`{"test":"json"}`))
+	defer func() { _tq.SetOutput(nil) }()
 	stdout, _ = tq.CaptureOutput(Execute)
 
 	assert.Regexp(t, regexp.MustCompile(`\{\n\s+"test":\s+"json"\n\}`), ansi.Strip(string(stdout)))
@@ -128,6 +129,7 @@ func Test_Help(t *testing.T) {
 
 	highlight = true
 	*flatHelp = false
+	defer func() { highlight = false }()
 	rootCmd.SetArgs([]string{"help", "create", "constituents"})
 	stdout, _ = tq.CaptureOutput(Execute)
 	snaps.WithConfig(snaps.Filename("help_create_constituents_highlighted"), snaps.Update(update)).MatchSnapshot(t, string(stdout))
