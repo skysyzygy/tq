@@ -341,7 +341,7 @@ func unmarshallNestedStructWithRemainder(query []byte, params any, except []stri
 // Return the field names from struct `s` that are not zero/null
 func structFields(s any) []string {
 	f, _ := json.Marshal(s)
-	m, _ := flattenJSONMap(f, "")
+	m, _ := FlattenJSONMap(f, "")
 	keys := make([]string, 0, len(m))
 	for k, v := range m {
 		if string(v) != "null" && string(v) != "false" && string(v) != "0" && string(v) != `""` {

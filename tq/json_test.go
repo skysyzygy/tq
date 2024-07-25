@@ -38,7 +38,7 @@ func Test_flattenJSONMap(t *testing.T) {
 	}
 	jMarshaled, _ := json.Marshal(j)
 
-	flattened, err := flattenJSONMap(jMarshaled, "")
+	flattened, err := FlattenJSONMap(jMarshaled, "")
 	assert.NoError(t, err)
 	assert.Equal(t, jsonMapToStringMap(f), jsonMapToStringMap(flattened))
 	assert.Equal(t, json.RawMessage(`1`), flattened["e"])
@@ -59,16 +59,16 @@ func Test_flattenJSONMapError(t *testing.T) {
 	jMarshaled, _ := json.Marshal(j)
 
 	jMarshaled = bytes.Replace(jMarshaled, j["b"], []byte(`[{"badger":"mammal"},{"banana":"fruit"}`), 1)
-	_, err := flattenJSONMap(jMarshaled, "")
+	_, err := FlattenJSONMap(jMarshaled, "")
 	assert.ErrorContains(t, err, "invalid character")
 
 	jMarshaled = bytes.Replace(jMarshaled, j["b"], []byte(`[{"badger":"mammal"},{"banana":"fruit"]`), 1)
-	_, err = flattenJSONMap(jMarshaled, "")
+	_, err = FlattenJSONMap(jMarshaled, "")
 	assert.ErrorContains(t, err, "invalid character")
 
 	jMarshaled = bytes.Replace(jMarshaled, j["b"], []byte(`[{"badger":"mammal"},{"banana":"fruit"}]`), 1)
 	jMarshaled = bytes.Replace(jMarshaled, j["c"], []byte(`{"cucumber":"vegetable or fruit?"`), 1)
-	_, err = flattenJSONMap(jMarshaled, "")
+	_, err = FlattenJSONMap(jMarshaled, "")
 	assert.ErrorContains(t, err, "invalid character")
 
 }
@@ -93,7 +93,7 @@ func Test_flattenJSONMapWhitespace(t *testing.T) {
 		"f":           []byte(`false`),
 	}
 	jMarshaled, _ := json.Marshal(j)
-	flattened, err := flattenJSONMap(jMarshaled, "")
+	flattened, err := FlattenJSONMap(jMarshaled, "")
 	assert.NoError(t, err)
 	assert.Equal(t, jsonMapToStringMap(f), jsonMapToStringMap(flattened))
 	assert.Equal(t, json.RawMessage(`1`), flattened["e"])

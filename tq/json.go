@@ -39,7 +39,7 @@ func unflattenJSONError(key string, v any) error {
 // Assumptions:
 // There are no duplicate keys
 // No keys contain the characters .[]
-func flattenJSONMap(in json.RawMessage, prefix string) (flatMap jsonMap, err error) {
+func FlattenJSONMap(in json.RawMessage, prefix string) (flatMap jsonMap, err error) {
 	var (
 		key   string
 		value json.RawMessage
@@ -70,7 +70,7 @@ func flattenJSONMap(in json.RawMessage, prefix string) (flatMap jsonMap, err err
 		}
 		// recurse
 		for key, value = range nestedMapPart {
-			flatMapPart, err = flattenJSONMap(value, prefix+key)
+			flatMapPart, err = FlattenJSONMap(value, prefix+key)
 			if err != nil {
 				panic(err)
 			}
@@ -85,7 +85,7 @@ func flattenJSONMap(in json.RawMessage, prefix string) (flatMap jsonMap, err err
 		}
 		for i, value := range array {
 			// recurse
-			flatMapPart, err := flattenJSONMap(value, prefix+"["+strconv.Itoa(i)+"]")
+			flatMapPart, err := FlattenJSONMap(value, prefix+"["+strconv.Itoa(i)+"]")
 			if err != nil {
 				panic(err)
 			}
@@ -207,14 +207,14 @@ func flattenJSONMaps(in json.RawMessage) (out []jsonMap, err error) {
 		}
 		out = make([]jsonMap, len(inArr))
 		for i, j := range inArr {
-			out[i], err = flattenJSONMap(j, "")
+			out[i], err = FlattenJSONMap(j, "")
 			if err != nil {
 				return nil, err
 			}
 		}
 	} else {
 		out = make([]jsonMap, 1)
-		out[0], err = flattenJSONMap(in, "")
+		out[0], err = FlattenJSONMap(in, "")
 		if err != nil {
 			return nil, err
 		}
