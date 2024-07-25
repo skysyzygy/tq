@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/charmbracelet/x/ansi"
+	"github.com/gkampitakis/go-snaps/snaps"
 	"github.com/skysyzygy/tq/tq"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -108,4 +109,26 @@ func Test_Execute(t *testing.T) {
 	stdout, _ = tq.CaptureOutput(Execute)
 	assert.Contains(t, ansi.Strip(string(stdout)), `{"test":"json"}`)
 
+}
+
+func Test_Help(t *testing.T) {
+	update := false
+
+	rootCmd.SetArgs([]string{"help", "get", "constituents"})
+	stdout, _ := tq.CaptureOutput(Execute)
+	snaps.WithConfig(snaps.Filename("help_get_constituents"), snaps.Update(update)).MatchSnapshot(t, string(stdout))
+
+	rootCmd.SetArgs([]string{"help", "create", "constituents"})
+	stdout, _ = tq.CaptureOutput(Execute)
+	snaps.WithConfig(snaps.Filename("help_create_constituents"), snaps.Update(update)).MatchSnapshot(t, string(stdout))
+
+	*flatHelp = true
+	stdout, _ = tq.CaptureOutput(Execute)
+	snaps.WithConfig(snaps.Filename("help_create_constituents_flat"), snaps.Update(update)).MatchSnapshot(t, string(stdout))
+
+	highlight = true
+	*flatHelp = false
+	rootCmd.SetArgs([]string{"help", "create", "constituents"})
+	stdout, _ = tq.CaptureOutput(Execute)
+	snaps.WithConfig(snaps.Filename("help_create_constituents_highlighted"), snaps.Update(update)).MatchSnapshot(t, string(stdout))
 }

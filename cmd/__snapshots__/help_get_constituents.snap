@@ -1,0 +1,67 @@
+
+[Test_Help - 1]
+Get the details of a Constituent using id.
+
+Usage:
+  tq get Constituents [flags]
+
+Query:
+  {"ConstituentID":"string"}
+
+
+Flags:
+      --constituent                 Get constituent details with addresses, electronicAddresses, salutations and phones. To exclude information about visible affiliations pass includeAffiliations="false"
+                                    Query:
+                                    {"ConstituentID":"string", "IncludeAffiliations":"string"}
+      --constituentdevelopmentinfo  Get constituent information for fundraising.
+                                    Query:
+                                    {"ConstituentID":"string"}
+      --constituents                Get multiple Constituents given a set of constituentIds.
+                                    Query:
+                                    {"ConstituentIds":"string"}
+      --constituentsnapshot         Get constituent details along with primary address, primary salutation, primary electronic address, phones and affiliates information.
+                                    Query:
+                                    {"ConstituentID":"string"}
+      --defaultheader               Return the default header for the constituent, including configured flexible header names and values.
+                                    Query:
+                                    {"ConstituentID":"string"}
+      --flexheader                  Get the details of a flex header for a constituent
+                                    Query:
+                                    {"ConstituentID":"string", "HeaderID":"string"}
+      --header                      Return constituent header details, including configured flexible header names and values.
+                                    Query:
+                                    {"ConstituentID":"string", "HeaderID":"string"}
+  -h, --help                        help for Constituents
+      --primaryhousehold            Get primary household constituent details for a provided constituentId.
+                                    Query:
+                                    {"ConstituentID":"string"}
+      --search                      Search for constituents using one of four possible search modes.  Querystring parameters are valid based on the "type" parameter value.
+                                    Single Line (type=fluent)
+                                    Sample:  CRM/Constituents/Search?type=fluent&amp;q=Huff
+                                    Single Line search type (or fluent) is the default search if not provided in querystring.  Single line search works on string patterns in the passed search value ("q" param).  Patterns are as follows:
+                                     Value contains only alpha characters - interpreted as a last name search.  To search with first name, pass comma then additional search value ("last, first").
+                                     Text enclosed in quotes is interpreted as a search for name ("ACE 123 Corporation").
+                                     value containing an @ symbol is interpreted as an email address.
+                                     Value starting with # is interpreted as a phone number search.
+                                     Value containing alpha and numeric characters is interpreted as a postal code.  UK and other countries should omit spaces for postal code search values.
+                                    Basic search type permits parameters constituentId, ln, fn, street, and post. Sample URL: CRM/Constituents/Search?type=basic&amp;ln=Huff&amp;fn=Frank&amp;post=20746
+                                    Advanced search type permits parameters atype, op, and value. Sample URL:  CRM/Constituents/Search?type=advanced&amp;atype=Email&amp;op=Like&amp;value=%25@gmail.com
+                                    Attribute search type permits parameters key, op, value. Sample URL:  CRM/Constituents/Search?type=attribute&amp;key=Board+Affiliation&amp;op=Equals&amp;value=Association+Member
+                                    Query:
+                                    {"Atype":"string", "ConstituencyIds":"string", "ConstituentGroups":"string", "ConstituentID":"string", "Dup":"string", "Fn":"string", "IncludeAffiliates":"string", "Key":"string", "ListID":"string", "Ln":"string", "Op":"string", "Page":"string", "PageSize":"string", "Post":"string", "Q":"string", "Street":"string", "Type":"string", "Value":"string"}
+
+Global Flags:
+  -c, --compact       compact instead of indented output
+  -n, --dryrun        don't actually do anything, just show what would have happened
+  -f, --file string   input file to read (default is to read from stdin)
+      --highlight     render json with syntax highlighting; default is to use highlighting when output is to terminal
+  -i, --in string     input format (csv or json; default is json); implies --inflat
+      --inflat        use input flattened by JSONPath dot notation. Combining this with --help will show the flattened format
+  -l, --log string    log file to write to (default is no log)
+      --no-highlight  render json without syntax highlighting; default is to use highlighting when output is to terminal
+  -o, --out string    output format (csv or json; default is json); implies --outflat
+      --outflat       use output flattened by JSONPath dot notation
+  -v, --verbose       turns on additional diagnostic output
+
+
+---
