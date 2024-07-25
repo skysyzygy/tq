@@ -75,7 +75,7 @@ func Execute() {
 		if pretty {
 			out = prettify.Pretty(out)
 		}
-		fmt.Println(jsonHighlight(string(out)))
+		fmt.Println(jsonHighlight(string(out), false))
 	}
 	if err != nil {
 		if _tq != nil && _tq.Log != nil {
@@ -117,7 +117,7 @@ func init() {
 	//used within tq for wrangling formats
 	rootCmd.PersistentFlags().StringVarP(&_tq.InFmt, "in", "i", "json", "input format (csv or json; default is json); implies --inflat")
 	rootCmd.PersistentFlags().StringVarP(&_tq.OutFmt, "out", "o", "json", "output format (csv or json; default is json); implies --outflat")
-	rootCmd.PersistentFlags().BoolVar(&_tq.InFlat, "inflat", false, "use input flattened by JSONPath dot notation")
+	rootCmd.PersistentFlags().BoolVar(&_tq.InFlat, "inflat", false, "use input flattened by JSONPath dot notation. Combining this with --help will show the flattened format")
 	rootCmd.PersistentFlags().BoolVar(&_tq.OutFlat, "outflat", false, "use output flattened by JSONPath dot notation")
 	rootCmd.PersistentFlags().BoolVarP(&_tq.DryRun, "dryrun", "n", false, "don't actually do anything, just show what would have happened")
 
@@ -139,9 +139,9 @@ func init() {
 		// Rename some things so that they align better with how they are used
 		strings.NewReplacer("command", "verb", " Command", " Verb", "Examples", "Query",
 			// Wrap flag usages and syntax highlight
-			".FlagUsages", " | flagUsagesWrapped "+fmt.Sprint(width),
+			".FlagUsages", " | flagUsagesWrapped "+fmt.Sprint(width)+" (.Flag \"inflat\").Changed",
 			// Indent example and syntax highlight
-			".Example", ".Example | exampleWrapped "+fmt.Sprint(width)).
+			".Example", ".Example | exampleWrapped "+fmt.Sprint(width)+" (.Flag \"inflat\").Changed").
 			Replace(rootCmd.UsageTemplate()))
 
 	cobra.AddTemplateFuncs(
@@ -215,7 +215,7 @@ func initTq(cmd *cobra.Command, args []string) (err error) {
 		if _err != nil {
 			err = errors.Join(fmt.Errorf("cannot open input file %v for reading", inFile), _err, err)
 		}
-	} else if !term.IsTerminal(int(syscall.Stdin)) {
+	} else {
 		input = cmd.InOrStdin()
 	}
 
