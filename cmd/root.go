@@ -73,7 +73,7 @@ func Execute() {
 		if !compact {
 			out = prettify.Pretty(out)
 		}
-		fmt.Println(jsonHighlight(string(out), false))
+		fmt.Println(jsonHighlight(string(out)))
 	}
 	if err != nil {
 		if _tq != nil && _tq.Log != nil {

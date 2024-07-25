@@ -61,7 +61,7 @@ func Test_flagUsagesWrapped(t *testing.T) {
 	cmd.Flags().Bool("test", false, words)
 
 	for i := 16; i <= 255; i++ {
-		wrapped := flagUsagesWrapped(i, false, cmd.Flags())
+		wrapped := flagUsagesWrapped(i, cmd.Flags())
 		for _, line := range strings.Split(wrapped, "\n") {
 			if len(line) > 1 {
 				assert.Equal(t, "  ", line[0:2])
@@ -74,12 +74,14 @@ func Test_flagUsagesWrapped(t *testing.T) {
 
 func Test_exampleWrapped(t *testing.T) {
 	example := `{"Filter":"string","ID":"string","MaintenanceMode":"string","nested":["bird","squirrel","rat"]}`
-	ew := exampleWrapped(1024, false, example)
+	ew := exampleWrapped(1024, example)
 	assert.Contains(t, ew, `"nested"`)
 
-	ew = exampleWrapped(1024, true, example)
+	*flatHelp = true
+	defer func() { *flatHelp = false }()
+	ew = exampleWrapped(1024, example)
 	assert.Contains(t, ew, `"nested[0]"`)
 
-	ew = exampleWrapped(8, true, example)
+	ew = exampleWrapped(8, example)
 	assert.Contains(t, ew, "Filter\n")
 }
