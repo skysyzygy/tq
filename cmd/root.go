@@ -42,9 +42,6 @@ import (
 	"golang.org/x/term"
 )
 
-// Version number
-const version string = "0.1.1"
-
 var (
 	cfgFile, inFile, logFile string
 	verbose, pretty          bool
