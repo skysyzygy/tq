@@ -1,3 +1,10 @@
+# v0.2
+
+* Flattened JSON inputs / outputs via --inflat and --outflat
+* CSV inputs / outputs via --in csv --out csv
+* Pretty-printing and syntax highlighting of JSON everywhere
+* Clean, nicely wrapped help text
+
 # v0.1.1
 
 * Code refactoring to improve maintainability and test coverage 
