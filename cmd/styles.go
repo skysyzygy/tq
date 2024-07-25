@@ -155,7 +155,7 @@ func exampleWrapped(cols int, example string) string {
 // and flatten using tq.FlattenJSONMap
 func jsonStyle(json string, flatten bool) string {
 	w := new(bytes.Buffer)
-	if *flatHelp && len(json) > 0 {
+	if flatten && len(json) > 0 {
 		json = strings.ReplaceAll(json, ", ...", "")
 		j, err := tq.FlattenJSONMap([]byte(json), "")
 		if err == nil {
