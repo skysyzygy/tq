@@ -10,11 +10,12 @@ import (
 
 // Adds additional quoting to the start and end of strings so that quotes are preserved
 // after reading
-type csvQuoter struct{}
+type csvQuoter struct {
+	nQuotes int
+}
 
 func (c *csvQuoter) Transform(dst, src []byte, atEOF bool) (nDst, nSrc int, err error) {
 	var b byte
-	nQuotes := 0
 	for nSrc < len(src) {
 		if nDst+3 >= len(dst) {
 			err = transform.ErrShortDst
@@ -23,19 +24,19 @@ func (c *csvQuoter) Transform(dst, src []byte, atEOF bool) (nDst, nSrc int, err 
 		b = src[nSrc]
 		// get number of quotes in a row
 		if b == byte('"') {
-			nQuotes++
-			if nSrc+1 == len(src) && !atEOF {
+			c.nQuotes++
+		}
+		if b != byte('"') || nSrc+1 == len(src) {
+			if !atEOF {
 				err = transform.ErrShortSrc
 				return
 			}
-		}
-		if b != byte('"') || nSrc+1 == len(src) && atEOF {
-			if nQuotes%2 != 0 {
+			if c.nQuotes%2 != 0 {
 				dst[nDst] = '"'
 				dst[nDst+1] = '"'
 				nDst = nDst + 2
 			}
-			nQuotes = 0
+			c.Reset()
 		}
 		dst[nDst] = b
 		nDst++
@@ -44,6 +45,7 @@ func (c *csvQuoter) Transform(dst, src []byte, atEOF bool) (nDst, nSrc int, err 
 	return
 }
 func (c *csvQuoter) Reset() {
+	c.nQuotes = 0
 }
 
 // Convert a slice of jsonMap to a slice of csv records plus a header row ([]string)
