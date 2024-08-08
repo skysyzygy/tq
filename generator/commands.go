@@ -57,35 +57,15 @@ func describe(funcName string) (thing string, long string) {
 			path.Get, path.Put, path.Post, path.Delete, path.Head,
 		} {
 			// funcName is often appended in golang by a suffix
-			// (oftem `-fm` to make the name unique)
+			// (often `-fm` to make the name unique)
 			// https://stackoverflow.com/questions/32925344/why-is-there-a-fm-suffix-when-getting-a-functions-name-in-go
 			if op != nil && funcName ==
 				// the swagger doc has an extra "_" in the name
 				strings.ReplaceAll(op.ID, "_", "") {
 				thing = regexp.MustCompile("_.+").ReplaceAllString(op.ID, "")
-				// url := strings.Split(url, "/")
-				// short = url[1]
-				// if len(url) > 2 {
-				// 	short = url[2]
-				// }
-				// if strings.Contains(short, "{") {
-				// 	short = regexp.MustCompile(op.ID+".+").ReplaceAllString(funcName, "")
-				// }
+
 				long = op.Summary
-				// for _, param := range op.OperationProps.Parameters {
-				// 	paramReq := ""
-				// 	if param.Required {
-				// 		paramReq = "(*)"
-				// 	}
-				// 	paramType := param.Type
-				// 	if paramType == "" {
-				// 		paramType = param.Schema.Type[0]
-				// 	}
-				// 	paramName := strings.ToUpper(string(param.Name[0])) +
-				// 		param.Name[1:]
-				// 	long += fmt.Sprintf("\n %v%v: %v\t%v", paramName, paramReq,
-				// 		paramType, param.Description)
-				// }
+
 				return
 			}
 		}
