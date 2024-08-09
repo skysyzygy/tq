@@ -2,1188 +2,795 @@
 
 
 
-# Op: `Get`
-## Use: `AccountTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an account type by id`
-	-	Long:  `Get the details of an account type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all account types`
-	-	Long:  `Get all account types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all account types`
-	-	Long:  `Get a summary representation of all account types.`
-
-    
-
-## Use: `Accounts`
-### Variant: ``
-
-	-	Example: `{"AccountID":"string"}`
-	-	Short: `Get details of a specific credit card account`
-	-	Long:  `Get details of a specific credit card account`
-
-    
-### Variant: `All`
-
-	-	Example: `{"AccountTypeID":"string", "ConstituentID":"string", "IncludeAffiliates":"string", "IncludeInactive":"string"}`
-	-	Short: `Get details of all the credit card`
-	-	Long:  `Get details of all the credit card, direct debit, and SEPA accounts for the specified constituent id and all its visible affiliates' accounts as well.
-To exclude accounts of the visible affiliates pass includeAffiliations=false.`
-
-    
-
-## Use: `ActionTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an action type by id`
-	-	Long:  `Get the details of an action type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all action types`
-	-	Long:  `Get all action types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all action types`
-	-	Long:  `Get a summary representation of all action types.`
-
-    
-
-## Use: `Actions`
-### Variant: ``
-
-	-	Example: `{"IssueActionID":"string"}`
-	-	Short: `Get details of an issue action`
-	-	Long:  `Get details of an issue action.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IssueID":"string"}`
-	-	Short: `Get details of all the actions for the given constituent or issue`
-	-	Long:  `Get details of all the actions for the given constituent or issue.`
-
-    
-
-## Use: `ActivityCategories`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an activity category by id`
-	-	Long:  `Get the details of an activity category by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all activity categories`
-	-	Long:  `Get all activity categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all activity categories`
-	-	Long:  `Get a summary representation of all activity categories.`
-
-    
-
-## Use: `ActivityTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an activity type by id`
-	-	Long:  `Get the details of an activity type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all activity types`
-	-	Long:  `Get all activity types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all activity types`
-	-	Long:  `Get a summary representation of all activity types.`
-
-    
-
-## Use: `AddressTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an address type by id`
-	-	Long:  `Get the details of an address type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all address types`
-	-	Long:  `Get all address types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all address types`
-	-	Long:  `Get a summary representation of all address types.`
-
-    
-
-## Use: `Addresses`
-### Variant: ``
-
-	-	Example: `{"AddressID":"string"}`
-	-	Short: `Get details of an address using addressId as a URL query parameter`
-	-	Long:  `Get details of an address using addressId as a URL query parameter. Returns 404 Not Found if an address with the specified Id is not found.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string", "IncludeFromAffiliations":"string", "PrimaryOnly":"string"}`
-	-	Short: `Get details of all the addresses for the specified constituent id and all its visible affiliation's addresses as well`
-	-	Long:  `Get details of all the addresses for the specified constituent id and all its visible affiliation's addresses as well. To exclude addresses of the visible affiliations pass includeAffiliations=false. To get only the primary addresses, pass primaryOnly=true.`
-
-    
-
-## Use: `AffiliationTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an affiliation type by id`
-	-	Long:  `Get the details of an affiliation type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentTypeID":"string", "Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: ``
-	-	Long:  ``
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all affiliation types`
-	-	Long:  `Get a summary representation of all affiliation types.`
-
-    
-
-## Use: `Affiliations`
-### Variant: ``
-
-	-	Example: `{"AffiliationID":"string"}`
-	-	Short: `Get details of an affiliation`
-	-	Long:  `Get details of an affiliation.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"EndActiveDate":"string", "GroupConstituentID":"string", "IndividualConstituentID":"string", "PrimaryOnly":"string", "ShowWithGroup":"string", "StartActiveDate":"string"}`
-	-	Short: `Get details of all the affiliation of the specified individual constituent id or get all the affiliations of the specified group constituent id`
-	-	Long:  `Get details of all the affiliation of the specified individual constituent id or get all the affiliations of the specified group constituent id. If both individual constituent id and group constituent id are specified get all the affiliations between them. To filter the affiliations that are active within certain date then pass values for start date and end date.To fetch primary affiliations alone pass primaryOnly=true. To limit the associations returned to those that are primary or that are marked as showWithGroup, pass showWithGroup=true.`
-
-    
-
-## Use: `AliasTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an alias type by id`
-	-	Long:  `Get the details of an alias type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all alias types`
-	-	Long:  `Get all alias types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all alias types`
-	-	Long:  `Get a summary representation of all alias types.`
-
-    
-
-## Use: `Aliases`
-### Variant: ``
-
-	-	Example: `{"AliasID":"string"}`
-	-	Short: `Get details of an alias`
-	-	Long:  `Get details of an alias.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get details of all the aliases for the specified constituent id and all its visible affiliation's aliases as well`
-	-	Long:  `Get details of all the aliases for the specified constituent id and all its visible affiliation's aliases as well. To exclude aliases of the visible affiliations pass includeAffiliations=false.`
-
-    
-
-## Use: `AnalyticsCubes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an analytics cube`
-	-	Long:  `Get the details of an analytics cube.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all analytics cubes`
-	-	Long:  `Get all analytics cubes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-
-## Use: `AnalyticsReports`
-### Variant: ``
-
-	-	Example: `{"AnalyticsReportID":"string"}`
-	-	Short: `Get a single SSRS Report for display in Analytics`
-	-	Long:  `Get a single SSRS Report for display in Analytics.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all SSRS Reports for display in Analytics`
-	-	Long:  `Get all SSRS Reports for display in Analytics.`
-
-    
-
-## Use: `AppScreenTexts`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an App Screen Text by id`
-	-	Long:  `Get the details of an App Screen Text by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get details of all App Screen Texts`
-	-	Long:  `Get details of all App Screen Texts. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all App Screen Texts`
-	-	Long:  `Get a summary representation of all App Screen Texts.`
-
-    
-
-## Use: `AppealCategories`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an appeal category by id`
-	-	Long:  `Get the details of an appeal category by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all appeal categories`
-	-	Long:  `Get all appeal categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all appeal categories`
-	-	Long:  `Get a summary representation of all appeal categories.`
-
-    
-
-## Use: `Appeals`
-### Variant: ``
-
-	-	Example: `{"AppealID":"string"}`
-	-	Short: `Get details of an Appeal`
-	-	Long:  `Get details of an Appeal.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"ActiveOnly":"string"}`
-	-	Short: `Get summary of all Appeals`
-	-	Long:  `Get summary of all Appeals.`
-
-    
-
-## Use: `ApplicationObjects`
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all application objects valid for the context usergroup`
-	-	Long:  `Get all application objects valid for the context usergroup.`
-
-    
-
-## Use: `Artists`
-### Variant: ``
-
-	-	Example: `{"ArtistID":"string"}`
-	-	Short: `Get details of an existing artist`
-	-	Long:  `Get details of an existing artist.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get details of all artists`
-	-	Long:  `Get details of all artists.`
-
-    
-
-## Use: `AssetTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an asset type by id`
-	-	Long:  `Get the details of an asset type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all asset types`
-	-	Long:  `Get all asset types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all asset types`
-	-	Long:  `Get a summary representation of all asset types.`
-
-    
-
-## Use: `Assets`
-### Variant: ``
-
-	-	Example: `{"AssetID":"string"}`
-	-	Short: `Get details of an asset`
-	-	Long:  `Get details of an asset.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get details of all the assets for the specified constituent id and all its visible affiliations' assets as well`
-	-	Long:  `Get details of all the assets for the specified constituent id and all its visible affiliations' assets as well. To exclude assets of the visible affiliations pass includeAffiliations=false.`
-
-    
-
-## Use: `AssociationTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an association type by id`
-	-	Long:  `Get the details of an association type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all association types`
-	-	Long:  `Get all association types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all association types`
-	-	Long:  `Get a summary representation of all association types.`
-
-    
-
-## Use: `Associations`
-### Variant: ``
-
-	-	Example: `{"AssociationID":"string"}`
-	-	Short: `Get details of an association`
-	-	Long:  `Get details of an association.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"AssociatedConstituentID":"string", "ConstituentID":"string", "EndActiveDate":"string", "StartActiveDate":"string"}`
-	-	Short: `Get details of all the association of the specified constituent id or get all the associations of the specified associated constituent id`
-	-	Long:  `Get details of all the association of the specified constituent id or get all the associations of the specified associated constituent id. If both constituent id and associated constituent id are specified get all the associations between them. To filter the associations that are active within certain date then pass values for start date and end date.`
-
-    
-
-## Use: `AttendanceHistory`
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Attendance History for a selected constituent optionally including primary affiliates`
-	-	Long:  `Attendance History for a selected constituent optionally including primary affiliates.  Does not return history based on recipient for the selected constituent(s).`
-
-    
-
-## Use: `Attributes`
-### Variant: ``
-
-	-	Example: `{"AttributeID":"string"}`
-	-	Short: `Get details of an attribute`
-	-	Long:  `Get details of an attribute.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get details of all the attributes for the specified constituent id and all its visible affiliation's attributes as well`
-	-	Long:  `Get details of all the attributes for the specified constituent id and all its visible affiliation's attributes as well. To exclude attributes of the visible affiliations pass includeAffiliations=false.`
-
-    
-
-## Use: `AuditLogs`
-### Variant: ``
-
-	-	Example: `{"AuditLog":"string"}`
-	-	Short: `Get details of a audit log`
-	-	Long:  `Get details of a audit log.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Action":"string", "AuditEndTime":"string", "AuditStartTime":"string", "EntityIds":"string", "IncludeSubEntities":"string", "PageIndex":"string", "PageSize":"string", "Table":"string"}`
-	-	Short: `Get all audit logs`
-	-	Long:  `Get all audit logs. The audit log response is paginated with default pageIndex = 1 and pageSize = 100. To get the
+	
+# A
+## AccountTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#accounttypes) [![put](https://img.shields.io/badge/put-blue)](put.md#accounttypes)   
+Get the details of an account type by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all account types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all account types.
+
+## Accounts ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#accounts) [![put](https://img.shields.io/badge/put-blue)](put.md#accounts)   
+Get details of a specific credit card account  
+```json
+Query: {"AccountID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the credit card, direct debit, and SEPA accounts for the specified constituent id and all its visible affiliates' accounts as well.
+To exclude accounts of the visible affiliates pass includeAffiliations=false.
+```json
+Query: {"AccountTypeID":"string", "ConstituentID":"string", "IncludeAffiliates":"string", "IncludeInactive":"string"}
+```
+
+## ActionTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#actiontypes) [![put](https://img.shields.io/badge/put-blue)](put.md#actiontypes)   
+Get the details of an action type by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all action types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all action types.
+
+## Actions ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#actions) [![put](https://img.shields.io/badge/put-blue)](put.md#actions)   
+Get details of an issue action.  
+```json
+Query: {"IssueActionID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the actions for the given constituent or issue.
+```json
+Query: {"ConstituentID":"string", "IssueID":"string"}
+```
+
+## ActivityCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#activitycategories) [![put](https://img.shields.io/badge/put-blue)](put.md#activitycategories)   
+Get the details of an activity category by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all activity categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all activity categories.
+
+## ActivityTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#activitytypes) [![put](https://img.shields.io/badge/put-blue)](put.md#activitytypes)   
+Get the details of an activity type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all activity types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all activity types.
+
+## AddressTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#addresstypes) [![put](https://img.shields.io/badge/put-blue)](put.md#addresstypes)   
+Get the details of an address type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all address types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all address types.
+
+## Addresses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#addresses) [![put](https://img.shields.io/badge/put-blue)](put.md#addresses)   
+Get details of an address using addressId as a URL query parameter. Returns 404 Not Found if an address with the specified Id is not found.  
+```json
+Query: {"AddressID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the addresses for the specified constituent id and all its visible affiliation's addresses as well. To exclude addresses of the visible affiliations pass includeAffiliations=false. To get only the primary addresses, pass primaryOnly=true.
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string", "IncludeFromAffiliations":"string", "PrimaryOnly":"string"}
+```
+
+
+## AffiliationTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#affiliationtypes) [![put](https://img.shields.io/badge/put-blue)](put.md#affiliationtypes)   
+Get the details of an affiliation type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   
+```json
+Query: {"ConstituentTypeID":"string", "Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all affiliation types.
+
+## Affiliations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#affiliations) [![put](https://img.shields.io/badge/put-blue)](put.md#affiliations)   
+Get details of an affiliation.  
+```json
+Query: {"AffiliationID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the affiliation of the specified individual constituent id or get all the affiliations of the specified group constituent id. If both individual constituent id and group constituent id are specified get all the affiliations between them. To filter the affiliations that are active within certain date then pass values for start date and end date.To fetch primary affiliations alone pass primaryOnly=true. To limit the associations returned to those that are primary or that are marked as showWithGroup, pass showWithGroup=true.
+```json
+Query: {"EndActiveDate":"string", "GroupConstituentID":"string", "IndividualConstituentID":"string", "PrimaryOnly":"string", "ShowWithGroup":"string", "StartActiveDate":"string"}
+```
+
+## AliasTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#aliastypes) [![put](https://img.shields.io/badge/put-blue)](put.md#aliastypes)   
+Get the details of an alias type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all alias types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all alias types.
+
+## Aliases ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#aliases) [![put](https://img.shields.io/badge/put-blue)](put.md#aliases)   
+Get details of an alias.  
+```json
+Query: {"AliasID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the aliases for the specified constituent id and all its visible affiliation's aliases as well. To exclude aliases of the visible affiliations pass includeAffiliations=false.
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+
+## AnalyticsCubes ![get](https://img.shields.io/badge/get-gray)   
+Get the details of an analytics cube.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all analytics cubes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+
+## AnalyticsReports ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#analyticsreports) [![put](https://img.shields.io/badge/put-blue)](put.md#analyticsreports)   
+Get a single SSRS Report for display in Analytics.  
+```json
+Query: {"AnalyticsReportID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all SSRS Reports for display in Analytics.
+
+## AppScreenTexts ![get](https://img.shields.io/badge/get-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#appscreentexts)   
+Get the details of an App Screen Text by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all App Screen Texts. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all App Screen Texts.
+
+## AppealCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#appealcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#appealcategories)   
+Get the details of an appeal category by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all appeal categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all appeal categories.
+
+## Appeals ![get](https://img.shields.io/badge/get-gray)   
+Get details of an Appeal.  
+```json
+Query: {"AppealID":"string"}
+```
+### Flags:
+ * *--Summaries*  
+   Get summary of all Appeals.
+```json
+Query: {"ActiveOnly":"string"}
+```
+
+## ApplicationObjects ![get](https://img.shields.io/badge/get-gray)   
+Get all application objects valid for the context usergroup.  
+```json
+Query: 
+```
+
+## Artists ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#artists) [![put](https://img.shields.io/badge/put-blue)](put.md#artists)   
+Get details of an existing artist.  
+```json
+Query: {"ArtistID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all artists.
+
+## AssetTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#assettypes) [![put](https://img.shields.io/badge/put-blue)](put.md#assettypes)   
+Get the details of an asset type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all asset types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all asset types.
+
+## Assets ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#assets) [![put](https://img.shields.io/badge/put-blue)](put.md#assets)   
+Get details of an asset.  
+```json
+Query: {"AssetID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the assets for the specified constituent id and all its visible affiliations' assets as well. To exclude assets of the visible affiliations pass includeAffiliations=false.
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+
+## AssociationTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#associationtypes) [![put](https://img.shields.io/badge/put-blue)](put.md#associationtypes)   
+Get the details of an association type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all association types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all association types.
+
+## Associations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#associations) [![put](https://img.shields.io/badge/put-blue)](put.md#associations)   
+Get details of an association.  
+```json
+Query: {"AssociationID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the association of the specified constituent id or get all the associations of the specified associated constituent id. If both constituent id and associated constituent id are specified get all the associations between them. To filter the associations that are active within certain date then pass values for start date and end date.
+```json
+Query: {"AssociatedConstituentID":"string", "ConstituentID":"string", "EndActiveDate":"string", "StartActiveDate":"string"}
+```
+
+## AttendanceHistory ![get](https://img.shields.io/badge/get-gray)   
+Attendance History for a selected constituent optionally including primary affiliates.  Does not return history based on recipient for the selected constituent(s).  
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+
+## Attributes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#attributes) [![put](https://img.shields.io/badge/put-blue)](put.md#attributes)   
+Get details of an attribute.  
+```json
+Query: {"AttributeID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the attributes for the specified constituent id and all its visible affiliation's attributes as well. To exclude attributes of the visible affiliations pass includeAffiliations=false.
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+
+## AuditLogs ![get](https://img.shields.io/badge/get-gray)   
+Get details of a audit log.  
+```json
+Query: {"AuditLog":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all audit logs. The audit log response is paginated with default pageIndex = 1 and pageSize = 100. To get the
 audit log between a specific time interval specify auditStartTime and auditEndTime. If only auditStartTime is
 specified then all audit entries after that time would be returned. If only auditEndTime is specified then all
-audit entries before that time would be returned.`
-
-    
-### Variant: `Details`
-
-	-	Example: `{"Action":"string", "AuditEndTime":"string", "AuditStartTime":"string", "EntityIds":"string", "IncludeSubEntities":"string", "PageIndex":"string", "PageSize":"string", "Table":"string"}`
-	-	Short: `Get audit log details`
-	-	Long:  `Get audit log details.`
-
-    
-
-## Use: `Authenticate`
-### Variant: `WindowsAuthentication`
-
-	-	Example: ``
-	-	Short: `This is a no-op operation for windows authentication diagnostics`
-	-	Long:  `This is a no-op operation for windows authentication diagnostics.`
-
-    
-
-## Use: `BatchMaintenance`
-### Variant: ``
-
-	-	Example: `{"BatchID":"string"}`
-	-	Short: `Get a single Batch`
-	-	Long:  `Get a single Batch`
-
-    
-### Variant: `Active`
-
-	-	Example: `{"IncludeControlled":"string"}`
-	-	Short: `Returns all open or held batches owned by the service user`
-	-	Long:  `Returns all open or held batches owned by the service user. Optionally filters out controlled batches`
-
-    
-
-## Use: `BatchTypeGroups`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a batch type group by id`
-	-	Long:  `Get the details of a batch type group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all batch type groups`
-	-	Long:  `Get all batch type groups. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all batch type groups`
-	-	Long:  `Get a summary representation of all batch type groups.`
-
-    
-
-## Use: `BatchTypeUserGroup`
-### Variant: `All`
-
-	-	Example: `{"UserGroup":"string"}`
-	-	Short: `Get all batch type/user group mappings`
-	-	Long:  `Get all batch type/user group mappings.`
-
-    
-
-## Use: `BatchTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a batch type by id`
-	-	Long:  `Get the details of a batch type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all batch types`
-	-	Long:  `Get all batch types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all batch types`
-	-	Long:  `Get a summary representation of all batch types.`
-
-    
-
-## Use: `BillingSchedules`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a Billing Schedule`
-	-	Long:  `Get the details of a Billing Schedule. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all Billing Schedules`
-	-	Long:  `Get all Billing Schedules. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all Billing Schedules`
-	-	Long:  `Get a summary representation of all Billing Schedules.`
-
-    
-
-## Use: `BillingTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a Billing Type by id`
-	-	Long:  `Get the details of a Billing Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get details of all Billing Types`
-	-	Long:  `Get details of all Billing Types. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true".`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all Billing Types`
-	-	Long:  `Get a summary representation of all Billing Types.`
-
-    
-
-## Use: `BookingCategories`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a Booking Category by id`
-	-	Long:  `Get the details of a Booking Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all Booking Categories`
-	-	Long:  `Get all Booking Categories. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all Booking Categories`
-	-	Long:  `Get a summary representation of all Booking Categories.`
-
-    
-
-## Use: `BookingTemplates`
-### Variant: ``
-
-	-	Example: `{"BookingTemplateID":"string"}`
-	-	Short: `Get a Booking Template by ID`
-	-	Long:  `Get a Booking Template by ID`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"CategoryID":"string"}`
-	-	Short: `Get summary of all Booking Templates`
-	-	Long:  `Get summary of all Booking Templates, filtered optionally by category.`
-
-    
-
-## Use: `Bookings`
-### Variant: ``
-
-	-	Example: `{"BookingID":"string"}`
-	-	Short: `Get a Booking by id`
-	-	Long:  `Get a Booking by id`
-
-    
-### Variant: `AllDocumentSummaries`
-
-	-	Example: `{"BookingID":"string"}`
-	-	Short: `Get summary of all the documents associated with the booking`
-	-	Long:  `Get summary of all the documents associated with the booking. (Excluding the file contents)`
-
-    
-### Variant: `AllDocuments`
-
-	-	Example: `{"BookingID":"string"}`
-	-	Short: `Get all the documents associated with the booking (Including the file contents)`
-	-	Long:  `Get all the documents associated with the booking (Including the file contents).`
-
-    
-### Variant: `Document`
-
-	-	Example: `{"BookingID":"string", "DocumentID":"string"}`
-	-	Short: `Get the document associated with the documentId (Including the file contents)`
-	-	Long:  `Get the document associated with the documentId (Including the file contents).`
-
-    
-### Variant: `Summary`
-
-	-	Example: `{"BookingID":"string"}`
-	-	Short: `Get a summary for a single Booking`
-	-	Long:  `Get a summary for a single Booking.`
-
-    
-
-## Use: `BulkCopySets`
-### Variant: ``
-
-	-	Example: `{"BulkCopySetID":"string"}`
-	-	Short: `Get a bulk copy set by Id`
-	-	Long:  `Get a bulk copy set by Id.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all bulk copy sets`
-	-	Long:  `Get all bulk copy sets.`
-
-    
-### Variant: `DayForCopy`
-
-	-	Example: `{"BulkCopySetID":"string"}`
-	-	Short: `Returns the packages and performances that will be copied for the daily bulk copy set`
-	-	Long:  `Returns the packages and performances that will be copied for the daily bulk copy set`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary of all bulk copy sets`
-	-	Long:  `Get a summary of all bulk copy sets.`
-
-    
-
-## Use: `BulkDailyCopyExclusions`
-### Variant: ``
-
-	-	Example: `{"BulkDailyCopyExclusionID":"string"}`
-	-	Short: `Get a bulk daily copy exclusion by id`
-	-	Long:  `Get a bulk daily copy exclusion by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"BulkCopySetID":"string"}`
-	-	Short: `Get all bulk daily copy exclusions for a given bulk copy set`
-	-	Long:  `Get all bulk daily copy exclusions for a given bulk copy set.`
-
-    
-
-## Use: `BusinessUnits`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a business unit by id`
-	-	Long:  `Get the details of a business unit by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all business units`
-	-	Long:  `Get all business units. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all business units`
-	-	Long:  `Get a summary representation of all business units.`
-
-    
-
-## Use: `Cache`
-### Variant: `Init`
-
-	-	Example: ``
-	-	Short: ``
-	-	Long:  ``
-
-    
-
-## Use: `CampaignDesignations`
-### Variant: ``
-
-	-	Example: `{"CampaignDesignationID":"string"}`
-	-	Short: `Get a single Designation associated to a Campaign`
-	-	Long:  `Get a single Designation associated to a Campaign.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"CampaignID":"string"}`
-	-	Short: `Get all Designations associated to a Campaign`
-	-	Long:  `Get all Designations associated to a Campaign.`
-
-    
-
-## Use: `CampaignFunds`
-### Variant: ``
-
-	-	Example: `{"CampaignFundID":"string"}`
-	-	Short: `Get a single Fund associated to a Campaign`
-	-	Long:  `Get a single Fund associated to a Campaign.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"AsOfDateTime":"string", "CampaignID":"string"}`
-	-	Short: `Get all Funds associated to a Campaign`
-	-	Long:  `Get all Funds associated to a Campaign.`
-
-    
-
-## Use: `Campaigns`
-### Variant: ``
-
-	-	Example: `{"CampaignID":"string"}`
-	-	Short: `Get summary of a specific campaign`
-	-	Long:  `Get summary of a specific campaign.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"ActiveOnly":"string"}`
-	-	Short: `Return a collection of all campaigns in summary`
-	-	Long:  `Return a collection of all campaigns in summary, optionally excluding inactive campaigns.`
-
-    
-
-## Use: `CardReaderTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a Card Reader Type by id`
-	-	Long:  `Get the details of a Card Reader Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get details of all Card Reader Types`
-	-	Long:  `Get details of all Card Reader Types. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all Card Reader Types`
-	-	Long:  `Get a summary representation of all Card Reader Types.`
-
-    
-
-## Use: `Cart`
-### Variant: ``
-
-	-	Example: `{"MessageTypes":"string", "SavedCart":"string", "SessionKey":"string"}`
-	-	Short: `Gets the cart details`
-	-	Long:  `Gets the cart details`
-
-    
-### Variant: `CartProperties`
-
-	-	Example: `{"SessionKey":"string"}`
-	-	Short: `Returns cart properties`
-	-	Long:  `Returns cart properties`
-
-    
-### Variant: `Messages`
-
-	-	Example: `{"MessageTypes":"string", "SavedCart":"string", "SessionKey":"string"}`
-	-	Short: `Gets the pricing rule messages for the current cart`
-	-	Long:  `Gets the pricing rule messages for the current cart.
-Both Message Only and Rule messages are returned.`
-
-    
-### Variant: `ReceiptString`
-
-	-	Example: `{"ReceiptSettingsID":"string", "SessionKey":"string", "TargetFormat":"string"}`
-	-	Short: `Returns a formatted receipt for a cart`
-	-	Long:  `Returns a formatted receipt for a cart`
-
-    
-### Variant: `Summary`
-
-	-	Example: `{"MessageTypes":"string", "SavedCart":"string", "SessionKey":"string"}`
-	-	Short: `Gets the cart summary`
-	-	Long:  `Gets the cart summary
-Used by TRBO.  Returns the cart with product lines summarized by price type, zone and price.`
-
-    
-
-## Use: `Colors`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a color by id`
-	-	Long:  `Get the details of a color by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all colors`
-	-	Long:  `Get all colors. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all colors`
-	-	Long:  `Get a summary representation of all colors.`
-
-    
-
-## Use: `Composers`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a composer by id`
-	-	Long:  `Get the details of a composer by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all composers`
-	-	Long:  `Get all composers. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all composers`
-	-	Long:  `Get a summary representation of all composers.`
-
-    
-
-## Use: `Constituencies`
-### Variant: ``
-
-	-	Example: `{"ConstituencyID":"string"}`
-	-	Short: `Get details of constituency`
-	-	Long:  `Get details of constituency.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get details of all the constituencies for the specified constituent id and all its visible affiliation's constituencies as well`
-	-	Long:  `Get details of all the constituencies for the specified constituent id and all its visible affiliation's constituencies as well. To exclude constituencies of the visible affiliations pass includeAffiliations=false.`
-
-    
-
-## Use: `ConstituencyTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a constituency type by id`
-	-	Long:  `Get the details of a constituency type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all constituency types`
-	-	Long:  `Get all constituency types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all constituency types`
-	-	Long:  `Get a summary representation of all constituency types.`
-
-    
-
-## Use: `ConstituentContributions`
-### Variant: `All`
-
-	-	Example: `{"CampaignIds":"string", "ConstituentID":"string", "EndDate":"string", "FundIds":"string", "IncludeAffiliations":"string", "StartDate":"string"}`
-	-	Short: `Get contributions for a constituent`
-	-	Long:  `Get contributions for a constituent.`
-
-    
-
-## Use: `ConstituentDocuments`
-### Variant: ``
-
-	-	Example: `{"DocumentID":"string"}`
-	-	Short: `Get the details of a document for a constituent`
-	-	Long:  `Get the details of a document for a constituent.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get all the documents for a particular constituent including file contents`
-	-	Long:  `Get all the documents for a particular constituent including file contents.`
-
-    
-### Variant: `AllSummary`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get summary of all the documents for the constituent`
-	-	Long:  `Get summary of all the documents for the constituent. Only a summary of file information is returned.`
-
-    
-
-## Use: `ConstituentGroups`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a constituent group by id`
-	-	Long:  `Get the details of a constituent group by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all constituent groups`
-	-	Long:  `Get all constituent groups. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all constituent groups`
-	-	Long:  `Get a summary representation of all constituent groups.`
-
-    
-
-## Use: `ConstituentInactives`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a constituent inactive by id`
-	-	Long:  `Get the details of a constituent inactive by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all constituent inactives`
-	-	Long:  `Get all constituent inactives. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all constituent inactives`
-	-	Long:  `Get a summary representation of all constituent inactives.`
-
-    
-
-## Use: `ConstituentProtectionTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a constituent protection type by id`
-	-	Long:  `Get the details of a constituent protection type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all constituent protection types`
-	-	Long:  `Get all constituent protection types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all constituent protection types`
-	-	Long:  `Get a summary representation of all constituent protection types.`
-
-    
-
-## Use: `ConstituentTypeAffiliates`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a constituent type affiliate by id`
-	-	Long:  `Get the details of a constituent type affiliate by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all constituent type affiliates`
-	-	Long:  `Get all constituent type affiliates. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all constituent type affiliates`
-	-	Long:  `Get a summary representation of all constituent type affiliates.`
-
-    
-
-## Use: `ConstituentTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a constituent type by id`
-	-	Long:  `Get the details of a constituent type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all constituent types`
-	-	Long:  `Get all constituent types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all constituent types`
-	-	Long:  `Get a summary representation of all constituent types.`
-
-    
-
-## Use: `Constituents`
-### Variant: ``
-
-	-	Example: `{"ConstituentID":"string"}`
-	-	Short: `Get the details of a Constituent using id`
-	-	Long:  `Get the details of a Constituent using id.`
-
-    
-### Variant: `Constituent`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get constituent details with addresses`
-	-	Long:  `Get constituent details with addresses, electronicAddresses, salutations and phones. To exclude information about visible affiliations pass includeAffiliations="false"`
-
-    
-### Variant: `ConstituentDevelopmentInfo`
-
-	-	Example: `{"ConstituentID":"string"}`
-	-	Short: `Get constituent information for fundraising`
-	-	Long:  `Get constituent information for fundraising.`
-
-    
-### Variant: `ConstituentSnapshot`
-
-	-	Example: `{"ConstituentID":"string"}`
-	-	Short: `Get constituent details along with primary address`
-	-	Long:  `Get constituent details along with primary address, primary salutation, primary electronic address, phones and affiliates information.`
-
-    
-### Variant: `Constituents`
-
-	-	Example: `{"ConstituentIds":"string"}`
-	-	Short: `Get multiple Constituents given a set of constituentIds`
-	-	Long:  `Get multiple Constituents given a set of constituentIds.`
-
-    
-### Variant: `DefaultHeader`
-
-	-	Example: `{"ConstituentID":"string"}`
-	-	Short: `Return the default header for the constituent`
-	-	Long:  `Return the default header for the constituent, including configured flexible header names and values.`
-
-    
-### Variant: `FlexHeader`
-
-	-	Example: `{"ConstituentID":"string", "HeaderID":"string"}`
-	-	Short: `Get the details of a flex header for a constituent`
-	-	Long:  `Get the details of a flex header for a constituent`
-
-    
-### Variant: `Header`
-
-	-	Example: `{"ConstituentID":"string", "HeaderID":"string"}`
-	-	Short: `Return constituent header details`
-	-	Long:  `Return constituent header details, including configured flexible header names and values.`
-
-    
-### Variant: `PrimaryHousehold`
-
-	-	Example: `{"ConstituentID":"string"}`
-	-	Short: `Get primary household constituent details for a provided constituentId`
-	-	Long:  `Get primary household constituent details for a provided constituentId.`
-
-    
-### Variant: `Search`
-
-	-	Example: `{"Atype":"string", "ConstituencyIds":"string", "ConstituentGroups":"string", "ConstituentID":"string", "Dup":"string", "Fn":"string", "IncludeAffiliates":"string", "Key":"string", "ListID":"string", "Ln":"string", "Op":"string", "Page":"string", "PageSize":"string", "Post":"string", "Q":"string", "Street":"string", "Type":"string", "Value":"string"}`
-	-	Short: `Search for constituents using one of four possible search modes`
-	-	Long:  `Search for constituents using one of four possible search modes.  Querystring parameters are valid based on the "type" parameter value.
+audit entries before that time would be returned.
+```json
+Query: {"Action":"string", "AuditEndTime":"string", "AuditStartTime":"string", "EntityIds":"string", "IncludeSubEntities":"string", "PageIndex":"string", "PageSize":"string", "Table":"string"}
+```
+ * *--Details*  
+   Get audit log details.
+```json
+Query: {"Action":"string", "AuditEndTime":"string", "AuditStartTime":"string", "EntityIds":"string", "IncludeSubEntities":"string", "PageIndex":"string", "PageSize":"string", "Table":"string"}
+```
+
+## Authenticate ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#authenticate)   
+This is a no-op operation for windows authentication diagnostics.  
+```json
+Query: 
+```
+
+
+	
+# B
+
+## BatchMaintenance ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#batchmaintenance)   
+Get a single Batch  
+```json
+Query: {"BatchID":"string"}
+```
+### Flags:
+ * *--Active*  
+   Returns all open or held batches owned by the service user. Optionally filters out controlled batches
+```json
+Query: {"IncludeControlled":"string"}
+```
+
+## BatchTypeGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#batchtypegroups) [![put](https://img.shields.io/badge/put-blue)](put.md#batchtypegroups)   
+Get the details of a batch type group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all batch type groups. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all batch type groups.
+
+## BatchTypeUserGroup ![get](https://img.shields.io/badge/get-gray)   
+Get all batch type/user group mappings.  
+```json
+Query: {"UserGroup":"string"}
+```
+
+## BatchTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#batchtypes) [![put](https://img.shields.io/badge/put-blue)](put.md#batchtypes)   
+Get the details of a batch type by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all batch types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all batch types.
+
+## BillingSchedules ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#billingschedules) [![put](https://img.shields.io/badge/put-blue)](put.md#billingschedules)   
+Get the details of a Billing Schedule. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all Billing Schedules. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all Billing Schedules.
+
+## BillingTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#billingtypes) [![put](https://img.shields.io/badge/put-blue)](put.md#billingtypes)   
+Get the details of a Billing Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all Billing Types. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true".
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all Billing Types.
+
+## BookingCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#bookingcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#bookingcategories)   
+Get the details of a Booking Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all Booking Categories. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all Booking Categories.
+
+## BookingTemplates ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#bookingtemplates) [![put](https://img.shields.io/badge/put-blue)](put.md#bookingtemplates)   
+Get a Booking Template by ID  
+```json
+Query: {"BookingTemplateID":"string"}
+```
+### Flags:
+ * *--Summaries*  
+   Get summary of all Booking Templates, filtered optionally by category.
+```json
+Query: {"CategoryID":"string"}
+```
+
+## Bookings ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#bookings) [![put](https://img.shields.io/badge/put-blue)](put.md#bookings)   
+Get a Booking by id  
+```json
+Query: {"BookingID":"string"}
+```
+### Flags:
+ * *--AllDocumentSummaries*  
+   Get summary of all the documents associated with the booking. (Excluding the file contents)
+```json
+Query: {"BookingID":"string"}
+```
+ * *--AllDocuments*  
+   Get all the documents associated with the booking (Including the file contents).
+```json
+Query: {"BookingID":"string"}
+```
+ * *--Document*  
+   Get the document associated with the documentId (Including the file contents).
+```json
+Query: {"BookingID":"string", "DocumentID":"string"}
+```
+ * *--Summary*  
+   Get a summary for a single Booking.
+```json
+Query: {"BookingID":"string"}
+```
+
+## BulkCopySets ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#bulkcopysets) [![put](https://img.shields.io/badge/put-blue)](put.md#bulkcopysets)   
+Get a bulk copy set by Id.  
+```json
+Query: {"BulkCopySetID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all bulk copy sets.
+ * *--DayForCopy*  
+   Returns the packages and performances that will be copied for the daily bulk copy set
+```json
+Query: {"BulkCopySetID":"string"}
+```
+ * *--Summaries*  
+   Get a summary of all bulk copy sets.
+
+## BulkDailyCopyExclusions ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#bulkdailycopyexclusions) [![put](https://img.shields.io/badge/put-blue)](put.md#bulkdailycopyexclusions)   
+Get a bulk daily copy exclusion by id.  
+```json
+Query: {"BulkDailyCopyExclusionID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all bulk daily copy exclusions for a given bulk copy set.
+```json
+Query: {"BulkCopySetID":"string"}
+```
+
+## BusinessUnits ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#businessunits) [![put](https://img.shields.io/badge/put-blue)](put.md#businessunits)   
+Get the details of a business unit by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all business units. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all business units.
+
+	
+# C
+## Cache ![get](https://img.shields.io/badge/get-gray)   
+  
+```json
+Query: 
+```
+
+## CampaignDesignations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#campaigndesignations) [![put](https://img.shields.io/badge/put-blue)](put.md#campaigndesignations)   
+Get a single Designation associated to a Campaign.  
+```json
+Query: {"CampaignDesignationID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all Designations associated to a Campaign.
+```json
+Query: {"CampaignID":"string"}
+```
+
+## CampaignFunds ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#campaignfunds) [![put](https://img.shields.io/badge/put-blue)](put.md#campaignfunds)   
+Get a single Fund associated to a Campaign.  
+```json
+Query: {"CampaignFundID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all Funds associated to a Campaign.
+```json
+Query: {"AsOfDateTime":"string", "CampaignID":"string"}
+```
+
+## Campaigns ![get](https://img.shields.io/badge/get-gray)   
+Get summary of a specific campaign.  
+```json
+Query: {"CampaignID":"string"}
+```
+### Flags:
+ * *--Summaries*  
+   Return a collection of all campaigns in summary, optionally excluding inactive campaigns.
+```json
+Query: {"ActiveOnly":"string"}
+```
+
+## CardReaderTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#cardreadertypes) [![put](https://img.shields.io/badge/put-blue)](put.md#cardreadertypes)   
+Get the details of a Card Reader Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all Card Reader Types. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all Card Reader Types.
+
+## Cart ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#cart) [![put](https://img.shields.io/badge/put-blue)](put.md#cart)   
+Gets the cart details  
+```json
+Query: {"MessageTypes":"string", "SavedCart":"string", "SessionKey":"string"}
+```
+### Flags:
+ * *--CartProperties*  
+   Returns cart properties
+```json
+Query: {"SessionKey":"string"}
+```
+ * *--Messages*  
+   Gets the pricing rule messages for the current cart.
+Both Message Only and Rule messages are returned.
+```json
+Query: {"MessageTypes":"string", "SavedCart":"string", "SessionKey":"string"}
+```
+ * *--ReceiptString*  
+   Returns a formatted receipt for a cart
+```json
+Query: {"ReceiptSettingsID":"string", "SessionKey":"string", "TargetFormat":"string"}
+```
+ * *--Summary*  
+   Gets the cart summary
+Used by TRBO.  Returns the cart with product lines summarized by price type, zone and price.
+```json
+Query: {"MessageTypes":"string", "SavedCart":"string", "SessionKey":"string"}
+```
+
+## Colors ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#colors) [![put](https://img.shields.io/badge/put-blue)](put.md#colors)   
+Get the details of a color by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all colors. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all colors.
+
+## Composers ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#composers) [![put](https://img.shields.io/badge/put-blue)](put.md#composers)   
+Get the details of a composer by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all composers. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all composers.
+
+## Constituencies ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#constituencies) [![put](https://img.shields.io/badge/put-blue)](put.md#constituencies)   
+Get details of constituency.  
+```json
+Query: {"ConstituencyID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the constituencies for the specified constituent id and all its visible affiliation's constituencies as well. To exclude constituencies of the visible affiliations pass includeAffiliations=false.
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+
+## ConstituencyTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#constituencytypes) [![put](https://img.shields.io/badge/put-blue)](put.md#constituencytypes)   
+Get the details of a constituency type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all constituency types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all constituency types.
+
+## ConstituentContributions ![get](https://img.shields.io/badge/get-gray)   
+Get contributions for a constituent.  
+```json
+Query: {"CampaignIds":"string", "ConstituentID":"string", "EndDate":"string", "FundIds":"string", "IncludeAffiliations":"string", "StartDate":"string"}
+```
+
+## ConstituentDocuments ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#constituentdocuments) [![put](https://img.shields.io/badge/put-blue)](put.md#constituentdocuments)   
+Get the details of a document for a constituent.  
+```json
+Query: {"DocumentID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all the documents for a particular constituent including file contents.
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+ * *--AllSummary*  
+   Get summary of all the documents for the constituent. Only a summary of file information is returned.
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+
+## ConstituentGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#constituentgroups) [![put](https://img.shields.io/badge/put-blue)](put.md#constituentgroups)   
+Get the details of a constituent group by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all constituent groups. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all constituent groups.
+
+## ConstituentInactives ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#constituentinactives) [![put](https://img.shields.io/badge/put-blue)](put.md#constituentinactives)   
+Get the details of a constituent inactive by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all constituent inactives. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all constituent inactives.
+
+## ConstituentProtectionTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#constituentprotectiontypes) [![put](https://img.shields.io/badge/put-blue)](put.md#constituentprotectiontypes)   
+Get the details of a constituent protection type by id.  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all constituent protection types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all constituent protection types.
+
+## ConstituentTypeAffiliates ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#constituenttypeaffiliates) [![put](https://img.shields.io/badge/put-blue)](put.md#constituenttypeaffiliates)   
+Get the details of a constituent type affiliate by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all constituent type affiliates. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all constituent type affiliates.
+
+## ConstituentTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#constituenttypes) [![put](https://img.shields.io/badge/put-blue)](put.md#constituenttypes)   
+Get the details of a constituent type by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all constituent types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all constituent types.
+
+## Constituents ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#constituents) [![put](https://img.shields.io/badge/put-blue)](put.md#constituents)   
+Get the details of a Constituent using id.  
+```json
+Query: {"ConstituentID":"string"}
+```
+### Flags:
+ * *--Constituent*  
+   Get constituent details with addresses, electronicAddresses, salutations and phones. To exclude information about visible affiliations pass includeAffiliations="false"
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+ * *--ConstituentDevelopmentInfo*  
+   Get constituent information for fundraising.
+```json
+Query: {"ConstituentID":"string"}
+```
+ * *--ConstituentSnapshot*  
+   Get constituent details along with primary address, primary salutation, primary electronic address, phones and affiliates information.
+```json
+Query: {"ConstituentID":"string"}
+```
+ * *--Constituents*  
+   Get multiple Constituents given a set of constituentIds.
+```json
+Query: {"ConstituentIds":"string"}
+```
+ * *--DefaultHeader*  
+   Return the default header for the constituent, including configured flexible header names and values.
+```json
+Query: {"ConstituentID":"string"}
+```
+ * *--FlexHeader*  
+   Get the details of a flex header for a constituent
+```json
+Query: {"ConstituentID":"string", "HeaderID":"string"}
+```
+ * *--Header*  
+   Return constituent header details, including configured flexible header names and values.
+```json
+Query: {"ConstituentID":"string", "HeaderID":"string"}
+```
+ * *--PrimaryHousehold*  
+   Get primary household constituent details for a provided constituentId.
+```json
+Query: {"ConstituentID":"string"}
+```
+ * *--Search*  
+   Search for constituents using one of four possible search modes.  Querystring parameters are valid based on the "type" parameter value.
 Single Line (type=fluent)
 Sample:  CRM/Constituents/Search?type=fluent&amp;q=Huff
 Single Line search type (or fluent) is the default search if not provided in querystring.  Single line search works on string patterns in the passed search value ("q" param).  Patterns are as follows:
@@ -1194,5470 +801,3598 @@ Single Line search type (or fluent) is the default search if not provided in que
 	Value containing alpha and numeric characters is interpreted as a postal code.  UK and other countries should omit spaces for postal code search values.
 Basic search type permits parameters constituentId, ln, fn, street, and post. Sample URL: CRM/Constituents/Search?type=basic&amp;ln=Huff&amp;fn=Frank&amp;post=20746
 Advanced search type permits parameters atype, op, and value. Sample URL:  CRM/Constituents/Search?type=advanced&amp;atype=Email&amp;op=Like&amp;value=%25@gmail.com
-Attribute search type permits parameters key, op, value. Sample URL:  CRM/Constituents/Search?type=attribute&amp;key=Board+Affiliation&amp;op=Equals&amp;value=Association+Member`
-
-    
-
-## Use: `ContactPermissionCategories`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a contact permission category`
-	-	Long:  `Get the details of a contact permission category. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all contact permission categories`
-	-	Long:  `Get all contact permission categories.  To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all contact permission categories`
-	-	Long:  `Get a summary representation of all contact permission categories.`
-
-    
-
-## Use: `ContactPermissionTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a contact permission type`
-	-	Long:  `Get the details of a contact permission type. To get the resource only if the user has write/edit access, pass filter="writeonly".  To get the resource in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all contact permission types`
-	-	Long:  `Get all contact permission types. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `ForProductionSeasons`
-
-	-	Example: `{"ProductionSeasonIds":"string"}`
-	-	Short: `Get all contact permission types assigned to a set of production seasons`
-	-	Long:  `Get all contact permission types assigned to a set of production seasons.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all contact permission types`
-	-	Long:  `Get a summary representation of all contact permission types.`
-
-    
-
-## Use: `ContactPermissions`
-### Variant: ``
-
-	-	Example: `{"ContactPermissionID":"string"}`
-	-	Short: `Get details of a contact permission`
-	-	Long:  `Get details of a contact permission`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ActiveOnly":"string", "ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get all the contact permissions for the specified constituent and its affiliations if requested`
-	-	Long:  `Get all the contact permissions for the specified constituent and its affiliations if requested`
-
-    
-
-## Use: `ContactPointCategories`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a contact point category by id`
-	-	Long:  `Get the details of a contact point category by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all contact point categories`
-	-	Long:  `Get all contact point categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all contact point categories`
-	-	Long:  `Get a summary representation of all contact point categories.`
-
-    
-
-## Use: `ContactPointCategoryPurposes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a contact point category purpose by id`
-	-	Long:  `Get the details of a contact point category purpose by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all contact point category purposes`
-	-	Long:  `Get all contact point category purposes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all contact point category purposes`
-	-	Long:  `Get a summary representation of all contact point category purposes.`
-
-    
-
-## Use: `ContactPointPurposeCategories`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a contact point purpose category by id`
-	-	Long:  `Get the details of a contact point purpose category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all contact point purpose categories`
-	-	Long:  `Get all contact point purpose categories. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all contact point purpose categories`
-	-	Long:  `Get a summary representation of all contact point purpose categories.`
-
-    
-
-## Use: `ContactPointPurposeMaps`
-### Variant: ``
-
-	-	Example: `{"ContactPointPurposeMapID":"string"}`
-	-	Short: `Get details of a contact point purpose`
-	-	Long:  `Get details of a contact point purpose.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "ContactPointCategoryID":"string", "ContactPointID":"string", "IncludeAffiliations":"string", "PurposeID":"string"}`
-	-	Short: `Get details of all the contact point purposes for the specified constituent (constituentId) and all its visible affiliation's contact point purposes as well`
-	-	Long:  `Get details of all the contact point purposes for the specified constituent (constituentId) and all its visible affiliation's contact point purposes as well. To exclude contact point purposes of the visible affiliations pass includeAffiliations=false. To get contact point purposes for a contact point pass contactPointId.`
-
-    
-
-## Use: `ContactPointPurposes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a contact point purpose by id`
-	-	Long:  `Get the details of a contact point purpose by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all contact point purposes`
-	-	Long:  `Get all contact point purposes. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all contact point purposes`
-	-	Long:  `Get a summary representation of all contact point purposes.`
-
-    
-
-## Use: `ContactPoints`
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get all the delivery points for the specified constituent (constituentId) and all its visible affiliation's delivery point purposes as well`
-	-	Long:  `Get all the delivery points for the specified constituent (constituentId) and all its visible affiliation's delivery point purposes as well. To exclude delivery point purposes of the visible affiliations pass includeAffiliations=false.`
-
-    
-
-## Use: `ContactTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a contact type by id`
-	-	Long:  `Get the details of a contact type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all contact types`
-	-	Long:  `Get all contact types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all contact types`
-	-	Long:  `Get a summary representation of all contact types.`
-
-    
-
-## Use: `ContextInformation`
-### Variant: ``
-
-	-	Example: ``
-	-	Short: `Get a commonly used set of default values for the user and usergroup in the current security context`
-	-	Long:  `Get a commonly used set of default values for the user and usergroup in the current security context.`
-
-    
-
-## Use: `ContributionDesignations`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a contribution designation by id`
-	-	Long:  `Get the details of a contribution designation by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all contribution designations`
-	-	Long:  `Get all contribution designations. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all contribution designations`
-	-	Long:  `Get a summary representation of all contribution designations.`
-
-    
-
-## Use: `ContributionImportSets`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a contributionImportSet by id`
-	-	Long:  `Get the details of a contributionImportSet by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all contributionImportSets`
-	-	Long:  `Get all contributionImportSets. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups if this is a secured resource), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all contributionImportSets`
-	-	Long:  `Get a summary representation of all contributionImportSets.`
-
-    
-
-## Use: `ControlGroupUserGroups`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get the details of a control group/user group mapping by id`
-	-	Long:  `Get the details of a control group/user group mapping by id.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all control group/user group mappings`
-	-	Long:  `Get all control group/user group mappings.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all control group/user group mappings`
-	-	Long:  `Get a summary representation of all control group/user group mappings.`
-
-    
-
-## Use: `ControlGroups`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a control group by id`
-	-	Long:  `Get the details of a control group by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all control groups`
-	-	Long:  `Get all control groups. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all control groups`
-	-	Long:  `Get a summary representation of all control groups.`
-
-    
-
-## Use: `CoreIdentity`
-### Variant: `Token`
-
-	-	Example: ``
-	-	Short: ``
-	-	Long:  ``
-
-    
-
-## Use: `Countries`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a country by id`
-	-	Long:  `Get the details of a country by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all countries`
-	-	Long:  `Get all countries. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all countries`
-	-	Long:  `Get a summary representation of all countries.`
-
-    
-
-## Use: `CrediteeTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a crediteeType by id`
-	-	Long:  `Get the details of a crediteeType by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all crediteeTypes`
-	-	Long:  `Get all crediteeTypes. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups if this is a secured resource), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all crediteeTypes`
-	-	Long:  `Get a summary representation of all crediteeTypes.`
-
-    
-
-## Use: `Credits`
-### Variant: `Credits`
-
-	-	Example: `{"ProductionElementIds":"string"}`
-	-	Short: `Returns all credits for the requested production element`
-	-	Long:  `Returns all credits for the requested production element, and all credits from above it in the production hierarchy.`
-
-    
-
-## Use: `CriterionOperators`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a criterion operator by id`
-	-	Long:  `Get the details of a criterion operator by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all criterion operators`
-	-	Long:  `Get all criterion operators. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all criterion operators`
-	-	Long:  `Get a summary representation of all criterion operators.`
-
-    
-
-## Use: `CumulativeGivingReceipts`
-### Variant: ``
-
-	-	Example: `{"CumulativeGivingReceiptID":"string"}`
-	-	Short: `Get details of an cumulativeGivingReceipt`
-	-	Long:  `Get details of an cumulativeGivingReceipt.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get Cumulative Giving Receipts for the specified constituent id and affiliation Cumulative Giving Receipts as well`
-	-	Long:  `Get Cumulative Giving Receipts for the specified constituent id and affiliation Cumulative Giving Receipts as well. To exclude receipts of the visible affiliations pass includeAffiliations=false.`
-
-    
-### Variant: `ForSession`
-
-	-	Example: `{"ConstituentID":"string", "SessionID":"string"}`
-	-	Short: `To retrieve a specific receipt for a session`
-	-	Long:  `To retrieve a specific receipt for a session, pass sessionId and constituentId.`
-
-    
-
-## Use: `CurrencyTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a currency type by id`
-	-	Long:  `Get the details of a currency type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all currency types`
-	-	Long:  `Get all currency types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all currency types`
-	-	Long:  `Get a summary representation of all currency types.`
-
-    
-
-## Use: `Custom`
-### Variant: `Metadata`
-
-	-	Example: ``
-	-	Short: `Get the metadata information of a custom table as defined by TR_DATASERVICE_TABLES and TR_DATASERVICE_COLUMNS`
-	-	Long:  `Get the metadata information of a custom table as defined by TR_DATASERVICE_TABLES and TR_DATASERVICE_COLUMNS.`
-
-    
-
-## Use: `CustomDefaultCategories`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a custom default category by id`
-	-	Long:  `Get the details of a custom default category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all custom default categories`
-	-	Long:  `Get all custom default categories. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all custom default categories`
-	-	Long:  `Get a summary representation of all custom default categories.`
-
-    
-
-## Use: `CustomDefaults`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a custom default by id`
-	-	Long:  `Get the details of a custom default by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all custom defaults`
-	-	Long:  `Get all custom defaults. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all custom defaults`
-	-	Long:  `Get a summary representation of all custom defaults.`
-
-    
-
-## Use: `DeliveryMethods`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a delivery method by id`
-	-	Long:  `Get the details of a delivery method by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all delivery methods`
-	-	Long:  `Get all delivery methods. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all delivery methods`
-	-	Long:  `Get a summary representation of all delivery methods.`
-
-    
-
-## Use: `DesignationCodes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a designation code by id`
-	-	Long:  `Get the details of a designation code by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all designation codes`
-	-	Long:  `Get all designation codes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all designation codes`
-	-	Long:  `Get a summary representation of all designation codes.`
-
-    
-
-## Use: `Designs`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a design by id`
-	-	Long:  `Get the details of a design by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all designs`
-	-	Long:  `Get all designs. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all designs`
-	-	Long:  `Get a summary representation of all designs.`
-
-    
-
-## Use: `Diagnostics`
-### Variant: `EncryptionKeyCheck`
-
-	-	Example: ``
-	-	Short: `Validates Encryption Key Dates`
-	-	Long:  `Validates Encryption Key Dates.`
-
-    
-### Variant: `SeatServerStatus`
-
-	-	Example: ``
-	-	Short: `Returns status of the seat server connection`
-	-	Long:  `Returns status of the seat server connection.`
-
-    
-### Variant: `Status`
-
-	-	Example: ``
-	-	Short: `Returns status of the application connection to database and service version information`
-	-	Long:  `Returns status of the application connection to database and service version information.`
-
-    
-### Variant: `StatusReport`
-
-	-	Example: ``
-	-	Short: `Returns status of the application connection to database and service version information as an html page`
-	-	Long:  `Returns status of the application connection to database and service version information as an html page.`
-
-    
-
-## Use: `DirectDebitAccountTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a direct debit account type by id`
-	-	Long:  `Get the details of a direct debit account type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all direct debit currency types`
-	-	Long:  `Get all direct debit currency types.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all direct debit account types`
-	-	Long:  `Get a summary representation of all direct debit account types.`
-
-    
-
-## Use: `DiscountTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a discount type by id`
-	-	Long:  `Get the details of a discount type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all discount types`
-	-	Long:  `Get all discount types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all discount types`
-	-	Long:  `Get a summary representation of all discount types.`
-
-    
-
-## Use: `Divisions`
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get the control group/division mappings for the specified division`
-	-	Long:  `Get the control group/division mappings for the specified division.`
-
-    
-### Variant: `ForDivision`
-
-	-	Example: `{"DivisionID":"string"}`
-	-	Short: `Get the control group/division mappings for the specified division`
-	-	Long:  `Get the control group/division mappings for the specified division.`
-
-    
-
-## Use: `DocumentCategories`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a documentCategory by id`
-	-	Long:  `Get the details of a documentCategory by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all documentCategories`
-	-	Long:  `Get all documentCategories. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all documentCategories`
-	-	Long:  `Get a summary representation of all documentCategories.`
-
-    
-
-## Use: `Documents`
-### Variant: ``
-
-	-	Example: `{"DocumentID":"string"}`
-	-	Short: `Get the details of a document`
-	-	Long:  `Get the details of a document.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"StepID":"string"}`
-	-	Short: `Get all the documents for a particular resource including file contents`
-	-	Long:  `Get all the documents for a particular resource including file contents.  Only documents associated with steps may be returned at this time.`
-
-    
-### Variant: `AllSummary`
-
-	-	Example: `{"StepID":"string"}`
-	-	Short: `Get summary of all the documents for the step`
-	-	Long:  `Get summary of all the documents for the step.  Only a summary of file information is returned.`
-
-    
-### Variant: `Settings`
-
-	-	Example: ``
-	-	Short: `Get configuration settings for uploading documents`
-	-	Long:  `Get configuration settings for uploading documents.`
-
-    
-
-## Use: `DonationLevels`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a donation level by id`
-	-	Long:  `Get the details of a donation level by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all donation levels`
-	-	Long:  `Get all donation levels. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all donation levels`
-	-	Long:  `Get a summary representation of all donation levels.`
-
-    
-
-## Use: `EMV`
-### Variant: `AllLanes`
-
-	-	Example: `{"Cert":"string", "Merchant":"string"}`
-	-	Short: `Retrieve information on all lanes associated with merchant`
-	-	Long:  `Retrieve information on all lanes associated with merchant`
-
-    
-### Variant: `ConnectionStatus`
-
-	-	Example: `{"Cert":"string", "LaneID":"string", "Merchant":"string"}`
-	-	Short: `Get connection status for a lane`
-	-	Long:  `Get connection status for a lane`
-
-    
-### Variant: `ConnectionStatusHistory`
-
-	-	Example: `{"Cert":"string", "LaneID":"string", "Merchant":"string"}`
-	-	Short: `Get connection status history for a lane`
-	-	Long:  `Get connection status history for a lane`
-
-    
-### Variant: `IdleMessage`
-
-	-	Example: `{"Cert":"string", "LaneID":"string", "Merchant":"string"}`
-	-	Short: `Retrieve idle message for a specific lane`
-	-	Long:  `Retrieve idle message for a specific lane`
-
-    
-### Variant: `Lane`
-
-	-	Example: `{"Cert":"string", "LaneID":"string", "Merchant":"string"}`
-	-	Short: `Retrieve information for a specific lane`
-	-	Long:  `Retrieve information for a specific lane`
-
-    
-
-## Use: `ElectronicAddressTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an electronic address type by id`
-	-	Long:  `Get the details of an electronic address type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all electronic address types`
-	-	Long:  `Get all electronic address types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all electronic address types`
-	-	Long:  `Get a summary representation of all electronic address types.`
-
-    
-
-## Use: `ElectronicAddresses`
-### Variant: ``
-
-	-	Example: `{"ElectronicAddressID":"string"}`
-	-	Short: `Get details of an electronic address`
-	-	Long:  `Get details of an electronic address.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Address":"string", "ConstituentIds":"string", "ElectronicAddressTypeID":"string", "IncludeAffiliations":"string", "IncludeFromAffiliations":"string", "PrimaryOnly":"string", "UseGeneralPublic":"string"}`
-	-	Short: `Get electronic addresses for constituent(s) or query general public electronic addresses for a specific address`
-	-	Long:  `Get electronic addresses for constituent(s) or query general public electronic addresses for a specific address.
+Attribute search type permits parameters key, op, value. Sample URL:  CRM/Constituents/Search?type=attribute&amp;key=Board+Affiliation&amp;op=Equals&amp;value=Association+Member
+```json
+Query: {"Atype":"string", "ConstituencyIds":"string", "ConstituentGroups":"string", "ConstituentID":"string", "Dup":"string", "Fn":"string", "IncludeAffiliates":"string", "Key":"string", "ListID":"string", "Ln":"string", "Op":"string", "Page":"string", "PageSize":"string", "Post":"string", "Q":"string", "Street":"string", "Type":"string", "Value":"string"}
+```
+
+## ContactPermissionCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpermissioncategories) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpermissioncategories)   
+Get the details of a contact permission category. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all contact permission categories.  To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all contact permission categories.
+
+## ContactPermissionTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpermissiontypes) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpermissiontypes)   
+Get the details of a contact permission type. To get the resource only if the user has write/edit access, pass filter="writeonly".  To get the resource in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all contact permission types. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--ForProductionSeasons*  
+   Get all contact permission types assigned to a set of production seasons.
+```json
+Query: {"ProductionSeasonIds":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all contact permission types.
+
+## ContactPermissions ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpermissions) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpermissions)   
+Get details of a contact permission  
+```json
+Query: {"ContactPermissionID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all the contact permissions for the specified constituent and its affiliations if requested
+```json
+Query: {"ActiveOnly":"string", "ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+
+## ContactPointCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpointcategories)   
+Get the details of a contact point category by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all contact point categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all contact point categories.
+
+## ContactPointCategoryPurposes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointcategorypurposes) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpointcategorypurposes)   
+Get the details of a contact point category purpose by id.  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all contact point category purposes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all contact point category purposes.
+
+## ContactPointPurposeCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointpurposecategories) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpointpurposecategories)   
+Get the details of a contact point purpose category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all contact point purpose categories. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all contact point purpose categories.
+
+## ContactPointPurposeMaps ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointpurposemaps) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpointpurposemaps)   
+Get details of a contact point purpose.  
+```json
+Query: {"ContactPointPurposeMapID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the contact point purposes for the specified constituent (constituentId) and all its visible affiliation's contact point purposes as well. To exclude contact point purposes of the visible affiliations pass includeAffiliations=false. To get contact point purposes for a contact point pass contactPointId.
+```json
+Query: {"ConstituentID":"string", "ContactPointCategoryID":"string", "ContactPointID":"string", "IncludeAffiliations":"string", "PurposeID":"string"}
+```
+
+## ContactPointPurposes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointpurposes) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpointpurposes)   
+Get the details of a contact point purpose by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all contact point purposes. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all contact point purposes.
+
+## ContactPoints ![get](https://img.shields.io/badge/get-gray)   
+Get all the delivery points for the specified constituent (constituentId) and all its visible affiliation's delivery point purposes as well. To exclude delivery point purposes of the visible affiliations pass includeAffiliations=false.  
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+
+## ContactTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contacttypes) [![put](https://img.shields.io/badge/put-blue)](put.md#contacttypes)   
+Get the details of a contact type by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all contact types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all contact types.
+
+## ContextInformation ![get](https://img.shields.io/badge/get-gray)   
+Get a commonly used set of default values for the user and usergroup in the current security context.  
+```json
+Query: 
+```
+
+## ContributionDesignations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contributiondesignations) [![put](https://img.shields.io/badge/put-blue)](put.md#contributiondesignations)   
+Get the details of a contribution designation by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all contribution designations. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all contribution designations.
+
+## ContributionImportSets ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contributionimportsets) [![put](https://img.shields.io/badge/put-blue)](put.md#contributionimportsets)   
+Get the details of a contributionImportSet by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all contributionImportSets. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups if this is a secured resource), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all contributionImportSets.
+
+
+## ControlGroupUserGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#controlgroupusergroups) [![put](https://img.shields.io/badge/put-blue)](put.md#controlgroupusergroups)   
+Get the details of a control group/user group mapping by id.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all control group/user group mappings.
+ * *--Summaries*  
+   Get a summary representation of all control group/user group mappings.
+
+## ControlGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#controlgroups) [![put](https://img.shields.io/badge/put-blue)](put.md#controlgroups)   
+Get the details of a control group by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all control groups. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all control groups.
+
+## CoreIdentity ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#coreidentity)   
+  
+```json
+Query: 
+```
+
+## Countries ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#countries) [![put](https://img.shields.io/badge/put-blue)](put.md#countries)   
+Get the details of a country by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all countries. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all countries.
+
+## CrediteeTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#crediteetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#crediteetypes)   
+Get the details of a crediteeType by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all crediteeTypes. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups if this is a secured resource), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all crediteeTypes.
+
+## Credits ![get](https://img.shields.io/badge/get-gray)   
+Returns all credits for the requested production element, and all credits from above it in the production hierarchy.  
+```json
+Query: {"ProductionElementIds":"string"}
+```
+
+## CriterionOperators ![get](https://img.shields.io/badge/get-gray)   
+Get the details of a criterion operator by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all criterion operators. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all criterion operators.
+
+## CumulativeGivingReceipts ![get](https://img.shields.io/badge/get-gray)   
+Get details of an cumulativeGivingReceipt.  
+```json
+Query: {"CumulativeGivingReceiptID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get Cumulative Giving Receipts for the specified constituent id and affiliation Cumulative Giving Receipts as well. To exclude receipts of the visible affiliations pass includeAffiliations=false.
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+ * *--ForSession*  
+   To retrieve a specific receipt for a session, pass sessionId and constituentId.
+```json
+Query: {"ConstituentID":"string", "SessionID":"string"}
+```
+
+## CurrencyTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#currencytypes) [![put](https://img.shields.io/badge/put-blue)](put.md#currencytypes)   
+Get the details of a currency type by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all currency types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all currency types.
+
+## Custom ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#custom)   
+Get the metadata information of a custom table as defined by TR_DATASERVICE_TABLES and TR_DATASERVICE_COLUMNS.  
+```json
+Query: 
+```
+
+## CustomDefaultCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#customdefaultcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#customdefaultcategories)   
+Get the details of a custom default category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all custom default categories. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all custom default categories.
+
+## CustomDefaults ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#customdefaults) [![put](https://img.shields.io/badge/put-blue)](put.md#customdefaults)   
+Get the details of a custom default by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all custom defaults. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all custom defaults.
+
+	
+# D
+## DeliveryMethods ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#deliverymethods) [![put](https://img.shields.io/badge/put-blue)](put.md#deliverymethods)   
+Get the details of a delivery method by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all delivery methods. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all delivery methods.
+
+## DesignationCodes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#designationcodes) [![put](https://img.shields.io/badge/put-blue)](put.md#designationcodes)   
+Get the details of a designation code by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all designation codes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all designation codes.
+
+## Designs ![get](https://img.shields.io/badge/get-gray)   
+Get the details of a design by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all designs. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all designs.
+
+## Diagnostics ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#diagnostics) [![put](https://img.shields.io/badge/put-blue)](put.md#diagnostics)   
+Validates Encryption Key Dates.  
+```json
+Query: 
+```
+### Flags:
+ * *--SeatServerStatus*  
+   Returns status of the seat server connection.
+ * *--Status*  
+   Returns status of the application connection to database and service version information.
+ * *--StatusReport*  
+   Returns status of the application connection to database and service version information as an html page.
+
+## DirectDebitAccountTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#directdebitaccounttypes) [![put](https://img.shields.io/badge/put-blue)](put.md#directdebitaccounttypes)   
+Get the details of a direct debit account type by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all direct debit currency types.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all direct debit account types.
+
+## DiscountTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#discounttypes) [![put](https://img.shields.io/badge/put-blue)](put.md#discounttypes)   
+Get the details of a discount type by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all discount types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all discount types.
+
+## Divisions ![get](https://img.shields.io/badge/get-gray)   
+Get the control group/division mappings for the specified division.  
+```json
+Query: 
+```
+### Flags:
+ * *--ForDivision*  
+   Get the control group/division mappings for the specified division.
+```json
+Query: {"DivisionID":"string"}
+```
+
+## DocumentCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#documentcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#documentcategories)   
+Get the details of a documentCategory by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all documentCategories. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all documentCategories.
+
+## Documents ![get](https://img.shields.io/badge/get-gray)   
+Get the details of a document.  
+```json
+Query: {"DocumentID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all the documents for a particular resource including file contents.  Only documents associated with steps may be returned at this time.
+```json
+Query: {"StepID":"string"}
+```
+ * *--AllSummary*  
+   Get summary of all the documents for the step.  Only a summary of file information is returned.
+```json
+Query: {"StepID":"string"}
+```
+ * *--Settings*  
+   Get configuration settings for uploading documents.
+
+## DonationLevels ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#donationlevels) [![put](https://img.shields.io/badge/put-blue)](put.md#donationlevels)   
+Get the details of a donation level by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all donation levels. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all donation levels.
+
+	
+# E
+## EMV ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#emv) [![put](https://img.shields.io/badge/put-blue)](put.md#emv)   
+Retrieve information on all lanes associated with merchant  
+```json
+Query: {"Cert":"string", "Merchant":"string"}
+```
+### Flags:
+ * *--ConnectionStatus*  
+   Get connection status for a lane
+```json
+Query: {"Cert":"string", "LaneID":"string", "Merchant":"string"}
+```
+ * *--ConnectionStatusHistory*  
+   Get connection status history for a lane
+```json
+Query: {"Cert":"string", "LaneID":"string", "Merchant":"string"}
+```
+ * *--IdleMessage*  
+   Retrieve idle message for a specific lane
+```json
+Query: {"Cert":"string", "LaneID":"string", "Merchant":"string"}
+```
+ * *--Lane*  
+   Retrieve information for a specific lane
+```json
+Query: {"Cert":"string", "LaneID":"string", "Merchant":"string"}
+```
+
+## ElectronicAddressTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#electronicaddresstypes) [![put](https://img.shields.io/badge/put-blue)](put.md#electronicaddresstypes)   
+Get the details of an electronic address type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all electronic address types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all electronic address types.
+
+## ElectronicAddresses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#electronicaddresses) [![put](https://img.shields.io/badge/put-blue)](put.md#electronicaddresses)   
+Get details of an electronic address.  
+```json
+Query: {"ElectronicAddressID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get electronic addresses for constituent(s) or query general public electronic addresses for a specific address.
             
-Either constituentIds, useGeneralPublic, or address must be specified in request. For constituent electronic address, visible affiliation electronic addresses can be included with includeAffiliations=true. To exclude electronic addresses of the visible affiliations pass includeAffiliations=false. To retrieve only the primary electronic addresses, pass primaryOnly=true.`
-
-    
-### Variant: `IsAttachedToLogin`
-
-	-	Example: `{"ElectronicAddressID":"string"}`
-	-	Short: `Check if the specified electronic address is attached to a web login`
-	-	Long:  `Check if the specified electronic address is attached to a web login.`
-
-    
-
-## Use: `EmailProfiles`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an email profile by id`
-	-	Long:  `Get the details of an email profile by id`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all email profiles`
-	-	Long:  `Get all email profiles`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get summary of all email profiles`
-	-	Long:  `Get summary of all email profiles`
-
-    
-
-## Use: `EmarketIndicators`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an emarket indicator by id`
-	-	Long:  `Get the details of an emarket indicator by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all emarket indicators`
-	-	Long:  `Get all emarket indicators. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all emarket indicators`
-	-	Long:  `Get a summary representation of all emarket indicators.`
-
-    
-
-## Use: `Eras`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an era by id`
-	-	Long:  `Get the details of an era by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all eras`
-	-	Long:  `Get all eras. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all eras`
-	-	Long:  `Get a summary representation of all eras.`
-
-    
-
-## Use: `EventControl`
-### Variant: `All`
-
-	-	Example: `{"EndDate":"string", "StartDate":"string"}`
-	-	Short: `Returns a response containing a list of EventControl rows for the N-Scan event control table`
-	-	Long:  `Returns a response containing a list of EventControl rows for the N-Scan event control table.`
-
-    
-
-## Use: `Facilities`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get details of a Facility`
-	-	Long:  `Get details of a Facility.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get details of all the Facilities`
-	-	Long:  `Get details of all the Facilities.`
-
-    
-### Variant: `Screens`
-
-	-	Example: `{"FacilityID":"string"}`
-	-	Short: `Returns details of all screens and the HouseMap for the facility`
-	-	Long:  `Returns details of all screens and the HouseMap for the facility.  The screen details include which other screens are assigned to each screen navigation arrow button.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get summary representation of all Facilities`
-	-	Long:  `Get summary representation of all Facilities.`
-
-    
-
-## Use: `Fees`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get details of a fee`
-	-	Long:  `Get details of a fee.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"FeeCategoryIds":"string", "SeasonID":"string", "UserDefined":"string"}`
-	-	Short: `Get all fees`
-	-	Long:  `Get all fees.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"FeeCategoryIds":"string", "SeasonID":"string", "UserDefined":"string"}`
-	-	Short: `Get summary representation of all fees`
-	-	Long:  `Get summary representation of all fees.`
-
-    
-
-## Use: `FinanceContributions`
-### Variant: ``
-
-	-	Example: `{"ContributionID":"string"}`
-	-	Short: `Get details of a contribution`
-	-	Long:  `Get details of a contribution.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"PlanID":"string"}`
-	-	Short: `Get details of all the contributions for the specified plan`
-	-	Long:  `Get details of all the contributions for the specified plan.`
-
-    
-
-## Use: `Formats`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a format by id`
-	-	Long:  `Get the details of a format by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all formats`
-	-	Long:  `Get all formats. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all formats`
-	-	Long:  `Get a summary representation of all formats.`
-
-    
-
-## Use: `Funds`
-### Variant: ``
-
-	-	Example: `{"FundID":"string"}`
-	-	Short: `Get details of a specific fund`
-	-	Long:  `Get details of a specific fund`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"TicketingIndicator":"string"}`
-	-	Short: `Get summary of all funds`
-	-	Long:  `Get summary of all funds.`
-
-    
-
-## Use: `GLAccounts`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a gl account by id`
-	-	Long:  `Get the details of a gl account by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all gl accounts`
-	-	Long:  `Get all gl accounts. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all gl accounts`
-	-	Long:  `Get a summary representation of all gl accounts.`
-
-    
-
-## Use: `Genders`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a gender by id`
-	-	Long:  `Get the details of a gender by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all available gender values`
-	-	Long:  `Get all available gender values. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all gender values`
-	-	Long:  `Get a summary representation of all gender values.`
-
-    
-
-## Use: `GiftAidContactMethods`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a gift aid contact method by id`
-	-	Long:  `Get the details of a gift aid contact method by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all gift aid contact methods`
-	-	Long:  `Get all gift aid contact methods. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all gift aid contact methods`
-	-	Long:  `Get a summary representation of all gift aid contact methods.`
-
-    
-
-## Use: `GiftAidDeclarations`
-### Variant: ``
-
-	-	Example: `{"GiftAidDeclarationID":"string"}`
-	-	Short: `Gets a single Gift Aid Declaration`
-	-	Long:  `Gets a single Gift Aid Declaration.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Gets all Gift Aid Declarations for a provided constituent including primary affiliates by default`
-	-	Long:  `Gets all Gift Aid Declarations for a provided constituent including primary affiliates by default.`
-
-    
-
-## Use: `GiftAidDocumentStatuses`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a gift aid document status by id`
-	-	Long:  `Get the details of a gift aid document status by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all gift aid document statuses`
-	-	Long:  `Get all gift aid document statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all gift aid document statuses`
-	-	Long:  `Get a summary representation of all gift aid document statuses.`
-
-    
-
-## Use: `GiftAidIneligibleReasons`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a gift aid ineligible reason by id`
-	-	Long:  `Get the details of a gift aid ineligible reason by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all gift aid ineligible reasons`
-	-	Long:  `Get all gift aid ineligible reasons. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all gift aid ineligible reasons`
-	-	Long:  `Get a summary representation of all gift aid ineligible reasons.`
-
-    
-
-## Use: `GiftAidRates`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a gift aid rate by id`
-	-	Long:  `Get the details of a gift aid rate by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all gift aid rates`
-	-	Long:  `Get all gift aid rates. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all gift aid rates`
-	-	Long:  `Get a summary representation of all gift aid rates.`
-
-    
-
-## Use: `GiftAidStatuses`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a gift aid status by id`
-	-	Long:  `Get the details of a gift aid status by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all gift aid statuses`
-	-	Long:  `Get all gift aid statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all gift aid statuses`
-	-	Long:  `Get a summary representation of all gift aid statuses.`
-
-    
-
-## Use: `GiftAidTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a gift aid type by id`
-	-	Long:  `Get the details of a gift aid type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all gift aid types`
-	-	Long:  `Get all gift aid types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all gift aid types`
-	-	Long:  `Get a summary representation of all gift aid types.`
-
-    
-
-## Use: `GiftCertificates`
-### Variant: ``
-
-	-	Example: `{"GiftCertificateNumber":"string"}`
-	-	Short: `Get details of a specific gift certificate`
-	-	Long:  `Get details of a specific gift certificate.
-The original amount, amount used and balance are all returned.  Amounts applied to a current web session are included.`
-
-    
-
-## Use: `HoldCodeCategories`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a Hold Code Category by id`
-	-	Long:  `Get the details of a Hold Code Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all Hold Code Categories`
-	-	Long:  `Get all Hold Code Categories. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all Hold Code Categories`
-	-	Long:  `Get a summary representation of all Hold Code Categories.`
-
-    
-
-## Use: `HoldCodeUserGroups`
-### Variant: ``
-
-	-	Example: `{"HoldCodeUserGroupID":"string"}`
-	-	Short: `Get the details of a hold code/user group mapping by id`
-	-	Long:  `Get the details of a hold code/user group mapping by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"HoldCode":"string", "UserGroup":"string"}`
-	-	Short: `Get all hold code/user group mappings`
-	-	Long:  `Get all hold code/user group mappings.  Optional filter for a UserGroup or HoldCode.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"HoldCode":"string", "UserGroup":"string"}`
-	-	Short: `Get a summary representation of all hold code/user group mappings`
-	-	Long:  `Get a summary representation of all hold code/user group mappings.  Optional filter for a UserGroup or HoldCode.`
-
-    
-### Variant: `Summary`
-
-	-	Example: `{"HoldCodeUserGroupID":"string"}`
-	-	Short: `Get summary representation of a hold code/user group mapping by id`
-	-	Long:  `Get summary representation of a hold code/user group mapping by id.`
-
-    
-
-## Use: `HoldCodes`
-### Variant: ``
-
-	-	Example: `{"HoldCodeID":"string"}`
-	-	Short: `Get details of a Hold Code`
-	-	Long:  `Get details of a Hold Code.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get details of all Hold Codes`
-	-	Long:  `Get details of all Hold Codes.`
-
-    
-
-## Use: `InactiveReasons`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an inactive reason by id`
-	-	Long:  `Get the details of an inactive reason by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all inactive reasons`
-	-	Long:  `Get all inactive reasons. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all inactive reasons`
-	-	Long:  `Get a summary representation of all inactive reasons.`
-
-    
-
-## Use: `IntegrationDefaults`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get the details of an Integration Default by id`
-	-	Long:  `Get the details of an Integration Default by id.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all Integration Defaults`
-	-	Long:  `Get all Integration Defaults. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all Integration Defaults`
-	-	Long:  `Get a summary representation of all Integration Defaults.`
-
-    
-
-## Use: `Integrations`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an action type by id`
-	-	Long:  `Get the details of an action type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all action types`
-	-	Long:  `Get all action types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all action types`
-	-	Long:  `Get a summary representation of all action types.`
-
-    
-
-## Use: `InterestCategories`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an interest category by id`
-	-	Long:  `Get the details of an interest category by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all interest categories`
-	-	Long:  `Get all interest categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all interest categories`
-	-	Long:  `Get a summary representation of all interest categories.`
-
-    
-
-## Use: `InterestTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an interest type by id`
-	-	Long:  `Get the details of an interest type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all interest types`
-	-	Long:  `Get all interest types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all interest types`
-	-	Long:  `Get a summary representation of all interest types.`
-
-    
-
-## Use: `Interests`
-### Variant: ``
-
-	-	Example: `{"InterestID":"string"}`
-	-	Short: `Get details of an interest`
-	-	Long:  `Get details of an interest.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"CategoryIds":"string", "ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get all the interests of the specified constituent id`
-	-	Long:  `Get all the interests of the specified constituent id. To exclude attributes of the visible affiliations pass includeAffiliations=false. To filter the interests of specific categories pass comma separted values under categories.`
-
-    
-
-## Use: `Internal`
-### Variant: ``
-
-	-	Example: `{"AddressID":"string"}`
-	-	Short: `Get details of an address and all the phones attached to it`
-	-	Long:  `Get details of an address and all the phones attached to it.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string", "IncludeFromAffiliations":"string"}`
-	-	Short: `Get details of all the addresses and the phones attached to them of the constituent id`
-	-	Long:  `Get details of all the addresses and the phones attached to them of the constituent id. To exclude addresses and the phones of the visible affiliations pass includeAffiliations=false.`
-
-    
-### Variant: `ConstituentMiniSnapshot`
-
-	-	Example: `{"ConstituentID":"string"}`
-	-	Short: `Get constituent details along with primary address`
-	-	Long:  `Get constituent details along with primary address, primary salutation, primary electronic address, primary &amp; general phones.`
-
-    
-
-## Use: `InventoryContactPermissionTypes`
-### Variant: ``
-
-	-	Example: `{"InventoryContactPermissionTypeID":"string"}`
-	-	Short: `Get details of an inventoryContactPermissionType`
-	-	Long:  `Get details of an inventoryContactPermissionType.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ProductionSeasonIds":"string"}`
-	-	Short: `Get details of all the Contact Permission Types associated to Production Seasons`
-	-	Long:  `Get details of all the Contact Permission Types associated to Production Seasons.  Inventory Contact Permission Type is a mapping of a Contact Permission Type to a Production Season.`
-
-    
-
-## Use: `InventoryWebContents`
-### Variant: ``
-
-	-	Example: `{"InventoryWebContentID":"string"}`
-	-	Short: `Get details of an inventoryWebContent`
-	-	Long:  `Get details of an inventoryWebContent.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ContentTypeIds":"string", "ProductionElementIds":"string"}`
-	-	Short: `Get details of all the inventoryWebContents`
-	-	Long:  `Get details of all the inventoryWebContents.`
-
-    
-### Variant: `AllSummaries`
-
-	-	Example: `{"ContentTypeIds":"string", "ProductionElementIds":"string"}`
-	-	Short: `Get details of all the inventoryWebContents`
-	-	Long:  `Get details of all the inventoryWebContents.`
-
-    
-
-## Use: `InvoiceBilling`
-### Variant: `Status`
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get status of a processing automated billing run`
-	-	Long:  `Get status of a processing automated billing run.`
-
-    
-
-## Use: `Issues`
-### Variant: ``
-
-	-	Example: `{"IssueID":"string"}`
-	-	Short: `Get details of a customer issue`
-	-	Long:  `Get details of a customer issue.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ActivityTypeIds":"string", "CategoryIds":"string", "ConstituentID":"string", "ContactTypeIds":"string", "EndDate":"string", "IncludeAffiliations":"string", "OriginIds":"string", "PackageIds":"string", "PerformanceIds":"string", "Resolved":"string", "StartDate":"string"}`
-	-	Short: `Get all the details of all the issues for the specified constituent id`
-	-	Long:  `Get all the details of all the issues for the specified constituent id. If you want to filter the issues based on date pass in the values for 'startDate' and 'endDate'. If you want to filter issues based on contact type, category, activity type, origin, performance number or package number pass in the corresponding values in comma separated values.`
-
-    
-
-## Use: `KeywordCategories`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a keyword category by id`
-	-	Long:  `Get the details of a keyword category by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all keyword categories`
-	-	Long:  `Get all keyword categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all keyword categories`
-	-	Long:  `Get a summary representation of all keyword categories.`
-
-    
-
-## Use: `Keywords`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a keyword by id`
-	-	Long:  `Get the details of a keyword by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all keywords`
-	-	Long:  `Get all keywords. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `DataFor`
-
-	-	Example: `{"KeywordID":"string"}`
-	-	Short: `Gets potential values for a Keyword as KeywordDataItems`
-	-	Long:  `Gets potential values for a Keyword as KeywordDataItems.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all keywords`
-	-	Long:  `Get a summary representation of all keywords.`
-
-    
-
-## Use: `Languages`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a language by id`
-	-	Long:  `Get the details of a language by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all languages`
-	-	Long:  `Get all languages. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all languages`
-	-	Long:  `Get a summary representation of all languages.`
-
-    
-
-## Use: `ListCategories`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a list category by id`
-	-	Long:  `Get the details of a list category by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all list categories`
-	-	Long:  `Get all list categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all list categories`
-	-	Long:  `Get a summary representation of all list categories.`
-
-    
-
-## Use: `Lists`
-### Variant: ``
-
-	-	Example: `{"ListID":"string"}`
-	-	Short: `Get a single List without contents`
-	-	Long:  `Get a single List without contents.`
-
-    
-### Variant: `Contents`
-
-	-	Example: `{"ListID":"string"}`
-	-	Short: `Gets Constituent ids for the contents of a List`
-	-	Long:  `Gets Constituent ids for the contents of a List.`
-
-    
-### Variant: `ContentsDetail`
-
-	-	Example: `{"ListID":"string"}`
-	-	Short: `Gets Constituent details for the contents of a List`
-	-	Long:  `Gets Constituent details for the contents of a List.`
-
-    
-### Variant: `ListCriterionMatchReasons`
-
-	-	Example: `{"ConstituentID":"string", "ListID":"string"}`
-	-	Short: `Returns list criteria match reasons for a constituent in a list`
-	-	Long:  `Returns list criteria match reasons for a constituent in a list.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"ListIds":"string"}`
-	-	Short: `Get a summary of all Lists`
-	-	Long:  `Get a summary of all Lists.`
-
-    
-
-## Use: `LoginTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a login type by id`
-	-	Long:  `Get the details of a login type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all login types`
-	-	Long:  `Get all login types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all login types`
-	-	Long:  `Get a summary representation of all login types.`
-
-    
-
-## Use: `MachineSettings`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a Machine Setting by id`
-	-	Long:  `Get the details of a Machine Setting by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get details of all Machine Settings`
-	-	Long:  `Get details of all Machine Settings. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all Machine Settings`
-	-	Long:  `Get a summary representation of all Machine Settings.`
-
-    
-
-## Use: `MailIndicators`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a mail indicator by id`
-	-	Long:  `Get the details of a mail indicator by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all mail indicators`
-	-	Long:  `Get all mail indicators. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all mail indicators`
-	-	Long:  `Get a summary representation of all mail indicators.`
-
-    
-
-## Use: `MediaTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a media type by id`
-	-	Long:  `Get the details of a media type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all media types`
-	-	Long:  `Get all media types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all media types`
-	-	Long:  `Get a summary representation of all media types.`
-
-    
-
-## Use: `MembershipLevelCategories`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a membership level category by id`
-	-	Long:  `Get the details of a membership level category by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all membership level categories`
-	-	Long:  `Get all membership level categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all membership level categories`
-	-	Long:  `Get a summary representation of all membership level categories.`
-
-    
-
-## Use: `MembershipLevels`
-### Variant: ``
-
-	-	Example: `{"MembershipLevelID":"string"}`
-	-	Short: `Get a specific membership level`
-	-	Long:  `Get a specific membership level.
-NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MembershipOrgID":"string"}`
-	-	Short: `Get a summary list of all membership levels`
-	-	Long:  `Get a summary list of all membership levels. MembershipOrgId is required.
-NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"MembershipOrgID":"string"}`
-	-	Short: `Get a list of membership levels`
-	-	Long:  `Get a list of membership levels. MembershipOrgId is required.
-NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.`
-
-    
-
-## Use: `MembershipOrganizations`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get a specific membership organization`
-	-	Long:  `Get a specific membership organization.
-NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get a list of all membership organizations`
-	-	Long:  `Get a list of all membership organizations.
-NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a list of all membership organizations in summary`
-	-	Long:  `Get a list of all membership organizations in summary.
-NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.`
-
-    
-
-## Use: `MembershipStandings`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get a specific MembershipStanding by id`
-	-	Long:  `Get a specific MembershipStanding by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all Membership Standings`
-	-	Long:  `Get all Membership Standings.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all MembershipStandings`
-	-	Long:  `Get a summary representation of all MembershipStandings.`
-
-    
-
-## Use: `Memberships`
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string", "MembershipOrgIds":"string", "OnlyShowCurrent":"string", "OnlyShowDefault":"string"}`
-	-	Short: `Returns membership details for a constituent`
-	-	Long:  `Returns membership details for a constituent.
-NOTE: As part of the upcoming changes to membership functionality, this resource will change significantly in an upcoming major Tessitura release and likely break code that references it. Please make a note that code that references it will need to be revisited as part of that upgrade process.`
-
-    
-
-## Use: `MerchantReferences`
-### Variant: `Reference`
-
-	-	Example: `{"MerchantAccount":"string", "PaymentID":"string"}`
-	-	Short: ``
-	-	Long:  ``
-
-    
-
-## Use: `Merchants`
-### Variant: `Merchants`
-
-	-	Example: ``
-	-	Short: `Retrieve Merchant List`
-	-	Long:  `Retrieve Merchant List`
-
-    
-
-## Use: `ModeOfSaleCategories`
-### Variant: ``
-
-	-	Example: `{"ModeOfSaleCategoryID":"string"}`
-	-	Short: `Get details of a mode of sale category`
-	-	Long:  `Get details of a mode of sale category.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all mode of sale categories`
-	-	Long:  `Get all mode of sale categories.`
-
-    
-
-## Use: `ModeOfSaleOffers`
-### Variant: ``
-
-	-	Example: `{"ModeOfSaleOfferID":"string"}`
-	-	Short: `Get details of a mode of sale offer`
-	-	Long:  `Get details of a mode of sale offer.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"AsOfDateTime":"string", "ModeOfSaleID":"string", "PackageIds":"string", "PerformanceIds":"string"}`
-	-	Short: `Get all mode of sale offers`
-	-	Long:  `Get all mode of sale offers. The mode of sale id, performace ids, or package ids is required. Performance ids and package ids used together will return no results.`
-
-    
-
-## Use: `ModeOfSalePriceTypes`
-### Variant: ``
-
-	-	Example: `{"ModeOfSalePriceTypeID":"string"}`
-	-	Short: `Get details of a mode of sale price type`
-	-	Long:  `Get details of a mode of sale price type.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ModeOfSaleID":"string", "PriceTypeID":"string"}`
-	-	Short: `Get all mode of sale price types`
-	-	Long:  `Get all mode of sale price types.`
-
-    
-
-## Use: `ModeOfSaleSurveyQuestions`
-### Variant: ``
-
-	-	Example: `{"ModeOfSaleSurveyQuestionID":"string"}`
-	-	Short: `Get details of a mode of sale survey question`
-	-	Long:  `Get details of a mode of sale survey question.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ModeOfSaleID":"string"}`
-	-	Short: `Get all mode of sale survey questions`
-	-	Long:  `Get all mode of sale survey questions.`
-
-    
-
-## Use: `ModeOfSaleUserGroups`
-### Variant: ``
-
-	-	Example: `{"ModeOfSaleUserGroupID":"string"}`
-	-	Short: `Get the details of a mode of sale/user group mapping by id`
-	-	Long:  `Get the details of a mode of sale/user group mapping by id.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all mode of sale/user group mappings`
-	-	Long:  `Get all mode of sale/user group mappings.`
-
-    
-
-## Use: `ModesOfSale`
-### Variant: ``
-
-	-	Example: `{"ModeOfSaleID":"string"}`
-	-	Short: `Get details of an existing mode of sale`
-	-	Long:  `Get details of an existing mode of sale.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all modes of sale`
-	-	Long:  `Get all modes of sale.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get summary of all modes of sale`
-	-	Long:  `Get summary of all modes of sale.`
-
-    
-
-## Use: `NScanAccessAreas`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an NScan Access Area by id`
-	-	Long:  `Get the details of an NScan Access Area by id. To get the resource only if the user has write/edit access, pass filter="writeonly".. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get details of all NScan Access Areas`
-	-	Long:  `Get details of all NScan Access Areas. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all NScan Access Areas`
-	-	Long:  `Get a summary representation of all NScan Access Areas.`
-
-    
-
-## Use: `NameStatuses`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a name status by id`
-	-	Long:  `Get the details of a name status by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all name statuses`
-	-	Long:  `Get all name statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all name statuses`
-	-	Long:  `Get a summary representation of all name statuses.`
-
-    
-
-## Use: `ObjectPermissions`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get the details of an object permission by id`
-	-	Long:  `Get the details of an object permission by id.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all object permissions`
-	-	Long:  `Get all object permissions.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all object permissions`
-	-	Long:  `Get a summary representation of all object permissions.`
-
-    
-
-## Use: `OrderBilling`
-### Variant: `Reprint`
-
-	-	Example: `{"OrderBillingID":"string"}`
-	-	Short: `Reprint Order billing`
-	-	Long:  `Reprint Order billing`
-
-    
-### Variant: `Status`
-
-	-	Example: `{"OrderBillingID":"string"}`
-	-	Short: `Get status of a processing automated billing run`
-	-	Long:  `Get status of a processing automated billing run.`
-
-    
-
-## Use: `OrderCategories`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an order category by id`
-	-	Long:  `Get the details of an order category by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all order categories`
-	-	Long:  `Get all order categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all order categories`
-	-	Long:  `Get a summary representation of all order categories.`
-
-    
-
-## Use: `Orders`
-### Variant: `ProductsView`
-
-	-	Example: `{"OrderID":"string"}`
-	-	Short: `Get the details of an existing Order as the contract OrderProductsView`
-	-	Long:  `Get the details of an existing Order as the contract OrderProductsView, which mirrors the structure of the Cart response entity from GET Web/{sessionKey}/Cart. This resource can be used to fetch any saved order in this view. Order HTML templates use this response contract (OrdersProductsView) as the model within the template. Orders actively in a session/cart will not be available here until after checkout.`
-
-    
-
-## Use: `Organizations`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an organization by ID`
-	-	Long:  `Get the details of an organization by ID. To get the resource in maintenance mode (ignoring control groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all organizations`
-	-	Long:  `Get all organizations. To get the resources in maintenance mode (ignoring control groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all organizations`
-	-	Long:  `Get a summary representation of all organizations.`
-
-    
-
-## Use: `OriginalSources`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an original source by id`
-	-	Long:  `Get the details of an original source by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all original sources`
-	-	Long:  `Get all original sources. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all original sources`
-	-	Long:  `Get a summary representation of all original sources.`
-
-    
-
-## Use: `Origins`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an origin by id`
-	-	Long:  `Get the details of an origin by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all origins`
-	-	Long:  `Get all origins. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all origins`
-	-	Long:  `Get a summary representation of all origins.`
-
-    
-
-## Use: `OutputSets`
-### Variant: ``
-
-	-	Example: `{"OutputSetID":"string"}`
-	-	Short: `Get a single Output Set`
-	-	Long:  `Get a single Output Set.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"MineOnly":"string"}`
-	-	Short: `Get a summary of all Output Sets`
-	-	Long:  `Get a summary of all Output Sets.`
-
-    
-
-## Use: `PackageHistory`
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string", "OrderEndDate":"string", "OrderStartDate":"string", "PackageID":"string", "PackageTypeID":"string", "SeasonID":"string"}`
-	-	Short: `Gets history information for packages`
-	-	Long:  `Gets history information for packages`
-
-    
-
-## Use: `PackagePriceTypes`
-### Variant: ``
-
-	-	Example: `{"PackagePriceTypeID":"string"}`
-	-	Short: `Get details of a specific package price type`
-	-	Long:  `Get details of a specific package price type.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"PackageIds":"string"}`
-	-	Short: `Get all package price types`
-	-	Long:  `Get all package price types.`
-
-    
-
-## Use: `PackageTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a package type by id`
-	-	Long:  `Get the details of a package type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all package types`
-	-	Long:  `Get all package types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all package types`
-	-	Long:  `Get a summary representation of all package types.`
-
-    
-
-## Use: `PackageWebContents`
-### Variant: ``
-
-	-	Example: `{"PackageWebContentID":"string"}`
-	-	Short: `Get details of a packageWebContent`
-	-	Long:  `Get details of a packageWebContent.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ContentTypeIds":"string", "PackageIds":"string"}`
-	-	Short: `Get full package web contents for passed packageIds or contentTypeIds`
-	-	Long:  `Get full package web contents for passed packageIds or contentTypeIds.  At least on parameter value is required.  For production element web contents, use TXN/InventoryWebContents.  To filter based on useWebAPI flag on content type and other parameters, use Txn/WebContents. This is mainly used for PackageWebContent setup.`
-
-    
-### Variant: `AllSummaries`
-
-	-	Example: `{"ContentTypeIds":"string", "PackageIds":"string"}`
-	-	Short: `Get summary package web contents for passed packageIds and contentTypeIds`
-	-	Long:  `Get summary package web contents for passed packageIds and contentTypeIds.  At least on parameter value is required.  For production element web contents, use TXN/InventoryWebContents.  To filter based on useWebAPI flag on content type and other parameters, use Txn/WebContents. This is mainly used for PackageWebContent setup.`
-
-    
-
-## Use: `Packages`
-### Variant: ``
-
-	-	Example: `{"PackageID":"string"}`
-	-	Short: `Get details of a package`
-	-	Long:  `Get details of a package.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"SeasonID":"string"}`
-	-	Short: `Get all packages filtered by a selected season`
-	-	Long:  `Get all packages filtered by a selected season.`
-
-    
-### Variant: `PackageDetail`
-
-	-	Example: `{"AsOfDateTime":"string", "ModeOfSaleID":"string", "PackageID":"string", "PriceTypeID":"string", "SourceID":"string"}`
-	-	Short: `Gets detailed information about the package including sub packages and performance groups`
-	-	Long:  `Gets detailed information about the package including sub packages and performance groups.`
-
-    
-### Variant: `PerformanceGroupDetails`
-
-	-	Example: `{"AsOfDateTime":"string", "ModeOfSaleID":"string", "PackageID":"string", "PriceTypeID":"string", "SourceID":"string"}`
-	-	Short: `Get details of Performance Groups and their Performances for flex package selection`
-	-	Long:  `Get details of Performance Groups and their Performances for flex package selection.`
-
-    
-### Variant: `Prices`
-
-	-	Example: `{"AsOfDateTime":"string", "ExpandPerformancePriceType":"string", "IncludeOnlyBasePrice":"string", "ModeOfSaleID":"string", "PackageID":"string", "PerformanceIds":"string", "PriceTypeID":"string", "SourceID":"string"}`
-	-	Short: `Get the package and its pricing details`
-	-	Long:  `Get the package and its pricing details.
-Mode Of Sale and Price Type parameters can be used to filter the returned prices.`
-
-    
-### Variant: `SeatFees`
-
-	-	Example: `{"AsOfDateTime":"string", "ModeOfSaleID":"string", "PackageID":"string", "PriceTypeIds":"string"}`
-	-	Short: `Returns price`
-	-	Long:  `Returns price, per seat fees, for each zone and price type for the specified package.`
-
-    
-### Variant: `SeatSummaries`
-
-	-	Example: `{"CheckPriceTypeIds":"string", "ConstituentID":"string", "ModeOfSaleID":"string", "PackageID":"string", "ScreenIds":"string", "SectionIds":"string", "ZoneIds":"string"}`
-	-	Short: `Returns summary for seats in a package`
-	-	Long:  `Returns summary for seats in a package.
+Either constituentIds, useGeneralPublic, or address must be specified in request. For constituent electronic address, visible affiliation electronic addresses can be included with includeAffiliations=true. To exclude electronic addresses of the visible affiliations pass includeAffiliations=false. To retrieve only the primary electronic addresses, pass primaryOnly=true.
+```json
+Query: {"Address":"string", "ConstituentIds":"string", "ElectronicAddressTypeID":"string", "IncludeAffiliations":"string", "IncludeFromAffiliations":"string", "PrimaryOnly":"string", "UseGeneralPublic":"string"}
+```
+ * *--IsAttachedToLogin*  
+   Check if the specified electronic address is attached to a web login.
+```json
+Query: {"ElectronicAddressID":"string"}
+```
+
+## EmailProfiles ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#emailprofiles) [![put](https://img.shields.io/badge/put-blue)](put.md#emailprofiles)   
+Get the details of an email profile by id  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all email profiles
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get summary of all email profiles
+
+
+
+## EmarketIndicators ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#emarketindicators) [![put](https://img.shields.io/badge/put-blue)](put.md#emarketindicators)   
+Get the details of an emarket indicator by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all emarket indicators. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all emarket indicators.
+
+## Eras ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#eras) [![put](https://img.shields.io/badge/put-blue)](put.md#eras)   
+Get the details of an era by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all eras. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all eras.
+
+## EventControl ![get](https://img.shields.io/badge/get-gray)   
+Returns a response containing a list of EventControl rows for the N-Scan event control table.  
+```json
+Query: {"EndDate":"string", "StartDate":"string"}
+```
+
+	
+# F
+## Facilities ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#facilities) [![put](https://img.shields.io/badge/put-blue)](put.md#facilities)   
+Get details of a Facility.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the Facilities.
+ * *--Screens*  
+   Returns details of all screens and the HouseMap for the facility.  The screen details include which other screens are assigned to each screen navigation arrow button.
+```json
+Query: {"FacilityID":"string"}
+```
+ * *--Summaries*  
+   Get summary representation of all Facilities.
+
+## Fees ![get](https://img.shields.io/badge/get-gray)   
+Get details of a fee.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all fees.
+```json
+Query: {"FeeCategoryIds":"string", "SeasonID":"string", "UserDefined":"string"}
+```
+ * *--Summaries*  
+   Get summary representation of all fees.
+```json
+Query: {"FeeCategoryIds":"string", "SeasonID":"string", "UserDefined":"string"}
+```
+
+## FinanceContributions ![get](https://img.shields.io/badge/get-gray)   
+Get details of a contribution.  
+```json
+Query: {"ContributionID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the contributions for the specified plan.
+```json
+Query: {"PlanID":"string"}
+```
+
+## Formats ![get](https://img.shields.io/badge/get-gray)   
+Get the details of a format by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all formats. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all formats.
+
+## Funds ![get](https://img.shields.io/badge/get-gray)   
+Get details of a specific fund  
+```json
+Query: {"FundID":"string"}
+```
+### Flags:
+ * *--Summaries*  
+   Get summary of all funds.
+```json
+Query: {"TicketingIndicator":"string"}
+```
+
+	
+# G
+## GLAccounts ![get](https://img.shields.io/badge/get-gray)   
+Get the details of a gl account by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all gl accounts. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all gl accounts.
+
+## Genders ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#genders) [![put](https://img.shields.io/badge/put-blue)](put.md#genders)   
+Get the details of a gender by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all available gender values. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all gender values.
+
+## GiftAidContactMethods ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidcontactmethods) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaidcontactmethods)   
+Get the details of a gift aid contact method by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all gift aid contact methods. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all gift aid contact methods.
+
+## GiftAidDeclarations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaiddeclarations) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaiddeclarations)   
+Gets a single Gift Aid Declaration.  
+```json
+Query: {"GiftAidDeclarationID":"string"}
+```
+### Flags:
+ * *--All*  
+   Gets all Gift Aid Declarations for a provided constituent including primary affiliates by default.
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+
+## GiftAidDocumentStatuses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaiddocumentstatuses) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaiddocumentstatuses)   
+Get the details of a gift aid document status by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all gift aid document statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all gift aid document statuses.
+
+## GiftAidIneligibleReasons ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidineligiblereasons) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaidineligiblereasons)   
+Get the details of a gift aid ineligible reason by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all gift aid ineligible reasons. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all gift aid ineligible reasons.
+
+## GiftAidRates ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidrates) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaidrates)   
+Get the details of a gift aid rate by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all gift aid rates. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all gift aid rates.
+
+## GiftAidStatuses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidstatuses) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaidstatuses)   
+Get the details of a gift aid status by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all gift aid statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all gift aid statuses.
+
+## GiftAidTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidtypes) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaidtypes)   
+Get the details of a gift aid type by id.  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all gift aid types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all gift aid types.
+
+## GiftCertificates ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#giftcertificates)   
+Get details of a specific gift certificate.
+The original amount, amount used and balance are all returned.  Amounts applied to a current web session are included.  
+```json
+Query: {"GiftCertificateNumber":"string"}
+```
+
+	
+# H
+## HoldCodeCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#holdcodecategories) [![put](https://img.shields.io/badge/put-blue)](put.md#holdcodecategories)   
+Get the details of a Hold Code Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all Hold Code Categories. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all Hold Code Categories.
+
+## HoldCodeUserGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#holdcodeusergroups) [![put](https://img.shields.io/badge/put-blue)](put.md#holdcodeusergroups)   
+Get the details of a hold code/user group mapping by id.  
+```json
+Query: {"HoldCodeUserGroupID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all hold code/user group mappings.  Optional filter for a UserGroup or HoldCode.
+```json
+Query: {"HoldCode":"string", "UserGroup":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all hold code/user group mappings.  Optional filter for a UserGroup or HoldCode.
+```json
+Query: {"HoldCode":"string", "UserGroup":"string"}
+```
+ * *--Summary*  
+   Get summary representation of a hold code/user group mapping by id.
+```json
+Query: {"HoldCodeUserGroupID":"string"}
+```
+
+## HoldCodes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#holdcodes) [![put](https://img.shields.io/badge/put-blue)](put.md#holdcodes)   
+Get details of a Hold Code.  
+```json
+Query: {"HoldCodeID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all Hold Codes.
+
+	
+# I
+## InactiveReasons ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#inactivereasons) [![put](https://img.shields.io/badge/put-blue)](put.md#inactivereasons)   
+Get the details of an inactive reason by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all inactive reasons. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all inactive reasons.
+
+## IntegrationDefaults ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#integrationdefaults) [![put](https://img.shields.io/badge/put-blue)](put.md#integrationdefaults)   
+Get the details of an Integration Default by id.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all Integration Defaults. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+ * *--Summaries*  
+   Get a summary representation of all Integration Defaults.
+
+## Integrations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#integrations) [![put](https://img.shields.io/badge/put-blue)](put.md#integrations)   
+Get the details of an action type by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all action types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all action types.
+
+## InterestCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#interestcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#interestcategories)   
+Get the details of an interest category by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all interest categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all interest categories.
+
+## InterestTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#interesttypes) [![put](https://img.shields.io/badge/put-blue)](put.md#interesttypes)   
+Get the details of an interest type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all interest types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all interest types.
+
+## Interests ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#interests) [![put](https://img.shields.io/badge/put-blue)](put.md#interests)   
+Get details of an interest.  
+```json
+Query: {"InterestID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all the interests of the specified constituent id. To exclude attributes of the visible affiliations pass includeAffiliations=false. To filter the interests of specific categories pass comma separted values under categories.
+```json
+Query: {"CategoryIds":"string", "ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+
+## Internal ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#internal) [![put](https://img.shields.io/badge/put-blue)](put.md#internal)   
+Get details of an address and all the phones attached to it.  
+```json
+Query: {"AddressID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the addresses and the phones attached to them of the constituent id. To exclude addresses and the phones of the visible affiliations pass includeAffiliations=false.
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string", "IncludeFromAffiliations":"string"}
+```
+ * *--ConstituentMiniSnapshot*  
+   Get constituent details along with primary address, primary salutation, primary electronic address, primary &amp; general phones.
+```json
+Query: {"ConstituentID":"string"}
+```
+
+## InventoryContactPermissionTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#inventorycontactpermissiontypes) [![put](https://img.shields.io/badge/put-blue)](put.md#inventorycontactpermissiontypes)   
+Get details of an inventoryContactPermissionType.  
+```json
+Query: {"InventoryContactPermissionTypeID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the Contact Permission Types associated to Production Seasons.  Inventory Contact Permission Type is a mapping of a Contact Permission Type to a Production Season.
+```json
+Query: {"ProductionSeasonIds":"string"}
+```
+
+## InventoryWebContents ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#inventorywebcontents) [![put](https://img.shields.io/badge/put-blue)](put.md#inventorywebcontents)   
+Get details of an inventoryWebContent.  
+```json
+Query: {"InventoryWebContentID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the inventoryWebContents.
+```json
+Query: {"ContentTypeIds":"string", "ProductionElementIds":"string"}
+```
+ * *--AllSummaries*  
+   Get details of all the inventoryWebContents.
+```json
+Query: {"ContentTypeIds":"string", "ProductionElementIds":"string"}
+```
+
+## InvoiceBilling ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#invoicebilling)   
+Get status of a processing automated billing run.  
+```json
+Query: {"ID":"string"}
+```
+
+## Issues ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#issues) [![put](https://img.shields.io/badge/put-blue)](put.md#issues)   
+Get details of a customer issue.  
+```json
+Query: {"IssueID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all the details of all the issues for the specified constituent id. If you want to filter the issues based on date pass in the values for 'startDate' and 'endDate'. If you want to filter issues based on contact type, category, activity type, origin, performance number or package number pass in the corresponding values in comma separated values.
+```json
+Query: {"ActivityTypeIds":"string", "CategoryIds":"string", "ConstituentID":"string", "ContactTypeIds":"string", "EndDate":"string", "IncludeAffiliations":"string", "OriginIds":"string", "PackageIds":"string", "PerformanceIds":"string", "Resolved":"string", "StartDate":"string"}
+```
+
+	
+# K
+## KeywordCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#keywordcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#keywordcategories)   
+Get the details of a keyword category by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all keyword categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all keyword categories.
+
+## Keywords ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#keywords) [![put](https://img.shields.io/badge/put-blue)](put.md#keywords)   
+Get the details of a keyword by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all keywords. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--DataFor*  
+   Gets potential values for a Keyword as KeywordDataItems.
+```json
+Query: {"KeywordID":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all keywords.
+
+	
+# L
+## Languages ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#languages) [![put](https://img.shields.io/badge/put-blue)](put.md#languages)   
+Get the details of a language by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all languages. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all languages.
+
+## ListCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#listcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#listcategories)   
+Get the details of a list category by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all list categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all list categories.
+
+## Lists ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#lists) [![put](https://img.shields.io/badge/put-blue)](put.md#lists)   
+Get a single List without contents.  
+```json
+Query: {"ListID":"string"}
+```
+### Flags:
+ * *--Contents*  
+   Gets Constituent ids for the contents of a List.
+```json
+Query: {"ListID":"string"}
+```
+ * *--ContentsDetail*  
+   Gets Constituent details for the contents of a List.
+```json
+Query: {"ListID":"string"}
+```
+ * *--ListCriterionMatchReasons*  
+   Returns list criteria match reasons for a constituent in a list.
+```json
+Query: {"ConstituentID":"string", "ListID":"string"}
+```
+ * *--Summaries*  
+   Get a summary of all Lists.
+```json
+Query: {"ListIds":"string"}
+```
+
+## LoginTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#logintypes) [![put](https://img.shields.io/badge/put-blue)](put.md#logintypes)   
+Get the details of a login type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all login types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all login types.
+
+	
+# M
+## MachineSettings ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#machinesettings) [![put](https://img.shields.io/badge/put-blue)](put.md#machinesettings)   
+Get the details of a Machine Setting by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all Machine Settings. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all Machine Settings.
+
+## MailIndicators ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#mailindicators) [![put](https://img.shields.io/badge/put-blue)](put.md#mailindicators)   
+Get the details of a mail indicator by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all mail indicators. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all mail indicators.
+
+## MediaTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#mediatypes) [![put](https://img.shields.io/badge/put-blue)](put.md#mediatypes)   
+Get the details of a media type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all media types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all media types.
+
+## MembershipLevelCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#membershiplevelcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#membershiplevelcategories)   
+Get the details of a membership level category by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all membership level categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all membership level categories.
+
+## MembershipLevels ![get](https://img.shields.io/badge/get-gray)   
+Get a specific membership level.
+NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.  
+```json
+Query: {"MembershipLevelID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get a summary list of all membership levels. MembershipOrgId is required.
+NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.
+```json
+Query: {"MembershipOrgID":"string"}
+```
+ * *--Summaries*  
+   Get a list of membership levels. MembershipOrgId is required.
+NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.
+```json
+Query: {"MembershipOrgID":"string"}
+```
+
+## MembershipOrganizations ![get](https://img.shields.io/badge/get-gray)   
+Get a specific membership organization.
+NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get a list of all membership organizations.
+NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.
+ * *--Summaries*  
+   Get a list of all membership organizations in summary.
+NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.
+
+## MembershipStandings ![get](https://img.shields.io/badge/get-gray)   
+Get a specific MembershipStanding by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all Membership Standings.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all MembershipStandings.
+
+## Memberships ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#memberships)   
+Returns membership details for a constituent.
+NOTE: As part of the upcoming changes to membership functionality, this resource will change significantly in an upcoming major Tessitura release and likely break code that references it. Please make a note that code that references it will need to be revisited as part of that upgrade process.  
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string", "MembershipOrgIds":"string", "OnlyShowCurrent":"string", "OnlyShowDefault":"string"}
+```
+
+## MerchantReferences ![get](https://img.shields.io/badge/get-gray)   
+  
+```json
+Query: {"MerchantAccount":"string", "PaymentID":"string"}
+```
+
+## Merchants ![get](https://img.shields.io/badge/get-gray)   
+Retrieve Merchant List  
+```json
+Query: 
+```
+
+## ModeOfSaleCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsalecategories) [![put](https://img.shields.io/badge/put-blue)](put.md#modeofsalecategories)   
+Get details of a mode of sale category.  
+```json
+Query: {"ModeOfSaleCategoryID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all mode of sale categories.
+
+## ModeOfSaleOffers ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsaleoffers) [![put](https://img.shields.io/badge/put-blue)](put.md#modeofsaleoffers)   
+Get details of a mode of sale offer.  
+```json
+Query: {"ModeOfSaleOfferID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all mode of sale offers. The mode of sale id, performace ids, or package ids is required. Performance ids and package ids used together will return no results.
+```json
+Query: {"AsOfDateTime":"string", "ModeOfSaleID":"string", "PackageIds":"string", "PerformanceIds":"string"}
+```
+
+## ModeOfSalePriceTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsalepricetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#modeofsalepricetypes)   
+Get details of a mode of sale price type.  
+```json
+Query: {"ModeOfSalePriceTypeID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all mode of sale price types.
+```json
+Query: {"ModeOfSaleID":"string", "PriceTypeID":"string"}
+```
+
+## ModeOfSaleSurveyQuestions ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsalesurveyquestions) [![put](https://img.shields.io/badge/put-blue)](put.md#modeofsalesurveyquestions)   
+Get details of a mode of sale survey question.  
+```json
+Query: {"ModeOfSaleSurveyQuestionID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all mode of sale survey questions.
+```json
+Query: {"ModeOfSaleID":"string"}
+```
+
+## ModeOfSaleUserGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsaleusergroups) [![put](https://img.shields.io/badge/put-blue)](put.md#modeofsaleusergroups)   
+Get the details of a mode of sale/user group mapping by id.  
+```json
+Query: {"ModeOfSaleUserGroupID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all mode of sale/user group mappings.
+
+## ModesOfSale ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#modesofsale) [![put](https://img.shields.io/badge/put-blue)](put.md#modesofsale)   
+Get details of an existing mode of sale.  
+```json
+Query: {"ModeOfSaleID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all modes of sale.
+ * *--Summaries*  
+   Get summary of all modes of sale.
+
+	
+# N
+## NScanAccessAreas ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#nscanaccessareas) [![put](https://img.shields.io/badge/put-blue)](put.md#nscanaccessareas)   
+Get the details of an NScan Access Area by id. To get the resource only if the user has write/edit access, pass filter="writeonly".. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all NScan Access Areas. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all NScan Access Areas.
+
+## NameStatuses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#namestatuses) [![put](https://img.shields.io/badge/put-blue)](put.md#namestatuses)   
+Get the details of a name status by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all name statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all name statuses.
+
+	
+# O
+## ObjectPermissions ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#objectpermissions) [![put](https://img.shields.io/badge/put-blue)](put.md#objectpermissions)   
+Get the details of an object permission by id.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all object permissions.
+ * *--Summaries*  
+   Get a summary representation of all object permissions.
+
+## OrderBilling ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#orderbilling)   
+Reprint Order billing  
+```json
+Query: {"OrderBillingID":"string"}
+```
+### Flags:
+ * *--Status*  
+   Get status of a processing automated billing run.
+```json
+Query: {"OrderBillingID":"string"}
+```
+
+## OrderCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#ordercategories) [![put](https://img.shields.io/badge/put-blue)](put.md#ordercategories)   
+Get the details of an order category by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all order categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all order categories.
+
+## Orders ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#orders) [![put](https://img.shields.io/badge/put-blue)](put.md#orders)   
+Get the details of an existing Order as the contract OrderProductsView, which mirrors the structure of the Cart response entity from GET Web/{sessionKey}/Cart. This resource can be used to fetch any saved order in this view. Order HTML templates use this response contract (OrdersProductsView) as the model within the template. Orders actively in a session/cart will not be available here until after checkout.  
+```json
+Query: {"OrderID":"string"}
+```
+
+## Organizations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#organizations) [![put](https://img.shields.io/badge/put-blue)](put.md#organizations)   
+Get the details of an organization by ID. To get the resource in maintenance mode (ignoring control groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all organizations. To get the resources in maintenance mode (ignoring control groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all organizations.
+
+## OriginalSources ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#originalsources) [![put](https://img.shields.io/badge/put-blue)](put.md#originalsources)   
+Get the details of an original source by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all original sources. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all original sources.
+
+## Origins ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#origins) [![put](https://img.shields.io/badge/put-blue)](put.md#origins)   
+Get the details of an origin by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all origins. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all origins.
+
+## OutputSets ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#outputsets) [![put](https://img.shields.io/badge/put-blue)](put.md#outputsets)   
+Get a single Output Set.  
+```json
+Query: {"OutputSetID":"string"}
+```
+### Flags:
+ * *--Summaries*  
+   Get a summary of all Output Sets.
+```json
+Query: {"MineOnly":"string"}
+```
+
+	
+# P
+## PackageHistory ![get](https://img.shields.io/badge/get-gray)   
+Gets history information for packages  
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string", "OrderEndDate":"string", "OrderStartDate":"string", "PackageID":"string", "PackageTypeID":"string", "SeasonID":"string"}
+```
+
+## PackagePriceTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#packagepricetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#packagepricetypes)   
+Get details of a specific package price type.  
+```json
+Query: {"PackagePriceTypeID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all package price types.
+```json
+Query: {"PackageIds":"string"}
+```
+
+## PackageTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#packagetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#packagetypes)   
+Get the details of a package type by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all package types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all package types.
+
+## PackageWebContents ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#packagewebcontents) [![put](https://img.shields.io/badge/put-blue)](put.md#packagewebcontents)   
+Get details of a packageWebContent.  
+```json
+Query: {"PackageWebContentID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get full package web contents for passed packageIds or contentTypeIds.  At least on parameter value is required.  For production element web contents, use TXN/InventoryWebContents.  To filter based on useWebAPI flag on content type and other parameters, use Txn/WebContents. This is mainly used for PackageWebContent setup.
+```json
+Query: {"ContentTypeIds":"string", "PackageIds":"string"}
+```
+ * *--AllSummaries*  
+   Get summary package web contents for passed packageIds and contentTypeIds.  At least on parameter value is required.  For production element web contents, use TXN/InventoryWebContents.  To filter based on useWebAPI flag on content type and other parameters, use Txn/WebContents. This is mainly used for PackageWebContent setup.
+```json
+Query: {"ContentTypeIds":"string", "PackageIds":"string"}
+```
+
+## Packages ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#packages)   
+Get details of a package.  
+```json
+Query: {"PackageID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all packages filtered by a selected season.
+```json
+Query: {"SeasonID":"string"}
+```
+ * *--PackageDetail*  
+   Gets detailed information about the package including sub packages and performance groups.
+```json
+Query: {"AsOfDateTime":"string", "ModeOfSaleID":"string", "PackageID":"string", "PriceTypeID":"string", "SourceID":"string"}
+```
+ * *--PerformanceGroupDetails*  
+   Get details of Performance Groups and their Performances for flex package selection.
+```json
+Query: {"AsOfDateTime":"string", "ModeOfSaleID":"string", "PackageID":"string", "PriceTypeID":"string", "SourceID":"string"}
+```
+ * *--Prices*  
+   Get the package and its pricing details.
+Mode Of Sale and Price Type parameters can be used to filter the returned prices.
+```json
+Query: {"AsOfDateTime":"string", "ExpandPerformancePriceType":"string", "IncludeOnlyBasePrice":"string", "ModeOfSaleID":"string", "PackageID":"string", "PerformanceIds":"string", "PriceTypeID":"string", "SourceID":"string"}
+```
+ * *--SeatFees*  
+   Returns price, per seat fees, for each zone and price type for the specified package.
+```json
+Query: {"AsOfDateTime":"string", "ModeOfSaleID":"string", "PackageID":"string", "PriceTypeIds":"string"}
+```
+ * *--SeatSummaries*  
+   Returns summary for seats in a package.
 Seat availability is summarized by screen, section and zone.
 The seats returned can be filtered by screen, section, or price zone. Allocation is returned based on MOS and constituent.
-Available seats can be filtered by price type availability, causing any seats that are not available for the specified price types to be listed with a status of 5, Not In Allocation.`
-
-    
-### Variant: `Seats`
-
-	-	Example: `{"CheckPriceTypeIds":"string", "ConstituentID":"string", "ModeOfSaleID":"string", "PackageID":"string", "ReturnNonSeats":"string", "ScreenIds":"string", "SectionIds":"string", "ZoneIds":"string"}`
-	-	Short: `Returns details for seats in a fixed-seat package`
-	-	Long:  `Returns details for seats in a fixed-seat package.
+Available seats can be filtered by price type availability, causing any seats that are not available for the specified price types to be listed with a status of 5, Not In Allocation.
+```json
+Query: {"CheckPriceTypeIds":"string", "ConstituentID":"string", "ModeOfSaleID":"string", "PackageID":"string", "ScreenIds":"string", "SectionIds":"string", "ZoneIds":"string"}
+```
+ * *--Seats*  
+   Returns details for seats in a fixed-seat package.
 The seats returned can be filtered by screen, section, or price zone. Allocation is returned based on MOS and constituent.
-Available seats can be filtered by price type availability, causing any seats that are not available for the specified price types to be listed with a status of 5, Not In Allocation.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"SeasonID":"string"}`
-	-	Short: `Get summary of all packages filtered by a selected season`
-	-	Long:  `Get summary of all packages filtered by a selected season.`
-
-    
-
-## Use: `PaymentGatewayActivities`
-### Variant: ``
-
-	-	Example: `{"PaymentGatewayActivityID":"string"}`
-	-	Short: `Get a single Payment Gateway Activity`
-	-	Long:  `Get a single Payment Gateway Activity`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Retrieve all Payment Gateway Activity`
-	-	Long:  `Retrieve all Payment Gateway Activity`
-
-    
-
-## Use: `PaymentGatewayConfiguration`
-### Variant: `Configuration`
-
-	-	Example: ``
-	-	Short: `Retrieve Payment Gateway Configuration`
-	-	Long:  `Retrieve Payment Gateway Configuration`
-
-    
-
-## Use: `PaymentGatewayNotifications`
-### Variant: `AllNotificationEvents`
-
-	-	Example: `{"NotificationType":"string", "Reference":"string"}`
-	-	Short: `Get all notification events by reference`
-	-	Long:  `Get all notification events by reference.`
-
-    
-### Variant: `Check`
-
-	-	Example: `{"MerchantReference":"string", "SinceDateTime":"string"}`
-	-	Short: ``
-	-	Long:  ``
-
-    
-### Variant: `Notification`
-
-	-	Example: `{"MerchantReference":"string"}`
-	-	Short: `Retrieve notification events from Tessitura Merchant Services for a given merchant (PSP) reference`
-	-	Long:  `Retrieve notification events from Tessitura Merchant Services for a given merchant (PSP) reference.`
-
-    
-### Variant: `NotificationEvent`
-
-	-	Example: `{"NotificationEventID":"string"}`
-	-	Short: `Get notification event by Id`
-	-	Long:  `Get notification event by Id.`
-
-    
-
-## Use: `PaymentGatewayTransactionTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a Payment Gateway Transaction Type by id`
-	-	Long:  `Get the details of a Payment Gateway Transaction Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get details of all Payment Gateway Transaction Types`
-	-	Long:  `Get details of all Payment Gateway Transaction Types. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all Payment Gateway Transaction Types`
-	-	Long:  `Get a summary representation of all Payment Gateway Transaction Types.`
-
-    
-
-## Use: `PaymentHistory`
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "EndDate":"string", "IncludeAffiliates":"string", "Page":"string", "PageSize":"string", "PaymentTypeID":"string", "SortByDirection":"string", "SortByField":"string", "StartDate":"string", "TransactionID":"string"}`
-	-	Short: `Gets history information for payments by constituent`
-	-	Long:  `Gets history information for payments by constituent.`
-
-    
-
-## Use: `PaymentMethodGroups`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a payment method group by id`
-	-	Long:  `Get the details of a payment method group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all payment method groups`
-	-	Long:  `Get all payment method groups. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all payment method groups`
-	-	Long:  `Get a summary representation of all payment method groups.`
-
-    
-
-## Use: `PaymentMethodUserGroups`
-### Variant: ``
-
-	-	Example: `{"PaymentMethodUserGroupID":"string"}`
-	-	Short: `Get details of a payment method/user group mapping by id`
-	-	Long:  `Get details of a payment method/user group mapping by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Amount":"string", "MaintenanceMode":"string", "UserGroup":"string"}`
-	-	Short: `Get all payment method/user group mappings`
-	-	Long:  `Get all payment method/user group mappings. Optional filter on UserGroup, Amount and MaintenanceMode (which overrides the filter on UserGroup)`
-
-    
-
-## Use: `PaymentMethods`
-### Variant: ``
-
-	-	Example: `{"PaymentMethodID":"string"}`
-	-	Short: `Get details of a payment method`
-	-	Long:  `Get details of a payment method.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string", "PaymentTypeIds":"string"}`
-	-	Short: `Get all payment methods`
-	-	Long:  `Get all payment methods. This resource looks similar to referenceData resources, but is functionally different.  When maintenanceMode is false, control groups are considered when returning payment methods. The default for maintenanceMode is false. This endpoint should not generally be used for transaction based screens because it does not account for assigned payment methods based on user group security. For cart available payment methods, consider Security/PaymentMethods?amount={amount}.`
-
-    
-### Variant: `Check`
-
-	-	Example: `{"CardReaderTypeID":"string"}`
-	-	Short: `Check PaymentMethod setup for EMV or Hosted Payment charges`
-	-	Long:  `Check PaymentMethod setup for EMV or Hosted Payment charges.`
-
-    
-### Variant: `TranslateMnemonic`
-
-	-	Example: `{"CardReaderTypeID":"string", "Mnemonic":"string"}`
-	-	Short: `Translate a card mnemonic into the matching system PaymentMethod or the default fallback PaymentMethod for that CardReaderType`
-	-	Long:  `Translate a card mnemonic into the matching system PaymentMethod or the default fallback PaymentMethod for that CardReaderType`
-
-    
-
-## Use: `PaymentSignatures`
-### Variant: ``
-
-	-	Example: `{"PaymentSignatureID":"string"}`
-	-	Short: `Get details of a payment signature`
-	-	Long:  `Get details of a payment signature.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"PaymentID":"string"}`
-	-	Short: `Get all payment signatures`
-	-	Long:  `Get all payment signatures.`
-
-    
-
-## Use: `PaymentTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a payment type by id`
-	-	Long:  `Get the details of a payment type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all payment types`
-	-	Long:  `Get all payment types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all payment types`
-	-	Long:  `Get a summary representation of all payment types.`
-
-    
-
-## Use: `Payments`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get a single payment`
-	-	Long:  `Get a single payment.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ReferenceID":"string"}`
-	-	Short: `Get payments for a specified referenceId (order or contribution id)`
-	-	Long:  `Get payments for a specified referenceId (order or contribution id).`
-
-    
-### Variant: `AvailableForRefund`
-
-	-	Example: `{"OrderIdsOrContributionIds":"string"}`
-	-	Short: `Retrieve cc payments available for refund by processor reference number`
-	-	Long:  `Retrieve cc payments available for refund by processor reference number`
-
-    
-### Variant: `OnAccountBalances`
-
-	-	Example: `{"ConstituentID":"string", "PaymentMethodID":"string"}`
-	-	Short: `Gets a constituent's balance(s) for on-account payment methods`
-	-	Long:  `Gets a constituent's balance(s) for on-account payment methods`
-
-    
-
-## Use: `PerformanceGroups`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get details of a Performance Group`
-	-	Long:  `Get details of a Performance Group.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"SeasonID":"string"}`
-	-	Short: `Get all performance groups`
-	-	Long:  `Get all performance groups.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"SeasonID":"string"}`
-	-	Short: `Get a summary representation of all performance groups`
-	-	Long:  `Get a summary representation of all performance groups.`
-
-    
-
-## Use: `PerformancePackageModeOfSales`
-### Variant: ``
-
-	-	Example: `{"PerformancePackageModeOfSaleID":"string"}`
-	-	Short: `Get details of a performance package mode of sale`
-	-	Long:  `Get details of a performance package mode of sale.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"AsOfDateTime":"string", "ModeOfSaleID":"string", "PackageIds":"string", "PerformanceIds":"string"}`
-	-	Short: `Get all performance package mode of sales`
-	-	Long:  `Get all performance package mode of sales. This entity shows the Mode of Sale assignment to either a package or a performance.
-Filter using at least one parameter.  All parameters work to filter the result set collectively, so passing packageIds and performanceIds in the same request will retrieve no rows.`
-
-    
-
-## Use: `PerformancePriceLayers`
-### Variant: ``
-
-	-	Example: `{"AsOfDateTime":"string", "PerformancePriceLayerID":"string"}`
-	-	Short: `Get details of a performance price layer`
-	-	Long:  `Get details of a performance price layer.`
-
-    
-### Variant: `Counts`
-
-	-	Example: `{"PerformanceIds":"string"}`
-	-	Short: `Get count of performance price layers for a set of performances`
-	-	Long:  `Get count of performance price layers for a set of performances.`
-
-    
-### Variant: `PriceCount`
-
-	-	Example: `{"PerformanceIds":"string"}`
-	-	Short: `Gets the total count of price objects that will be collected when calling for the full price layer contract on these performanceIds`
-	-	Long:  `Gets the total count of price objects that will be collected when calling for the full price layer contract on these performanceIds.`
-
-    
-
-## Use: `PerformancePriceTypes`
-### Variant: ``
-
-	-	Example: `{"AsOfDateTime":"string", "PerformancePriceTypeID":"string"}`
-	-	Short: `Get details of a performance price type`
-	-	Long:  `Get details of a performance price type.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"AsOfDateTime":"string", "PerformanceIds":"string", "PriceTypeIds":"string"}`
-	-	Short: `Get all performance price type for the list of performances`
-	-	Long:  `Get all performance price type for the list of performances. (Pass comma separated list of performance Ids as parameter)`
-
-    
-
-## Use: `PerformancePrices`
-### Variant: ``
-
-	-	Example: `{"AsOfDateTime":"string", "PerformancePriceID":"string"}`
-	-	Short: `Get details of a performance price`
-	-	Long:  `Get details of a performance price.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"AsOfDateTime":"string", "PerformancePriceTypeIds":"string"}`
-	-	Short: `Get all performance prices for a set of performance price types`
-	-	Long:  `Get all performance prices for a set of performance price types. Pass in asOfDateTime to get prices effective for that date/time.`
-
-    
-### Variant: `AllWithEvents`
-
-	-	Example: `{"PerformancePriceIds":"string"}`
-	-	Short: `Get details of a set of performance prices along with events associated with those prices`
-	-	Long:  `Get details of a set of performance prices along with events associated with those prices.`
-
-    
-### Variant: `Audit`
-
-	-	Example: `{"PerformancePriceIds":"string"}`
-	-	Short: `Get the performance price audit entries for a set of performance prices`
-	-	Long:  `Get the performance price audit entries for a set of performance prices.`
-
-    
-
-## Use: `PerformanceStatuses`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a performance status by id`
-	-	Long:  `Get the details of a performance status by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all performance statuses`
-	-	Long:  `Get all performance statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all performance statuses`
-	-	Long:  `Get a summary representation of all performance statuses.`
-
-    
-
-## Use: `PerformanceTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a performance type by id`
-	-	Long:  `Get the details of a performance type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all performance types`
-	-	Long:  `Get all performance types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all performance types`
-	-	Long:  `Get a summary representation of all performance types.`
-
-    
-
-## Use: `Performances`
-### Variant: ``
-
-	-	Example: `{"PerformanceID":"string"}`
-	-	Short: `Get details of a performance`
-	-	Long:  `Get details of a performance.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"PerformanceIds":"string", "ProductionSeasonID":"string", "SeasonIds":"string"}`
-	-	Short: `Get performance detail information`
-	-	Long:  `Get performance detail information
-For single production season, a comma separated list of performances, seasons, or a single production season.  At least one filter parameter is required.`
-
-    
-### Variant: `AuditEntries`
-
-	-	Example: `{"Actions":"string", "Columns":"string", "EndDateTime":"string", "GreaterThanID":"string", "OrderByIDAsc":"string", "Page":"string", "PageSize":"string", "PerformanceIds":"string", "StartDateTime":"string", "Tables":"string"}`
-	-	Short: `Audit log entries for changes to Performance properties such as descriptions`
-	-	Long:  `Audit log entries for changes to Performance properties such as descriptions, publish dates, and the production season. This does not include sub performance/event setup items like pricing or modes of sale.`
-
-    
-### Variant: `PerformanceZoneAvailabilities`
-
-	-	Example: `{"PerformanceIds":"string", "SectionIds":"string"}`
-	-	Short: `Get performance zone availability for a set of performances`
-	-	Long:  `Get performance zone availability for a set of performances.  If sectionIds are specified only zones with
-matching sections will be returned and the SectionSummaries node will be populated.`
-
-    
-### Variant: `PerformanceZoneAvailabilityWithConstituent`
-
-	-	Example: `{"ConstituentID":"string", "ModeOfSaleID":"string", "PerformanceIds":"string"}`
-	-	Short: `Get performance zone availability for a set of performances`
-	-	Long:  `Get performance zone availability for a set of performances. If ConstituentId and MOS are provided, will also return availability based on allocations and constituent rank.`
-
-    
-### Variant: `Prices`
-
-	-	Example: `{"AsOfDateTime":"string", "ExpandPerformancePriceType":"string", "IncludeOnlyBasePrice":"string", "ModeOfSaleID":"string", "PerformanceIds":"string", "PriceTypeID":"string", "SourceID":"string"}`
-	-	Short: `Get pricing details for a set of performances`
-	-	Long:  `Get pricing details for a set of performances.
-Mode Of Sale and Price Type parameters can be used to filter the returned prices.`
-
-    
-### Variant: `SeatFees`
-
-	-	Example: `{"AsOfDateTime":"string", "ModeOfSaleID":"string", "PerformanceID":"string", "PriceTypeIds":"string"}`
-	-	Short: `Returns price`
-	-	Long:  `Returns price, per seat fees, for each zone and price type for a the specified performance`
-
-    
-### Variant: `SeatHoldDetails`
-
-	-	Example: `{"HoldCodeIds":"string", "IncludeAllHolds":"string", "PerformanceID":"string", "SeatIds":"string"}`
-	-	Short: `Get seat holds for a performance`
-	-	Long:  `Get seat holds for a performance`
-
-    
-### Variant: `SeatSummaries`
-
-	-	Example: `{"CheckPriceTypeIds":"string", "ConstituentID":"string", "ModeOfSaleID":"string", "PerformanceID":"string", "ScreenIds":"string", "SectionIds":"string", "ZoneIds":"string"}`
-	-	Short: `Returns summary for seats in a performance`
-	-	Long:  `Returns summary for seats in a performance
+Available seats can be filtered by price type availability, causing any seats that are not available for the specified price types to be listed with a status of 5, Not In Allocation.
+```json
+Query: {"CheckPriceTypeIds":"string", "ConstituentID":"string", "ModeOfSaleID":"string", "PackageID":"string", "ReturnNonSeats":"string", "ScreenIds":"string", "SectionIds":"string", "ZoneIds":"string"}
+```
+ * *--Summaries*  
+   Get summary of all packages filtered by a selected season.
+```json
+Query: {"SeasonID":"string"}
+```
+
+
+
+## PaymentGatewayActivities ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentgatewayactivities) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentgatewayactivities)   
+Get a single Payment Gateway Activity  
+```json
+Query: {"PaymentGatewayActivityID":"string"}
+```
+### Flags:
+ * *--All*  
+   Retrieve all Payment Gateway Activity
+
+## PaymentGatewayConfiguration ![get](https://img.shields.io/badge/get-gray)   
+Retrieve Payment Gateway Configuration  
+```json
+Query: 
+```
+
+
+## PaymentGatewayNotifications ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentgatewaynotifications) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentgatewaynotifications)   
+Get all notification events by reference.  
+```json
+Query: {"NotificationType":"string", "Reference":"string"}
+```
+### Flags:
+ * *--Check*  
+   
+```json
+Query: {"MerchantReference":"string", "SinceDateTime":"string"}
+```
+ * *--Notification*  
+   Retrieve notification events from Tessitura Merchant Services for a given merchant (PSP) reference.
+```json
+Query: {"MerchantReference":"string"}
+```
+ * *--NotificationEvent*  
+   Get notification event by Id.
+```json
+Query: {"NotificationEventID":"string"}
+```
+
+## PaymentGatewayTransactionTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentgatewaytransactiontypes) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentgatewaytransactiontypes)   
+Get the details of a Payment Gateway Transaction Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all Payment Gateway Transaction Types. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all Payment Gateway Transaction Types.
+
+## PaymentHistory ![get](https://img.shields.io/badge/get-gray)   
+Gets history information for payments by constituent.  
+```json
+Query: {"ConstituentID":"string", "EndDate":"string", "IncludeAffiliates":"string", "Page":"string", "PageSize":"string", "PaymentTypeID":"string", "SortByDirection":"string", "SortByField":"string", "StartDate":"string", "TransactionID":"string"}
+```
+
+## PaymentMethodGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentmethodgroups) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentmethodgroups)   
+Get the details of a payment method group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all payment method groups. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all payment method groups.
+
+## PaymentMethodUserGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentmethodusergroups) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentmethodusergroups)   
+Get details of a payment method/user group mapping by id.  
+```json
+Query: {"PaymentMethodUserGroupID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all payment method/user group mappings. Optional filter on UserGroup, Amount and MaintenanceMode (which overrides the filter on UserGroup)
+```json
+Query: {"Amount":"string", "MaintenanceMode":"string", "UserGroup":"string"}
+```
+
+## PaymentMethods ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentmethods) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentmethods)   
+Get details of a payment method.  
+```json
+Query: {"PaymentMethodID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all payment methods. This resource looks similar to referenceData resources, but is functionally different.  When maintenanceMode is false, control groups are considered when returning payment methods. The default for maintenanceMode is false. This endpoint should not generally be used for transaction based screens because it does not account for assigned payment methods based on user group security. For cart available payment methods, consider Security/PaymentMethods?amount={amount}.
+```json
+Query: {"MaintenanceMode":"string", "PaymentTypeIds":"string"}
+```
+ * *--Check*  
+   Check PaymentMethod setup for EMV or Hosted Payment charges.
+```json
+Query: {"CardReaderTypeID":"string"}
+```
+ * *--TranslateMnemonic*  
+   Translate a card mnemonic into the matching system PaymentMethod or the default fallback PaymentMethod for that CardReaderType
+```json
+Query: {"CardReaderTypeID":"string", "Mnemonic":"string"}
+```
+
+## PaymentSignatures ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentsignatures) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentsignatures)   
+Get details of a payment signature.  
+```json
+Query: {"PaymentSignatureID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all payment signatures.
+```json
+Query: {"PaymentID":"string"}
+```
+
+## PaymentTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#paymenttypes) [![put](https://img.shields.io/badge/put-blue)](put.md#paymenttypes)   
+Get the details of a payment type by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all payment types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all payment types.
+
+## Payments ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#payments)   
+Get a single payment.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get payments for a specified referenceId (order or contribution id).
+```json
+Query: {"ReferenceID":"string"}
+```
+ * *--AvailableForRefund*  
+   Retrieve cc payments available for refund by processor reference number
+```json
+Query: {"OrderIdsOrContributionIds":"string"}
+```
+ * *--OnAccountBalances*  
+   Gets a constituent's balance(s) for on-account payment methods
+```json
+Query: {"ConstituentID":"string", "PaymentMethodID":"string"}
+```
+
+## PerformanceGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#performancegroups) [![put](https://img.shields.io/badge/put-blue)](put.md#performancegroups)   
+Get details of a Performance Group.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all performance groups.
+```json
+Query: {"SeasonID":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all performance groups.
+```json
+Query: {"SeasonID":"string"}
+```
+
+## PerformancePackageModeOfSales ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#performancepackagemodeofsales) [![put](https://img.shields.io/badge/put-blue)](put.md#performancepackagemodeofsales)   
+Get details of a performance package mode of sale.  
+```json
+Query: {"PerformancePackageModeOfSaleID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all performance package mode of sales. This entity shows the Mode of Sale assignment to either a package or a performance.
+Filter using at least one parameter.  All parameters work to filter the result set collectively, so passing packageIds and performanceIds in the same request will retrieve no rows.
+```json
+Query: {"AsOfDateTime":"string", "ModeOfSaleID":"string", "PackageIds":"string", "PerformanceIds":"string"}
+```
+
+## PerformancePriceLayers ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#performancepricelayers) [![put](https://img.shields.io/badge/put-blue)](put.md#performancepricelayers)   
+Get details of a performance price layer.  
+```json
+Query: {"AsOfDateTime":"string", "PerformancePriceLayerID":"string"}
+```
+### Flags:
+ * *--Counts*  
+   Get count of performance price layers for a set of performances.
+```json
+Query: {"PerformanceIds":"string"}
+```
+ * *--PriceCount*  
+   Gets the total count of price objects that will be collected when calling for the full price layer contract on these performanceIds.
+```json
+Query: {"PerformanceIds":"string"}
+```
+
+## PerformancePriceTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#performancepricetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#performancepricetypes)   
+Get details of a performance price type.  
+```json
+Query: {"AsOfDateTime":"string", "PerformancePriceTypeID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all performance price type for the list of performances. (Pass comma separated list of performance Ids as parameter)
+```json
+Query: {"AsOfDateTime":"string", "PerformanceIds":"string", "PriceTypeIds":"string"}
+```
+
+## PerformancePrices ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#performanceprices) [![put](https://img.shields.io/badge/put-blue)](put.md#performanceprices)   
+Get details of a performance price.  
+```json
+Query: {"AsOfDateTime":"string", "PerformancePriceID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all performance prices for a set of performance price types. Pass in asOfDateTime to get prices effective for that date/time.
+```json
+Query: {"AsOfDateTime":"string", "PerformancePriceTypeIds":"string"}
+```
+ * *--AllWithEvents*  
+   Get details of a set of performance prices along with events associated with those prices.
+```json
+Query: {"PerformancePriceIds":"string"}
+```
+ * *--Audit*  
+   Get the performance price audit entries for a set of performance prices.
+```json
+Query: {"PerformancePriceIds":"string"}
+```
+
+## PerformanceStatuses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#performancestatuses) [![put](https://img.shields.io/badge/put-blue)](put.md#performancestatuses)   
+Get the details of a performance status by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all performance statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all performance statuses.
+
+## PerformanceTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#performancetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#performancetypes)   
+Get the details of a performance type by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all performance types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all performance types.
+
+## Performances ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#performances) [![put](https://img.shields.io/badge/put-blue)](put.md#performances)   
+Get details of a performance.  
+```json
+Query: {"PerformanceID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get performance detail information
+For single production season, a comma separated list of performances, seasons, or a single production season.  At least one filter parameter is required.
+```json
+Query: {"PerformanceIds":"string", "ProductionSeasonID":"string", "SeasonIds":"string"}
+```
+ * *--AuditEntries*  
+   Audit log entries for changes to Performance properties such as descriptions, publish dates, and the production season. This does not include sub performance/event setup items like pricing or modes of sale.
+```json
+Query: {"Actions":"string", "Columns":"string", "EndDateTime":"string", "GreaterThanID":"string", "OrderByIDAsc":"string", "Page":"string", "PageSize":"string", "PerformanceIds":"string", "StartDateTime":"string", "Tables":"string"}
+```
+ * *--PerformanceZoneAvailabilities*  
+   Get performance zone availability for a set of performances.  If sectionIds are specified only zones with
+matching sections will be returned and the SectionSummaries node will be populated.
+```json
+Query: {"PerformanceIds":"string", "SectionIds":"string"}
+```
+ * *--PerformanceZoneAvailabilityWithConstituent*  
+   Get performance zone availability for a set of performances. If ConstituentId and MOS are provided, will also return availability based on allocations and constituent rank.
+```json
+Query: {"ConstituentID":"string", "ModeOfSaleID":"string", "PerformanceIds":"string"}
+```
+ * *--Prices*  
+   Get pricing details for a set of performances.
+Mode Of Sale and Price Type parameters can be used to filter the returned prices.
+```json
+Query: {"AsOfDateTime":"string", "ExpandPerformancePriceType":"string", "IncludeOnlyBasePrice":"string", "ModeOfSaleID":"string", "PerformanceIds":"string", "PriceTypeID":"string", "SourceID":"string"}
+```
+ * *--SeatFees*  
+   Returns price, per seat fees, for each zone and price type for a the specified performance
+```json
+Query: {"AsOfDateTime":"string", "ModeOfSaleID":"string", "PerformanceID":"string", "PriceTypeIds":"string"}
+```
+ * *--SeatHoldDetails*  
+   Get seat holds for a performance
+```json
+Query: {"HoldCodeIds":"string", "IncludeAllHolds":"string", "PerformanceID":"string", "SeatIds":"string"}
+```
+ * *--SeatSummaries*  
+   Returns summary for seats in a performance
 Seat availability is summarized by screen, section and zone.
 The seats returned can be filtered by screen, section, or price zone. Allocation is returned based on MOS and constituent.
-Available seats can be filtered by price type availability, causing any seats that are not available for the specified price types to be listed with a status of 5, Not In Allocation.`
-
-    
-### Variant: `Seats`
-
-	-	Example: `{"CheckPriceTypeIds":"string", "ConstituentID":"string", "ModeOfSaleID":"string", "PerformanceID":"string", "ReturnNonSeats":"string", "ScreenIds":"string", "SectionIds":"string", "ZoneIds":"string"}`
-	-	Short: `Returns details for seats in a performance`
-	-	Long:  `Returns details for seats in a performance
+Available seats can be filtered by price type availability, causing any seats that are not available for the specified price types to be listed with a status of 5, Not In Allocation.
+```json
+Query: {"CheckPriceTypeIds":"string", "ConstituentID":"string", "ModeOfSaleID":"string", "PerformanceID":"string", "ScreenIds":"string", "SectionIds":"string", "ZoneIds":"string"}
+```
+ * *--Seats*  
+   Returns details for seats in a performance
 The seats returned can be filtered by screen, section, or price zone. Allocation is returned based on MOS and constituent.
-Available seats can be filtered by price type availability, causing any seats that are not available for the specified price types to be listed with a status of 5, Not In Allocation.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"PerformanceIds":"string", "ProductionSeasonID":"string", "SeasonIds":"string"}`
-	-	Short: `Get Summary performance information`
-	-	Long:  `Get Summary performance information
-For single production season, a comma separated list of performances, seasons, or a single production season. At least one filter parameter is required.`
-
-    
-
-## Use: `Philanthropy`
-### Variant: ``
-
-	-	Example: `{"PhilanthropyEntryID":"string"}`
-	-	Short: `Get details of an philanthropyEntry`
-	-	Long:  `Get details of an philanthropyEntry.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get details of all the philanthropyEntries for the specified constituent id and all its visible affiliation's philanthropyEntries as well`
-	-	Long:  `Get details of all the philanthropyEntries for the specified constituent id and all its visible affiliation's philanthropyEntries as well. To exclude philanthropyEntries of the visible affiliations pass includeAffiliations=false.`
-
-    
-
-## Use: `PhilanthropyTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of philosophy type by id`
-	-	Long:  `Get the details of philosophy type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all philosophy types`
-	-	Long:  `Get all philosophy types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all philosophy types`
-	-	Long:  `Get a summary representation of all philosophy types.`
-
-    
-
-## Use: `PhoneIndicators`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a phone indicator by id`
-	-	Long:  `Get the details of a phone indicator by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all phone indicators`
-	-	Long:  `Get all phone indicators. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all phone indicators`
-	-	Long:  `Get a summary representation of all phone indicators.`
-
-    
-
-## Use: `PhoneTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a phone type by id`
-	-	Long:  `Get the details of a phone type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all phone types`
-	-	Long:  `Get all phone types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all phone types`
-	-	Long:  `Get a summary representation of all phone types.`
-
-    
-
-## Use: `Phones`
-### Variant: ``
-
-	-	Example: `{"PhoneID":"string"}`
-	-	Short: `Get details of a phone`
-	-	Long:  `Get details of a phone.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"AddressID":"string", "ConstituentID":"string", "IncludeAffiliations":"string", "PrimaryOnly":"string"}`
-	-	Short: `Get details of all the phones for the specified constituent (constituentId) and all its visible affiliation's phones as well or address (addressId)`
-	-	Long:  `Get details of all the phones for the specified constituent (constituentId) and all its visible affiliation's phones as well or address (addressId). To exclude phones of the visible affiliations pass includeAffiliations=false. If addressId is passed, constituentId or includeAffiliations parameters are ignored. To Get the phones attached to the primary address pass primary=true.`
-
-    
-
-## Use: `PlanPriorities`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a plan priority by id`
-	-	Long:  `Get the details of a plan priority by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all plan priorities`
-	-	Long:  `Get all plan priorities. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all plan priorities`
-	-	Long:  `Get a summary representation of all plan priorities.`
-
-    
-
-## Use: `PlanSources`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a plan source by id`
-	-	Long:  `Get the details of a plan source by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all plan sources`
-	-	Long:  `Get all plan sources. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all plan sources`
-	-	Long:  `Get a summary representation of all plan sources.`
-
-    
-
-## Use: `PlanStatuses`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a plan status by id`
-	-	Long:  `Get the details of a plan status by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all plan statuses`
-	-	Long:  `Get all plan statuses. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all plan statuses`
-	-	Long:  `Get a summary representation of all plan statuses.`
-
-    
-
-## Use: `PlanTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a plan type by id`
-	-	Long:  `Get the details of a plan type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all plan types`
-	-	Long:  `Get all plan types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all plan types`
-	-	Long:  `Get a summary representation of all plan types.`
-
-    
-
-## Use: `PlanWorkers`
-### Variant: ``
-
-	-	Example: `{"PlanWorkerID":"string"}`
-	-	Short: `Get details of a plan worker`
-	-	Long:  `Get details of a plan worker.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"PlanID":"string"}`
-	-	Short: `Get details of all the plan workers for the specified constituent`
-	-	Long:  `Get details of all the plan workers for the specified constituent.`
-
-    
-
-## Use: `Plans`
-### Variant: ``
-
-	-	Example: `{"PlanID":"string"}`
-	-	Short: `Get details of a plan`
-	-	Long:  `Get details of a plan.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"CampaignID":"string", "ConstituentID":"string", "ContributionDesignationID":"string", "FundID":"string", "IncludeAffiliations":"string", "IncludeAssociates":"string", "ListID":"string", "OnlyNullFund":"string", "WorkerID":"string"}`
-	-	Short: `Get details of all the plans for the specified constituent`
-	-	Long:  `Get details of all the plans for the specified constituent, campaign, worker or fund.`
-
-    
-
-## Use: `PledgeBilling`
-### Variant: `Status`
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get status of a pledge billing run`
-	-	Long:  `Get status of a pledge billing run. Job is finished processing when IsCompleted is true.  Only billing runs using automated billing will be running after the response from a POST to Txn/PledgeBilling.`
-
-    
-
-## Use: `PortfolioCustomElements`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a portfolio custom element by id`
-	-	Long:  `Get the details of a portfolio custom element by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all portfolio custom elements`
-	-	Long:  `Get all portfolio custom elements. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all portfolio custom elements`
-	-	Long:  `Get a summary representation of all portfolio custom elements.`
-
-    
-
-## Use: `Portfolios`
-### Variant: ``
-
-	-	Example: `{"ConstituentID":"string", "Page":"string", "PageSize":"string", "PlanCustomColumns":"string", "PortfolioCustomColumns":"string", "PrimaryOnly":"string", "StatusIds":"string", "WorkerRoleIds":"string"}`
-	-	Short: `Get portfolio for a constituent`
-	-	Long:  `Get portfolio for a constituent.`
-
-    
-### Variant: `PortfolioEntry`
-
-	-	Example: `{"PlanID":"string"}`
-	-	Short: `Get details of a portfolio entry for a plan`
-	-	Long:  `Get details of a portfolio entry for a plan.`
-
-    
-
-## Use: `Prefixes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a prefix by id`
-	-	Long:  `Get the details of a prefix by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all prefixes`
-	-	Long:  `Get all prefixes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all prefixes`
-	-	Long:  `Get a summary representation of all prefixes.`
-
-    
-
-## Use: `Premieres`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a premiere by id`
-	-	Long:  `Get the details of a premiere by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all premieres`
-	-	Long:  `Get all premieres. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all premieres`
-	-	Long:  `Get a summary representation of all premieres.`
-
-    
-
-## Use: `PriceCategories`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a price category by id`
-	-	Long:  `Get the details of a price category by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all price categories`
-	-	Long:  `Get all price categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all price categories`
-	-	Long:  `Get a summary representation of all price categories.`
-
-    
-
-## Use: `PriceEvents`
-### Variant: ``
-
-	-	Example: `{"PriceEventID":"string"}`
-	-	Short: `Get details of a price event`
-	-	Long:  `Get details of a price event.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"FromDate":"string", "PerformanceIds":"string", "PerformancePriceIds":"string", "PerformancePriceLayerIds":"string", "PerformancePriceTypeIds":"string", "ToDate":"string"}`
-	-	Short: `Get all price events for a performance`
-	-	Long:  `Get all price events for a performance, performance price type or performance price detail. From and To Date parameters can be used to filter the events. If both are specified, then events between those dates would be returned. If only fromDate is specified then all events with a startDate greater than that date would be returned. If only toDate is specified then all events with a startDate less than that date would be returned.`
-
-    
-### Variant: `Dates`
-
-	-	Example: `{"PerformanceIds":"string"}`
-	-	Short: `Gets a distinct set of dates that contain events for the given list of performances`
-	-	Long:  `Gets a distinct set of dates that contain events for the given list of performances.`
-
-    
-
-## Use: `PriceLayerTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a price layer type by id`
-	-	Long:  `Get the details of a price layer type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all price layer types`
-	-	Long:  `Get all price layer types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all price layer types`
-	-	Long:  `Get a summary representation of all price layer types.`
-
-    
-
-## Use: `PriceTemplates`
-### Variant: ``
-
-	-	Example: `{"PriceTemplateID":"string"}`
-	-	Short: `Get details of a price template`
-	-	Long:  `Get details of a price template.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"FacilityID":"string", "ZoneMapID":"string"}`
-	-	Short: `Get all price templates`
-	-	Long:  `Get all price templates. Optionally filtered by zoneMap and/or facility.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"FacilityID":"string", "ZoneMapID":"string"}`
-	-	Short: `Get summary of all price templates`
-	-	Long:  `Get summary of all price templates. Optionally filtered by zoneMap and/or facility.`
-
-    
-
-## Use: `PriceTypeCategories`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a price type category by id`
-	-	Long:  `Get the details of a price type category by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all price type categories`
-	-	Long:  `Get all price type categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all price type categories`
-	-	Long:  `Get a summary representation of all price type categories.`
-
-    
-
-## Use: `PriceTypeGroups`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a price type group by id`
-	-	Long:  `Get the details of a price type group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all price type groups`
-	-	Long:  `Get all price type groups. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all price type groups`
-	-	Long:  `Get a summary representation of all price type groups.`
-
-    
-
-## Use: `PriceTypeReasons`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a price type reason by id`
-	-	Long:  `Get the details of a price type reason by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all price type reasons`
-	-	Long:  `Get all price type reasons. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all price type categories`
-	-	Long:  `Get a summary representation of all price type categories.`
-
-    
-
-## Use: `PriceTypeUserGroups`
-### Variant: ``
-
-	-	Example: `{"PriceTypeUserGroupID":"string"}`
-	-	Short: `Get details of a price type/user group mapping by id`
-	-	Long:  `Get details of a price type/user group mapping by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"PriceTypeID":"string", "UserGroup":"string"}`
-	-	Short: `Get all price type/user group mappings`
-	-	Long:  `Get all price type/user group mappings.  Optional filter on UserGroup and PriceType.`
-
-    
-
-## Use: `PriceTypes`
-### Variant: ``
-
-	-	Example: `{"PriceTypeID":"string"}`
-	-	Short: `Get details of a price type`
-	-	Long:  `Get details of a price type.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all price types`
-	-	Long:  `Get all price types.`
-
-    
-### Variant: `Reasons`
-
-	-	Example: `{"PriceTypeID":"string"}`
-	-	Short: `Gets valid price type reasons for the specified price type`
-	-	Long:  `Gets valid price type reasons for the specified price type`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get summary of all price types`
-	-	Long:  `Get summary of all price types.`
-
-    
-### Variant: `ValidPriceTypes`
-
-	-	Example: `{"ModeOfSaleID":"string", "OrderDateTime":"string", "PackageID":"string", "PerformanceIds":"string", "SourceID":"string"}`
-	-	Short: `Get all valid price types for a performance/package and a mode of sale`
-	-	Long:  `Get all valid price types for a performance/package and a mode of sale. A comma separated list of performance ids can be specified for a flex package.`
-
-    
-### Variant: `ValidZones`
-
-	-	Example: `{"OrderDateTime":"string", "PackageID":"string", "PerformanceID":"string", "PriceTypeID":"string"}`
-	-	Short: `Get valid zones for a set of performances or packages`
-	-	Long:  `Get valid zones for a set of performances or packages.`
-
-    
-
-## Use: `PricingRuleCategories`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a pricing rule category by id`
-	-	Long:  `Get the details of a pricing rule category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all pricing rule categories`
-	-	Long:  `Get all pricing rule categories. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all pricing rule categories`
-	-	Long:  `Get a summary representation of all pricing rule categories.`
-
-    
-
-## Use: `PricingRuleMessageTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a pricing rule message type by id`
-	-	Long:  `Get the details of a pricing rule message type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all pricing rule message types`
-	-	Long:  `Get all pricing rule message types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all pricing rule message types`
-	-	Long:  `Get a summary representation of all pricing rule message types.`
-
-    
-
-## Use: `PricingRuleSets`
-### Variant: ``
-
-	-	Example: `{"PricingRuleSetID":"string"}`
-	-	Short: `Get details of a pricing rule set`
-	-	Long:  `Get details of a pricing rule set.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all pricing rule sets`
-	-	Long:  `Get all pricing rule sets.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary of all pricing rule sets`
-	-	Long:  `Get a summary of all pricing rule sets.`
-
-    
-
-## Use: `PricingRuleTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a pricing rule type by id`
-	-	Long:  `Get the details of a pricing rule type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all pricing rule types`
-	-	Long:  `Get all pricing rule types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all pricing rule types`
-	-	Long:  `Get a summary representation of all pricing rule types.`
-
-    
-
-## Use: `PricingRules`
-### Variant: ``
-
-	-	Example: `{"PricingRuleID":"string"}`
-	-	Short: `Get details of a pricing rule`
-	-	Long:  `Get details of a pricing rule.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ModeOfSaleID":"string", "OrderDate":"string", "PackageIds":"string", "PerformanceIds":"string"}`
-	-	Short: `Gets all pricing rules or filtered set`
-	-	Long:  `Gets all pricing rules or filtered set`
-
-    
-### Variant: `AllSummary`
-
-	-	Example: ``
-	-	Short: `Get a summary of all pricing rules`
-	-	Long:  `Get a summary of all pricing rules.`
-
-    
-
-## Use: `Printers`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a printer by id`
-	-	Long:  `Get the details of a printer by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all printers`
-	-	Long:  `Get all printers. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all printers`
-	-	Long:  `Get a summary representation of all printers.`
-
-    
-
-## Use: `ProductKeywords`
-### Variant: `Keywords`
-
-	-	Example: `{"KeywordIds":"string", "PackageIds":"string", "ProductionElementIds":"string", "ShowAll":"string"}`
-	-	Short: `Returns keywords for the requested production elements or packages`
-	-	Long:  `Returns keywords for the requested production elements or packages.
-
-For Production Elements: If the keyword is found, returns the keyword and the lowest level at which it was found in the production hierarchy (Title, Production, Production Season, Performance) for the requested element. Optionally, all matching keywords anywhere above the requested element in the production hierarchy can be returned with the ShowAll parameter.`
-
-    
-
-## Use: `ProductionSeasonMembershipOrganizations`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get details of a specific production season membership organization`
-	-	Long:  `Get details of a specific production season membership organization.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ProductionSeasonID":"string"}`
-	-	Short: `Get all production season membership organizations for a production season`
-	-	Long:  `Get all production season membership organizations for a production season.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"ProductionSeasonID":"string"}`
-	-	Short: `Get a summary of all production season membership organizations for a production season`
-	-	Long:  `Get a summary of all production season membership organizations for a production season.`
-
-    
-
-## Use: `ProductionSeasons`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get details of a specific production season`
-	-	Long:  `Get details of a specific production season.
-Returns the full details for a single production season, including description and short description, season, first and last performance date, and the four ticket text lines.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Ids":"string", "ProductionIds":"string", "SeasonIds":"string"}`
-	-	Short: `Get production season details`
-	-	Long:  `Get production season details.
-Returns the full details for multiple production seasons (based on a string of production IDs or season IDs), including description and short description, season, first and last performance date, and the four ticket text lines.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"Ids":"string", "ProductionIds":"string", "SeasonIds":"string"}`
-	-	Short: `Get production season summaries`
-	-	Long:  `Get production season summaries.
-Returns the production season summary (description, ID, and related production and season summaries) for all production seasons, all production seasons of a string of specific productions, or all production seasons in a string of specified seasons.`
-
-    
-
-## Use: `Productions`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get details of a specific production`
-	-	Long:  `Get details of a specific production.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"TitleIds":"string"}`
-	-	Short: `Get all productions`
-	-	Long:  `Get all productions, Optionally filtered by one or more titles.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"TitleIds":"string"}`
-	-	Short: `Get all production summaries`
-	-	Long:  `Get all production summaries, Optionally filtered by one or more titles.`
-
-    
-
-## Use: `ProgramListings`
-### Variant: ``
-
-	-	Example: `{"ProgramListingID":"string"}`
-	-	Short: `Get details of a program listing`
-	-	Long:  `Get details of a program listing.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get details of all the program listings for the specified constituent id and all its visible affiliation's program listings as well`
-	-	Long:  `Get details of all the program listings for the specified constituent id and all its visible affiliation's program listings as well. To exclude program listings of the visible affiliations pass includeAffiliations=false. To Get The primary program listings alone, pass primaryOnly=true.`
-
-    
-
-## Use: `Programs`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a program by id`
-	-	Long:  `Get the details of a program by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all programs`
-	-	Long:  `Get all programs. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all programs`
-	-	Long:  `Get a summary representation of all programs.`
-
-    
-
-## Use: `Pronouns`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: ``
-	-	Long:  ``
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: ``
-	-	Long:  ``
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: ``
-	-	Long:  ``
-
-    
-
-## Use: `QualificationCategories`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a Qualification Category by id`
-	-	Long:  `Get the details of a Qualification Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of all Qualification Categories`
-	-	Long:  `Get the details of all Qualification Categories. To get the resources only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all Qualification Categories`
-	-	Long:  `Get a summary representation of all Qualification Categories.`
-
-    
-
-## Use: `Qualifications`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a Qualification by id`
-	-	Long:  `Get the details of a Qualification by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all Qualifications`
-	-	Long:  `Get all Qualifications. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).S`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all Qualifications`
-	-	Long:  `Get a summary representation of all Qualifications.`
-
-    
-
-## Use: `QueryElementFilters`
-### Variant: ``
-
-	-	Example: `{"QueryElementFilterID":"string"}`
-	-	Short: `Get a specific query element filter`
-	-	Long:  `Get a specific query element filter.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"GroupIds":"string"}`
-	-	Short: `Get available query element filters for one or more query element groups`
-	-	Long:  `Get available query element filters for one or more query element groups.`
-
-    
-### Variant: `DataFor`
-
-	-	Example: `{"QueryElementFilterID":"string"}`
-	-	Short: `Get values for a query element filter`
-	-	Long:  `Get values for a query element filter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"GroupIds":"string"}`
-	-	Short: `Get summary of query element filters for one or more query element groups`
-	-	Long:  `Get summary of query element filters for one or more query element groups.`
-
-    
-
-## Use: `QueryElementGroups`
-### Variant: ``
-
-	-	Example: `{"QueryElementGroupID":"string"}`
-	-	Short: `Get the details of a query element group by id`
-	-	Long:  `Get the details of a query element group by id.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all query element groups`
-	-	Long:  `Get all query element groups.`
-
-    
-
-## Use: `QueryElements`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get details of a query element by id`
-	-	Long:  `Get details of a query element by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ActiveOnly":"string", "GroupIds":"string"}`
-	-	Short: `Get a list of query elements optionally filtered by one or more GroupIds or if they're active only`
-	-	Long:  `Get a list of query elements optionally filtered by one or more GroupIds or if they're active only.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"ActiveOnly":"string", "GroupIds":"string"}`
-	-	Short: `Get a list of query elements in summary optionally filtered by one or more GroupIds or if they're active only`
-	-	Long:  `Get a list of query elements in summary optionally filtered by one or more GroupIds or if they're active only.`
-
-    
-
-## Use: `RankTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a rank type by id`
-	-	Long:  `Get the details of a rank type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all rank types`
-	-	Long:  `Get all rank types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all rank types`
-	-	Long:  `Get a summary representation of all rank types.`
-
-    
-
-## Use: `Rankings`
-### Variant: ``
-
-	-	Example: `{"RankingID":"string"}`
-	-	Short: `Get details of a ranking`
-	-	Long:  `Get details of a ranking.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get details of all the rankings for the specified constituent id and all its visible affiliation's rankings as well`
-	-	Long:  `Get details of all the rankings for the specified constituent id and all its visible affiliation's rankings as well. To exclude rankings of the visible affiliations pass includeAffiliations=false. To Get The primary rankings alone, pass primaryOnly=true.`
-
-    
-
-## Use: `ReceiptSettings`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a Receipt Setting by id`
-	-	Long:  `Get the details of a Receipt Setting by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all Receipt Settings`
-	-	Long:  `Get all Receipt Settings. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all Receipt Settings`
-	-	Long:  `Get a summary representation of all Receipt Settings.`
-
-    
-
-## Use: `ReferenceColumns`
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all reference columns`
-	-	Long:  `Get all reference columns. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all reference columns`
-	-	Long:  `Get a summary representation of all reference columns.`
-
-    
-
-## Use: `ReferenceTableUserGroups`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get the details of a reference table/user group mapping by id`
-	-	Long:  `Get the details of a reference table/user group mapping by id.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all the reference table/user group mappings`
-	-	Long:  `Get all the reference table/user group mappings.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all reference table/user group mappings`
-	-	Long:  `Get a summary representation of all reference table/user group mappings.`
-
-    
-
-## Use: `ReferenceTables`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get details for a reference table by Id`
-	-	Long:  `Get details for a reference table by Id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all reference tables`
-	-	Long:  `Get all reference tables. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all reference tables`
-	-	Long:  `Get a summary representation of all reference tables.`
-
-    
-
-## Use: `RelationshipCategories`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a relationship category by id`
-	-	Long:  `Get the details of a relationship category by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all relationship categories`
-	-	Long:  `Get all relationship categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all relationship categories`
-	-	Long:  `Get a summary representation of all relationship categories.`
-
-    
-
-## Use: `Relationships`
-### Variant: `All`
-
-	-	Example: `{"ActiveOnly":"string", "AssociatedConstituentID":"string", "ConstituentID":"string", "EndActiveDate":"string", "IncludeAffiliations":"string", "StartActiveDate":"string"}`
-	-	Short: `Get all affiliations and associations of the specified constituent id or get all affiliations and associations of the specified associated constituent id`
-	-	Long:  `Get all affiliations and associations of the specified constituent id or get all affiliations and associations of the specified associated constituent id. If both are specified get all the associations and affiliations between them.`
-
-    
-
-## Use: `ReportRequests`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get a report request`
-	-	Long:  `Get a report request.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ActiveOnly":"string"}`
-	-	Short: `Get all requests`
-	-	Long:  `Get all requests, optionally filtered by active requests only.`
-
-    
-### Variant: `AllExpired`
-
-	-	Example: `{"AsOfDateTime":"string", "ReportTypes":"string"}`
-	-	Short: `Get a list of all the expired requests of the specified report types as of the provided date time`
-	-	Long:  `Get a list of all the expired requests of the specified report types as of the provided date time.`
-
-    
-### Variant: `Queued`
-
-	-	Example: ``
-	-	Short: `Get a list of all the requests queued to be run as of the current date/time`
-	-	Long:  `Get a list of all the requests queued to be run as of the current date/time.`
-
-    
-
-## Use: `ReportSchedules`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get a report schedule`
-	-	Long:  `Get a report schedule.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ActiveOnly":"string"}`
-	-	Short: `Get all report schedules`
-	-	Long:  `Get all report schedules, optionally filtered by active only.`
-
-    
-
-## Use: `ReportUserGroups`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get the details of a report/user group mapping by id`
-	-	Long:  `Get the details of a report/user group mapping by id.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all report/user group mappings`
-	-	Long:  `Get all report/user group mappings.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all report/user group mappings`
-	-	Long:  `Get a summary representation of all report/user group mappings.`
-
-    
-
-## Use: `Reports`
-### Variant: ``
-
-	-	Example: `{"ReportID":"string"}`
-	-	Short: `Get details of a report`
-	-	Long:  `Get details of a report.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Type":"string"}`
-	-	Short: `Get all reports`
-	-	Long:  `Get all reports, Optionally filtered by type.`
-
-    
-### Variant: `CustomData`
-
-	-	Example: `{"ParameterID":"string", "ReportID":"string"}`
-	-	Short: `Get custom data for a report parameter`
-	-	Long:  `Get custom data for a report parameter.`
-
-    
-### Variant: `ReportCategories`
-
-	-	Example: ``
-	-	Short: `Get all report categories`
-	-	Long:  `Get all report categories.`
-
-    
-### Variant: `ReportDefaults`
-
-	-	Example: `{"UserGroup":"string"}`
-	-	Short: `Get report defaults for the specified user group`
-	-	Long:  `Get report defaults for the specified user group.`
-
-    
-### Variant: `ReportParameters`
-
-	-	Example: `{"ReportID":"string"}`
-	-	Short: `Get report parameters`
-	-	Long:  `Get report parameters.`
-
-    
-
-## Use: `Research`
-### Variant: ``
-
-	-	Example: `{"ResearchEntryID":"string"}`
-	-	Short: `Get details of a research entry`
-	-	Long:  `Get details of a research entry.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get details of all the research for the specified constituent id and all its visible affiliation's researches as well`
-	-	Long:  `Get details of all the research for the specified constituent id and all its visible affiliation's researches as well. To exclude researches of the visible affiliations pass includeAffiliations=false.`
-
-    
-
-## Use: `ResearchTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of research type by id`
-	-	Long:  `Get the details of research type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all research types`
-	-	Long:  `Get all research types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all research types`
-	-	Long:  `Get a summary representation of all research types.`
-
-    
-
-## Use: `ResourceCategories`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a Resource Category by id`
-	-	Long:  `Get the details of a Resource Category by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get details of all Resource Categories`
-	-	Long:  `Get details of all Resource Categories. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all Resource Categories`
-	-	Long:  `Get a summary representation of all Resource Categories.`
-
-    
-
-## Use: `ResourceSchedules`
-### Variant: ``
-
-	-	Example: `{"ResourceScheduleID":"string"}`
-	-	Short: `Get a single resource schedule`
-	-	Long:  `Get a single resource schedule.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentIds":"string", "EndDate":"string", "ResourceIds":"string", "StartDate":"string", "TypeIds":"string"}`
-	-	Short: `Get a list of resource schedules for resources or workers`
-	-	Long:  `Get a list of resource schedules for resources or workers. One of 'resourceIds' or 'constituentIds' parameters must be provided.`
-
-    
-
-## Use: `ResourceTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get all resource types`
-	-	Long:  `Get all resource types.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"CategoryIds":"string"}`
-	-	Short: `Get all resource types`
-	-	Long:  `Get all resource types.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"CategoryIds":"string"}`
-	-	Short: `Get summary of all resource types`
-	-	Long:  `Get summary of all resource types.`
-
-    
-
-## Use: `Resources`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get a specific Resource`
-	-	Long:  `Get a specific Resource.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"CategoryIds":"string", "ConstituentID":"string", "IncludeAffiliations":"string", "ResourceTypeIds":"string"}`
-	-	Short: `Get all resources optionally filtered by Resource Type`
-	-	Long:  `Get all resources optionally filtered by Resource Type, Category, or ConstituentId (for Worker type only). IncludeAffiliations parameter only accepted when ConstituentId provided.`
-
-    
-### Variant: `Details`
-
-	-	Example: `{"ConstituentIds":"string", "EndDateTime":"string", "ExpandWorkerAssignments":"string", "ResourceIds":"string", "StartDateTime":"string"}`
-	-	Short: `Get schedules and qualifications that apply to a set of resources and/or constituents during certain period of time`
-	-	Long:  `Get schedules and qualifications that apply to a set of resources and/or constituents during certain period of time.`
-
-    
-### Variant: `HasUsages`
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get the resource usage information`
-	-	Long:  `Get the resource usage information.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"CategoryIds":"string", "ConstituentID":"string", "IncludeAffiliations":"string", "ResourceTypeIds":"string"}`
-	-	Short: `Get all resources in summary optionally filtered by Resource Type`
-	-	Long:  `Get all resources in summary optionally filtered by Resource Type, Category, or Constituent (for Worker Type only). IncludeAffiliations parameter only accepted when ConstituentId provided.`
-
-    
-
-## Use: `SalesChannels`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a sales channel by id`
-	-	Long:  `Get the details of a sales channel by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all sales channels`
-	-	Long:  `Get all sales channels. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all sales channels`
-	-	Long:  `Get a summary representation of all sales channels.`
-
-    
-
-## Use: `SalesLayoutButtonTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a sales layout button type by id`
-	-	Long:  `Get the details of a sales layout button type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all sales layout button types`
-	-	Long:  `Get all sales layout button types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all sales layout button types`
-	-	Long:  `Get a summary representation of all sales layout button types.`
-
-    
-
-## Use: `SalesLayouts`
-### Variant: ``
-
-	-	Example: `{"SalesLayoutID":"string"}`
-	-	Short: `Get details of a sales layout setup`
-	-	Long:  `Get details of a sales layout setup.`
-
-    
-### Variant: `ForSale`
-
-	-	Example: `{"ModeOfSaleID":"string", "OrderDateTime":"string", "SalesLayoutID":"string"}`
-	-	Short: `Get details of a sales layout for use in orders`
-	-	Long:  `Get details of a sales layout for use in orders.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"PrimaryOnly":"string"}`
-	-	Short: `Get all sales layouts setup`
-	-	Long:  `Get all sales layouts setup.`
-
-    
-
-## Use: `SalutationTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a salutation type by id`
-	-	Long:  `Get the details of a salutation type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all salutation types`
-	-	Long:  `Get all salutation types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all salutation types`
-	-	Long:  `Get a summary representation of all salutation types.`
-
-    
-
-## Use: `Salutations`
-### Variant: ``
-
-	-	Example: `{"SalutationID":"string"}`
-	-	Short: `Get details of a salutation`
-	-	Long:  `Get details of a salutation.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "DefaultOnly":"string", "IncludeAffiliations":"string", "IncludeFromAffiliations":"string"}`
-	-	Short: `Get details of all the salutations for the specified constituent id and all its visible affiliation's salutations as well`
-	-	Long:  `Get details of all the salutations for the specified constituent id and all its visible affiliation's salutations as well. To exclude salutations of the visible affiliations pass includeAffiliations=false.To fetch default salutations alone pass defaultOnly=true.`
-
-    
-### Variant: `Generate`
-
-	-	Example: `{"ConstituentID":"string", "ConstituentTypeID":"string", "Fname1":"string", "Fname2":"string", "FormulaID":"string", "Gender1":"string", "Gender2":"string", "Lname1":"string", "Lname2":"string", "LnameGroup":"string", "MaxLength":"string", "Mname1":"string", "Mname2":"string", "Prefix1":"string", "Prefix2":"string", "Status1":"string", "Status2":"string", "Suffix1":"string", "Suffix2":"string"}`
-	-	Short: `Generates values for the fields required for the salutation`
-	-	Long:  `Generates values for the fields required for the salutation, last name and sort name using the values passed as query parameters. If you pass in value for 'constituentId' there is no need to pass values for any other parameters. Even if it is passed they are ignored. If value for constituentId is not passed, values for other parameters should be passed. In this case values for either 'constituentTypeId' or 'formulaId' should be passed.`
-
-    
-
-## Use: `SchedulePatternTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a Schedule Pattern by id`
-	-	Long:  `Get the details of a Schedule Pattern by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get details of all Schedule Patterns`
-	-	Long:  `Get details of all Schedule Patterns. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all Schedule Patterns`
-	-	Long:  `Get a summary representation of all Schedule Patterns.`
-
-    
-
-## Use: `ScheduleTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a Schedule Type by id`
-	-	Long:  `Get the details of a Schedule Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get details of all Schedule Types`
-	-	Long:  `Get details of all Schedule Types. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all Schedule Types`
-	-	Long:  `Get a summary representation of all Schedule Types.`
-
-    
-
-## Use: `SeasonTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a season type by id`
-	-	Long:  `Get the details of a season type by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all season types`
-	-	Long:  `Get all season types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all season types`
-	-	Long:  `Get a summary representation of all season types.`
-
-    
-
-## Use: `Seasons`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a season by id`
-	-	Long:  `Get the details of a season by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all seasons`
-	-	Long:  `Get all seasons. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all seasons`
-	-	Long:  `Get a summary representation of all seasons.`
-
-    
-
-## Use: `SeatCodes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a seat code by id`
-	-	Long:  `Get the details of a seat code by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all seat codes`
-	-	Long:  `Get all seat codes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all seat codes`
-	-	Long:  `Get a summary representation of all seat codes.`
-
-    
-
-## Use: `SeatStatuses`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a seat status by id`
-	-	Long:  `Get the details of a seat status by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all seat statuses`
-	-	Long:  `Get all seat statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all seat statuses`
-	-	Long:  `Get a summary representation of all seat statuses.`
-
-    
-
-## Use: `Sections`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a section by id`
-	-	Long:  `Get the details of a section by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string", "SeatMapID":"string"}`
-	-	Short: `Get all sections`
-	-	Long:  `Get all sections. To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all sections`
-	-	Long:  `Get a summary representation of all sections.`
-
-    
-
-## Use: `SecurityBatchTypes`
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all batch type/user group mappings valid for the context usergroup`
-	-	Long:  `Get all batch type/user group mappings valid for the context usergroup.`
-
-    
-
-## Use: `SecurityControlGroups`
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all control group/user group mappings valid for the context usergroup`
-	-	Long:  `Get all control group/user group mappings valid for the context usergroup.`
-
-    
-
-## Use: `SecurityHoldCodes`
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all hold code/user group mappings valid for the context usergroup`
-	-	Long:  `Get all hold code/user group mappings valid for the context usergroup.`
-
-    
-
-## Use: `SecurityModesOfSale`
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all mode of sale/user group mappings valid for the context usergroup`
-	-	Long:  `Get all mode of sale/user group mappings valid for the context usergroup.`
-
-    
-
-## Use: `SecurityObjectPermissions`
-### Variant: `All`
-
-	-	Example: `{"ConstituencyID":"string", "ObjectIds":"string", "Objectid":"string"}`
-	-	Short: `Get all the object permissions valid for the context usergroup`
-	-	Long:  `Get all the object permissions valid for the context usergroup. Optionally filter by constituency id and/or object id.`
-
-    
-
-## Use: `SecurityPaymentMethods`
-### Variant: `All`
-
-	-	Example: `{"Amount":"string"}`
-	-	Short: `Get all payment method/user group mappings valid for the context usergroup`
-	-	Long:  `Get all payment method/user group mappings valid for the context usergroup.`
-
-    
-
-## Use: `SecurityPriceTypes`
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all price type/user group mappings valid for the context usergroup`
-	-	Long:  `Get all price type/user group mappings valid for the context usergroup.`
-
-    
-
-## Use: `SecurityReferenceTables`
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all the reference table/user group mappings valid for the context usergroup`
-	-	Long:  `Get all the reference table/user group mappings valid for the context usergroup.`
-
-    
-
-## Use: `SecurityReports`
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all report/user group mappings valid for the context usergroup`
-	-	Long:  `Get all report/user group mappings valid for the context usergroup.`
-
-    
-
-## Use: `SecurityServiceResources`
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all service resource/user group mappings valid for the context usergroup`
-	-	Long:  `Get all service resource/user group mappings valid for the context usergroup.`
-
-    
-
-## Use: `SecurityUserGroups`
-### Variant: `All`
-
-	-	Example: `{"Application":"string", "UserName":"string"}`
-	-	Short: `Get all security user groups`
-	-	Long:  `Get all security user groups.`
-
-    
-### Variant: `DefaultUserGroup`
-
-	-	Example: `{"UserName":"string"}`
-	-	Short: `Get the default security user group`
-	-	Long:  `Get the default security user group.`
-
-    
-### Variant: `ManagedGroups`
-
-	-	Example: `{"UserName":"string"}`
-	-	Short: `Get all managed security user groups`
-	-	Long:  `Get all managed security user groups.`
-
-    
-
-## Use: `ServiceResourceUserGroups`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get the details of a service resource/user group mapping by id`
-	-	Long:  `Get the details of a service resource/user group mapping by id.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all service resource/user group mappings`
-	-	Long:  `Get all service resource/user group mappings.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all service resource/user group mappings`
-	-	Long:  `Get a summary representation of all service resource/user group mappings.`
-
-    
-
-## Use: `ServiceResources`
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all service resources`
-	-	Long:  `Get all service resources. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all service resources`
-	-	Long:  `Get a summary representation of all service resources.`
-
-    
-
-## Use: `Session`
-### Variant: ``
-
-	-	Example: `{"SessionKey":"string"}`
-	-	Short: `Returns details summarizing a web session's state`
-	-	Long:  `Returns details summarizing a web session's state.
-Includes counts of cart products, the login status, MOS and Source`
-
-    
-### Variant: `Default`
-
-	-	Example: `{"FieldName":"string", "SessionKey":"string"}`
-	-	Short: `Returns summary information for the specified default`
-	-	Long:  `Returns summary information for the specified default, including value`
-
-    
-### Variant: `DeliveryMethods`
-
-	-	Example: `{"SessionKey":"string"}`
-	-	Short: `Returns the available delivery methods for the session`
-	-	Long:  `Returns the available delivery methods for the session
-Delivery method availability is based on the mode of sale. NOTE:  The Hold at Box Office delivery method(ID -1) is always returned. Web code must be used to filter out this delivery method as needed.`
-
-    
-### Variant: `Expiration`
-
-	-	Example: `{"SessionKey":"string"}`
-	-	Short: `Returns the deadline after which a session's reserved seats will be released`
-	-	Long:  `Returns the deadline after which a session's reserved seats will be released
-When called on a session without an established Seat Server session, one will be created for it.  Once the session is created, the deadline will apply regardless of whether or not any tickets have been added to the cart.`
-
-    
-### Variant: `OnAccountBalances`
-
-	-	Example: `{"PaymentMethodIds":"string", "SessionKey":"string"}`
-	-	Short: `Returns the balance of on account money held by the constituent associated to the provided session key`
-	-	Long:  `Returns the balance of on account money held by the constituent associated to the provided session key.
-Results can be filtered by specific on-account payment methods. The Amount used in current session is also indicated.`
-
-    
-### Variant: `OrderSearch`
-
-	-	Example: `{"DeliveryMethodID":"string", "IncludeAffiliations":"string", "IncludeUnfulfilledRollovers":"string", "ModeOfSaleID":"string", "PerfEndDate":"string", "PerfStartDate":"string", "RenewalsOnly":"string", "SeasonID":"string", "SessionKey":"string", "UnprintedOnly":"string"}`
-	-	Short: `Returns summary details for all orders belonging to the session's authenticated constituent`
-	-	Long:  `Returns summary details for all orders belonging to the session's authenticated constituent. 
-Returned orders can be filtered by print status, performance date, season, mode of sale, delivery method, and whether or not an order was created by a rollover.`
-
-    
-### Variant: `Variable`
-
-	-	Example: `{"SessionKey":"string", "VariableName":"string"}`
-	-	Short: `Returns the value of the specified session variable`
-	-	Long:  `Returns the value of the specified session variable.`
-
-    
-### Variant: `Variables`
-
-	-	Example: `{"SessionKey":"string"}`
-	-	Short: `Returns a list of all name/value pair variables for the specified session`
-	-	Long:  `Returns a list of all name/value pair variables for the specified session.`
-
-    
-
-## Use: `SourceGroups`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a source group by id`
-	-	Long:  `Get the details of a source group by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all source groups`
-	-	Long:  `Get all source groups. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all source groups`
-	-	Long:  `Get a summary representation of all source groups.`
-
-    
-
-## Use: `Sources`
-### Variant: ``
-
-	-	Example: `{"SourceID":"string"}`
-	-	Short: `Get details of a Source`
-	-	Long:  `Get details of a Source.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"ActiveOnly":"string", "AppealIds":"string"}`
-	-	Short: `Get summary of all Sources`
-	-	Long:  `Get summary of all Sources.`
-
-    
-### Variant: `WebExpiring`
-
-	-	Example: ``
-	-	Short: `Gets the source codes configured as the web default that are expiring in 15 days without an overlapping source code`
-	-	Long:  `Gets the source codes configured as the web default that are expiring in 15 days without an overlapping source code.`
-
-    
-
-## Use: `SpecialActivities`
-### Variant: ``
-
-	-	Example: `{"SpecialActivityID":"string"}`
-	-	Short: `Get details of an activity record`
-	-	Long:  `Get details of an activity record.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get details of all the activity records for the specified constituent id and all its visible affiliations' activity records as well`
-	-	Long:  `Get details of all the activity records for the specified constituent id and all its visible affiliations' activity records as well. To exclude activity records of the visible affiliations, pass includeAffiliations=false.`
-
-    
-
-## Use: `SpecialActivityStatuses`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a Special Activity Status by id`
-	-	Long:  `Get the details of a Special Activity Status by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get details of all Special Activity Statuses`
-	-	Long:  `Get details of all Special Activity Statuses. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all Special Activity Statuses`
-	-	Long:  `Get a summary representation of all Special Activity Statuses.`
-
-    
-
-## Use: `SpecialActivityTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a Special Activity Type by id`
-	-	Long:  `Get the details of a Special Activity Type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all Special Activity Types`
-	-	Long:  `Get all Special Activity Types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all Special Activity Types`
-	-	Long:  `Get a summary representation of all Special Activity Types.`
-
-    
-
-## Use: `States`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a state by id`
-	-	Long:  `Get the details of a state by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all states`
-	-	Long:  `Get all states. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all states`
-	-	Long:  `Get a summary representation of all states.`
-
-    
-
-## Use: `StepTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a step type by id`
-	-	Long:  `Get the details of a step type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all step types`
-	-	Long:  `Get all step types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all step types`
-	-	Long:  `Get a summary representation of all step types.`
-
-    
-
-## Use: `Steps`
-### Variant: ``
-
-	-	Example: `{"StepID":"string"}`
-	-	Short: `Get details of a step`
-	-	Long:  `Get details of a step.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"AssociateID":"string", "ConstituentID":"string", "IncludeAffiliations":"string", "IncludeAssociates":"string", "PlanID":"string"}`
-	-	Short: `Get details of all the steps for the specified plan`
-	-	Long:  `Get details of all the steps for the specified plan, constituent or associate.`
-
-    
-### Variant: `AllDocumentSummaries`
-
-	-	Example: `{"StepID":"string"}`
-	-	Short: `Get summary of all the documents associated with the step`
-	-	Long:  `Get summary of all the documents associated with the step. (Excluding the file contents)`
-
-    
-### Variant: `AllDocuments`
-
-	-	Example: `{"StepID":"string"}`
-	-	Short: `Get all the documents associated with the step (Including the file contents)`
-	-	Long:  `Get all the documents associated with the step (Including the file contents).`
-
-    
-
-## Use: `SubLineItemStatuses`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a sub line item status by id`
-	-	Long:  `Get the details of a sub line item status by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all sub line item statuses`
-	-	Long:  `Get all sub line item statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all sub line item statuses`
-	-	Long:  `Get a summary representation of all sub line item statuses.`
-
-    
-
-## Use: `SubLineItems`
-### Variant: `SubLineItemSummaries`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string", "IncludePackageBaseSubLineitems":"string", "OrderEndDate":"string", "OrderID":"string", "OrderStartDate":"string", "PerformanceEndDate":"string", "PerformanceStartDate":"string", "PerformanceTypeIds":"string", "SubLineItemStatusIds":"string"}`
-	-	Short: `Returns sub line item summary data for a constituent`
-	-	Long:  `Returns sub line item summary data for a constituent`
-
-    
-
-## Use: `Suffixes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a suffix by id`
-	-	Long:  `Get the details of a suffix by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all suffixes`
-	-	Long:  `Get all suffixes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all suffixes`
-	-	Long:  `Get a summary representation of all suffixes.`
-
-    
-
-## Use: `SurveyQuestions`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a survey question by id`
-	-	Long:  `Get the details of a survey question by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string", "ModeOfSaleID":"string"}`
-	-	Short: `Get details of all survey questions`
-	-	Long:  `Get details of all survey questions. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). Optionally provide a mode of sale id.`
-
-    
-### Variant: `DataFor`
-
-	-	Example: `{"QuestionID":"string"}`
-	-	Short: `Get answer data for a survey question if it refers to another reference table`
-	-	Long:  `Get answer data for a survey question if it refers to another reference table.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all survey questions`
-	-	Long:  `Get a summary representation of all survey questions.`
-
-    
-
-## Use: `SurveyResponses`
-### Variant: ``
-
-	-	Example: `{"SurveyResponseID":"string"}`
-	-	Short: `Get details of a survey response`
-	-	Long:  `Get details of a survey response.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"OrderID":"string"}`
-	-	Short: `Get all survey responses`
-	-	Long:  `Get all survey responses.`
-
-    
-
-## Use: `SystemDefaults`
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all system defaults`
-	-	Long:  `Get all system defaults. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Default`
-
-	-	Example: `{"Keys":"string"}`
-	-	Short: `Get default summaries for specified keys`
-	-	Long:  `Get default summaries for specified keys, delimited by comma ("?keys=COMPANY_NAME,REQUIRE_ADDRESS").  This resource resolves organizational and global defaults to ensure that only one is returned per key (field name).  No default will be returned if one does not exist.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all system defaults`
-	-	Long:  `Get a summary representation of all system defaults.`
-
-    
-
-## Use: `TemplateCategories`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a template category by id`
-	-	Long:  `Get the details of a template category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all template categories`
-	-	Long:  `Get all template categories. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all template categories`
-	-	Long:  `Get a summary representation of all template categories.`
-
-    
-
-## Use: `TemplatePriceTypes`
-### Variant: ``
-
-	-	Example: `{"TemplatePriceTypeID":"string"}`
-	-	Short: `Get details of a template price type`
-	-	Long:  `Get details of a template price type.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"TemplateID":"string"}`
-	-	Short: `Get all template price type`
-	-	Long:  `Get all template price type.`
-
-    
-
-## Use: `TemplatePrices`
-### Variant: ``
-
-	-	Example: `{"TemplatePriceID":"string"}`
-	-	Short: `Get details of a template price`
-	-	Long:  `Get details of a template price.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"TemplateID":"string"}`
-	-	Short: `Get all template prices`
-	-	Long:  `Get all template prices.`
-
-    
-
-## Use: `TemplateTypes`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a template type by id`
-	-	Long:  `Get the details of a template type by id. To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all template types`
-	-	Long:  `Get all template types. To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all template types`
-	-	Long:  `Get a summary representation of all template types`
-
-    
-
-## Use: `Templates`
-### Variant: ``
-
-	-	Example: `{"TemplateID":"string"}`
-	-	Short: `Get the details of a template by id`
-	-	Long:  `Get the details of a template by id`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all templates`
-	-	Long:  `Get all templates`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all templates`
-	-	Long:  `Get a summary representation of all templates`
-
-    
-
-## Use: `Theaters`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a theater by id`
-	-	Long:  `Get the details of a theater by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all theaters`
-	-	Long:  `Get all theaters. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all theaters`
-	-	Long:  `Get a summary representation of all theaters.`
-
-    
-
-## Use: `TicketHistory`
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string", "OrderEndDate":"string", "OrderStartDate":"string", "PerformanceEndDate":"string", "PerformanceID":"string", "PerformanceStartDate":"string", "ProductionSeasonID":"string", "SeasonID":"string"}`
-	-	Short: `Gets history information for tickets`
-	-	Long:  `Gets history information for tickets`
-
-    
-
-## Use: `TimeSlots`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a time slot by id`
-	-	Long:  `Get the details of a time slot by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all time slots`
-	-	Long:  `Get all time slots. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all time slots`
-	-	Long:  `Get a summary representation of all time slots.`
-
-    
-
-## Use: `Titles`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get details of a specific title`
-	-	Long:  `Get details of a specific title.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Get all titles`
-	-	Long:  `Get all titles`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get all title summaries`
-	-	Long:  `Get all title summaries`
-
-    
-
-## Use: `TransactionHistory`
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "EndDate":"string", "IncludeAffiliations":"string", "Page":"string", "PageSize":"string", "PaymentID":"string", "ReferenceID":"string", "SortByDirection":"string", "SortByField":"string", "StartDate":"string"}`
-	-	Short: `Get details of all transaction histories for the specified constituent id and all its visible affiliations' transaction histories as well`
-	-	Long:  `Get details of all transaction histories for the specified constituent id and all its visible affiliations' transaction histories as well. To exclude transaction histories of the visible affiliations pass includeAffiliations=false. This resource is paged. Pass filters such as transaction reference id, payment id, or start and end date to limit the results. Results can also be sorted.`
-
-    
-
-## Use: `TriPOSCloudConfigurations`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a TriPOS Cloud configuration by id`
-	-	Long:  `Get the details of a TriPOS Cloud configuration by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all TriPOS Cloud configurations`
-	-	Long:  `Get all TriPOS Cloud configurations.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all TriPOS Cloud configurations`
-	-	Long:  `Get a summary representation of all TriPOS Cloud configurations.`
-
-    
-
-## Use: `UpgradeCategories`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of an Upgrade Category by id`
-	-	Long:  `Get the details of an Upgrade Category by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get details of all Upgrade Categories`
-	-	Long:  `Get details of all Upgrade Categories. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all Upgrade Categories`
-	-	Long:  `Get a summary representation of all Upgrade Categories.`
-
-    
-
-## Use: `UpgradeLogs`
-### Variant: ``
-
-	-	Example: `{"UpgradeLogID":"string"}`
-	-	Short: `Returns an upgradeLog for the given id`
-	-	Long:  `Returns an upgradeLog for the given id.`
-
-    
-### Variant: `All`
-
-	-	Example: ``
-	-	Short: `Returns a list of UpgradeLog objects`
-	-	Long:  `Returns a list of UpgradeLog objects.`
-
-    
-
-## Use: `UserGroups`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a user group by id`
-	-	Long:  `Get the details of a user group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all User Groups`
-	-	Long:  `Get all User Groups. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all user groups`
-	-	Long:  `Get a summary representation of all user groups.`
-
-    
-
-## Use: `UserPreferences`
-### Variant: ``
-
-	-	Example: `{"Key":"string"}`
-	-	Short: `Get a specific user preference by key`
-	-	Long:  `Get a specific user preference by key.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Keys":"string"}`
-	-	Short: `Get all user preferences valid for the context username and user group`
-	-	Long:  `Get all user preferences valid for the context username and user group.`
-
-    
-
-## Use: `Users`
-### Variant: ``
-
-	-	Example: `{"UserName":"string"}`
-	-	Short: `Get the details of a user for the specified username`
-	-	Long:  `Get the details of a user for the specified username.`
-
-    
-### Variant: `ActiveDirectoryUser`
-
-	-	Example: `{"ActiveDirectoryUsername":"string"}`
-	-	Short: `Get details of a user for the specified activeDirectoryUsername`
-	-	Long:  `Get details of a user for the specified activeDirectoryUsername.`
-
-    
-### Variant: `UserInformationForActiveDirectoryUser`
-
-	-	Example: `{"ActiveDirectoryUsername":"string"}`
-	-	Short: `Gets user information for the specified activeDirectoryUsername`
-	-	Long:  `Gets user information for the specified activeDirectoryUsername.`
-
-    
-### Variant: `UsersForUserGroup`
-
-	-	Example: `{"UserGroupID":"string"}`
-	-	Short: `Get list of users in summary for the current user's group`
-	-	Long:  `Get list of users in summary for the current user's group.`
-
-    
-
-## Use: `WebContentTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get a specific web content type`
-	-	Long:  `Get a specific web content type.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all web content types`
-	-	Long:  `Get all web content types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `DataFor`
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Gets potential values for a referenced WebContentType as a collection of WebContentTypeDataItem`
-	-	Long:  `Gets potential values for a referenced WebContentType as a collection of WebContentTypeDataItem.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all web content types`
-	-	Long:  `Get a summary representation of all web content types.`
-
-    
-
-## Use: `WebContents`
-### Variant: `WebContents`
-
-	-	Example: `{"ContentTypeIds":"string", "PackageIds":"string", "ProductionElementIds":"string", "ShowAll":"string"}`
-	-	Short: `Returns web content for the requested production elements or packages`
-	-	Long:  `Returns web content for the requested production elements or packages.
+Available seats can be filtered by price type availability, causing any seats that are not available for the specified price types to be listed with a status of 5, Not In Allocation.
+```json
+Query: {"CheckPriceTypeIds":"string", "ConstituentID":"string", "ModeOfSaleID":"string", "PerformanceID":"string", "ReturnNonSeats":"string", "ScreenIds":"string", "SectionIds":"string", "ZoneIds":"string"}
+```
+ * *--Summaries*  
+   Get Summary performance information
+For single production season, a comma separated list of performances, seasons, or a single production season. At least one filter parameter is required.
+```json
+Query: {"PerformanceIds":"string", "ProductionSeasonID":"string", "SeasonIds":"string"}
+```
+
+## Philanthropy ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#philanthropy) [![put](https://img.shields.io/badge/put-blue)](put.md#philanthropy)   
+Get details of an philanthropyEntry.  
+```json
+Query: {"PhilanthropyEntryID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the philanthropyEntries for the specified constituent id and all its visible affiliation's philanthropyEntries as well. To exclude philanthropyEntries of the visible affiliations pass includeAffiliations=false.
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+
+## PhilanthropyTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#philanthropytypes) [![put](https://img.shields.io/badge/put-blue)](put.md#philanthropytypes)   
+Get the details of philosophy type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all philosophy types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all philosophy types.
+
+## PhoneIndicators ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#phoneindicators) [![put](https://img.shields.io/badge/put-blue)](put.md#phoneindicators)   
+Get the details of a phone indicator by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all phone indicators. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all phone indicators.
+
+## PhoneTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#phonetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#phonetypes)   
+Get the details of a phone type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all phone types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all phone types.
+
+## Phones ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#phones) [![put](https://img.shields.io/badge/put-blue)](put.md#phones)   
+Get details of a phone.  
+```json
+Query: {"PhoneID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the phones for the specified constituent (constituentId) and all its visible affiliation's phones as well or address (addressId). To exclude phones of the visible affiliations pass includeAffiliations=false. If addressId is passed, constituentId or includeAffiliations parameters are ignored. To Get the phones attached to the primary address pass primary=true.
+```json
+Query: {"AddressID":"string", "ConstituentID":"string", "IncludeAffiliations":"string", "PrimaryOnly":"string"}
+```
+
+## PlanPriorities ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#planpriorities) [![put](https://img.shields.io/badge/put-blue)](put.md#planpriorities)   
+Get the details of a plan priority by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all plan priorities. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all plan priorities.
+
+## PlanSources ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#plansources) [![put](https://img.shields.io/badge/put-blue)](put.md#plansources)   
+Get the details of a plan source by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all plan sources. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all plan sources.
+
+## PlanStatuses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#planstatuses) [![put](https://img.shields.io/badge/put-blue)](put.md#planstatuses)   
+Get the details of a plan status by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all plan statuses. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all plan statuses.
+
+## PlanTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#plantypes) [![put](https://img.shields.io/badge/put-blue)](put.md#plantypes)   
+Get the details of a plan type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all plan types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all plan types.
+
+## PlanWorkers ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#planworkers) [![put](https://img.shields.io/badge/put-blue)](put.md#planworkers)   
+Get details of a plan worker.  
+```json
+Query: {"PlanWorkerID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the plan workers for the specified constituent.
+```json
+Query: {"PlanID":"string"}
+```
+
+## Plans ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#plans) [![put](https://img.shields.io/badge/put-blue)](put.md#plans)   
+Get details of a plan.  
+```json
+Query: {"PlanID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the plans for the specified constituent, campaign, worker or fund.
+```json
+Query: {"CampaignID":"string", "ConstituentID":"string", "ContributionDesignationID":"string", "FundID":"string", "IncludeAffiliations":"string", "IncludeAssociates":"string", "ListID":"string", "OnlyNullFund":"string", "WorkerID":"string"}
+```
+
+## PledgeBilling ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pledgebilling)   
+Get status of a pledge billing run. Job is finished processing when IsCompleted is true.  Only billing runs using automated billing will be running after the response from a POST to Txn/PledgeBilling.  
+```json
+Query: {"ID":"string"}
+```
+
+## PortfolioCustomElements ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#portfoliocustomelements) [![put](https://img.shields.io/badge/put-blue)](put.md#portfoliocustomelements)   
+Get the details of a portfolio custom element by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all portfolio custom elements. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all portfolio custom elements.
+
+## Portfolios ![get](https://img.shields.io/badge/get-gray)   
+Get portfolio for a constituent.  
+```json
+Query: {"ConstituentID":"string", "Page":"string", "PageSize":"string", "PlanCustomColumns":"string", "PortfolioCustomColumns":"string", "PrimaryOnly":"string", "StatusIds":"string", "WorkerRoleIds":"string"}
+```
+### Flags:
+ * *--PortfolioEntry*  
+   Get details of a portfolio entry for a plan.
+```json
+Query: {"PlanID":"string"}
+```
+
+## Prefixes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#prefixes) [![put](https://img.shields.io/badge/put-blue)](put.md#prefixes)   
+Get the details of a prefix by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all prefixes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all prefixes.
+
+## Premieres ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#premieres) [![put](https://img.shields.io/badge/put-blue)](put.md#premieres)   
+Get the details of a premiere by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all premieres. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all premieres.
+
+## PriceCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricecategories) [![put](https://img.shields.io/badge/put-blue)](put.md#pricecategories)   
+Get the details of a price category by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all price categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all price categories.
+
+## PriceEvents ![get](https://img.shields.io/badge/get-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#priceevents)   
+Get details of a price event.  
+```json
+Query: {"PriceEventID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all price events for a performance, performance price type or performance price detail. From and To Date parameters can be used to filter the events. If both are specified, then events between those dates would be returned. If only fromDate is specified then all events with a startDate greater than that date would be returned. If only toDate is specified then all events with a startDate less than that date would be returned.
+```json
+Query: {"FromDate":"string", "PerformanceIds":"string", "PerformancePriceIds":"string", "PerformancePriceLayerIds":"string", "PerformancePriceTypeIds":"string", "ToDate":"string"}
+```
+ * *--Dates*  
+   Gets a distinct set of dates that contain events for the given list of performances.
+```json
+Query: {"PerformanceIds":"string"}
+```
+
+## PriceLayerTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricelayertypes) [![put](https://img.shields.io/badge/put-blue)](put.md#pricelayertypes)   
+Get the details of a price layer type by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all price layer types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all price layer types.
+
+## PriceTemplates ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetemplates) [![put](https://img.shields.io/badge/put-blue)](put.md#pricetemplates)   
+Get details of a price template.  
+```json
+Query: {"PriceTemplateID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all price templates. Optionally filtered by zoneMap and/or facility.
+```json
+Query: {"FacilityID":"string", "ZoneMapID":"string"}
+```
+ * *--Summaries*  
+   Get summary of all price templates. Optionally filtered by zoneMap and/or facility.
+```json
+Query: {"FacilityID":"string", "ZoneMapID":"string"}
+```
+
+## PriceTypeCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypecategories) [![put](https://img.shields.io/badge/put-blue)](put.md#pricetypecategories)   
+Get the details of a price type category by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all price type categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all price type categories.
+
+## PriceTypeGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypegroups) [![put](https://img.shields.io/badge/put-blue)](put.md#pricetypegroups)   
+Get the details of a price type group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all price type groups. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all price type groups.
+
+## PriceTypeReasons ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypereasons) [![put](https://img.shields.io/badge/put-blue)](put.md#pricetypereasons)   
+Get the details of a price type reason by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all price type reasons. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all price type categories.
+
+## PriceTypeUserGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypeusergroups) [![put](https://img.shields.io/badge/put-blue)](put.md#pricetypeusergroups)   
+Get details of a price type/user group mapping by id.  
+```json
+Query: {"PriceTypeUserGroupID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all price type/user group mappings.  Optional filter on UserGroup and PriceType.
+```json
+Query: {"PriceTypeID":"string", "UserGroup":"string"}
+```
+
+## PriceTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#pricetypes)   
+Get details of a price type.  
+```json
+Query: {"PriceTypeID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all price types.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Reasons*  
+   Gets valid price type reasons for the specified price type
+```json
+Query: {"PriceTypeID":"string"}
+```
+ * *--Summaries*  
+   Get summary of all price types.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--ValidPriceTypes*  
+   Get all valid price types for a performance/package and a mode of sale. A comma separated list of performance ids can be specified for a flex package.
+```json
+Query: {"ModeOfSaleID":"string", "OrderDateTime":"string", "PackageID":"string", "PerformanceIds":"string", "SourceID":"string"}
+```
+ * *--ValidZones*  
+   Get valid zones for a set of performances or packages.
+```json
+Query: {"OrderDateTime":"string", "PackageID":"string", "PerformanceID":"string", "PriceTypeID":"string"}
+```
+
+## PricingRuleCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricingrulecategories) [![put](https://img.shields.io/badge/put-blue)](put.md#pricingrulecategories)   
+Get the details of a pricing rule category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all pricing rule categories. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all pricing rule categories.
+
+## PricingRuleMessageTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricingrulemessagetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#pricingrulemessagetypes)   
+Get the details of a pricing rule message type by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all pricing rule message types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all pricing rule message types.
+
+## PricingRuleSets ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricingrulesets) [![put](https://img.shields.io/badge/put-blue)](put.md#pricingrulesets)   
+Get details of a pricing rule set.  
+```json
+Query: {"PricingRuleSetID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all pricing rule sets.
+ * *--Summaries*  
+   Get a summary of all pricing rule sets.
+
+## PricingRuleTypes ![get](https://img.shields.io/badge/get-gray)   
+Get the details of a pricing rule type by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all pricing rule types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all pricing rule types.
+
+## PricingRules ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricingrules) [![put](https://img.shields.io/badge/put-blue)](put.md#pricingrules)   
+Get details of a pricing rule.  
+```json
+Query: {"PricingRuleID":"string"}
+```
+### Flags:
+ * *--All*  
+   Gets all pricing rules or filtered set
+```json
+Query: {"ModeOfSaleID":"string", "OrderDate":"string", "PackageIds":"string", "PerformanceIds":"string"}
+```
+ * *--AllSummary*  
+   Get a summary of all pricing rules.
+
+## Printers ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#printers) [![put](https://img.shields.io/badge/put-blue)](put.md#printers)   
+Get the details of a printer by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all printers. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all printers.
+
+## ProductKeywords ![get](https://img.shields.io/badge/get-gray)   
+Returns keywords for the requested production elements or packages.
+
+For Production Elements: If the keyword is found, returns the keyword and the lowest level at which it was found in the production hierarchy (Title, Production, Production Season, Performance) for the requested element. Optionally, all matching keywords anywhere above the requested element in the production hierarchy can be returned with the ShowAll parameter.  
+```json
+Query: {"KeywordIds":"string", "PackageIds":"string", "ProductionElementIds":"string", "ShowAll":"string"}
+```
+
+## ProductionSeasonMembershipOrganizations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#productionseasonmembershiporganizations) [![put](https://img.shields.io/badge/put-blue)](put.md#productionseasonmembershiporganizations)   
+Get details of a specific production season membership organization.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all production season membership organizations for a production season.
+```json
+Query: {"ProductionSeasonID":"string"}
+```
+ * *--Summaries*  
+   Get a summary of all production season membership organizations for a production season.
+```json
+Query: {"ProductionSeasonID":"string"}
+```
+
+## ProductionSeasons ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#productionseasons)   
+Get details of a specific production season.
+Returns the full details for a single production season, including description and short description, season, first and last performance date, and the four ticket text lines.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get production season details.
+Returns the full details for multiple production seasons (based on a string of production IDs or season IDs), including description and short description, season, first and last performance date, and the four ticket text lines.
+```json
+Query: {"Ids":"string", "ProductionIds":"string", "SeasonIds":"string"}
+```
+ * *--Summaries*  
+   Get production season summaries.
+Returns the production season summary (description, ID, and related production and season summaries) for all production seasons, all production seasons of a string of specific productions, or all production seasons in a string of specified seasons.
+```json
+Query: {"Ids":"string", "ProductionIds":"string", "SeasonIds":"string"}
+```
+
+## Productions ![get](https://img.shields.io/badge/get-gray)   
+Get details of a specific production.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all productions, Optionally filtered by one or more titles.
+```json
+Query: {"TitleIds":"string"}
+```
+ * *--Summaries*  
+   Get all production summaries, Optionally filtered by one or more titles.
+```json
+Query: {"TitleIds":"string"}
+```
+
+
+## ProgramListings ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#programlistings) [![put](https://img.shields.io/badge/put-blue)](put.md#programlistings)   
+Get details of a program listing.  
+```json
+Query: {"ProgramListingID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the program listings for the specified constituent id and all its visible affiliation's program listings as well. To exclude program listings of the visible affiliations pass includeAffiliations=false. To Get The primary program listings alone, pass primaryOnly=true.
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+
+## Programs ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#programs) [![put](https://img.shields.io/badge/put-blue)](put.md#programs)   
+Get the details of a program by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all programs. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all programs.
+
+## Pronouns ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pronouns) [![put](https://img.shields.io/badge/put-blue)](put.md#pronouns)   
+  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   
+
+	
+# Q
+## QualificationCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#qualificationcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#qualificationcategories)   
+Get the details of a Qualification Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get the details of all Qualification Categories. To get the resources only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all Qualification Categories.
+
+## Qualifications ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#qualifications) [![put](https://img.shields.io/badge/put-blue)](put.md#qualifications)   
+Get the details of a Qualification by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all Qualifications. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).S
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all Qualifications.
+
+## QueryElementFilters ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#queryelementfilters) [![put](https://img.shields.io/badge/put-blue)](put.md#queryelementfilters)   
+Get a specific query element filter.  
+```json
+Query: {"QueryElementFilterID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get available query element filters for one or more query element groups.
+```json
+Query: {"GroupIds":"string"}
+```
+ * *--DataFor*  
+   Get values for a query element filter.
+```json
+Query: {"QueryElementFilterID":"string"}
+```
+ * *--Summaries*  
+   Get summary of query element filters for one or more query element groups.
+```json
+Query: {"GroupIds":"string"}
+```
+
+## QueryElementGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#queryelementgroups) [![put](https://img.shields.io/badge/put-blue)](put.md#queryelementgroups)   
+Get the details of a query element group by id.  
+```json
+Query: {"QueryElementGroupID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all query element groups.
+
+## QueryElements ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#queryelements) [![put](https://img.shields.io/badge/put-blue)](put.md#queryelements)   
+Get details of a query element by id.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get a list of query elements optionally filtered by one or more GroupIds or if they're active only.
+```json
+Query: {"ActiveOnly":"string", "GroupIds":"string"}
+```
+ * *--Summaries*  
+   Get a list of query elements in summary optionally filtered by one or more GroupIds or if they're active only.
+```json
+Query: {"ActiveOnly":"string", "GroupIds":"string"}
+```
+
+	
+# R
+## RankTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#ranktypes) [![put](https://img.shields.io/badge/put-blue)](put.md#ranktypes)   
+Get the details of a rank type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all rank types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all rank types.
+
+## Rankings ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#rankings) [![put](https://img.shields.io/badge/put-blue)](put.md#rankings)   
+Get details of a ranking.  
+```json
+Query: {"RankingID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the rankings for the specified constituent id and all its visible affiliation's rankings as well. To exclude rankings of the visible affiliations pass includeAffiliations=false. To Get The primary rankings alone, pass primaryOnly=true.
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+
+## ReceiptSettings ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#receiptsettings) [![put](https://img.shields.io/badge/put-blue)](put.md#receiptsettings)   
+Get the details of a Receipt Setting by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all Receipt Settings. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all Receipt Settings.
+
+
+## ReferenceColumns ![get](https://img.shields.io/badge/get-gray)   
+Get all reference columns. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.  
+```json
+Query: {"MaintenanceMode":"string"}
+```
+### Flags:
+ * *--Summaries*  
+   Get a summary representation of all reference columns.
+
+## ReferenceTableUserGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#referencetableusergroups) [![put](https://img.shields.io/badge/put-blue)](put.md#referencetableusergroups)   
+Get the details of a reference table/user group mapping by id.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all the reference table/user group mappings.
+ * *--Summaries*  
+   Get a summary representation of all reference table/user group mappings.
+
+## ReferenceTables ![get](https://img.shields.io/badge/get-gray)   
+Get details for a reference table by Id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all reference tables. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all reference tables.
+
+
+## RelationshipCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#relationshipcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#relationshipcategories)   
+Get the details of a relationship category by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all relationship categories. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all relationship categories.
+
+## Relationships ![get](https://img.shields.io/badge/get-gray)   
+Get all affiliations and associations of the specified constituent id or get all affiliations and associations of the specified associated constituent id. If both are specified get all the associations and affiliations between them.  
+```json
+Query: {"ActiveOnly":"string", "AssociatedConstituentID":"string", "ConstituentID":"string", "EndActiveDate":"string", "IncludeAffiliations":"string", "StartActiveDate":"string"}
+```
+
+## ReportRequests ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#reportrequests) [![put](https://img.shields.io/badge/put-blue)](put.md#reportrequests)   
+Get a report request.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all requests, optionally filtered by active requests only.
+```json
+Query: {"ActiveOnly":"string"}
+```
+ * *--AllExpired*  
+   Get a list of all the expired requests of the specified report types as of the provided date time.
+```json
+Query: {"AsOfDateTime":"string", "ReportTypes":"string"}
+```
+ * *--Queued*  
+   Get a list of all the requests queued to be run as of the current date/time.
+
+## ReportSchedules ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#reportschedules) [![put](https://img.shields.io/badge/put-blue)](put.md#reportschedules)   
+Get a report schedule.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all report schedules, optionally filtered by active only.
+```json
+Query: {"ActiveOnly":"string"}
+```
+
+## ReportUserGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#reportusergroups) [![put](https://img.shields.io/badge/put-blue)](put.md#reportusergroups)   
+Get the details of a report/user group mapping by id.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all report/user group mappings.
+ * *--Summaries*  
+   Get a summary representation of all report/user group mappings.
+
+## Reports ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#reports)   
+Get details of a report.  
+```json
+Query: {"ReportID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all reports, Optionally filtered by type.
+```json
+Query: {"Type":"string"}
+```
+ * *--CustomData*  
+   Get custom data for a report parameter.
+```json
+Query: {"ParameterID":"string", "ReportID":"string"}
+```
+ * *--ReportCategories*  
+   Get all report categories.
+ * *--ReportDefaults*  
+   Get report defaults for the specified user group.
+```json
+Query: {"UserGroup":"string"}
+```
+ * *--ReportParameters*  
+   Get report parameters.
+```json
+Query: {"ReportID":"string"}
+```
+
+## Research ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#research) [![put](https://img.shields.io/badge/put-blue)](put.md#research)   
+Get details of a research entry.  
+```json
+Query: {"ResearchEntryID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the research for the specified constituent id and all its visible affiliation's researches as well. To exclude researches of the visible affiliations pass includeAffiliations=false.
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+
+## ResearchTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#researchtypes) [![put](https://img.shields.io/badge/put-blue)](put.md#researchtypes)   
+Get the details of research type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all research types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all research types.
+
+## ResourceCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#resourcecategories) [![put](https://img.shields.io/badge/put-blue)](put.md#resourcecategories)   
+Get the details of a Resource Category by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all Resource Categories. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all Resource Categories.
+
+## ResourceSchedules ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#resourceschedules) [![put](https://img.shields.io/badge/put-blue)](put.md#resourceschedules)   
+Get a single resource schedule.  
+```json
+Query: {"ResourceScheduleID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get a list of resource schedules for resources or workers. One of 'resourceIds' or 'constituentIds' parameters must be provided.
+```json
+Query: {"ConstituentIds":"string", "EndDate":"string", "ResourceIds":"string", "StartDate":"string", "TypeIds":"string"}
+```
+
+## ResourceTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#resourcetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#resourcetypes)   
+Get all resource types.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all resource types.
+```json
+Query: {"CategoryIds":"string"}
+```
+ * *--Summaries*  
+   Get summary of all resource types.
+```json
+Query: {"CategoryIds":"string"}
+```
+
+## Resources ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#resources) [![put](https://img.shields.io/badge/put-blue)](put.md#resources)   
+Get a specific Resource.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all resources optionally filtered by Resource Type, Category, or ConstituentId (for Worker type only). IncludeAffiliations parameter only accepted when ConstituentId provided.
+```json
+Query: {"CategoryIds":"string", "ConstituentID":"string", "IncludeAffiliations":"string", "ResourceTypeIds":"string"}
+```
+ * *--Details*  
+   Get schedules and qualifications that apply to a set of resources and/or constituents during certain period of time.
+```json
+Query: {"ConstituentIds":"string", "EndDateTime":"string", "ExpandWorkerAssignments":"string", "ResourceIds":"string", "StartDateTime":"string"}
+```
+ * *--HasUsages*  
+   Get the resource usage information.
+```json
+Query: {"ID":"string"}
+```
+ * *--Summaries*  
+   Get all resources in summary optionally filtered by Resource Type, Category, or Constituent (for Worker Type only). IncludeAffiliations parameter only accepted when ConstituentId provided.
+```json
+Query: {"CategoryIds":"string", "ConstituentID":"string", "IncludeAffiliations":"string", "ResourceTypeIds":"string"}
+```
+
+	
+# S
+## SalesChannels ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#saleschannels) [![put](https://img.shields.io/badge/put-blue)](put.md#saleschannels)   
+Get the details of a sales channel by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all sales channels. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all sales channels.
+
+## SalesLayoutButtonTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#saleslayoutbuttontypes) [![put](https://img.shields.io/badge/put-blue)](put.md#saleslayoutbuttontypes)   
+Get the details of a sales layout button type by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all sales layout button types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all sales layout button types.
+
+## SalesLayouts ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#saleslayouts) [![put](https://img.shields.io/badge/put-blue)](put.md#saleslayouts)   
+Get details of a sales layout setup.  
+```json
+Query: {"SalesLayoutID":"string"}
+```
+### Flags:
+ * *--ForSale*  
+   Get details of a sales layout for use in orders.
+```json
+Query: {"ModeOfSaleID":"string", "OrderDateTime":"string", "SalesLayoutID":"string"}
+```
+ * *--Summaries*  
+   Get all sales layouts setup.
+```json
+Query: {"PrimaryOnly":"string"}
+```
+
+## SalutationTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#salutationtypes) [![put](https://img.shields.io/badge/put-blue)](put.md#salutationtypes)   
+Get the details of a salutation type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all salutation types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all salutation types.
+
+## Salutations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#salutations) [![put](https://img.shields.io/badge/put-blue)](put.md#salutations)   
+Get details of a salutation.  
+```json
+Query: {"SalutationID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the salutations for the specified constituent id and all its visible affiliation's salutations as well. To exclude salutations of the visible affiliations pass includeAffiliations=false.To fetch default salutations alone pass defaultOnly=true.
+```json
+Query: {"ConstituentID":"string", "DefaultOnly":"string", "IncludeAffiliations":"string", "IncludeFromAffiliations":"string"}
+```
+ * *--Generate*  
+   Generates values for the fields required for the salutation, last name and sort name using the values passed as query parameters. If you pass in value for 'constituentId' there is no need to pass values for any other parameters. Even if it is passed they are ignored. If value for constituentId is not passed, values for other parameters should be passed. In this case values for either 'constituentTypeId' or 'formulaId' should be passed.
+```json
+Query: {"ConstituentID":"string", "ConstituentTypeID":"string", "Fname1":"string", "Fname2":"string", "FormulaID":"string", "Gender1":"string", "Gender2":"string", "Lname1":"string", "Lname2":"string", "LnameGroup":"string", "MaxLength":"string", "Mname1":"string", "Mname2":"string", "Prefix1":"string", "Prefix2":"string", "Status1":"string", "Status2":"string", "Suffix1":"string", "Suffix2":"string"}
+```
+
+## SchedulePatternTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#schedulepatterntypes) [![put](https://img.shields.io/badge/put-blue)](put.md#schedulepatterntypes)   
+Get the details of a Schedule Pattern by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all Schedule Patterns. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all Schedule Patterns.
+
+## ScheduleTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#scheduletypes) [![put](https://img.shields.io/badge/put-blue)](put.md#scheduletypes)   
+Get the details of a Schedule Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all Schedule Types. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all Schedule Types.
+
+## SeasonTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#seasontypes) [![put](https://img.shields.io/badge/put-blue)](put.md#seasontypes)   
+Get the details of a season type by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all season types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all season types.
+
+## Seasons ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#seasons) [![put](https://img.shields.io/badge/put-blue)](put.md#seasons)   
+Get the details of a season by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all seasons. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all seasons.
+
+## SeatCodes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#seatcodes) [![put](https://img.shields.io/badge/put-blue)](put.md#seatcodes)   
+Get the details of a seat code by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all seat codes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all seat codes.
+
+## SeatStatuses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#seatstatuses) [![put](https://img.shields.io/badge/put-blue)](put.md#seatstatuses)   
+Get the details of a seat status by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all seat statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all seat statuses.
+
+## Sections ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#sections) [![put](https://img.shields.io/badge/put-blue)](put.md#sections)   
+Get the details of a section by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all sections. To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"MaintenanceMode":"string", "SeatMapID":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all sections.
+
+## SecurityBatchTypes ![get](https://img.shields.io/badge/get-gray)   
+Get all batch type/user group mappings valid for the context usergroup.  
+```json
+Query: 
+```
+
+## SecurityControlGroups ![get](https://img.shields.io/badge/get-gray)   
+Get all control group/user group mappings valid for the context usergroup.  
+```json
+Query: 
+```
+
+## SecurityHoldCodes ![get](https://img.shields.io/badge/get-gray)   
+Get all hold code/user group mappings valid for the context usergroup.  
+```json
+Query: 
+```
+
+## SecurityModesOfSale ![get](https://img.shields.io/badge/get-gray)   
+Get all mode of sale/user group mappings valid for the context usergroup.  
+```json
+Query: 
+```
+
+## SecurityObjectPermissions ![get](https://img.shields.io/badge/get-gray)   
+Get all the object permissions valid for the context usergroup. Optionally filter by constituency id and/or object id.  
+```json
+Query: {"ConstituencyID":"string", "ObjectIds":"string", "Objectid":"string"}
+```
+
+## SecurityPaymentMethods ![get](https://img.shields.io/badge/get-gray)   
+Get all payment method/user group mappings valid for the context usergroup.  
+```json
+Query: {"Amount":"string"}
+```
+
+## SecurityPriceTypes ![get](https://img.shields.io/badge/get-gray)   
+Get all price type/user group mappings valid for the context usergroup.  
+```json
+Query: 
+```
+
+## SecurityReferenceTables ![get](https://img.shields.io/badge/get-gray)   
+Get all the reference table/user group mappings valid for the context usergroup.  
+```json
+Query: 
+```
+
+## SecurityReports ![get](https://img.shields.io/badge/get-gray)   
+Get all report/user group mappings valid for the context usergroup.  
+```json
+Query: 
+```
+
+## SecurityServiceResources ![get](https://img.shields.io/badge/get-gray)   
+Get all service resource/user group mappings valid for the context usergroup.  
+```json
+Query: 
+```
+
+## SecurityUserGroups ![get](https://img.shields.io/badge/get-gray)   
+Get all security user groups.  
+```json
+Query: {"Application":"string", "UserName":"string"}
+```
+### Flags:
+ * *--DefaultUserGroup*  
+   Get the default security user group.
+```json
+Query: {"UserName":"string"}
+```
+ * *--ManagedGroups*  
+   Get all managed security user groups.
+```json
+Query: {"UserName":"string"}
+```
+
+## ServiceResourceUserGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#serviceresourceusergroups) [![put](https://img.shields.io/badge/put-blue)](put.md#serviceresourceusergroups)   
+Get the details of a service resource/user group mapping by id.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all service resource/user group mappings.
+ * *--Summaries*  
+   Get a summary representation of all service resource/user group mappings.
+
+## ServiceResources ![get](https://img.shields.io/badge/get-gray)   
+Get all service resources. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.  
+```json
+Query: {"MaintenanceMode":"string"}
+```
+### Flags:
+ * *--Summaries*  
+   Get a summary representation of all service resources.
+
+## Session ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#session) [![put](https://img.shields.io/badge/put-blue)](put.md#session)   
+Returns details summarizing a web session's state.
+Includes counts of cart products, the login status, MOS and Source  
+```json
+Query: {"SessionKey":"string"}
+```
+### Flags:
+ * *--Default*  
+   Returns summary information for the specified default, including value
+```json
+Query: {"FieldName":"string", "SessionKey":"string"}
+```
+ * *--DeliveryMethods*  
+   Returns the available delivery methods for the session
+Delivery method availability is based on the mode of sale. NOTE:  The Hold at Box Office delivery method(ID -1) is always returned. Web code must be used to filter out this delivery method as needed.
+```json
+Query: {"SessionKey":"string"}
+```
+ * *--Expiration*  
+   Returns the deadline after which a session's reserved seats will be released
+When called on a session without an established Seat Server session, one will be created for it.  Once the session is created, the deadline will apply regardless of whether or not any tickets have been added to the cart.
+```json
+Query: {"SessionKey":"string"}
+```
+ * *--OnAccountBalances*  
+   Returns the balance of on account money held by the constituent associated to the provided session key.
+Results can be filtered by specific on-account payment methods. The Amount used in current session is also indicated.
+```json
+Query: {"PaymentMethodIds":"string", "SessionKey":"string"}
+```
+ * *--OrderSearch*  
+   Returns summary details for all orders belonging to the session's authenticated constituent. 
+Returned orders can be filtered by print status, performance date, season, mode of sale, delivery method, and whether or not an order was created by a rollover.
+```json
+Query: {"DeliveryMethodID":"string", "IncludeAffiliations":"string", "IncludeUnfulfilledRollovers":"string", "ModeOfSaleID":"string", "PerfEndDate":"string", "PerfStartDate":"string", "RenewalsOnly":"string", "SeasonID":"string", "SessionKey":"string", "UnprintedOnly":"string"}
+```
+ * *--Variable*  
+   Returns the value of the specified session variable.
+```json
+Query: {"SessionKey":"string", "VariableName":"string"}
+```
+ * *--Variables*  
+   Returns a list of all name/value pair variables for the specified session.
+```json
+Query: {"SessionKey":"string"}
+```
+
+## SourceGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#sourcegroups) [![put](https://img.shields.io/badge/put-blue)](put.md#sourcegroups)   
+Get the details of a source group by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all source groups. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all source groups.
+
+## Sources ![get](https://img.shields.io/badge/get-gray)   
+Get details of a Source.  
+```json
+Query: {"SourceID":"string"}
+```
+### Flags:
+ * *--Summaries*  
+   Get summary of all Sources.
+```json
+Query: {"ActiveOnly":"string", "AppealIds":"string"}
+```
+ * *--WebExpiring*  
+   Gets the source codes configured as the web default that are expiring in 15 days without an overlapping source code.
+
+## SpecialActivities ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#specialactivities) [![put](https://img.shields.io/badge/put-blue)](put.md#specialactivities)   
+Get details of an activity record.  
+```json
+Query: {"SpecialActivityID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the activity records for the specified constituent id and all its visible affiliations' activity records as well. To exclude activity records of the visible affiliations, pass includeAffiliations=false.
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+
+## SpecialActivityStatuses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#specialactivitystatuses) [![put](https://img.shields.io/badge/put-blue)](put.md#specialactivitystatuses)   
+Get the details of a Special Activity Status by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all Special Activity Statuses. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all Special Activity Statuses.
+
+## SpecialActivityTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#specialactivitytypes) [![put](https://img.shields.io/badge/put-blue)](put.md#specialactivitytypes)   
+Get the details of a Special Activity Type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all Special Activity Types. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all Special Activity Types.
+
+## States ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#states) [![put](https://img.shields.io/badge/put-blue)](put.md#states)   
+Get the details of a state by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all states. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all states.
+
+## StepTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#steptypes) [![put](https://img.shields.io/badge/put-blue)](put.md#steptypes)   
+Get the details of a step type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all step types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all step types.
+
+## Steps ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#steps) [![put](https://img.shields.io/badge/put-blue)](put.md#steps)   
+Get details of a step.  
+```json
+Query: {"StepID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the steps for the specified plan, constituent or associate.
+```json
+Query: {"AssociateID":"string", "ConstituentID":"string", "IncludeAffiliations":"string", "IncludeAssociates":"string", "PlanID":"string"}
+```
+ * *--AllDocumentSummaries*  
+   Get summary of all the documents associated with the step. (Excluding the file contents)
+```json
+Query: {"StepID":"string"}
+```
+ * *--AllDocuments*  
+   Get all the documents associated with the step (Including the file contents).
+```json
+Query: {"StepID":"string"}
+```
+
+## SubLineItemStatuses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#sublineitemstatuses) [![put](https://img.shields.io/badge/put-blue)](put.md#sublineitemstatuses)   
+Get the details of a sub line item status by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all sub line item statuses. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all sub line item statuses.
+
+## SubLineItems ![get](https://img.shields.io/badge/get-gray)   
+Returns sub line item summary data for a constituent  
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string", "IncludePackageBaseSubLineitems":"string", "OrderEndDate":"string", "OrderID":"string", "OrderStartDate":"string", "PerformanceEndDate":"string", "PerformanceStartDate":"string", "PerformanceTypeIds":"string", "SubLineItemStatusIds":"string"}
+```
+
+## Suffixes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#suffixes) [![put](https://img.shields.io/badge/put-blue)](put.md#suffixes)   
+Get the details of a suffix by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all suffixes. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all suffixes.
+
+## SurveyQuestions ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#surveyquestions) [![put](https://img.shields.io/badge/put-blue)](put.md#surveyquestions)   
+Get the details of a survey question by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all survey questions. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). Optionally provide a mode of sale id.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string", "ModeOfSaleID":"string"}
+```
+ * *--DataFor*  
+   Get answer data for a survey question if it refers to another reference table.
+```json
+Query: {"QuestionID":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all survey questions.
+
+## SurveyResponses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#surveyresponses) [![put](https://img.shields.io/badge/put-blue)](put.md#surveyresponses)   
+Get details of a survey response.  
+```json
+Query: {"SurveyResponseID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all survey responses.
+```json
+Query: {"OrderID":"string"}
+```
+
+## SystemDefaults ![get](https://img.shields.io/badge/get-gray)   
+Get all system defaults. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.  
+```json
+Query: {"MaintenanceMode":"string"}
+```
+### Flags:
+ * *--Default*  
+   Get default summaries for specified keys, delimited by comma ("?keys=COMPANY_NAME,REQUIRE_ADDRESS").  This resource resolves organizational and global defaults to ensure that only one is returned per key (field name).  No default will be returned if one does not exist.
+```json
+Query: {"Keys":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all system defaults.
+
+	
+# T
+## TemplateCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#templatecategories) [![put](https://img.shields.io/badge/put-blue)](put.md#templatecategories)   
+Get the details of a template category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all template categories. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all template categories.
+
+## TemplatePriceTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#templatepricetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#templatepricetypes)   
+Get details of a template price type.  
+```json
+Query: {"TemplatePriceTypeID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all template price type.
+```json
+Query: {"TemplateID":"string"}
+```
+
+## TemplatePrices ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#templateprices) [![put](https://img.shields.io/badge/put-blue)](put.md#templateprices)   
+Get details of a template price.  
+```json
+Query: {"TemplatePriceID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all template prices.
+```json
+Query: {"TemplateID":"string"}
+```
+
+## TemplateTypes ![get](https://img.shields.io/badge/get-gray)   
+Get the details of a template type by id. To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all template types. To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all template types
+
+## Templates ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#templates) [![put](https://img.shields.io/badge/put-blue)](put.md#templates)   
+Get the details of a template by id  
+```json
+Query: {"TemplateID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all templates
+ * *--Summaries*  
+   Get a summary representation of all templates
+
+## Theaters ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#theaters) [![put](https://img.shields.io/badge/put-blue)](put.md#theaters)   
+Get the details of a theater by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all theaters. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all theaters.
+
+## TicketHistory ![get](https://img.shields.io/badge/get-gray)   
+Gets history information for tickets  
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string", "OrderEndDate":"string", "OrderStartDate":"string", "PerformanceEndDate":"string", "PerformanceID":"string", "PerformanceStartDate":"string", "ProductionSeasonID":"string", "SeasonID":"string"}
+```
+
+## TimeSlots ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#timeslots) [![put](https://img.shields.io/badge/put-blue)](put.md#timeslots)   
+Get the details of a time slot by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all time slots. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all time slots.
+
+## Titles ![get](https://img.shields.io/badge/get-gray)   
+Get details of a specific title.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all titles
+ * *--Summaries*  
+   Get all title summaries
+
+## TransactionHistory ![get](https://img.shields.io/badge/get-gray)   
+Get details of all transaction histories for the specified constituent id and all its visible affiliations' transaction histories as well. To exclude transaction histories of the visible affiliations pass includeAffiliations=false. This resource is paged. Pass filters such as transaction reference id, payment id, or start and end date to limit the results. Results can also be sorted.  
+```json
+Query: {"ConstituentID":"string", "EndDate":"string", "IncludeAffiliations":"string", "Page":"string", "PageSize":"string", "PaymentID":"string", "ReferenceID":"string", "SortByDirection":"string", "SortByField":"string", "StartDate":"string"}
+```
+
+## TriPOSCloudConfigurations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#triposcloudconfigurations) [![put](https://img.shields.io/badge/put-blue)](put.md#triposcloudconfigurations)   
+Get the details of a TriPOS Cloud configuration by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all TriPOS Cloud configurations.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all TriPOS Cloud configurations.
+
+	
+# U
+## UpgradeCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#upgradecategories) [![put](https://img.shields.io/badge/put-blue)](put.md#upgradecategories)   
+Get the details of an Upgrade Category by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all Upgrade Categories. To get them in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all Upgrade Categories.
+
+## UpgradeLogs ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#upgradelogs) [![put](https://img.shields.io/badge/put-blue)](put.md#upgradelogs)   
+Returns an upgradeLog for the given id.  
+```json
+Query: {"UpgradeLogID":"string"}
+```
+### Flags:
+ * *--All*  
+   Returns a list of UpgradeLog objects.
+
+## UserGroups ![get](https://img.shields.io/badge/get-gray)   
+Get the details of a user group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all User Groups. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all user groups.
+
+## UserPreferences ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#userpreferences) [![put](https://img.shields.io/badge/put-blue)](put.md#userpreferences)   
+Get a specific user preference by key.  
+```json
+Query: {"Key":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all user preferences valid for the context username and user group.
+```json
+Query: {"Keys":"string"}
+```
+
+## Users ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#users)   
+Get the details of a user for the specified username.  
+```json
+Query: {"UserName":"string"}
+```
+### Flags:
+ * *--ActiveDirectoryUser*  
+   Get details of a user for the specified activeDirectoryUsername.
+```json
+Query: {"ActiveDirectoryUsername":"string"}
+```
+ * *--UserInformationForActiveDirectoryUser*  
+   Gets user information for the specified activeDirectoryUsername.
+```json
+Query: {"ActiveDirectoryUsername":"string"}
+```
+ * *--UsersForUserGroup*  
+   Get list of users in summary for the current user's group.
+```json
+Query: {"UserGroupID":"string"}
+```
+
+	
+# V
+
+	
+# W
+## WebContentTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#webcontenttypes) [![put](https://img.shields.io/badge/put-blue)](put.md#webcontenttypes)   
+Get a specific web content type.  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all web content types. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--DataFor*  
+   Gets potential values for a referenced WebContentType as a collection of WebContentTypeDataItem.
+```json
+Query: {"ID":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all web content types.
+
+## WebContents ![get](https://img.shields.io/badge/get-gray)   
+Returns web content for the requested production elements or packages.
 The result can be filtered by content types.  At least one package id or production element id is required.
-If the content type is found, returns the content value at the lowest level at which it was found in the production hierarchy (Title, Production, Production Season, Performance) for the requested element. Optionally, all matching content anywhere above the requested element in the production hierarchy can be returned with the ShowAll parameter.`
+If the content type is found, returns the content value at the lowest level at which it was found in the production hierarchy (Title, Production, Production Season, Performance) for the requested element. Optionally, all matching content anywhere above the requested element in the production hierarchy can be returned with the ShowAll parameter.  
+```json
+Query: {"ContentTypeIds":"string", "PackageIds":"string", "ProductionElementIds":"string", "ShowAll":"string"}
+```
 
-    
+## WebLogins ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#weblogins) [![put](https://img.shields.io/badge/put-blue)](put.md#weblogins)   
+Get details of a weblogin.  
+```json
+Query: {"WebLoginID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the weblogins for the specified constituent id and all its visible affiliation's weblogins as well. To exclude weblogins of the visible affiliations pass includeAffiliations=false. To fetch primary web logins alone pass primaryOnly=true.
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string", "PrimaryOnly":"string"}
+```
+ * *--LoginCredentials*  
+   Returns web login credential information
+```json
+Query: {"LoginID":"string"}
+```
+ * *--Search*  
+   Get weblogins by email address and login type
+```json
+Query: {"EmailAddress":"string", "LoginTypeID":"string"}
+```
 
-## Use: `WebLogins`
-### Variant: ``
+## WorkerQualifications ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#workerqualifications) [![put](https://img.shields.io/badge/put-blue)](put.md#workerqualifications)   
+Get a single WorkerQualification by Id.  
+```json
+Query: {"WorkerQualificationID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all Worker Qualifications for a comma separated list of constituents, optionally including qualifications from affiliated constituents.
+```json
+Query: {"ConstituentIds":"string", "IncludeAffiliations":"string"}
+```
 
-	-	Example: `{"WebLoginID":"string"}`
-	-	Short: `Get details of a weblogin`
-	-	Long:  `Get details of a weblogin.`
+## WorkerRoles ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#workerroles) [![put](https://img.shields.io/badge/put-blue)](put.md#workerroles)   
+Get the details of a worker role by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all worker roles. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all worker roles.
 
-    
-### Variant: `All`
+## WorkerTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#workertypes) [![put](https://img.shields.io/badge/put-blue)](put.md#workertypes)   
+Get the details of a worker type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
+```json
+Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all worker types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"Filter":"string", "MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all worker types.
 
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string", "PrimaryOnly":"string"}`
-	-	Short: `Get details of all the weblogins for the specified constituent id and all its visible affiliation's weblogins as well`
-	-	Long:  `Get details of all the weblogins for the specified constituent id and all its visible affiliation's weblogins as well. To exclude weblogins of the visible affiliations pass includeAffiliations=false. To fetch primary web logins alone pass primaryOnly=true.`
+## Workers ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#workers) [![put](https://img.shields.io/badge/put-blue)](put.md#workers)   
+Get details of a worker.  
+```json
+Query: {"WorkerID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get details of all the workers for the specified constituent.
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
+```
+ * *--Summaries*  
+   Get summary of all the workers for the specified constituent.
+```json
+Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
+```
 
-    
-### Variant: `LoginCredentials`
+	
+# Z
+## ZoneGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#zonegroups) [![put](https://img.shields.io/badge/put-blue)](put.md#zonegroups)   
+Get the details of a zone group by id.  
+```json
+Query: {"ID":"string", "MaintenanceMode":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all zone groups. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.
+```json
+Query: {"MaintenanceMode":"string"}
+```
+ * *--Summaries*  
+   Get a summary representation of all zone groups.
 
-	-	Example: `{"LoginID":"string"}`
-	-	Short: `Returns web login credential information`
-	-	Long:  `Returns web login credential information`
+## ZoneMaps ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#zonemaps) [![put](https://img.shields.io/badge/put-blue)](put.md#zonemaps)   
+Get details of a specific zone map.  
+```json
+Query: {"ID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all zone maps, optionally filtered by facility and/or seat map.
+```json
+Query: {"FacilityID":"string", "SeatMapID":"string"}
+```
+ * *--Summaries*  
+   Get a summary of all zone maps, optionally filtered by facility and/or seat map.
+```json
+Query: {"FacilityID":"string", "SeatMapID":"string"}
+```
 
-    
-### Variant: `Search`
+## Zones ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#zones) [![put](https://img.shields.io/badge/put-blue)](put.md#zones)   
+Get details of a specific zone.  
+```json
+Query: {"ZoneID":"string", "ZoneMapID":"string"}
+```
+### Flags:
+ * *--All*  
+   Get all zones, optionally filtered by a set of zone maps.
+```json
+Query: {"ZoneMapIds":"string"}
+```
+ * *--Summaries*  
+   Get a summary of all zones, optionally filtered by a set of zone maps.
+```json
+Query: {"ZoneMapIds":"string"}
+```
+ 
 
-	-	Example: `{"EmailAddress":"string", "LoginTypeID":"string"}`
-	-	Short: `Get weblogins by email address and login type`
-	-	Long:  `Get weblogins by email address and login type`
-
-    
-
-## Use: `WorkerQualifications`
-### Variant: ``
-
-	-	Example: `{"WorkerQualificationID":"string"}`
-	-	Short: `Get a single WorkerQualification by Id`
-	-	Long:  `Get a single WorkerQualification by Id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentIds":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get all Worker Qualifications for a comma separated list of constituents`
-	-	Long:  `Get all Worker Qualifications for a comma separated list of constituents, optionally including qualifications from affiliated constituents.`
-
-    
-
-## Use: `WorkerRoles`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a worker role by id`
-	-	Long:  `Get the details of a worker role by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all worker roles`
-	-	Long:  `Get all worker roles. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all worker roles`
-	-	Long:  `Get a summary representation of all worker roles.`
-
-    
-
-## Use: `WorkerTypes`
-### Variant: ``
-
-	-	Example: `{"Filter":"string", "ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a worker type by id`
-	-	Long:  `Get the details of a worker type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).`
-
-    
-### Variant: `All`
-
-	-	Example: `{"Filter":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get all worker types`
-	-	Long:  `Get all worker types. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP). For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all worker types`
-	-	Long:  `Get a summary representation of all worker types.`
-
-    
-
-## Use: `Workers`
-### Variant: ``
-
-	-	Example: `{"WorkerID":"string"}`
-	-	Short: `Get details of a worker`
-	-	Long:  `Get details of a worker.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get details of all the workers for the specified constituent`
-	-	Long:  `Get details of all the workers for the specified constituent.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"ConstituentID":"string", "IncludeAffiliations":"string"}`
-	-	Short: `Get summary of all the workers for the specified constituent`
-	-	Long:  `Get summary of all the workers for the specified constituent.`
-
-    
-
-## Use: `ZoneGroups`
-### Variant: ``
-
-	-	Example: `{"ID":"string", "MaintenanceMode":"string"}`
-	-	Short: `Get the details of a zone group by id`
-	-	Long:  `Get the details of a zone group by id.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"MaintenanceMode":"string"}`
-	-	Short: `Get all zone groups`
-	-	Long:  `Get all zone groups. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: ``
-	-	Short: `Get a summary representation of all zone groups`
-	-	Long:  `Get a summary representation of all zone groups.`
-
-    
-
-## Use: `ZoneMaps`
-### Variant: ``
-
-	-	Example: `{"ID":"string"}`
-	-	Short: `Get details of a specific zone map`
-	-	Long:  `Get details of a specific zone map.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"FacilityID":"string", "SeatMapID":"string"}`
-	-	Short: `Get all zone maps`
-	-	Long:  `Get all zone maps, optionally filtered by facility and/or seat map.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"FacilityID":"string", "SeatMapID":"string"}`
-	-	Short: `Get a summary of all zone maps`
-	-	Long:  `Get a summary of all zone maps, optionally filtered by facility and/or seat map.`
-
-    
-
-## Use: `Zones`
-### Variant: ``
-
-	-	Example: `{"ZoneID":"string", "ZoneMapID":"string"}`
-	-	Short: `Get details of a specific zone`
-	-	Long:  `Get details of a specific zone.`
-
-    
-### Variant: `All`
-
-	-	Example: `{"ZoneMapIds":"string"}`
-	-	Short: `Get all zones`
-	-	Long:  `Get all zones, optionally filtered by a set of zone maps.`
-
-    
-### Variant: `Summaries`
-
-	-	Example: `{"ZoneMapIds":"string"}`
-	-	Short: `Get a summary of all zones`
-	-	Long:  `Get a summary of all zones, optionally filtered by a set of zone maps.`
-
-    
-
-
-
-
+<link rel="stylesheet" type="text/css" href="/css/toc.css"/>
