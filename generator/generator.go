@@ -56,7 +56,11 @@ func init() {
 
 func generate(templateFile string, outDir string, outSuffix string) {
 	// add a new function to the template engine
-	funcs := template.FuncMap{"join": strings.Join}
+	funcs := template.FuncMap{
+		"join":    strings.Join,
+		"left":    func(s string) string { return string(s[0]) },
+		"toLower": strings.ToLower,
+	}
 	templ, err := template.New("commands").Funcs(funcs).ParseFiles(templateFile)
 	if err != nil {
 		panic(err)
