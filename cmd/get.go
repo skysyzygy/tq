@@ -5465,6 +5465,7 @@ To exclude accounts of the visible affiliates pass includeAffiliations=false.` +
 				Get_Addresses_cmd.Flags().Bool("All", false, 
 					`Get details of all the addresses for the specified constituent id and all its visible affiliation's addresses as well. To exclude addresses of the visible affiliations pass includeAffiliations=false. To get only the primary addresses, pass primaryOnly=true.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string", "IncludeFromAffiliations":"string", "PrimaryOnly":"string"}`)
 	
+	
 		Get_cmd.AddCommand(Get_AffiliationTypes_cmd) 
 				Get_AffiliationTypes_cmd.Flags().Bool("All", false, 
 					`` + "\nQuery:\n" + `{"ConstituentTypeID":"string", "Filter":"string", "MaintenanceMode":"string"}`) 
@@ -5551,6 +5552,8 @@ audit entries before that time would be returned.` + "\nQuery:\n" + `{"Action":"
 					`Get audit log details.` + "\nQuery:\n" + `{"Action":"string", "AuditEndTime":"string", "AuditStartTime":"string", "EntityIds":"string", "IncludeSubEntities":"string", "PageIndex":"string", "PageSize":"string", "Table":"string"}`)
 	
 		Get_cmd.AddCommand(Get_Authenticate_cmd)
+	
+	
 	
 		Get_cmd.AddCommand(Get_BatchMaintenance_cmd) 
 				Get_BatchMaintenance_cmd.Flags().Bool("Active", false, 
@@ -5811,6 +5814,7 @@ Attribute search type permits parameters key, op, value. Sample URL:  CRM/Consti
 				Get_ContributionImportSets_cmd.Flags().Bool("Summaries", false, 
 					`Get a summary representation of all contributionImportSets.` + "\nQuery:\n" + ``)
 	
+	
 		Get_cmd.AddCommand(Get_ControlGroupUserGroups_cmd) 
 				Get_ControlGroupUserGroups_cmd.Flags().Bool("All", false, 
 					`Get all control group/user group mappings.` + "\nQuery:\n" + ``) 
@@ -5962,6 +5966,8 @@ Either constituentIds, useGeneralPublic, or address must be specified in request
 					`Get all email profiles` + "\nQuery:\n" + `{"Filter":"string", "MaintenanceMode":"string"}`) 
 				Get_EmailProfiles_cmd.Flags().Bool("Summaries", false, 
 					`Get summary of all email profiles` + "\nQuery:\n" + ``)
+	
+	
 	
 		Get_cmd.AddCommand(Get_EmarketIndicators_cmd) 
 				Get_EmarketIndicators_cmd.Flags().Bool("All", false, 
@@ -6347,11 +6353,14 @@ Available seats can be filtered by price type availability, causing any seats th
 				Get_Packages_cmd.Flags().Bool("Summaries", false, 
 					`Get summary of all packages filtered by a selected season.` + "\nQuery:\n" + `{"SeasonID":"string"}`)
 	
+	
+	
 		Get_cmd.AddCommand(Get_PaymentGatewayActivities_cmd) 
 				Get_PaymentGatewayActivities_cmd.Flags().Bool("All", false, 
 					`Retrieve all Payment Gateway Activity` + "\nQuery:\n" + ``)
 	
 		Get_cmd.AddCommand(Get_PaymentGatewayConfiguration_cmd)
+	
 	
 		Get_cmd.AddCommand(Get_PaymentGatewayNotifications_cmd) 
 				Get_PaymentGatewayNotifications_cmd.Flags().Bool("Check", false, 
@@ -6675,6 +6684,7 @@ Returns the production season summary (description, ID, and related production a
 				Get_Productions_cmd.Flags().Bool("Summaries", false, 
 					`Get all production summaries, Optionally filtered by one or more titles.` + "\nQuery:\n" + `{"TitleIds":"string"}`)
 	
+	
 		Get_cmd.AddCommand(Get_ProgramListings_cmd) 
 				Get_ProgramListings_cmd.Flags().Bool("All", false, 
 					`Get details of all the program listings for the specified constituent id and all its visible affiliation's program listings as well. To exclude program listings of the visible affiliations pass includeAffiliations=false. To Get The primary program listings alone, pass primaryOnly=true.` + "\nQuery:\n" + `{"ConstituentID":"string", "IncludeAffiliations":"string"}`)
@@ -6737,6 +6747,7 @@ Returns the production season summary (description, ID, and related production a
 				Get_ReceiptSettings_cmd.Flags().Bool("Summaries", false, 
 					`Get a summary representation of all Receipt Settings.` + "\nQuery:\n" + ``)
 	
+	
 		Get_cmd.AddCommand(Get_ReferenceColumns_cmd) 
 				Get_ReferenceColumns_cmd.Flags().Bool("Summaries", false, 
 					`Get a summary representation of all reference columns.` + "\nQuery:\n" + ``)
@@ -6752,6 +6763,7 @@ Returns the production season summary (description, ID, and related production a
 					`Get all reference tables. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.` + "\nQuery:\n" + `{"MaintenanceMode":"string"}`) 
 				Get_ReferenceTables_cmd.Flags().Bool("Summaries", false, 
 					`Get a summary representation of all reference tables.` + "\nQuery:\n" + ``)
+	
 	
 		Get_cmd.AddCommand(Get_RelationshipCategories_cmd) 
 				Get_RelationshipCategories_cmd.Flags().Bool("All", false, 
@@ -7116,6 +7128,7 @@ Returned orders can be filtered by print status, performance date, season, mode 
 					`Gets user information for the specified activeDirectoryUsername.` + "\nQuery:\n" + `{"ActiveDirectoryUsername":"string"}`) 
 				Get_Users_cmd.Flags().Bool("UsersForUserGroup", false, 
 					`Get list of users in summary for the current user's group.` + "\nQuery:\n" + `{"UserGroupID":"string"}`)
+	
 	
 		Get_cmd.AddCommand(Get_WebContentTypes_cmd) 
 				Get_WebContentTypes_cmd.Flags().Bool("All", false, 

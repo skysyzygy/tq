@@ -7,9 +7,11 @@ import (
 	"github.com/skysyzygy/tq/tq"
 )
 
+{{ $selectedOp := .op }}
+
 {{- range $name, $ops := .commands }}
 {{- range $op, $commands := $ops }}
-{{- if eq $op .op }}
+{{- if eq $op $selectedOp }}
 {{- $command := index $commands 0 }}
 var {{ print $op "_" $name "_cmd" }} = &cobra.Command{
 		Use: `{{ $name }}`,
@@ -40,7 +42,7 @@ var {{ print $op "_" $name "_cmd" }} = &cobra.Command{
 func init() {
 	{{- range $name, $ops := .commands }}
 	{{- range $op, $commands := $ops }}
-	{{- if eq $op .op }}
+	{{- if eq $op $selectedOp }}
 		{{ $op }}_cmd.AddCommand({{ print $op "_" $name "_cmd" }})
 		{{- if gt (len $commands) 1 }}
 			{{- range slice $commands 1 }} 
@@ -50,7 +52,7 @@ func init() {
 		{{- end }}
 	{{- end }}
 	{{- end }}
-	{{- end }}
+	{{ end }}
 }
 
 
