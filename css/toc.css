@@ -1,0 +1,6 @@
+#toc-collapse .flex-column {
+    flex-direction: row!important;
+}
+#toc-collapse .nav-item {
+    width: 25%
+}
