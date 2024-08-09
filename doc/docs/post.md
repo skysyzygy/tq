@@ -5,12 +5,18 @@
 	
 # A
 ## AccountTypes [![get](https://img.shields.io/badge/get-blue)](get.md#accounttypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#accounttypes)   
+```shell
+tq post AccountTypes
+```
 Create a new account type.  
 ```json
 Query: {"CardLength":"string", "CardPrefix":"string", "CardtypeIndicator":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditMask":"string", "Id":123, "Inactive":true, "Mod10Indicator":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Accounts [![get](https://img.shields.io/badge/get-blue)](get.md#accounts) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#accounts)   
+```shell
+tq post Accounts
+```
 Create a credit card account, storing the card number. Will create and store a token if tokenization is enabled.  
 ```json
 Query: {"AccountNumber":"string", "CardExpiryMonth":123, "CardExpiryYear":123, "ConstituentId":123, "ExclusiveToControlledBatchId":123, "Inactive":true, "Name":"string", "PaymentMethodGroupId":123, "ReturnAccountIfAccountExists":true, "TransactionOrigin":"string", "VantivEncryptedCard":{"Version":"string"}}
@@ -33,66 +39,99 @@ Query: {"ConstituentId":123, "ExclusiveToControlledBatchId":123, "Inactive":true
 ```
 
 ## ActionTypes [![get](https://img.shields.io/badge/get-blue)](get.md#actiontypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#actiontypes)   
+```shell
+tq post ActionTypes
+```
 Create a new action type.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LetterIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Actions [![get](https://img.shields.io/badge/get-blue)](get.md#actions) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#actions)   
+```shell
+tq post Actions
+```
 Create an issue action for a Constituent  
 ```json
 Query: {"ActionDate":"2000-01-01T00:00:00.000Z", "ActionType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Issue":{"Id":123}, "LetterPrintedDate":"2000-01-01T00:00:00.000Z", "Notes":"string", "Resolved":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ActivityCategories [![get](https://img.shields.io/badge/get-blue)](get.md#activitycategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#activitycategories)   
+```shell
+tq post ActivityCategories
+```
 Create a new activity category.  
 ```json
 Query: {"AutoClose":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ActivityTypes [![get](https://img.shields.io/badge/get-blue)](get.md#activitytypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#activitytypes)   
+```shell
+tq post ActivityTypes
+```
 Create a new activity type.  
 ```json
 Query: {"Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PerfIndicator":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## AddressTypes [![get](https://img.shields.io/badge/get-blue)](get.md#addresstypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#addresstypes)   
+```shell
+tq post AddressTypes
+```
 Create a new address type.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Addresses [![get](https://img.shields.io/badge/get-blue)](get.md#addresses) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#addresses)   
+```shell
+tq post Addresses
+```
 Create a new address for a Constituent by sending an XML or JSON representation of an Address object using HTTP POST.  
 ```json
 Query: {"AddressType":{"Id":123}, "AffiliatedConstituent":{"Id":123}, "AltSalutationType":{"Id":123}, "City":"string", "Constituent":{"Id":123}, "Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DeliveryPoint":"string", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "GeoArea":123, "Id":123, "Inactive":true, "IsFromAffiliation":true, "Label":true, "Months":"string", "NcoaAction":123, "NcoaSession":123, "PostalCode":"string", "PostalCodeFormatted":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "State":{"Id":123}, "Street1":"string", "Street1Address":{"Number":"string", "Street":"string"}, "Street2":"string", "Street3":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## AffiliationInfo ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post AffiliationInfo
+```
 Create affiliation between a group constituent and its related constituent. If the related constituent does not exist then create the related constituent as well before creating the affiliation.  
 ```json
 Query: {"AffiliationType":{"Id":123}, "ConstituentId":123, "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "IsAllowedToTransact":true, "IsIncludedInSearchResults":true, "NameIndicator":123, "Note":"string", "PrimaryIndicator":true, "ProtectionType":{"Id":123}, "Rank":123, "RelatedConstituentFirstName":"string", "RelatedConstituentGender":{"Id":123}, "RelatedConstituentId":123, "RelatedConstituentInactive":true, "RelatedConstituentLastName":"string", "RelatedConstituentMiddleName":"string", "RelatedConstituentNameStatusDescription":"string", "RelatedConstituentNameStatusId":123, "RelatedConstituentPrefix":{"Id":123}, "RelatedConstituentShortDisplayName":"string", "RelatedConstituentSortName":"string", "RelatedConstituentSuffix":{"Id":123}, "RelatedConstituentType":{"Id":123}, "Salary":123.456, "StartDate":"2000-01-01T00:00:00.000Z", "Title":"string"}
 ```
 
 ## AffiliationTypes [![get](https://img.shields.io/badge/get-blue)](get.md#affiliationtypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#affiliationtypes)   
+```shell
+tq post AffiliationTypes
+```
 Create a new affiliation type.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsAllowedToTransactDefault":true, "IsIncludedInSearchResultsDefault":true, "RelationshipCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseSalary":true, "UseTitle":true}
 ```
 
 ## Affiliations [![get](https://img.shields.io/badge/get-blue)](get.md#affiliations) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#affiliations)   
+```shell
+tq post Affiliations
+```
 Create a new affiliation.  
 ```json
 Query: {"AddressId":123, "AffiliatedName":"string", "AffiliationType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "ElectronicAddressId":123, "EndDate":"2000-01-01T00:00:00.000Z", "GroupConstituent":{"Id":123}, "GroupConstituentName":"string", "GroupConstituentSortName":"string", "Id":123, "Inactive":true, "IndividualConstituent":{"Id":123}, "IndividualConstituentName":"string", "IndividualConstituentSortName":"string", "IsAllowedToTransact":true, "IsIncludedInSearchResults":true, "NameIndicator":123, "Note":"string", "PrimaryIndicator":true, "Salary":123.456, "SalutationId":123, "StartDate":"2000-01-01T00:00:00.000Z", "Title":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## AliasTypes [![get](https://img.shields.io/badge/get-blue)](get.md#aliastypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#aliastypes)   
+```shell
+tq post AliasTypes
+```
 Create a new alias type.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Aliases [![get](https://img.shields.io/badge/get-blue)](get.md#aliases) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#aliases)   
+```shell
+tq post Aliases
+```
 Create a new alias.  
 ```json
 Query: {"AliasFirstName":"string", "AliasLastName":"string", "AliasType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -100,6 +139,9 @@ Query: {"AliasFirstName":"string", "AliasLastName":"string", "AliasType":{"Id":1
 
 
 ## AnalyticsReports [![get](https://img.shields.io/badge/get-blue)](get.md#analyticsreports) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#analyticsreports)   
+```shell
+tq post AnalyticsReports
+```
 Create SSRS Reports for display in Analytics.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Division":{"Id":"string"}, "Id":123, "Inactive":true, "ReportPath":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -107,6 +149,9 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 
 
 ## AppealCategories [![get](https://img.shields.io/badge/get-blue)](get.md#appealcategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#appealcategories)   
+```shell
+tq post AppealCategories
+```
 Create a new appeal category.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -115,30 +160,45 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 
 
 ## Artists [![get](https://img.shields.io/badge/get-blue)](get.md#artists) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#artists)   
+```shell
+tq post Artists
+```
 Create a new artist.  
 ```json
 Query: {"Bio":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "FirstName":"string", "Id":123, "LastName":"string", "MiddleName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "VoiceId":123}
 ```
 
 ## AssetTypes [![get](https://img.shields.io/badge/get-blue)](get.md#assettypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#assettypes)   
+```shell
+tq post AssetTypes
+```
 Create a new asset type.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Assets [![get](https://img.shields.io/badge/get-blue)](get.md#assets) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#assets)   
+```shell
+tq post Assets
+```
 Create an asset for a constituent.  
 ```json
 Query: {"AcquisitionDateTime":"2000-01-01T00:00:00.000Z", "AssetType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "EstimatedValue":123.456, "Id":123, "Notes":"string", "SaleDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## AssociationTypes [![get](https://img.shields.io/badge/get-blue)](get.md#associationtypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#associationtypes)   
+```shell
+tq post AssociationTypes
+```
 Create a new association type.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsIncludedInSearchResultsDefault":true, "ReciprocalType":{"Id":123}, "RelationshipCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseBirthDate":true, "UseGender":true}
 ```
 
 ## Associations [![get](https://img.shields.io/badge/get-blue)](get.md#associations) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#associations)   
+```shell
+tq post Associations
+```
 Create a new association.  
 ```json
 Query: {"AssociatedConstituent":{"Id":123}, "AssociatedName":"string", "AssociationType":{"Id":123}, "BirthDate":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "Gender":{"Id":123}, "Id":123, "Inactive":true, "IsIncludedInSearchResults":true, "Note":"string", "ReciprocalAssociation":{"Id":123}, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -146,6 +206,9 @@ Query: {"AssociatedConstituent":{"Id":123}, "AssociatedName":"string", "Associat
 
 
 ## Attributes [![get](https://img.shields.io/badge/get-blue)](get.md#attributes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#attributes)   
+```shell
+tq post Attributes
+```
 Create a new attribute.  
 ```json
 Query: {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Keyword":{"Id":123}, "KeywordConstituentType":{"Inactive":true, "Rank":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}
@@ -153,6 +216,9 @@ Query: {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string
 
 
 ## Authenticate [![get](https://img.shields.io/badge/get-blue)](get.md#authenticate) ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post Authenticate
+```
 Authenticate the provided credentials  
 ```json
 Query: {"Application":"string", "MachineLocation":"string", "Password":"string", "UserGroup":"string", "UserName":"string"}
@@ -180,6 +246,9 @@ Query: {"Token":"string"}
 ```
 
 ## Authorization ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#authorization)   
+```shell
+tq post Authorization
+```
 Authorize a payment using a manually keyed, swiped or encrypted card data, including payments made using the Tessitura Merchant Services Payment Component.  
 ```json
 Query: {"AllowPartialAuth":true, "Amount":123.456, "AuthorizationCode":"string", "BillingAddress":{"AddressId":123, "Country":"string", "PostalCode":"string", "Street1":"string"}, "Card":{"AccountId":123, "CardHolderName":"string", "CardNumber":"string", "Cvv2":"string", "ExpirationDate":"string", "TessituraMerchantServicesData":"string", "Track1":"string", "Track2":"string"}, "ConstituentId":123, "DeliveryDate":"2000-01-01T00:00:00.000Z", "IsECommerce":true, "IsRecurring":true, "PaymentId":123, "PaymentMethodId":123, "ReferenceNumber":"string", "ReturnUrl":"string", "ShopperIp":"string", "StoreAccount":true, "ThreeDSecureData":{"EciIndicatorType":"string", "MpiSessionId":"string", "SecureTransactionId":"string", "SecureTransactionSecurity":"string", "VerAuthValue":"string", "VerCertificateSerialCardAcceptor":"string", "VerCertificateSerialCardHolder":"string", "VerHashResult":"string"}, "TransactionOrigin":"string", "UserData":"string"}
@@ -216,18 +285,27 @@ Query: {"ReferenceNumber":"string", "Amount":123.456, "Card":{"AccountId":123, "
 	
 # B
 ## Batch ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post Batch
+```
   
 ```json
 Query: {"Requests":[{"Id":123}, ...]}
 ```
 
 ## BatchMaintenance [![get](https://img.shields.io/badge/get-blue)](get.md#batchmaintenance) ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post BatchMaintenance
+```
 Create a new Batch  
 ```json
 Query: {"AmtPosted":123.456, "BatchType":{"Id":123}, "CloseDateTime":"2000-01-01T00:00:00.000Z", "ClosedBy":"string", "CntlIndicator":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Notes":"string", "NumAccCc":123, "NumRejCc":123, "OpenLoc":"string", "Owner":"string", "PostId":123, "PostedBy":"string", "PostedDateTime":"2000-01-01T00:00:00.000Z", "Status":"string", "TallyPlAmount":123.456, "TallyReAmount":123.456, "UniqueTag":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## BatchTypeGroups [![get](https://img.shields.io/badge/get-blue)](get.md#batchtypegroups) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#batchtypegroups)   
+```shell
+tq post BatchTypeGroups
+```
 Create a new batch type group.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -235,36 +313,54 @@ Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"strin
 
 
 ## BatchTypes [![get](https://img.shields.io/badge/get-blue)](get.md#batchtypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#batchtypes)   
+```shell
+tq post BatchTypes
+```
 Create a new batch type.  
 ```json
 Query: {"BatchTypeGroup":{"Id":123}, "BusinessUnit":{"Id":123}, "Category":123, "CntlIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## BillingSchedules [![get](https://img.shields.io/badge/get-blue)](get.md#billingschedules) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#billingschedules)   
+```shell
+tq post BillingSchedules
+```
 Create a new Billing Schedule.  
 ```json
 Query: {"BillAmounts":"string", "BillDates":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LongDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## BillingTypes [![get](https://img.shields.io/badge/get-blue)](get.md#billingtypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#billingtypes)   
+```shell
+tq post BillingTypes
+```
 Create a new Billing Type.  
 ```json
 Query: {"AutoBillingIndicator":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## BookingCategories [![get](https://img.shields.io/badge/get-blue)](get.md#bookingcategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#bookingcategories)   
+```shell
+tq post BookingCategories
+```
 Create a new Booking Category.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## BookingTemplates [![get](https://img.shields.io/badge/get-blue)](get.md#bookingtemplates) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#bookingtemplates)   
+```shell
+tq post BookingTemplates
+```
 Create a new Booking Template  
 ```json
 Query: {"Assignments":[{"Id":123}, ...], "Category":{"Id":123}, "ConfirmationText":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Notes":"string", "OverrideTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Bookings [![get](https://img.shields.io/badge/get-blue)](get.md#bookings) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#bookings)   
+```shell
+tq post Bookings
+```
 Create a new Booking  
 ```json
 Query: {"Assignments":[{"Id":123}, ...], "BookingSource":123, "Category":{"Id":123}, "ConfirmationText":"string", "Context":{}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultCount":123, "DefaultDateTime":"2000-01-01T00:00:00.000Z", "DefaultDuration":123, "Description":"string", "EditIndicator":true, "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -282,6 +378,9 @@ Query: {"BookingSource":123, "BookingTemplateId":123, "ConfirmationText":"string
 ```
 
 ## BulkCopySets [![get](https://img.shields.io/badge/get-blue)](get.md#bulkcopysets) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#bulkcopysets)   
+```shell
+tq post BulkCopySets
+```
 Creates a new bulk copy set.  
 ```json
 Query: {"AvailableForSaleIndicator":true, "ControlGroup":{"Id":123}, "CopyCredits":true, "CopyNotes":true, "CopyOffers":true, "CopyPriceEvents":true, "CopyPrices":true, "CreateFriday":true, "CreateFromDateTime":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreateMode":"string", "CreateMonday":true, "CreateSaturday":true, "CreateSunday":true, "CreateThursday":true, "CreateToDateTime":"2000-01-01T00:00:00.000Z", "CreateTuesday":true, "CreateWednesday":true, "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultRelativeDates":"string", "Id":123, "Inactive":true, "OverrideOnSale":true, "PackageCode":"string", "PackageCodeSeed":123, "PackageModeOfSaleRelativeDates":"string", "PerformanceCode":"string", "PerformanceCodeSeed":123, "PerformanceDescription":"string", "PerformanceModeOfSaleRelativeDates":"string", "PerformanceStatus":{"Id":123}, "PerformanceTime":"string", "PerformanceType":{"Id":123}, "PriceEventRelativeDates":"string", "PriceTypeRelativeDates":"string", "ProductionSeason":{"Id":123}, "PublishRelativeDates":"string", "ReferenceDay":"2000-01-01T00:00:00.000Z", "ReferencePerformanceId":123, "ReferenceSeasonString":"string", "SetDescription":"string", "SetType":123, "ShortName":"string", "TimeSlot":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -304,12 +403,18 @@ Query: {"BulkCopySetID":"string", "BulkDailyCopyExclusions":[{"CreateLocation":"
 ```
 
 ## BulkDailyCopyExclusions [![get](https://img.shields.io/badge/get-blue)](get.md#bulkdailycopyexclusions) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#bulkdailycopyexclusions)   
+```shell
+tq post BulkDailyCopyExclusions
+```
 Creates a bulk daily copy exclusion.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DoNotCopy":true, "Id":123, "IncludeWithoutCopy":true, "PackageId":123, "PerformanceId":123, "SetId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## BusinessUnits [![get](https://img.shields.io/badge/get-blue)](get.md#businessunits) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#businessunits)   
+```shell
+tq post BusinessUnits
+```
 Create a new business unit.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -319,12 +424,18 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 # C
 
 ## CampaignDesignations [![get](https://img.shields.io/badge/get-blue)](get.md#campaigndesignations) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#campaigndesignations)   
+```shell
+tq post CampaignDesignations
+```
 Create a new association between a Designation and a Campaign.  
 ```json
 Query: {"Campaign":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Designation":{"Id":123}, "EditIndicator":true, "GoalAmount":123.456, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## CampaignFunds [![get](https://img.shields.io/badge/get-blue)](get.md#campaignfunds) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#campaignfunds)   
+```shell
+tq post CampaignFunds
+```
 Create a new Fund association to a Campaign.  
 ```json
 Query: {"Campaign":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "Fund":{"Id":123}, "GoalAmount":123.456, "Id":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -332,12 +443,18 @@ Query: {"Campaign":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", 
 
 
 ## CardReaderTypes [![get](https://img.shields.io/badge/get-blue)](get.md#cardreadertypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#cardreadertypes)   
+```shell
+tq post CardReaderTypes
+```
 Create a new Card Reader Type.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Cart [![get](https://img.shields.io/badge/get-blue)](get.md#cart) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#cart)   
+```shell
+tq post Cart
+```
 Attach an existing booking to the cart.  
 ```json
 Query: {"BookingId":123, "SessionKey":"string"}
@@ -548,24 +665,36 @@ Query: {"PackageId":123, "PerformanceId":123, "PriceTypeId":123, "SeatCount":123
 ```
 
 ## Colors [![get](https://img.shields.io/badge/get-blue)](get.md#colors) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#colors)   
+```shell
+tq post Colors
+```
 Create a new color.  
 ```json
 Query: {"ColorValue":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Composers [![get](https://img.shields.io/badge/get-blue)](get.md#composers) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#composers)   
+```shell
+tq post Composers
+```
 Create a new composer.  
 ```json
 Query: {"Bio":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "FirstName":"string", "Id":123, "Inactive":true, "LastName":"string", "MiddleName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Constituencies [![get](https://img.shields.io/badge/get-blue)](get.md#constituencies) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#constituencies)   
+```shell
+tq post Constituencies
+```
 Create a new constituency.  
 ```json
 Query: {"ConstituencyType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "Id":123, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ConstituencyTypes [![get](https://img.shields.io/badge/get-blue)](get.md#constituencytypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#constituencytypes)   
+```shell
+tq post ConstituencyTypes
+```
 Create a new constituency type.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -573,42 +702,63 @@ Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"strin
 
 
 ## ConstituentDocuments [![get](https://img.shields.io/badge/get-blue)](get.md#constituentdocuments) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#constituentdocuments)   
+```shell
+tq post ConstituentDocuments
+```
 Create document for a constituent.  
 ```json
 Query: {"Category":{"Id":123}, "ConstituentId":123, "Contents":"AA==", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "FileName":"string", "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ConstituentGroups [![get](https://img.shields.io/badge/get-blue)](get.md#constituentgroups) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#constituentgroups)   
+```shell
+tq post ConstituentGroups
+```
 Create a new constituent group.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ConstituentInactives [![get](https://img.shields.io/badge/get-blue)](get.md#constituentinactives) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#constituentinactives)   
+```shell
+tq post ConstituentInactives
+```
 Create a new constituent inactive.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ConstituentProtectionTypes [![get](https://img.shields.io/badge/get-blue)](get.md#constituentprotectiontypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#constituentprotectiontypes)   
+```shell
+tq post ConstituentProtectionTypes
+```
 Create a new constituent protection type.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ConstituentTypeAffiliates [![get](https://img.shields.io/badge/get-blue)](get.md#constituenttypeaffiliates) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#constituenttypeaffiliates)   
+```shell
+tq post ConstituentTypeAffiliates
+```
 Create a new constituent type affiliate.  
 ```json
 Query: {"AffiliationType":{"Id":123}, "ConstituentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HouseholdPrimary":true, "Id":123, "Rank":123, "ShowWithGroup":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ConstituentTypes [![get](https://img.shields.io/badge/get-blue)](get.md#constituenttypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#constituenttypes)   
+```shell
+tq post ConstituentTypes
+```
 Create a new constituent type.  
 ```json
 Query: {"AddressTypeId":123, "ConstituentGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultAffiliatedConstituentTypeId":123, "DefaultAffiliationTypeId":123, "DefaultIndicator":true, "DefaultSalutationId":123, "Description":"string", "ElectronicAddressTypeId":123, "GiftAidIndicator":true, "Id":123, "Inactive":true, "LoginTypeId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Constituents [![get](https://img.shields.io/badge/get-blue)](get.md#constituents) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#constituents)   
+```shell
+tq post Constituents
+```
 Create a new constituent with addresses, electronicAddresses, salutations and phones.  
 ```json
 Query: {"Addresses":[{"Id":123}, ...], "ConstituentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DisplayName":"string", "ElectronicAddresses":[{"Id":123}, ...], "EmarketIndicator":{"Id":123}, "FirstName":"string", "Gender":{"Id":123}, "Id":123, "Inactive":{"Id":123}, "InactiveReason":{"Id":123}, "LastActivityDate":"2000-01-01T00:00:00.000Z", "LastGiftDate":"2000-01-01T00:00:00.000Z", "LastName":"string", "LastTicketDate":"2000-01-01T00:00:00.000Z", "MailIndicator":{"Id":123}, "MiddleName":"string", "NameStatus":{"Id":123}, "OriginalSource":{"Id":123}, "PhoneIndicator":{"Id":123}, "PhoneNumbers":[{"Id":123}, ...], "Prefix":{"Id":123}, "ProtectionType":{"Id":123}, "Salutations":[{"Id":123}, ...], "SortName":"string", "Suffix":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -656,18 +806,27 @@ Query: {"ConstituentID":"string"}
 ```
 
 ## ContactPermissionCategories [![get](https://img.shields.io/badge/get-blue)](get.md#contactpermissioncategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpermissioncategories)   
+```shell
+tq post ContactPermissionCategories
+```
 Create a new contact permission category.  
 ```json
 Query: {"AskFrequencyMonths":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ContactPermissionTypes [![get](https://img.shields.io/badge/get-blue)](get.md#contactpermissiontypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpermissiontypes)   
+```shell
+tq post ContactPermissionTypes
+```
 Create a new contact permission type.  
 ```json
 Query: {"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultValueForAdd":"string", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Presenter":true, "Rank":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ContactPermissions [![get](https://img.shields.io/badge/get-blue)](get.md#contactpermissions) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpermissions)   
+```shell
+tq post ContactPermissions
+```
 Create a new contact permission  
 ```json
 Query: {"Answer":"string", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "LastAskedDateTime":"2000-01-01T00:00:00.000Z", "ShouldAsk":true, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -680,30 +839,45 @@ Query: {"InitiatorId":123, "OwnerId":123, "ProductionSeasonIds":"string", "Retur
 ```
 
 ## ContactPointCategories [![get](https://img.shields.io/badge/get-blue)](get.md#contactpointcategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpointcategories)   
+```shell
+tq post ContactPointCategories
+```
 Create a new contact point category.  
 ```json
 Query: {"ContactPointKey":"string", "ContactPointTable":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ContactPointCategoryPurposes [![get](https://img.shields.io/badge/get-blue)](get.md#contactpointcategorypurposes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpointcategorypurposes)   
+```shell
+tq post ContactPointCategoryPurposes
+```
 Create a new contact point category purpose.  
 ```json
 Query: {"ContactPointCategory":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Purpose":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ContactPointPurposeCategories [![get](https://img.shields.io/badge/get-blue)](get.md#contactpointpurposecategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpointpurposecategories)   
+```shell
+tq post ContactPointPurposeCategories
+```
 Create a new contact point purpose category.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ContactPointPurposeMaps [![get](https://img.shields.io/badge/get-blue)](get.md#contactpointpurposemaps) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpointpurposemaps)   
+```shell
+tq post ContactPointPurposeMaps
+```
 Create a new contact point purpose.  
 ```json
 Query: {"ContactPoint":{"Id":123}, "ContactPointCategory":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Purpose":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ContactPointPurposes [![get](https://img.shields.io/badge/get-blue)](get.md#contactpointpurposes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpointpurposes)   
+```shell
+tq post ContactPointPurposes
+```
 Create a new contact point purpose.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PurposeCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -711,6 +885,9 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 
 
 ## ContactTypes [![get](https://img.shields.io/badge/get-blue)](get.md#contacttypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#contacttypes)   
+```shell
+tq post ContactTypes
+```
 Create a new contact type.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -718,48 +895,72 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 
 
 ## ContributionDesignations [![get](https://img.shields.io/badge/get-blue)](get.md#contributiondesignations) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#contributiondesignations)   
+```shell
+tq post ContributionDesignations
+```
 Create a new contribution designation.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LetterText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ContributionImportSets [![get](https://img.shields.io/badge/get-blue)](get.md#contributionimportsets) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#contributionimportsets)   
+```shell
+tq post ContributionImportSets
+```
 Create a new contributionImportSet.  
 ```json
 Query: {"AccountMatchKeyword":{"Id":123}, "AcknowledgmentLetterMode":123, "BatchType":{"Id":123}, "BillingSchedule":{"Id":123}, "BillingType":{"Id":123}, "Campaign":{"Id":123}, "ContributionDateTime":"2000-01-01T00:00:00.000Z", "ContributionPayMode":123, "CreateLocation":"string", "CreatePotentialDuplicate":true, "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CrediteeMode":123, "CrediteeType":{"Id":123}, "DefaultConstituentType":{"Id":123}, "DefaultCountryCode":"string", "DefaultHouseholdConstituentType":{"Id":123}, "DefaultOriginalSource":{"Id":123}, "Description":"string", "Designation":{"Id":123}, "FilePath":"string", "FormatFile":"string", "Fund":{"Id":123}, "Id":123, "ImportRefNoLocation":123, "Inactive":true, "PaymentMethod":{"Id":123}, "SalesChannel":{"Id":123}, "Source":{"Id":123}, "StripPhoneFormatting":true, "TransactAsHousehold":true, "TransactAsHouseholdCreditee":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Worker":{"Id":123}}
 ```
 
 ## Contributions ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#contributions)   
+```shell
+tq post Contributions
+```
 This resource is currently strictly for interceptor plugin use. This is called any time a new contribution is saved from the contribution editor in the client application. Only Id (ref_no) is provided in the request content.  
 ```json
 Query: {"AccountId":123, "AppealId":123, "BatchId":123, "BillingAccount":"string", "BillingTypeId":123, "BusinessUnitId":123, "Campaign":{"Id":123}, "Cancel":"string", "Channel":{"Id":123}, "Constituent":{"Id":123}, "ContributionAmount":123.456, "ContributionDateTime":"2000-01-01T00:00:00.000Z", "ContributionDesignation":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Custom0":"string", "Custom1":"string", "Custom2":"string", "Custom3":"string", "Custom4":"string", "Custom5":"string", "Custom6":"string", "Custom7":"string", "Custom8":"string", "Custom9":"string", "EditIndicator":true, "Fund":{"Id":123}, "Id":123, "Initiator":{"Id":123}, "KindGiftDescription":"string", "KindGiftTransferDateTime":"2000-01-01T00:00:00.000Z", "MatchIndicator":"string", "MatchingContributionId":123, "MediaType":{"Id":123}, "MirrorLock":123, "Notes":"string", "PaymentEndDateTime":"2000-01-01T00:00:00.000Z", "PaymentStartDateTime":"2000-01-01T00:00:00.000Z", "Plan":{"Id":123}, "PledgeStatusId":123, "ReceivedAmount":123.456, "Solicitor":"string", "SourceId":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ControlGroupUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#controlgroupusergroups) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#controlgroupusergroups)   
+```shell
+tq post ControlGroupUserGroups
+```
 Create a new control group/user group mapping.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "EditIndicator":true, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string"}
 ```
 
 ## ControlGroups [![get](https://img.shields.io/badge/get-blue)](get.md#controlgroups) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#controlgroups)   
+```shell
+tq post ControlGroups
+```
 Create a new control group.  
 ```json
 Query: {"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Permission":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## CoreIdentity [![get](https://img.shields.io/badge/get-blue)](get.md#coreidentity) ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post CoreIdentity
+```
   
 ```json
 Query: {"Body":"string", "Headers":[{"Name":"string", "Value":"string"}, ...], "Method":"string", "Path":"string", "QueryParameters":[{"Name":"string", "Value":"string"}, ...]}
 ```
 
 ## Countries [![get](https://img.shields.io/badge/get-blue)](get.md#countries) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#countries)   
+```shell
+tq post Countries
+```
 Create a new country.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DecimalSeparator":"string", "Description":"string", "Id":123, "Inactive":true, "IsoAlpha2Code":"string", "IsoAlpha3Code":"string", "PhoneCode":"string", "PhoneEditstring":"string", "PhoneMask":"string", "PhoneValidLengths":"string", "ReqCity":true, "ReqPcode":true, "ShortDesc":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseAvs":"string", "UseStateField":"string", "ZipEditstring":"string", "ZipMask":"string", "ZipValidLengths":"string"}
 ```
 
 ## CrediteeTypes [![get](https://img.shields.io/badge/get-blue)](get.md#crediteetypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#crediteetypes)   
+```shell
+tq post CrediteeTypes
+```
 Create a new crediteeType.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CreditMembershipIndicator":true, "Description":"string", "GiftAidIndicator":true, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -769,12 +970,18 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 
 
 ## CurrencyTypes [![get](https://img.shields.io/badge/get-blue)](get.md#currencytypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#currencytypes)   
+```shell
+tq post CurrencyTypes
+```
 Create a new currency type.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rate":123.456, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Custom [![get](https://img.shields.io/badge/get-blue)](get.md#custom) ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post Custom
+```
 Executes a local procedure defined in TR_LOCAL_PROCEDURE. This will only return a collection of the first result set in a registered procedure.  For the result set, null values in each data row are not returned as properties.  
 ```json
 Query: {"ParameterValues":[{"Name":"string", "Value":"string"}, ...], "Parameters":"string", "ProcedureId":123, "ProcedureName":"string"}
@@ -787,12 +994,18 @@ Query: {"ParameterValues":[{"Name":"string", "Value":"string"}, ...], "Parameter
 ```
 
 ## CustomDefaultCategories [![get](https://img.shields.io/badge/get-blue)](get.md#customdefaultcategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#customdefaultcategories)   
+```shell
+tq post CustomDefaultCategories
+```
 Create a new custom default category.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## CustomDefaults [![get](https://img.shields.io/badge/get-blue)](get.md#customdefaults) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#customdefaults)   
+```shell
+tq post CustomDefaults
+```
 Create a new custom default.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDefaultCategory":{"Id":123}, "DefaultValue":"string", "Description":"string", "FieldName":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -801,12 +1014,18 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 	
 # D
 ## DeliveryMethods [![get](https://img.shields.io/badge/get-blue)](get.md#deliverymethods) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#deliverymethods)   
+```shell
+tq post DeliveryMethods
+```
 Create a new delivery method.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PrintAtHome":true, "RequireAddress":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## DesignationCodes [![get](https://img.shields.io/badge/get-blue)](get.md#designationcodes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#designationcodes)   
+```shell
+tq post DesignationCodes
+```
 Create a new designation code.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -814,18 +1033,27 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 
 
 ## Diagnostics [![get](https://img.shields.io/badge/get-blue)](get.md#diagnostics) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#diagnostics)   
+```shell
+tq post Diagnostics
+```
 Check connection information.  
 ```json
 Query: {"ServerName":"string"}
 ```
 
 ## DirectDebitAccountTypes [![get](https://img.shields.io/badge/get-blue)](get.md#directdebitaccounttypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#directdebitaccounttypes)   
+```shell
+tq post DirectDebitAccountTypes
+```
 Create a new direct debit account type.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## DiscountTypes [![get](https://img.shields.io/badge/get-blue)](get.md#discounttypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#discounttypes)   
+```shell
+tq post DiscountTypes
+```
 Create a new discount type.  
 ```json
 Query: {"Amount":123.456, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PercentIndicator":true, "RespectMinimumPrice":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -833,6 +1061,9 @@ Query: {"Amount":123.456, "CreateLocation":"string", "CreatedBy":"string", "Crea
 
 
 ## DocumentCategories [![get](https://img.shields.io/badge/get-blue)](get.md#documentcategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#documentcategories)   
+```shell
+tq post DocumentCategories
+```
 Create a new documentCategory.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ParentTableName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -840,6 +1071,9 @@ Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"strin
 
 
 ## DonationLevels [![get](https://img.shields.io/badge/get-blue)](get.md#donationlevels) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#donationlevels)   
+```shell
+tq post DonationLevels
+```
 Create a new donation level.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ProgramType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -848,6 +1082,9 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 	
 # E
 ## EMV [![get](https://img.shields.io/badge/get-blue)](get.md#emv) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#emv)   
+```shell
+tq post EMV
+```
 Authorize a payment via a Payment Express HIT, TriPOSCloud, or Adyen device.  
 ```json
 Query: {"Amount":123.456, "BillingAddress":{"AddressId":123, "Country":"string", "PostalCode":"string", "Street1":"string"}, "ConstituentId":123, "IsMoto":true, "MachineId":123, "PaymentId":123, "StoreAccount":true, "TransactionOrigin":"string", "UserData":"string"}
@@ -870,12 +1107,18 @@ Query: {"ConstituentId":123, "IsMoto":true, "MachineId":123, "TransactionOrigin"
 ```
 
 ## ElectronicAddressTypes [![get](https://img.shields.io/badge/get-blue)](get.md#electronicaddresstypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#electronicaddresstypes)   
+```shell
+tq post ElectronicAddressTypes
+```
 Create a new electronic address type.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsEmail":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ElectronicAddresses [![get](https://img.shields.io/badge/get-blue)](get.md#electronicaddresses) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#electronicaddresses)   
+```shell
+tq post ElectronicAddresses
+```
 Create a new electronic address.  
 ```json
 Query: {"Address":"string", "AffiliatedConstituent":{"Id":123}, "AllowHtmlFormat":true, "AllowMarketing":true, "AltSalutationType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "ElectronicAddressType":{"Id":123}, "EndDate":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "IsEmail":true, "IsFromAffiliation":true, "Months":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -888,18 +1131,27 @@ Query: {"ConstituentID":"string", "ElectronicAddressID":"string"}
 ```
 
 ## EmailProfiles [![get](https://img.shields.io/badge/get-blue)](get.md#emailprofiles) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#emailprofiles)   
+```shell
+tq post EmailProfiles
+```
 Create a new email profile  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EmailBcc":"string", "EmailCc":"string", "EmailDefaultSubject":"string", "EmailFrom":"string", "Id":123, "Inactive":true, "SMTPPassword":"string", "SMTPPort":123, "SMTPServer":"string", "SMTPUserName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseSsl":true}
 ```
 
 ## EmailResponses ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post EmailResponses
+```
 Updates an appeal with customer data in response to an email event. EventName should be one of open, click, hard-bounce, soft-bounce or opt-out.  
 ```json
 Query: {"ConstituentId":123, "DownloadNumber":123, "EventDateTime":"2000-01-01T00:00:00.000Z", "EventName":"string"}
 ```
 
 ## Emails ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post Emails
+```
 Sends an email via SMTP  
 ```json
 Query: {"Attachments":[{"Name":"string"}, ...], "DuplicateBodyAsAttachment":true, "DuplicateBodyAttachmentName":"string", "EmailProfileId":123, "EmbeddedImages":[{"MediaType":"string", "Name":"string"}, ...], "FromAddress":"string", "HtmlBody":"string", "PlainTextBody":"string", "RecipientAddress":"string", "Subject":"string"}
@@ -929,12 +1181,18 @@ Query: {"OrderID":"string", "EmailAddress":"string", "EmailProfileId":123, "Prin
 ```
 
 ## EmarketIndicators [![get](https://img.shields.io/badge/get-blue)](get.md#emarketindicators) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#emarketindicators)   
+```shell
+tq post EmarketIndicators
+```
 Create a new emarket indicator.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Eras [![get](https://img.shields.io/badge/get-blue)](get.md#eras) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#eras)   
+```shell
+tq post Eras
+```
 Create a new era.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -944,6 +1202,9 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 	
 # F
 ## Facilities [![get](https://img.shields.io/badge/get-blue)](get.md#facilities) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#facilities)   
+```shell
+tq post Facilities
+```
 Create a new Facility.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultBestSeatMapId":123, "DefaultZoneMapId":123, "Description":"string", "Id":123, "SeatMap":{"Id":123}, "Theater":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -957,54 +1218,81 @@ Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"strin
 # G
 
 ## Genders [![get](https://img.shields.io/badge/get-blue)](get.md#genders) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#genders)   
+```shell
+tq post Genders
+```
 Create a new gender.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultPrefix":{"Id":123}, "Description":"string", "Id":123, "Inactive":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## GiftAidContactMethods [![get](https://img.shields.io/badge/get-blue)](get.md#giftaidcontactmethods) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaidcontactmethods)   
+```shell
+tq post GiftAidContactMethods
+```
 Create a new gift aid contact method.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## GiftAidDeclarations [![get](https://img.shields.io/badge/get-blue)](get.md#giftaiddeclarations) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaiddeclarations)   
+```shell
+tq post GiftAidDeclarations
+```
 Creates a Gift Aid Declaration.  
 ```json
 Query: {"ConfirmDateTime":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "ContactMethod":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DocumentStatus":{"Id":123}, "EligibleIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "GiftAidType":{"Id":123}, "Id":123, "IneligibleReason":{"Id":123}, "Notes":"string", "ReceivedDateTime":"2000-01-01T00:00:00.000Z", "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## GiftAidDocumentStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#giftaiddocumentstatuses) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaiddocumentstatuses)   
+```shell
+tq post GiftAidDocumentStatuses
+```
 Create a new gift aid document status.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## GiftAidIneligibleReasons [![get](https://img.shields.io/badge/get-blue)](get.md#giftaidineligiblereasons) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaidineligiblereasons)   
+```shell
+tq post GiftAidIneligibleReasons
+```
 Create a new gift aid ineligible reason.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## GiftAidRates [![get](https://img.shields.io/badge/get-blue)](get.md#giftaidrates) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaidrates)   
+```shell
+tq post GiftAidRates
+```
 Create a new gift aid rate.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Rate":123.456, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## GiftAidStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#giftaidstatuses) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaidstatuses)   
+```shell
+tq post GiftAidStatuses
+```
 Create a new gift aid status.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## GiftAidTypes [![get](https://img.shields.io/badge/get-blue)](get.md#giftaidtypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaidtypes)   
+```shell
+tq post GiftAidTypes
+```
 Create a new gift aid type.  
 ```json
 Query: {"CharityClaimsRef":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## GiftCertificates [![get](https://img.shields.io/badge/get-blue)](get.md#giftcertificates) ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post GiftCertificates
+```
 Get transaction details for a gift certificate and lock it for redemption in a specific batch.  
 ```json
 Query: {"BatchId":123, "LockForBatch":true, "Number":"string", "PaymentMethodId":123}
@@ -1019,18 +1307,27 @@ Query: {"GiftCertificateNumber":"string"}
 	
 # H
 ## HoldCodeCategories [![get](https://img.shields.io/badge/get-blue)](get.md#holdcodecategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#holdcodecategories)   
+```shell
+tq post HoldCodeCategories
+```
 Create a new Hold Code Category.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## HoldCodeUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#holdcodeusergroups) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#holdcodeusergroups)   
+```shell
+tq post HoldCodeUserGroups
+```
 Create a new hold code/user group mapping.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HoldCode":{"Id":123}, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string"}
 ```
 
 ## HoldCodes [![get](https://img.shields.io/badge/get-blue)](get.md#holdcodes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#holdcodes)   
+```shell
+tq post HoldCodes
+```
 Create a Hold Code.  
 ```json
 Query: {"BlackoutIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Legend":"string", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1039,36 +1336,54 @@ Query: {"BlackoutIndicator":true, "CreateLocation":"string", "CreatedBy":"string
 	
 # I
 ## InactiveReasons [![get](https://img.shields.io/badge/get-blue)](get.md#inactivereasons) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#inactivereasons)   
+```shell
+tq post InactiveReasons
+```
 Create a new inactive reason.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## IntegrationDefaults [![get](https://img.shields.io/badge/get-blue)](get.md#integrationdefaults) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#integrationdefaults)   
+```shell
+tq post IntegrationDefaults
+```
 Create a new Integration Default.  
 ```json
 Query: {"AccessId":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultValue":"string", "Description":"string", "FieldName":"string", "Id":123, "Integration":{"Id":123}, "Organization":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Integrations [![get](https://img.shields.io/badge/get-blue)](get.md#integrations) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#integrations)   
+```shell
+tq post Integrations
+```
 Create a new action type.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## InterestCategories [![get](https://img.shields.io/badge/get-blue)](get.md#interestcategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#interestcategories)   
+```shell
+tq post InterestCategories
+```
 Create a new interest category.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## InterestTypes [![get](https://img.shields.io/badge/get-blue)](get.md#interesttypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#interesttypes)   
+```shell
+tq post InterestTypes
+```
 Create a new interest type.  
 ```json
 Query: {"Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "SearchIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UsedIn":"string"}
 ```
 
 ## Interests [![get](https://img.shields.io/badge/get-blue)](get.md#interests) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#interests)   
+```shell
+tq post Interests
+```
 Create a new interest associating an interest type to a constituent.
 For bulk interest edits, consider the CRM/Interests/CreateOrUpdate batching resource which allows multiple interests to be created, updated, or removed in a single request.  
 ```json
@@ -1082,30 +1397,45 @@ Query: {"Interests":[{"Constituent":{"Id":123}, "CreateLocation":"string", "Crea
 ```
 
 ## Internal [![get](https://img.shields.io/badge/get-blue)](get.md#internal) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#internal)   
+```shell
+tq post Internal
+```
 Create a new address along with the phones and attach all the phones to the address. By default first phone is of phone type 1, second phone is of phone type 2 and third phone is of phone type 3.  
 ```json
 Query: {"AddressType":{"Id":123}, "AffiliatedConstituent":{"Id":123}, "AllowTelemarketing1":true, "AllowTelemarketing2":true, "AllowTelemarketing3":true, "AltSalutationType":{"Id":123}, "City":"string", "Constituent":{"Id":123}, "Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator1":"string", "DayEveningIndicator2":"string", "DayEveningIndicator3":"string", "DeliveryPoint":"string", "EditIndicator":true, "EditIndicator1":true, "EditIndicator2":true, "EditIndicator3":true, "EndDate":"2000-01-01T00:00:00.000Z", "GeoArea":123, "Id":123, "Inactive":true, "Label":true, "Months":"string", "NcoaAction":123, "NcoaSession":123, "PhoneId1":123, "PhoneId2":123, "PhoneId3":123, "PhoneNumber1":"string", "PhoneNumber1Formatted":"string", "PhoneNumber2":"string", "PhoneNumber2Formatted":"string", "PhoneNumber3":"string", "PhoneNumber3Formatted":"string", "PhoneSearch1":"string", "PhoneSearch2":"string", "PhoneSearch3":"string", "PostalCode":"string", "PostalCodeFormatted":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "State":{"Id":123}, "Street1":"string", "Street2":"string", "Street3":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UpdatedDateTime1":"2000-01-01T00:00:00.000Z", "UpdatedDateTime2":"2000-01-01T00:00:00.000Z", "UpdatedDateTime3":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## InventoryContactPermissionTypes [![get](https://img.shields.io/badge/get-blue)](get.md#inventorycontactpermissiontypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#inventorycontactpermissiontypes)   
+```shell
+tq post InventoryContactPermissionTypes
+```
 Create an inventoryContactPermissionType.  
 ```json
 Query: {"ContactPermissionType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ProductionElementId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## InventoryWebContents [![get](https://img.shields.io/badge/get-blue)](get.md#inventorywebcontents) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#inventorywebcontents)   
+```shell
+tq post InventoryWebContents
+```
 Create an inventoryWebContent.  
 ```json
 Query: {"ContentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ProductionElementId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}
 ```
 
 ## InvoiceBilling [![get](https://img.shields.io/badge/get-blue)](get.md#invoicebilling) ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post InvoiceBilling
+```
 Invoice billing  
 ```json
 Query: {"AppealId":123, "BatchTypeId":123, "BillingTypeId":123, "BusinessUnitId":123, "CutoffDateTime":"2000-01-01T00:00:00.000Z", "ElectronicAddressPurposeId":123, "ElectronicAddressTypeId":123, "EndDateTime":"2000-01-01T00:00:00.000Z", "InvoiceEndDateTime":"2000-01-01T00:00:00.000Z", "InvoiceStartDateTime":"2000-01-01T00:00:00.000Z", "IsLabel":true, "ListId":123, "MailDateTime":"2000-01-01T00:00:00.000Z", "MailTypeId":123, "MaxNumberOfBillsToPrint":123, "MediaTypeId":123, "MinAmount":123.456, "MinNumberOfBillsToPrint":123, "NewSourceDescription":"string", "PaymentMethodGroupId":123, "PaymentMethodId":123, "RespectElectronicAddressMarketingFlag":true, "SalutationTypeId":123, "ShouldCollectAll":true, "ShouldUpdate":true, "StartDateTime":"2000-01-01T00:00:00.000Z", "UserId":"string"}
 ```
 
 ## Issues [![get](https://img.shields.io/badge/get-blue)](get.md#issues) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#issues)   
+```shell
+tq post Issues
+```
 Create an issue for a Constituent  
 ```json
 Query: {"ActivityType":{"Id":123}, "Constituent":{"Id":123}, "ContactType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "HasReminder":true, "Id":123, "IssueDate":"2000-01-01T00:00:00.000Z", "Notes":"string", "Origin":{"Id":123}, "PackageId":123, "PerformanceId":123, "ResolvedIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UrgentIndicator":true}
@@ -1114,12 +1444,18 @@ Query: {"ActivityType":{"Id":123}, "Constituent":{"Id":123}, "ContactType":{"Id"
 	
 # K
 ## KeywordCategories [![get](https://img.shields.io/badge/get-blue)](get.md#keywordcategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#keywordcategories)   
+```shell
+tq post KeywordCategories
+```
 Create a new keyword category.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Keywords [![get](https://img.shields.io/badge/get-blue)](get.md#keywords) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#keywords)   
+```shell
+tq post Keywords
+```
 Create a new keyword.  
 ```json
 Query: {"Category":{"Id":123}, "ConstituentType":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDefaultValue":"string", "CustomId":123, "CustomLimit":123, "CustomRequired":true, "DataType":"string", "Description":"string", "DetailColumn":"string", "DetailTable":"string", "EditIndicator":true, "EditMask":"string", "ExtendedDescription":"string", "FrequentUpdateDate":"2000-01-01T00:00:00.000Z", "HelpText":"string", "Id":123, "KeyColumn":"string", "KeywordUse":"string", "MultipleValue":true, "ParentKeyColumn":"string", "ParentTable":"string", "PrimaryGroupDefault":"string", "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "SortOrder":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseForSearch":true, "ValuesCodedIndicator":true}
@@ -1128,18 +1464,27 @@ Query: {"Category":{"Id":123}, "ConstituentType":123, "ControlGroup":{"Id":123},
 	
 # L
 ## Languages [![get](https://img.shields.io/badge/get-blue)](get.md#languages) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#languages)   
+```shell
+tq post Languages
+```
 Create a new language.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ListCategories [![get](https://img.shields.io/badge/get-blue)](get.md#listcategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#listcategories)   
+```shell
+tq post ListCategories
+```
 Create a new list category.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Lists [![get](https://img.shields.io/badge/get-blue)](get.md#lists) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#lists)   
+```shell
+tq post Lists
+```
 Create a List.  
 ```json
 Query: {"AffiliatedIndividuals":123, "AnalyticsIndicator":true, "Category":{"Id":123}, "ConstituentCount":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Criteria":[{"Id":123}, ...], "Description":"string", "EditIndicator":true, "EditMode":"string", "Generate":true, "Households":123, "Id":123, "Inactive":true, "Individuals":123, "IsDynamic":true, "LastUsedDateTime":"2000-01-01T00:00:00.000Z", "ListSql":"string", "Organizations":123, "OutputSet":{"Id":123}, "RelationshipOptions":{"AffiliatedGroupInactive":true, "AffiliatedGroupTypes":"string", "AffiliatedGroupUseDates":true, "AffiliatedIndividualInactive":true, "AffiliatedIndividualTypes":"string", "AffiliatedIndividualUseDates":true, "AssociatedInactive":true, "AssociatedTypes":"string", "AssociatedUseDates":true, "CreateLocation":"string", "CreatedBy":"string", "KeepOrReplaceOriginal":"string", "ReplaceIndividuals":"string", "UpdatedBy":"string"}, "TMSIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1163,6 +1508,9 @@ Query: {"CategoryId":123, "MyListsOnly":true, "Page":123, "PageSize":123, "Searc
 ```
 
 ## LoginTypes [![get](https://img.shields.io/badge/get-blue)](get.md#logintypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#logintypes)   
+```shell
+tq post LoginTypes
+```
 Create a new login type.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1171,24 +1519,36 @@ Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"strin
 	
 # M
 ## MachineSettings [![get](https://img.shields.io/badge/get-blue)](get.md#machinesettings) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#machinesettings)   
+```shell
+tq post MachineSettings
+```
 Create a new Machine Setting.  
 ```json
 Query: {"CardReaderHost":"string", "CardReaderPort":123, "CardReaderType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "MerchantId":"string", "PXStation":"string", "PXUserKey":"string", "PXUserName":"string", "TessituraPaymentsPosDevice":"string", "TessituraPaymentsPosDeviceModel":"string", "TnspaySoftwareTerminal":true, "TriPOSCloudConfiguration":{"Id":123}, "TriposLane":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkstationName":"string"}
 ```
 
 ## MailIndicators [![get](https://img.shields.io/badge/get-blue)](get.md#mailindicators) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#mailindicators)   
+```shell
+tq post MailIndicators
+```
 Create a new mail indicator.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## MediaTypes [![get](https://img.shields.io/badge/get-blue)](get.md#mediatypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#mediatypes)   
+```shell
+tq post MediaTypes
+```
 Create a new media type.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "GenerateCost":123.456, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## MembershipLevelCategories [![get](https://img.shields.io/badge/get-blue)](get.md#membershiplevelcategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#membershiplevelcategories)   
+```shell
+tq post MembershipLevelCategories
+```
 Create a new membership level category.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1198,6 +1558,9 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 
 
 ## Memberships [![get](https://img.shields.io/badge/get-blue)](get.md#memberships) ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post Memberships
+```
 This returns a result of calculated changes to a constituent membership.  This resource makes no actual changes and only returns calculated membership data for information purposes.
 NOTE: As part of the upcoming changes to membership functionality, this resource will change significantly in an upcoming major Tessitura release and likely break code that references it. Please make a note that code that references it will need to be revisited as part of that upgrade process.  
 ```json
@@ -1207,36 +1570,54 @@ Query: {"CalcCampaignId":123, "CalcConstituentId":123, "CalcContributionAmount":
 
 
 ## ModeOfSaleCategories [![get](https://img.shields.io/badge/get-blue)](get.md#modeofsalecategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#modeofsalecategories)   
+```shell
+tq post ModeOfSaleCategories
+```
 Create a new mode of sale category.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Sequence":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ModeOfSaleOffers [![get](https://img.shields.io/badge/get-blue)](get.md#modeofsaleoffers) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#modeofsaleoffers)   
+```shell
+tq post ModeOfSaleOffers
+```
 Create a new mode of sale offer.  
 ```json
 Query: {"AppealId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "MaxSeats":123, "ModeOfSaleId":123, "OverrideDefaultPriceTypeIndicator":true, "PackageId":123, "PerformanceId":123, "PriceTypeId":123, "Rank":123, "SourceId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "Terms":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ModeOfSalePriceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#modeofsalepricetypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#modeofsalepricetypes)   
+```shell
+tq post ModeOfSalePriceTypes
+```
 Create a new mode of sale price type.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Id":123, "ModeOfSale":{"Id":123}, "PriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ModeOfSaleSurveyQuestions [![get](https://img.shields.io/badge/get-blue)](get.md#modeofsalesurveyquestions) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#modeofsalesurveyquestions)   
+```shell
+tq post ModeOfSaleSurveyQuestions
+```
 Create a new mode of sale survey question.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ModeOfSale":{"Id":123}, "Question":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ModeOfSaleUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#modeofsaleusergroups) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#modeofsaleusergroups)   
+```shell
+tq post ModeOfSaleUserGroups
+```
 Create a new mode of sale/user group mapping.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Id":123, "ModeOfSale":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string"}
 ```
 
 ## ModesOfSale [![get](https://img.shields.io/badge/get-blue)](get.md#modesofsale) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#modesofsale)   
+```shell
+tq post ModesOfSale
+```
 Create a new mode of sale.  
 ```json
 Query: {"AllowUnseatedPaidInd":true, "Category":{"Id":123}, "CategoryRequired":true, "ClearSourceNoInd":true, "ClearSourceOnReload":true, "ConfirmationMode":true, "ConstLinkRequired":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultAckFormatId":123, "DefaultChannelId":123, "DefaultDeliveryMethodId":123, "DefaultHeaderFormatId":123, "DefaultSalesLayoutId":123, "Description":"string", "EditDate":true, "EditSourceOnReload":true, "GeneralPublicInd":true, "HaboDays":123, "HaboForeign":true, "HoldUntilDate":"2000-01-01T00:00:00.000Z", "HoldUntilDays":123, "HoldUntilMethod":"string", "Id":123, "Inactive":true, "MustBePaidInd":true, "MustBeSeatedInd":true, "MustBeTicketedInd":true, "PricingRuleSetId":123, "SampleForGeneralPublic":123, "SampleForKnownConstituent":123, "SliAutoDeleteInd":true, "StartPkgOrPerf":"string", "SubsSummaryRequired":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1245,12 +1626,18 @@ Query: {"AllowUnseatedPaidInd":true, "Category":{"Id":123}, "CategoryRequired":t
 	
 # N
 ## NScanAccessAreas [![get](https://img.shields.io/badge/get-blue)](get.md#nscanaccessareas) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#nscanaccessareas)   
+```shell
+tq post NScanAccessAreas
+```
 Create a new NScan Access Area.  
 ```json
 Query: {"AreaCode":"string", "ConstituencyIds":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "KeywordId":123, "KeywordValue":"string", "ListId":123, "MaxEntries":123, "MembershipLevelIds":"string", "PerformanceIds":"string", "PriceTypeIds":"string", "PriceZoneIds":"string", "PromptQuantity":true, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## NameStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#namestatuses) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#namestatuses)   
+```shell
+tq post NameStatuses
+```
 Create a new name status.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1259,24 +1646,36 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 	
 # O
 ## ObjectPermissions [![get](https://img.shields.io/badge/get-blue)](get.md#objectpermissions) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#objectpermissions)   
+```shell
+tq post ObjectPermissions
+```
 Create a new object permission.  
 ```json
 Query: {"ApplicationObject":{"Id":123}, "CanCreate":"string", "CanDelete":"string", "CanEdit":"string", "CanView":"string", "Constituency":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroup":{"Id":"string"}}
 ```
 
 ## OrderBilling [![get](https://img.shields.io/badge/get-blue)](get.md#orderbilling) ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post OrderBilling
+```
 Order billing  
 ```json
 Query: {"AppealId":123, "BatchTypeId":123, "BillingTypeId":123, "CutoffDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "ListId":123, "MaxNumberOfBillsToPrint":123, "MediaTypeId":123, "MinAmount":123.456, "MinNumberOfBillsToPrint":123, "ModesOfSale":"string", "NewSourceDescription":"string", "OrderEndDateTime":"2000-01-01T00:00:00.000Z", "OrderStartDateTime":"2000-01-01T00:00:00.000Z", "PaymentMethodGroupId":123, "PerformanceEndDateTime":"2000-01-01T00:00:00.000Z", "PerformanceStartDateTime":"2000-01-01T00:00:00.000Z", "Seasons":"string", "ShouldUpdate":true, "StartDateTime":"2000-01-01T00:00:00.000Z", "UserId":"string"}
 ```
 
 ## OrderCategories [![get](https://img.shields.io/badge/get-blue)](get.md#ordercategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#ordercategories)   
+```shell
+tq post OrderCategories
+```
 Create a new order category.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Orders [![get](https://img.shields.io/badge/get-blue)](get.md#orders) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#orders)   
+```shell
+tq post Orders
+```
 This resource is currently only for interceptor plugin use. This is called any time a new order is saved via the API or from the client application. Only OrderId is provided in the request content.
             
 This resource will be invoked from a cart checkout.  
@@ -1305,24 +1704,36 @@ Query: {"OrderID":"string", "BatchId":123, "HeaderDesignId":123, "IncludeReceipt
 ```
 
 ## Organizations [![get](https://img.shields.io/badge/get-blue)](get.md#organizations) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#organizations)   
+```shell
+tq post Organizations
+```
 Create a new organization.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LicenseeAccountCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## OriginalSources [![get](https://img.shields.io/badge/get-blue)](get.md#originalsources) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#originalsources)   
+```shell
+tq post OriginalSources
+```
 Create a new original source.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Origins [![get](https://img.shields.io/badge/get-blue)](get.md#origins) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#origins)   
+```shell
+tq post Origins
+```
 Create a new origin.  
 ```json
 Query: {"ActivityType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## OutputSets [![get](https://img.shields.io/badge/get-blue)](get.md#outputsets) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#outputsets)   
+```shell
+tq post OutputSets
+```
 Create an Output Set.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "ElementGroups":[{"IncludePrimaryAffiliation":true, "IsSingleRow":true, "KeywordId":123}, ...], "Id":123, "LastUsedDateTime":"2000-01-01T00:00:00.000Z", "TMSIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1332,30 +1743,45 @@ Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"strin
 # P
 
 ## PackagePriceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#packagepricetypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#packagepricetypes)   
+```shell
+tq post PackagePriceTypes
+```
 Create a new package price type.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PackageId":123, "PriceTypeId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PackageTypes [![get](https://img.shields.io/badge/get-blue)](get.md#packagetypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#packagetypes)   
+```shell
+tq post PackageTypes
+```
 Create a new package type.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PackageWebContents [![get](https://img.shields.io/badge/get-blue)](get.md#packagewebcontents) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#packagewebcontents)   
+```shell
+tq post PackageWebContents
+```
 Create a packageWebContent.  
 ```json
 Query: {"ContentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PackageId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}
 ```
 
 ## Packages [![get](https://img.shields.io/badge/get-blue)](get.md#packages) ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post Packages
+```
 Search for packages  
 ```json
 Query: {"ArtistIds":"string", "BusinessUnitId":123, "ConstituentId":123, "FullTextSearch":"string", "MatchAllPerformances":true, "ModeOfSaleId":123, "PackageEndDate":"2000-01-01T00:00:00.000Z", "PackageFacilityIds":"string", "PackageKeywordAndOr":"string", "PackageKeywordIds":"string", "PackageStartDate":"2000-01-01T00:00:00.000Z", "PackageTypeIds":"string", "PerformanceEndDate":"2000-01-01T00:00:00.000Z", "PerformanceFacilityIds":"string", "PerformanceKeywordAndOr":"string", "PerformanceKeywordIds":"string", "PerformanceStartDate":"2000-01-01T00:00:00.000Z", "SeasonIds":"string"}
 ```
 
 ## PaymentComponent ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post PaymentComponent
+```
 This request is used to configure a transaction and retrieve the JavaScript location for implementing the Tessitura Merchant Services Payment Component. 
 For complete documentation on how to implement the Payment Component, please visit https://bitbucket.org/TN_WebShare/tessituramerchantservicesintegrationsample  
 ```json
@@ -1363,6 +1789,9 @@ Query: {"Amount":123.456, "CardBrandsToInclude":["", ...], "ComponentVersion":"s
 ```
 
 ## PaymentGatewayAccounts ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post PaymentGatewayAccounts
+```
 Generate a payment card token from a ReferenceNumber obtained from a previous Authorization request (Vantiv only)  
 ```json
 Query: {"ConstituentId":123, "ReferenceNumber":"string"}
@@ -1375,6 +1804,9 @@ Query: {"Card":{"AccountId":123, "CardHolderName":"string", "CardNumber":"string
 ```
 
 ## PaymentGatewayActivities [![get](https://img.shields.io/badge/get-blue)](get.md#paymentgatewayactivities) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentgatewayactivities)   
+```shell
+tq post PaymentGatewayActivities
+```
 Create a new Payment Gateway Activity  
 ```json
 Query: {"AccountId":123, "AccountNumber":"string", "ActivityData":"string", "Amount":123.456, "AuthCode":"string", "AvsAddress":"string", "AvsPostalcode":"string", "AvsResultCode":"string", "BalanceAmount":123.456, "BalanceCurrencyCode":"string", "ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CvvResultCode":"string", "EcommerceIndicator":"string", "EmvApplicationIdentifier":"string", "EmvApplicationName":"string", "EmvCryptogram":"string", "EmvHostResponseCode":"string", "EmvHostResponseMessage":"string", "EmvPinVerified":"string", "EntryMethod":"string", "ExpirationDate":"string", "Id":123, "MerchantId":"string", "Name":"string", "NetworkTransactionId":"string", "Origin":"string", "PaymentGatewayTransactionType":{"Id":123}, "PaymentId":123, "PaymentMethodGroupId":123, "PaymentMethodId":123, "ProviderCommunicationDurationMs":123, "ProviderTransactionDateTime":"2000-01-01T00:00:00.000Z", "ReferenceNumber":"string", "ResponseCode":"string", "ResponseMessage":"string", "Success":"string", "TerminalIdentifier":"string", "TotalDurationMs":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserData":"string"}
@@ -1382,18 +1814,27 @@ Query: {"AccountId":123, "AccountNumber":"string", "ActivityData":"string", "Amo
 
 
 ## PaymentGatewayCredentials ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post PaymentGatewayCredentials
+```
   
 ```json
 Query: {"ConstituentId":123, "MerchantId":"string"}
 ```
 
 ## PaymentGatewayNotifications [![get](https://img.shields.io/badge/get-blue)](get.md#paymentgatewaynotifications) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentgatewaynotifications)   
+```shell
+tq post PaymentGatewayNotifications
+```
 Create a new notification event.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EventType":"string", "Id":123, "Payload":"string", "ProcessedDate":"2000-01-01T00:00:00.000Z", "ReceivedDate":"2000-01-01T00:00:00.000Z", "Reference":"string", "Topic":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PaymentGatewayTransactionTypes [![get](https://img.shields.io/badge/get-blue)](get.md#paymentgatewaytransactiontypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentgatewaytransactiontypes)   
+```shell
+tq post PaymentGatewayTransactionTypes
+```
 Create a new Payment Gateway Transaction Type.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1401,24 +1842,36 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 
 
 ## PaymentMethodGroups [![get](https://img.shields.io/badge/get-blue)](get.md#paymentmethodgroups) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentmethodgroups)   
+```shell
+tq post PaymentMethodGroups
+```
 Create a new payment method group.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "MerchantId":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PaymentMethodUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#paymentmethodusergroups) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentmethodusergroups)   
+```shell
+tq post PaymentMethodUserGroups
+```
 Create a new payment method/user group mapping.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "IncomeIndicator":true, "MaxRefund":123.456, "PaymentMethod":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string"}
 ```
 
 ## PaymentMethods [![get](https://img.shields.io/badge/get-blue)](get.md#paymentmethods) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentmethods)   
+```shell
+tq post PaymentMethods
+```
 Create a new payment method.  
 ```json
 Query: {"AccountType":{"Id":123}, "AuthIndicator":true, "BusinessUnitId":123, "CanRefund":true, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CurrencyTypeId":123, "DefaultIndicator":true, "Description":"string", "GiftAidIndicator":true, "GlAccountId":"string", "Id":123, "Inactive":true, "Income":true, "MerchantId":"string", "MerchantIdForSwipe":"string", "NoCopiesOnAuth":123, "NoCopiesOnSave":123, "OpenCashDrawer":true, "PaymentMethodGroup":{"Id":123}, "PaymentType":{"Id":123}, "ReceiptFormatId":123, "RequireCheckIndicator":true, "RequireCvv":true, "RequirePostalCode":"string", "ShortDesc":"string", "StoreTenderedAmount":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseWithCardReader":true}
 ```
 
 ## PaymentSignatures [![get](https://img.shields.io/badge/get-blue)](get.md#paymentsignatures) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentsignatures)   
+```shell
+tq post PaymentSignatures
+```
 Create a new payment signature.  
 ```json
 Query: {"Id":123}
@@ -1431,30 +1884,45 @@ Query: {"OrderID":"string", "Id":123}
 ```
 
 ## PaymentTypes [![get](https://img.shields.io/badge/get-blue)](get.md#paymenttypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#paymenttypes)   
+```shell
+tq post PaymentTypes
+```
 Create a new payment type.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Payments [![get](https://img.shields.io/badge/get-blue)](get.md#payments) ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post Payments
+```
 Reserves a payment id generated per the request's required "increment" parameter. Increment number must be greater than 0.  
 ```json
 Query: {"Increment":123}
 ```
 
 ## PerformanceGroups [![get](https://img.shields.io/badge/get-blue)](get.md#performancegroups) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#performancegroups)   
+```shell
+tq post PerformanceGroups
+```
 Create a new Performance Group.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DisplayByZone":true, "Facility":{"Id":123}, "FixedSeatIndicator":true, "Id":123, "Season":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneMap":{"Id":123}}
 ```
 
 ## PerformancePackageModeOfSales [![get](https://img.shields.io/badge/get-blue)](get.md#performancepackagemodeofsales) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#performancepackagemodeofsales)   
+```shell
+tq post PerformancePackageModeOfSales
+```
 Create a new performance package mode of sale.  
 ```json
 Query: {"AutoAttend":"string", "ETicketReleaseDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ModeOfSaleId":123, "PackageId":123, "PerformanceId":123, "PrintIndicator":true, "PrintOnAutoAttend":true, "SeatIndicator":true, "StartDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PerformancePriceLayers [![get](https://img.shields.io/badge/get-blue)](get.md#performancepricelayers) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#performancepricelayers)   
+```shell
+tq post PerformancePriceLayers
+```
 Create a new performance price layer.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultDesignationCodeId":123, "DefaultGlAccountId":123, "DefaultResaleAccountId":123, "Description":"string", "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PerformanceId":123, "PerformancePriceTypes":[{"Id":123}, ...], "PriceLayerType":{"Id":123}, "TemplateId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1477,30 +1945,45 @@ Query: {"AsOfDateTime":"string", "AsOfRelativeDate":"string", "PerformanceIds":"
 ```
 
 ## PerformancePriceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#performancepricetypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#performancepricetypes)   
+```shell
+tq post PerformancePriceTypes
+```
 Create a new performance price type.  
 ```json
 Query: {"BaseIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DesignationCodeId":123, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "GlAccountId":123, "Id":123, "IsWithinDateRange":true, "PerformanceId":123, "PerformancePriceLayerId":123, "PerformancePrices":[{"Id":123}, ...], "PriceTypeId":123, "ResaleAccountId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "TicketDesignId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PerformancePrices [![get](https://img.shields.io/badge/get-blue)](get.md#performanceprices) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#performanceprices)   
+```shell
+tq post PerformancePrices
+```
 Create a new performance price.  
 ```json
 Query: {"EditIndicator":true, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Enabled":true, "HasEvents":true, "Id":123, "IsPriceBasedOnCurrentEvent":true, "MinPrice":123.456, "PerformanceId":123, "PerformancePriceTypeId":123, "Price":123.456, "ZoneId":123}
 ```
 
 ## PerformanceStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#performancestatuses) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#performancestatuses)   
+```shell
+tq post PerformanceStatuses
+```
 Create a new performance status.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PerformanceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#performancetypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#performancetypes)   
+```shell
+tq post PerformanceTypes
+```
 Create a new performance type.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ValidCountryList":"string"}
 ```
 
 ## Performances [![get](https://img.shields.io/badge/get-blue)](get.md#performances) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#performances)   
+```shell
+tq post Performances
+```
 Apply a single hold on a performance seat.  
 ```json
 Query: {"PerformanceID":"string", "HoldCodeId":123, "HoldUntilDate":"2000-01-01T00:00:00.000Z", "ReplaceMode":123, "SeatID":"string"}
@@ -1529,78 +2012,117 @@ Query: {"PerformanceID":"string", "HoldUntilDate":"2000-01-01T00:00:00.000Z", "O
 ```
 
 ## Philanthropy [![get](https://img.shields.io/badge/get-blue)](get.md#philanthropy) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#philanthropy)   
+```shell
+tq post Philanthropy
+```
 Create an philanthropyEntry for a constituent.  
 ```json
 Query: {"Activity":"string", "Amount":123.456, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DonatedTo":"string", "DonatedToConstituent":{"Id":123}, "DonationDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PhilanthropyType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PhilanthropyTypes [![get](https://img.shields.io/badge/get-blue)](get.md#philanthropytypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#philanthropytypes)   
+```shell
+tq post PhilanthropyTypes
+```
 Create a new philosophy type.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PhoneIndicators [![get](https://img.shields.io/badge/get-blue)](get.md#phoneindicators) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#phoneindicators)   
+```shell
+tq post PhoneIndicators
+```
 Create a new phone indicator.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PhoneTypes [![get](https://img.shields.io/badge/get-blue)](get.md#phonetypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#phonetypes)   
+```shell
+tq post PhoneTypes
+```
 Create a new phone type.  
 ```json
 Query: {"AllowMarketing":true, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator":"string", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Phones [![get](https://img.shields.io/badge/get-blue)](get.md#phones) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#phones)   
+```shell
+tq post Phones
+```
 Create a new phone.  
 ```json
 Query: {"Address":{"Id":123}, "AllowTelemarketing":true, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator":"string", "EditIndicator":true, "Id":123, "Inactive":true, "PhoneFormatted":"string", "PhoneNumber":"string", "PhoneSearch":"string", "PhoneType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PlanPriorities [![get](https://img.shields.io/badge/get-blue)](get.md#planpriorities) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#planpriorities)   
+```shell
+tq post PlanPriorities
+```
 Create a new plan priority.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Ranking":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PlanSources [![get](https://img.shields.io/badge/get-blue)](get.md#plansources) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#plansources)   
+```shell
+tq post PlanSources
+```
 Create a new plan source.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PlanStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#planstatuses) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#planstatuses)   
+```shell
+tq post PlanStatuses
+```
 Create a new plan status.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PlanTypes [![get](https://img.shields.io/badge/get-blue)](get.md#plantypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#plantypes)   
+```shell
+tq post PlanTypes
+```
 Create a new plan type.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PlanWorkers [![get](https://img.shields.io/badge/get-blue)](get.md#planworkers) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#planworkers)   
+```shell
+tq post PlanWorkers
+```
 Create a new plan worker.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Plan":{"Id":123}, "PrimaryIndicator":true, "Role":{"Id":123}, "ShowInPortfolio":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Worker":{"Id":123}}
 ```
 
 ## Plans [![get](https://img.shields.io/badge/get-blue)](get.md#plans) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#plans)   
+```shell
+tq post Plans
+```
 Create a new plan.  
 ```json
 Query: {"AskAmount":123.456, "Campaign":{"Id":123}, "CompleteByDateTime":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "ContributionAmount":123.456, "ContributionDesignation":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDataItems":[{"DataType":"string", "Description":"string", "EditIndicator":true, "Index":123, "IsDropdown":true, "KeywordId":123, "Name":"string", "Value":"string"}, ...], "EditIndicator":true, "Fund":{"Id":123}, "GoalAmount":123.456, "HasOpenSteps":true, "HasSteps":true, "Id":123, "LastStepDate":"2000-01-01T00:00:00.000Z", "LastStepType":{"Id":123}, "LastWorkerDisplayName":"string", "NextStepDate":"2000-01-01T00:00:00.000Z", "NextStepType":{"Id":123}, "Notes":"string", "OriginalSource":{"Id":123}, "PlanAssociates":"string", "PrimaryWorker":{"Id":123}, "Priority":{"Id":123}, "Probability":123.456, "RecordedAmount":123.456, "StartDateTime":"2000-01-01T00:00:00.000Z", "Status":{"Id":123}, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PledgeBilling [![get](https://img.shields.io/badge/get-blue)](get.md#pledgebilling) ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post PledgeBilling
+```
 This is not intended for use outside of the Tessitura application.  There is no standard way to return billing details for a run. For a given campaign, funds, bill types etc., It raises bills for all those scheduled payments that have due date between given start and end dates. It also checks to see that a bill was not raised after a given 'cut off date'.  
 ```json
 Query: {"AcknowledgementLetterId":123, "AppealId":123, "BatchTypeId":123, "BillingTypeId":123, "CampaignId":123, "CutoffDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "FundIds":"string", "IsLabel":true, "ListId":123, "MailDateTime":"2000-01-01T00:00:00.000Z", "MailTypeId":123, "MaxNumberOfBillsToPrint":123, "MediaTypeId":123, "MinAmount":123.456, "MinNumberOfBillsToPrint":123, "NewSourceDescription":"string", "PaymentMethodGroupId":123, "SalutationTypeId":123, "ShouldUpdate":true, "StartDateTime":"2000-01-01T00:00:00.000Z", "UserId":"string"}
 ```
 
 ## PortfolioCustomElements [![get](https://img.shields.io/badge/get-blue)](get.md#portfoliocustomelements) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#portfoliocustomelements)   
+```shell
+tq post PortfolioCustomElements
+```
 Create a new portfolio custom element.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "Description":"string", "Id":123, "Inactive":true, "SqlQuery":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1608,18 +2130,27 @@ Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"strin
 
 
 ## Prefixes [![get](https://img.shields.io/badge/get-blue)](get.md#prefixes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#prefixes)   
+```shell
+tq post Prefixes
+```
 Create a new prefix.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Premieres [![get](https://img.shields.io/badge/get-blue)](get.md#premieres) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#premieres)   
+```shell
+tq post Premieres
+```
 Create a new premiere.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PriceCategories [![get](https://img.shields.io/badge/get-blue)](get.md#pricecategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#pricecategories)   
+```shell
+tq post PriceCategories
+```
 Create a new price category.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1627,60 +2158,90 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 
 
 ## PriceLayerTypes [![get](https://img.shields.io/badge/get-blue)](get.md#pricelayertypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#pricelayertypes)   
+```shell
+tq post PriceLayerTypes
+```
 Create a new price layer type.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "ExcludeFromRules":true, "Id":123, "Inactive":true, "PriceCategory":{"Id":123}, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PriceTemplates [![get](https://img.shields.io/badge/get-blue)](get.md#pricetemplates) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#pricetemplates)   
+```shell
+tq post PriceTemplates
+```
 Create a new price template.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultDesignationCode":{"Id":123}, "DefaultGlAccount":{"Id":123}, "DefaultPriceLayerType":{"Id":123}, "DefaultResaleAccount":{"Id":123}, "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Name":"string", "PriceCategory":{"Id":123}, "TemplatePriceTypes":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneMap":{"Id":123}}
 ```
 
 ## PriceTypeCategories [![get](https://img.shields.io/badge/get-blue)](get.md#pricetypecategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#pricetypecategories)   
+```shell
+tq post PriceTypeCategories
+```
 Create a new price type category.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PriceTypeGroups [![get](https://img.shields.io/badge/get-blue)](get.md#pricetypegroups) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#pricetypegroups)   
+```shell
+tq post PriceTypeGroups
+```
 Create a new price type group.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PriceTypeReasons [![get](https://img.shields.io/badge/get-blue)](get.md#pricetypereasons) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#pricetypereasons)   
+```shell
+tq post PriceTypeReasons
+```
 Create a new price type reason.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ShortDescription":"string", "TicketText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PriceTypeUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#pricetypeusergroups) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#pricetypeusergroups)   
+```shell
+tq post PriceTypeUserGroups
+```
 Create a new price typ/user group mapping.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string"}
 ```
 
 ## PriceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#pricetypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#pricetypes)   
+```shell
+tq post PriceTypes
+```
 Create a new price type.  
 ```json
 Query: {"AliasDescription":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultTicketDesign":{"Id":123}, "Description":"string", "EditIndicator":true, "EditableIndicator":true, "Id":123, "Inactive":true, "PriceTypeCategory":{"Id":123}, "PriceTypeGroup":{"Id":123}, "ReasonIndicator":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PricingRuleCategories [![get](https://img.shields.io/badge/get-blue)](get.md#pricingrulecategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#pricingrulecategories)   
+```shell
+tq post PricingRuleCategories
+```
 Create a new pricing rule category.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PricingRuleMessageTypes [![get](https://img.shields.io/badge/get-blue)](get.md#pricingrulemessagetypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#pricingrulemessagetypes)   
+```shell
+tq post PricingRuleMessageTypes
+```
 Create a new pricing rule message type.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## PricingRuleSets [![get](https://img.shields.io/badge/get-blue)](get.md#pricingrulesets) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#pricingrulesets)   
+```shell
+tq post PricingRuleSets
+```
 Create a new pricing rule set.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Rules":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1688,12 +2249,18 @@ Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"strin
 
 
 ## PricingRules [![get](https://img.shields.io/badge/get-blue)](get.md#pricingrules) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#pricingrules)   
+```shell
+tq post PricingRules
+```
 Create a new pricing rule.  
 ```json
 Query: {"Appeals":"string", "ApplyOncePerOrder":true, "ApplyToLowestCommonNumberOfSeats":true, "Constituencies":"string", "ConstituentAttribute":123, "ConstituentAttributeOperator":{"Id":123}, "ConstituentAttributeValue1":"string", "ConstituentAttributeValue2":"string", "ConstituentExclusionListId":123, "ConstituentListId":123, "ConstituentRankType":123, "ConstituentRankingOperator":{"Id":123}, "ConstituentRankingValue1":123, "ConstituentRankingValue2":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DiscountAmount":123.456, "DiscountIsPercent":true, "DiscountPercentRound":123, "DiscountPriceTypeId":123, "EditIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "ExcludeGeneralPublic":true, "Id":123, "Inactive":true, "MaxSeats":123, "Messages":[{"Id":123}, ...], "OverTheLimitDateTime":"2000-01-01T00:00:00.000Z", "PromotedAppeals":"string", "PromotedSources":"string", "QualifyingPackage":"string", "QualifyingPerformance":"string", "QualifyingPriceType1":"string", "QualifyingPriceType2":"string", "QualifyingProductionSeason":"string", "QualifyingSeasonPackageType":"string", "QualifyingSeatCount1Value1":123, "QualifyingSeatCount1Value2":123, "QualifyingSeatCount2Value1":123, "QualifyingSeatCount2Value2":123, "QualifyingZone":"string", "RespectMinimumPrice":true, "ResultMaximumSeats":123, "ResultMaximumSeats2":123, "ResultPackage":"string", "ResultPerformance":"string", "ResultPriceType":"string", "ResultProductionSeason":"string", "ResultSeasonPackageType":"string", "ResultSeatCount":123, "ResultZone":"string", "RuleAction":123, "RuleCategory":{"Id":123}, "RuleType":{"Id":123}, "Sources":"string", "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Printers [![get](https://img.shields.io/badge/get-blue)](get.md#printers) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#printers)   
+```shell
+tq post Printers
+```
 Create a new printer.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "MaxCol":123, "MaxRow":123, "MaxX2val":123, "MaxY2val":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1701,12 +2268,18 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 
 
 ## ProductionSeasonMembershipOrganizations [![get](https://img.shields.io/badge/get-blue)](get.md#productionseasonmembershiporganizations) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#productionseasonmembershiporganizations)   
+```shell
+tq post ProductionSeasonMembershipOrganizations
+```
 Create a new production season membership organization.  
 ```json
 Query: {"AllowMultipleEntry":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "MembershipOrganization":{"Id":123}, "ProductionSeason":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ProductionSeasons [![get](https://img.shields.io/badge/get-blue)](get.md#productionseasons) ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post ProductionSeasons
+```
 Search for production seasons
 Returns production seasons matching the specified search criteria.  
 ```json
@@ -1715,6 +2288,9 @@ Query: {"ArtistIds":"string", "BusinessUnitId":123, "ConstituentId":123, "Facili
 
 
 ## Products ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post Products
+```
 Get product descriptions  
 ```json
 Query: {"PackageIds":"string", "PackageTypeIds":"string", "PerformanceIds":"string", "ProductionSeasonIds":"string"}
@@ -1727,18 +2303,27 @@ Query: {"ArtistId":123, "BusinessUnitId":123, "ComposerId":123, "ConstituentId":
 ```
 
 ## ProgramListings [![get](https://img.shields.io/badge/get-blue)](get.md#programlistings) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#programlistings)   
+```shell
+tq post ProgramListings
+```
 Create a new program listing.  
 ```json
 Query: {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DonationLevel":{"Id":123}, "EditIndicator":true, "Id":123, "ProgramName":"string", "ProgramType":{"Id":123}, "SortName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Programs [![get](https://img.shields.io/badge/get-blue)](get.md#programs) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#programs)   
+```shell
+tq post Programs
+```
 Create a new program.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Pronouns [![get](https://img.shields.io/badge/get-blue)](get.md#pronouns) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#pronouns)   
+```shell
+tq post Pronouns
+```
   
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1747,30 +2332,45 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 	
 # Q
 ## QualificationCategories [![get](https://img.shields.io/badge/get-blue)](get.md#qualificationcategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#qualificationcategories)   
+```shell
+tq post QualificationCategories
+```
 Create a new Qualification Category.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Qualifications [![get](https://img.shields.io/badge/get-blue)](get.md#qualifications) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#qualifications)   
+```shell
+tq post Qualifications
+```
 Create a new Qualification.  
 ```json
 Query: {"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## QueryElementFilters [![get](https://img.shields.io/badge/get-blue)](get.md#queryelementfilters) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#queryelementfilters)   
+```shell
+tq post QueryElementFilters
+```
 Create a query element filter.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "Description":"string", "EndOfDay":true, "FilterElement":"string", "Group":{"Id":123}, "Id":123, "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## QueryElementGroups [![get](https://img.shields.io/badge/get-blue)](get.md#queryelementgroups) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#queryelementgroups)   
+```shell
+tq post QueryElementGroups
+```
 Create a new query element group.  
 ```json
 Query: {"Category":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataFrom":"string", "DataWhere":"string", "Description":"string", "Id":123, "IsVirtual":true, "NumberOfParameters":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## QueryElements [![get](https://img.shields.io/badge/get-blue)](get.md#queryelements) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#queryelements)   
+```shell
+tq post QueryElements
+```
 Create a new query element.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataSelect":"string", "Description":"string", "Group":{"Id":123}, "Id":123, "Inactive":true, "IsSingleRow":true, "KeywordId":123, "PrimaryGroupDefault":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1779,24 +2379,36 @@ Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"strin
 	
 # R
 ## RankTypes [![get](https://img.shields.io/badge/get-blue)](get.md#ranktypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#ranktypes)   
+```shell
+tq post RankTypes
+```
 Create a new rank type.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Rankings [![get](https://img.shields.io/badge/get-blue)](get.md#rankings) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#rankings)   
+```shell
+tq post Rankings
+```
 Create a new ranking.  
 ```json
 Query: {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Rank":123, "RankType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ReceiptSettings [![get](https://img.shields.io/badge/get-blue)](get.md#receiptsettings) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#receiptsettings)   
+```shell
+tq post ReceiptSettings
+```
 Create a new Receipt Setting.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EmailFooter":"string", "EmailHeader":"string", "EmailSubject":"string", "Id":123, "Inactive":true, "PrintFooter":"string", "PrintHeader":"string", "ReceiptEmailProfile":{"Id":123}, "TicketEmailProfile":{"Id":123}, "TicketEmailSubject":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## RecordAttendance ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post RecordAttendance
+```
 Records attendance for a given ticket number.  
 ```json
 Query: {"OverrideDoorsOpen":true, "ProfileId":123, "TicketNo":123}
@@ -1804,6 +2416,9 @@ Query: {"OverrideDoorsOpen":true, "ProfileId":123, "TicketNo":123}
 
 
 ## ReferenceTableUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#referencetableusergroups) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#referencetableusergroups)   
+```shell
+tq post ReferenceTableUserGroups
+```
 Create a new reference table/user group mapping.  
 ```json
 Query: {"CanEdit":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ReferenceTable":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string"}
@@ -1811,6 +2426,9 @@ Query: {"CanEdit":true, "CreateLocation":"string", "CreatedBy":"string", "Create
 
 
 ## Registration ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post Registration
+```
 This is a combined resource for registering a new constituent with logging into the current session. This resource combines a workflow of multiple API actions into a single request. This is primarily designed for creating a constituent with a primary electronic address, a primary login, and logging into the session using the provide login.
 Creates a new constituent and login. Affiliates can be specified for the constituent to create a household account.
 The login must be unique for the login type. The electronic address for this constituent must be primary. The primary indicator on ElectronicAddress is unused in this request. The session will be logged in with the new login after successful registration.  
@@ -1819,6 +2437,9 @@ Query: {"Address":{"AddressTypeId":123, "City":"string", "CountryId":123, "Posta
 ```
 
 ## RelationshipCategories [![get](https://img.shields.io/badge/get-blue)](get.md#relationshipcategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#relationshipcategories)   
+```shell
+tq post RelationshipCategories
+```
 Create a new relationship category.  
 ```json
 Query: {"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1826,6 +2447,9 @@ Query: {"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Des
 
 
 ## ReportRequests [![get](https://img.shields.io/badge/get-blue)](get.md#reportrequests) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#reportrequests)   
+```shell
+tq post ReportRequests
+```
 Creates the report request.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DeletedIndicator":true, "EmailBody":"string", "EmailRecipients":"string", "EmailSubject":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OutputOption":"string", "Parameters":[{"ParameterId":123, "ReportId":"string", "RequestId":123, "Value":"string"}, ...], "PublicIndicator":true, "QueueStatus":"string", "ReportId":"string", "ReportType":123, "RequestDateTime":"2000-01-01T00:00:00.000Z", "ResultCode":"string", "ResultText":"string", "ScheduleId":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "UserId":"string"}
@@ -1838,6 +2462,9 @@ Query: {}
 ```
 
 ## ReportSchedules [![get](https://img.shields.io/badge/get-blue)](get.md#reportschedules) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#reportschedules)   
+```shell
+tq post ReportSchedules
+```
 Verify the next run for a schedule's recurrence pattern by passing the pattern.  Returns its calculated next run date/time.  
 ```json
 Query: {"DayOfWeek":123, "DayWeekNumber":123, "EndDate":"2000-01-01T00:00:00.000Z", "EndTime":"2000-01-01T00:00:00.000Z", "Interval":123, "StartDate":"2000-01-01T00:00:00.000Z", "StartTime":"2000-01-01T00:00:00.000Z", "Type":"string"}
@@ -1850,48 +2477,72 @@ Query: {"AsOfDateTime":"2000-01-01T00:00:00.000Z", "ControlGroup":{"Id":123}, "C
 ```
 
 ## ReportUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#reportusergroups) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#reportusergroups)   
+```shell
+tq post ReportUserGroups
+```
 Create a new report/user group mapping.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ReportId":"string", "RunRight":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ViewRight":"string"}
 ```
 
 ## Reports [![get](https://img.shields.io/badge/get-blue)](get.md#reports) ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post Reports
+```
 Get parameter values for a report parameter.  
 ```json
 Query: {"ParameterName":"string", "ReportId":"string", "WhereDependencies":[{"ParameterId":"string"}, ...]}
 ```
 
 ## Research [![get](https://img.shields.io/badge/get-blue)](get.md#research) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#research)   
+```shell
+tq post Research
+```
 Create a research entry for a constituent.  
 ```json
 Query: {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "ResearchDate":"2000-01-01T00:00:00.000Z", "ResearchSource":"string", "ResearchType":{"Id":123}, "Researcher":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ResearchTypes [![get](https://img.shields.io/badge/get-blue)](get.md#researchtypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#researchtypes)   
+```shell
+tq post ResearchTypes
+```
 Create a new research type.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ResourceCategories [![get](https://img.shields.io/badge/get-blue)](get.md#resourcecategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#resourcecategories)   
+```shell
+tq post ResourceCategories
+```
 Create a new Resource Category.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ResourceSchedules [![get](https://img.shields.io/badge/get-blue)](get.md#resourceschedules) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#resourceschedules)   
+```shell
+tq post ResourceSchedules
+```
 Create a Busy or Available resource schedule.  Booking Assignment Schedules must be created in a booking.  
 ```json
 Query: {"BookingAssignmentId":123, "ConstituentId":123, "Count":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OverrideConflicts":true, "RecurrenceDayOfWeek":"string", "RecurrenceEndDate":"2000-01-01T00:00:00.000Z", "RecurrenceInterval":123, "RecurrenceOrdinal":123, "RecurrencePattern":123, "ResourceId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ResourceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#resourcetypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#resourcetypes)   
+```shell
+tq post ResourceTypes
+```
 Create a new resource type.  
 ```json
 Query: {"CanBeShared":true, "Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "HasCapacity":true, "Id":123, "Inactive":true, "RequireAvailability":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Resources [![get](https://img.shields.io/badge/get-blue)](get.md#resources) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#resources)   
+```shell
+tq post Resources
+```
 Create a Resource.  
 ```json
 Query: {"Capacity":123, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultConfirmationText":"string", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Notes":"string", "ResourceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1911,72 +2562,108 @@ Query: {"ConstituentIds":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Ex
 	
 # S
 ## SalesChannels [![get](https://img.shields.io/badge/get-blue)](get.md#saleschannels) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#saleschannels)   
+```shell
+tq post SalesChannels
+```
 Create a new sales channel.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## SalesLayoutButtonTypes [![get](https://img.shields.io/badge/get-blue)](get.md#saleslayoutbuttontypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#saleslayoutbuttontypes)   
+```shell
+tq post SalesLayoutButtonTypes
+```
 Create a new sales layout button type.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## SalesLayouts [![get](https://img.shields.io/badge/get-blue)](get.md#saleslayouts) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#saleslayouts)   
+```shell
+tq post SalesLayouts
+```
 Create a new sales layout setup.  
 ```json
 Query: {"Columns":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PaymentMethods":[{"Id":123}, ...], "PriceTypes":[{"Id":123}, ...], "PrimaryIndicator":true, "Rows":123, "SalesLayoutButtons":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## SalutationTypes [![get](https://img.shields.io/badge/get-blue)](get.md#salutationtypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#salutationtypes)   
+```shell
+tq post SalutationTypes
+```
 Create a new salutation type.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Salutations [![get](https://img.shields.io/badge/get-blue)](get.md#salutations) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#salutations)   
+```shell
+tq post Salutations
+```
 Create a new salutation.  
 ```json
 Query: {"BusinessTitle":"string", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "EditIndicator":true, "EnvelopeSalutation1":"string", "EnvelopeSalutation2":"string", "Id":123, "IsFromAffiliation":true, "Label":true, "LetterSalutation":"string", "SalutationType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## SchedulePatternTypes [![get](https://img.shields.io/badge/get-blue)](get.md#schedulepatterntypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#schedulepatterntypes)   
+```shell
+tq post SchedulePatternTypes
+```
 Create a new Schedule Pattern.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ScheduleTypes [![get](https://img.shields.io/badge/get-blue)](get.md#scheduletypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#scheduletypes)   
+```shell
+tq post ScheduleTypes
+```
 Create a new Schedule Type.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## SeasonTypes [![get](https://img.shields.io/badge/get-blue)](get.md#seasontypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#seasontypes)   
+```shell
+tq post SeasonTypes
+```
 Create a new season type.  
 ```json
 Query: {"BusinessUnit":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Seasons [![get](https://img.shields.io/badge/get-blue)](get.md#seasons) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#seasons)   
+```shell
+tq post Seasons
+```
 Create a new season.  
 ```json
 Query: {"ConfirmationNoticeFormat":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Description":"string", "DisplayInSeasonOverview":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "FYear":123, "Id":123, "Inactive":true, "RenewalNoticeFormat":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "SubscriptionFund1":123, "SubscriptionFund2":123, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "YearlySeason":123}
 ```
 
 ## SeatCodes [![get](https://img.shields.io/badge/get-blue)](get.md#seatcodes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#seatcodes)   
+```shell
+tq post SeatCodes
+```
 Create a new seat code.  
 ```json
 Query: {"BackColor":123, "Context":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DisplayLetter":"string", "ForeColor":123, "Id":123, "Inactive":true, "IsSeat":123, "TicketText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## SeatStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#seatstatuses) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#seatstatuses)   
+```shell
+tq post SeatStatuses
+```
 Create a new seat status.  
 ```json
 Query: {"BackColor":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "ForeColor":123, "Id":123, "Inactive":true, "StatusCode":"string", "StatusLegend":"string", "StatusPriority":123, "Tck":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Sections [![get](https://img.shields.io/badge/get-blue)](get.md#sections) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#sections)   
+```shell
+tq post Sections
+```
 Create a new section.  
 ```json
 Query: {"AdditionalText":"string", "AdditionalText2":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "PrintDesc":"string", "PrintSequence":123, "SectionLegend":"string", "ShortDesc":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1994,6 +2681,9 @@ Query: {"AdditionalText":"string", "AdditionalText2":"string", "CreateLocation":
 
 
 ## ServiceResourceUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#serviceresourceusergroups) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#serviceresourceusergroups)   
+```shell
+tq post ServiceResourceUserGroups
+```
 Create a new service resource/user group mapping.  
 ```json
 Query: {"CanCreate":true, "CanDelete":true, "CanRead":true, "CanUpdate":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ServiceResource":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string"}
@@ -2001,6 +2691,9 @@ Query: {"CanCreate":true, "CanDelete":true, "CanRead":true, "CanUpdate":true, "C
 
 
 ## Session [![get](https://img.shields.io/badge/get-blue)](get.md#session) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#session)   
+```shell
+tq post Session
+```
 Add a new session variable to specified session.  
 ```json
 Query: {"SessionKey":"string", "Name":"string", "Value":"string"}
@@ -2139,6 +2832,9 @@ Query: {"SessionKey":"string", "Constituent":{"Id":123}, "ConstituentUpdateDate"
 ```
 
 ## SourceGroups [![get](https://img.shields.io/badge/get-blue)](get.md#sourcegroups) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#sourcegroups)   
+```shell
+tq post SourceGroups
+```
 Create a new source group.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -2146,36 +2842,54 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 
 
 ## SpecialActivities [![get](https://img.shields.io/badge/get-blue)](get.md#specialactivities) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#specialactivities)   
+```shell
+tq post SpecialActivities
+```
 Create a new activity record.  
 ```json
 Query: {"ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Notes":"string", "NumberOfAttendees":123, "Performance":"string", "SpecialActivityDateTime":"2000-01-01T00:00:00.000Z", "Status":{"Id":123}, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerConstituentId":123}
 ```
 
 ## SpecialActivityStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#specialactivitystatuses) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#specialactivitystatuses)   
+```shell
+tq post SpecialActivityStatuses
+```
 Create a new Special Activity Status.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## SpecialActivityTypes [![get](https://img.shields.io/badge/get-blue)](get.md#specialactivitytypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#specialactivitytypes)   
+```shell
+tq post SpecialActivityTypes
+```
 Create a new Special Activity Type.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## States [![get](https://img.shields.io/badge/get-blue)](get.md#states) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#states)   
+```shell
+tq post States
+```
 Create a new state.  
 ```json
 Query: {"Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "StateCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## StepTypes [![get](https://img.shields.io/badge/get-blue)](get.md#steptypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#steptypes)   
+```shell
+tq post StepTypes
+```
 Create a new step type.  
 ```json
 Query: {"AllowAttachments":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseAssociate":"string", "UseCompletedOnDateTime":"string", "UseDueDateTime":"string", "UseNote":"string", "UseWarningDays":"string", "UseWorker":"string"}
 ```
 
 ## Steps [![get](https://img.shields.io/badge/get-blue)](get.md#steps) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#steps)   
+```shell
+tq post Steps
+```
 Create a new step.  
 ```json
 Query: {"Associate":{"Id":123}, "CompletedOnDateTime":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DueDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "NewValue":"string", "Notes":"string", "OldValue":"string", "Plan":{"Id":123}, "Priority":123, "StepDateTime":"2000-01-01T00:00:00.000Z", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WarningDays":123, "Worker":{"Id":123}}
@@ -2188,6 +2902,9 @@ Query: {"Category":{"Id":123}, "ConstituentId":123, "Contents":"AA==", "CreateLo
 ```
 
 ## SubLineItemStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#sublineitemstatuses) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#sublineitemstatuses)   
+```shell
+tq post SubLineItemStatuses
+```
 Create a new sub line item status.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Priority":123, "StatusCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -2195,18 +2912,27 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 
 
 ## Suffixes [![get](https://img.shields.io/badge/get-blue)](get.md#suffixes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#suffixes)   
+```shell
+tq post Suffixes
+```
 Create a new suffix.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## SurveyQuestions [![get](https://img.shields.io/badge/get-blue)](get.md#surveyquestions) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#surveyquestions)   
+```shell
+tq post SurveyQuestions
+```
 Create a new survey question.  
 ```json
 Query: {"AskType":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "DefaultValue":"string", "Id":123, "Inactive":true, "Question":"string", "ReferenceTable":"string", "ReferenceTableDescriptionColumn":"string", "ReferenceTableIdColumn":"string", "ReferenceTableSort":"string", "ReferenceTableWhereClause":"string", "Required":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## SurveyResponses [![get](https://img.shields.io/badge/get-blue)](get.md#surveyresponses) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#surveyresponses)   
+```shell
+tq post SurveyResponses
+```
 Create a new survey response.  
 ```json
 Query: {"Answer":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OrderId":123, "QuestionId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -2216,12 +2942,18 @@ Query: {"Answer":"string", "CreateLocation":"string", "CreatedBy":"string", "Cre
 	
 # T
 ## TemplateCategories [![get](https://img.shields.io/badge/get-blue)](get.md#templatecategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#templatecategories)   
+```shell
+tq post TemplateCategories
+```
 Create a new template category  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## TemplatePriceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#templatepricetypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#templatepricetypes)   
+```shell
+tq post TemplatePriceTypes
+```
 Create a new template price type.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DesignationCode":{"Id":123}, "GlAccount":{"Id":123}, "Id":123, "PriceTemplate":{"Id":123}, "PriceType":{"Id":123}, "ResaleAccount":{"Id":123}, "TemplatePrices":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -2234,6 +2966,9 @@ Query: {"TemplatePriceTypes":[{"CreateLocation":"string", "CreatedBy":"string", 
 ```
 
 ## TemplatePrices [![get](https://img.shields.io/badge/get-blue)](get.md#templateprices) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#templateprices)   
+```shell
+tq post TemplatePrices
+```
 Create a new template price.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Enabled":true, "Id":123, "MinPrice":123.456, "Price":123.456, "TemplatePriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Zone":{"Id":123}}
@@ -2247,6 +2982,9 @@ Query: {"TemplatePrices":[{"CreateLocation":"string", "CreatedBy":"string", "Cre
 
 
 ## Templates [![get](https://img.shields.io/badge/get-blue)](get.md#templates) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#templates)   
+```shell
+tq post Templates
+```
 Create a new template  
 ```json
 Query: {"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "IsHtmlBody":true, "TemplateBody":"string", "TemplateSubject":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -2300,6 +3038,9 @@ Query: {"OrderID":"string", "BatchId":123, "HeaderDesignId":123, "IncludeReceipt
 ```
 
 ## Theaters [![get](https://img.shields.io/badge/get-blue)](get.md#theaters) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#theaters)   
+```shell
+tq post Theaters
+```
 Create a new theater.  
 ```json
 Query: {"City":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataWindowDefinition":"string", "Description":"string", "DrivingDirections":"string", "Id":123, "Inactive":true, "MaximumNumberOfSeats":123, "Phone":"string", "PostalCode":"string", "State":"string", "Street":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -2307,6 +3048,9 @@ Query: {"City":"string", "CreateLocation":"string", "CreatedBy":"string", "Creat
 
 
 ## TimeSlots [![get](https://img.shields.io/badge/get-blue)](get.md#timeslots) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#timeslots)   
+```shell
+tq post TimeSlots
+```
 Create a new time slot.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "StartTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -2315,6 +3059,9 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 
 
 ## TriPOSCloudConfigurations [![get](https://img.shields.io/badge/get-blue)](get.md#triposcloudconfigurations) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#triposcloudconfigurations)   
+```shell
+tq post TriPOSCloudConfigurations
+```
 Create a new TriPOS Cloud configuration.  
 ```json
 Query: {"ConfigSetting":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -2323,12 +3070,18 @@ Query: {"ConfigSetting":"string", "CreateLocation":"string", "CreatedBy":"string
 	
 # U
 ## UpgradeCategories [![get](https://img.shields.io/badge/get-blue)](get.md#upgradecategories) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#upgradecategories)   
+```shell
+tq post UpgradeCategories
+```
 Create a new Upgrade Category.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## UpgradeLogs [![get](https://img.shields.io/badge/get-blue)](get.md#upgradelogs) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#upgradelogs)   
+```shell
+tq post UpgradeLogs
+```
 Saves the given upgradeLog.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HotFixNumber":123, "Id":123, "ReleaseDescription":"string", "ScriptId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UpgradeCategorySummary":{"Id":123}, "Version":"string"}
@@ -2336,6 +3089,9 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 
 
 ## UserPreferences [![get](https://img.shields.io/badge/get-blue)](get.md#userpreferences) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#userpreferences)   
+```shell
+tq post UserPreferences
+```
 Create a new user preference.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Key":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}
@@ -2348,6 +3104,9 @@ Query: {"UserPreferences":[{"CreateLocation":"string", "CreatedBy":"string", "Cr
 ```
 
 ## Users [![get](https://img.shields.io/badge/get-blue)](get.md#users) ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post Users
+```
 Allows for changing of a user's password  
 ```json
 Query: {"NewPassword":"string", "OldPassword":"string", "UserName":"string"}
@@ -2356,6 +3115,9 @@ Query: {"NewPassword":"string", "OldPassword":"string", "UserName":"string"}
 	
 # V
 ## ValidateWebLogin ![post](https://img.shields.io/badge/post-gray)   
+```shell
+tq post ValidateWebLogin
+```
 Validate a web login.  
 ```json
 Query: {"LoginName":"string", "LoginTypeId":123, "Password":"string"}
@@ -2364,6 +3126,9 @@ Query: {"LoginName":"string", "LoginTypeId":123, "Password":"string"}
 	
 # W
 ## WebContentTypes [![get](https://img.shields.io/badge/get-blue)](get.md#webcontenttypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#webcontenttypes)   
+```shell
+tq post WebContentTypes
+```
 Create a Web Content Type.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditMask":"string", "FullTextSearchIndicator":true, "Id":123, "Inactive":true, "LastContentUseUpdateDateTime":"2000-01-01T00:00:00.000Z", "Limit":123, "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseWebApi":true}
@@ -2371,30 +3136,45 @@ Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"strin
 
 
 ## WebLogins [![get](https://img.shields.io/badge/get-blue)](get.md#weblogins) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#weblogins)   
+```shell
+tq post WebLogins
+```
 Create a new weblogin.  
 ```json
 Query: {"Constituent":{"Id":123}, "ConstituentUpdateDate":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Email":{"Id":123}, "FailedAttempts":123, "Id":123, "Inactive":true, "LastLoginDate":"2000-01-01T00:00:00.000Z", "LockedDate":"2000-01-01T00:00:00.000Z", "Login":"string", "LoginType":{"Id":123}, "PrimaryIndicator":true, "TemporaryIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## WorkerQualifications [![get](https://img.shields.io/badge/get-blue)](get.md#workerqualifications) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#workerqualifications)   
+```shell
+tq post WorkerQualifications
+```
 Create a WorkerQualification.  
 ```json
 Query: {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Qualification":{"Id":123}, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## WorkerRoles [![get](https://img.shields.io/badge/get-blue)](get.md#workerroles) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#workerroles)   
+```shell
+tq post WorkerRoles
+```
 Create a new worker role.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ShowInPortfolioDefault":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## WorkerTypes [![get](https://img.shields.io/badge/get-blue)](get.md#workertypes) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#workertypes)   
+```shell
+tq post WorkerTypes
+```
 Create a new worker type.  
 ```json
 Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Workers [![get](https://img.shields.io/badge/get-blue)](get.md#workers) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#workers)   
+```shell
+tq post Workers
+```
 Create a new worker.  
 ```json
 Query: {"ConstituentId":123, "ConstituentInactive":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "FirstName":"string", "Id":123, "Inactive":true, "LastName":"string", "Prefix":{"Id":123}, "ShortDisplayName":"string", "SortName":"string", "Suffix":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerType":{"Id":123}}
@@ -2403,18 +3183,27 @@ Query: {"ConstituentId":123, "ConstituentInactive":{"Id":123}, "CreateLocation":
 	
 # Z
 ## ZoneGroups [![get](https://img.shields.io/badge/get-blue)](get.md#zonegroups) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#zonegroups)   
+```shell
+tq post ZoneGroups
+```
 Create a new zone group.  
 ```json
 Query: {"AliasDescription":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ZoneMaps [![get](https://img.shields.io/badge/get-blue)](get.md#zonemaps) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#zonemaps)   
+```shell
+tq post ZoneMaps
+```
 Create a new zone map.  
 ```json
 Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "SeatMap":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Zones [![get](https://img.shields.io/badge/get-blue)](get.md#zones) ![post](https://img.shields.io/badge/post-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#zones)   
+```shell
+tq post Zones
+```
 Create a new zone.  
 ```json
 Query: {"Abbreviation":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndTime":"string", "Id":123, "Rank":123, "ShortDescription":"string", "StartTime":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneGroup":{"Id":123}, "ZoneLegend":"string", "ZoneMapId":123, "ZoneTime":"string"}
@@ -2427,4 +3216,4 @@ Query: {"PackageIds":"string", "PackageTypeIds":"string", "PerformanceIds":"stri
 ```
  
 
-<link rel="stylesheet" type="text/css" href="/css/toc.css"/>
+<link rel="stylesheet" type="text/css" href="../css/toc.css"/>

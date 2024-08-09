@@ -5,6 +5,9 @@
 	
 # A
 ## AccountTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#accounttypes) [![put](https://img.shields.io/badge/put-blue)](put.md#accounttypes)   
+```shell
+tq get AccountTypes
+```
 Get the details of an account type by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -19,6 +22,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all account types.
 
 ## Accounts ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#accounts) [![put](https://img.shields.io/badge/put-blue)](put.md#accounts)   
+```shell
+tq get Accounts
+```
 Get details of a specific credit card account  
 ```json
 Query: {"AccountID":"string"}
@@ -32,6 +38,9 @@ Query: {"AccountTypeID":"string", "ConstituentID":"string", "IncludeAffiliates":
 ```
 
 ## ActionTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#actiontypes) [![put](https://img.shields.io/badge/put-blue)](put.md#actiontypes)   
+```shell
+tq get ActionTypes
+```
 Get the details of an action type by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -46,6 +55,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all action types.
 
 ## Actions ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#actions) [![put](https://img.shields.io/badge/put-blue)](put.md#actions)   
+```shell
+tq get Actions
+```
 Get details of an issue action.  
 ```json
 Query: {"IssueActionID":"string"}
@@ -58,6 +70,9 @@ Query: {"ConstituentID":"string", "IssueID":"string"}
 ```
 
 ## ActivityCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#activitycategories) [![put](https://img.shields.io/badge/put-blue)](put.md#activitycategories)   
+```shell
+tq get ActivityCategories
+```
 Get the details of an activity category by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -72,6 +87,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all activity categories.
 
 ## ActivityTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#activitytypes) [![put](https://img.shields.io/badge/put-blue)](put.md#activitytypes)   
+```shell
+tq get ActivityTypes
+```
 Get the details of an activity type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -86,6 +104,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all activity types.
 
 ## AddressTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#addresstypes) [![put](https://img.shields.io/badge/put-blue)](put.md#addresstypes)   
+```shell
+tq get AddressTypes
+```
 Get the details of an address type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -100,6 +121,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all address types.
 
 ## Addresses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#addresses) [![put](https://img.shields.io/badge/put-blue)](put.md#addresses)   
+```shell
+tq get Addresses
+```
 Get details of an address using addressId as a URL query parameter. Returns 404 Not Found if an address with the specified Id is not found.  
 ```json
 Query: {"AddressID":"string"}
@@ -113,6 +137,9 @@ Query: {"ConstituentID":"string", "IncludeAffiliations":"string", "IncludeFromAf
 
 
 ## AffiliationTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#affiliationtypes) [![put](https://img.shields.io/badge/put-blue)](put.md#affiliationtypes)   
+```shell
+tq get AffiliationTypes
+```
 Get the details of an affiliation type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -127,6 +154,9 @@ Query: {"ConstituentTypeID":"string", "Filter":"string", "MaintenanceMode":"stri
    Get a summary representation of all affiliation types.
 
 ## Affiliations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#affiliations) [![put](https://img.shields.io/badge/put-blue)](put.md#affiliations)   
+```shell
+tq get Affiliations
+```
 Get details of an affiliation.  
 ```json
 Query: {"AffiliationID":"string"}
@@ -139,6 +169,9 @@ Query: {"EndActiveDate":"string", "GroupConstituentID":"string", "IndividualCons
 ```
 
 ## AliasTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#aliastypes) [![put](https://img.shields.io/badge/put-blue)](put.md#aliastypes)   
+```shell
+tq get AliasTypes
+```
 Get the details of an alias type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -153,6 +186,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all alias types.
 
 ## Aliases ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#aliases) [![put](https://img.shields.io/badge/put-blue)](put.md#aliases)   
+```shell
+tq get Aliases
+```
 Get details of an alias.  
 ```json
 Query: {"AliasID":"string"}
@@ -165,6 +201,9 @@ Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
 ```
 
 ## AnalyticsCubes ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get AnalyticsCubes
+```
 Get the details of an analytics cube.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -177,6 +216,9 @@ Query: {"MaintenanceMode":"string"}
 ```
 
 ## AnalyticsReports ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#analyticsreports) [![put](https://img.shields.io/badge/put-blue)](put.md#analyticsreports)   
+```shell
+tq get AnalyticsReports
+```
 Get a single SSRS Report for display in Analytics.  
 ```json
 Query: {"AnalyticsReportID":"string"}
@@ -186,6 +228,9 @@ Query: {"AnalyticsReportID":"string"}
    Get all SSRS Reports for display in Analytics.
 
 ## AppScreenTexts ![get](https://img.shields.io/badge/get-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#appscreentexts)   
+```shell
+tq get AppScreenTexts
+```
 Get the details of an App Screen Text by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -200,6 +245,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all App Screen Texts.
 
 ## AppealCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#appealcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#appealcategories)   
+```shell
+tq get AppealCategories
+```
 Get the details of an appeal category by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -214,6 +262,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all appeal categories.
 
 ## Appeals ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get Appeals
+```
 Get details of an Appeal.  
 ```json
 Query: {"AppealID":"string"}
@@ -226,12 +277,18 @@ Query: {"ActiveOnly":"string"}
 ```
 
 ## ApplicationObjects ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get ApplicationObjects
+```
 Get all application objects valid for the context usergroup.  
 ```json
 Query: 
 ```
 
 ## Artists ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#artists) [![put](https://img.shields.io/badge/put-blue)](put.md#artists)   
+```shell
+tq get Artists
+```
 Get details of an existing artist.  
 ```json
 Query: {"ArtistID":"string"}
@@ -241,6 +298,9 @@ Query: {"ArtistID":"string"}
    Get details of all artists.
 
 ## AssetTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#assettypes) [![put](https://img.shields.io/badge/put-blue)](put.md#assettypes)   
+```shell
+tq get AssetTypes
+```
 Get the details of an asset type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -255,6 +315,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all asset types.
 
 ## Assets ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#assets) [![put](https://img.shields.io/badge/put-blue)](put.md#assets)   
+```shell
+tq get Assets
+```
 Get details of an asset.  
 ```json
 Query: {"AssetID":"string"}
@@ -267,6 +330,9 @@ Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
 ```
 
 ## AssociationTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#associationtypes) [![put](https://img.shields.io/badge/put-blue)](put.md#associationtypes)   
+```shell
+tq get AssociationTypes
+```
 Get the details of an association type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -281,6 +347,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all association types.
 
 ## Associations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#associations) [![put](https://img.shields.io/badge/put-blue)](put.md#associations)   
+```shell
+tq get Associations
+```
 Get details of an association.  
 ```json
 Query: {"AssociationID":"string"}
@@ -293,12 +362,18 @@ Query: {"AssociatedConstituentID":"string", "ConstituentID":"string", "EndActive
 ```
 
 ## AttendanceHistory ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get AttendanceHistory
+```
 Attendance History for a selected constituent optionally including primary affiliates.  Does not return history based on recipient for the selected constituent(s).  
 ```json
 Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
 ```
 
 ## Attributes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#attributes) [![put](https://img.shields.io/badge/put-blue)](put.md#attributes)   
+```shell
+tq get Attributes
+```
 Get details of an attribute.  
 ```json
 Query: {"AttributeID":"string"}
@@ -311,6 +386,9 @@ Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
 ```
 
 ## AuditLogs ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get AuditLogs
+```
 Get details of a audit log.  
 ```json
 Query: {"AuditLog":"string"}
@@ -331,6 +409,9 @@ Query: {"Action":"string", "AuditEndTime":"string", "AuditStartTime":"string", "
 ```
 
 ## Authenticate ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#authenticate)   
+```shell
+tq get Authenticate
+```
 This is a no-op operation for windows authentication diagnostics.  
 ```json
 Query: 
@@ -341,6 +422,9 @@ Query:
 # B
 
 ## BatchMaintenance ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#batchmaintenance)   
+```shell
+tq get BatchMaintenance
+```
 Get a single Batch  
 ```json
 Query: {"BatchID":"string"}
@@ -353,6 +437,9 @@ Query: {"IncludeControlled":"string"}
 ```
 
 ## BatchTypeGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#batchtypegroups) [![put](https://img.shields.io/badge/put-blue)](put.md#batchtypegroups)   
+```shell
+tq get BatchTypeGroups
+```
 Get the details of a batch type group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -367,12 +454,18 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all batch type groups.
 
 ## BatchTypeUserGroup ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get BatchTypeUserGroup
+```
 Get all batch type/user group mappings.  
 ```json
 Query: {"UserGroup":"string"}
 ```
 
 ## BatchTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#batchtypes) [![put](https://img.shields.io/badge/put-blue)](put.md#batchtypes)   
+```shell
+tq get BatchTypes
+```
 Get the details of a batch type by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -387,6 +480,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all batch types.
 
 ## BillingSchedules ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#billingschedules) [![put](https://img.shields.io/badge/put-blue)](put.md#billingschedules)   
+```shell
+tq get BillingSchedules
+```
 Get the details of a Billing Schedule. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -401,6 +497,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all Billing Schedules.
 
 ## BillingTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#billingtypes) [![put](https://img.shields.io/badge/put-blue)](put.md#billingtypes)   
+```shell
+tq get BillingTypes
+```
 Get the details of a Billing Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -415,6 +514,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all Billing Types.
 
 ## BookingCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#bookingcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#bookingcategories)   
+```shell
+tq get BookingCategories
+```
 Get the details of a Booking Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -429,6 +531,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all Booking Categories.
 
 ## BookingTemplates ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#bookingtemplates) [![put](https://img.shields.io/badge/put-blue)](put.md#bookingtemplates)   
+```shell
+tq get BookingTemplates
+```
 Get a Booking Template by ID  
 ```json
 Query: {"BookingTemplateID":"string"}
@@ -441,6 +546,9 @@ Query: {"CategoryID":"string"}
 ```
 
 ## Bookings ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#bookings) [![put](https://img.shields.io/badge/put-blue)](put.md#bookings)   
+```shell
+tq get Bookings
+```
 Get a Booking by id  
 ```json
 Query: {"BookingID":"string"}
@@ -468,6 +576,9 @@ Query: {"BookingID":"string"}
 ```
 
 ## BulkCopySets ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#bulkcopysets) [![put](https://img.shields.io/badge/put-blue)](put.md#bulkcopysets)   
+```shell
+tq get BulkCopySets
+```
 Get a bulk copy set by Id.  
 ```json
 Query: {"BulkCopySetID":"string"}
@@ -484,6 +595,9 @@ Query: {"BulkCopySetID":"string"}
    Get a summary of all bulk copy sets.
 
 ## BulkDailyCopyExclusions ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#bulkdailycopyexclusions) [![put](https://img.shields.io/badge/put-blue)](put.md#bulkdailycopyexclusions)   
+```shell
+tq get BulkDailyCopyExclusions
+```
 Get a bulk daily copy exclusion by id.  
 ```json
 Query: {"BulkDailyCopyExclusionID":"string"}
@@ -496,6 +610,9 @@ Query: {"BulkCopySetID":"string"}
 ```
 
 ## BusinessUnits ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#businessunits) [![put](https://img.shields.io/badge/put-blue)](put.md#businessunits)   
+```shell
+tq get BusinessUnits
+```
 Get the details of a business unit by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -512,12 +629,18 @@ Query: {"MaintenanceMode":"string"}
 	
 # C
 ## Cache ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get Cache
+```
   
 ```json
 Query: 
 ```
 
 ## CampaignDesignations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#campaigndesignations) [![put](https://img.shields.io/badge/put-blue)](put.md#campaigndesignations)   
+```shell
+tq get CampaignDesignations
+```
 Get a single Designation associated to a Campaign.  
 ```json
 Query: {"CampaignDesignationID":"string"}
@@ -530,6 +653,9 @@ Query: {"CampaignID":"string"}
 ```
 
 ## CampaignFunds ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#campaignfunds) [![put](https://img.shields.io/badge/put-blue)](put.md#campaignfunds)   
+```shell
+tq get CampaignFunds
+```
 Get a single Fund associated to a Campaign.  
 ```json
 Query: {"CampaignFundID":"string"}
@@ -542,6 +668,9 @@ Query: {"AsOfDateTime":"string", "CampaignID":"string"}
 ```
 
 ## Campaigns ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get Campaigns
+```
 Get summary of a specific campaign.  
 ```json
 Query: {"CampaignID":"string"}
@@ -554,6 +683,9 @@ Query: {"ActiveOnly":"string"}
 ```
 
 ## CardReaderTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#cardreadertypes) [![put](https://img.shields.io/badge/put-blue)](put.md#cardreadertypes)   
+```shell
+tq get CardReaderTypes
+```
 Get the details of a Card Reader Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -568,6 +700,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all Card Reader Types.
 
 ## Cart ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#cart) [![put](https://img.shields.io/badge/put-blue)](put.md#cart)   
+```shell
+tq get Cart
+```
 Gets the cart details  
 ```json
 Query: {"MessageTypes":"string", "SavedCart":"string", "SessionKey":"string"}
@@ -597,6 +732,9 @@ Query: {"MessageTypes":"string", "SavedCart":"string", "SessionKey":"string"}
 ```
 
 ## Colors ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#colors) [![put](https://img.shields.io/badge/put-blue)](put.md#colors)   
+```shell
+tq get Colors
+```
 Get the details of a color by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -611,6 +749,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all colors.
 
 ## Composers ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#composers) [![put](https://img.shields.io/badge/put-blue)](put.md#composers)   
+```shell
+tq get Composers
+```
 Get the details of a composer by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -625,6 +766,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all composers.
 
 ## Constituencies ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#constituencies) [![put](https://img.shields.io/badge/put-blue)](put.md#constituencies)   
+```shell
+tq get Constituencies
+```
 Get details of constituency.  
 ```json
 Query: {"ConstituencyID":"string"}
@@ -637,6 +781,9 @@ Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
 ```
 
 ## ConstituencyTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#constituencytypes) [![put](https://img.shields.io/badge/put-blue)](put.md#constituencytypes)   
+```shell
+tq get ConstituencyTypes
+```
 Get the details of a constituency type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -651,12 +798,18 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all constituency types.
 
 ## ConstituentContributions ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get ConstituentContributions
+```
 Get contributions for a constituent.  
 ```json
 Query: {"CampaignIds":"string", "ConstituentID":"string", "EndDate":"string", "FundIds":"string", "IncludeAffiliations":"string", "StartDate":"string"}
 ```
 
 ## ConstituentDocuments ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#constituentdocuments) [![put](https://img.shields.io/badge/put-blue)](put.md#constituentdocuments)   
+```shell
+tq get ConstituentDocuments
+```
 Get the details of a document for a constituent.  
 ```json
 Query: {"DocumentID":"string"}
@@ -674,6 +827,9 @@ Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
 ```
 
 ## ConstituentGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#constituentgroups) [![put](https://img.shields.io/badge/put-blue)](put.md#constituentgroups)   
+```shell
+tq get ConstituentGroups
+```
 Get the details of a constituent group by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -688,6 +844,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all constituent groups.
 
 ## ConstituentInactives ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#constituentinactives) [![put](https://img.shields.io/badge/put-blue)](put.md#constituentinactives)   
+```shell
+tq get ConstituentInactives
+```
 Get the details of a constituent inactive by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -702,6 +861,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all constituent inactives.
 
 ## ConstituentProtectionTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#constituentprotectiontypes) [![put](https://img.shields.io/badge/put-blue)](put.md#constituentprotectiontypes)   
+```shell
+tq get ConstituentProtectionTypes
+```
 Get the details of a constituent protection type by id.  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -716,6 +878,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all constituent protection types.
 
 ## ConstituentTypeAffiliates ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#constituenttypeaffiliates) [![put](https://img.shields.io/badge/put-blue)](put.md#constituenttypeaffiliates)   
+```shell
+tq get ConstituentTypeAffiliates
+```
 Get the details of a constituent type affiliate by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -730,6 +895,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all constituent type affiliates.
 
 ## ConstituentTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#constituenttypes) [![put](https://img.shields.io/badge/put-blue)](put.md#constituenttypes)   
+```shell
+tq get ConstituentTypes
+```
 Get the details of a constituent type by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -744,6 +912,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all constituent types.
 
 ## Constituents ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#constituents) [![put](https://img.shields.io/badge/put-blue)](put.md#constituents)   
+```shell
+tq get Constituents
+```
 Get the details of a Constituent using id.  
 ```json
 Query: {"ConstituentID":"string"}
@@ -807,6 +978,9 @@ Query: {"Atype":"string", "ConstituencyIds":"string", "ConstituentGroups":"strin
 ```
 
 ## ContactPermissionCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpermissioncategories) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpermissioncategories)   
+```shell
+tq get ContactPermissionCategories
+```
 Get the details of a contact permission category. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -821,6 +995,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all contact permission categories.
 
 ## ContactPermissionTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpermissiontypes) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpermissiontypes)   
+```shell
+tq get ContactPermissionTypes
+```
 Get the details of a contact permission type. To get the resource only if the user has write/edit access, pass filter="writeonly".  To get the resource in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -840,6 +1017,9 @@ Query: {"ProductionSeasonIds":"string"}
    Get a summary representation of all contact permission types.
 
 ## ContactPermissions ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpermissions) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpermissions)   
+```shell
+tq get ContactPermissions
+```
 Get details of a contact permission  
 ```json
 Query: {"ContactPermissionID":"string"}
@@ -852,6 +1032,9 @@ Query: {"ActiveOnly":"string", "ConstituentID":"string", "IncludeAffiliations":"
 ```
 
 ## ContactPointCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpointcategories)   
+```shell
+tq get ContactPointCategories
+```
 Get the details of a contact point category by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -866,6 +1049,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all contact point categories.
 
 ## ContactPointCategoryPurposes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointcategorypurposes) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpointcategorypurposes)   
+```shell
+tq get ContactPointCategoryPurposes
+```
 Get the details of a contact point category purpose by id.  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -880,6 +1066,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all contact point category purposes.
 
 ## ContactPointPurposeCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointpurposecategories) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpointpurposecategories)   
+```shell
+tq get ContactPointPurposeCategories
+```
 Get the details of a contact point purpose category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -894,6 +1083,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all contact point purpose categories.
 
 ## ContactPointPurposeMaps ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointpurposemaps) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpointpurposemaps)   
+```shell
+tq get ContactPointPurposeMaps
+```
 Get details of a contact point purpose.  
 ```json
 Query: {"ContactPointPurposeMapID":"string"}
@@ -906,6 +1098,9 @@ Query: {"ConstituentID":"string", "ContactPointCategoryID":"string", "ContactPoi
 ```
 
 ## ContactPointPurposes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointpurposes) [![put](https://img.shields.io/badge/put-blue)](put.md#contactpointpurposes)   
+```shell
+tq get ContactPointPurposes
+```
 Get the details of a contact point purpose by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -920,12 +1115,18 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all contact point purposes.
 
 ## ContactPoints ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get ContactPoints
+```
 Get all the delivery points for the specified constituent (constituentId) and all its visible affiliation's delivery point purposes as well. To exclude delivery point purposes of the visible affiliations pass includeAffiliations=false.  
 ```json
 Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
 ```
 
 ## ContactTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contacttypes) [![put](https://img.shields.io/badge/put-blue)](put.md#contacttypes)   
+```shell
+tq get ContactTypes
+```
 Get the details of a contact type by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -940,12 +1141,18 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all contact types.
 
 ## ContextInformation ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get ContextInformation
+```
 Get a commonly used set of default values for the user and usergroup in the current security context.  
 ```json
 Query: 
 ```
 
 ## ContributionDesignations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contributiondesignations) [![put](https://img.shields.io/badge/put-blue)](put.md#contributiondesignations)   
+```shell
+tq get ContributionDesignations
+```
 Get the details of a contribution designation by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -960,6 +1167,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all contribution designations.
 
 ## ContributionImportSets ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#contributionimportsets) [![put](https://img.shields.io/badge/put-blue)](put.md#contributionimportsets)   
+```shell
+tq get ContributionImportSets
+```
 Get the details of a contributionImportSet by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -975,6 +1185,9 @@ Query: {"MaintenanceMode":"string"}
 
 
 ## ControlGroupUserGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#controlgroupusergroups) [![put](https://img.shields.io/badge/put-blue)](put.md#controlgroupusergroups)   
+```shell
+tq get ControlGroupUserGroups
+```
 Get the details of a control group/user group mapping by id.  
 ```json
 Query: {"ID":"string"}
@@ -986,6 +1199,9 @@ Query: {"ID":"string"}
    Get a summary representation of all control group/user group mappings.
 
 ## ControlGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#controlgroups) [![put](https://img.shields.io/badge/put-blue)](put.md#controlgroups)   
+```shell
+tq get ControlGroups
+```
 Get the details of a control group by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1000,12 +1216,18 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all control groups.
 
 ## CoreIdentity ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#coreidentity)   
+```shell
+tq get CoreIdentity
+```
   
 ```json
 Query: 
 ```
 
 ## Countries ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#countries) [![put](https://img.shields.io/badge/put-blue)](put.md#countries)   
+```shell
+tq get Countries
+```
 Get the details of a country by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1020,6 +1242,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all countries.
 
 ## CrediteeTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#crediteetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#crediteetypes)   
+```shell
+tq get CrediteeTypes
+```
 Get the details of a crediteeType by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1034,12 +1259,18 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all crediteeTypes.
 
 ## Credits ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get Credits
+```
 Returns all credits for the requested production element, and all credits from above it in the production hierarchy.  
 ```json
 Query: {"ProductionElementIds":"string"}
 ```
 
 ## CriterionOperators ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get CriterionOperators
+```
 Get the details of a criterion operator by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1054,6 +1285,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all criterion operators.
 
 ## CumulativeGivingReceipts ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get CumulativeGivingReceipts
+```
 Get details of an cumulativeGivingReceipt.  
 ```json
 Query: {"CumulativeGivingReceiptID":"string"}
@@ -1071,6 +1305,9 @@ Query: {"ConstituentID":"string", "SessionID":"string"}
 ```
 
 ## CurrencyTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#currencytypes) [![put](https://img.shields.io/badge/put-blue)](put.md#currencytypes)   
+```shell
+tq get CurrencyTypes
+```
 Get the details of a currency type by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1085,12 +1322,18 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all currency types.
 
 ## Custom ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#custom)   
+```shell
+tq get Custom
+```
 Get the metadata information of a custom table as defined by TR_DATASERVICE_TABLES and TR_DATASERVICE_COLUMNS.  
 ```json
 Query: 
 ```
 
 ## CustomDefaultCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#customdefaultcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#customdefaultcategories)   
+```shell
+tq get CustomDefaultCategories
+```
 Get the details of a custom default category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -1105,6 +1348,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all custom default categories.
 
 ## CustomDefaults ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#customdefaults) [![put](https://img.shields.io/badge/put-blue)](put.md#customdefaults)   
+```shell
+tq get CustomDefaults
+```
 Get the details of a custom default by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -1121,6 +1367,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
 	
 # D
 ## DeliveryMethods ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#deliverymethods) [![put](https://img.shields.io/badge/put-blue)](put.md#deliverymethods)   
+```shell
+tq get DeliveryMethods
+```
 Get the details of a delivery method by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1135,6 +1384,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all delivery methods.
 
 ## DesignationCodes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#designationcodes) [![put](https://img.shields.io/badge/put-blue)](put.md#designationcodes)   
+```shell
+tq get DesignationCodes
+```
 Get the details of a designation code by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1149,6 +1401,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all designation codes.
 
 ## Designs ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get Designs
+```
 Get the details of a design by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1163,6 +1418,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all designs.
 
 ## Diagnostics ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#diagnostics) [![put](https://img.shields.io/badge/put-blue)](put.md#diagnostics)   
+```shell
+tq get Diagnostics
+```
 Validates Encryption Key Dates.  
 ```json
 Query: 
@@ -1176,6 +1434,9 @@ Query:
    Returns status of the application connection to database and service version information as an html page.
 
 ## DirectDebitAccountTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#directdebitaccounttypes) [![put](https://img.shields.io/badge/put-blue)](put.md#directdebitaccounttypes)   
+```shell
+tq get DirectDebitAccountTypes
+```
 Get the details of a direct debit account type by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1190,6 +1451,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all direct debit account types.
 
 ## DiscountTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#discounttypes) [![put](https://img.shields.io/badge/put-blue)](put.md#discounttypes)   
+```shell
+tq get DiscountTypes
+```
 Get the details of a discount type by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1204,6 +1468,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all discount types.
 
 ## Divisions ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get Divisions
+```
 Get the control group/division mappings for the specified division.  
 ```json
 Query: 
@@ -1216,6 +1483,9 @@ Query: {"DivisionID":"string"}
 ```
 
 ## DocumentCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#documentcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#documentcategories)   
+```shell
+tq get DocumentCategories
+```
 Get the details of a documentCategory by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -1230,6 +1500,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all documentCategories.
 
 ## Documents ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get Documents
+```
 Get the details of a document.  
 ```json
 Query: {"DocumentID":"string"}
@@ -1249,6 +1522,9 @@ Query: {"StepID":"string"}
    Get configuration settings for uploading documents.
 
 ## DonationLevels ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#donationlevels) [![put](https://img.shields.io/badge/put-blue)](put.md#donationlevels)   
+```shell
+tq get DonationLevels
+```
 Get the details of a donation level by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1265,6 +1541,9 @@ Query: {"MaintenanceMode":"string"}
 	
 # E
 ## EMV ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#emv) [![put](https://img.shields.io/badge/put-blue)](put.md#emv)   
+```shell
+tq get EMV
+```
 Retrieve information on all lanes associated with merchant  
 ```json
 Query: {"Cert":"string", "Merchant":"string"}
@@ -1292,6 +1571,9 @@ Query: {"Cert":"string", "LaneID":"string", "Merchant":"string"}
 ```
 
 ## ElectronicAddressTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#electronicaddresstypes) [![put](https://img.shields.io/badge/put-blue)](put.md#electronicaddresstypes)   
+```shell
+tq get ElectronicAddressTypes
+```
 Get the details of an electronic address type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -1306,6 +1588,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all electronic address types.
 
 ## ElectronicAddresses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#electronicaddresses) [![put](https://img.shields.io/badge/put-blue)](put.md#electronicaddresses)   
+```shell
+tq get ElectronicAddresses
+```
 Get details of an electronic address.  
 ```json
 Query: {"ElectronicAddressID":"string"}
@@ -1325,6 +1610,9 @@ Query: {"ElectronicAddressID":"string"}
 ```
 
 ## EmailProfiles ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#emailprofiles) [![put](https://img.shields.io/badge/put-blue)](put.md#emailprofiles)   
+```shell
+tq get EmailProfiles
+```
 Get the details of an email profile by id  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -1341,6 +1629,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
 
 
 ## EmarketIndicators ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#emarketindicators) [![put](https://img.shields.io/badge/put-blue)](put.md#emarketindicators)   
+```shell
+tq get EmarketIndicators
+```
 Get the details of an emarket indicator by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1355,6 +1646,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all emarket indicators.
 
 ## Eras ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#eras) [![put](https://img.shields.io/badge/put-blue)](put.md#eras)   
+```shell
+tq get Eras
+```
 Get the details of an era by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1369,6 +1663,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all eras.
 
 ## EventControl ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get EventControl
+```
 Returns a response containing a list of EventControl rows for the N-Scan event control table.  
 ```json
 Query: {"EndDate":"string", "StartDate":"string"}
@@ -1377,6 +1674,9 @@ Query: {"EndDate":"string", "StartDate":"string"}
 	
 # F
 ## Facilities ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#facilities) [![put](https://img.shields.io/badge/put-blue)](put.md#facilities)   
+```shell
+tq get Facilities
+```
 Get details of a Facility.  
 ```json
 Query: {"ID":"string"}
@@ -1393,6 +1693,9 @@ Query: {"FacilityID":"string"}
    Get summary representation of all Facilities.
 
 ## Fees ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get Fees
+```
 Get details of a fee.  
 ```json
 Query: {"ID":"string"}
@@ -1410,6 +1713,9 @@ Query: {"FeeCategoryIds":"string", "SeasonID":"string", "UserDefined":"string"}
 ```
 
 ## FinanceContributions ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get FinanceContributions
+```
 Get details of a contribution.  
 ```json
 Query: {"ContributionID":"string"}
@@ -1422,6 +1728,9 @@ Query: {"PlanID":"string"}
 ```
 
 ## Formats ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get Formats
+```
 Get the details of a format by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1436,6 +1745,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all formats.
 
 ## Funds ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get Funds
+```
 Get details of a specific fund  
 ```json
 Query: {"FundID":"string"}
@@ -1450,6 +1762,9 @@ Query: {"TicketingIndicator":"string"}
 	
 # G
 ## GLAccounts ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get GLAccounts
+```
 Get the details of a gl account by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -1464,6 +1779,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all gl accounts.
 
 ## Genders ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#genders) [![put](https://img.shields.io/badge/put-blue)](put.md#genders)   
+```shell
+tq get Genders
+```
 Get the details of a gender by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1478,6 +1796,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all gender values.
 
 ## GiftAidContactMethods ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidcontactmethods) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaidcontactmethods)   
+```shell
+tq get GiftAidContactMethods
+```
 Get the details of a gift aid contact method by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1492,6 +1813,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all gift aid contact methods.
 
 ## GiftAidDeclarations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaiddeclarations) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaiddeclarations)   
+```shell
+tq get GiftAidDeclarations
+```
 Gets a single Gift Aid Declaration.  
 ```json
 Query: {"GiftAidDeclarationID":"string"}
@@ -1504,6 +1828,9 @@ Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
 ```
 
 ## GiftAidDocumentStatuses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaiddocumentstatuses) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaiddocumentstatuses)   
+```shell
+tq get GiftAidDocumentStatuses
+```
 Get the details of a gift aid document status by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1518,6 +1845,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all gift aid document statuses.
 
 ## GiftAidIneligibleReasons ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidineligiblereasons) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaidineligiblereasons)   
+```shell
+tq get GiftAidIneligibleReasons
+```
 Get the details of a gift aid ineligible reason by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1532,6 +1862,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all gift aid ineligible reasons.
 
 ## GiftAidRates ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidrates) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaidrates)   
+```shell
+tq get GiftAidRates
+```
 Get the details of a gift aid rate by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1546,6 +1879,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all gift aid rates.
 
 ## GiftAidStatuses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidstatuses) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaidstatuses)   
+```shell
+tq get GiftAidStatuses
+```
 Get the details of a gift aid status by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1560,6 +1896,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all gift aid statuses.
 
 ## GiftAidTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidtypes) [![put](https://img.shields.io/badge/put-blue)](put.md#giftaidtypes)   
+```shell
+tq get GiftAidTypes
+```
 Get the details of a gift aid type by id.  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -1574,6 +1913,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all gift aid types.
 
 ## GiftCertificates ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#giftcertificates)   
+```shell
+tq get GiftCertificates
+```
 Get details of a specific gift certificate.
 The original amount, amount used and balance are all returned.  Amounts applied to a current web session are included.  
 ```json
@@ -1583,6 +1925,9 @@ Query: {"GiftCertificateNumber":"string"}
 	
 # H
 ## HoldCodeCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#holdcodecategories) [![put](https://img.shields.io/badge/put-blue)](put.md#holdcodecategories)   
+```shell
+tq get HoldCodeCategories
+```
 Get the details of a Hold Code Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -1597,6 +1942,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all Hold Code Categories.
 
 ## HoldCodeUserGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#holdcodeusergroups) [![put](https://img.shields.io/badge/put-blue)](put.md#holdcodeusergroups)   
+```shell
+tq get HoldCodeUserGroups
+```
 Get the details of a hold code/user group mapping by id.  
 ```json
 Query: {"HoldCodeUserGroupID":"string"}
@@ -1619,6 +1967,9 @@ Query: {"HoldCodeUserGroupID":"string"}
 ```
 
 ## HoldCodes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#holdcodes) [![put](https://img.shields.io/badge/put-blue)](put.md#holdcodes)   
+```shell
+tq get HoldCodes
+```
 Get details of a Hold Code.  
 ```json
 Query: {"HoldCodeID":"string"}
@@ -1630,6 +1981,9 @@ Query: {"HoldCodeID":"string"}
 	
 # I
 ## InactiveReasons ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#inactivereasons) [![put](https://img.shields.io/badge/put-blue)](put.md#inactivereasons)   
+```shell
+tq get InactiveReasons
+```
 Get the details of an inactive reason by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1644,6 +1998,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all inactive reasons.
 
 ## IntegrationDefaults ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#integrationdefaults) [![put](https://img.shields.io/badge/put-blue)](put.md#integrationdefaults)   
+```shell
+tq get IntegrationDefaults
+```
 Get the details of an Integration Default by id.  
 ```json
 Query: {"ID":"string"}
@@ -1655,6 +2012,9 @@ Query: {"ID":"string"}
    Get a summary representation of all Integration Defaults.
 
 ## Integrations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#integrations) [![put](https://img.shields.io/badge/put-blue)](put.md#integrations)   
+```shell
+tq get Integrations
+```
 Get the details of an action type by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1669,6 +2029,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all action types.
 
 ## InterestCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#interestcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#interestcategories)   
+```shell
+tq get InterestCategories
+```
 Get the details of an interest category by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1683,6 +2046,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all interest categories.
 
 ## InterestTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#interesttypes) [![put](https://img.shields.io/badge/put-blue)](put.md#interesttypes)   
+```shell
+tq get InterestTypes
+```
 Get the details of an interest type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -1697,6 +2063,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all interest types.
 
 ## Interests ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#interests) [![put](https://img.shields.io/badge/put-blue)](put.md#interests)   
+```shell
+tq get Interests
+```
 Get details of an interest.  
 ```json
 Query: {"InterestID":"string"}
@@ -1709,6 +2078,9 @@ Query: {"CategoryIds":"string", "ConstituentID":"string", "IncludeAffiliations":
 ```
 
 ## Internal ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#internal) [![put](https://img.shields.io/badge/put-blue)](put.md#internal)   
+```shell
+tq get Internal
+```
 Get details of an address and all the phones attached to it.  
 ```json
 Query: {"AddressID":"string"}
@@ -1726,6 +2098,9 @@ Query: {"ConstituentID":"string"}
 ```
 
 ## InventoryContactPermissionTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#inventorycontactpermissiontypes) [![put](https://img.shields.io/badge/put-blue)](put.md#inventorycontactpermissiontypes)   
+```shell
+tq get InventoryContactPermissionTypes
+```
 Get details of an inventoryContactPermissionType.  
 ```json
 Query: {"InventoryContactPermissionTypeID":"string"}
@@ -1738,6 +2113,9 @@ Query: {"ProductionSeasonIds":"string"}
 ```
 
 ## InventoryWebContents ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#inventorywebcontents) [![put](https://img.shields.io/badge/put-blue)](put.md#inventorywebcontents)   
+```shell
+tq get InventoryWebContents
+```
 Get details of an inventoryWebContent.  
 ```json
 Query: {"InventoryWebContentID":"string"}
@@ -1755,12 +2133,18 @@ Query: {"ContentTypeIds":"string", "ProductionElementIds":"string"}
 ```
 
 ## InvoiceBilling ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#invoicebilling)   
+```shell
+tq get InvoiceBilling
+```
 Get status of a processing automated billing run.  
 ```json
 Query: {"ID":"string"}
 ```
 
 ## Issues ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#issues) [![put](https://img.shields.io/badge/put-blue)](put.md#issues)   
+```shell
+tq get Issues
+```
 Get details of a customer issue.  
 ```json
 Query: {"IssueID":"string"}
@@ -1775,6 +2159,9 @@ Query: {"ActivityTypeIds":"string", "CategoryIds":"string", "ConstituentID":"str
 	
 # K
 ## KeywordCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#keywordcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#keywordcategories)   
+```shell
+tq get KeywordCategories
+```
 Get the details of a keyword category by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1789,6 +2176,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all keyword categories.
 
 ## Keywords ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#keywords) [![put](https://img.shields.io/badge/put-blue)](put.md#keywords)   
+```shell
+tq get Keywords
+```
 Get the details of a keyword by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -1810,6 +2200,9 @@ Query: {"KeywordID":"string"}
 	
 # L
 ## Languages ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#languages) [![put](https://img.shields.io/badge/put-blue)](put.md#languages)   
+```shell
+tq get Languages
+```
 Get the details of a language by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1824,6 +2217,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all languages.
 
 ## ListCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#listcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#listcategories)   
+```shell
+tq get ListCategories
+```
 Get the details of a list category by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1838,6 +2234,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all list categories.
 
 ## Lists ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#lists) [![put](https://img.shields.io/badge/put-blue)](put.md#lists)   
+```shell
+tq get Lists
+```
 Get a single List without contents.  
 ```json
 Query: {"ListID":"string"}
@@ -1865,6 +2264,9 @@ Query: {"ListIds":"string"}
 ```
 
 ## LoginTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#logintypes) [![put](https://img.shields.io/badge/put-blue)](put.md#logintypes)   
+```shell
+tq get LoginTypes
+```
 Get the details of a login type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -1881,6 +2283,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
 	
 # M
 ## MachineSettings ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#machinesettings) [![put](https://img.shields.io/badge/put-blue)](put.md#machinesettings)   
+```shell
+tq get MachineSettings
+```
 Get the details of a Machine Setting by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1895,6 +2300,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all Machine Settings.
 
 ## MailIndicators ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#mailindicators) [![put](https://img.shields.io/badge/put-blue)](put.md#mailindicators)   
+```shell
+tq get MailIndicators
+```
 Get the details of a mail indicator by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1909,6 +2317,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all mail indicators.
 
 ## MediaTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#mediatypes) [![put](https://img.shields.io/badge/put-blue)](put.md#mediatypes)   
+```shell
+tq get MediaTypes
+```
 Get the details of a media type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -1923,6 +2334,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all media types.
 
 ## MembershipLevelCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#membershiplevelcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#membershiplevelcategories)   
+```shell
+tq get MembershipLevelCategories
+```
 Get the details of a membership level category by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1937,6 +2351,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all membership level categories.
 
 ## MembershipLevels ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get MembershipLevels
+```
 Get a specific membership level.
 NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.  
 ```json
@@ -1957,6 +2374,9 @@ Query: {"MembershipOrgID":"string"}
 ```
 
 ## MembershipOrganizations ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get MembershipOrganizations
+```
 Get a specific membership organization.
 NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.  
 ```json
@@ -1971,6 +2391,9 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.
 
 ## MembershipStandings ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get MembershipStandings
+```
 Get a specific MembershipStanding by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -1985,6 +2408,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all MembershipStandings.
 
 ## Memberships ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#memberships)   
+```shell
+tq get Memberships
+```
 Returns membership details for a constituent.
 NOTE: As part of the upcoming changes to membership functionality, this resource will change significantly in an upcoming major Tessitura release and likely break code that references it. Please make a note that code that references it will need to be revisited as part of that upgrade process.  
 ```json
@@ -1992,18 +2418,27 @@ Query: {"ConstituentID":"string", "IncludeAffiliations":"string", "MembershipOrg
 ```
 
 ## MerchantReferences ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get MerchantReferences
+```
   
 ```json
 Query: {"MerchantAccount":"string", "PaymentID":"string"}
 ```
 
 ## Merchants ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get Merchants
+```
 Retrieve Merchant List  
 ```json
 Query: 
 ```
 
 ## ModeOfSaleCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsalecategories) [![put](https://img.shields.io/badge/put-blue)](put.md#modeofsalecategories)   
+```shell
+tq get ModeOfSaleCategories
+```
 Get details of a mode of sale category.  
 ```json
 Query: {"ModeOfSaleCategoryID":"string"}
@@ -2013,6 +2448,9 @@ Query: {"ModeOfSaleCategoryID":"string"}
    Get all mode of sale categories.
 
 ## ModeOfSaleOffers ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsaleoffers) [![put](https://img.shields.io/badge/put-blue)](put.md#modeofsaleoffers)   
+```shell
+tq get ModeOfSaleOffers
+```
 Get details of a mode of sale offer.  
 ```json
 Query: {"ModeOfSaleOfferID":"string"}
@@ -2025,6 +2463,9 @@ Query: {"AsOfDateTime":"string", "ModeOfSaleID":"string", "PackageIds":"string",
 ```
 
 ## ModeOfSalePriceTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsalepricetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#modeofsalepricetypes)   
+```shell
+tq get ModeOfSalePriceTypes
+```
 Get details of a mode of sale price type.  
 ```json
 Query: {"ModeOfSalePriceTypeID":"string"}
@@ -2037,6 +2478,9 @@ Query: {"ModeOfSaleID":"string", "PriceTypeID":"string"}
 ```
 
 ## ModeOfSaleSurveyQuestions ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsalesurveyquestions) [![put](https://img.shields.io/badge/put-blue)](put.md#modeofsalesurveyquestions)   
+```shell
+tq get ModeOfSaleSurveyQuestions
+```
 Get details of a mode of sale survey question.  
 ```json
 Query: {"ModeOfSaleSurveyQuestionID":"string"}
@@ -2049,6 +2493,9 @@ Query: {"ModeOfSaleID":"string"}
 ```
 
 ## ModeOfSaleUserGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsaleusergroups) [![put](https://img.shields.io/badge/put-blue)](put.md#modeofsaleusergroups)   
+```shell
+tq get ModeOfSaleUserGroups
+```
 Get the details of a mode of sale/user group mapping by id.  
 ```json
 Query: {"ModeOfSaleUserGroupID":"string"}
@@ -2058,6 +2505,9 @@ Query: {"ModeOfSaleUserGroupID":"string"}
    Get all mode of sale/user group mappings.
 
 ## ModesOfSale ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#modesofsale) [![put](https://img.shields.io/badge/put-blue)](put.md#modesofsale)   
+```shell
+tq get ModesOfSale
+```
 Get details of an existing mode of sale.  
 ```json
 Query: {"ModeOfSaleID":"string"}
@@ -2071,6 +2521,9 @@ Query: {"ModeOfSaleID":"string"}
 	
 # N
 ## NScanAccessAreas ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#nscanaccessareas) [![put](https://img.shields.io/badge/put-blue)](put.md#nscanaccessareas)   
+```shell
+tq get NScanAccessAreas
+```
 Get the details of an NScan Access Area by id. To get the resource only if the user has write/edit access, pass filter="writeonly".. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -2085,6 +2538,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all NScan Access Areas.
 
 ## NameStatuses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#namestatuses) [![put](https://img.shields.io/badge/put-blue)](put.md#namestatuses)   
+```shell
+tq get NameStatuses
+```
 Get the details of a name status by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -2101,6 +2557,9 @@ Query: {"MaintenanceMode":"string"}
 	
 # O
 ## ObjectPermissions ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#objectpermissions) [![put](https://img.shields.io/badge/put-blue)](put.md#objectpermissions)   
+```shell
+tq get ObjectPermissions
+```
 Get the details of an object permission by id.  
 ```json
 Query: {"ID":"string"}
@@ -2112,6 +2571,9 @@ Query: {"ID":"string"}
    Get a summary representation of all object permissions.
 
 ## OrderBilling ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#orderbilling)   
+```shell
+tq get OrderBilling
+```
 Reprint Order billing  
 ```json
 Query: {"OrderBillingID":"string"}
@@ -2124,6 +2586,9 @@ Query: {"OrderBillingID":"string"}
 ```
 
 ## OrderCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#ordercategories) [![put](https://img.shields.io/badge/put-blue)](put.md#ordercategories)   
+```shell
+tq get OrderCategories
+```
 Get the details of an order category by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -2138,12 +2603,18 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all order categories.
 
 ## Orders ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#orders) [![put](https://img.shields.io/badge/put-blue)](put.md#orders)   
+```shell
+tq get Orders
+```
 Get the details of an existing Order as the contract OrderProductsView, which mirrors the structure of the Cart response entity from GET Web/{sessionKey}/Cart. This resource can be used to fetch any saved order in this view. Order HTML templates use this response contract (OrdersProductsView) as the model within the template. Orders actively in a session/cart will not be available here until after checkout.  
 ```json
 Query: {"OrderID":"string"}
 ```
 
 ## Organizations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#organizations) [![put](https://img.shields.io/badge/put-blue)](put.md#organizations)   
+```shell
+tq get Organizations
+```
 Get the details of an organization by ID. To get the resource in maintenance mode (ignoring control groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -2158,6 +2629,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all organizations.
 
 ## OriginalSources ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#originalsources) [![put](https://img.shields.io/badge/put-blue)](put.md#originalsources)   
+```shell
+tq get OriginalSources
+```
 Get the details of an original source by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -2172,6 +2646,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all original sources.
 
 ## Origins ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#origins) [![put](https://img.shields.io/badge/put-blue)](put.md#origins)   
+```shell
+tq get Origins
+```
 Get the details of an origin by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -2186,6 +2663,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all origins.
 
 ## OutputSets ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#outputsets) [![put](https://img.shields.io/badge/put-blue)](put.md#outputsets)   
+```shell
+tq get OutputSets
+```
 Get a single Output Set.  
 ```json
 Query: {"OutputSetID":"string"}
@@ -2200,12 +2680,18 @@ Query: {"MineOnly":"string"}
 	
 # P
 ## PackageHistory ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get PackageHistory
+```
 Gets history information for packages  
 ```json
 Query: {"ConstituentID":"string", "IncludeAffiliations":"string", "OrderEndDate":"string", "OrderStartDate":"string", "PackageID":"string", "PackageTypeID":"string", "SeasonID":"string"}
 ```
 
 ## PackagePriceTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#packagepricetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#packagepricetypes)   
+```shell
+tq get PackagePriceTypes
+```
 Get details of a specific package price type.  
 ```json
 Query: {"PackagePriceTypeID":"string"}
@@ -2218,6 +2704,9 @@ Query: {"PackageIds":"string"}
 ```
 
 ## PackageTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#packagetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#packagetypes)   
+```shell
+tq get PackageTypes
+```
 Get the details of a package type by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -2232,6 +2721,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all package types.
 
 ## PackageWebContents ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#packagewebcontents) [![put](https://img.shields.io/badge/put-blue)](put.md#packagewebcontents)   
+```shell
+tq get PackageWebContents
+```
 Get details of a packageWebContent.  
 ```json
 Query: {"PackageWebContentID":"string"}
@@ -2249,6 +2741,9 @@ Query: {"ContentTypeIds":"string", "PackageIds":"string"}
 ```
 
 ## Packages ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#packages)   
+```shell
+tq get Packages
+```
 Get details of a package.  
 ```json
 Query: {"PackageID":"string"}
@@ -2304,6 +2799,9 @@ Query: {"SeasonID":"string"}
 
 
 ## PaymentGatewayActivities ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentgatewayactivities) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentgatewayactivities)   
+```shell
+tq get PaymentGatewayActivities
+```
 Get a single Payment Gateway Activity  
 ```json
 Query: {"PaymentGatewayActivityID":"string"}
@@ -2313,6 +2811,9 @@ Query: {"PaymentGatewayActivityID":"string"}
    Retrieve all Payment Gateway Activity
 
 ## PaymentGatewayConfiguration ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get PaymentGatewayConfiguration
+```
 Retrieve Payment Gateway Configuration  
 ```json
 Query: 
@@ -2320,6 +2821,9 @@ Query:
 
 
 ## PaymentGatewayNotifications ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentgatewaynotifications) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentgatewaynotifications)   
+```shell
+tq get PaymentGatewayNotifications
+```
 Get all notification events by reference.  
 ```json
 Query: {"NotificationType":"string", "Reference":"string"}
@@ -2342,6 +2846,9 @@ Query: {"NotificationEventID":"string"}
 ```
 
 ## PaymentGatewayTransactionTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentgatewaytransactiontypes) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentgatewaytransactiontypes)   
+```shell
+tq get PaymentGatewayTransactionTypes
+```
 Get the details of a Payment Gateway Transaction Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -2356,12 +2863,18 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all Payment Gateway Transaction Types.
 
 ## PaymentHistory ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get PaymentHistory
+```
 Gets history information for payments by constituent.  
 ```json
 Query: {"ConstituentID":"string", "EndDate":"string", "IncludeAffiliates":"string", "Page":"string", "PageSize":"string", "PaymentTypeID":"string", "SortByDirection":"string", "SortByField":"string", "StartDate":"string", "TransactionID":"string"}
 ```
 
 ## PaymentMethodGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentmethodgroups) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentmethodgroups)   
+```shell
+tq get PaymentMethodGroups
+```
 Get the details of a payment method group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -2376,6 +2889,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all payment method groups.
 
 ## PaymentMethodUserGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentmethodusergroups) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentmethodusergroups)   
+```shell
+tq get PaymentMethodUserGroups
+```
 Get details of a payment method/user group mapping by id.  
 ```json
 Query: {"PaymentMethodUserGroupID":"string"}
@@ -2388,6 +2904,9 @@ Query: {"Amount":"string", "MaintenanceMode":"string", "UserGroup":"string"}
 ```
 
 ## PaymentMethods ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentmethods) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentmethods)   
+```shell
+tq get PaymentMethods
+```
 Get details of a payment method.  
 ```json
 Query: {"PaymentMethodID":"string"}
@@ -2410,6 +2929,9 @@ Query: {"CardReaderTypeID":"string", "Mnemonic":"string"}
 ```
 
 ## PaymentSignatures ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentsignatures) [![put](https://img.shields.io/badge/put-blue)](put.md#paymentsignatures)   
+```shell
+tq get PaymentSignatures
+```
 Get details of a payment signature.  
 ```json
 Query: {"PaymentSignatureID":"string"}
@@ -2422,6 +2944,9 @@ Query: {"PaymentID":"string"}
 ```
 
 ## PaymentTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#paymenttypes) [![put](https://img.shields.io/badge/put-blue)](put.md#paymenttypes)   
+```shell
+tq get PaymentTypes
+```
 Get the details of a payment type by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -2436,6 +2961,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all payment types.
 
 ## Payments ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#payments)   
+```shell
+tq get Payments
+```
 Get a single payment.  
 ```json
 Query: {"ID":"string"}
@@ -2458,6 +2986,9 @@ Query: {"ConstituentID":"string", "PaymentMethodID":"string"}
 ```
 
 ## PerformanceGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#performancegroups) [![put](https://img.shields.io/badge/put-blue)](put.md#performancegroups)   
+```shell
+tq get PerformanceGroups
+```
 Get details of a Performance Group.  
 ```json
 Query: {"ID":"string"}
@@ -2475,6 +3006,9 @@ Query: {"SeasonID":"string"}
 ```
 
 ## PerformancePackageModeOfSales ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#performancepackagemodeofsales) [![put](https://img.shields.io/badge/put-blue)](put.md#performancepackagemodeofsales)   
+```shell
+tq get PerformancePackageModeOfSales
+```
 Get details of a performance package mode of sale.  
 ```json
 Query: {"PerformancePackageModeOfSaleID":"string"}
@@ -2488,6 +3022,9 @@ Query: {"AsOfDateTime":"string", "ModeOfSaleID":"string", "PackageIds":"string",
 ```
 
 ## PerformancePriceLayers ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#performancepricelayers) [![put](https://img.shields.io/badge/put-blue)](put.md#performancepricelayers)   
+```shell
+tq get PerformancePriceLayers
+```
 Get details of a performance price layer.  
 ```json
 Query: {"AsOfDateTime":"string", "PerformancePriceLayerID":"string"}
@@ -2505,6 +3042,9 @@ Query: {"PerformanceIds":"string"}
 ```
 
 ## PerformancePriceTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#performancepricetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#performancepricetypes)   
+```shell
+tq get PerformancePriceTypes
+```
 Get details of a performance price type.  
 ```json
 Query: {"AsOfDateTime":"string", "PerformancePriceTypeID":"string"}
@@ -2517,6 +3057,9 @@ Query: {"AsOfDateTime":"string", "PerformanceIds":"string", "PriceTypeIds":"stri
 ```
 
 ## PerformancePrices ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#performanceprices) [![put](https://img.shields.io/badge/put-blue)](put.md#performanceprices)   
+```shell
+tq get PerformancePrices
+```
 Get details of a performance price.  
 ```json
 Query: {"AsOfDateTime":"string", "PerformancePriceID":"string"}
@@ -2539,6 +3082,9 @@ Query: {"PerformancePriceIds":"string"}
 ```
 
 ## PerformanceStatuses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#performancestatuses) [![put](https://img.shields.io/badge/put-blue)](put.md#performancestatuses)   
+```shell
+tq get PerformanceStatuses
+```
 Get the details of a performance status by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -2553,6 +3099,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all performance statuses.
 
 ## PerformanceTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#performancetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#performancetypes)   
+```shell
+tq get PerformanceTypes
+```
 Get the details of a performance type by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -2567,6 +3116,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all performance types.
 
 ## Performances ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#performances) [![put](https://img.shields.io/badge/put-blue)](put.md#performances)   
+```shell
+tq get Performances
+```
 Get details of a performance.  
 ```json
 Query: {"PerformanceID":"string"}
@@ -2633,6 +3185,9 @@ Query: {"PerformanceIds":"string", "ProductionSeasonID":"string", "SeasonIds":"s
 ```
 
 ## Philanthropy ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#philanthropy) [![put](https://img.shields.io/badge/put-blue)](put.md#philanthropy)   
+```shell
+tq get Philanthropy
+```
 Get details of an philanthropyEntry.  
 ```json
 Query: {"PhilanthropyEntryID":"string"}
@@ -2645,6 +3200,9 @@ Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
 ```
 
 ## PhilanthropyTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#philanthropytypes) [![put](https://img.shields.io/badge/put-blue)](put.md#philanthropytypes)   
+```shell
+tq get PhilanthropyTypes
+```
 Get the details of philosophy type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -2659,6 +3217,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all philosophy types.
 
 ## PhoneIndicators ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#phoneindicators) [![put](https://img.shields.io/badge/put-blue)](put.md#phoneindicators)   
+```shell
+tq get PhoneIndicators
+```
 Get the details of a phone indicator by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -2673,6 +3234,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all phone indicators.
 
 ## PhoneTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#phonetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#phonetypes)   
+```shell
+tq get PhoneTypes
+```
 Get the details of a phone type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -2687,6 +3251,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all phone types.
 
 ## Phones ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#phones) [![put](https://img.shields.io/badge/put-blue)](put.md#phones)   
+```shell
+tq get Phones
+```
 Get details of a phone.  
 ```json
 Query: {"PhoneID":"string"}
@@ -2699,6 +3266,9 @@ Query: {"AddressID":"string", "ConstituentID":"string", "IncludeAffiliations":"s
 ```
 
 ## PlanPriorities ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#planpriorities) [![put](https://img.shields.io/badge/put-blue)](put.md#planpriorities)   
+```shell
+tq get PlanPriorities
+```
 Get the details of a plan priority by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -2713,6 +3283,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all plan priorities.
 
 ## PlanSources ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#plansources) [![put](https://img.shields.io/badge/put-blue)](put.md#plansources)   
+```shell
+tq get PlanSources
+```
 Get the details of a plan source by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -2727,6 +3300,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all plan sources.
 
 ## PlanStatuses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#planstatuses) [![put](https://img.shields.io/badge/put-blue)](put.md#planstatuses)   
+```shell
+tq get PlanStatuses
+```
 Get the details of a plan status by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -2741,6 +3317,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all plan statuses.
 
 ## PlanTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#plantypes) [![put](https://img.shields.io/badge/put-blue)](put.md#plantypes)   
+```shell
+tq get PlanTypes
+```
 Get the details of a plan type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -2755,6 +3334,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all plan types.
 
 ## PlanWorkers ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#planworkers) [![put](https://img.shields.io/badge/put-blue)](put.md#planworkers)   
+```shell
+tq get PlanWorkers
+```
 Get details of a plan worker.  
 ```json
 Query: {"PlanWorkerID":"string"}
@@ -2767,6 +3349,9 @@ Query: {"PlanID":"string"}
 ```
 
 ## Plans ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#plans) [![put](https://img.shields.io/badge/put-blue)](put.md#plans)   
+```shell
+tq get Plans
+```
 Get details of a plan.  
 ```json
 Query: {"PlanID":"string"}
@@ -2779,12 +3364,18 @@ Query: {"CampaignID":"string", "ConstituentID":"string", "ContributionDesignatio
 ```
 
 ## PledgeBilling ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pledgebilling)   
+```shell
+tq get PledgeBilling
+```
 Get status of a pledge billing run. Job is finished processing when IsCompleted is true.  Only billing runs using automated billing will be running after the response from a POST to Txn/PledgeBilling.  
 ```json
 Query: {"ID":"string"}
 ```
 
 ## PortfolioCustomElements ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#portfoliocustomelements) [![put](https://img.shields.io/badge/put-blue)](put.md#portfoliocustomelements)   
+```shell
+tq get PortfolioCustomElements
+```
 Get the details of a portfolio custom element by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -2799,6 +3390,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all portfolio custom elements.
 
 ## Portfolios ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get Portfolios
+```
 Get portfolio for a constituent.  
 ```json
 Query: {"ConstituentID":"string", "Page":"string", "PageSize":"string", "PlanCustomColumns":"string", "PortfolioCustomColumns":"string", "PrimaryOnly":"string", "StatusIds":"string", "WorkerRoleIds":"string"}
@@ -2811,6 +3405,9 @@ Query: {"PlanID":"string"}
 ```
 
 ## Prefixes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#prefixes) [![put](https://img.shields.io/badge/put-blue)](put.md#prefixes)   
+```shell
+tq get Prefixes
+```
 Get the details of a prefix by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -2825,6 +3422,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all prefixes.
 
 ## Premieres ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#premieres) [![put](https://img.shields.io/badge/put-blue)](put.md#premieres)   
+```shell
+tq get Premieres
+```
 Get the details of a premiere by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -2839,6 +3439,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all premieres.
 
 ## PriceCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricecategories) [![put](https://img.shields.io/badge/put-blue)](put.md#pricecategories)   
+```shell
+tq get PriceCategories
+```
 Get the details of a price category by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -2853,6 +3456,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all price categories.
 
 ## PriceEvents ![get](https://img.shields.io/badge/get-gray) [![put](https://img.shields.io/badge/put-blue)](put.md#priceevents)   
+```shell
+tq get PriceEvents
+```
 Get details of a price event.  
 ```json
 Query: {"PriceEventID":"string"}
@@ -2870,6 +3476,9 @@ Query: {"PerformanceIds":"string"}
 ```
 
 ## PriceLayerTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricelayertypes) [![put](https://img.shields.io/badge/put-blue)](put.md#pricelayertypes)   
+```shell
+tq get PriceLayerTypes
+```
 Get the details of a price layer type by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -2884,6 +3493,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all price layer types.
 
 ## PriceTemplates ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetemplates) [![put](https://img.shields.io/badge/put-blue)](put.md#pricetemplates)   
+```shell
+tq get PriceTemplates
+```
 Get details of a price template.  
 ```json
 Query: {"PriceTemplateID":"string"}
@@ -2901,6 +3513,9 @@ Query: {"FacilityID":"string", "ZoneMapID":"string"}
 ```
 
 ## PriceTypeCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypecategories) [![put](https://img.shields.io/badge/put-blue)](put.md#pricetypecategories)   
+```shell
+tq get PriceTypeCategories
+```
 Get the details of a price type category by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -2915,6 +3530,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all price type categories.
 
 ## PriceTypeGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypegroups) [![put](https://img.shields.io/badge/put-blue)](put.md#pricetypegroups)   
+```shell
+tq get PriceTypeGroups
+```
 Get the details of a price type group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -2929,6 +3547,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all price type groups.
 
 ## PriceTypeReasons ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypereasons) [![put](https://img.shields.io/badge/put-blue)](put.md#pricetypereasons)   
+```shell
+tq get PriceTypeReasons
+```
 Get the details of a price type reason by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -2943,6 +3564,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all price type categories.
 
 ## PriceTypeUserGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypeusergroups) [![put](https://img.shields.io/badge/put-blue)](put.md#pricetypeusergroups)   
+```shell
+tq get PriceTypeUserGroups
+```
 Get details of a price type/user group mapping by id.  
 ```json
 Query: {"PriceTypeUserGroupID":"string"}
@@ -2955,6 +3579,9 @@ Query: {"PriceTypeID":"string", "UserGroup":"string"}
 ```
 
 ## PriceTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#pricetypes)   
+```shell
+tq get PriceTypes
+```
 Get details of a price type.  
 ```json
 Query: {"PriceTypeID":"string"}
@@ -2987,6 +3614,9 @@ Query: {"OrderDateTime":"string", "PackageID":"string", "PerformanceID":"string"
 ```
 
 ## PricingRuleCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricingrulecategories) [![put](https://img.shields.io/badge/put-blue)](put.md#pricingrulecategories)   
+```shell
+tq get PricingRuleCategories
+```
 Get the details of a pricing rule category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -3001,6 +3631,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all pricing rule categories.
 
 ## PricingRuleMessageTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricingrulemessagetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#pricingrulemessagetypes)   
+```shell
+tq get PricingRuleMessageTypes
+```
 Get the details of a pricing rule message type by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3015,6 +3648,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all pricing rule message types.
 
 ## PricingRuleSets ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricingrulesets) [![put](https://img.shields.io/badge/put-blue)](put.md#pricingrulesets)   
+```shell
+tq get PricingRuleSets
+```
 Get details of a pricing rule set.  
 ```json
 Query: {"PricingRuleSetID":"string"}
@@ -3026,6 +3662,9 @@ Query: {"PricingRuleSetID":"string"}
    Get a summary of all pricing rule sets.
 
 ## PricingRuleTypes ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get PricingRuleTypes
+```
 Get the details of a pricing rule type by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3040,6 +3679,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all pricing rule types.
 
 ## PricingRules ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pricingrules) [![put](https://img.shields.io/badge/put-blue)](put.md#pricingrules)   
+```shell
+tq get PricingRules
+```
 Get details of a pricing rule.  
 ```json
 Query: {"PricingRuleID":"string"}
@@ -3054,6 +3696,9 @@ Query: {"ModeOfSaleID":"string", "OrderDate":"string", "PackageIds":"string", "P
    Get a summary of all pricing rules.
 
 ## Printers ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#printers) [![put](https://img.shields.io/badge/put-blue)](put.md#printers)   
+```shell
+tq get Printers
+```
 Get the details of a printer by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3068,6 +3713,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all printers.
 
 ## ProductKeywords ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get ProductKeywords
+```
 Returns keywords for the requested production elements or packages.
 
 For Production Elements: If the keyword is found, returns the keyword and the lowest level at which it was found in the production hierarchy (Title, Production, Production Season, Performance) for the requested element. Optionally, all matching keywords anywhere above the requested element in the production hierarchy can be returned with the ShowAll parameter.  
@@ -3076,6 +3724,9 @@ Query: {"KeywordIds":"string", "PackageIds":"string", "ProductionElementIds":"st
 ```
 
 ## ProductionSeasonMembershipOrganizations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#productionseasonmembershiporganizations) [![put](https://img.shields.io/badge/put-blue)](put.md#productionseasonmembershiporganizations)   
+```shell
+tq get ProductionSeasonMembershipOrganizations
+```
 Get details of a specific production season membership organization.  
 ```json
 Query: {"ID":"string"}
@@ -3093,6 +3744,9 @@ Query: {"ProductionSeasonID":"string"}
 ```
 
 ## ProductionSeasons ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#productionseasons)   
+```shell
+tq get ProductionSeasons
+```
 Get details of a specific production season.
 Returns the full details for a single production season, including description and short description, season, first and last performance date, and the four ticket text lines.  
 ```json
@@ -3113,6 +3767,9 @@ Query: {"Ids":"string", "ProductionIds":"string", "SeasonIds":"string"}
 ```
 
 ## Productions ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get Productions
+```
 Get details of a specific production.  
 ```json
 Query: {"ID":"string"}
@@ -3131,6 +3788,9 @@ Query: {"TitleIds":"string"}
 
 
 ## ProgramListings ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#programlistings) [![put](https://img.shields.io/badge/put-blue)](put.md#programlistings)   
+```shell
+tq get ProgramListings
+```
 Get details of a program listing.  
 ```json
 Query: {"ProgramListingID":"string"}
@@ -3143,6 +3803,9 @@ Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
 ```
 
 ## Programs ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#programs) [![put](https://img.shields.io/badge/put-blue)](put.md#programs)   
+```shell
+tq get Programs
+```
 Get the details of a program by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -3157,6 +3820,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all programs.
 
 ## Pronouns ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#pronouns) [![put](https://img.shields.io/badge/put-blue)](put.md#pronouns)   
+```shell
+tq get Pronouns
+```
   
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3173,6 +3839,9 @@ Query: {"MaintenanceMode":"string"}
 	
 # Q
 ## QualificationCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#qualificationcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#qualificationcategories)   
+```shell
+tq get QualificationCategories
+```
 Get the details of a Qualification Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -3187,6 +3856,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all Qualification Categories.
 
 ## Qualifications ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#qualifications) [![put](https://img.shields.io/badge/put-blue)](put.md#qualifications)   
+```shell
+tq get Qualifications
+```
 Get the details of a Qualification by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -3201,6 +3873,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all Qualifications.
 
 ## QueryElementFilters ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#queryelementfilters) [![put](https://img.shields.io/badge/put-blue)](put.md#queryelementfilters)   
+```shell
+tq get QueryElementFilters
+```
 Get a specific query element filter.  
 ```json
 Query: {"QueryElementFilterID":"string"}
@@ -3223,6 +3898,9 @@ Query: {"GroupIds":"string"}
 ```
 
 ## QueryElementGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#queryelementgroups) [![put](https://img.shields.io/badge/put-blue)](put.md#queryelementgroups)   
+```shell
+tq get QueryElementGroups
+```
 Get the details of a query element group by id.  
 ```json
 Query: {"QueryElementGroupID":"string"}
@@ -3232,6 +3910,9 @@ Query: {"QueryElementGroupID":"string"}
    Get all query element groups.
 
 ## QueryElements ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#queryelements) [![put](https://img.shields.io/badge/put-blue)](put.md#queryelements)   
+```shell
+tq get QueryElements
+```
 Get details of a query element by id.  
 ```json
 Query: {"ID":"string"}
@@ -3251,6 +3932,9 @@ Query: {"ActiveOnly":"string", "GroupIds":"string"}
 	
 # R
 ## RankTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#ranktypes) [![put](https://img.shields.io/badge/put-blue)](put.md#ranktypes)   
+```shell
+tq get RankTypes
+```
 Get the details of a rank type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -3265,6 +3949,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all rank types.
 
 ## Rankings ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#rankings) [![put](https://img.shields.io/badge/put-blue)](put.md#rankings)   
+```shell
+tq get Rankings
+```
 Get details of a ranking.  
 ```json
 Query: {"RankingID":"string"}
@@ -3277,6 +3964,9 @@ Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
 ```
 
 ## ReceiptSettings ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#receiptsettings) [![put](https://img.shields.io/badge/put-blue)](put.md#receiptsettings)   
+```shell
+tq get ReceiptSettings
+```
 Get the details of a Receipt Setting by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -3292,6 +3982,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
 
 
 ## ReferenceColumns ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get ReferenceColumns
+```
 Get all reference columns. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.  
 ```json
 Query: {"MaintenanceMode":"string"}
@@ -3301,6 +3994,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all reference columns.
 
 ## ReferenceTableUserGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#referencetableusergroups) [![put](https://img.shields.io/badge/put-blue)](put.md#referencetableusergroups)   
+```shell
+tq get ReferenceTableUserGroups
+```
 Get the details of a reference table/user group mapping by id.  
 ```json
 Query: {"ID":"string"}
@@ -3312,6 +4008,9 @@ Query: {"ID":"string"}
    Get a summary representation of all reference table/user group mappings.
 
 ## ReferenceTables ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get ReferenceTables
+```
 Get details for a reference table by Id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3327,6 +4026,9 @@ Query: {"MaintenanceMode":"string"}
 
 
 ## RelationshipCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#relationshipcategories) [![put](https://img.shields.io/badge/put-blue)](put.md#relationshipcategories)   
+```shell
+tq get RelationshipCategories
+```
 Get the details of a relationship category by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3341,12 +4043,18 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all relationship categories.
 
 ## Relationships ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get Relationships
+```
 Get all affiliations and associations of the specified constituent id or get all affiliations and associations of the specified associated constituent id. If both are specified get all the associations and affiliations between them.  
 ```json
 Query: {"ActiveOnly":"string", "AssociatedConstituentID":"string", "ConstituentID":"string", "EndActiveDate":"string", "IncludeAffiliations":"string", "StartActiveDate":"string"}
 ```
 
 ## ReportRequests ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#reportrequests) [![put](https://img.shields.io/badge/put-blue)](put.md#reportrequests)   
+```shell
+tq get ReportRequests
+```
 Get a report request.  
 ```json
 Query: {"ID":"string"}
@@ -3366,6 +4074,9 @@ Query: {"AsOfDateTime":"string", "ReportTypes":"string"}
    Get a list of all the requests queued to be run as of the current date/time.
 
 ## ReportSchedules ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#reportschedules) [![put](https://img.shields.io/badge/put-blue)](put.md#reportschedules)   
+```shell
+tq get ReportSchedules
+```
 Get a report schedule.  
 ```json
 Query: {"ID":"string"}
@@ -3378,6 +4089,9 @@ Query: {"ActiveOnly":"string"}
 ```
 
 ## ReportUserGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#reportusergroups) [![put](https://img.shields.io/badge/put-blue)](put.md#reportusergroups)   
+```shell
+tq get ReportUserGroups
+```
 Get the details of a report/user group mapping by id.  
 ```json
 Query: {"ID":"string"}
@@ -3389,6 +4103,9 @@ Query: {"ID":"string"}
    Get a summary representation of all report/user group mappings.
 
 ## Reports ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#reports)   
+```shell
+tq get Reports
+```
 Get details of a report.  
 ```json
 Query: {"ReportID":"string"}
@@ -3418,6 +4135,9 @@ Query: {"ReportID":"string"}
 ```
 
 ## Research ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#research) [![put](https://img.shields.io/badge/put-blue)](put.md#research)   
+```shell
+tq get Research
+```
 Get details of a research entry.  
 ```json
 Query: {"ResearchEntryID":"string"}
@@ -3430,6 +4150,9 @@ Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
 ```
 
 ## ResearchTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#researchtypes) [![put](https://img.shields.io/badge/put-blue)](put.md#researchtypes)   
+```shell
+tq get ResearchTypes
+```
 Get the details of research type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -3444,6 +4167,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all research types.
 
 ## ResourceCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#resourcecategories) [![put](https://img.shields.io/badge/put-blue)](put.md#resourcecategories)   
+```shell
+tq get ResourceCategories
+```
 Get the details of a Resource Category by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3458,6 +4184,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all Resource Categories.
 
 ## ResourceSchedules ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#resourceschedules) [![put](https://img.shields.io/badge/put-blue)](put.md#resourceschedules)   
+```shell
+tq get ResourceSchedules
+```
 Get a single resource schedule.  
 ```json
 Query: {"ResourceScheduleID":"string"}
@@ -3470,6 +4199,9 @@ Query: {"ConstituentIds":"string", "EndDate":"string", "ResourceIds":"string", "
 ```
 
 ## ResourceTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#resourcetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#resourcetypes)   
+```shell
+tq get ResourceTypes
+```
 Get all resource types.  
 ```json
 Query: {"ID":"string"}
@@ -3487,6 +4219,9 @@ Query: {"CategoryIds":"string"}
 ```
 
 ## Resources ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#resources) [![put](https://img.shields.io/badge/put-blue)](put.md#resources)   
+```shell
+tq get Resources
+```
 Get a specific Resource.  
 ```json
 Query: {"ID":"string"}
@@ -3516,6 +4251,9 @@ Query: {"CategoryIds":"string", "ConstituentID":"string", "IncludeAffiliations":
 	
 # S
 ## SalesChannels ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#saleschannels) [![put](https://img.shields.io/badge/put-blue)](put.md#saleschannels)   
+```shell
+tq get SalesChannels
+```
 Get the details of a sales channel by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -3530,6 +4268,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all sales channels.
 
 ## SalesLayoutButtonTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#saleslayoutbuttontypes) [![put](https://img.shields.io/badge/put-blue)](put.md#saleslayoutbuttontypes)   
+```shell
+tq get SalesLayoutButtonTypes
+```
 Get the details of a sales layout button type by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3544,6 +4285,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all sales layout button types.
 
 ## SalesLayouts ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#saleslayouts) [![put](https://img.shields.io/badge/put-blue)](put.md#saleslayouts)   
+```shell
+tq get SalesLayouts
+```
 Get details of a sales layout setup.  
 ```json
 Query: {"SalesLayoutID":"string"}
@@ -3561,6 +4305,9 @@ Query: {"PrimaryOnly":"string"}
 ```
 
 ## SalutationTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#salutationtypes) [![put](https://img.shields.io/badge/put-blue)](put.md#salutationtypes)   
+```shell
+tq get SalutationTypes
+```
 Get the details of a salutation type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -3575,6 +4322,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all salutation types.
 
 ## Salutations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#salutations) [![put](https://img.shields.io/badge/put-blue)](put.md#salutations)   
+```shell
+tq get Salutations
+```
 Get details of a salutation.  
 ```json
 Query: {"SalutationID":"string"}
@@ -3592,6 +4342,9 @@ Query: {"ConstituentID":"string", "ConstituentTypeID":"string", "Fname1":"string
 ```
 
 ## SchedulePatternTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#schedulepatterntypes) [![put](https://img.shields.io/badge/put-blue)](put.md#schedulepatterntypes)   
+```shell
+tq get SchedulePatternTypes
+```
 Get the details of a Schedule Pattern by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3606,6 +4359,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all Schedule Patterns.
 
 ## ScheduleTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#scheduletypes) [![put](https://img.shields.io/badge/put-blue)](put.md#scheduletypes)   
+```shell
+tq get ScheduleTypes
+```
 Get the details of a Schedule Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3620,6 +4376,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all Schedule Types.
 
 ## SeasonTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#seasontypes) [![put](https://img.shields.io/badge/put-blue)](put.md#seasontypes)   
+```shell
+tq get SeasonTypes
+```
 Get the details of a season type by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3634,6 +4393,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all season types.
 
 ## Seasons ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#seasons) [![put](https://img.shields.io/badge/put-blue)](put.md#seasons)   
+```shell
+tq get Seasons
+```
 Get the details of a season by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -3648,6 +4410,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all seasons.
 
 ## SeatCodes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#seatcodes) [![put](https://img.shields.io/badge/put-blue)](put.md#seatcodes)   
+```shell
+tq get SeatCodes
+```
 Get the details of a seat code by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3662,6 +4427,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all seat codes.
 
 ## SeatStatuses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#seatstatuses) [![put](https://img.shields.io/badge/put-blue)](put.md#seatstatuses)   
+```shell
+tq get SeatStatuses
+```
 Get the details of a seat status by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3676,6 +4444,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all seat statuses.
 
 ## Sections ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#sections) [![put](https://img.shields.io/badge/put-blue)](put.md#sections)   
+```shell
+tq get Sections
+```
 Get the details of a section by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3690,66 +4461,99 @@ Query: {"MaintenanceMode":"string", "SeatMapID":"string"}
    Get a summary representation of all sections.
 
 ## SecurityBatchTypes ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get SecurityBatchTypes
+```
 Get all batch type/user group mappings valid for the context usergroup.  
 ```json
 Query: 
 ```
 
 ## SecurityControlGroups ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get SecurityControlGroups
+```
 Get all control group/user group mappings valid for the context usergroup.  
 ```json
 Query: 
 ```
 
 ## SecurityHoldCodes ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get SecurityHoldCodes
+```
 Get all hold code/user group mappings valid for the context usergroup.  
 ```json
 Query: 
 ```
 
 ## SecurityModesOfSale ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get SecurityModesOfSale
+```
 Get all mode of sale/user group mappings valid for the context usergroup.  
 ```json
 Query: 
 ```
 
 ## SecurityObjectPermissions ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get SecurityObjectPermissions
+```
 Get all the object permissions valid for the context usergroup. Optionally filter by constituency id and/or object id.  
 ```json
 Query: {"ConstituencyID":"string", "ObjectIds":"string", "Objectid":"string"}
 ```
 
 ## SecurityPaymentMethods ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get SecurityPaymentMethods
+```
 Get all payment method/user group mappings valid for the context usergroup.  
 ```json
 Query: {"Amount":"string"}
 ```
 
 ## SecurityPriceTypes ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get SecurityPriceTypes
+```
 Get all price type/user group mappings valid for the context usergroup.  
 ```json
 Query: 
 ```
 
 ## SecurityReferenceTables ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get SecurityReferenceTables
+```
 Get all the reference table/user group mappings valid for the context usergroup.  
 ```json
 Query: 
 ```
 
 ## SecurityReports ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get SecurityReports
+```
 Get all report/user group mappings valid for the context usergroup.  
 ```json
 Query: 
 ```
 
 ## SecurityServiceResources ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get SecurityServiceResources
+```
 Get all service resource/user group mappings valid for the context usergroup.  
 ```json
 Query: 
 ```
 
 ## SecurityUserGroups ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get SecurityUserGroups
+```
 Get all security user groups.  
 ```json
 Query: {"Application":"string", "UserName":"string"}
@@ -3767,6 +4571,9 @@ Query: {"UserName":"string"}
 ```
 
 ## ServiceResourceUserGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#serviceresourceusergroups) [![put](https://img.shields.io/badge/put-blue)](put.md#serviceresourceusergroups)   
+```shell
+tq get ServiceResourceUserGroups
+```
 Get the details of a service resource/user group mapping by id.  
 ```json
 Query: {"ID":"string"}
@@ -3778,6 +4585,9 @@ Query: {"ID":"string"}
    Get a summary representation of all service resource/user group mappings.
 
 ## ServiceResources ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get ServiceResources
+```
 Get all service resources. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.  
 ```json
 Query: {"MaintenanceMode":"string"}
@@ -3787,6 +4597,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all service resources.
 
 ## Session ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#session) [![put](https://img.shields.io/badge/put-blue)](put.md#session)   
+```shell
+tq get Session
+```
 Returns details summarizing a web session's state.
 Includes counts of cart products, the login status, MOS and Source  
 ```json
@@ -3834,6 +4647,9 @@ Query: {"SessionKey":"string"}
 ```
 
 ## SourceGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#sourcegroups) [![put](https://img.shields.io/badge/put-blue)](put.md#sourcegroups)   
+```shell
+tq get SourceGroups
+```
 Get the details of a source group by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3848,6 +4664,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all source groups.
 
 ## Sources ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get Sources
+```
 Get details of a Source.  
 ```json
 Query: {"SourceID":"string"}
@@ -3862,6 +4681,9 @@ Query: {"ActiveOnly":"string", "AppealIds":"string"}
    Gets the source codes configured as the web default that are expiring in 15 days without an overlapping source code.
 
 ## SpecialActivities ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#specialactivities) [![put](https://img.shields.io/badge/put-blue)](put.md#specialactivities)   
+```shell
+tq get SpecialActivities
+```
 Get details of an activity record.  
 ```json
 Query: {"SpecialActivityID":"string"}
@@ -3874,6 +4696,9 @@ Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
 ```
 
 ## SpecialActivityStatuses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#specialactivitystatuses) [![put](https://img.shields.io/badge/put-blue)](put.md#specialactivitystatuses)   
+```shell
+tq get SpecialActivityStatuses
+```
 Get the details of a Special Activity Status by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3888,6 +4713,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all Special Activity Statuses.
 
 ## SpecialActivityTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#specialactivitytypes) [![put](https://img.shields.io/badge/put-blue)](put.md#specialactivitytypes)   
+```shell
+tq get SpecialActivityTypes
+```
 Get the details of a Special Activity Type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -3902,6 +4730,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all Special Activity Types.
 
 ## States ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#states) [![put](https://img.shields.io/badge/put-blue)](put.md#states)   
+```shell
+tq get States
+```
 Get the details of a state by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3916,6 +4747,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all states.
 
 ## StepTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#steptypes) [![put](https://img.shields.io/badge/put-blue)](put.md#steptypes)   
+```shell
+tq get StepTypes
+```
 Get the details of a step type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -3930,6 +4764,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all step types.
 
 ## Steps ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#steps) [![put](https://img.shields.io/badge/put-blue)](put.md#steps)   
+```shell
+tq get Steps
+```
 Get details of a step.  
 ```json
 Query: {"StepID":"string"}
@@ -3952,6 +4789,9 @@ Query: {"StepID":"string"}
 ```
 
 ## SubLineItemStatuses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#sublineitemstatuses) [![put](https://img.shields.io/badge/put-blue)](put.md#sublineitemstatuses)   
+```shell
+tq get SubLineItemStatuses
+```
 Get the details of a sub line item status by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3966,12 +4806,18 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all sub line item statuses.
 
 ## SubLineItems ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get SubLineItems
+```
 Returns sub line item summary data for a constituent  
 ```json
 Query: {"ConstituentID":"string", "IncludeAffiliations":"string", "IncludePackageBaseSubLineitems":"string", "OrderEndDate":"string", "OrderID":"string", "OrderStartDate":"string", "PerformanceEndDate":"string", "PerformanceStartDate":"string", "PerformanceTypeIds":"string", "SubLineItemStatusIds":"string"}
 ```
 
 ## Suffixes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#suffixes) [![put](https://img.shields.io/badge/put-blue)](put.md#suffixes)   
+```shell
+tq get Suffixes
+```
 Get the details of a suffix by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -3986,6 +4832,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all suffixes.
 
 ## SurveyQuestions ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#surveyquestions) [![put](https://img.shields.io/badge/put-blue)](put.md#surveyquestions)   
+```shell
+tq get SurveyQuestions
+```
 Get the details of a survey question by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -4005,6 +4854,9 @@ Query: {"QuestionID":"string"}
    Get a summary representation of all survey questions.
 
 ## SurveyResponses ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#surveyresponses) [![put](https://img.shields.io/badge/put-blue)](put.md#surveyresponses)   
+```shell
+tq get SurveyResponses
+```
 Get details of a survey response.  
 ```json
 Query: {"SurveyResponseID":"string"}
@@ -4017,6 +4869,9 @@ Query: {"OrderID":"string"}
 ```
 
 ## SystemDefaults ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get SystemDefaults
+```
 Get all system defaults. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.  
 ```json
 Query: {"MaintenanceMode":"string"}
@@ -4033,6 +4888,9 @@ Query: {"Keys":"string"}
 	
 # T
 ## TemplateCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#templatecategories) [![put](https://img.shields.io/badge/put-blue)](put.md#templatecategories)   
+```shell
+tq get TemplateCategories
+```
 Get the details of a template category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -4047,6 +4905,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all template categories.
 
 ## TemplatePriceTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#templatepricetypes) [![put](https://img.shields.io/badge/put-blue)](put.md#templatepricetypes)   
+```shell
+tq get TemplatePriceTypes
+```
 Get details of a template price type.  
 ```json
 Query: {"TemplatePriceTypeID":"string"}
@@ -4059,6 +4920,9 @@ Query: {"TemplateID":"string"}
 ```
 
 ## TemplatePrices ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#templateprices) [![put](https://img.shields.io/badge/put-blue)](put.md#templateprices)   
+```shell
+tq get TemplatePrices
+```
 Get details of a template price.  
 ```json
 Query: {"TemplatePriceID":"string"}
@@ -4071,6 +4935,9 @@ Query: {"TemplateID":"string"}
 ```
 
 ## TemplateTypes ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get TemplateTypes
+```
 Get the details of a template type by id. To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -4085,6 +4952,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all template types
 
 ## Templates ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#templates) [![put](https://img.shields.io/badge/put-blue)](put.md#templates)   
+```shell
+tq get Templates
+```
 Get the details of a template by id  
 ```json
 Query: {"TemplateID":"string"}
@@ -4096,6 +4966,9 @@ Query: {"TemplateID":"string"}
    Get a summary representation of all templates
 
 ## Theaters ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#theaters) [![put](https://img.shields.io/badge/put-blue)](put.md#theaters)   
+```shell
+tq get Theaters
+```
 Get the details of a theater by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -4110,12 +4983,18 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all theaters.
 
 ## TicketHistory ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get TicketHistory
+```
 Gets history information for tickets  
 ```json
 Query: {"ConstituentID":"string", "IncludeAffiliations":"string", "OrderEndDate":"string", "OrderStartDate":"string", "PerformanceEndDate":"string", "PerformanceID":"string", "PerformanceStartDate":"string", "ProductionSeasonID":"string", "SeasonID":"string"}
 ```
 
 ## TimeSlots ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#timeslots) [![put](https://img.shields.io/badge/put-blue)](put.md#timeslots)   
+```shell
+tq get TimeSlots
+```
 Get the details of a time slot by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -4130,6 +5009,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all time slots.
 
 ## Titles ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get Titles
+```
 Get details of a specific title.  
 ```json
 Query: {"ID":"string"}
@@ -4141,12 +5023,18 @@ Query: {"ID":"string"}
    Get all title summaries
 
 ## TransactionHistory ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get TransactionHistory
+```
 Get details of all transaction histories for the specified constituent id and all its visible affiliations' transaction histories as well. To exclude transaction histories of the visible affiliations pass includeAffiliations=false. This resource is paged. Pass filters such as transaction reference id, payment id, or start and end date to limit the results. Results can also be sorted.  
 ```json
 Query: {"ConstituentID":"string", "EndDate":"string", "IncludeAffiliations":"string", "Page":"string", "PageSize":"string", "PaymentID":"string", "ReferenceID":"string", "SortByDirection":"string", "SortByField":"string", "StartDate":"string"}
 ```
 
 ## TriPOSCloudConfigurations ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#triposcloudconfigurations) [![put](https://img.shields.io/badge/put-blue)](put.md#triposcloudconfigurations)   
+```shell
+tq get TriPOSCloudConfigurations
+```
 Get the details of a TriPOS Cloud configuration by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -4163,6 +5051,9 @@ Query: {"MaintenanceMode":"string"}
 	
 # U
 ## UpgradeCategories ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#upgradecategories) [![put](https://img.shields.io/badge/put-blue)](put.md#upgradecategories)   
+```shell
+tq get UpgradeCategories
+```
 Get the details of an Upgrade Category by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -4177,6 +5068,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all Upgrade Categories.
 
 ## UpgradeLogs ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#upgradelogs) [![put](https://img.shields.io/badge/put-blue)](put.md#upgradelogs)   
+```shell
+tq get UpgradeLogs
+```
 Returns an upgradeLog for the given id.  
 ```json
 Query: {"UpgradeLogID":"string"}
@@ -4186,6 +5080,9 @@ Query: {"UpgradeLogID":"string"}
    Returns a list of UpgradeLog objects.
 
 ## UserGroups ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get UserGroups
+```
 Get the details of a user group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -4200,6 +5097,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all user groups.
 
 ## UserPreferences ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#userpreferences) [![put](https://img.shields.io/badge/put-blue)](put.md#userpreferences)   
+```shell
+tq get UserPreferences
+```
 Get a specific user preference by key.  
 ```json
 Query: {"Key":"string"}
@@ -4212,6 +5112,9 @@ Query: {"Keys":"string"}
 ```
 
 ## Users ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#users)   
+```shell
+tq get Users
+```
 Get the details of a user for the specified username.  
 ```json
 Query: {"UserName":"string"}
@@ -4239,6 +5142,9 @@ Query: {"UserGroupID":"string"}
 	
 # W
 ## WebContentTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#webcontenttypes) [![put](https://img.shields.io/badge/put-blue)](put.md#webcontenttypes)   
+```shell
+tq get WebContentTypes
+```
 Get a specific web content type.  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -4258,6 +5164,9 @@ Query: {"ID":"string"}
    Get a summary representation of all web content types.
 
 ## WebContents ![get](https://img.shields.io/badge/get-gray)   
+```shell
+tq get WebContents
+```
 Returns web content for the requested production elements or packages.
 The result can be filtered by content types.  At least one package id or production element id is required.
 If the content type is found, returns the content value at the lowest level at which it was found in the production hierarchy (Title, Production, Production Season, Performance) for the requested element. Optionally, all matching content anywhere above the requested element in the production hierarchy can be returned with the ShowAll parameter.  
@@ -4266,6 +5175,9 @@ Query: {"ContentTypeIds":"string", "PackageIds":"string", "ProductionElementIds"
 ```
 
 ## WebLogins ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#weblogins) [![put](https://img.shields.io/badge/put-blue)](put.md#weblogins)   
+```shell
+tq get WebLogins
+```
 Get details of a weblogin.  
 ```json
 Query: {"WebLoginID":"string"}
@@ -4288,6 +5200,9 @@ Query: {"EmailAddress":"string", "LoginTypeID":"string"}
 ```
 
 ## WorkerQualifications ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#workerqualifications) [![put](https://img.shields.io/badge/put-blue)](put.md#workerqualifications)   
+```shell
+tq get WorkerQualifications
+```
 Get a single WorkerQualification by Id.  
 ```json
 Query: {"WorkerQualificationID":"string"}
@@ -4300,6 +5215,9 @@ Query: {"ConstituentIds":"string", "IncludeAffiliations":"string"}
 ```
 
 ## WorkerRoles ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#workerroles) [![put](https://img.shields.io/badge/put-blue)](put.md#workerroles)   
+```shell
+tq get WorkerRoles
+```
 Get the details of a worker role by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -4314,6 +5232,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all worker roles.
 
 ## WorkerTypes ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#workertypes) [![put](https://img.shields.io/badge/put-blue)](put.md#workertypes)   
+```shell
+tq get WorkerTypes
+```
 Get the details of a worker type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ```json
 Query: {"Filter":"string", "ID":"string", "MaintenanceMode":"string"}
@@ -4328,6 +5249,9 @@ Query: {"Filter":"string", "MaintenanceMode":"string"}
    Get a summary representation of all worker types.
 
 ## Workers ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#workers) [![put](https://img.shields.io/badge/put-blue)](put.md#workers)   
+```shell
+tq get Workers
+```
 Get details of a worker.  
 ```json
 Query: {"WorkerID":"string"}
@@ -4347,6 +5271,9 @@ Query: {"ConstituentID":"string", "IncludeAffiliations":"string"}
 	
 # Z
 ## ZoneGroups ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#zonegroups) [![put](https://img.shields.io/badge/put-blue)](put.md#zonegroups)   
+```shell
+tq get ZoneGroups
+```
 Get the details of a zone group by id.  
 ```json
 Query: {"ID":"string", "MaintenanceMode":"string"}
@@ -4361,6 +5288,9 @@ Query: {"MaintenanceMode":"string"}
    Get a summary representation of all zone groups.
 
 ## ZoneMaps ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#zonemaps) [![put](https://img.shields.io/badge/put-blue)](put.md#zonemaps)   
+```shell
+tq get ZoneMaps
+```
 Get details of a specific zone map.  
 ```json
 Query: {"ID":"string"}
@@ -4378,6 +5308,9 @@ Query: {"FacilityID":"string", "SeatMapID":"string"}
 ```
 
 ## Zones ![get](https://img.shields.io/badge/get-gray) [![post](https://img.shields.io/badge/post-blue)](post.md#zones) [![put](https://img.shields.io/badge/put-blue)](put.md#zones)   
+```shell
+tq get Zones
+```
 Get details of a specific zone.  
 ```json
 Query: {"ZoneID":"string", "ZoneMapID":"string"}
@@ -4395,4 +5328,4 @@ Query: {"ZoneMapIds":"string"}
 ```
  
 
-<link rel="stylesheet" type="text/css" href="/css/toc.css"/>
+<link rel="stylesheet" type="text/css" href="../css/toc.css"/>

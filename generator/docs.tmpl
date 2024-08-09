@@ -22,6 +22,9 @@
 			{{- end }}
 		{{- end }}
 		{{- with index $commands 0 }}  
+```shell
+tq {{ toLower $docOp }} {{ $name }}
+```
 {{ .Long }}  
 ```json
 Query: {{ .Usage }}
@@ -42,4 +45,4 @@ Query: {{ .Usage }}
 	{{- end }}
 {{ end }} 
 
-<link rel="stylesheet" type="text/css" href="/css/toc.css"/>
+<link rel="stylesheet" type="text/css" href="../css/toc.css"/>
