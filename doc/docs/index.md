@@ -1,6 +1,6 @@
-### > **tq** is a command-line interface for Tessitura. 🚀
+# 🚀 **tq** is a command-line interface for Tessitura. </span>
 
-**tq** is a wrapper around the Tessitura API that reads JSON-formatted data and executes a series of API calls to Tessitura. It internally handles authentication, session creation and closure, and batch/concurrent processing so that humans like you (or bots or scripts) can focus on the data and not the intricacies of the Tessitura API.                                                       
+**tq** is a wrapper around the Tessitura API that reads JSON-formatted data and executes a series of API calls to Tessitura. It internally handles authentication and batch/concurrent processing so that humans like you (or bots or scripts) can focus on the data and not the intricacies of the Tessitura API.                                                      
                      
 # 🏗️ installation
 
@@ -10,7 +10,7 @@ Download the latest release from the [releases page!](https://github.com/skysyzy
 
 ## from source
 
-The only prerequisite to using **tq** is [installing go](https://go.dev/doc/install).
+The only prerequisite to building **tq** is [installing go](https://go.dev/doc/install).
 
 Then clone this repository and build:
 ```shell
@@ -22,7 +22,7 @@ The build command will create an executable file `tq` or `tq.exe` in the `bin` p
 
 # 🪪 authentication
 
-To authenticate with the API server you need to select at least one authentication method. 
+To authenticate with the API server you need to add and select at least one authentication method. 
 ```shell
 tq auth add --host hostname --user username --group usergroup --location location
 # Password: ******
@@ -44,7 +44,7 @@ tq update addresses <<< '{"addressid": "12345", "street1": "123 New Street"}'
 ```shell
 tq create steps <<< '{"plan": {"Id": 12345}, "type": {"Id": 1}, "Description": "New step!", "Notes": "Created by tq :)"}'
 # or using flattened syntax
-tq create steps <<< '{"plan.Id": 12345, "type.Id": 1, "Description": "New step!", "Notes": "Created by tq :)"}'
+tq --inflat create steps <<< '{"plan.Id": 12345, "type.Id": 1, "Description": "New step!", "Notes": "Created by tq :)"}'
 ```
 
 # 🛠️ usage
@@ -79,7 +79,7 @@ A yaml configuration file `.tq` placed in your home directory can be used to set
 *  **completion** :   Generate the autocompletion script for the specified shell
 *  **help** :         Help about any command
 
-## queries:
+# ❓ queries:
 Queries are simply JSON objects and can be batched by combining multiple query objects into a single JSON array, e.g. 
 
 ```json
