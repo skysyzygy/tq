@@ -7,13 +7,14 @@ import (
 	"github.com/skysyzygy/tq/tq"
 )
 
-{{ $op := .op }}
-{{- $makeAliases := .makeAliases}}
+{{ $selectedOp := .op }}
 
-{{- range $key, $commands := .commands }}
+{{- range $name, $ops := .commands }}
+{{- range $op, $commands := $ops }}
+{{- if eq $op $selectedOp }}
 {{- $command := index $commands 0 }}
-var {{ print $op "_" $key "_cmd" }} = &cobra.Command{
-		Use: `{{ $key }}`,
+var {{ print $op "_" $name "_cmd" }} = &cobra.Command{
+		Use: `{{ $name }}`,
 		Example: `{{ $command.Usage }}`,
 		Short: `{{ $command.Short }}`,
 		Long:  `{{ $command.Long }}`,
@@ -35,16 +36,22 @@ var {{ print $op "_" $key "_cmd" }} = &cobra.Command{
 		},
 	}
 {{ end }}
+{{- end }}
+{{- end }}
 
 func init() {
-	{{- range $key, $commands := .commands }}
-		{{ $op }}_cmd.AddCommand({{ print $op "_" $key "_cmd" }})
+	{{- range $name, $ops := .commands }}
+	{{- range $op, $commands := $ops }}
+	{{- if eq $op $selectedOp }}
+		{{ $op }}_cmd.AddCommand({{ print $op "_" $name "_cmd" }})
 		{{- if gt (len $commands) 1 }}
 			{{- range slice $commands 1 }} 
-				{{ print $op "_" $key "_cmd" }}.Flags().Bool("{{ .Variant }}", false, 
+				{{ print $op "_" $name "_cmd" }}.Flags().Bool("{{ .Variant }}", false, 
 					`{{ .Long }}` + "\nQuery:\n" + `{{ .Usage }}`)
 			{{- end }} 
 		{{- end }}
+	{{- end }}
+	{{- end }}
 	{{ end }}
 }
 

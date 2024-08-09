@@ -1,0 +1,8 @@
+Op: {{ .op }}
+
+{{- range $name, $command := .commands }}
+Command: {{ $name }}
+{{- range $op, $map := $command }}
+  - Op: {{ $op }}
+{{- end }}
+{{- end }}

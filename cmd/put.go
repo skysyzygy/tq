@@ -3216,6 +3216,7 @@ func init() {
 	
 		Put_cmd.AddCommand(Put_Addresses_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_AffiliationTypes_cmd)
 	
 		Put_cmd.AddCommand(Put_Affiliations_cmd)
@@ -3224,11 +3225,14 @@ func init() {
 	
 		Put_cmd.AddCommand(Put_Aliases_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_AnalyticsReports_cmd)
 	
 		Put_cmd.AddCommand(Put_AppScreenTexts_cmd)
 	
 		Put_cmd.AddCommand(Put_AppealCategories_cmd)
+	
+	
 	
 		Put_cmd.AddCommand(Put_Artists_cmd)
 	
@@ -3240,11 +3244,17 @@ func init() {
 	
 		Put_cmd.AddCommand(Put_Associations_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_Attributes_cmd)
+	
+	
 	
 		Put_cmd.AddCommand(Put_Authorization_cmd)
 	
+	
+	
 		Put_cmd.AddCommand(Put_BatchTypeGroups_cmd)
+	
 	
 		Put_cmd.AddCommand(Put_BatchTypes_cmd)
 	
@@ -3264,9 +3274,11 @@ func init() {
 	
 		Put_cmd.AddCommand(Put_BusinessUnits_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_CampaignDesignations_cmd)
 	
 		Put_cmd.AddCommand(Put_CampaignFunds_cmd)
+	
 	
 		Put_cmd.AddCommand(Put_CardReaderTypes_cmd)
 	
@@ -3319,6 +3331,7 @@ The status field in the response will return as S if the price can be applied or
 	
 		Put_cmd.AddCommand(Put_ConstituencyTypes_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_ConstituentDocuments_cmd)
 	
 		Put_cmd.AddCommand(Put_ConstituentGroups_cmd)
@@ -3349,7 +3362,9 @@ The status field in the response will return as S if the price can be applied or
 	
 		Put_cmd.AddCommand(Put_ContactPointPurposes_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_ContactTypes_cmd)
+	
 	
 		Put_cmd.AddCommand(Put_ContributionDesignations_cmd)
 	
@@ -3361,11 +3376,16 @@ The status field in the response will return as S if the price can be applied or
 	
 		Put_cmd.AddCommand(Put_ControlGroups_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_Countries_cmd)
 	
 		Put_cmd.AddCommand(Put_CrediteeTypes_cmd)
 	
+	
+	
+	
 		Put_cmd.AddCommand(Put_CurrencyTypes_cmd)
+	
 	
 		Put_cmd.AddCommand(Put_CustomDefaultCategories_cmd)
 	
@@ -3375,13 +3395,16 @@ The status field in the response will return as S if the price can be applied or
 	
 		Put_cmd.AddCommand(Put_DesignationCodes_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_Diagnostics_cmd)
 	
 		Put_cmd.AddCommand(Put_DirectDebitAccountTypes_cmd)
 	
 		Put_cmd.AddCommand(Put_DiscountTypes_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_DocumentCategories_cmd)
+	
 	
 		Put_cmd.AddCommand(Put_DonationLevels_cmd)
 	
@@ -3393,11 +3416,19 @@ The status field in the response will return as S if the price can be applied or
 	
 		Put_cmd.AddCommand(Put_EmailProfiles_cmd)
 	
+	
+	
 		Put_cmd.AddCommand(Put_EmarketIndicators_cmd)
 	
 		Put_cmd.AddCommand(Put_Eras_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_Facilities_cmd)
+	
+	
+	
+	
+	
 	
 		Put_cmd.AddCommand(Put_Genders_cmd)
 	
@@ -3414,6 +3445,7 @@ The status field in the response will return as S if the price can be applied or
 		Put_cmd.AddCommand(Put_GiftAidStatuses_cmd)
 	
 		Put_cmd.AddCommand(Put_GiftAidTypes_cmd)
+	
 	
 		Put_cmd.AddCommand(Put_HoldCodeCategories_cmd)
 	
@@ -3439,6 +3471,7 @@ The status field in the response will return as S if the price can be applied or
 	
 		Put_cmd.AddCommand(Put_InventoryWebContents_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_Issues_cmd)
 	
 		Put_cmd.AddCommand(Put_KeywordCategories_cmd)
@@ -3463,6 +3496,12 @@ The status field in the response will return as S if the price can be applied or
 	
 		Put_cmd.AddCommand(Put_MembershipLevelCategories_cmd)
 	
+	
+	
+	
+	
+	
+	
 		Put_cmd.AddCommand(Put_ModeOfSaleCategories_cmd)
 	
 		Put_cmd.AddCommand(Put_ModeOfSaleOffers_cmd)
@@ -3481,6 +3520,7 @@ The status field in the response will return as S if the price can be applied or
 	
 		Put_cmd.AddCommand(Put_ObjectPermissions_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_OrderCategories_cmd)
 	
 		Put_cmd.AddCommand(Put_Orders_cmd)
@@ -3493,17 +3533,24 @@ The status field in the response will return as S if the price can be applied or
 	
 		Put_cmd.AddCommand(Put_OutputSets_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_PackagePriceTypes_cmd)
 	
 		Put_cmd.AddCommand(Put_PackageTypes_cmd)
 	
 		Put_cmd.AddCommand(Put_PackageWebContents_cmd)
 	
+	
+	
+	
 		Put_cmd.AddCommand(Put_PaymentGatewayActivities_cmd)
+	
+	
 	
 		Put_cmd.AddCommand(Put_PaymentGatewayNotifications_cmd)
 	
 		Put_cmd.AddCommand(Put_PaymentGatewayTransactionTypes_cmd)
+	
 	
 		Put_cmd.AddCommand(Put_PaymentMethodGroups_cmd)
 	
@@ -3514,6 +3561,7 @@ The status field in the response will return as S if the price can be applied or
 		Put_cmd.AddCommand(Put_PaymentSignatures_cmd)
 	
 		Put_cmd.AddCommand(Put_PaymentTypes_cmd)
+	
 	
 		Put_cmd.AddCommand(Put_PerformanceGroups_cmd)
 	
@@ -3559,7 +3607,9 @@ The status field in the response will return as S if the price can be applied or
 	
 		Put_cmd.AddCommand(Put_Plans_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_PortfolioCustomElements_cmd)
+	
 	
 		Put_cmd.AddCommand(Put_Prefixes_cmd)
 	
@@ -3589,11 +3639,16 @@ The status field in the response will return as S if the price can be applied or
 	
 		Put_cmd.AddCommand(Put_PricingRuleSets_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_PricingRules_cmd)
 	
 		Put_cmd.AddCommand(Put_Printers_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_ProductionSeasonMembershipOrganizations_cmd)
+	
+	
+	
 	
 		Put_cmd.AddCommand(Put_ProgramListings_cmd)
 	
@@ -3617,9 +3672,14 @@ The status field in the response will return as S if the price can be applied or
 	
 		Put_cmd.AddCommand(Put_ReceiptSettings_cmd)
 	
+	
+	
 		Put_cmd.AddCommand(Put_ReferenceTableUserGroups_cmd)
 	
+	
+	
 		Put_cmd.AddCommand(Put_RelationshipCategories_cmd)
+	
 	
 		Put_cmd.AddCommand(Put_ReportRequests_cmd) 
 				Put_ReportRequests_cmd.Flags().Bool("FlushIncomplete", false, 
@@ -3628,6 +3688,7 @@ The status field in the response will return as S if the price can be applied or
 		Put_cmd.AddCommand(Put_ReportSchedules_cmd)
 	
 		Put_cmd.AddCommand(Put_ReportUserGroups_cmd)
+	
 	
 		Put_cmd.AddCommand(Put_Research_cmd)
 	
@@ -3665,7 +3726,19 @@ The status field in the response will return as S if the price can be applied or
 	
 		Put_cmd.AddCommand(Put_Sections_cmd)
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		Put_cmd.AddCommand(Put_ServiceResourceUserGroups_cmd)
+	
 	
 		Put_cmd.AddCommand(Put_Session_cmd) 
 				Put_Session_cmd.Flags().Bool("SetExpiration", false, 
@@ -3681,6 +3754,7 @@ Current and new values must be submitted for login username, password, and email
 When updating a login where the password has been forgotten, submit the request with a null password.` + "\nQuery:\n" + `{"EmailAddress":"string", "LoginName":"string", "LoginTypeId":123, "NewEmailAddress":"string", "NewLoginName":"string", "NewPassword":"string", "Password":"string", "PromotionCode":123, "SessionKey":"string"}`)
 	
 		Put_cmd.AddCommand(Put_SourceGroups_cmd)
+	
 	
 		Put_cmd.AddCommand(Put_SpecialActivities_cmd)
 	
@@ -3698,11 +3772,13 @@ When updating a login where the password has been forgotten, submit the request 
 	
 		Put_cmd.AddCommand(Put_SubLineItemStatuses_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_Suffixes_cmd)
 	
 		Put_cmd.AddCommand(Put_SurveyQuestions_cmd)
 	
 		Put_cmd.AddCommand(Put_SurveyResponses_cmd)
+	
 	
 		Put_cmd.AddCommand(Put_TemplateCategories_cmd)
 	
@@ -3710,11 +3786,15 @@ When updating a login where the password has been forgotten, submit the request 
 	
 		Put_cmd.AddCommand(Put_TemplatePrices_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_Templates_cmd)
 	
 		Put_cmd.AddCommand(Put_Theaters_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_TimeSlots_cmd)
+	
+	
 	
 		Put_cmd.AddCommand(Put_TriPOSCloudConfigurations_cmd)
 	
@@ -3722,9 +3802,13 @@ When updating a login where the password has been forgotten, submit the request 
 	
 		Put_cmd.AddCommand(Put_UpgradeLogs_cmd)
 	
+	
 		Put_cmd.AddCommand(Put_UserPreferences_cmd)
 	
+	
+	
 		Put_cmd.AddCommand(Put_WebContentTypes_cmd)
+	
 	
 		Put_cmd.AddCommand(Put_WebLogins_cmd)
 	

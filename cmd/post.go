@@ -3730,9 +3730,13 @@ func init() {
 	
 		Post_cmd.AddCommand(Post_Aliases_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_AnalyticsReports_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_AppealCategories_cmd)
+	
+	
 	
 		Post_cmd.AddCommand(Post_Artists_cmd)
 	
@@ -3744,7 +3748,9 @@ func init() {
 	
 		Post_cmd.AddCommand(Post_Associations_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_Attributes_cmd)
+	
 	
 		Post_cmd.AddCommand(Post_Authenticate_cmd) 
 				Post_Authenticate_cmd.Flags().Bool("AuthenticateWindows", false, 
@@ -3776,6 +3782,7 @@ Create a payment link to a hosted payment form where shoppers can pay.  For Tess
 	
 		Post_cmd.AddCommand(Post_BatchTypeGroups_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_BatchTypes_cmd)
 	
 		Post_cmd.AddCommand(Post_BillingSchedules_cmd)
@@ -3804,9 +3811,11 @@ Create a payment link to a hosted payment form where shoppers can pay.  For Tess
 	
 		Post_cmd.AddCommand(Post_BusinessUnits_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_CampaignDesignations_cmd)
 	
 		Post_cmd.AddCommand(Post_CampaignFunds_cmd)
+	
 	
 		Post_cmd.AddCommand(Post_CardReaderTypes_cmd)
 	
@@ -3933,6 +3942,7 @@ To enable ticket limit validation, add the Field Name "ENFORCE_SEAT_LIMIT_FOR_OR
 	
 		Post_cmd.AddCommand(Post_ConstituencyTypes_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_ConstituentDocuments_cmd)
 	
 		Post_cmd.AddCommand(Post_ConstituentGroups_cmd)
@@ -3981,7 +3991,9 @@ To enable ticket limit validation, add the Field Name "ENFORCE_SEAT_LIMIT_FOR_OR
 	
 		Post_cmd.AddCommand(Post_ContactPointPurposes_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_ContactTypes_cmd)
+	
 	
 		Post_cmd.AddCommand(Post_ContributionDesignations_cmd)
 	
@@ -3999,6 +4011,9 @@ To enable ticket limit validation, add the Field Name "ENFORCE_SEAT_LIMIT_FOR_OR
 	
 		Post_cmd.AddCommand(Post_CrediteeTypes_cmd)
 	
+	
+	
+	
 		Post_cmd.AddCommand(Post_CurrencyTypes_cmd)
 	
 		Post_cmd.AddCommand(Post_Custom_cmd) 
@@ -4013,13 +4028,16 @@ To enable ticket limit validation, add the Field Name "ENFORCE_SEAT_LIMIT_FOR_OR
 	
 		Post_cmd.AddCommand(Post_DesignationCodes_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_Diagnostics_cmd)
 	
 		Post_cmd.AddCommand(Post_DirectDebitAccountTypes_cmd)
 	
 		Post_cmd.AddCommand(Post_DiscountTypes_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_DocumentCategories_cmd)
+	
 	
 		Post_cmd.AddCommand(Post_DonationLevels_cmd)
 	
@@ -4057,7 +4075,13 @@ Use the SendCredentials endpoint in Web/Session to send a login credentials emai
 	
 		Post_cmd.AddCommand(Post_Eras_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_Facilities_cmd)
+	
+	
+	
+	
+	
 	
 		Post_cmd.AddCommand(Post_Genders_cmd)
 	
@@ -4136,7 +4160,12 @@ Response returns custom HTTP headers: X-Page, X-Page-Size, and X-Total-Count. De
 	
 		Post_cmd.AddCommand(Post_MembershipLevelCategories_cmd)
 	
+	
+	
+	
 		Post_cmd.AddCommand(Post_Memberships_cmd)
+	
+	
 	
 		Post_cmd.AddCommand(Post_ModeOfSaleCategories_cmd)
 	
@@ -4180,6 +4209,7 @@ Composite tickets are not currently supported, so a request to print one will in
 	
 		Post_cmd.AddCommand(Post_OutputSets_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_PackagePriceTypes_cmd)
 	
 		Post_cmd.AddCommand(Post_PackageTypes_cmd)
@@ -4196,11 +4226,13 @@ Composite tickets are not currently supported, so a request to print one will in
 	
 		Post_cmd.AddCommand(Post_PaymentGatewayActivities_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_PaymentGatewayCredentials_cmd)
 	
 		Post_cmd.AddCommand(Post_PaymentGatewayNotifications_cmd)
 	
 		Post_cmd.AddCommand(Post_PaymentGatewayTransactionTypes_cmd)
+	
 	
 		Post_cmd.AddCommand(Post_PaymentMethodGroups_cmd)
 	
@@ -4273,11 +4305,13 @@ Can be used to add or remove holds from seats for the specified performance. Spe
 	
 		Post_cmd.AddCommand(Post_PortfolioCustomElements_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_Prefixes_cmd)
 	
 		Post_cmd.AddCommand(Post_Premieres_cmd)
 	
 		Post_cmd.AddCommand(Post_PriceCategories_cmd)
+	
 	
 		Post_cmd.AddCommand(Post_PriceLayerTypes_cmd)
 	
@@ -4299,13 +4333,16 @@ Can be used to add or remove holds from seats for the specified performance. Spe
 	
 		Post_cmd.AddCommand(Post_PricingRuleSets_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_PricingRules_cmd)
 	
 		Post_cmd.AddCommand(Post_Printers_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_ProductionSeasonMembershipOrganizations_cmd)
 	
 		Post_cmd.AddCommand(Post_ProductionSeasons_cmd)
+	
 	
 		Post_cmd.AddCommand(Post_Products_cmd) 
 				Post_Products_cmd.Flags().Bool("Search", false, 
@@ -4335,11 +4372,14 @@ Can be used to add or remove holds from seats for the specified performance. Spe
 	
 		Post_cmd.AddCommand(Post_RecordAttendance_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_ReferenceTableUserGroups_cmd)
+	
 	
 		Post_cmd.AddCommand(Post_Registration_cmd)
 	
 		Post_cmd.AddCommand(Post_RelationshipCategories_cmd)
+	
 	
 		Post_cmd.AddCommand(Post_ReportRequests_cmd) 
 				Post_ReportRequests_cmd.Flags().Bool("GenerateScheduled", false, 
@@ -4393,7 +4433,19 @@ Can be used to add or remove holds from seats for the specified performance. Spe
 	
 		Post_cmd.AddCommand(Post_Sections_cmd)
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		Post_cmd.AddCommand(Post_ServiceResourceUserGroups_cmd)
+	
 	
 		Post_cmd.AddCommand(Post_Session_cmd) 
 				Post_Session_cmd.Flags().Bool("BusinessFacingSession", false, 
@@ -4485,6 +4537,7 @@ This method is typically called after completing checkout, so the constituent is
 	
 		Post_cmd.AddCommand(Post_SourceGroups_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_SpecialActivities_cmd)
 	
 		Post_cmd.AddCommand(Post_SpecialActivityStatuses_cmd)
@@ -4501,11 +4554,13 @@ This method is typically called after completing checkout, so the constituent is
 	
 		Post_cmd.AddCommand(Post_SubLineItemStatuses_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_Suffixes_cmd)
 	
 		Post_cmd.AddCommand(Post_SurveyQuestions_cmd)
 	
 		Post_cmd.AddCommand(Post_SurveyResponses_cmd)
+	
 	
 		Post_cmd.AddCommand(Post_TemplateCategories_cmd)
 	
@@ -4516,6 +4571,7 @@ This method is typically called after completing checkout, so the constituent is
 		Post_cmd.AddCommand(Post_TemplatePrices_cmd) 
 				Post_TemplatePrices_cmd.Flags().Bool("Batch", false, 
 					`Create or update a set of template prices.` + "\nQuery:\n" + `{"TemplatePrices":[{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Enabled":true, "Id":123, "MinPrice":123.456, "Price":123.456, "TemplatePriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Zone":{"Id":123}}, ...]}`)
+	
 	
 		Post_cmd.AddCommand(Post_Templates_cmd) 
 				Post_Templates_cmd.Flags().Bool("ConstituentInfo", false, 
@@ -4543,13 +4599,17 @@ Composite tickets are not currently supported, so a request to print one will in
 	
 		Post_cmd.AddCommand(Post_Theaters_cmd)
 	
+	
 		Post_cmd.AddCommand(Post_TimeSlots_cmd)
+	
+	
 	
 		Post_cmd.AddCommand(Post_TriPOSCloudConfigurations_cmd)
 	
 		Post_cmd.AddCommand(Post_UpgradeCategories_cmd)
 	
 		Post_cmd.AddCommand(Post_UpgradeLogs_cmd)
+	
 	
 		Post_cmd.AddCommand(Post_UserPreferences_cmd) 
 				Post_UserPreferences_cmd.Flags().Bool("SaveBatch", false, 
@@ -4560,6 +4620,7 @@ Composite tickets are not currently supported, so a request to print one will in
 		Post_cmd.AddCommand(Post_ValidateWebLogin_cmd)
 	
 		Post_cmd.AddCommand(Post_WebContentTypes_cmd)
+	
 	
 		Post_cmd.AddCommand(Post_WebLogins_cmd)
 	
