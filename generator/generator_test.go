@@ -2,60 +2,48 @@ package main
 
 import (
 	"os"
-	"path"
 	"strings"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"golang.org/x/exp/maps"
 )
 
-func Test_execTemplate(t *testing.T) {
-	template := "Hello {{ .world }}"
-	inFile := path.Join(os.TempDir(), "generator_test.tmpl")
-	outFile := path.Join(os.TempDir(), "execTemplate.txt")
+func Test_generate(t *testing.T) {
+	defer func() {
+		os.Remove("get.test")
+		os.Remove("post.test")
+		os.Remove("put.test")
+	}()
+	generate("generator_test.tmpl", ".", ".test")
+	assert.FileExists(t, "get.test")
+	assert.FileExists(t, "post.test")
+	assert.FileExists(t, "put.test")
+	get, _ := os.ReadFile("get.test")
+	getLines := strings.Split(string(get), "\n")
 
-	err := os.WriteFile(inFile, []byte(template), 0644)
-	assert.NoError(t, err)
-
-	data := map[string]string{"world": "Yourself!"}
-	assert.NoFileExists(t, outFile)
-
-	// Execute the template
-	err = execTemplate(inFile, outFile, data)
-	assert.FileExists(t, outFile)
-	assert.NoError(t, err)
-
-	// Read the output
-	contents, _ := os.ReadFile(outFile)
-	assert.Equal(t, "Hello Yourself!", string(contents))
-
-	// Clean up
-	os.Remove(outFile)
-	os.Remove(inFile)
-	assert.NoFileExists(t, outFile)
-	assert.NoFileExists(t, inFile)
+	assert.Equal(t, "Op: Get", getLines[0])
+	assert.Greater(t, len(getLines), 100)
+	assert.Contains(t, getLines, "Command: Constituents")
+	assert.Contains(t, getLines[1:], "  - Op: Get")
+	assert.Contains(t, getLines[1:], "  - Op: Post")
+	assert.Contains(t, getLines[1:], "  - Op: Put")
 }
 
-func Test_getDataForOperation(t *testing.T) {
-	assert.Panics(t, func() { getDataForOperation("NotAnOp") })
+func Test_getCommandData(t *testing.T) {
 
-	get := getDataForOperation("Get")
-	assert.Equal(t, get["op"], "Get")
-	commands, ok := get["commands"].(map[string][]command)
-	assert.True(t, ok, "get[`commands`] is a map of slices of `command`s")
-	assert.Greater(t, len(commands), 100)
+	cmdData := getCommandData()
 
-	ops := make(map[string]any)
-	for _, op := range []string{"Get", "Put", "Post"} {
-		ops[op] = getDataForOperation(op)
-	}
+	assert.Greater(t, len(cmdData), 100)
+	assert.Contains(t, maps.Keys(cmdData["Addresses"]), "Get")
+	assert.Contains(t, maps.Keys(cmdData["Addresses"]), "Put")
+	assert.Contains(t, maps.Keys(cmdData["Addresses"]), "Post")
 
 	commandHash := make(map[string]bool)
 	// Check that there are no matching verb/thing/variant combos
 	// and that there is alignment between the data map and command structs
-	for op, data := range ops {
-		things := data.(map[string]any)["commands"].(map[string][]command)
-		for thing, commands := range things {
+	for thing, data := range cmdData {
+		for op, commands := range data {
 			for i, command := range commands {
 				//assert.Equal(t, op, command.Verb) -- verbs are sometimes not the same as the op (e.g. "Create", "Update")
 				assert.Equal(t, thing, command.Thing)

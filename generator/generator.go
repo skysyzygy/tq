@@ -7,7 +7,6 @@ package main
 
 import (
 	"errors"
-	"fmt"
 	"os"
 	"reflect"
 	"slices"
@@ -15,88 +14,90 @@ import (
 	"text/template"
 
 	"github.com/skysyzygy/tq/client"
+	"github.com/spf13/cobra"
 )
 
+var generateCmd = &cobra.Command{
+	Short: "Tool to generate code and documentation for tq",
+}
+
+var docsCmd = &cobra.Command{
+	Use:   "docs",
+	Short: "Generate mkdocs documentation",
+	Run: func(cmd *cobra.Command, args []string) {
+		generate("docs.tmpl", "../doc/docs", ".md")
+	},
+}
+var cmdCmd = &cobra.Command{
+	Use:   "cmd",
+	Short: "Generate go code in /cmd",
+	Run: func(cmd *cobra.Command, args []string) {
+		generate("commands.go.tmpl", "../cmd", ".go")
+	},
+}
+var testCmd = &cobra.Command{
+	Use:   "test",
+	Short: "Generate go tests in /cmd",
+	Run: func(cmd *cobra.Command, args []string) {
+		generate("commands_test.go.tmpl", "../cmd", "_test.go")
+	},
+}
+
 func main() {
+	err := generateCmd.Execute()
+	if err != nil {
+		panic(err)
+	}
+}
+
+func init() {
+	generateCmd.AddCommand(docsCmd, testCmd, cmdCmd)
+}
+
+func generate(templateFile string, outDir string, outSuffix string) {
 	// add a new function to the template engine
 	funcs := template.FuncMap{"join": strings.Join}
-	templ, err := template.New("commands").Funcs(funcs).ParseFiles("commands.go.tmpl", "commands_test.go.tmpl", "docs.tmpl")
+	templ, err := template.New("commands").Funcs(funcs).ParseFiles(templateFile)
 	if err != nil {
 		panic(err)
 	}
 
-	var templateFile, outSuffix, outDir string
-	switch os.Args[1] {
-	case "cmd":
-		templateFile = "commands.go.tmpl"
-		outDir = "../cmd"
-		outSuffix = ".go"
-	case "test":
-		templateFile = "commands_test.go.tmpl"
-		outDir = "../cmd"
-		outSuffix = "_test.go"
-	case "docs":
-		templateFile = "docs.tmpl"
-		outDir = "../doc/docs"
-		outSuffix = ".md"
-	default:
-		fmt.Println("Usage: [cmd|test|docs]")
-		os.Exit(1)
-	}
-
 	for _, op := range []string{"Get", "Put", "Post"} {
-		data := getDataForOperation(op)
+		templateData := make(map[string]any)
+		templateData["commands"] = getCommandData()
+		templateData["op"] = op
 		file, err := os.Create(outDir + "/" + strings.ToLower(op) + outSuffix)
-		if err := errors.Join(templ.ExecuteTemplate(file, templateFile, data), err); err != nil {
+		if err := errors.Join(templ.ExecuteTemplate(file, templateFile, templateData), err); err != nil {
 			panic(err)
 		}
 	}
 }
 
-// Run the template in `inFilename` using `data` and save as `outFilename`
-func execTemplate(inFilename string, outFilename string, data any) error {
-	tmpl, err := template.ParseFiles(inFilename)
-	if err != nil {
-		return err
-	}
-	outFile, err := os.Create(outFilename)
-	if err != nil {
-		return err
-	}
-	err = tmpl.Execute(outFile, data)
-	if err != nil {
-		return err
-	}
-	return outFile.Close()
-}
-
 // Build data about entities that can be used with `operation` (i.e. "Get", "Post", "Put")
-func getDataForOperation(operation string) (data map[string]any) {
+func getCommandData() (data map[string]map[string][]command) {
+	data = make(map[string]map[string][]command)
 	client := client.New(nil, nil)
-	doer, ok := reflect.TypeOf(*client).FieldByName(operation)
-	if !ok {
-		panic(fmt.Errorf("couldn't get client.%v", operation))
-	}
+	clientType := reflect.TypeOf(*client)
+	for i := 0; i < clientType.NumField(); i++ {
+		doer := clientType.Field(i)
+		// Group commands by the thing they operate on
+		for i := 0; i < doer.Type.NumMethod(); i++ {
+			cmd := newCommand(doer.Type.Method(i))
+			if cmd.Thing != "" {
+				if data[cmd.Thing] == nil {
+					data[cmd.Thing] = make(map[string][]command)
+				}
+				data[cmd.Thing][doer.Name] = append(
+					data[cmd.Thing][doer.Name], cmd)
+			}
+		}
 
-	// Group commands by the thing they operate on
-	commands := make(map[string][]command)
-	for i := 0; i < doer.Type.NumMethod(); i++ {
-		command := newCommand(doer.Type.Method(i))
-		if command.Thing != "" {
-			commands[command.Thing] = append(commands[command.Thing], command)
+		// Ensure that the first command is the one without a variant
+		for _, commands := range data {
+			slices.SortFunc(commands[doer.Name], func(a command, b command) int {
+				return strings.Compare(a.Variant, b.Variant)
+			})
 		}
 	}
-
-	// Ensure that the first command is the one without a variant
-	for _, commands := range commands {
-		slices.SortFunc(commands, func(a command, b command) int {
-			return strings.Compare(a.Variant, b.Variant)
-		})
-	}
-
-	data = make(map[string]any)
-	data["op"] = operation
-	data["commands"] = commands
-	data["makeAliases"] = makeAliases
 	return
 }

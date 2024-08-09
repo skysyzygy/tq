@@ -6,12 +6,13 @@ import (
     "testing"
 )
 
-{{ $op := .op }}
-{{- range $key, $commands := .commands }}
+{{- range $name, $ops := .commands }}
+{{- range $op, $commands := $ops }}
+{{- if eq $op .op }}
 {{- range $commands }}
-func Test_{{ print $op "_" $key "_" .Variant "_cmd" }}(t *testing.T) {
+func Test_{{ print $op "_" $name "_" .Variant "_cmd" }}(t *testing.T) {
         var flag string
-        command := {{ print $op "_" $key "_cmd" }}
+        command := {{ print $op "_" $name "_cmd" }}
         {{ if ne .Variant "" -}}
         flag = "{{ .Variant }}"
         {{ end -}}
@@ -19,4 +20,6 @@ func Test_{{ print $op "_" $key "_" .Variant "_cmd" }}(t *testing.T) {
         testCommand(t, command, flag)
 }
 {{ end }}
+{{- end }}
+{{- end }}
 {{- end }}
