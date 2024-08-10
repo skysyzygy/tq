@@ -2,7 +2,7 @@
 ![go workflow](https://github.com/skysyzygy/tq/actions/workflows/go.yml/badge.svg)
 [![codecov](https://codecov.io/gh/skysyzygy/tq/graph/badge.svg?token=Ov8gpBWhHQ)](https://codecov.io/gh/skysyzygy/tq)
 
-> **tq** is a command-line interface for Tessitura. 🚀
+# **tq** is a command-line interface for Tessitura. 🚀
 
 **tq** is a wrapper around the Tessitura API that reads JSON-formatted data and executes a series of API calls to Tessitura. It internally handles authentication and batch/concurrent processing so that humans like you (or bots or scripts) can focus on the data and not the intricacies of the Tessitura API.                                                       
 

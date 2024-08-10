@@ -22,12 +22,14 @@
 			{{- end }}
 		{{- end }}
 		{{- with index $commands 0 }}  
+{{ .Long }}  
+##### Usage:  
 ```shell
 tq {{ toLower $docOp }} {{ $name }}
-```
-{{ .Long }}  
+``` 
+##### Query:  
 ```json
-Query: {{ .Usage }}
+{{ .Usage }}
 ```  
 		{{- end }}
 		{{- if gt (len $commands) 1 }}
@@ -36,8 +38,9 @@ Query: {{ .Usage }}
  * *--{{ .Variant }}*  
    {{ .Long }}  
 				{{- if .Usage }}
+##### Query:  
 ```json
-Query: {{ .Usage }}
+{{ .Usage }}
 ```  
 				{{- end }}
 			{{- end }}
