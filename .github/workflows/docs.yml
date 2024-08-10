@@ -16,6 +16,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v2
       - run: pip install --upgrade pip && pip install mkdocs mkdocs-gen-files
       - name: Publish docs
