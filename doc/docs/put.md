@@ -5,222 +5,268 @@
 	
 # A
 ## AccountTypes [![get](https://img.shields.io/badge/get-blue)](get.md#accounttypes) [![post](https://img.shields.io/badge/post-blue)](post.md#accounttypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing account type.  
+##### Usage:  
 ```shell
 tq put AccountTypes
-```
-Update an existing account type.  
+``` 
+##### Query:  
 ```json
-Query: {"CardLength":"string", "CardPrefix":"string", "CardtypeIndicator":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditMask":"string", "Id":123, "Inactive":true, "Mod10Indicator":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CardLength":"string", "CardPrefix":"string", "CardtypeIndicator":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditMask":"string", "Id":123, "Inactive":true, "Mod10Indicator":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Accounts [![get](https://img.shields.io/badge/get-blue)](get.md#accounts) [![post](https://img.shields.io/badge/post-blue)](post.md#accounts) ![put](https://img.shields.io/badge/put-gray)   
-```shell
-tq put Accounts
-```
 Update expiration date or name on a credit card account or token. Will also tokenize the credit card if tokenization is enabled.
 PaymentMethodGroupId is ignored if the account already has a PaymentMethodGroupId assigned.  This value cannot be updated.
 If tokenizing a non-tokenized card, PaymentMethodGroupId is required if one has not already been assigned to the account.  
+##### Usage:  
+```shell
+tq put Accounts
+``` 
+##### Query:  
 ```json
-Query: {"AccountID":"string", "CardExpiryMonth":123, "CardExpiryYear":123, "Inactive":true, "Name":"string", "PaymentMethodGroupId":123, "TransactionOrigin":"string"}
+{"AccountID":"string", "CardExpiryMonth":123, "CardExpiryYear":123, "Inactive":true, "Name":"string", "PaymentMethodGroupId":123, "TransactionOrigin":"string"}
 ```
 ### Flags:
  * *--DirectDebitAccount*  
    Updates expiration date or name on a direct debit account.
+##### Query:  
 ```json
-Query: {"AccountID":"string", "CardExpiryMonth":123, "CardExpiryYear":123, "DirectDebitAccountType":{"Id":123}, "Inactive":true, "Name":"string"}
+{"AccountID":"string", "CardExpiryMonth":123, "CardExpiryYear":123, "DirectDebitAccountType":{"Id":123}, "Inactive":true, "Name":"string"}
 ```
  * *--SepaAccount*  
    Updates information on a SEPA Direct Debit Account.
+##### Query:  
 ```json
-Query: {"AccountID":"string", "BankIdentifierCode":"string", "Inactive":true, "MandateType":123, "Name":"string", "SignatureDate":"2000-01-01T00:00:00.000Z"}
+{"AccountID":"string", "BankIdentifierCode":"string", "Inactive":true, "MandateType":123, "Name":"string", "SignatureDate":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ActionTypes [![get](https://img.shields.io/badge/get-blue)](get.md#actiontypes) [![post](https://img.shields.io/badge/post-blue)](post.md#actiontypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing action type.  
+##### Usage:  
 ```shell
 tq put ActionTypes
-```
-Update an existing action type.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LetterIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LetterIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Actions [![get](https://img.shields.io/badge/get-blue)](get.md#actions) [![post](https://img.shields.io/badge/post-blue)](post.md#actions) ![put](https://img.shields.io/badge/put-gray)   
+Update an issue action for a Constituent  
+##### Usage:  
 ```shell
 tq put Actions
-```
-Update an issue action for a Constituent  
+``` 
+##### Query:  
 ```json
-Query: {"ActionID":"string", "ActionDate":"2000-01-01T00:00:00.000Z", "ActionType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Issue":{"Id":123}, "LetterPrintedDate":"2000-01-01T00:00:00.000Z", "Notes":"string", "Resolved":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
+{"ActionID":"string", "ActionDate":"2000-01-01T00:00:00.000Z", "ActionType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Issue":{"Id":123}, "LetterPrintedDate":"2000-01-01T00:00:00.000Z", "Notes":"string", "Resolved":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ActivityCategories [![get](https://img.shields.io/badge/get-blue)](get.md#activitycategories) [![post](https://img.shields.io/badge/post-blue)](post.md#activitycategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing activity category.  
+##### Usage:  
 ```shell
 tq put ActivityCategories
-```
-Update an existing activity category.  
+``` 
+##### Query:  
 ```json
-Query: {"AutoClose":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"AutoClose":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## ActivityTypes [![get](https://img.shields.io/badge/get-blue)](get.md#activitytypes) [![post](https://img.shields.io/badge/post-blue)](post.md#activitytypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing activity type.  
+##### Usage:  
 ```shell
 tq put ActivityTypes
-```
-Update an existing activity type.  
+``` 
+##### Query:  
 ```json
-Query: {"Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PerfIndicator":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PerfIndicator":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## AddressTypes [![get](https://img.shields.io/badge/get-blue)](get.md#addresstypes) [![post](https://img.shields.io/badge/post-blue)](post.md#addresstypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing address type.  
+##### Usage:  
 ```shell
 tq put AddressTypes
-```
-Update an existing address type.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Addresses [![get](https://img.shields.io/badge/get-blue)](get.md#addresses) [![post](https://img.shields.io/badge/post-blue)](post.md#addresses) ![put](https://img.shields.io/badge/put-gray)   
+Update an address for a Constituent by sending an XML or JSON representation of an existing Address object using HTTP PUT.  
+##### Usage:  
 ```shell
 tq put Addresses
-```
-Update an address for a Constituent by sending an XML or JSON representation of an existing Address object using HTTP PUT.  
+``` 
+##### Query:  
 ```json
-Query: {"AddressType":{"Id":123}, "AffiliatedConstituent":{"Id":123}, "AltSalutationType":{"Id":123}, "City":"string", "Constituent":{"Id":123}, "Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DeliveryPoint":"string", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "GeoArea":123, "Id":123, "Inactive":true, "IsFromAffiliation":true, "Label":true, "Months":"string", "NcoaAction":123, "NcoaSession":123, "PostalCode":"string", "PostalCodeFormatted":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "State":{"Id":123}, "Street1":"string", "Street1Address":{"Number":"string", "Street":"string"}, "Street2":"string", "Street3":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AddressID":"string"}
+{"AddressType":{"Id":123}, "AffiliatedConstituent":{"Id":123}, "AltSalutationType":{"Id":123}, "City":"string", "Constituent":{"Id":123}, "Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DeliveryPoint":"string", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "GeoArea":123, "Id":123, "Inactive":true, "IsFromAffiliation":true, "Label":true, "Months":"string", "NcoaAction":123, "NcoaSession":123, "PostalCode":"string", "PostalCodeFormatted":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "State":{"Id":123}, "Street1":"string", "Street1Address":{"Number":"string", "Street":"string"}, "Street2":"string", "Street3":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AddressID":"string"}
 ```
 
 
 ## AffiliationTypes [![get](https://img.shields.io/badge/get-blue)](get.md#affiliationtypes) [![post](https://img.shields.io/badge/post-blue)](post.md#affiliationtypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing affiliation type.  
+##### Usage:  
 ```shell
 tq put AffiliationTypes
-```
-Update an existing affiliation type.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsAllowedToTransactDefault":true, "IsIncludedInSearchResultsDefault":true, "RelationshipCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseSalary":true, "UseTitle":true, "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsAllowedToTransactDefault":true, "IsIncludedInSearchResultsDefault":true, "RelationshipCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseSalary":true, "UseTitle":true, "ID":"string"}
 ```
 
 ## Affiliations [![get](https://img.shields.io/badge/get-blue)](get.md#affiliations) [![post](https://img.shields.io/badge/post-blue)](post.md#affiliations) ![put](https://img.shields.io/badge/put-gray)   
+Update an affiliation.  
+##### Usage:  
 ```shell
 tq put Affiliations
-```
-Update an affiliation.  
+``` 
+##### Query:  
 ```json
-Query: {"AddressId":123, "AffiliatedName":"string", "AffiliationType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "ElectronicAddressId":123, "EndDate":"2000-01-01T00:00:00.000Z", "GroupConstituent":{"Id":123}, "GroupConstituentName":"string", "GroupConstituentSortName":"string", "Id":123, "Inactive":true, "IndividualConstituent":{"Id":123}, "IndividualConstituentName":"string", "IndividualConstituentSortName":"string", "IsAllowedToTransact":true, "IsIncludedInSearchResults":true, "NameIndicator":123, "Note":"string", "PrimaryIndicator":true, "Salary":123.456, "SalutationId":123, "StartDate":"2000-01-01T00:00:00.000Z", "Title":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AffiliationID":"string"}
+{"AddressId":123, "AffiliatedName":"string", "AffiliationType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "ElectronicAddressId":123, "EndDate":"2000-01-01T00:00:00.000Z", "GroupConstituent":{"Id":123}, "GroupConstituentName":"string", "GroupConstituentSortName":"string", "Id":123, "Inactive":true, "IndividualConstituent":{"Id":123}, "IndividualConstituentName":"string", "IndividualConstituentSortName":"string", "IsAllowedToTransact":true, "IsIncludedInSearchResults":true, "NameIndicator":123, "Note":"string", "PrimaryIndicator":true, "Salary":123.456, "SalutationId":123, "StartDate":"2000-01-01T00:00:00.000Z", "Title":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AffiliationID":"string"}
 ```
 
 ## AliasTypes [![get](https://img.shields.io/badge/get-blue)](get.md#aliastypes) [![post](https://img.shields.io/badge/post-blue)](post.md#aliastypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing alias type.  
+##### Usage:  
 ```shell
 tq put AliasTypes
-```
-Update an existing alias type.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Aliases [![get](https://img.shields.io/badge/get-blue)](get.md#aliases) [![post](https://img.shields.io/badge/post-blue)](post.md#aliases) ![put](https://img.shields.io/badge/put-gray)   
+Update an alias.  
+##### Usage:  
 ```shell
 tq put Aliases
-```
-Update an alias.  
+``` 
+##### Query:  
 ```json
-Query: {"AliasFirstName":"string", "AliasLastName":"string", "AliasType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AliasID":"string"}
+{"AliasFirstName":"string", "AliasLastName":"string", "AliasType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AliasID":"string"}
 ```
 
 
 ## AnalyticsReports [![get](https://img.shields.io/badge/get-blue)](get.md#analyticsreports) [![post](https://img.shields.io/badge/post-blue)](post.md#analyticsreports) ![put](https://img.shields.io/badge/put-gray)   
+Update SSRS Reports for display in Analytics.  
+##### Usage:  
 ```shell
 tq put AnalyticsReports
-```
-Update SSRS Reports for display in Analytics.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Division":{"Id":"string"}, "Id":123, "Inactive":true, "ReportPath":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AnalyticsReportID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Division":{"Id":"string"}, "Id":123, "Inactive":true, "ReportPath":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AnalyticsReportID":"string"}
 ```
 
 ## AppScreenTexts [![get](https://img.shields.io/badge/get-blue)](get.md#appscreentexts) ![put](https://img.shields.io/badge/put-gray)   
+Create or update a new App Screen Text.  
+##### Usage:  
 ```shell
 tq put AppScreenTexts
-```
-Create or update a new App Screen Text.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Name":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Name":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}
 ```
 
 ## AppealCategories [![get](https://img.shields.io/badge/get-blue)](get.md#appealcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#appealcategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing appeal category.  
+##### Usage:  
 ```shell
 tq put AppealCategories
-```
-Update an existing appeal category.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 
 ## Artists [![get](https://img.shields.io/badge/get-blue)](get.md#artists) [![post](https://img.shields.io/badge/post-blue)](post.md#artists) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing artist.  
+##### Usage:  
 ```shell
 tq put Artists
-```
-Update an existing artist.  
+``` 
+##### Query:  
 ```json
-Query: {"Bio":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "FirstName":"string", "Id":123, "LastName":"string", "MiddleName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "VoiceId":123, "ArtistID":"string"}
+{"Bio":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "FirstName":"string", "Id":123, "LastName":"string", "MiddleName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "VoiceId":123, "ArtistID":"string"}
 ```
 
 ## AssetTypes [![get](https://img.shields.io/badge/get-blue)](get.md#assettypes) [![post](https://img.shields.io/badge/post-blue)](post.md#assettypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing asset type.  
+##### Usage:  
 ```shell
 tq put AssetTypes
-```
-Update an existing asset type.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Assets [![get](https://img.shields.io/badge/get-blue)](get.md#assets) [![post](https://img.shields.io/badge/post-blue)](post.md#assets) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing asset for a constituent.  
+##### Usage:  
 ```shell
 tq put Assets
-```
-Update an existing asset for a constituent.  
+``` 
+##### Query:  
 ```json
-Query: {"AcquisitionDateTime":"2000-01-01T00:00:00.000Z", "AssetType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "EstimatedValue":123.456, "Id":123, "Notes":"string", "SaleDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AssetID":"string"}
+{"AcquisitionDateTime":"2000-01-01T00:00:00.000Z", "AssetType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "EstimatedValue":123.456, "Id":123, "Notes":"string", "SaleDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AssetID":"string"}
 ```
 
 ## AssociationTypes [![get](https://img.shields.io/badge/get-blue)](get.md#associationtypes) [![post](https://img.shields.io/badge/post-blue)](post.md#associationtypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing association type.  
+##### Usage:  
 ```shell
 tq put AssociationTypes
-```
-Update an existing association type.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsIncludedInSearchResultsDefault":true, "ReciprocalType":{"Id":123}, "RelationshipCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseBirthDate":true, "UseGender":true, "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsIncludedInSearchResultsDefault":true, "ReciprocalType":{"Id":123}, "RelationshipCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseBirthDate":true, "UseGender":true, "ID":"string"}
 ```
 
 ## Associations [![get](https://img.shields.io/badge/get-blue)](get.md#associations) [![post](https://img.shields.io/badge/post-blue)](post.md#associations) ![put](https://img.shields.io/badge/put-gray)   
+Update a association.  
+##### Usage:  
 ```shell
 tq put Associations
-```
-Update a association.  
+``` 
+##### Query:  
 ```json
-Query: {"AssociatedConstituent":{"Id":123}, "AssociatedName":"string", "AssociationType":{"Id":123}, "BirthDate":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "Gender":{"Id":123}, "Id":123, "Inactive":true, "IsIncludedInSearchResults":true, "Note":"string", "ReciprocalAssociation":{"Id":123}, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AssociationID":"string"}
+{"AssociatedConstituent":{"Id":123}, "AssociatedName":"string", "AssociationType":{"Id":123}, "BirthDate":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "Gender":{"Id":123}, "Id":123, "Inactive":true, "IsIncludedInSearchResults":true, "Note":"string", "ReciprocalAssociation":{"Id":123}, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AssociationID":"string"}
 ```
 
 
 ## Attributes [![get](https://img.shields.io/badge/get-blue)](get.md#attributes) [![post](https://img.shields.io/badge/post-blue)](post.md#attributes) ![put](https://img.shields.io/badge/put-gray)   
+Update an attribute.  
+##### Usage:  
 ```shell
 tq put Attributes
-```
-Update an attribute.  
+``` 
+##### Query:  
 ```json
-Query: {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Keyword":{"Id":123}, "KeywordConstituentType":{"Inactive":true, "Rank":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string", "AttributeID":"string"}
+{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Keyword":{"Id":123}, "KeywordConstituentType":{"Inactive":true, "Rank":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string", "AttributeID":"string"}
 ```
 
 
 
 ## Authorization [![post](https://img.shields.io/badge/post-blue)](post.md#authorization) ![put](https://img.shields.io/badge/put-gray)   
-```shell
-tq put Authorization
-```
 NOTE: THIS IS FOR TESSITURA USE ONLY. Custom implementations of this endpoint are not supported.
 Expire a payment link which has yet to be authorized or already expired.  For Tessitura Merchant Services only.  
+##### Usage:  
+```shell
+tq put Authorization
+``` 
+##### Query:  
 ```json
-Query: {"PaymentID":"string"}
+{"PaymentID":"string"}
 ```
 
 	
@@ -228,631 +274,760 @@ Query: {"PaymentID":"string"}
 
 
 ## BatchTypeGroups [![get](https://img.shields.io/badge/get-blue)](get.md#batchtypegroups) [![post](https://img.shields.io/badge/post-blue)](post.md#batchtypegroups) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing batch type group.  
+##### Usage:  
 ```shell
 tq put BatchTypeGroups
-```
-Update an existing batch type group.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 ## BatchTypes [![get](https://img.shields.io/badge/get-blue)](get.md#batchtypes) [![post](https://img.shields.io/badge/post-blue)](post.md#batchtypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing batch type.  
+##### Usage:  
 ```shell
 tq put BatchTypes
-```
-Update an existing batch type.  
+``` 
+##### Query:  
 ```json
-Query: {"BatchTypeGroup":{"Id":123}, "BusinessUnit":{"Id":123}, "Category":123, "CntlIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"BatchTypeGroup":{"Id":123}, "BusinessUnit":{"Id":123}, "Category":123, "CntlIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## BillingSchedules [![get](https://img.shields.io/badge/get-blue)](get.md#billingschedules) [![post](https://img.shields.io/badge/post-blue)](post.md#billingschedules) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Billing Schedule.  
+##### Usage:  
 ```shell
 tq put BillingSchedules
-```
-Update an existing Billing Schedule.  
+``` 
+##### Query:  
 ```json
-Query: {"BillAmounts":"string", "BillDates":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LongDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"BillAmounts":"string", "BillDates":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LongDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## BillingTypes [![get](https://img.shields.io/badge/get-blue)](get.md#billingtypes) [![post](https://img.shields.io/badge/post-blue)](post.md#billingtypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Billing Type.  
+##### Usage:  
 ```shell
 tq put BillingTypes
-```
-Update an existing Billing Type.  
+``` 
+##### Query:  
 ```json
-Query: {"AutoBillingIndicator":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"AutoBillingIndicator":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## BookingCategories [![get](https://img.shields.io/badge/get-blue)](get.md#bookingcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#bookingcategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Booking Category.  
+##### Usage:  
 ```shell
 tq put BookingCategories
-```
-Update an existing Booking Category.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## BookingTemplates [![get](https://img.shields.io/badge/get-blue)](get.md#bookingtemplates) [![post](https://img.shields.io/badge/post-blue)](post.md#bookingtemplates) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Booking Template  
+##### Usage:  
 ```shell
 tq put BookingTemplates
-```
-Update an existing Booking Template  
+``` 
+##### Query:  
 ```json
-Query: {"Assignments":[{"Id":123}, ...], "Category":{"Id":123}, "ConfirmationText":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Notes":"string", "OverrideTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BookingTemplateID":"string"}
+{"Assignments":[{"Id":123}, ...], "Category":{"Id":123}, "ConfirmationText":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Notes":"string", "OverrideTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BookingTemplateID":"string"}
 ```
 
 ## Bookings [![get](https://img.shields.io/badge/get-blue)](get.md#bookings) [![post](https://img.shields.io/badge/post-blue)](post.md#bookings) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Booking  
+##### Usage:  
 ```shell
 tq put Bookings
-```
-Update an existing Booking  
+``` 
+##### Query:  
 ```json
-Query: {"Assignments":[{"Id":123}, ...], "BookingSource":123, "Category":{"Id":123}, "ConfirmationText":"string", "Context":{}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultCount":123, "DefaultDateTime":"2000-01-01T00:00:00.000Z", "DefaultDuration":123, "Description":"string", "EditIndicator":true, "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BookingID":"string"}
+{"Assignments":[{"Id":123}, ...], "BookingSource":123, "Category":{"Id":123}, "ConfirmationText":"string", "Context":{}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultCount":123, "DefaultDateTime":"2000-01-01T00:00:00.000Z", "DefaultDuration":123, "Description":"string", "EditIndicator":true, "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BookingID":"string"}
 ```
 
 ## BulkCopySets [![get](https://img.shields.io/badge/get-blue)](get.md#bulkcopysets) [![post](https://img.shields.io/badge/post-blue)](post.md#bulkcopysets) ![put](https://img.shields.io/badge/put-gray)   
+Updates an existing bulk copy set.  
+##### Usage:  
 ```shell
 tq put BulkCopySets
-```
-Updates an existing bulk copy set.  
+``` 
+##### Query:  
 ```json
-Query: {"AvailableForSaleIndicator":true, "ControlGroup":{"Id":123}, "CopyCredits":true, "CopyNotes":true, "CopyOffers":true, "CopyPriceEvents":true, "CopyPrices":true, "CreateFriday":true, "CreateFromDateTime":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreateMode":"string", "CreateMonday":true, "CreateSaturday":true, "CreateSunday":true, "CreateThursday":true, "CreateToDateTime":"2000-01-01T00:00:00.000Z", "CreateTuesday":true, "CreateWednesday":true, "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultRelativeDates":"string", "Id":123, "Inactive":true, "OverrideOnSale":true, "PackageCode":"string", "PackageCodeSeed":123, "PackageModeOfSaleRelativeDates":"string", "PerformanceCode":"string", "PerformanceCodeSeed":123, "PerformanceDescription":"string", "PerformanceModeOfSaleRelativeDates":"string", "PerformanceStatus":{"Id":123}, "PerformanceTime":"string", "PerformanceType":{"Id":123}, "PriceEventRelativeDates":"string", "PriceTypeRelativeDates":"string", "ProductionSeason":{"Id":123}, "PublishRelativeDates":"string", "ReferenceDay":"2000-01-01T00:00:00.000Z", "ReferencePerformanceId":123, "ReferenceSeasonString":"string", "SetDescription":"string", "SetType":123, "ShortName":"string", "TimeSlot":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BulkCopySetID":"string"}
+{"AvailableForSaleIndicator":true, "ControlGroup":{"Id":123}, "CopyCredits":true, "CopyNotes":true, "CopyOffers":true, "CopyPriceEvents":true, "CopyPrices":true, "CreateFriday":true, "CreateFromDateTime":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreateMode":"string", "CreateMonday":true, "CreateSaturday":true, "CreateSunday":true, "CreateThursday":true, "CreateToDateTime":"2000-01-01T00:00:00.000Z", "CreateTuesday":true, "CreateWednesday":true, "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultRelativeDates":"string", "Id":123, "Inactive":true, "OverrideOnSale":true, "PackageCode":"string", "PackageCodeSeed":123, "PackageModeOfSaleRelativeDates":"string", "PerformanceCode":"string", "PerformanceCodeSeed":123, "PerformanceDescription":"string", "PerformanceModeOfSaleRelativeDates":"string", "PerformanceStatus":{"Id":123}, "PerformanceTime":"string", "PerformanceType":{"Id":123}, "PriceEventRelativeDates":"string", "PriceTypeRelativeDates":"string", "ProductionSeason":{"Id":123}, "PublishRelativeDates":"string", "ReferenceDay":"2000-01-01T00:00:00.000Z", "ReferencePerformanceId":123, "ReferenceSeasonString":"string", "SetDescription":"string", "SetType":123, "ShortName":"string", "TimeSlot":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BulkCopySetID":"string"}
 ```
 
 ## BulkDailyCopyExclusions [![get](https://img.shields.io/badge/get-blue)](get.md#bulkdailycopyexclusions) [![post](https://img.shields.io/badge/post-blue)](post.md#bulkdailycopyexclusions) ![put](https://img.shields.io/badge/put-gray)   
+Updates an existing bulk daily copy exclusion.  
+##### Usage:  
 ```shell
 tq put BulkDailyCopyExclusions
-```
-Updates an existing bulk daily copy exclusion.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DoNotCopy":true, "Id":123, "IncludeWithoutCopy":true, "PackageId":123, "PerformanceId":123, "SetId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BulkDailyCopyExclusionID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DoNotCopy":true, "Id":123, "IncludeWithoutCopy":true, "PackageId":123, "PerformanceId":123, "SetId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BulkDailyCopyExclusionID":"string"}
 ```
 
 ## BusinessUnits [![get](https://img.shields.io/badge/get-blue)](get.md#businessunits) [![post](https://img.shields.io/badge/post-blue)](post.md#businessunits) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing business unit.  
+##### Usage:  
 ```shell
 tq put BusinessUnits
-```
-Update an existing business unit.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 	
 # C
 
 ## CampaignDesignations [![get](https://img.shields.io/badge/get-blue)](get.md#campaigndesignations) [![post](https://img.shields.io/badge/post-blue)](post.md#campaigndesignations) ![put](https://img.shields.io/badge/put-gray)   
+Update an association between a Designation and a Campaign.  
+##### Usage:  
 ```shell
 tq put CampaignDesignations
-```
-Update an association between a Designation and a Campaign.  
+``` 
+##### Query:  
 ```json
-Query: {"Campaign":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Designation":{"Id":123}, "EditIndicator":true, "GoalAmount":123.456, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "CampaignDesignationID":"string"}
+{"Campaign":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Designation":{"Id":123}, "EditIndicator":true, "GoalAmount":123.456, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "CampaignDesignationID":"string"}
 ```
 
 ## CampaignFunds [![get](https://img.shields.io/badge/get-blue)](get.md#campaignfunds) [![post](https://img.shields.io/badge/post-blue)](post.md#campaignfunds) ![put](https://img.shields.io/badge/put-gray)   
+Update a Fund association to a Campaign.  
+##### Usage:  
 ```shell
 tq put CampaignFunds
-```
-Update a Fund association to a Campaign.  
+``` 
+##### Query:  
 ```json
-Query: {"Campaign":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "Fund":{"Id":123}, "GoalAmount":123.456, "Id":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "CampaignFundID":"string"}
+{"Campaign":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "Fund":{"Id":123}, "GoalAmount":123.456, "Id":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "CampaignFundID":"string"}
 ```
 
 
 ## CardReaderTypes [![get](https://img.shields.io/badge/get-blue)](get.md#cardreadertypes) [![post](https://img.shields.io/badge/post-blue)](post.md#cardreadertypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Card Reader Type.  
+##### Usage:  
 ```shell
 tq put CardReaderTypes
-```
-Update an existing Card Reader Type.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Cart [![get](https://img.shields.io/badge/get-blue)](get.md#cart) [![post](https://img.shields.io/badge/post-blue)](post.md#cart) ![put](https://img.shields.io/badge/put-gray)   
-```shell
-tq put Cart
-```
 Applies a discounted price to all sub line items for a line item
 For packages, the discount can only be applied to package line items.
 The status field in the response will return as S if the discount can be used or E with a description of the error if the discount cannot be used.  
+##### Usage:  
+```shell
+tq put Cart
+``` 
+##### Query:  
 ```json
-Query: {"LineItemID":"string", "DiscountTypeId":123, "SessionKey":"string"}
+{"LineItemID":"string", "DiscountTypeId":123, "SessionKey":"string"}
 ```
 ### Flags:
  * *--ApplySubLineItemDiscount*  
    Applies a discounted price to a sub line item
 
 The status field in the response will return as S if the discount can be used or E with a description of the error if the discount cannot be used.
+##### Query:  
 ```json
-Query: {"DiscountTypeId":123, "SessionKey":"string", "SubLineItemID":"string"}
+{"DiscountTypeId":123, "SessionKey":"string", "SubLineItemID":"string"}
 ```
  * *--CartFlags*  
    Updates flags on the cart
+##### Query:  
 ```json
-Query: {"ShouldCalculateFees":true, "ShouldCalculatePrices":true, "SessionKey":"string"}
+{"ShouldCalculateFees":true, "ShouldCalculatePrices":true, "SessionKey":"string"}
 ```
  * *--CartProperties*  
    Updates cart properties
 See the notes on the request for specific documentation on each item that can be set. <br /> 
 Before making a request to PUT cart properties, you should make a GET request to obtain all current property values. Make updates to any of the properties that need changing, and pass the entire cart properties object back into your put request. This ensures that all property values that are set, but should not change, persist and are not overwritten unintentioanlly.
+##### Query:  
 ```json
-Query: {"AddressId":123, "CategoryId":123, "ChannelId":123, "DeliveryMethodId":123, "ElectronicAddressId":123, "HoldUntilDateTime":"2000-01-01T00:00:00.000Z", "InitiatorId":123, "ModeOfSaleId":123, "Notes":"string", "OrderDateTime":"2000-01-01T00:00:00.000Z", "PhoneId":123, "Solicitor":"string", "SourceId":123, "SessionKey":"string"}
+{"AddressId":123, "CategoryId":123, "ChannelId":123, "DeliveryMethodId":123, "ElectronicAddressId":123, "HoldUntilDateTime":"2000-01-01T00:00:00.000Z", "InitiatorId":123, "ModeOfSaleId":123, "Notes":"string", "OrderDateTime":"2000-01-01T00:00:00.000Z", "PhoneId":123, "Solicitor":"string", "SourceId":123, "SessionKey":"string"}
 ```
  * *--CartPropertiesCustomData*  
    Updates a custom data value in the cart properties
 Note: Only the Index and Value properties in the request should be used.
+##### Query:  
 ```json
-Query: {"DataType":"string", "Description":"string", "EditIndicator":true, "Index":123, "IsDropdown":true, "KeywordId":123, "Name":"string", "Value":"string", "CustomID":"string", "SessionKey":"string"}
+{"DataType":"string", "Description":"string", "EditIndicator":true, "Index":123, "IsDropdown":true, "KeywordId":123, "Name":"string", "Value":"string", "CustomID":"string", "SessionKey":"string"}
 ```
  * *--ContributionCustomData*  
    Updates a custom data value for a contribution in the cart
 Note: Only the Index and Value properties in the request object should be used.
+##### Query:  
 ```json
-Query: {"DataType":"string", "Description":"string", "EditIndicator":true, "Index":123, "IsDropdown":true, "KeywordId":123, "Name":"string", "Value":"string", "CustomID":"string", "LineItemID":"string", "SessionKey":"string"}
+{"DataType":"string", "Description":"string", "EditIndicator":true, "Index":123, "IsDropdown":true, "KeywordId":123, "Name":"string", "Value":"string", "CustomID":"string", "LineItemID":"string", "SessionKey":"string"}
 ```
  * *--LineItemPrice*  
    Updates the price on all sub line items for the line item
 A price can only be edited if the price type has been marked as editable, zones on the price map have been designated as editable, and the seat is in one of the editable zones.
 The status field in the response will return as S if the price can be applied or E with a description of the error if the price cannot be applied.
+##### Query:  
 ```json
-Query: {"LineItemID":"string", "NewPrice":123.456, "SessionKey":"string"}
+{"LineItemID":"string", "NewPrice":123.456, "SessionKey":"string"}
 ```
  * *--LineItemPriceType*  
    Updates the price type on all sub line items for a given lineitem
 Can be filtered by those have a current price type as specified by OriginalPriceType
+##### Query:  
 ```json
-Query: {"LineItemID":"string", "NewPriceType":123, "NewPriceTypeReason":123, "OriginalPriceType":123, "SessionKey":"string"}
+{"LineItemID":"string", "NewPriceType":123, "NewPriceTypeReason":123, "OriginalPriceType":123, "SessionKey":"string"}
 ```
  * *--LineItemSource*  
    Updates the source on a line item
 Allows the source of an individual line to be updated.  When a line is created, by reserving a tickets for a performance or package, the line source is copied from the session source. This method allows the line source to be updated.
 Offers and Pricing Rules consider line source, not the session source.
+##### Query:  
 ```json
-Query: {"LineItemID":"string", "SourceId":123, "SessionKey":"string"}
+{"LineItemID":"string", "SourceId":123, "SessionKey":"string"}
 ```
  * *--LineItemSpecialRequest*  
    Updates Special Request info on a line item
+##### Query:  
 ```json
-Query: {"LineItemID":"string", "AisleSeat":"string", "Category":{"Id":123}, "ContiguousSeats":123, "EndPrice":123.456, "EndingRow":"string", "EndingSeat":"string", "HoldCode":123, "LeaveSingleSeats":true, "NoStairs":true, "Notes":"string", "StartPrice":123.456, "StartingRow":"string", "StartingSeat":"string", "WheelchairSeats":123, "SessionKey":"string"}
+{"LineItemID":"string", "AisleSeat":"string", "Category":{"Id":123}, "ContiguousSeats":123, "EndPrice":123.456, "EndingRow":"string", "EndingSeat":"string", "HoldCode":123, "LeaveSingleSeats":true, "NoStairs":true, "Notes":"string", "StartPrice":123.456, "StartingRow":"string", "StartingSeat":"string", "WheelchairSeats":123, "SessionKey":"string"}
 ```
  * *--PaymentPlan*  
    Allows the billing and credit card information to be updated on an existing payment plan for the cart.
+##### Query:  
 ```json
-Query: {"AccountId":123, "BillingTypeId":123, "Card":{"ExpiryMonth":123, "ExpiryYear":123, "Name":"string", "Number":"string", "PaymentMethodGroupId":123}, "SessionKey":"string"}
+{"AccountId":123, "BillingTypeId":123, "Card":{"ExpiryMonth":123, "ExpiryYear":123, "Name":"string", "Number":"string", "PaymentMethodGroupId":123}, "SessionKey":"string"}
 ```
  * *--SubLineItemPrice*  
    Updates the price on a sub line item.
 A price can only be edited if the price type has been marked as editable, zones on the price map have been designated as editable, and the seat is in one of the editable zones.
 The status field in the response will return as S if the price can be applied or E with a description of the error if the price cannot be applied.
+##### Query:  
 ```json
-Query: {"NewPrice":123.456, "SessionKey":"string", "SubLineItemID":"string"}
+{"NewPrice":123.456, "SessionKey":"string", "SubLineItemID":"string"}
 ```
  * *--SubLineItemPriceType*  
    Updates the price type on a sub line item
+##### Query:  
 ```json
-Query: {"NewPriceType":123, "NewPriceTypeReason":123, "OriginalPriceType":123, "SessionKey":"string", "SubLineItemID":"string"}
+{"NewPriceType":123, "NewPriceTypeReason":123, "OriginalPriceType":123, "SessionKey":"string", "SubLineItemID":"string"}
 ```
  * *--SubLineItemRecipient*  
    Updates the recipient on a sub line item
+##### Query:  
 ```json
-Query: {"RecipientId":123, "SessionKey":"string", "SubLineItemID":"string"}
+{"RecipientId":123, "SessionKey":"string", "SubLineItemID":"string"}
 ```
 
 ## Colors [![get](https://img.shields.io/badge/get-blue)](get.md#colors) [![post](https://img.shields.io/badge/post-blue)](post.md#colors) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing color.  
+##### Usage:  
 ```shell
 tq put Colors
-```
-Update an existing color.  
+``` 
+##### Query:  
 ```json
-Query: {"ColorValue":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ColorValue":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Composers [![get](https://img.shields.io/badge/get-blue)](get.md#composers) [![post](https://img.shields.io/badge/post-blue)](post.md#composers) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing composer.  
+##### Usage:  
 ```shell
 tq put Composers
-```
-Update an existing composer.  
+``` 
+##### Query:  
 ```json
-Query: {"Bio":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "FirstName":"string", "Id":123, "Inactive":true, "LastName":"string", "MiddleName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"Bio":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "FirstName":"string", "Id":123, "Inactive":true, "LastName":"string", "MiddleName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Constituencies [![get](https://img.shields.io/badge/get-blue)](get.md#constituencies) [![post](https://img.shields.io/badge/post-blue)](post.md#constituencies) ![put](https://img.shields.io/badge/put-gray)   
+Update a constituency.  
+##### Usage:  
 ```shell
 tq put Constituencies
-```
-Update a constituency.  
+``` 
+##### Query:  
 ```json
-Query: {"ConstituencyType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "Id":123, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ConstituencyID":"string"}
+{"ConstituencyType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "Id":123, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ConstituencyID":"string"}
 ```
 
 ## ConstituencyTypes [![get](https://img.shields.io/badge/get-blue)](get.md#constituencytypes) [![post](https://img.shields.io/badge/post-blue)](post.md#constituencytypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing constituency type.  
+##### Usage:  
 ```shell
 tq put ConstituencyTypes
-```
-Update an existing constituency type.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 ## ConstituentDocuments [![get](https://img.shields.io/badge/get-blue)](get.md#constituentdocuments) [![post](https://img.shields.io/badge/post-blue)](post.md#constituentdocuments) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing document for a constituent.  
+##### Usage:  
 ```shell
 tq put ConstituentDocuments
-```
-Update an existing document for a constituent.  
+``` 
+##### Query:  
 ```json
-Query: {"Category":{"Id":123}, "ConstituentId":123, "Contents":"AA==", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "FileName":"string", "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "DocumentID":"string"}
+{"Category":{"Id":123}, "ConstituentId":123, "Contents":"AA==", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "FileName":"string", "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "DocumentID":"string"}
 ```
 
 ## ConstituentGroups [![get](https://img.shields.io/badge/get-blue)](get.md#constituentgroups) [![post](https://img.shields.io/badge/post-blue)](post.md#constituentgroups) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing constituent group.  
+##### Usage:  
 ```shell
 tq put ConstituentGroups
-```
-Update an existing constituent group.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## ConstituentInactives [![get](https://img.shields.io/badge/get-blue)](get.md#constituentinactives) [![post](https://img.shields.io/badge/post-blue)](post.md#constituentinactives) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing constituent inactive.  
+##### Usage:  
 ```shell
 tq put ConstituentInactives
-```
-Update an existing constituent inactive.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## ConstituentProtectionTypes [![get](https://img.shields.io/badge/get-blue)](get.md#constituentprotectiontypes) [![post](https://img.shields.io/badge/post-blue)](post.md#constituentprotectiontypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing constituent protection type.  
+##### Usage:  
 ```shell
 tq put ConstituentProtectionTypes
-```
-Update an existing constituent protection type.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## ConstituentTypeAffiliates [![get](https://img.shields.io/badge/get-blue)](get.md#constituenttypeaffiliates) [![post](https://img.shields.io/badge/post-blue)](post.md#constituenttypeaffiliates) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing constituent type affiliate.  
+##### Usage:  
 ```shell
 tq put ConstituentTypeAffiliates
-```
-Update an existing constituent type affiliate.  
+``` 
+##### Query:  
 ```json
-Query: {"AffiliationType":{"Id":123}, "ConstituentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HouseholdPrimary":true, "Id":123, "Rank":123, "ShowWithGroup":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"AffiliationType":{"Id":123}, "ConstituentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HouseholdPrimary":true, "Id":123, "Rank":123, "ShowWithGroup":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## ConstituentTypes [![get](https://img.shields.io/badge/get-blue)](get.md#constituenttypes) [![post](https://img.shields.io/badge/post-blue)](post.md#constituenttypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing constituent type.  
+##### Usage:  
 ```shell
 tq put ConstituentTypes
-```
-Update an existing constituent type.  
+``` 
+##### Query:  
 ```json
-Query: {"AddressTypeId":123, "ConstituentGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultAffiliatedConstituentTypeId":123, "DefaultAffiliationTypeId":123, "DefaultIndicator":true, "DefaultSalutationId":123, "Description":"string", "ElectronicAddressTypeId":123, "GiftAidIndicator":true, "Id":123, "Inactive":true, "LoginTypeId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"AddressTypeId":123, "ConstituentGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultAffiliatedConstituentTypeId":123, "DefaultAffiliationTypeId":123, "DefaultIndicator":true, "DefaultSalutationId":123, "Description":"string", "ElectronicAddressTypeId":123, "GiftAidIndicator":true, "Id":123, "Inactive":true, "LoginTypeId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Constituents [![get](https://img.shields.io/badge/get-blue)](get.md#constituents) [![post](https://img.shields.io/badge/post-blue)](post.md#constituents) ![put](https://img.shields.io/badge/put-gray)   
+Update a constituent. Only the information about constituent can be updated. If addresses, electronicAddresses, salutations or phones data are passed, they will be ignored.  
+##### Usage:  
 ```shell
 tq put Constituents
-```
-Update a constituent. Only the information about constituent can be updated. If addresses, electronicAddresses, salutations or phones data are passed, they will be ignored.  
+``` 
+##### Query:  
 ```json
-Query: {"ConstituentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DisplayName":"string", "EmarketIndicator":{"Id":123}, "FirstName":"string", "Gender":{"Id":123}, "Id":123, "Inactive":{"Id":123}, "InactiveReason":{"Id":123}, "LastActivityDate":"2000-01-01T00:00:00.000Z", "LastGiftDate":"2000-01-01T00:00:00.000Z", "LastName":"string", "LastTicketDate":"2000-01-01T00:00:00.000Z", "MailIndicator":{"Id":123}, "MiddleName":"string", "NameStatus":{"Id":123}, "OriginalSource":{"Id":123}, "PhoneIndicator":{"Id":123}, "Prefix":{"Id":123}, "ProtectionType":{"Id":123}, "SortName":"string", "Suffix":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ConstituentID":"string"}
+{"ConstituentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DisplayName":"string", "EmarketIndicator":{"Id":123}, "FirstName":"string", "Gender":{"Id":123}, "Id":123, "Inactive":{"Id":123}, "InactiveReason":{"Id":123}, "LastActivityDate":"2000-01-01T00:00:00.000Z", "LastGiftDate":"2000-01-01T00:00:00.000Z", "LastName":"string", "LastTicketDate":"2000-01-01T00:00:00.000Z", "MailIndicator":{"Id":123}, "MiddleName":"string", "NameStatus":{"Id":123}, "OriginalSource":{"Id":123}, "PhoneIndicator":{"Id":123}, "Prefix":{"Id":123}, "ProtectionType":{"Id":123}, "SortName":"string", "Suffix":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ConstituentID":"string"}
 ```
 
 ## ContactPermissionCategories [![get](https://img.shields.io/badge/get-blue)](get.md#contactpermissioncategories) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpermissioncategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing contact permission category.  
+##### Usage:  
 ```shell
 tq put ContactPermissionCategories
-```
-Update an existing contact permission category.  
+``` 
+##### Query:  
 ```json
-Query: {"AskFrequencyMonths":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"AskFrequencyMonths":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## ContactPermissionTypes [![get](https://img.shields.io/badge/get-blue)](get.md#contactpermissiontypes) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpermissiontypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing contact permission type.  
+##### Usage:  
 ```shell
 tq put ContactPermissionTypes
-```
-Update an existing contact permission type.  
+``` 
+##### Query:  
 ```json
-Query: {"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultValueForAdd":"string", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Presenter":true, "Rank":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultValueForAdd":"string", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Presenter":true, "Rank":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## ContactPermissions [![get](https://img.shields.io/badge/get-blue)](get.md#contactpermissions) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpermissions) ![put](https://img.shields.io/badge/put-gray)   
+Update a contact permission  
+##### Usage:  
 ```shell
 tq put ContactPermissions
-```
-Update a contact permission  
+``` 
+##### Query:  
 ```json
-Query: {"Answer":"string", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "LastAskedDateTime":"2000-01-01T00:00:00.000Z", "ShouldAsk":true, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ContactPermissionID":"string"}
+{"Answer":"string", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "LastAskedDateTime":"2000-01-01T00:00:00.000Z", "ShouldAsk":true, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ContactPermissionID":"string"}
 ```
 
 ## ContactPointCategories [![get](https://img.shields.io/badge/get-blue)](get.md#contactpointcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointcategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing contact point category.  
+##### Usage:  
 ```shell
 tq put ContactPointCategories
-```
-Update an existing contact point category.  
+``` 
+##### Query:  
 ```json
-Query: {"ContactPointKey":"string", "ContactPointTable":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ContactPointKey":"string", "ContactPointTable":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## ContactPointCategoryPurposes [![get](https://img.shields.io/badge/get-blue)](get.md#contactpointcategorypurposes) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointcategorypurposes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing contact point category purpose.  
+##### Usage:  
 ```shell
 tq put ContactPointCategoryPurposes
-```
-Update an existing contact point category purpose.  
+``` 
+##### Query:  
 ```json
-Query: {"ContactPointCategory":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Purpose":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ContactPointCategory":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Purpose":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## ContactPointPurposeCategories [![get](https://img.shields.io/badge/get-blue)](get.md#contactpointpurposecategories) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointpurposecategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing contact point purpose category.  
+##### Usage:  
 ```shell
 tq put ContactPointPurposeCategories
-```
-Update an existing contact point purpose category.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## ContactPointPurposeMaps [![get](https://img.shields.io/badge/get-blue)](get.md#contactpointpurposemaps) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointpurposemaps) ![put](https://img.shields.io/badge/put-gray)   
+Update a contact point purpose.  
+##### Usage:  
 ```shell
 tq put ContactPointPurposeMaps
-```
-Update a contact point purpose.  
+``` 
+##### Query:  
 ```json
-Query: {"ContactPoint":{"Id":123}, "ContactPointCategory":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Purpose":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ContactPointPurposeMapID":"string"}
+{"ContactPoint":{"Id":123}, "ContactPointCategory":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Purpose":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ContactPointPurposeMapID":"string"}
 ```
 
 ## ContactPointPurposes [![get](https://img.shields.io/badge/get-blue)](get.md#contactpointpurposes) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointpurposes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing contact point purpose.  
+##### Usage:  
 ```shell
 tq put ContactPointPurposes
-```
-Update an existing contact point purpose.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PurposeCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PurposeCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 ## ContactTypes [![get](https://img.shields.io/badge/get-blue)](get.md#contacttypes) [![post](https://img.shields.io/badge/post-blue)](post.md#contacttypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing contact type.  
+##### Usage:  
 ```shell
 tq put ContactTypes
-```
-Update an existing contact type.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 ## ContributionDesignations [![get](https://img.shields.io/badge/get-blue)](get.md#contributiondesignations) [![post](https://img.shields.io/badge/post-blue)](post.md#contributiondesignations) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing contribution designation.  
+##### Usage:  
 ```shell
 tq put ContributionDesignations
-```
-Update an existing contribution designation.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LetterText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LetterText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## ContributionImportSets [![get](https://img.shields.io/badge/get-blue)](get.md#contributionimportsets) [![post](https://img.shields.io/badge/post-blue)](post.md#contributionimportsets) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing contributionImportSet.  
+##### Usage:  
 ```shell
 tq put ContributionImportSets
-```
-Update an existing contributionImportSet.  
+``` 
+##### Query:  
 ```json
-Query: {"AccountMatchKeyword":{"Id":123}, "AcknowledgmentLetterMode":123, "BatchType":{"Id":123}, "BillingSchedule":{"Id":123}, "BillingType":{"Id":123}, "Campaign":{"Id":123}, "ContributionDateTime":"2000-01-01T00:00:00.000Z", "ContributionPayMode":123, "CreateLocation":"string", "CreatePotentialDuplicate":true, "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CrediteeMode":123, "CrediteeType":{"Id":123}, "DefaultConstituentType":{"Id":123}, "DefaultCountryCode":"string", "DefaultHouseholdConstituentType":{"Id":123}, "DefaultOriginalSource":{"Id":123}, "Description":"string", "Designation":{"Id":123}, "FilePath":"string", "FormatFile":"string", "Fund":{"Id":123}, "Id":123, "ImportRefNoLocation":123, "Inactive":true, "PaymentMethod":{"Id":123}, "SalesChannel":{"Id":123}, "Source":{"Id":123}, "StripPhoneFormatting":true, "TransactAsHousehold":true, "TransactAsHouseholdCreditee":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Worker":{"Id":123}, "ID":"string"}
+{"AccountMatchKeyword":{"Id":123}, "AcknowledgmentLetterMode":123, "BatchType":{"Id":123}, "BillingSchedule":{"Id":123}, "BillingType":{"Id":123}, "Campaign":{"Id":123}, "ContributionDateTime":"2000-01-01T00:00:00.000Z", "ContributionPayMode":123, "CreateLocation":"string", "CreatePotentialDuplicate":true, "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CrediteeMode":123, "CrediteeType":{"Id":123}, "DefaultConstituentType":{"Id":123}, "DefaultCountryCode":"string", "DefaultHouseholdConstituentType":{"Id":123}, "DefaultOriginalSource":{"Id":123}, "Description":"string", "Designation":{"Id":123}, "FilePath":"string", "FormatFile":"string", "Fund":{"Id":123}, "Id":123, "ImportRefNoLocation":123, "Inactive":true, "PaymentMethod":{"Id":123}, "SalesChannel":{"Id":123}, "Source":{"Id":123}, "StripPhoneFormatting":true, "TransactAsHousehold":true, "TransactAsHouseholdCreditee":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Worker":{"Id":123}, "ID":"string"}
 ```
 
 ## Contributions [![post](https://img.shields.io/badge/post-blue)](post.md#contributions) ![put](https://img.shields.io/badge/put-gray)   
+This resource is currently strictly for interceptor plugin use. This is called any time an existing contribution is updated from contribution editor in the client application. Only Id (ref_no) is provided in the request content.  
+##### Usage:  
 ```shell
 tq put Contributions
-```
-This resource is currently strictly for interceptor plugin use. This is called any time an existing contribution is updated from contribution editor in the client application. Only Id (ref_no) is provided in the request content.  
+``` 
+##### Query:  
 ```json
-Query: {"AccountId":123, "AppealId":123, "BatchId":123, "BillingAccount":"string", "BillingTypeId":123, "BusinessUnitId":123, "Campaign":{"Id":123}, "Cancel":"string", "Channel":{"Id":123}, "Constituent":{"Id":123}, "ContributionAmount":123.456, "ContributionDateTime":"2000-01-01T00:00:00.000Z", "ContributionDesignation":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Custom0":"string", "Custom1":"string", "Custom2":"string", "Custom3":"string", "Custom4":"string", "Custom5":"string", "Custom6":"string", "Custom7":"string", "Custom8":"string", "Custom9":"string", "EditIndicator":true, "Fund":{"Id":123}, "Id":123, "Initiator":{"Id":123}, "KindGiftDescription":"string", "KindGiftTransferDateTime":"2000-01-01T00:00:00.000Z", "MatchIndicator":"string", "MatchingContributionId":123, "MediaType":{"Id":123}, "MirrorLock":123, "Notes":"string", "PaymentEndDateTime":"2000-01-01T00:00:00.000Z", "PaymentStartDateTime":"2000-01-01T00:00:00.000Z", "Plan":{"Id":123}, "PledgeStatusId":123, "ReceivedAmount":123.456, "Solicitor":"string", "SourceId":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ContributionID":"string"}
+{"AccountId":123, "AppealId":123, "BatchId":123, "BillingAccount":"string", "BillingTypeId":123, "BusinessUnitId":123, "Campaign":{"Id":123}, "Cancel":"string", "Channel":{"Id":123}, "Constituent":{"Id":123}, "ContributionAmount":123.456, "ContributionDateTime":"2000-01-01T00:00:00.000Z", "ContributionDesignation":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Custom0":"string", "Custom1":"string", "Custom2":"string", "Custom3":"string", "Custom4":"string", "Custom5":"string", "Custom6":"string", "Custom7":"string", "Custom8":"string", "Custom9":"string", "EditIndicator":true, "Fund":{"Id":123}, "Id":123, "Initiator":{"Id":123}, "KindGiftDescription":"string", "KindGiftTransferDateTime":"2000-01-01T00:00:00.000Z", "MatchIndicator":"string", "MatchingContributionId":123, "MediaType":{"Id":123}, "MirrorLock":123, "Notes":"string", "PaymentEndDateTime":"2000-01-01T00:00:00.000Z", "PaymentStartDateTime":"2000-01-01T00:00:00.000Z", "Plan":{"Id":123}, "PledgeStatusId":123, "ReceivedAmount":123.456, "Solicitor":"string", "SourceId":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ContributionID":"string"}
 ```
 
 ## ControlGroupUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#controlgroupusergroups) [![post](https://img.shields.io/badge/post-blue)](post.md#controlgroupusergroups) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing control group/user group mapping.  
+##### Usage:  
 ```shell
 tq put ControlGroupUserGroups
-```
-Update an existing control group/user group mapping.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "EditIndicator":true, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "EditIndicator":true, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ID":"string"}
 ```
 
 ## ControlGroups [![get](https://img.shields.io/badge/get-blue)](get.md#controlgroups) [![post](https://img.shields.io/badge/post-blue)](post.md#controlgroups) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing control group.  
+##### Usage:  
 ```shell
 tq put ControlGroups
-```
-Update an existing control group.  
+``` 
+##### Query:  
 ```json
-Query: {"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Permission":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Permission":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 ## Countries [![get](https://img.shields.io/badge/get-blue)](get.md#countries) [![post](https://img.shields.io/badge/post-blue)](post.md#countries) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing country.  
+##### Usage:  
 ```shell
 tq put Countries
-```
-Update an existing country.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DecimalSeparator":"string", "Description":"string", "Id":123, "Inactive":true, "IsoAlpha2Code":"string", "IsoAlpha3Code":"string", "PhoneCode":"string", "PhoneEditstring":"string", "PhoneMask":"string", "PhoneValidLengths":"string", "ReqCity":true, "ReqPcode":true, "ShortDesc":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseAvs":"string", "UseStateField":"string", "ZipEditstring":"string", "ZipMask":"string", "ZipValidLengths":"string", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DecimalSeparator":"string", "Description":"string", "Id":123, "Inactive":true, "IsoAlpha2Code":"string", "IsoAlpha3Code":"string", "PhoneCode":"string", "PhoneEditstring":"string", "PhoneMask":"string", "PhoneValidLengths":"string", "ReqCity":true, "ReqPcode":true, "ShortDesc":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseAvs":"string", "UseStateField":"string", "ZipEditstring":"string", "ZipMask":"string", "ZipValidLengths":"string", "ID":"string"}
 ```
 
 ## CrediteeTypes [![get](https://img.shields.io/badge/get-blue)](get.md#crediteetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#crediteetypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing crediteeType.  
+##### Usage:  
 ```shell
 tq put CrediteeTypes
-```
-Update an existing crediteeType.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CreditMembershipIndicator":true, "Description":"string", "GiftAidIndicator":true, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CreditMembershipIndicator":true, "Description":"string", "GiftAidIndicator":true, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 
 
 ## CurrencyTypes [![get](https://img.shields.io/badge/get-blue)](get.md#currencytypes) [![post](https://img.shields.io/badge/post-blue)](post.md#currencytypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing currency type.  
+##### Usage:  
 ```shell
 tq put CurrencyTypes
-```
-Update an existing currency type.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rate":123.456, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rate":123.456, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 ## CustomDefaultCategories [![get](https://img.shields.io/badge/get-blue)](get.md#customdefaultcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#customdefaultcategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing custom default category.  
+##### Usage:  
 ```shell
 tq put CustomDefaultCategories
-```
-Update an existing custom default category.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## CustomDefaults [![get](https://img.shields.io/badge/get-blue)](get.md#customdefaults) [![post](https://img.shields.io/badge/post-blue)](post.md#customdefaults) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing custom default.  
+##### Usage:  
 ```shell
 tq put CustomDefaults
-```
-Update an existing custom default.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDefaultCategory":{"Id":123}, "DefaultValue":"string", "Description":"string", "FieldName":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDefaultCategory":{"Id":123}, "DefaultValue":"string", "Description":"string", "FieldName":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 	
 # D
 ## DeliveryMethods [![get](https://img.shields.io/badge/get-blue)](get.md#deliverymethods) [![post](https://img.shields.io/badge/post-blue)](post.md#deliverymethods) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing delivery method.  
+##### Usage:  
 ```shell
 tq put DeliveryMethods
-```
-Update an existing delivery method.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PrintAtHome":true, "RequireAddress":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PrintAtHome":true, "RequireAddress":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## DesignationCodes [![get](https://img.shields.io/badge/get-blue)](get.md#designationcodes) [![post](https://img.shields.io/badge/post-blue)](post.md#designationcodes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing designation code.  
+##### Usage:  
 ```shell
 tq put DesignationCodes
-```
-Update an existing designation code.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 ## Diagnostics [![get](https://img.shields.io/badge/get-blue)](get.md#diagnostics) [![post](https://img.shields.io/badge/post-blue)](post.md#diagnostics) ![put](https://img.shields.io/badge/put-gray)   
+Dummy end point to check availability of HTTP PUT.  
+##### Usage:  
 ```shell
 tq put Diagnostics
-```
-Dummy end point to check availability of HTTP PUT.  
+``` 
+##### Query:  
 ```json
-Query: {"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "DiagnosticID":"string"}
+{"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "DiagnosticID":"string"}
 ```
 
 ## DirectDebitAccountTypes [![get](https://img.shields.io/badge/get-blue)](get.md#directdebitaccounttypes) [![post](https://img.shields.io/badge/post-blue)](post.md#directdebitaccounttypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing direct debit account type.  
+##### Usage:  
 ```shell
 tq put DirectDebitAccountTypes
-```
-Update an existing direct debit account type.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## DiscountTypes [![get](https://img.shields.io/badge/get-blue)](get.md#discounttypes) [![post](https://img.shields.io/badge/post-blue)](post.md#discounttypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing discount type.  
+##### Usage:  
 ```shell
 tq put DiscountTypes
-```
-Update an existing discount type.  
+``` 
+##### Query:  
 ```json
-Query: {"Amount":123.456, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PercentIndicator":true, "RespectMinimumPrice":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"Amount":123.456, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PercentIndicator":true, "RespectMinimumPrice":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 ## DocumentCategories [![get](https://img.shields.io/badge/get-blue)](get.md#documentcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#documentcategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing documentCategory.  
+##### Usage:  
 ```shell
 tq put DocumentCategories
-```
-Update an existing documentCategory.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ParentTableName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ParentTableName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 ## DonationLevels [![get](https://img.shields.io/badge/get-blue)](get.md#donationlevels) [![post](https://img.shields.io/badge/post-blue)](post.md#donationlevels) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing donation level.  
+##### Usage:  
 ```shell
 tq put DonationLevels
-```
-Update an existing donation level.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ProgramType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ProgramType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 	
 # E
 ## EMV [![get](https://img.shields.io/badge/get-blue)](get.md#emv) [![post](https://img.shields.io/badge/post-blue)](post.md#emv) ![put](https://img.shields.io/badge/put-gray)   
+Set idle message for a specific lane  
+##### Usage:  
 ```shell
 tq put EMV
-```
-Set idle message for a specific lane  
+``` 
+##### Query:  
 ```json
-Query: {"Cert":"string", "LaneID":"string", "Merchant":"string", "IdleMessage":"string"}
+{"Cert":"string", "LaneID":"string", "Merchant":"string", "IdleMessage":"string"}
 ```
 
 ## ElectronicAddressTypes [![get](https://img.shields.io/badge/get-blue)](get.md#electronicaddresstypes) [![post](https://img.shields.io/badge/post-blue)](post.md#electronicaddresstypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing electronic address type.  
+##### Usage:  
 ```shell
 tq put ElectronicAddressTypes
-```
-Update an existing electronic address type.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsEmail":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsEmail":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## ElectronicAddresses [![get](https://img.shields.io/badge/get-blue)](get.md#electronicaddresses) [![post](https://img.shields.io/badge/post-blue)](post.md#electronicaddresses) ![put](https://img.shields.io/badge/put-gray)   
+Update an electronic address.  
+##### Usage:  
 ```shell
 tq put ElectronicAddresses
-```
-Update an electronic address.  
+``` 
+##### Query:  
 ```json
-Query: {"Address":"string", "AffiliatedConstituent":{"Id":123}, "AllowHtmlFormat":true, "AllowMarketing":true, "AltSalutationType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "ElectronicAddressType":{"Id":123}, "EndDate":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "IsEmail":true, "IsFromAffiliation":true, "Months":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ElectronicAddressID":"string"}
+{"Address":"string", "AffiliatedConstituent":{"Id":123}, "AllowHtmlFormat":true, "AllowMarketing":true, "AltSalutationType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "ElectronicAddressType":{"Id":123}, "EndDate":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "IsEmail":true, "IsFromAffiliation":true, "Months":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ElectronicAddressID":"string"}
 ```
 
 ## EmailProfiles [![get](https://img.shields.io/badge/get-blue)](get.md#emailprofiles) [![post](https://img.shields.io/badge/post-blue)](post.md#emailprofiles) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing email profile  
+##### Usage:  
 ```shell
 tq put EmailProfiles
-```
-Update an existing email profile  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EmailBcc":"string", "EmailCc":"string", "EmailDefaultSubject":"string", "EmailFrom":"string", "Id":123, "Inactive":true, "SMTPPassword":"string", "SMTPPort":123, "SMTPServer":"string", "SMTPUserName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseSsl":true, "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EmailBcc":"string", "EmailCc":"string", "EmailDefaultSubject":"string", "EmailFrom":"string", "Id":123, "Inactive":true, "SMTPPassword":"string", "SMTPPort":123, "SMTPServer":"string", "SMTPUserName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseSsl":true, "ID":"string"}
 ```
 
 
 
 ## EmarketIndicators [![get](https://img.shields.io/badge/get-blue)](get.md#emarketindicators) [![post](https://img.shields.io/badge/post-blue)](post.md#emarketindicators) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing emarket indicator.  
+##### Usage:  
 ```shell
 tq put EmarketIndicators
-```
-Update an existing emarket indicator.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Eras [![get](https://img.shields.io/badge/get-blue)](get.md#eras) [![post](https://img.shields.io/badge/post-blue)](post.md#eras) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing era.  
+##### Usage:  
 ```shell
 tq put Eras
-```
-Update an existing era.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 	
 # F
 ## Facilities [![get](https://img.shields.io/badge/get-blue)](get.md#facilities) [![post](https://img.shields.io/badge/post-blue)](post.md#facilities) ![put](https://img.shields.io/badge/put-gray)   
+Update a Facility.  
+##### Usage:  
 ```shell
 tq put Facilities
-```
-Update a Facility.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultBestSeatMapId":123, "DefaultZoneMapId":123, "Description":"string", "Id":123, "SeatMap":{"Id":123}, "Theater":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultBestSeatMapId":123, "DefaultZoneMapId":123, "Description":"string", "Id":123, "SeatMap":{"Id":123}, "Theater":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
@@ -863,301 +1038,364 @@ Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"strin
 # G
 
 ## Genders [![get](https://img.shields.io/badge/get-blue)](get.md#genders) [![post](https://img.shields.io/badge/post-blue)](post.md#genders) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing gender.  
+##### Usage:  
 ```shell
 tq put Genders
-```
-Update an existing gender.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultPrefix":{"Id":123}, "Description":"string", "Id":123, "Inactive":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultPrefix":{"Id":123}, "Description":"string", "Id":123, "Inactive":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## GiftAidContactMethods [![get](https://img.shields.io/badge/get-blue)](get.md#giftaidcontactmethods) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidcontactmethods) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing gift aid contact method.  
+##### Usage:  
 ```shell
 tq put GiftAidContactMethods
-```
-Update an existing gift aid contact method.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## GiftAidDeclarations [![get](https://img.shields.io/badge/get-blue)](get.md#giftaiddeclarations) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaiddeclarations) ![put](https://img.shields.io/badge/put-gray)   
+Update a Gift Aid Declaration.  
+##### Usage:  
 ```shell
 tq put GiftAidDeclarations
-```
-Update a Gift Aid Declaration.  
+``` 
+##### Query:  
 ```json
-Query: {"ConfirmDateTime":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "ContactMethod":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DocumentStatus":{"Id":123}, "EligibleIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "GiftAidType":{"Id":123}, "Id":123, "IneligibleReason":{"Id":123}, "Notes":"string", "ReceivedDateTime":"2000-01-01T00:00:00.000Z", "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "GiftAidDeclarationID":"string"}
+{"ConfirmDateTime":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "ContactMethod":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DocumentStatus":{"Id":123}, "EligibleIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "GiftAidType":{"Id":123}, "Id":123, "IneligibleReason":{"Id":123}, "Notes":"string", "ReceivedDateTime":"2000-01-01T00:00:00.000Z", "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "GiftAidDeclarationID":"string"}
 ```
 
 ## GiftAidDocumentStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#giftaiddocumentstatuses) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaiddocumentstatuses) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing gift aid document status.  
+##### Usage:  
 ```shell
 tq put GiftAidDocumentStatuses
-```
-Update an existing gift aid document status.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## GiftAidIneligibleReasons [![get](https://img.shields.io/badge/get-blue)](get.md#giftaidineligiblereasons) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidineligiblereasons) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing gift aid ineligible reason.  
+##### Usage:  
 ```shell
 tq put GiftAidIneligibleReasons
-```
-Update an existing gift aid ineligible reason.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## GiftAidRates [![get](https://img.shields.io/badge/get-blue)](get.md#giftaidrates) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidrates) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing gift aid rate.  
+##### Usage:  
 ```shell
 tq put GiftAidRates
-```
-Update an existing gift aid rate.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Rate":123.456, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Rate":123.456, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## GiftAidStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#giftaidstatuses) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidstatuses) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing gift aid status.  
+##### Usage:  
 ```shell
 tq put GiftAidStatuses
-```
-Update an existing gift aid status.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## GiftAidTypes [![get](https://img.shields.io/badge/get-blue)](get.md#giftaidtypes) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidtypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing gift aid type.  
+##### Usage:  
 ```shell
 tq put GiftAidTypes
-```
-Update an existing gift aid type.  
+``` 
+##### Query:  
 ```json
-Query: {"CharityClaimsRef":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CharityClaimsRef":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 	
 # H
 ## HoldCodeCategories [![get](https://img.shields.io/badge/get-blue)](get.md#holdcodecategories) [![post](https://img.shields.io/badge/post-blue)](post.md#holdcodecategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Hold Code Category.  
+##### Usage:  
 ```shell
 tq put HoldCodeCategories
-```
-Update an existing Hold Code Category.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## HoldCodeUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#holdcodeusergroups) [![post](https://img.shields.io/badge/post-blue)](post.md#holdcodeusergroups) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing hold code/user group mapping.  
+##### Usage:  
 ```shell
 tq put HoldCodeUserGroups
-```
-Update an existing hold code/user group mapping.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HoldCode":{"Id":123}, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "HoldCodeUserGroupID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HoldCode":{"Id":123}, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "HoldCodeUserGroupID":"string"}
 ```
 
 ## HoldCodes [![get](https://img.shields.io/badge/get-blue)](get.md#holdcodes) [![post](https://img.shields.io/badge/post-blue)](post.md#holdcodes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Hold Code.  
+##### Usage:  
 ```shell
 tq put HoldCodes
-```
-Update an existing Hold Code.  
+``` 
+##### Query:  
 ```json
-Query: {"BlackoutIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Legend":"string", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "HoldCodeID":"string"}
+{"BlackoutIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Legend":"string", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "HoldCodeID":"string"}
 ```
 
 	
 # I
 ## InactiveReasons [![get](https://img.shields.io/badge/get-blue)](get.md#inactivereasons) [![post](https://img.shields.io/badge/post-blue)](post.md#inactivereasons) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing inactive reason.  
+##### Usage:  
 ```shell
 tq put InactiveReasons
-```
-Update an existing inactive reason.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## IntegrationDefaults [![get](https://img.shields.io/badge/get-blue)](get.md#integrationdefaults) [![post](https://img.shields.io/badge/post-blue)](post.md#integrationdefaults) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Integration Default.  
+##### Usage:  
 ```shell
 tq put IntegrationDefaults
-```
-Update an existing Integration Default.  
+``` 
+##### Query:  
 ```json
-Query: {"AccessId":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultValue":"string", "Description":"string", "FieldName":"string", "Id":123, "Integration":{"Id":123}, "Organization":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"AccessId":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultValue":"string", "Description":"string", "FieldName":"string", "Id":123, "Integration":{"Id":123}, "Organization":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Integrations [![get](https://img.shields.io/badge/get-blue)](get.md#integrations) [![post](https://img.shields.io/badge/post-blue)](post.md#integrations) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing action type.  
+##### Usage:  
 ```shell
 tq put Integrations
-```
-Update an existing action type.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## InterestCategories [![get](https://img.shields.io/badge/get-blue)](get.md#interestcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#interestcategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing interest category.  
+##### Usage:  
 ```shell
 tq put InterestCategories
-```
-Update an existing interest category.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## InterestTypes [![get](https://img.shields.io/badge/get-blue)](get.md#interesttypes) [![post](https://img.shields.io/badge/post-blue)](post.md#interesttypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing interest type.  
+##### Usage:  
 ```shell
 tq put InterestTypes
-```
-Update an existing interest type.  
+``` 
+##### Query:  
 ```json
-Query: {"Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "SearchIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UsedIn":"string", "ID":"string"}
+{"Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "SearchIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UsedIn":"string", "ID":"string"}
 ```
 
 ## Interests [![get](https://img.shields.io/badge/get-blue)](get.md#interests) [![post](https://img.shields.io/badge/post-blue)](post.md#interests) ![put](https://img.shields.io/badge/put-gray)   
-```shell
-tq put Interests
-```
 Update an interest. If the interest is not selected and the weight is 0 or null, it will be deleted.
 For bulk interest edits, consider the CRM/Interests/CreateOrUpdate batching resource which allows multiple interests to be created, updated, or removed in a single request.  
+##### Usage:  
+```shell
+tq put Interests
+``` 
+##### Query:  
 ```json
-Query: {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "InterestType":{"Id":123}, "Selected":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Weight":123, "InterestID":"string"}
+{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "InterestType":{"Id":123}, "Selected":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Weight":123, "InterestID":"string"}
 ```
 
 ## Internal [![get](https://img.shields.io/badge/get-blue)](get.md#internal) [![post](https://img.shields.io/badge/post-blue)](post.md#internal) ![put](https://img.shields.io/badge/put-gray)   
+Update an address and phones. If the entire information about a phone is added newly then create a new phone. If the phone number of a phone is not given then delete that phone.  
+##### Usage:  
 ```shell
 tq put Internal
-```
-Update an address and phones. If the entire information about a phone is added newly then create a new phone. If the phone number of a phone is not given then delete that phone.  
+``` 
+##### Query:  
 ```json
-Query: {"AddressType":{"Id":123}, "AffiliatedConstituent":{"Id":123}, "AllowTelemarketing1":true, "AllowTelemarketing2":true, "AllowTelemarketing3":true, "AltSalutationType":{"Id":123}, "City":"string", "Constituent":{"Id":123}, "Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator1":"string", "DayEveningIndicator2":"string", "DayEveningIndicator3":"string", "DeliveryPoint":"string", "EditIndicator":true, "EditIndicator1":true, "EditIndicator2":true, "EditIndicator3":true, "EndDate":"2000-01-01T00:00:00.000Z", "GeoArea":123, "Id":123, "Inactive":true, "Label":true, "Months":"string", "NcoaAction":123, "NcoaSession":123, "PhoneId1":123, "PhoneId2":123, "PhoneId3":123, "PhoneNumber1":"string", "PhoneNumber1Formatted":"string", "PhoneNumber2":"string", "PhoneNumber2Formatted":"string", "PhoneNumber3":"string", "PhoneNumber3Formatted":"string", "PhoneSearch1":"string", "PhoneSearch2":"string", "PhoneSearch3":"string", "PostalCode":"string", "PostalCodeFormatted":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "State":{"Id":123}, "Street1":"string", "Street2":"string", "Street3":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UpdatedDateTime1":"2000-01-01T00:00:00.000Z", "UpdatedDateTime2":"2000-01-01T00:00:00.000Z", "UpdatedDateTime3":"2000-01-01T00:00:00.000Z", "AddressID":"string"}
+{"AddressType":{"Id":123}, "AffiliatedConstituent":{"Id":123}, "AllowTelemarketing1":true, "AllowTelemarketing2":true, "AllowTelemarketing3":true, "AltSalutationType":{"Id":123}, "City":"string", "Constituent":{"Id":123}, "Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator1":"string", "DayEveningIndicator2":"string", "DayEveningIndicator3":"string", "DeliveryPoint":"string", "EditIndicator":true, "EditIndicator1":true, "EditIndicator2":true, "EditIndicator3":true, "EndDate":"2000-01-01T00:00:00.000Z", "GeoArea":123, "Id":123, "Inactive":true, "Label":true, "Months":"string", "NcoaAction":123, "NcoaSession":123, "PhoneId1":123, "PhoneId2":123, "PhoneId3":123, "PhoneNumber1":"string", "PhoneNumber1Formatted":"string", "PhoneNumber2":"string", "PhoneNumber2Formatted":"string", "PhoneNumber3":"string", "PhoneNumber3Formatted":"string", "PhoneSearch1":"string", "PhoneSearch2":"string", "PhoneSearch3":"string", "PostalCode":"string", "PostalCodeFormatted":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "State":{"Id":123}, "Street1":"string", "Street2":"string", "Street3":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UpdatedDateTime1":"2000-01-01T00:00:00.000Z", "UpdatedDateTime2":"2000-01-01T00:00:00.000Z", "UpdatedDateTime3":"2000-01-01T00:00:00.000Z", "AddressID":"string"}
 ```
 
 ## InventoryContactPermissionTypes [![get](https://img.shields.io/badge/get-blue)](get.md#inventorycontactpermissiontypes) [![post](https://img.shields.io/badge/post-blue)](post.md#inventorycontactpermissiontypes) ![put](https://img.shields.io/badge/put-gray)   
+Updated an existing inventoryContactPermissionType.  
+##### Usage:  
 ```shell
 tq put InventoryContactPermissionTypes
-```
-Updated an existing inventoryContactPermissionType.  
+``` 
+##### Query:  
 ```json
-Query: {"ContactPermissionType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ProductionElementId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "InventoryContactPermissionTypeID":"string"}
+{"ContactPermissionType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ProductionElementId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "InventoryContactPermissionTypeID":"string"}
 ```
 
 ## InventoryWebContents [![get](https://img.shields.io/badge/get-blue)](get.md#inventorywebcontents) [![post](https://img.shields.io/badge/post-blue)](post.md#inventorywebcontents) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing inventoryWebContent.  
+##### Usage:  
 ```shell
 tq put InventoryWebContents
-```
-Update an existing inventoryWebContent.  
+``` 
+##### Query:  
 ```json
-Query: {"ContentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ProductionElementId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string", "InventoryWebContentID":"string"}
+{"ContentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ProductionElementId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string", "InventoryWebContentID":"string"}
 ```
 
 
 ## Issues [![get](https://img.shields.io/badge/get-blue)](get.md#issues) [![post](https://img.shields.io/badge/post-blue)](post.md#issues) ![put](https://img.shields.io/badge/put-gray)   
+Update an issue for a Constituent  
+##### Usage:  
 ```shell
 tq put Issues
-```
-Update an issue for a Constituent  
+``` 
+##### Query:  
 ```json
-Query: {"ActivityType":{"Id":123}, "Constituent":{"Id":123}, "ContactType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "HasReminder":true, "Id":123, "IssueDate":"2000-01-01T00:00:00.000Z", "Notes":"string", "Origin":{"Id":123}, "PackageId":123, "PerformanceId":123, "ResolvedIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UrgentIndicator":true, "IssueID":"string"}
+{"ActivityType":{"Id":123}, "Constituent":{"Id":123}, "ContactType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "HasReminder":true, "Id":123, "IssueDate":"2000-01-01T00:00:00.000Z", "Notes":"string", "Origin":{"Id":123}, "PackageId":123, "PerformanceId":123, "ResolvedIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UrgentIndicator":true, "IssueID":"string"}
 ```
 
 	
 # K
 ## KeywordCategories [![get](https://img.shields.io/badge/get-blue)](get.md#keywordcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#keywordcategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing keyword category.  
+##### Usage:  
 ```shell
 tq put KeywordCategories
-```
-Update an existing keyword category.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Keywords [![get](https://img.shields.io/badge/get-blue)](get.md#keywords) [![post](https://img.shields.io/badge/post-blue)](post.md#keywords) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing keyword.  
+##### Usage:  
 ```shell
 tq put Keywords
-```
-Update an existing keyword.  
+``` 
+##### Query:  
 ```json
-Query: {"Category":{"Id":123}, "ConstituentType":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDefaultValue":"string", "CustomId":123, "CustomLimit":123, "CustomRequired":true, "DataType":"string", "Description":"string", "DetailColumn":"string", "DetailTable":"string", "EditIndicator":true, "EditMask":"string", "ExtendedDescription":"string", "FrequentUpdateDate":"2000-01-01T00:00:00.000Z", "HelpText":"string", "Id":123, "KeyColumn":"string", "KeywordUse":"string", "MultipleValue":true, "ParentKeyColumn":"string", "ParentTable":"string", "PrimaryGroupDefault":"string", "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "SortOrder":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseForSearch":true, "ValuesCodedIndicator":true, "ID":"string"}
+{"Category":{"Id":123}, "ConstituentType":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDefaultValue":"string", "CustomId":123, "CustomLimit":123, "CustomRequired":true, "DataType":"string", "Description":"string", "DetailColumn":"string", "DetailTable":"string", "EditIndicator":true, "EditMask":"string", "ExtendedDescription":"string", "FrequentUpdateDate":"2000-01-01T00:00:00.000Z", "HelpText":"string", "Id":123, "KeyColumn":"string", "KeywordUse":"string", "MultipleValue":true, "ParentKeyColumn":"string", "ParentTable":"string", "PrimaryGroupDefault":"string", "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "SortOrder":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseForSearch":true, "ValuesCodedIndicator":true, "ID":"string"}
 ```
 
 	
 # L
 ## Languages [![get](https://img.shields.io/badge/get-blue)](get.md#languages) [![post](https://img.shields.io/badge/post-blue)](post.md#languages) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing language.  
+##### Usage:  
 ```shell
 tq put Languages
-```
-Update an existing language.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## ListCategories [![get](https://img.shields.io/badge/get-blue)](get.md#listcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#listcategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing list category.  
+##### Usage:  
 ```shell
 tq put ListCategories
-```
-Update an existing list category.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Lists [![get](https://img.shields.io/badge/get-blue)](get.md#lists) [![post](https://img.shields.io/badge/post-blue)](post.md#lists) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing List.  
+##### Usage:  
 ```shell
 tq put Lists
-```
-Update an existing List.  
+``` 
+##### Query:  
 ```json
-Query: {"AffiliatedIndividuals":123, "AnalyticsIndicator":true, "Category":{"Id":123}, "ConstituentCount":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Criteria":[{"Id":123}, ...], "Description":"string", "EditIndicator":true, "EditMode":"string", "Generate":true, "Households":123, "Id":123, "Inactive":true, "Individuals":123, "IsDynamic":true, "LastUsedDateTime":"2000-01-01T00:00:00.000Z", "ListSql":"string", "Organizations":123, "OutputSet":{"Id":123}, "RelationshipOptions":{"AffiliatedGroupInactive":true, "AffiliatedGroupTypes":"string", "AffiliatedGroupUseDates":true, "AffiliatedIndividualInactive":true, "AffiliatedIndividualTypes":"string", "AffiliatedIndividualUseDates":true, "AssociatedInactive":true, "AssociatedTypes":"string", "AssociatedUseDates":true, "CreateLocation":"string", "CreatedBy":"string", "KeepOrReplaceOriginal":"string", "ReplaceIndividuals":"string", "UpdatedBy":"string"}, "TMSIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ListID":"string"}
+{"AffiliatedIndividuals":123, "AnalyticsIndicator":true, "Category":{"Id":123}, "ConstituentCount":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Criteria":[{"Id":123}, ...], "Description":"string", "EditIndicator":true, "EditMode":"string", "Generate":true, "Households":123, "Id":123, "Inactive":true, "Individuals":123, "IsDynamic":true, "LastUsedDateTime":"2000-01-01T00:00:00.000Z", "ListSql":"string", "Organizations":123, "OutputSet":{"Id":123}, "RelationshipOptions":{"AffiliatedGroupInactive":true, "AffiliatedGroupTypes":"string", "AffiliatedGroupUseDates":true, "AffiliatedIndividualInactive":true, "AffiliatedIndividualTypes":"string", "AffiliatedIndividualUseDates":true, "AssociatedInactive":true, "AssociatedTypes":"string", "AssociatedUseDates":true, "CreateLocation":"string", "CreatedBy":"string", "KeepOrReplaceOriginal":"string", "ReplaceIndividuals":"string", "UpdatedBy":"string"}, "TMSIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ListID":"string"}
 ```
 ### Flags:
  * *--Contents*  
    Import constituent ids into an existing list.
+##### Query:  
 ```json
-Query: {"ListID":"string", "ConstituentIds":[0, ...]}
+{"ListID":"string", "ConstituentIds":[0, ...]}
 ```
 
 ## LoginTypes [![get](https://img.shields.io/badge/get-blue)](get.md#logintypes) [![post](https://img.shields.io/badge/post-blue)](post.md#logintypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing login type.  
+##### Usage:  
 ```shell
 tq put LoginTypes
-```
-Update an existing login type.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 	
 # M
 ## MachineSettings [![get](https://img.shields.io/badge/get-blue)](get.md#machinesettings) [![post](https://img.shields.io/badge/post-blue)](post.md#machinesettings) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Machine Setting.  
+##### Usage:  
 ```shell
 tq put MachineSettings
-```
-Update an existing Machine Setting.  
+``` 
+##### Query:  
 ```json
-Query: {"CardReaderHost":"string", "CardReaderPort":123, "CardReaderType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "MerchantId":"string", "PXStation":"string", "PXUserKey":"string", "PXUserName":"string", "TessituraPaymentsPosDevice":"string", "TessituraPaymentsPosDeviceModel":"string", "TnspaySoftwareTerminal":true, "TriPOSCloudConfiguration":{"Id":123}, "TriposLane":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkstationName":"string", "ID":"string"}
+{"CardReaderHost":"string", "CardReaderPort":123, "CardReaderType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "MerchantId":"string", "PXStation":"string", "PXUserKey":"string", "PXUserName":"string", "TessituraPaymentsPosDevice":"string", "TessituraPaymentsPosDeviceModel":"string", "TnspaySoftwareTerminal":true, "TriPOSCloudConfiguration":{"Id":123}, "TriposLane":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkstationName":"string", "ID":"string"}
 ```
 
 ## MailIndicators [![get](https://img.shields.io/badge/get-blue)](get.md#mailindicators) [![post](https://img.shields.io/badge/post-blue)](post.md#mailindicators) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing mail indicator.  
+##### Usage:  
 ```shell
 tq put MailIndicators
-```
-Update an existing mail indicator.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## MediaTypes [![get](https://img.shields.io/badge/get-blue)](get.md#mediatypes) [![post](https://img.shields.io/badge/post-blue)](post.md#mediatypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing media type.  
+##### Usage:  
 ```shell
 tq put MediaTypes
-```
-Update an existing media type.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "GenerateCost":123.456, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "GenerateCost":123.456, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## MembershipLevelCategories [![get](https://img.shields.io/badge/get-blue)](get.md#membershiplevelcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#membershiplevelcategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing membership level category.  
+##### Usage:  
 ```shell
 tq put MembershipLevelCategories
-```
-Update an existing membership level category.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
@@ -1167,932 +1405,1129 @@ Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000
 
 
 ## ModeOfSaleCategories [![get](https://img.shields.io/badge/get-blue)](get.md#modeofsalecategories) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsalecategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing mode of sale category.  
+##### Usage:  
 ```shell
 tq put ModeOfSaleCategories
-```
-Update an existing mode of sale category.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Sequence":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleCategoryID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Sequence":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleCategoryID":"string"}
 ```
 
 ## ModeOfSaleOffers [![get](https://img.shields.io/badge/get-blue)](get.md#modeofsaleoffers) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsaleoffers) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing mode of sale offer.  
+##### Usage:  
 ```shell
 tq put ModeOfSaleOffers
-```
-Update an existing mode of sale offer.  
+``` 
+##### Query:  
 ```json
-Query: {"AppealId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "MaxSeats":123, "ModeOfSaleId":123, "OverrideDefaultPriceTypeIndicator":true, "PackageId":123, "PerformanceId":123, "PriceTypeId":123, "Rank":123, "SourceId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "Terms":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleOfferID":"string"}
+{"AppealId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "MaxSeats":123, "ModeOfSaleId":123, "OverrideDefaultPriceTypeIndicator":true, "PackageId":123, "PerformanceId":123, "PriceTypeId":123, "Rank":123, "SourceId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "Terms":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleOfferID":"string"}
 ```
 
 ## ModeOfSalePriceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#modeofsalepricetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsalepricetypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing mode of sale price type.  
+##### Usage:  
 ```shell
 tq put ModeOfSalePriceTypes
-```
-Update an existing mode of sale price type.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Id":123, "ModeOfSale":{"Id":123}, "PriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSalePriceTypeID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Id":123, "ModeOfSale":{"Id":123}, "PriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSalePriceTypeID":"string"}
 ```
 
 ## ModeOfSaleSurveyQuestions [![get](https://img.shields.io/badge/get-blue)](get.md#modeofsalesurveyquestions) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsalesurveyquestions) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing mode of sale survey question.  
+##### Usage:  
 ```shell
 tq put ModeOfSaleSurveyQuestions
-```
-Update an existing mode of sale survey question.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ModeOfSale":{"Id":123}, "Question":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleSurveyQuestionID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ModeOfSale":{"Id":123}, "Question":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleSurveyQuestionID":"string"}
 ```
 
 ## ModeOfSaleUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#modeofsaleusergroups) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsaleusergroups) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing mode of sale/user group mapping.  
+##### Usage:  
 ```shell
 tq put ModeOfSaleUserGroups
-```
-Update an existing mode of sale/user group mapping.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Id":123, "ModeOfSale":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ModeOfSaleUserGroupID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Id":123, "ModeOfSale":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ModeOfSaleUserGroupID":"string"}
 ```
 
 ## ModesOfSale [![get](https://img.shields.io/badge/get-blue)](get.md#modesofsale) [![post](https://img.shields.io/badge/post-blue)](post.md#modesofsale) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing mode of sale.  
+##### Usage:  
 ```shell
 tq put ModesOfSale
-```
-Update an existing mode of sale.  
+``` 
+##### Query:  
 ```json
-Query: {"AllowUnseatedPaidInd":true, "Category":{"Id":123}, "CategoryRequired":true, "ClearSourceNoInd":true, "ClearSourceOnReload":true, "ConfirmationMode":true, "ConstLinkRequired":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultAckFormatId":123, "DefaultChannelId":123, "DefaultDeliveryMethodId":123, "DefaultHeaderFormatId":123, "DefaultSalesLayoutId":123, "Description":"string", "EditDate":true, "EditSourceOnReload":true, "GeneralPublicInd":true, "HaboDays":123, "HaboForeign":true, "HoldUntilDate":"2000-01-01T00:00:00.000Z", "HoldUntilDays":123, "HoldUntilMethod":"string", "Id":123, "Inactive":true, "MustBePaidInd":true, "MustBeSeatedInd":true, "MustBeTicketedInd":true, "PricingRuleSetId":123, "SampleForGeneralPublic":123, "SampleForKnownConstituent":123, "SliAutoDeleteInd":true, "StartPkgOrPerf":"string", "SubsSummaryRequired":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleID":"string"}
+{"AllowUnseatedPaidInd":true, "Category":{"Id":123}, "CategoryRequired":true, "ClearSourceNoInd":true, "ClearSourceOnReload":true, "ConfirmationMode":true, "ConstLinkRequired":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultAckFormatId":123, "DefaultChannelId":123, "DefaultDeliveryMethodId":123, "DefaultHeaderFormatId":123, "DefaultSalesLayoutId":123, "Description":"string", "EditDate":true, "EditSourceOnReload":true, "GeneralPublicInd":true, "HaboDays":123, "HaboForeign":true, "HoldUntilDate":"2000-01-01T00:00:00.000Z", "HoldUntilDays":123, "HoldUntilMethod":"string", "Id":123, "Inactive":true, "MustBePaidInd":true, "MustBeSeatedInd":true, "MustBeTicketedInd":true, "PricingRuleSetId":123, "SampleForGeneralPublic":123, "SampleForKnownConstituent":123, "SliAutoDeleteInd":true, "StartPkgOrPerf":"string", "SubsSummaryRequired":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleID":"string"}
 ```
 
 	
 # N
 ## NScanAccessAreas [![get](https://img.shields.io/badge/get-blue)](get.md#nscanaccessareas) [![post](https://img.shields.io/badge/post-blue)](post.md#nscanaccessareas) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing NScan Access Area.  
+##### Usage:  
 ```shell
 tq put NScanAccessAreas
-```
-Update an existing NScan Access Area.  
+``` 
+##### Query:  
 ```json
-Query: {"AreaCode":"string", "ConstituencyIds":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "KeywordId":123, "KeywordValue":"string", "ListId":123, "MaxEntries":123, "MembershipLevelIds":"string", "PerformanceIds":"string", "PriceTypeIds":"string", "PriceZoneIds":"string", "PromptQuantity":true, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"AreaCode":"string", "ConstituencyIds":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "KeywordId":123, "KeywordValue":"string", "ListId":123, "MaxEntries":123, "MembershipLevelIds":"string", "PerformanceIds":"string", "PriceTypeIds":"string", "PriceZoneIds":"string", "PromptQuantity":true, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## NameStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#namestatuses) [![post](https://img.shields.io/badge/post-blue)](post.md#namestatuses) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing name status.  
+##### Usage:  
 ```shell
 tq put NameStatuses
-```
-Update an existing name status.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 	
 # O
 ## ObjectPermissions [![get](https://img.shields.io/badge/get-blue)](get.md#objectpermissions) [![post](https://img.shields.io/badge/post-blue)](post.md#objectpermissions) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing object permission.  
+##### Usage:  
 ```shell
 tq put ObjectPermissions
-```
-Update an existing object permission.  
+``` 
+##### Query:  
 ```json
-Query: {"ApplicationObject":{"Id":123}, "CanCreate":"string", "CanDelete":"string", "CanEdit":"string", "CanView":"string", "Constituency":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroup":{"Id":"string"}, "ID":"string"}
+{"ApplicationObject":{"Id":123}, "CanCreate":"string", "CanDelete":"string", "CanEdit":"string", "CanView":"string", "Constituency":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroup":{"Id":"string"}, "ID":"string"}
 ```
 
 
 ## OrderCategories [![get](https://img.shields.io/badge/get-blue)](get.md#ordercategories) [![post](https://img.shields.io/badge/post-blue)](post.md#ordercategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing order category.  
+##### Usage:  
 ```shell
 tq put OrderCategories
-```
-Update an existing order category.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Orders [![get](https://img.shields.io/badge/get-blue)](get.md#orders) [![post](https://img.shields.io/badge/post-blue)](post.md#orders) ![put](https://img.shields.io/badge/put-gray)   
-```shell
-tq put Orders
-```
 This resource is currently strictly for interceptor plugin use. This is called any time an order is saved via the API or from the client application. Only OrderId is provided in the request content.
             
 This resource will be invoked from a cart checkout.  
+##### Usage:  
+```shell
+tq put Orders
+``` 
+##### Query:  
 ```json
-Query: {"AcceptingRollovers":true, "AccountId":123, "AltAddressId":123, "AltElectronicAddressId":123, "AppealId":123, "AppliedMessageRules":"string", "BatchId":123, "BusinessUnitId":123, "CategoryId":123, "ChannelId":123, "ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Custom0":"string", "Custom1":"string", "Custom2":"string", "Custom3":"string", "Custom4":"string", "Custom5":"string", "Custom6":"string", "Custom7":"string", "Custom8":"string", "Custom9":"string", "DeliveryDate":"2000-01-01T00:00:00.000Z", "DeliveryMethodId":123, "HoldUntilDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "InitiatorId":123, "LineItems":[{"Id":123}, ...], "Messages":[{"Id":123}, ...], "MirrorLock":123, "ModeOfSaleId":123, "Notes":"string", "OrderDateTime":"2000-01-01T00:00:00.000Z", "ReloadPricingRules":true, "Solicitor":"string", "SourceId":123, "TotalDue":123.456, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "VirtualConstituencies":"string", "OrderID":"string"}
+{"AcceptingRollovers":true, "AccountId":123, "AltAddressId":123, "AltElectronicAddressId":123, "AppealId":123, "AppliedMessageRules":"string", "BatchId":123, "BusinessUnitId":123, "CategoryId":123, "ChannelId":123, "ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Custom0":"string", "Custom1":"string", "Custom2":"string", "Custom3":"string", "Custom4":"string", "Custom5":"string", "Custom6":"string", "Custom7":"string", "Custom8":"string", "Custom9":"string", "DeliveryDate":"2000-01-01T00:00:00.000Z", "DeliveryMethodId":123, "HoldUntilDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "InitiatorId":123, "LineItems":[{"Id":123}, ...], "Messages":[{"Id":123}, ...], "MirrorLock":123, "ModeOfSaleId":123, "Notes":"string", "OrderDateTime":"2000-01-01T00:00:00.000Z", "ReloadPricingRules":true, "Solicitor":"string", "SourceId":123, "TotalDue":123.456, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "VirtualConstituencies":"string", "OrderID":"string"}
 ```
 
 ## Organizations [![get](https://img.shields.io/badge/get-blue)](get.md#organizations) [![post](https://img.shields.io/badge/post-blue)](post.md#organizations) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing organization.  
+##### Usage:  
 ```shell
 tq put Organizations
-```
-Update an existing organization.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LicenseeAccountCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LicenseeAccountCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## OriginalSources [![get](https://img.shields.io/badge/get-blue)](get.md#originalsources) [![post](https://img.shields.io/badge/post-blue)](post.md#originalsources) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing original source.  
+##### Usage:  
 ```shell
 tq put OriginalSources
-```
-Update an existing original source.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Origins [![get](https://img.shields.io/badge/get-blue)](get.md#origins) [![post](https://img.shields.io/badge/post-blue)](post.md#origins) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing origin.  
+##### Usage:  
 ```shell
 tq put Origins
-```
-Update an existing origin.  
+``` 
+##### Query:  
 ```json
-Query: {"ActivityType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ActivityType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## OutputSets [![get](https://img.shields.io/badge/get-blue)](get.md#outputsets) [![post](https://img.shields.io/badge/post-blue)](post.md#outputsets) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Output Set.  
+##### Usage:  
 ```shell
 tq put OutputSets
-```
-Update an existing Output Set.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "ElementGroups":[{"IncludePrimaryAffiliation":true, "IsSingleRow":true, "KeywordId":123}, ...], "Id":123, "LastUsedDateTime":"2000-01-01T00:00:00.000Z", "TMSIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "OutputSetID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "ElementGroups":[{"IncludePrimaryAffiliation":true, "IsSingleRow":true, "KeywordId":123}, ...], "Id":123, "LastUsedDateTime":"2000-01-01T00:00:00.000Z", "TMSIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "OutputSetID":"string"}
 ```
 
 	
 # P
 
 ## PackagePriceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#packagepricetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#packagepricetypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing package price type.  
+##### Usage:  
 ```shell
 tq put PackagePriceTypes
-```
-Update an existing package price type.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PackageId":123, "PriceTypeId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PackagePriceTypeID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PackageId":123, "PriceTypeId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PackagePriceTypeID":"string"}
 ```
 
 ## PackageTypes [![get](https://img.shields.io/badge/get-blue)](get.md#packagetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#packagetypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing package type.  
+##### Usage:  
 ```shell
 tq put PackageTypes
-```
-Update an existing package type.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## PackageWebContents [![get](https://img.shields.io/badge/get-blue)](get.md#packagewebcontents) [![post](https://img.shields.io/badge/post-blue)](post.md#packagewebcontents) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing packageWebContent.  
+##### Usage:  
 ```shell
 tq put PackageWebContents
-```
-Update an existing packageWebContent.  
+``` 
+##### Query:  
 ```json
-Query: {"ContentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PackageId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string", "PackageWebContentID":"string"}
+{"ContentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PackageId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string", "PackageWebContentID":"string"}
 ```
 
 
 
 
 ## PaymentGatewayActivities [![get](https://img.shields.io/badge/get-blue)](get.md#paymentgatewayactivities) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentgatewayactivities) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Payment Gateway Activity  
+##### Usage:  
 ```shell
 tq put PaymentGatewayActivities
-```
-Update an existing Payment Gateway Activity  
+``` 
+##### Query:  
 ```json
-Query: {"AccountId":123, "AccountNumber":"string", "ActivityData":"string", "Amount":123.456, "AuthCode":"string", "AvsAddress":"string", "AvsPostalcode":"string", "AvsResultCode":"string", "BalanceAmount":123.456, "BalanceCurrencyCode":"string", "ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CvvResultCode":"string", "EcommerceIndicator":"string", "EmvApplicationIdentifier":"string", "EmvApplicationName":"string", "EmvCryptogram":"string", "EmvHostResponseCode":"string", "EmvHostResponseMessage":"string", "EmvPinVerified":"string", "EntryMethod":"string", "ExpirationDate":"string", "Id":123, "MerchantId":"string", "Name":"string", "NetworkTransactionId":"string", "Origin":"string", "PaymentGatewayTransactionType":{"Id":123}, "PaymentId":123, "PaymentMethodGroupId":123, "PaymentMethodId":123, "ProviderCommunicationDurationMs":123, "ProviderTransactionDateTime":"2000-01-01T00:00:00.000Z", "ReferenceNumber":"string", "ResponseCode":"string", "ResponseMessage":"string", "Success":"string", "TerminalIdentifier":"string", "TotalDurationMs":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserData":"string", "PaymentGatewayActivityID":"string"}
+{"AccountId":123, "AccountNumber":"string", "ActivityData":"string", "Amount":123.456, "AuthCode":"string", "AvsAddress":"string", "AvsPostalcode":"string", "AvsResultCode":"string", "BalanceAmount":123.456, "BalanceCurrencyCode":"string", "ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CvvResultCode":"string", "EcommerceIndicator":"string", "EmvApplicationIdentifier":"string", "EmvApplicationName":"string", "EmvCryptogram":"string", "EmvHostResponseCode":"string", "EmvHostResponseMessage":"string", "EmvPinVerified":"string", "EntryMethod":"string", "ExpirationDate":"string", "Id":123, "MerchantId":"string", "Name":"string", "NetworkTransactionId":"string", "Origin":"string", "PaymentGatewayTransactionType":{"Id":123}, "PaymentId":123, "PaymentMethodGroupId":123, "PaymentMethodId":123, "ProviderCommunicationDurationMs":123, "ProviderTransactionDateTime":"2000-01-01T00:00:00.000Z", "ReferenceNumber":"string", "ResponseCode":"string", "ResponseMessage":"string", "Success":"string", "TerminalIdentifier":"string", "TotalDurationMs":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserData":"string", "PaymentGatewayActivityID":"string"}
 ```
 
 
 
 ## PaymentGatewayNotifications [![get](https://img.shields.io/badge/get-blue)](get.md#paymentgatewaynotifications) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentgatewaynotifications) ![put](https://img.shields.io/badge/put-gray)   
+Update a notification event.  
+##### Usage:  
 ```shell
 tq put PaymentGatewayNotifications
-```
-Update a notification event.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EventType":"string", "Id":123, "Payload":"string", "ProcessedDate":"2000-01-01T00:00:00.000Z", "ReceivedDate":"2000-01-01T00:00:00.000Z", "Reference":"string", "Topic":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "NotificationEventID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EventType":"string", "Id":123, "Payload":"string", "ProcessedDate":"2000-01-01T00:00:00.000Z", "ReceivedDate":"2000-01-01T00:00:00.000Z", "Reference":"string", "Topic":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "NotificationEventID":"string"}
 ```
 
 ## PaymentGatewayTransactionTypes [![get](https://img.shields.io/badge/get-blue)](get.md#paymentgatewaytransactiontypes) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentgatewaytransactiontypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Payment Gateway Transaction Type.  
+##### Usage:  
 ```shell
 tq put PaymentGatewayTransactionTypes
-```
-Update an existing Payment Gateway Transaction Type.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 ## PaymentMethodGroups [![get](https://img.shields.io/badge/get-blue)](get.md#paymentmethodgroups) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentmethodgroups) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing payment method group.  
+##### Usage:  
 ```shell
 tq put PaymentMethodGroups
-```
-Update an existing payment method group.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "MerchantId":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "MerchantId":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## PaymentMethodUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#paymentmethodusergroups) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentmethodusergroups) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing payment method/user group mapping.  
+##### Usage:  
 ```shell
 tq put PaymentMethodUserGroups
-```
-Update an existing payment method/user group mapping.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "IncomeIndicator":true, "MaxRefund":123.456, "PaymentMethod":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "PaymentMethodUserGroupID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "IncomeIndicator":true, "MaxRefund":123.456, "PaymentMethod":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "PaymentMethodUserGroupID":"string"}
 ```
 
 ## PaymentMethods [![get](https://img.shields.io/badge/get-blue)](get.md#paymentmethods) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentmethods) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing payment method.  
+##### Usage:  
 ```shell
 tq put PaymentMethods
-```
-Update an existing payment method.  
+``` 
+##### Query:  
 ```json
-Query: {"AccountType":{"Id":123}, "AuthIndicator":true, "BusinessUnitId":123, "CanRefund":true, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CurrencyTypeId":123, "DefaultIndicator":true, "Description":"string", "GiftAidIndicator":true, "GlAccountId":"string", "Id":123, "Inactive":true, "Income":true, "MerchantId":"string", "MerchantIdForSwipe":"string", "NoCopiesOnAuth":123, "NoCopiesOnSave":123, "OpenCashDrawer":true, "PaymentMethodGroup":{"Id":123}, "PaymentType":{"Id":123}, "ReceiptFormatId":123, "RequireCheckIndicator":true, "RequireCvv":true, "RequirePostalCode":"string", "ShortDesc":"string", "StoreTenderedAmount":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseWithCardReader":true, "PaymentMethodID":"string"}
+{"AccountType":{"Id":123}, "AuthIndicator":true, "BusinessUnitId":123, "CanRefund":true, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CurrencyTypeId":123, "DefaultIndicator":true, "Description":"string", "GiftAidIndicator":true, "GlAccountId":"string", "Id":123, "Inactive":true, "Income":true, "MerchantId":"string", "MerchantIdForSwipe":"string", "NoCopiesOnAuth":123, "NoCopiesOnSave":123, "OpenCashDrawer":true, "PaymentMethodGroup":{"Id":123}, "PaymentType":{"Id":123}, "ReceiptFormatId":123, "RequireCheckIndicator":true, "RequireCvv":true, "RequirePostalCode":"string", "ShortDesc":"string", "StoreTenderedAmount":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseWithCardReader":true, "PaymentMethodID":"string"}
 ```
 
 ## PaymentSignatures [![get](https://img.shields.io/badge/get-blue)](get.md#paymentsignatures) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentsignatures) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing payment signature.  
+##### Usage:  
 ```shell
 tq put PaymentSignatures
-```
-Update an existing payment signature.  
+``` 
+##### Query:  
 ```json
-Query: {"Id":123, "PaymentSignatureID":"string"}
+{"Id":123, "PaymentSignatureID":"string"}
 ```
 
 ## PaymentTypes [![get](https://img.shields.io/badge/get-blue)](get.md#paymenttypes) [![post](https://img.shields.io/badge/post-blue)](post.md#paymenttypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing payment type.  
+##### Usage:  
 ```shell
 tq put PaymentTypes
-```
-Update an existing payment type.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 ## PerformanceGroups [![get](https://img.shields.io/badge/get-blue)](get.md#performancegroups) [![post](https://img.shields.io/badge/post-blue)](post.md#performancegroups) ![put](https://img.shields.io/badge/put-gray)   
+Update a Performance Group.  
+##### Usage:  
 ```shell
 tq put PerformanceGroups
-```
-Update a Performance Group.  
+``` 
+##### Query:  
 ```json
-Query: {"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DisplayByZone":true, "Facility":{"Id":123}, "FixedSeatIndicator":true, "Id":123, "Season":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneMap":{"Id":123}}
+{"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DisplayByZone":true, "Facility":{"Id":123}, "FixedSeatIndicator":true, "Id":123, "Season":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneMap":{"Id":123}}
 ```
 
 ## PerformancePackageModeOfSales [![get](https://img.shields.io/badge/get-blue)](get.md#performancepackagemodeofsales) [![post](https://img.shields.io/badge/post-blue)](post.md#performancepackagemodeofsales) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing performance package mode of sale.  
+##### Usage:  
 ```shell
 tq put PerformancePackageModeOfSales
-```
-Update an existing performance package mode of sale.  
+``` 
+##### Query:  
 ```json
-Query: {"AutoAttend":"string", "ETicketReleaseDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ModeOfSaleId":123, "PackageId":123, "PerformanceId":123, "PrintIndicator":true, "PrintOnAutoAttend":true, "SeatIndicator":true, "StartDateTime":"2000-01-01T00:00:00.000Z", "PerformancePackageModeOfSaleID":"string"}
+{"AutoAttend":"string", "ETicketReleaseDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ModeOfSaleId":123, "PackageId":123, "PerformanceId":123, "PrintIndicator":true, "PrintOnAutoAttend":true, "SeatIndicator":true, "StartDateTime":"2000-01-01T00:00:00.000Z", "PerformancePackageModeOfSaleID":"string"}
 ```
 
 ## PerformancePriceLayers [![get](https://img.shields.io/badge/get-blue)](get.md#performancepricelayers) [![post](https://img.shields.io/badge/post-blue)](post.md#performancepricelayers) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing performance price layer.  
+##### Usage:  
 ```shell
 tq put PerformancePriceLayers
-```
-Update an existing performance price layer.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultDesignationCodeId":123, "DefaultGlAccountId":123, "DefaultResaleAccountId":123, "Description":"string", "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PerformanceId":123, "PerformancePriceTypes":[{"Id":123}, ...], "PriceLayerType":{"Id":123}, "TemplateId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PerformancePriceLayerID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultDesignationCodeId":123, "DefaultGlAccountId":123, "DefaultResaleAccountId":123, "Description":"string", "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PerformanceId":123, "PerformancePriceTypes":[{"Id":123}, ...], "PriceLayerType":{"Id":123}, "TemplateId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PerformancePriceLayerID":"string"}
 ```
 ### Flags:
  * *--Prices*  
    Update a set of prices across one or more performances.
+##### Query:  
 ```json
-Query: {"PriceUpdateRequests":[{"Editable":true, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Enabled":true, "MinPrice":123.456, "PerformanceIds":"string", "Price":123.456, "PriceLayerTypeId":123, "PriceTypeId":123, "ZoneId":123}, ...]}
+{"PriceUpdateRequests":[{"Editable":true, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Enabled":true, "MinPrice":123.456, "PerformanceIds":"string", "Price":123.456, "PriceLayerTypeId":123, "PriceTypeId":123, "ZoneId":123}, ...]}
 ```
 
 ## PerformancePriceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#performancepricetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#performancepricetypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing performance price type.  
+##### Usage:  
 ```shell
 tq put PerformancePriceTypes
-```
-Update an existing performance price type.  
+``` 
+##### Query:  
 ```json
-Query: {"BaseIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DesignationCodeId":123, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "GlAccountId":123, "Id":123, "IsWithinDateRange":true, "PerformanceId":123, "PerformancePriceLayerId":123, "PerformancePrices":[{"Id":123}, ...], "PriceTypeId":123, "ResaleAccountId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "TicketDesignId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PerformancePriceTypeID":"string"}
+{"BaseIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DesignationCodeId":123, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "GlAccountId":123, "Id":123, "IsWithinDateRange":true, "PerformanceId":123, "PerformancePriceLayerId":123, "PerformancePrices":[{"Id":123}, ...], "PriceTypeId":123, "ResaleAccountId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "TicketDesignId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PerformancePriceTypeID":"string"}
 ```
 ### Flags:
  * *--Base*  
    Update base indicator on performance price types for a set of performances and price type.
+##### Query:  
 ```json
-Query: {"PerformanceIds":"string", "PriceLayerTypeIds":"string", "PriceTypeID":"string"}
+{"PerformanceIds":"string", "PriceLayerTypeIds":"string", "PriceTypeID":"string"}
 ```
  * *--Bulk*  
    Update the performance price types for a set of performances.
+##### Query:  
 ```json
-Query: {"PerformancePriceType":[{"BaseIndicator":true, "DesignationCodeId":123, "EndDateTime":"2000-01-01T00:00:00.000Z", "GlAccountId":123, "PerformanceIds":"string", "PriceLayerTypeIds":"string", "PriceTypeIds":"string", "ResaleAccountId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "TicketDesignId":123}, ...]}
+{"PerformancePriceType":[{"BaseIndicator":true, "DesignationCodeId":123, "EndDateTime":"2000-01-01T00:00:00.000Z", "GlAccountId":123, "PerformanceIds":"string", "PriceLayerTypeIds":"string", "PriceTypeIds":"string", "ResaleAccountId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "TicketDesignId":123}, ...]}
 ```
 
 ## PerformancePrices [![get](https://img.shields.io/badge/get-blue)](get.md#performanceprices) [![post](https://img.shields.io/badge/post-blue)](post.md#performanceprices) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing performance price.  
+##### Usage:  
 ```shell
 tq put PerformancePrices
-```
-Update an existing performance price.  
+``` 
+##### Query:  
 ```json
-Query: {"EditIndicator":true, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Enabled":true, "HasEvents":true, "Id":123, "IsPriceBasedOnCurrentEvent":true, "MinPrice":123.456, "PerformanceId":123, "PerformancePriceTypeId":123, "Price":123.456, "ZoneId":123, "PerformancePriceID":"string"}
+{"EditIndicator":true, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Enabled":true, "HasEvents":true, "Id":123, "IsPriceBasedOnCurrentEvent":true, "MinPrice":123.456, "PerformanceId":123, "PerformancePriceTypeId":123, "Price":123.456, "ZoneId":123, "PerformancePriceID":"string"}
 ```
 
 ## PerformanceStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#performancestatuses) [![post](https://img.shields.io/badge/post-blue)](post.md#performancestatuses) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing performance status.  
+##### Usage:  
 ```shell
 tq put PerformanceStatuses
-```
-Update an existing performance status.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## PerformanceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#performancetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#performancetypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing performance type.  
+##### Usage:  
 ```shell
 tq put PerformanceTypes
-```
-Update an existing performance type.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ValidCountryList":"string", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ValidCountryList":"string", "ID":"string"}
 ```
 
 ## Performances [![get](https://img.shields.io/badge/get-blue)](get.md#performances) [![post](https://img.shields.io/badge/post-blue)](post.md#performances) ![put](https://img.shields.io/badge/put-gray)   
+Expires seat holds for a performance and hold code  
+##### Usage:  
 ```shell
 tq put Performances
-```
-Expires seat holds for a performance and hold code  
+``` 
+##### Query:  
 ```json
-Query: {"ExpireAsOfDate":"2000-01-01T00:00:00.000Z", "SeatIds":"string", "HoldCodeID":"string", "PerformanceID":"string"}
+{"ExpireAsOfDate":"2000-01-01T00:00:00.000Z", "SeatIds":"string", "HoldCodeID":"string", "PerformanceID":"string"}
 ```
 
 ## Philanthropy [![get](https://img.shields.io/badge/get-blue)](get.md#philanthropy) [![post](https://img.shields.io/badge/post-blue)](post.md#philanthropy) ![put](https://img.shields.io/badge/put-gray)   
+Updated an existing philanthropyEntry for a constituent.  
+##### Usage:  
 ```shell
 tq put Philanthropy
-```
-Updated an existing philanthropyEntry for a constituent.  
+``` 
+##### Query:  
 ```json
-Query: {"Activity":"string", "Amount":123.456, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DonatedTo":"string", "DonatedToConstituent":{"Id":123}, "DonationDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PhilanthropyType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PhilanthropyEntryID":"string"}
+{"Activity":"string", "Amount":123.456, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DonatedTo":"string", "DonatedToConstituent":{"Id":123}, "DonationDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PhilanthropyType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PhilanthropyEntryID":"string"}
 ```
 
 ## PhilanthropyTypes [![get](https://img.shields.io/badge/get-blue)](get.md#philanthropytypes) [![post](https://img.shields.io/badge/post-blue)](post.md#philanthropytypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing philosophy type.  
+##### Usage:  
 ```shell
 tq put PhilanthropyTypes
-```
-Update an existing philosophy type.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## PhoneIndicators [![get](https://img.shields.io/badge/get-blue)](get.md#phoneindicators) [![post](https://img.shields.io/badge/post-blue)](post.md#phoneindicators) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing phone indicator.  
+##### Usage:  
 ```shell
 tq put PhoneIndicators
-```
-Update an existing phone indicator.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## PhoneTypes [![get](https://img.shields.io/badge/get-blue)](get.md#phonetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#phonetypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing phone type.  
+##### Usage:  
 ```shell
 tq put PhoneTypes
-```
-Update an existing phone type.  
+``` 
+##### Query:  
 ```json
-Query: {"AllowMarketing":true, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator":"string", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"AllowMarketing":true, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator":"string", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Phones [![get](https://img.shields.io/badge/get-blue)](get.md#phones) [![post](https://img.shields.io/badge/post-blue)](post.md#phones) ![put](https://img.shields.io/badge/put-gray)   
+Update a phone.  
+##### Usage:  
 ```shell
 tq put Phones
-```
-Update a phone.  
+``` 
+##### Query:  
 ```json
-Query: {"Address":{"Id":123}, "AllowTelemarketing":true, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator":"string", "EditIndicator":true, "Id":123, "Inactive":true, "PhoneFormatted":"string", "PhoneNumber":"string", "PhoneSearch":"string", "PhoneType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PhoneID":"string"}
+{"Address":{"Id":123}, "AllowTelemarketing":true, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator":"string", "EditIndicator":true, "Id":123, "Inactive":true, "PhoneFormatted":"string", "PhoneNumber":"string", "PhoneSearch":"string", "PhoneType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PhoneID":"string"}
 ```
 
 ## PlanPriorities [![get](https://img.shields.io/badge/get-blue)](get.md#planpriorities) [![post](https://img.shields.io/badge/post-blue)](post.md#planpriorities) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing plan priority.  
+##### Usage:  
 ```shell
 tq put PlanPriorities
-```
-Update an existing plan priority.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Ranking":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Ranking":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## PlanSources [![get](https://img.shields.io/badge/get-blue)](get.md#plansources) [![post](https://img.shields.io/badge/post-blue)](post.md#plansources) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing plan source.  
+##### Usage:  
 ```shell
 tq put PlanSources
-```
-Update an existing plan source.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## PlanStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#planstatuses) [![post](https://img.shields.io/badge/post-blue)](post.md#planstatuses) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing plan status.  
+##### Usage:  
 ```shell
 tq put PlanStatuses
-```
-Update an existing plan status.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## PlanTypes [![get](https://img.shields.io/badge/get-blue)](get.md#plantypes) [![post](https://img.shields.io/badge/post-blue)](post.md#plantypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing plan type.  
+##### Usage:  
 ```shell
 tq put PlanTypes
-```
-Update an existing plan type.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## PlanWorkers [![get](https://img.shields.io/badge/get-blue)](get.md#planworkers) [![post](https://img.shields.io/badge/post-blue)](post.md#planworkers) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing plan worker.  
+##### Usage:  
 ```shell
 tq put PlanWorkers
-```
-Update an existing plan worker.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Plan":{"Id":123}, "PrimaryIndicator":true, "Role":{"Id":123}, "ShowInPortfolio":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Worker":{"Id":123}, "PlanWorkerID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Plan":{"Id":123}, "PrimaryIndicator":true, "Role":{"Id":123}, "ShowInPortfolio":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Worker":{"Id":123}, "PlanWorkerID":"string"}
 ```
 
 ## Plans [![get](https://img.shields.io/badge/get-blue)](get.md#plans) [![post](https://img.shields.io/badge/post-blue)](post.md#plans) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing plan.  
+##### Usage:  
 ```shell
 tq put Plans
-```
-Update an existing plan.  
+``` 
+##### Query:  
 ```json
-Query: {"AskAmount":123.456, "Campaign":{"Id":123}, "CompleteByDateTime":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "ContributionAmount":123.456, "ContributionDesignation":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDataItems":[{"DataType":"string", "Description":"string", "EditIndicator":true, "Index":123, "IsDropdown":true, "KeywordId":123, "Name":"string", "Value":"string"}, ...], "EditIndicator":true, "Fund":{"Id":123}, "GoalAmount":123.456, "HasOpenSteps":true, "HasSteps":true, "Id":123, "LastStepDate":"2000-01-01T00:00:00.000Z", "LastStepType":{"Id":123}, "LastWorkerDisplayName":"string", "NextStepDate":"2000-01-01T00:00:00.000Z", "NextStepType":{"Id":123}, "Notes":"string", "OriginalSource":{"Id":123}, "PlanAssociates":"string", "PrimaryWorker":{"Id":123}, "Priority":{"Id":123}, "Probability":123.456, "RecordedAmount":123.456, "StartDateTime":"2000-01-01T00:00:00.000Z", "Status":{"Id":123}, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PlanID":"string"}
+{"AskAmount":123.456, "Campaign":{"Id":123}, "CompleteByDateTime":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "ContributionAmount":123.456, "ContributionDesignation":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDataItems":[{"DataType":"string", "Description":"string", "EditIndicator":true, "Index":123, "IsDropdown":true, "KeywordId":123, "Name":"string", "Value":"string"}, ...], "EditIndicator":true, "Fund":{"Id":123}, "GoalAmount":123.456, "HasOpenSteps":true, "HasSteps":true, "Id":123, "LastStepDate":"2000-01-01T00:00:00.000Z", "LastStepType":{"Id":123}, "LastWorkerDisplayName":"string", "NextStepDate":"2000-01-01T00:00:00.000Z", "NextStepType":{"Id":123}, "Notes":"string", "OriginalSource":{"Id":123}, "PlanAssociates":"string", "PrimaryWorker":{"Id":123}, "Priority":{"Id":123}, "Probability":123.456, "RecordedAmount":123.456, "StartDateTime":"2000-01-01T00:00:00.000Z", "Status":{"Id":123}, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PlanID":"string"}
 ```
 
 
 ## PortfolioCustomElements [![get](https://img.shields.io/badge/get-blue)](get.md#portfoliocustomelements) [![post](https://img.shields.io/badge/post-blue)](post.md#portfoliocustomelements) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing portfolio custom element.  
+##### Usage:  
 ```shell
 tq put PortfolioCustomElements
-```
-Update an existing portfolio custom element.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "Description":"string", "Id":123, "Inactive":true, "SqlQuery":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "Description":"string", "Id":123, "Inactive":true, "SqlQuery":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 ## Prefixes [![get](https://img.shields.io/badge/get-blue)](get.md#prefixes) [![post](https://img.shields.io/badge/post-blue)](post.md#prefixes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing prefix.  
+##### Usage:  
 ```shell
 tq put Prefixes
-```
-Update an existing prefix.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Premieres [![get](https://img.shields.io/badge/get-blue)](get.md#premieres) [![post](https://img.shields.io/badge/post-blue)](post.md#premieres) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing premiere.  
+##### Usage:  
 ```shell
 tq put Premieres
-```
-Update an existing premiere.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## PriceCategories [![get](https://img.shields.io/badge/get-blue)](get.md#pricecategories) [![post](https://img.shields.io/badge/post-blue)](post.md#pricecategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing price category.  
+##### Usage:  
 ```shell
 tq put PriceCategories
-```
-Update an existing price category.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## PriceEvents [![get](https://img.shields.io/badge/get-blue)](get.md#priceevents) ![put](https://img.shields.io/badge/put-gray)   
+Move a set of price events to a new date.  
+##### Usage:  
 ```shell
 tq put PriceEvents
-```
-Move a set of price events to a new date.  
+``` 
+##### Query:  
 ```json
-Query: {"EventDateTime":"2000-01-01T00:00:00.000Z", "EventIds":"string"}
+{"EventDateTime":"2000-01-01T00:00:00.000Z", "EventIds":"string"}
 ```
 
 ## PriceLayerTypes [![get](https://img.shields.io/badge/get-blue)](get.md#pricelayertypes) [![post](https://img.shields.io/badge/post-blue)](post.md#pricelayertypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing price layer type.  
+##### Usage:  
 ```shell
 tq put PriceLayerTypes
-```
-Update an existing price layer type.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "ExcludeFromRules":true, "Id":123, "Inactive":true, "PriceCategory":{"Id":123}, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "ExcludeFromRules":true, "Id":123, "Inactive":true, "PriceCategory":{"Id":123}, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## PriceTemplates [![get](https://img.shields.io/badge/get-blue)](get.md#pricetemplates) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetemplates) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing price template.  
+##### Usage:  
 ```shell
 tq put PriceTemplates
-```
-Update an existing price template.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultDesignationCode":{"Id":123}, "DefaultGlAccount":{"Id":123}, "DefaultPriceLayerType":{"Id":123}, "DefaultResaleAccount":{"Id":123}, "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Name":"string", "PriceCategory":{"Id":123}, "TemplatePriceTypes":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneMap":{"Id":123}, "PriceTemplateID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultDesignationCode":{"Id":123}, "DefaultGlAccount":{"Id":123}, "DefaultPriceLayerType":{"Id":123}, "DefaultResaleAccount":{"Id":123}, "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Name":"string", "PriceCategory":{"Id":123}, "TemplatePriceTypes":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneMap":{"Id":123}, "PriceTemplateID":"string"}
 ```
 
 ## PriceTypeCategories [![get](https://img.shields.io/badge/get-blue)](get.md#pricetypecategories) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypecategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing price type category.  
+##### Usage:  
 ```shell
 tq put PriceTypeCategories
-```
-Update an existing price type category.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## PriceTypeGroups [![get](https://img.shields.io/badge/get-blue)](get.md#pricetypegroups) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypegroups) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing price type group.  
+##### Usage:  
 ```shell
 tq put PriceTypeGroups
-```
-Update an existing price type group.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## PriceTypeReasons [![get](https://img.shields.io/badge/get-blue)](get.md#pricetypereasons) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypereasons) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing price type reason.  
+##### Usage:  
 ```shell
 tq put PriceTypeReasons
-```
-Update an existing price type reason.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ShortDescription":"string", "TicketText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ShortDescription":"string", "TicketText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## PriceTypeUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#pricetypeusergroups) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypeusergroups) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing price type/user group mapping.  
+##### Usage:  
 ```shell
 tq put PriceTypeUserGroups
-```
-Update an existing price type/user group mapping.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "PriceTypeUserGroupID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "PriceTypeUserGroupID":"string"}
 ```
 
 ## PriceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#pricetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing price type.  
+##### Usage:  
 ```shell
 tq put PriceTypes
-```
-Update an existing price type.  
+``` 
+##### Query:  
 ```json
-Query: {"AliasDescription":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultTicketDesign":{"Id":123}, "Description":"string", "EditIndicator":true, "EditableIndicator":true, "Id":123, "Inactive":true, "PriceTypeCategory":{"Id":123}, "PriceTypeGroup":{"Id":123}, "ReasonIndicator":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PriceTypeID":"string"}
+{"AliasDescription":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultTicketDesign":{"Id":123}, "Description":"string", "EditIndicator":true, "EditableIndicator":true, "Id":123, "Inactive":true, "PriceTypeCategory":{"Id":123}, "PriceTypeGroup":{"Id":123}, "ReasonIndicator":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PriceTypeID":"string"}
 ```
 
 ## PricingRuleCategories [![get](https://img.shields.io/badge/get-blue)](get.md#pricingrulecategories) [![post](https://img.shields.io/badge/post-blue)](post.md#pricingrulecategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing pricing rule category.  
+##### Usage:  
 ```shell
 tq put PricingRuleCategories
-```
-Update an existing pricing rule category.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## PricingRuleMessageTypes [![get](https://img.shields.io/badge/get-blue)](get.md#pricingrulemessagetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#pricingrulemessagetypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing pricing rule message type.  
+##### Usage:  
 ```shell
 tq put PricingRuleMessageTypes
-```
-Update an existing pricing rule message type.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## PricingRuleSets [![get](https://img.shields.io/badge/get-blue)](get.md#pricingrulesets) [![post](https://img.shields.io/badge/post-blue)](post.md#pricingrulesets) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing pricing rule set.  
+##### Usage:  
 ```shell
 tq put PricingRuleSets
-```
-Update an existing pricing rule set.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Rules":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PricingRuleSetID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Rules":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PricingRuleSetID":"string"}
 ```
 
 
 ## PricingRules [![get](https://img.shields.io/badge/get-blue)](get.md#pricingrules) [![post](https://img.shields.io/badge/post-blue)](post.md#pricingrules) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing pricing rule.  
+##### Usage:  
 ```shell
 tq put PricingRules
-```
-Update an existing pricing rule.  
+``` 
+##### Query:  
 ```json
-Query: {"Appeals":"string", "ApplyOncePerOrder":true, "ApplyToLowestCommonNumberOfSeats":true, "Constituencies":"string", "ConstituentAttribute":123, "ConstituentAttributeOperator":{"Id":123}, "ConstituentAttributeValue1":"string", "ConstituentAttributeValue2":"string", "ConstituentExclusionListId":123, "ConstituentListId":123, "ConstituentRankType":123, "ConstituentRankingOperator":{"Id":123}, "ConstituentRankingValue1":123, "ConstituentRankingValue2":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DiscountAmount":123.456, "DiscountIsPercent":true, "DiscountPercentRound":123, "DiscountPriceTypeId":123, "EditIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "ExcludeGeneralPublic":true, "Id":123, "Inactive":true, "MaxSeats":123, "Messages":[{"Id":123}, ...], "OverTheLimitDateTime":"2000-01-01T00:00:00.000Z", "PromotedAppeals":"string", "PromotedSources":"string", "QualifyingPackage":"string", "QualifyingPerformance":"string", "QualifyingPriceType1":"string", "QualifyingPriceType2":"string", "QualifyingProductionSeason":"string", "QualifyingSeasonPackageType":"string", "QualifyingSeatCount1Value1":123, "QualifyingSeatCount1Value2":123, "QualifyingSeatCount2Value1":123, "QualifyingSeatCount2Value2":123, "QualifyingZone":"string", "RespectMinimumPrice":true, "ResultMaximumSeats":123, "ResultMaximumSeats2":123, "ResultPackage":"string", "ResultPerformance":"string", "ResultPriceType":"string", "ResultProductionSeason":"string", "ResultSeasonPackageType":"string", "ResultSeatCount":123, "ResultZone":"string", "RuleAction":123, "RuleCategory":{"Id":123}, "RuleType":{"Id":123}, "Sources":"string", "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PricingRuleID":"string"}
+{"Appeals":"string", "ApplyOncePerOrder":true, "ApplyToLowestCommonNumberOfSeats":true, "Constituencies":"string", "ConstituentAttribute":123, "ConstituentAttributeOperator":{"Id":123}, "ConstituentAttributeValue1":"string", "ConstituentAttributeValue2":"string", "ConstituentExclusionListId":123, "ConstituentListId":123, "ConstituentRankType":123, "ConstituentRankingOperator":{"Id":123}, "ConstituentRankingValue1":123, "ConstituentRankingValue2":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DiscountAmount":123.456, "DiscountIsPercent":true, "DiscountPercentRound":123, "DiscountPriceTypeId":123, "EditIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "ExcludeGeneralPublic":true, "Id":123, "Inactive":true, "MaxSeats":123, "Messages":[{"Id":123}, ...], "OverTheLimitDateTime":"2000-01-01T00:00:00.000Z", "PromotedAppeals":"string", "PromotedSources":"string", "QualifyingPackage":"string", "QualifyingPerformance":"string", "QualifyingPriceType1":"string", "QualifyingPriceType2":"string", "QualifyingProductionSeason":"string", "QualifyingSeasonPackageType":"string", "QualifyingSeatCount1Value1":123, "QualifyingSeatCount1Value2":123, "QualifyingSeatCount2Value1":123, "QualifyingSeatCount2Value2":123, "QualifyingZone":"string", "RespectMinimumPrice":true, "ResultMaximumSeats":123, "ResultMaximumSeats2":123, "ResultPackage":"string", "ResultPerformance":"string", "ResultPriceType":"string", "ResultProductionSeason":"string", "ResultSeasonPackageType":"string", "ResultSeatCount":123, "ResultZone":"string", "RuleAction":123, "RuleCategory":{"Id":123}, "RuleType":{"Id":123}, "Sources":"string", "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PricingRuleID":"string"}
 ```
 
 ## Printers [![get](https://img.shields.io/badge/get-blue)](get.md#printers) [![post](https://img.shields.io/badge/post-blue)](post.md#printers) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing printer.  
+##### Usage:  
 ```shell
 tq put Printers
-```
-Update an existing printer.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "MaxCol":123, "MaxRow":123, "MaxX2val":123, "MaxY2val":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "MaxCol":123, "MaxRow":123, "MaxX2val":123, "MaxY2val":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 ## ProductionSeasonMembershipOrganizations [![get](https://img.shields.io/badge/get-blue)](get.md#productionseasonmembershiporganizations) [![post](https://img.shields.io/badge/post-blue)](post.md#productionseasonmembershiporganizations) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing production season membership organization.  
+##### Usage:  
 ```shell
 tq put ProductionSeasonMembershipOrganizations
-```
-Update an existing production season membership organization.  
+``` 
+##### Query:  
 ```json
-Query: {"ID":"string", "AllowMultipleEntry":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "MembershipOrganization":{"Id":123}, "ProductionSeason":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
+{"ID":"string", "AllowMultipleEntry":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "MembershipOrganization":{"Id":123}, "ProductionSeason":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 
 
 
 ## ProgramListings [![get](https://img.shields.io/badge/get-blue)](get.md#programlistings) [![post](https://img.shields.io/badge/post-blue)](post.md#programlistings) ![put](https://img.shields.io/badge/put-gray)   
+Update a program listing.  
+##### Usage:  
 ```shell
 tq put ProgramListings
-```
-Update a program listing.  
+``` 
+##### Query:  
 ```json
-Query: {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DonationLevel":{"Id":123}, "EditIndicator":true, "Id":123, "ProgramName":"string", "ProgramType":{"Id":123}, "SortName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ProgramListingID":"string"}
+{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DonationLevel":{"Id":123}, "EditIndicator":true, "Id":123, "ProgramName":"string", "ProgramType":{"Id":123}, "SortName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ProgramListingID":"string"}
 ```
 
 ## Programs [![get](https://img.shields.io/badge/get-blue)](get.md#programs) [![post](https://img.shields.io/badge/post-blue)](post.md#programs) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing program.  
+##### Usage:  
 ```shell
 tq put Programs
-```
-Update an existing program.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Pronouns [![get](https://img.shields.io/badge/get-blue)](get.md#pronouns) [![post](https://img.shields.io/badge/post-blue)](post.md#pronouns) ![put](https://img.shields.io/badge/put-gray)   
+  
+##### Usage:  
 ```shell
 tq put Pronouns
-```
-  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 	
 # Q
 ## QualificationCategories [![get](https://img.shields.io/badge/get-blue)](get.md#qualificationcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#qualificationcategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Qualification Category.  
+##### Usage:  
 ```shell
 tq put QualificationCategories
-```
-Update an existing Qualification Category.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Qualifications [![get](https://img.shields.io/badge/get-blue)](get.md#qualifications) [![post](https://img.shields.io/badge/post-blue)](post.md#qualifications) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Qualification.  
+##### Usage:  
 ```shell
 tq put Qualifications
-```
-Update an existing Qualification.  
+``` 
+##### Query:  
 ```json
-Query: {"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## QueryElementFilters [![get](https://img.shields.io/badge/get-blue)](get.md#queryelementfilters) [![post](https://img.shields.io/badge/post-blue)](post.md#queryelementfilters) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing query element filter.  
+##### Usage:  
 ```shell
 tq put QueryElementFilters
-```
-Update an existing query element filter.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "Description":"string", "EndOfDay":true, "FilterElement":"string", "Group":{"Id":123}, "Id":123, "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "QueryElementFilterID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "Description":"string", "EndOfDay":true, "FilterElement":"string", "Group":{"Id":123}, "Id":123, "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "QueryElementFilterID":"string"}
 ```
 
 ## QueryElementGroups [![get](https://img.shields.io/badge/get-blue)](get.md#queryelementgroups) [![post](https://img.shields.io/badge/post-blue)](post.md#queryelementgroups) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing query element group.  
+##### Usage:  
 ```shell
 tq put QueryElementGroups
-```
-Update an existing query element group.  
+``` 
+##### Query:  
 ```json
-Query: {"Category":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataFrom":"string", "DataWhere":"string", "Description":"string", "Id":123, "IsVirtual":true, "NumberOfParameters":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "QueryElementGroupID":"string"}
+{"Category":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataFrom":"string", "DataWhere":"string", "Description":"string", "Id":123, "IsVirtual":true, "NumberOfParameters":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "QueryElementGroupID":"string"}
 ```
 
 ## QueryElements [![get](https://img.shields.io/badge/get-blue)](get.md#queryelements) [![post](https://img.shields.io/badge/post-blue)](post.md#queryelements) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing query element.  
+##### Usage:  
 ```shell
 tq put QueryElements
-```
-Update an existing query element.  
+``` 
+##### Query:  
 ```json
-Query: {"ID":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataSelect":"string", "Description":"string", "Group":{"Id":123}, "Id":123, "Inactive":true, "IsSingleRow":true, "KeywordId":123, "PrimaryGroupDefault":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
+{"ID":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataSelect":"string", "Description":"string", "Group":{"Id":123}, "Id":123, "Inactive":true, "IsSingleRow":true, "KeywordId":123, "PrimaryGroupDefault":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 	
 # R
 ## RankTypes [![get](https://img.shields.io/badge/get-blue)](get.md#ranktypes) [![post](https://img.shields.io/badge/post-blue)](post.md#ranktypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing rank type.  
+##### Usage:  
 ```shell
 tq put RankTypes
-```
-Update an existing rank type.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Rankings [![get](https://img.shields.io/badge/get-blue)](get.md#rankings) [![post](https://img.shields.io/badge/post-blue)](post.md#rankings) ![put](https://img.shields.io/badge/put-gray)   
+Update a ranking.  
+##### Usage:  
 ```shell
 tq put Rankings
-```
-Update a ranking.  
+``` 
+##### Query:  
 ```json
-Query: {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Rank":123, "RankType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "RankingID":"string"}
+{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Rank":123, "RankType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "RankingID":"string"}
 ```
 
 ## ReceiptSettings [![get](https://img.shields.io/badge/get-blue)](get.md#receiptsettings) [![post](https://img.shields.io/badge/post-blue)](post.md#receiptsettings) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Receipt Setting.  
+##### Usage:  
 ```shell
 tq put ReceiptSettings
-```
-Update an existing Receipt Setting.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EmailFooter":"string", "EmailHeader":"string", "EmailSubject":"string", "Id":123, "Inactive":true, "PrintFooter":"string", "PrintHeader":"string", "ReceiptEmailProfile":{"Id":123}, "TicketEmailProfile":{"Id":123}, "TicketEmailSubject":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EmailFooter":"string", "EmailHeader":"string", "EmailSubject":"string", "Id":123, "Inactive":true, "PrintFooter":"string", "PrintHeader":"string", "ReceiptEmailProfile":{"Id":123}, "TicketEmailProfile":{"Id":123}, "TicketEmailSubject":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 
 ## ReferenceTableUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#referencetableusergroups) [![post](https://img.shields.io/badge/post-blue)](post.md#referencetableusergroups) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing reference table/user group mapping.  
+##### Usage:  
 ```shell
 tq put ReferenceTableUserGroups
-```
-Update an existing reference table/user group mapping.  
+``` 
+##### Query:  
 ```json
-Query: {"CanEdit":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ReferenceTable":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ID":"string"}
+{"CanEdit":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ReferenceTable":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ID":"string"}
 ```
 
 
 
 ## RelationshipCategories [![get](https://img.shields.io/badge/get-blue)](get.md#relationshipcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#relationshipcategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing relationship category.  
+##### Usage:  
 ```shell
 tq put RelationshipCategories
-```
-Update an existing relationship category.  
+``` 
+##### Query:  
 ```json
-Query: {"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 ## ReportRequests [![get](https://img.shields.io/badge/get-blue)](get.md#reportrequests) [![post](https://img.shields.io/badge/post-blue)](post.md#reportrequests) ![put](https://img.shields.io/badge/put-gray)   
+Update the details of a report request.  
+##### Usage:  
 ```shell
 tq put ReportRequests
-```
-Update the details of a report request.  
+``` 
+##### Query:  
 ```json
-Query: {"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DeletedIndicator":true, "EmailBody":"string", "EmailRecipients":"string", "EmailSubject":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OutputOption":"string", "Parameters":[{"ParameterId":123, "ReportId":"string", "RequestId":123, "Value":"string"}, ...], "PublicIndicator":true, "QueueStatus":"string", "ReportId":"string", "ReportType":123, "RequestDateTime":"2000-01-01T00:00:00.000Z", "ResultCode":"string", "ResultText":"string", "ScheduleId":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "UserId":"string"}
+{"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DeletedIndicator":true, "EmailBody":"string", "EmailRecipients":"string", "EmailSubject":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OutputOption":"string", "Parameters":[{"ParameterId":123, "ReportId":"string", "RequestId":123, "Value":"string"}, ...], "PublicIndicator":true, "QueueStatus":"string", "ReportId":"string", "ReportType":123, "RequestDateTime":"2000-01-01T00:00:00.000Z", "ResultCode":"string", "ResultText":"string", "ScheduleId":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "UserId":"string"}
 ```
 ### Flags:
  * *--FlushIncomplete*  
    Update the status of all the running requests to error.
 
 ## ReportSchedules [![get](https://img.shields.io/badge/get-blue)](get.md#reportschedules) [![post](https://img.shields.io/badge/post-blue)](post.md#reportschedules) ![put](https://img.shields.io/badge/put-gray)   
+Update the details of a report schedule.  
+##### Usage:  
 ```shell
 tq put ReportSchedules
-```
-Update the details of a report schedule.  
+``` 
+##### Query:  
 ```json
-Query: {"ID":"string", "AsOfDateTime":"2000-01-01T00:00:00.000Z", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayOfWeek":123, "DayWeekNumber":123, "EndDate":"2000-01-01T00:00:00.000Z", "EndTime":"2000-01-01T00:00:00.000Z", "HeaderRequest":{"Id":123}, "Id":123, "Inactive":true, "Interval":123, "Name":"string", "StartDate":"2000-01-01T00:00:00.000Z", "StartTime":"2000-01-01T00:00:00.000Z", "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
+{"ID":"string", "AsOfDateTime":"2000-01-01T00:00:00.000Z", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayOfWeek":123, "DayWeekNumber":123, "EndDate":"2000-01-01T00:00:00.000Z", "EndTime":"2000-01-01T00:00:00.000Z", "HeaderRequest":{"Id":123}, "Id":123, "Inactive":true, "Interval":123, "Name":"string", "StartDate":"2000-01-01T00:00:00.000Z", "StartTime":"2000-01-01T00:00:00.000Z", "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## ReportUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#reportusergroups) [![post](https://img.shields.io/badge/post-blue)](post.md#reportusergroups) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing report/user group mapping.  
+##### Usage:  
 ```shell
 tq put ReportUserGroups
-```
-Update an existing report/user group mapping.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ReportId":"string", "RunRight":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ViewRight":"string", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ReportId":"string", "RunRight":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ViewRight":"string", "ID":"string"}
 ```
 
 
 ## Research [![get](https://img.shields.io/badge/get-blue)](get.md#research) [![post](https://img.shields.io/badge/post-blue)](post.md#research) ![put](https://img.shields.io/badge/put-gray)   
+Updated an existing research entry for a constituent.  
+##### Usage:  
 ```shell
 tq put Research
-```
-Updated an existing research entry for a constituent.  
+``` 
+##### Query:  
 ```json
-Query: {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "ResearchDate":"2000-01-01T00:00:00.000Z", "ResearchSource":"string", "ResearchType":{"Id":123}, "Researcher":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ResearchEntryID":"string"}
+{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "ResearchDate":"2000-01-01T00:00:00.000Z", "ResearchSource":"string", "ResearchType":{"Id":123}, "Researcher":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ResearchEntryID":"string"}
 ```
 
 ## ResearchTypes [![get](https://img.shields.io/badge/get-blue)](get.md#researchtypes) [![post](https://img.shields.io/badge/post-blue)](post.md#researchtypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing research type.  
+##### Usage:  
 ```shell
 tq put ResearchTypes
-```
-Update an existing research type.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## ResourceCategories [![get](https://img.shields.io/badge/get-blue)](get.md#resourcecategories) [![post](https://img.shields.io/badge/post-blue)](post.md#resourcecategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Resource Category.  
+##### Usage:  
 ```shell
 tq put ResourceCategories
-```
-Update an existing Resource Category.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## ResourceSchedules [![get](https://img.shields.io/badge/get-blue)](get.md#resourceschedules) [![post](https://img.shields.io/badge/post-blue)](post.md#resourceschedules) ![put](https://img.shields.io/badge/put-gray)   
+Update a specific resource schedule.  Only Busy or Available types can be updated.  
+##### Usage:  
 ```shell
 tq put ResourceSchedules
-```
-Update a specific resource schedule.  Only Busy or Available types can be updated.  
+``` 
+##### Query:  
 ```json
-Query: {"BookingAssignmentId":123, "ConstituentId":123, "Count":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OverrideConflicts":true, "RecurrenceDayOfWeek":"string", "RecurrenceEndDate":"2000-01-01T00:00:00.000Z", "RecurrenceInterval":123, "RecurrenceOrdinal":123, "RecurrencePattern":123, "ResourceId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ResourceScheduleID":"string"}
+{"BookingAssignmentId":123, "ConstituentId":123, "Count":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OverrideConflicts":true, "RecurrenceDayOfWeek":"string", "RecurrenceEndDate":"2000-01-01T00:00:00.000Z", "RecurrenceInterval":123, "RecurrenceOrdinal":123, "RecurrencePattern":123, "ResourceId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ResourceScheduleID":"string"}
 ```
 
 ## ResourceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#resourcetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#resourcetypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing resource type.  
+##### Usage:  
 ```shell
 tq put ResourceTypes
-```
-Update an existing resource type.  
+``` 
+##### Query:  
 ```json
-Query: {"ID":"string", "CanBeShared":true, "Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "HasCapacity":true, "Id":123, "Inactive":true, "RequireAvailability":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
+{"ID":"string", "CanBeShared":true, "Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "HasCapacity":true, "Id":123, "Inactive":true, "RequireAvailability":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Resources [![get](https://img.shields.io/badge/get-blue)](get.md#resources) [![post](https://img.shields.io/badge/post-blue)](post.md#resources) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Resource.  
+##### Usage:  
 ```shell
 tq put Resources
-```
-Update an existing Resource.  
+``` 
+##### Query:  
 ```json
-Query: {"ID":"string", "Capacity":123, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultConfirmationText":"string", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Notes":"string", "ResourceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
+{"ID":"string", "Capacity":123, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultConfirmationText":"string", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Notes":"string", "ResourceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 	
 # S
 ## SalesChannels [![get](https://img.shields.io/badge/get-blue)](get.md#saleschannels) [![post](https://img.shields.io/badge/post-blue)](post.md#saleschannels) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing sales channel.  
+##### Usage:  
 ```shell
 tq put SalesChannels
-```
-Update an existing sales channel.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## SalesLayoutButtonTypes [![get](https://img.shields.io/badge/get-blue)](get.md#saleslayoutbuttontypes) [![post](https://img.shields.io/badge/post-blue)](post.md#saleslayoutbuttontypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing sales layout button type.  
+##### Usage:  
 ```shell
 tq put SalesLayoutButtonTypes
-```
-Update an existing sales layout button type.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## SalesLayouts [![get](https://img.shields.io/badge/get-blue)](get.md#saleslayouts) [![post](https://img.shields.io/badge/post-blue)](post.md#saleslayouts) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing sales layout setup.  
+##### Usage:  
 ```shell
 tq put SalesLayouts
-```
-Update an existing sales layout setup.  
+``` 
+##### Query:  
 ```json
-Query: {"Columns":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PaymentMethods":[{"Id":123}, ...], "PriceTypes":[{"Id":123}, ...], "PrimaryIndicator":true, "Rows":123, "SalesLayoutButtons":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "SalesLayoutID":"string"}
+{"Columns":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PaymentMethods":[{"Id":123}, ...], "PriceTypes":[{"Id":123}, ...], "PrimaryIndicator":true, "Rows":123, "SalesLayoutButtons":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "SalesLayoutID":"string"}
 ```
 
 ## SalutationTypes [![get](https://img.shields.io/badge/get-blue)](get.md#salutationtypes) [![post](https://img.shields.io/badge/post-blue)](post.md#salutationtypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing salutation type.  
+##### Usage:  
 ```shell
 tq put SalutationTypes
-```
-Update an existing salutation type.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Salutations [![get](https://img.shields.io/badge/get-blue)](get.md#salutations) [![post](https://img.shields.io/badge/post-blue)](post.md#salutations) ![put](https://img.shields.io/badge/put-gray)   
+Update a salutation.  
+##### Usage:  
 ```shell
 tq put Salutations
-```
-Update a salutation.  
+``` 
+##### Query:  
 ```json
-Query: {"BusinessTitle":"string", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "EditIndicator":true, "EnvelopeSalutation1":"string", "EnvelopeSalutation2":"string", "Id":123, "IsFromAffiliation":true, "Label":true, "LetterSalutation":"string", "SalutationType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "SalutationID":"string"}
+{"BusinessTitle":"string", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "EditIndicator":true, "EnvelopeSalutation1":"string", "EnvelopeSalutation2":"string", "Id":123, "IsFromAffiliation":true, "Label":true, "LetterSalutation":"string", "SalutationType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "SalutationID":"string"}
 ```
 
 ## SchedulePatternTypes [![get](https://img.shields.io/badge/get-blue)](get.md#schedulepatterntypes) [![post](https://img.shields.io/badge/post-blue)](post.md#schedulepatterntypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Schedule Pattern.  
+##### Usage:  
 ```shell
 tq put SchedulePatternTypes
-```
-Update an existing Schedule Pattern.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## ScheduleTypes [![get](https://img.shields.io/badge/get-blue)](get.md#scheduletypes) [![post](https://img.shields.io/badge/post-blue)](post.md#scheduletypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Schedule Type.  
+##### Usage:  
 ```shell
 tq put ScheduleTypes
-```
-Update an existing Schedule Type.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## SeasonTypes [![get](https://img.shields.io/badge/get-blue)](get.md#seasontypes) [![post](https://img.shields.io/badge/post-blue)](post.md#seasontypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing season type.  
+##### Usage:  
 ```shell
 tq put SeasonTypes
-```
-Update an existing season type.  
+``` 
+##### Query:  
 ```json
-Query: {"BusinessUnit":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"BusinessUnit":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Seasons [![get](https://img.shields.io/badge/get-blue)](get.md#seasons) [![post](https://img.shields.io/badge/post-blue)](post.md#seasons) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing season.  
+##### Usage:  
 ```shell
 tq put Seasons
-```
-Update an existing season.  
+``` 
+##### Query:  
 ```json
-Query: {"ConfirmationNoticeFormat":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Description":"string", "DisplayInSeasonOverview":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "FYear":123, "Id":123, "Inactive":true, "RenewalNoticeFormat":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "SubscriptionFund1":123, "SubscriptionFund2":123, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "YearlySeason":123, "ID":"string"}
+{"ConfirmationNoticeFormat":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Description":"string", "DisplayInSeasonOverview":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "FYear":123, "Id":123, "Inactive":true, "RenewalNoticeFormat":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "SubscriptionFund1":123, "SubscriptionFund2":123, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "YearlySeason":123, "ID":"string"}
 ```
 
 ## SeatCodes [![get](https://img.shields.io/badge/get-blue)](get.md#seatcodes) [![post](https://img.shields.io/badge/post-blue)](post.md#seatcodes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing seat code.  
+##### Usage:  
 ```shell
 tq put SeatCodes
-```
-Update an existing seat code.  
+``` 
+##### Query:  
 ```json
-Query: {"BackColor":123, "Context":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DisplayLetter":"string", "ForeColor":123, "Id":123, "Inactive":true, "IsSeat":123, "TicketText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"BackColor":123, "Context":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DisplayLetter":"string", "ForeColor":123, "Id":123, "Inactive":true, "IsSeat":123, "TicketText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## SeatStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#seatstatuses) [![post](https://img.shields.io/badge/post-blue)](post.md#seatstatuses) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing seat status.  
+##### Usage:  
 ```shell
 tq put SeatStatuses
-```
-Update an existing seat status.  
+``` 
+##### Query:  
 ```json
-Query: {"BackColor":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "ForeColor":123, "Id":123, "Inactive":true, "StatusCode":"string", "StatusLegend":"string", "StatusPriority":123, "Tck":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"BackColor":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "ForeColor":123, "Id":123, "Inactive":true, "StatusCode":"string", "StatusLegend":"string", "StatusPriority":123, "Tck":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Sections [![get](https://img.shields.io/badge/get-blue)](get.md#sections) [![post](https://img.shields.io/badge/post-blue)](post.md#sections) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing section.  
+##### Usage:  
 ```shell
 tq put Sections
-```
-Update an existing section.  
+``` 
+##### Query:  
 ```json
-Query: {"AdditionalText":"string", "AdditionalText2":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "PrintDesc":"string", "PrintSequence":123, "SectionLegend":"string", "ShortDesc":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"AdditionalText":"string", "AdditionalText2":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "PrintDesc":"string", "PrintSequence":123, "SectionLegend":"string", "ShortDesc":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
@@ -2107,36 +2542,42 @@ Query: {"AdditionalText":"string", "AdditionalText2":"string", "CreateLocation":
 
 
 ## ServiceResourceUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#serviceresourceusergroups) [![post](https://img.shields.io/badge/post-blue)](post.md#serviceresourceusergroups) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing service resource/user group mapping.  
+##### Usage:  
 ```shell
 tq put ServiceResourceUserGroups
-```
-Update an existing service resource/user group mapping.  
+``` 
+##### Query:  
 ```json
-Query: {"CanCreate":true, "CanDelete":true, "CanRead":true, "CanUpdate":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ServiceResource":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ID":"string"}
+{"CanCreate":true, "CanDelete":true, "CanRead":true, "CanUpdate":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ServiceResource":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ID":"string"}
 ```
 
 
 ## Session [![get](https://img.shields.io/badge/get-blue)](get.md#session) [![post](https://img.shields.io/badge/post-blue)](post.md#session) ![put](https://img.shields.io/badge/put-gray)   
-```shell
-tq put Session
-```
 Sets the current constituent on the cart for a business facing session
 If the Constituent is a primary affiliate of a household, the method obeys the "TRANSACT_AS_HOUSEHOLD_ORDER" entry in T_DEFAULTS to determine if the household constituent should be set. 
 If the default is set to "Prompt", both the household and individual are returned, to allow the user to be queried. To set the constituent to the users choice pass in the selected constituent id and set OverridePrompt to true.  
+##### Usage:  
+```shell
+tq put Session
+``` 
+##### Query:  
 ```json
-Query: {"ConstituentId":123, "OverridePrompt":true, "SessionKey":"string"}
+{"ConstituentId":123, "OverridePrompt":true, "SessionKey":"string"}
 ```
 ### Flags:
  * *--SetExpiration*  
    Changes the deadline after which a session's reserved seats are released
 All times are relative to the machine on which the Tessitura Seat Server runs, including the time zone. The method either takes an absolute deadline time or an offset in seconds which is used to shorten or lengthen the time until expiration. The deadline is not the exact moment at which the seats are released, but rather when they are marked as expired. The Tessitura Seat Server will terminate the session when the next cleanup cycle is run (every 60 seconds or so). The method will return the new expiration date/time of the session.  The expiration date/time takes precendence over the offset if both are provided in the request.
+##### Query:  
 ```json
-Query: {"Expiration":"2000-01-01T00:00:00.000Z", "TimeOffset":123, "SessionKey":"string"}
+{"Expiration":"2000-01-01T00:00:00.000Z", "TimeOffset":123, "SessionKey":"string"}
 ```
  * *--Variable*  
    Update the value of an existing session variable.
+##### Query:  
 ```json
-Query: {"SessionKey":"string", "Name":"string", "Value":"string"}
+{"SessionKey":"string", "Name":"string", "Value":"string"}
 ```
  * *--WebLogin*  
    Updates the login information for a user and logs back into the session using new credentials.
@@ -2144,215 +2585,259 @@ Query: {"SessionKey":"string", "Name":"string", "Value":"string"}
 Current and new values must be submitted for login username, password, and email.  To retain any of the current values pass the same value for both the current and the new parameter.  After successfully updating the user account, the user is automatically logged in with the new login information.
 
 When updating a login where the password has been forgotten, submit the request with a null password.
+##### Query:  
 ```json
-Query: {"EmailAddress":"string", "LoginName":"string", "LoginTypeId":123, "NewEmailAddress":"string", "NewLoginName":"string", "NewPassword":"string", "Password":"string", "PromotionCode":123, "SessionKey":"string"}
+{"EmailAddress":"string", "LoginName":"string", "LoginTypeId":123, "NewEmailAddress":"string", "NewLoginName":"string", "NewPassword":"string", "Password":"string", "PromotionCode":123, "SessionKey":"string"}
 ```
 
 ## SourceGroups [![get](https://img.shields.io/badge/get-blue)](get.md#sourcegroups) [![post](https://img.shields.io/badge/post-blue)](post.md#sourcegroups) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing source group.  
+##### Usage:  
 ```shell
 tq put SourceGroups
-```
-Update an existing source group.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 ## SpecialActivities [![get](https://img.shields.io/badge/get-blue)](get.md#specialactivities) [![post](https://img.shields.io/badge/post-blue)](post.md#specialactivities) ![put](https://img.shields.io/badge/put-gray)   
+Update an activity record.  
+##### Usage:  
 ```shell
 tq put SpecialActivities
-```
-Update an activity record.  
+``` 
+##### Query:  
 ```json
-Query: {"ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Notes":"string", "NumberOfAttendees":123, "Performance":"string", "SpecialActivityDateTime":"2000-01-01T00:00:00.000Z", "Status":{"Id":123}, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerConstituentId":123, "SpecialActivityID":"string"}
+{"ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Notes":"string", "NumberOfAttendees":123, "Performance":"string", "SpecialActivityDateTime":"2000-01-01T00:00:00.000Z", "Status":{"Id":123}, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerConstituentId":123, "SpecialActivityID":"string"}
 ```
 
 ## SpecialActivityStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#specialactivitystatuses) [![post](https://img.shields.io/badge/post-blue)](post.md#specialactivitystatuses) ![put](https://img.shields.io/badge/put-gray)   
+Update an Special Activity Status.  
+##### Usage:  
 ```shell
 tq put SpecialActivityStatuses
-```
-Update an Special Activity Status.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## SpecialActivityTypes [![get](https://img.shields.io/badge/get-blue)](get.md#specialactivitytypes) [![post](https://img.shields.io/badge/post-blue)](post.md#specialactivitytypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Special Activity Type.  
+##### Usage:  
 ```shell
 tq put SpecialActivityTypes
-```
-Update an existing Special Activity Type.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## States [![get](https://img.shields.io/badge/get-blue)](get.md#states) [![post](https://img.shields.io/badge/post-blue)](post.md#states) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing state.  
+##### Usage:  
 ```shell
 tq put States
-```
-Update an existing state.  
+``` 
+##### Query:  
 ```json
-Query: {"Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "StateCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "StateCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## StepTypes [![get](https://img.shields.io/badge/get-blue)](get.md#steptypes) [![post](https://img.shields.io/badge/post-blue)](post.md#steptypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing step type.  
+##### Usage:  
 ```shell
 tq put StepTypes
-```
-Update an existing step type.  
+``` 
+##### Query:  
 ```json
-Query: {"AllowAttachments":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseAssociate":"string", "UseCompletedOnDateTime":"string", "UseDueDateTime":"string", "UseNote":"string", "UseWarningDays":"string", "UseWorker":"string", "ID":"string"}
+{"AllowAttachments":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseAssociate":"string", "UseCompletedOnDateTime":"string", "UseDueDateTime":"string", "UseNote":"string", "UseWarningDays":"string", "UseWorker":"string", "ID":"string"}
 ```
 
 ## Steps [![get](https://img.shields.io/badge/get-blue)](get.md#steps) [![post](https://img.shields.io/badge/post-blue)](post.md#steps) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing step.  
+##### Usage:  
 ```shell
 tq put Steps
-```
-Update an existing step.  
+``` 
+##### Query:  
 ```json
-Query: {"Associate":{"Id":123}, "CompletedOnDateTime":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DueDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "NewValue":"string", "Notes":"string", "OldValue":"string", "Plan":{"Id":123}, "Priority":123, "StepDateTime":"2000-01-01T00:00:00.000Z", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WarningDays":123, "Worker":{"Id":123}, "StepID":"string"}
+{"Associate":{"Id":123}, "CompletedOnDateTime":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DueDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "NewValue":"string", "Notes":"string", "OldValue":"string", "Plan":{"Id":123}, "Priority":123, "StepDateTime":"2000-01-01T00:00:00.000Z", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WarningDays":123, "Worker":{"Id":123}, "StepID":"string"}
 ```
 ### Flags:
  * *--Document*  
    Update a document attached to a step.
+##### Query:  
 ```json
-Query: {"Category":{"Id":123}, "ConstituentId":123, "Contents":"AA==", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "FileName":"string", "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "DocumentID":"string", "StepID":"string"}
+{"Category":{"Id":123}, "ConstituentId":123, "Contents":"AA==", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "FileName":"string", "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "DocumentID":"string", "StepID":"string"}
 ```
 
 ## SubLineItemStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#sublineitemstatuses) [![post](https://img.shields.io/badge/post-blue)](post.md#sublineitemstatuses) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing sub line item status.  
+##### Usage:  
 ```shell
 tq put SubLineItemStatuses
-```
-Update an existing sub line item status.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Priority":123, "StatusCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Priority":123, "StatusCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 ## Suffixes [![get](https://img.shields.io/badge/get-blue)](get.md#suffixes) [![post](https://img.shields.io/badge/post-blue)](post.md#suffixes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing suffix.  
+##### Usage:  
 ```shell
 tq put Suffixes
-```
-Update an existing suffix.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## SurveyQuestions [![get](https://img.shields.io/badge/get-blue)](get.md#surveyquestions) [![post](https://img.shields.io/badge/post-blue)](post.md#surveyquestions) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing survey question.  
+##### Usage:  
 ```shell
 tq put SurveyQuestions
-```
-Update an existing survey question.  
+``` 
+##### Query:  
 ```json
-Query: {"AskType":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "DefaultValue":"string", "Id":123, "Inactive":true, "Question":"string", "ReferenceTable":"string", "ReferenceTableDescriptionColumn":"string", "ReferenceTableIdColumn":"string", "ReferenceTableSort":"string", "ReferenceTableWhereClause":"string", "Required":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"AskType":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "DefaultValue":"string", "Id":123, "Inactive":true, "Question":"string", "ReferenceTable":"string", "ReferenceTableDescriptionColumn":"string", "ReferenceTableIdColumn":"string", "ReferenceTableSort":"string", "ReferenceTableWhereClause":"string", "Required":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## SurveyResponses [![get](https://img.shields.io/badge/get-blue)](get.md#surveyresponses) [![post](https://img.shields.io/badge/post-blue)](post.md#surveyresponses) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing survey response.  
+##### Usage:  
 ```shell
 tq put SurveyResponses
-```
-Update an existing survey response.  
+``` 
+##### Query:  
 ```json
-Query: {"Answer":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OrderId":123, "QuestionId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "SurveyResponseID":"string"}
+{"Answer":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OrderId":123, "QuestionId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "SurveyResponseID":"string"}
 ```
 
 
 	
 # T
 ## TemplateCategories [![get](https://img.shields.io/badge/get-blue)](get.md#templatecategories) [![post](https://img.shields.io/badge/post-blue)](post.md#templatecategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing template category  
+##### Usage:  
 ```shell
 tq put TemplateCategories
-```
-Update an existing template category  
+``` 
+##### Query:  
 ```json
-Query: {"ID":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
+{"ID":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## TemplatePriceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#templatepricetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#templatepricetypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing template price type.  
+##### Usage:  
 ```shell
 tq put TemplatePriceTypes
-```
-Update an existing template price type.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DesignationCode":{"Id":123}, "GlAccount":{"Id":123}, "Id":123, "PriceTemplate":{"Id":123}, "PriceType":{"Id":123}, "ResaleAccount":{"Id":123}, "TemplatePrices":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "TemplatePriceTypeID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DesignationCode":{"Id":123}, "GlAccount":{"Id":123}, "Id":123, "PriceTemplate":{"Id":123}, "PriceType":{"Id":123}, "ResaleAccount":{"Id":123}, "TemplatePrices":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "TemplatePriceTypeID":"string"}
 ```
 
 ## TemplatePrices [![get](https://img.shields.io/badge/get-blue)](get.md#templateprices) [![post](https://img.shields.io/badge/post-blue)](post.md#templateprices) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing template price.  
+##### Usage:  
 ```shell
 tq put TemplatePrices
-```
-Update an existing template price.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Enabled":true, "Id":123, "MinPrice":123.456, "Price":123.456, "TemplatePriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Zone":{"Id":123}, "TemplatePriceID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Enabled":true, "Id":123, "MinPrice":123.456, "Price":123.456, "TemplatePriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Zone":{"Id":123}, "TemplatePriceID":"string"}
 ```
 
 
 ## Templates [![get](https://img.shields.io/badge/get-blue)](get.md#templates) [![post](https://img.shields.io/badge/post-blue)](post.md#templates) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing template  
+##### Usage:  
 ```shell
 tq put Templates
-```
-Update an existing template  
+``` 
+##### Query:  
 ```json
-Query: {"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "IsHtmlBody":true, "TemplateBody":"string", "TemplateSubject":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "TemplateID":"string"}
+{"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "IsHtmlBody":true, "TemplateBody":"string", "TemplateSubject":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "TemplateID":"string"}
 ```
 
 ## Theaters [![get](https://img.shields.io/badge/get-blue)](get.md#theaters) [![post](https://img.shields.io/badge/post-blue)](post.md#theaters) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing theater.  
+##### Usage:  
 ```shell
 tq put Theaters
-```
-Update an existing theater.  
+``` 
+##### Query:  
 ```json
-Query: {"City":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataWindowDefinition":"string", "Description":"string", "DrivingDirections":"string", "Id":123, "Inactive":true, "MaximumNumberOfSeats":123, "Phone":"string", "PostalCode":"string", "State":"string", "Street":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"City":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataWindowDefinition":"string", "Description":"string", "DrivingDirections":"string", "Id":123, "Inactive":true, "MaximumNumberOfSeats":123, "Phone":"string", "PostalCode":"string", "State":"string", "Street":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 ## TimeSlots [![get](https://img.shields.io/badge/get-blue)](get.md#timeslots) [![post](https://img.shields.io/badge/post-blue)](post.md#timeslots) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing time slot.  
+##### Usage:  
 ```shell
 tq put TimeSlots
-```
-Update an existing time slot.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "StartTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "StartTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 
 
 ## TriPOSCloudConfigurations [![get](https://img.shields.io/badge/get-blue)](get.md#triposcloudconfigurations) [![post](https://img.shields.io/badge/post-blue)](post.md#triposcloudconfigurations) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing TriPOS Cloud configuration.  
+##### Usage:  
 ```shell
 tq put TriPOSCloudConfigurations
-```
-Update an existing TriPOS Cloud configuration.  
+``` 
+##### Query:  
 ```json
-Query: {"ConfigSetting":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ConfigSetting":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 	
 # U
 ## UpgradeCategories [![get](https://img.shields.io/badge/get-blue)](get.md#upgradecategories) [![post](https://img.shields.io/badge/post-blue)](post.md#upgradecategories) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Upgrade Category.  
+##### Usage:  
 ```shell
 tq put UpgradeCategories
-```
-Update an existing Upgrade Category.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## UpgradeLogs [![get](https://img.shields.io/badge/get-blue)](get.md#upgradelogs) [![post](https://img.shields.io/badge/post-blue)](post.md#upgradelogs) ![put](https://img.shields.io/badge/put-gray)   
+Updates the given upgradeLog.  
+##### Usage:  
 ```shell
 tq put UpgradeLogs
-```
-Updates the given upgradeLog.  
+``` 
+##### Query:  
 ```json
-Query: {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HotFixNumber":123, "Id":123, "ReleaseDescription":"string", "ScriptId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UpgradeCategorySummary":{"Id":123}, "Version":"string", "UpgradeLogID":"string"}
+{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HotFixNumber":123, "Id":123, "ReleaseDescription":"string", "ScriptId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UpgradeCategorySummary":{"Id":123}, "Version":"string", "UpgradeLogID":"string"}
 ```
 
 
 ## UserPreferences [![get](https://img.shields.io/badge/get-blue)](get.md#userpreferences) [![post](https://img.shields.io/badge/post-blue)](post.md#userpreferences) ![put](https://img.shields.io/badge/put-gray)   
+Update a user preference by id.  
+##### Usage:  
 ```shell
 tq put UserPreferences
-```
-Update a user preference by id.  
+``` 
+##### Query:  
 ```json
-Query: {"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Key":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}
+{"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Key":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}
 ```
 
 
@@ -2362,87 +2847,105 @@ Query: {"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "Created
 	
 # W
 ## WebContentTypes [![get](https://img.shields.io/badge/get-blue)](get.md#webcontenttypes) [![post](https://img.shields.io/badge/post-blue)](post.md#webcontenttypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing Web Content Type.  
+##### Usage:  
 ```shell
 tq put WebContentTypes
-```
-Update an existing Web Content Type.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditMask":"string", "FullTextSearchIndicator":true, "Id":123, "Inactive":true, "LastContentUseUpdateDateTime":"2000-01-01T00:00:00.000Z", "Limit":123, "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseWebApi":true, "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditMask":"string", "FullTextSearchIndicator":true, "Id":123, "Inactive":true, "LastContentUseUpdateDateTime":"2000-01-01T00:00:00.000Z", "Limit":123, "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseWebApi":true, "ID":"string"}
 ```
 
 
 ## WebLogins [![get](https://img.shields.io/badge/get-blue)](get.md#weblogins) [![post](https://img.shields.io/badge/post-blue)](post.md#weblogins) ![put](https://img.shields.io/badge/put-gray)   
+Update a weblogin.  
+##### Usage:  
 ```shell
 tq put WebLogins
-```
-Update a weblogin.  
+``` 
+##### Query:  
 ```json
-Query: {"Constituent":{"Id":123}, "ConstituentUpdateDate":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Email":{"Id":123}, "FailedAttempts":123, "Id":123, "Inactive":true, "LastLoginDate":"2000-01-01T00:00:00.000Z", "LockedDate":"2000-01-01T00:00:00.000Z", "Login":"string", "LoginType":{"Id":123}, "PrimaryIndicator":true, "TemporaryIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "LoginID":"string"}
+{"Constituent":{"Id":123}, "ConstituentUpdateDate":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Email":{"Id":123}, "FailedAttempts":123, "Id":123, "Inactive":true, "LastLoginDate":"2000-01-01T00:00:00.000Z", "LockedDate":"2000-01-01T00:00:00.000Z", "Login":"string", "LoginType":{"Id":123}, "PrimaryIndicator":true, "TemporaryIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "LoginID":"string"}
 ```
 
 ## WorkerQualifications [![get](https://img.shields.io/badge/get-blue)](get.md#workerqualifications) [![post](https://img.shields.io/badge/post-blue)](post.md#workerqualifications) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing WorkerQualification.  
+##### Usage:  
 ```shell
 tq put WorkerQualifications
-```
-Update an existing WorkerQualification.  
+``` 
+##### Query:  
 ```json
-Query: {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Qualification":{"Id":123}, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerQualificationID":"string"}
+{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Qualification":{"Id":123}, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerQualificationID":"string"}
 ```
 
 ## WorkerRoles [![get](https://img.shields.io/badge/get-blue)](get.md#workerroles) [![post](https://img.shields.io/badge/post-blue)](post.md#workerroles) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing worker role.  
+##### Usage:  
 ```shell
 tq put WorkerRoles
-```
-Update an existing worker role.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ShowInPortfolioDefault":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ShowInPortfolioDefault":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## WorkerTypes [![get](https://img.shields.io/badge/get-blue)](get.md#workertypes) [![post](https://img.shields.io/badge/post-blue)](post.md#workertypes) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing worker type.  
+##### Usage:  
 ```shell
 tq put WorkerTypes
-```
-Update an existing worker type.  
+``` 
+##### Query:  
 ```json
-Query: {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## Workers [![get](https://img.shields.io/badge/get-blue)](get.md#workers) [![post](https://img.shields.io/badge/post-blue)](post.md#workers) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing worker.  
+##### Usage:  
 ```shell
 tq put Workers
-```
-Update an existing worker.  
+``` 
+##### Query:  
 ```json
-Query: {"ConstituentId":123, "ConstituentInactive":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "FirstName":"string", "Id":123, "Inactive":true, "LastName":"string", "Prefix":{"Id":123}, "ShortDisplayName":"string", "SortName":"string", "Suffix":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerType":{"Id":123}, "WorkerID":"string"}
+{"ConstituentId":123, "ConstituentInactive":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "FirstName":"string", "Id":123, "Inactive":true, "LastName":"string", "Prefix":{"Id":123}, "ShortDisplayName":"string", "SortName":"string", "Suffix":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerType":{"Id":123}, "WorkerID":"string"}
 ```
 
 	
 # Z
 ## ZoneGroups [![get](https://img.shields.io/badge/get-blue)](get.md#zonegroups) [![post](https://img.shields.io/badge/post-blue)](post.md#zonegroups) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing zone group.  
+##### Usage:  
 ```shell
 tq put ZoneGroups
-```
-Update an existing zone group.  
+``` 
+##### Query:  
 ```json
-Query: {"AliasDescription":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
+{"AliasDescription":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
 ```
 
 ## ZoneMaps [![get](https://img.shields.io/badge/get-blue)](get.md#zonemaps) [![post](https://img.shields.io/badge/post-blue)](post.md#zonemaps) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing zone map.  
+##### Usage:  
 ```shell
 tq put ZoneMaps
-```
-Update an existing zone map.  
+``` 
+##### Query:  
 ```json
-Query: {"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "SeatMap":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
+{"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "SeatMap":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
 ```
 
 ## Zones [![get](https://img.shields.io/badge/get-blue)](get.md#zones) [![post](https://img.shields.io/badge/post-blue)](post.md#zones) ![put](https://img.shields.io/badge/put-gray)   
+Update an existing zone.  
+##### Usage:  
 ```shell
 tq put Zones
-```
-Update an existing zone.  
+``` 
+##### Query:  
 ```json
-Query: {"Abbreviation":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndTime":"string", "Id":123, "Rank":123, "ShortDescription":"string", "StartTime":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneGroup":{"Id":123}, "ZoneLegend":"string", "ZoneMapId":123, "ZoneTime":"string", "ZoneID":"string", "ZoneMapID":"string"}
+{"Abbreviation":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndTime":"string", "Id":123, "Rank":123, "ShortDescription":"string", "StartTime":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneGroup":{"Id":123}, "ZoneLegend":"string", "ZoneMapId":123, "ZoneTime":"string", "ZoneID":"string", "ZoneMapID":"string"}
 ```
  
 
