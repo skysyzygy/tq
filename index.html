@@ -99,6 +99,11 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
+            <li class="nav-item" data-bs-level="1"><a href="#tq-is-a-command-line-interface-for-tessitura" class="nav-link">🚀 tq is a command-line interface for Tessitura.</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
             <li class="nav-item" data-bs-level="1"><a href="#installation" class="nav-link">🏗️ installation</a>
               <ul class="nav flex-column">
               </ul>
@@ -118,18 +123,23 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#queries" class="nav-link">❓ queries:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h3 id="tq-is-a-command-line-interface-for-tessitura">&gt; <strong>tq</strong> is a command-line interface for Tessitura. 🚀</h3>
-<p><strong>tq</strong> is a wrapper around the Tessitura API that reads JSON-formatted data and executes a series of API calls to Tessitura. It internally handles authentication, session creation and closure, and batch/concurrent processing so that humans like you (or bots or scripts) can focus on the data and not the intricacies of the Tessitura API.                                                       </p>
+<h1 id="tq-is-a-command-line-interface-for-tessitura">🚀 <strong>tq</strong> is a command-line interface for Tessitura. </span></h1>
+<p><strong>tq</strong> is a wrapper around the Tessitura API that reads JSON-formatted data and executes a series of API calls to Tessitura. It internally handles authentication and batch/concurrent processing so that humans like you (or bots or scripts) can focus on the data and not the intricacies of the Tessitura API.                                                      </p>
 <h1 id="installation">🏗️ installation</h1>
 <h2 id="from-binary">from binary</h2>
 <p>Download the latest release from the <a href="https://github.com/skysyzygy/tq/releases/">releases page!</a> </p>
 <h2 id="from-source">from source</h2>
-<p>The only prerequisite to using <strong>tq</strong> is <a href="https://go.dev/doc/install">installing go</a>.</p>
+<p>The only prerequisite to building <strong>tq</strong> is <a href="https://go.dev/doc/install">installing go</a>.</p>
 <p>Then clone this repository and build:</p>
 <pre><code class="language-shell">git clone github.com/skysyzygy/tq
 cd tq
@@ -137,7 +147,7 @@ go build -o bin/tq .
 </code></pre>
 <p>The build command will create an executable file <code>tq</code> or <code>tq.exe</code> in the <code>bin</code> project directory.</p>
 <h1 id="authentication">🪪 authentication</h1>
-<p>To authenticate with the API server you need to select at least one authentication method. </p>
+<p>To authenticate with the API server you need to add and select at least one authentication method. </p>
 <pre><code class="language-shell">tq auth add --host hostname --user username --group usergroup --location location
 # Password: ******
 
@@ -153,7 +163,7 @@ tq auth sel --host hostname --user username --group usergroup --location locatio
 <p><strong>add a plan step</strong></p>
 <pre><code class="language-shell">tq create steps &lt;&lt;&lt; '{&quot;plan&quot;: {&quot;Id&quot;: 12345}, &quot;type&quot;: {&quot;Id&quot;: 1}, &quot;Description&quot;: &quot;New step!&quot;, &quot;Notes&quot;: &quot;Created by tq :)&quot;}'
 # or using flattened syntax
-tq create steps &lt;&lt;&lt; '{&quot;plan.Id&quot;: 12345, &quot;type.Id&quot;: 1, &quot;Description&quot;: &quot;New step!&quot;, &quot;Notes&quot;: &quot;Created by tq :)&quot;}'
+tq --inflat create steps &lt;&lt;&lt; '{&quot;plan.Id&quot;: 12345, &quot;type.Id&quot;: 1, &quot;Description&quot;: &quot;New step!&quot;, &quot;Notes&quot;: &quot;Created by tq :)&quot;}'
 </code></pre>
 <h1 id="usage">🛠️ usage</h1>
 <pre><code class="language-shell">tq [flags] [verb] [object]
@@ -183,7 +193,7 @@ tq create steps &lt;&lt;&lt; '{&quot;plan.Id&quot;: 12345, &quot;type.Id&quot;: 
 <li><strong>completion</strong> :   Generate the autocompletion script for the specified shell</li>
 <li><strong>help</strong> :         Help about any command</li>
 </ul>
-<h2 id="queries">queries:</h2>
+<h1 id="queries">❓ queries:</h1>
 <p>Queries are simply JSON objects and can be batched by combining multiple query objects into a single JSON array, e.g. </p>
 <pre><code class="language-json">[{&quot;ID&quot;:123}, {&quot;ID&quot;:124}, {&quot;ID&quot;:125}, {}, {}, ]
 </code></pre>
@@ -319,5 +329,5 @@ EOF
 
 <!--
 MkDocs version : 1.6.0
-Build Date UTC : 2024-08-09 21:07:23.621200+00:00
+Build Date UTC : 2024-08-10 18:42:29.265582+00:00
 -->
