@@ -17,6 +17,7 @@
         <link href="/css/base.css" rel="stylesheet">
         <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" disabled>
         <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="/css/code.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script>hljs.highlightAll();</script> 
     </head>
@@ -35,13 +36,24 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
-                                <a href="/get/" class="nav-link">Get</a>
+                                <a href="/objects/" class="nav-link">Objects</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="/post/" class="nav-link">Post</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/put/" class="nav-link">Put</a>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Verbs</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/get/" class="dropdown-item">Get</a>
+</li>
+                                    
+<li>
+    <a href="/post/" class="dropdown-item">Post</a>
+</li>
+                                    
+<li>
+    <a href="/put/" class="dropdown-item">Put</a>
+</li>
+                                </ul>
                             </li>
                         </ul>
 
