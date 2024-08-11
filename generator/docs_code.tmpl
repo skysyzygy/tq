@@ -1,12 +1,4 @@
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#{{.Name}}-default" aria-expanded="true" aria-controls="{{.Name}}-default">
-default
-</button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#{{.Name}}-flat" aria-expanded="false" aria-controls="{{.Name}}-flat">
-flat
-</button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#{{.Name}}-csv" aria-expanded="false" aria-controls="{{.Name}}-csv">
-csv
-</button><div id="{{ .Name }}-parent">
+<div id="{{ .Name }}-parent">
 <div class="collapse show" id="{{ .Name }}-default" data-bs-parent="#{{ .Name }}-parent"> 
 ```json
 {{ .Usage }}
@@ -22,4 +14,13 @@ csv
 {{ .Usage | toCsv }}
 ```  
 </div>
+<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#{{.Name}}-default" aria-expanded="true" aria-controls="{{.Name}}-default">
+default
+</button>
+<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#{{.Name}}-flat" aria-expanded="false" aria-controls="{{.Name}}-flat">
+flat
+</button>
+<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#{{.Name}}-csv" aria-expanded="false" aria-controls="{{.Name}}-csv">
+csv
+</button>
 </div>
