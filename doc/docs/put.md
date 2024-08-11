@@ -5,9 +5,9 @@
 	
 # A
 ## AccountTypes 
-<button type="button" class="btn btn-sm">[get](get.md#accounttypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#accounttypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#accounttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#accounttypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing account type.  
 ##### Usage:  
@@ -44,9 +44,9 @@ CardLength,CardPrefix,CardtypeIndicator,CreateLocation,CreatedBy,CreatedDateTime
 </div>
 
 ## Accounts 
-<button type="button" class="btn btn-sm">[get](get.md#accounts)</button>
-<button type="button" class="btn btn-sm">[post](post.md#accounts)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#accounts)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#accounts)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update expiration date or name on a credit card account or token. Will also tokenize the credit card if tokenization is enabled.
 PaymentMethodGroupId is ignored if the account already has a PaymentMethodGroupId assigned.  This value cannot be updated.
@@ -146,9 +146,9 @@ AccountID,BankIdentifierCode,Inactive,MandateType,Name,SignatureDate
 </div>
 
 ## ActionTypes 
-<button type="button" class="btn btn-sm">[get](get.md#actiontypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#actiontypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#actiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#actiontypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing action type.  
 ##### Usage:  
@@ -185,9 +185,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,LetterIndica
 </div>
 
 ## Actions 
-<button type="button" class="btn btn-sm">[get](get.md#actions)</button>
-<button type="button" class="btn btn-sm">[post](post.md#actions)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#actions)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#actions)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an issue action for a Constituent  
 ##### Usage:  
@@ -224,9 +224,9 @@ ActionDate,ActionID,ActionType.Id,Constituent.Id,CreateLocation,CreatedBy,Create
 </div>
 
 ## ActivityCategories 
-<button type="button" class="btn btn-sm">[get](get.md#activitycategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#activitycategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#activitycategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#activitycategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing activity category.  
 ##### Usage:  
@@ -263,9 +263,9 @@ true,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""st
 </div>
 
 ## ActivityTypes 
-<button type="button" class="btn btn-sm">[get](get.md#activitytypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#activitytypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#activitytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#activitytypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing activity type.  
 ##### Usage:  
@@ -302,9 +302,9 @@ Category.Id,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description
 </div>
 
 ## AddressTypes 
-<button type="button" class="btn btn-sm">[get](get.md#addresstypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#addresstypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#addresstypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#addresstypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing address type.  
 ##### Usage:  
@@ -341,9 +341,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## Addresses 
-<button type="button" class="btn btn-sm">[get](get.md#addresses)</button>
-<button type="button" class="btn btn-sm">[post](post.md#addresses)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#addresses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#addresses)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an address for a Constituent by sending an XML or JSON representation of an existing Address object using HTTP PUT.  
 ##### Usage:  
@@ -381,9 +381,9 @@ AddressID,AddressType.Id,AffiliatedConstituent.Id,AltSalutationType.Id,City,Cons
 
 
 ## AffiliationTypes 
-<button type="button" class="btn btn-sm">[get](get.md#affiliationtypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#affiliationtypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#affiliationtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#affiliationtypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing affiliation type.  
 ##### Usage:  
@@ -420,9 +420,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## Affiliations 
-<button type="button" class="btn btn-sm">[get](get.md#affiliations)</button>
-<button type="button" class="btn btn-sm">[post](post.md#affiliations)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#affiliations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#affiliations)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an affiliation.  
 ##### Usage:  
@@ -459,9 +459,9 @@ AddressId,AffiliatedName,AffiliationID,AffiliationType.Id,CreateLocation,Created
 </div>
 
 ## AliasTypes 
-<button type="button" class="btn btn-sm">[get](get.md#aliastypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#aliastypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#aliastypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#aliastypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing alias type.  
 ##### Usage:  
@@ -498,9 +498,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## Aliases 
-<button type="button" class="btn btn-sm">[get](get.md#aliases)</button>
-<button type="button" class="btn btn-sm">[post](post.md#aliases)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#aliases)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#aliases)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an alias.  
 ##### Usage:  
@@ -538,9 +538,9 @@ AliasFirstName,AliasID,AliasLastName,AliasType.Id,Constituent.Id,CreateLocation,
 
 
 ## AnalyticsReports 
-<button type="button" class="btn btn-sm">[get](get.md#analyticsreports)</button>
-<button type="button" class="btn btn-sm">[post](post.md#analyticsreports)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#analyticsreports)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#analyticsreports)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update SSRS Reports for display in Analytics.  
 ##### Usage:  
@@ -577,8 +577,8 @@ AnalyticsReportID,CreateLocation,CreatedBy,CreatedDateTime,Description,Division.
 </div>
 
 ## AppScreenTexts 
-<button type="button" class="btn btn-sm">[get](get.md#appscreentexts)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#appscreentexts)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Create or update a new App Screen Text.  
 ##### Usage:  
@@ -615,9 +615,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Id,Name,UpdatedBy,UpdatedDateTime,Value
 </div>
 
 ## AppealCategories 
-<button type="button" class="btn btn-sm">[get](get.md#appealcategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#appealcategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#appealcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#appealcategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing appeal category.  
 ##### Usage:  
@@ -656,9 +656,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 
 
 ## Artists 
-<button type="button" class="btn btn-sm">[get](get.md#artists)</button>
-<button type="button" class="btn btn-sm">[post](post.md#artists)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#artists)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#artists)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing artist.  
 ##### Usage:  
@@ -695,9 +695,9 @@ ArtistID,Bio,CreateLocation,CreatedBy,CreatedDateTime,FirstName,Id,LastName,Midd
 </div>
 
 ## AssetTypes 
-<button type="button" class="btn btn-sm">[get](get.md#assettypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#assettypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#assettypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#assettypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing asset type.  
 ##### Usage:  
@@ -734,9 +734,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## Assets 
-<button type="button" class="btn btn-sm">[get](get.md#assets)</button>
-<button type="button" class="btn btn-sm">[post](post.md#assets)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#assets)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#assets)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing asset for a constituent.  
 ##### Usage:  
@@ -773,9 +773,9 @@ AcquisitionDateTime,AssetID,AssetType.Id,Constituent.Id,CreateLocation,CreatedBy
 </div>
 
 ## AssociationTypes 
-<button type="button" class="btn btn-sm">[get](get.md#associationtypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#associationtypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#associationtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#associationtypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing association type.  
 ##### Usage:  
@@ -812,9 +812,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## Associations 
-<button type="button" class="btn btn-sm">[get](get.md#associations)</button>
-<button type="button" class="btn btn-sm">[post](post.md#associations)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#associations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#associations)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update a association.  
 ##### Usage:  
@@ -852,9 +852,9 @@ AssociatedConstituent.Id,AssociatedName,AssociationID,AssociationType.Id,BirthDa
 
 
 ## Attributes 
-<button type="button" class="btn btn-sm">[get](get.md#attributes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#attributes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#attributes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#attributes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an attribute.  
 ##### Usage:  
@@ -893,8 +893,8 @@ AttributeID,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicato
 
 
 ## Authorization 
-<button type="button" class="btn btn-sm">[post](post.md#authorization)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#authorization)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 NOTE: THIS IS FOR TESSITURA USE ONLY. Custom implementations of this endpoint are not supported.
 Expire a payment link which has yet to be authorized or already expired.  For Tessitura Merchant Services only.  
@@ -936,9 +936,9 @@ PaymentID
 
 
 ## BatchTypeGroups 
-<button type="button" class="btn btn-sm">[get](get.md#batchtypegroups)</button>
-<button type="button" class="btn btn-sm">[post](post.md#batchtypegroups)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#batchtypegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#batchtypegroups)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing batch type group.  
 ##### Usage:  
@@ -976,9 +976,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 
 
 ## BatchTypes 
-<button type="button" class="btn btn-sm">[get](get.md#batchtypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#batchtypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#batchtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#batchtypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing batch type.  
 ##### Usage:  
@@ -1015,9 +1015,9 @@ BatchTypeGroup.Id,BusinessUnit.Id,Category,CntlIndicator,CreateLocation,CreatedB
 </div>
 
 ## BillingSchedules 
-<button type="button" class="btn btn-sm">[get](get.md#billingschedules)</button>
-<button type="button" class="btn btn-sm">[post](post.md#billingschedules)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#billingschedules)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#billingschedules)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Billing Schedule.  
 ##### Usage:  
@@ -1054,9 +1054,9 @@ BillAmounts,BillDates,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,D
 </div>
 
 ## BillingTypes 
-<button type="button" class="btn btn-sm">[get](get.md#billingtypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#billingtypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#billingtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#billingtypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Billing Type.  
 ##### Usage:  
@@ -1093,9 +1093,9 @@ AutoBillingIndicator,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,
 </div>
 
 ## BookingCategories 
-<button type="button" class="btn btn-sm">[get](get.md#bookingcategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#bookingcategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#bookingcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#bookingcategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Booking Category.  
 ##### Usage:  
@@ -1132,9 +1132,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EditIndicat
 </div>
 
 ## BookingTemplates 
-<button type="button" class="btn btn-sm">[get](get.md#bookingtemplates)</button>
-<button type="button" class="btn btn-sm">[post](post.md#bookingtemplates)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#bookingtemplates)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#bookingtemplates)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Booking Template  
 ##### Usage:  
@@ -1169,9 +1169,9 @@ csv
 </div>
 
 ## Bookings 
-<button type="button" class="btn btn-sm">[get](get.md#bookings)</button>
-<button type="button" class="btn btn-sm">[post](post.md#bookings)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#bookings)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#bookings)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Booking  
 ##### Usage:  
@@ -1206,9 +1206,9 @@ csv
 </div>
 
 ## BulkCopySets 
-<button type="button" class="btn btn-sm">[get](get.md#bulkcopysets)</button>
-<button type="button" class="btn btn-sm">[post](post.md#bulkcopysets)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#bulkcopysets)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#bulkcopysets)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Updates an existing bulk copy set.  
 ##### Usage:  
@@ -1245,9 +1245,9 @@ true,"""string""",123,true,true,true,true,true,true,"""2000-01-01T00:00:00.000Z"
 </div>
 
 ## BulkDailyCopyExclusions 
-<button type="button" class="btn btn-sm">[get](get.md#bulkdailycopyexclusions)</button>
-<button type="button" class="btn btn-sm">[post](post.md#bulkdailycopyexclusions)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#bulkdailycopyexclusions)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#bulkdailycopyexclusions)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Updates an existing bulk daily copy exclusion.  
 ##### Usage:  
@@ -1284,9 +1284,9 @@ BulkDailyCopyExclusionID,CreateLocation,CreatedBy,CreatedDateTime,DoNotCopy,Id,I
 </div>
 
 ## BusinessUnits 
-<button type="button" class="btn btn-sm">[get](get.md#businessunits)</button>
-<button type="button" class="btn btn-sm">[post](post.md#businessunits)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#businessunits)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#businessunits)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing business unit.  
 ##### Usage:  
@@ -1326,9 +1326,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 # C
 
 ## CampaignDesignations 
-<button type="button" class="btn btn-sm">[get](get.md#campaigndesignations)</button>
-<button type="button" class="btn btn-sm">[post](post.md#campaigndesignations)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#campaigndesignations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#campaigndesignations)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an association between a Designation and a Campaign.  
 ##### Usage:  
@@ -1365,9 +1365,9 @@ Campaign.Id,CampaignDesignationID,CreateLocation,CreatedBy,CreatedDateTime,Defau
 </div>
 
 ## CampaignFunds 
-<button type="button" class="btn btn-sm">[get](get.md#campaignfunds)</button>
-<button type="button" class="btn btn-sm">[post](post.md#campaignfunds)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#campaignfunds)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#campaignfunds)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update a Fund association to a Campaign.  
 ##### Usage:  
@@ -1405,9 +1405,9 @@ Campaign.Id,CampaignFundID,CreateLocation,CreatedBy,CreatedDateTime,EditIndicato
 
 
 ## CardReaderTypes 
-<button type="button" class="btn btn-sm">[get](get.md#cardreadertypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#cardreadertypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#cardreadertypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#cardreadertypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Card Reader Type.  
 ##### Usage:  
@@ -1444,9 +1444,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## Cart 
-<button type="button" class="btn btn-sm">[get](get.md#cart)</button>
-<button type="button" class="btn btn-sm">[post](post.md#cart)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#cart)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#cart)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Applies a discounted price to all sub line items for a line item
 For packages, the discount can only be applied to package line items.
@@ -1889,9 +1889,9 @@ RecipientId,SessionKey,SubLineItemID
 </div>
 
 ## Colors 
-<button type="button" class="btn btn-sm">[get](get.md#colors)</button>
-<button type="button" class="btn btn-sm">[post](post.md#colors)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#colors)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#colors)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing color.  
 ##### Usage:  
@@ -1928,9 +1928,9 @@ ColorValue,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,UpdatedBy,
 </div>
 
 ## Composers 
-<button type="button" class="btn btn-sm">[get](get.md#composers)</button>
-<button type="button" class="btn btn-sm">[post](post.md#composers)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#composers)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#composers)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing composer.  
 ##### Usage:  
@@ -1967,9 +1967,9 @@ Bio,CreateLocation,CreatedBy,CreatedDateTime,FirstName,ID,Id,Inactive,LastName,M
 </div>
 
 ## Constituencies 
-<button type="button" class="btn btn-sm">[get](get.md#constituencies)</button>
-<button type="button" class="btn btn-sm">[post](post.md#constituencies)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituencies)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituencies)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update a constituency.  
 ##### Usage:  
@@ -2006,9 +2006,9 @@ ConstituencyID,ConstituencyType.Id,Constituent.Id,CreateLocation,CreatedBy,Creat
 </div>
 
 ## ConstituencyTypes 
-<button type="button" class="btn btn-sm">[get](get.md#constituencytypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#constituencytypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituencytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituencytypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing constituency type.  
 ##### Usage:  
@@ -2046,9 +2046,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 
 
 ## ConstituentDocuments 
-<button type="button" class="btn btn-sm">[get](get.md#constituentdocuments)</button>
-<button type="button" class="btn btn-sm">[post](post.md#constituentdocuments)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituentdocuments)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituentdocuments)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing document for a constituent.  
 ##### Usage:  
@@ -2085,9 +2085,9 @@ Category.Id,ConstituentId,Contents,CreateLocation,CreatedBy,CreatedDateTime,Desc
 </div>
 
 ## ConstituentGroups 
-<button type="button" class="btn btn-sm">[get](get.md#constituentgroups)</button>
-<button type="button" class="btn btn-sm">[post](post.md#constituentgroups)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituentgroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituentgroups)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing constituent group.  
 ##### Usage:  
@@ -2124,9 +2124,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## ConstituentInactives 
-<button type="button" class="btn btn-sm">[get](get.md#constituentinactives)</button>
-<button type="button" class="btn btn-sm">[post](post.md#constituentinactives)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituentinactives)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituentinactives)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing constituent inactive.  
 ##### Usage:  
@@ -2163,9 +2163,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## ConstituentProtectionTypes 
-<button type="button" class="btn btn-sm">[get](get.md#constituentprotectiontypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#constituentprotectiontypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituentprotectiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituentprotectiontypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing constituent protection type.  
 ##### Usage:  
@@ -2202,9 +2202,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## ConstituentTypeAffiliates 
-<button type="button" class="btn btn-sm">[get](get.md#constituenttypeaffiliates)</button>
-<button type="button" class="btn btn-sm">[post](post.md#constituenttypeaffiliates)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituenttypeaffiliates)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituenttypeaffiliates)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing constituent type affiliate.  
 ##### Usage:  
@@ -2241,9 +2241,9 @@ AffiliationType.Id,ConstituentType.Id,CreateLocation,CreatedBy,CreatedDateTime,H
 </div>
 
 ## ConstituentTypes 
-<button type="button" class="btn btn-sm">[get](get.md#constituenttypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#constituenttypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituenttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituenttypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing constituent type.  
 ##### Usage:  
@@ -2280,9 +2280,9 @@ AddressTypeId,ConstituentGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Defau
 </div>
 
 ## Constituents 
-<button type="button" class="btn btn-sm">[get](get.md#constituents)</button>
-<button type="button" class="btn btn-sm">[post](post.md#constituents)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituents)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituents)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update a constituent. Only the information about constituent can be updated. If addresses, electronicAddresses, salutations or phones data are passed, they will be ignored.  
 ##### Usage:  
@@ -2319,9 +2319,9 @@ ConstituentID,ConstituentType.Id,CreateLocation,CreatedBy,CreatedDateTime,Displa
 </div>
 
 ## ContactPermissionCategories 
-<button type="button" class="btn btn-sm">[get](get.md#contactpermissioncategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#contactpermissioncategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpermissioncategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpermissioncategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing contact permission category.  
 ##### Usage:  
@@ -2358,9 +2358,9 @@ AskFrequencyMonths,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Desc
 </div>
 
 ## ContactPermissionTypes 
-<button type="button" class="btn btn-sm">[get](get.md#contactpermissiontypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#contactpermissiontypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpermissiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpermissiontypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing contact permission type.  
 ##### Usage:  
@@ -2397,9 +2397,9 @@ Category.Id,CreateLocation,CreatedBy,CreatedDateTime,DefaultValueForAdd,Descript
 </div>
 
 ## ContactPermissions 
-<button type="button" class="btn btn-sm">[get](get.md#contactpermissions)</button>
-<button type="button" class="btn btn-sm">[post](post.md#contactpermissions)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpermissions)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpermissions)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update a contact permission  
 ##### Usage:  
@@ -2436,9 +2436,9 @@ Answer,Constituent.Id,ContactPermissionID,CreateLocation,CreatedBy,CreatedDateTi
 </div>
 
 ## ContactPointCategories 
-<button type="button" class="btn btn-sm">[get](get.md#contactpointcategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#contactpointcategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointcategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing contact point category.  
 ##### Usage:  
@@ -2475,9 +2475,9 @@ ContactPointKey,ContactPointTable,CreateLocation,CreatedBy,CreatedDateTime,Descr
 </div>
 
 ## ContactPointCategoryPurposes 
-<button type="button" class="btn btn-sm">[get](get.md#contactpointcategorypurposes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#contactpointcategorypurposes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointcategorypurposes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointcategorypurposes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing contact point category purpose.  
 ##### Usage:  
@@ -2514,9 +2514,9 @@ ContactPointCategory.Id,CreateLocation,CreatedBy,CreatedDateTime,ID,Id,Purpose.I
 </div>
 
 ## ContactPointPurposeCategories 
-<button type="button" class="btn btn-sm">[get](get.md#contactpointpurposecategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#contactpointpurposecategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointpurposecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointpurposecategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing contact point purpose category.  
 ##### Usage:  
@@ -2553,9 +2553,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## ContactPointPurposeMaps 
-<button type="button" class="btn btn-sm">[get](get.md#contactpointpurposemaps)</button>
-<button type="button" class="btn btn-sm">[post](post.md#contactpointpurposemaps)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointpurposemaps)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointpurposemaps)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update a contact point purpose.  
 ##### Usage:  
@@ -2592,9 +2592,9 @@ ContactPoint.Id,ContactPointCategory.Id,ContactPointPurposeMapID,CreateLocation,
 </div>
 
 ## ContactPointPurposes 
-<button type="button" class="btn btn-sm">[get](get.md#contactpointpurposes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#contactpointpurposes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointpurposes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointpurposes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing contact point purpose.  
 ##### Usage:  
@@ -2632,9 +2632,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,PurposeCateg
 
 
 ## ContactTypes 
-<button type="button" class="btn btn-sm">[get](get.md#contacttypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#contacttypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contacttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contacttypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing contact type.  
 ##### Usage:  
@@ -2672,9 +2672,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 
 
 ## ContributionDesignations 
-<button type="button" class="btn btn-sm">[get](get.md#contributiondesignations)</button>
-<button type="button" class="btn btn-sm">[post](post.md#contributiondesignations)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contributiondesignations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contributiondesignations)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing contribution designation.  
 ##### Usage:  
@@ -2711,9 +2711,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## ContributionImportSets 
-<button type="button" class="btn btn-sm">[get](get.md#contributionimportsets)</button>
-<button type="button" class="btn btn-sm">[post](post.md#contributionimportsets)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contributionimportsets)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contributionimportsets)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing contributionImportSet.  
 ##### Usage:  
@@ -2750,8 +2750,8 @@ AccountMatchKeyword.Id,AcknowledgmentLetterMode,BatchType.Id,BillingSchedule.Id,
 </div>
 
 ## Contributions 
-<button type="button" class="btn btn-sm">[post](post.md#contributions)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contributions)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 This resource is currently strictly for interceptor plugin use. This is called any time an existing contribution is updated from contribution editor in the client application. Only Id (ref_no) is provided in the request content.  
 ##### Usage:  
@@ -2788,9 +2788,9 @@ AccountId,AppealId,BatchId,BillingAccount,BillingTypeId,BusinessUnitId,Campaign.
 </div>
 
 ## ControlGroupUserGroups 
-<button type="button" class="btn btn-sm">[get](get.md#controlgroupusergroups)</button>
-<button type="button" class="btn btn-sm">[post](post.md#controlgroupusergroups)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#controlgroupusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#controlgroupusergroups)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing control group/user group mapping.  
 ##### Usage:  
@@ -2827,9 +2827,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DefaultIndicator,EditIn
 </div>
 
 ## ControlGroups 
-<button type="button" class="btn btn-sm">[get](get.md#controlgroups)</button>
-<button type="button" class="btn btn-sm">[post](post.md#controlgroups)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#controlgroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#controlgroups)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing control group.  
 ##### Usage:  
@@ -2867,9 +2867,9 @@ CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,Permission,UpdatedBy,Update
 
 
 ## Countries 
-<button type="button" class="btn btn-sm">[get](get.md#countries)</button>
-<button type="button" class="btn btn-sm">[post](post.md#countries)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#countries)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#countries)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing country.  
 ##### Usage:  
@@ -2906,9 +2906,9 @@ CreateLocation,CreatedBy,CreatedDateTime,DecimalSeparator,Description,ID,Id,Inac
 </div>
 
 ## CrediteeTypes 
-<button type="button" class="btn btn-sm">[get](get.md#crediteetypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#crediteetypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#crediteetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#crediteetypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing crediteeType.  
 ##### Usage:  
@@ -2948,9 +2948,9 @@ CreateLocation,CreatedBy,CreatedDateTime,CreditMembershipIndicator,Description,G
 
 
 ## CurrencyTypes 
-<button type="button" class="btn btn-sm">[get](get.md#currencytypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#currencytypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#currencytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#currencytypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing currency type.  
 ##### Usage:  
@@ -2988,9 +2988,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,Rate,Updated
 
 
 ## CustomDefaultCategories 
-<button type="button" class="btn btn-sm">[get](get.md#customdefaultcategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#customdefaultcategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#customdefaultcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#customdefaultcategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing custom default category.  
 ##### Usage:  
@@ -3027,9 +3027,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## CustomDefaults 
-<button type="button" class="btn btn-sm">[get](get.md#customdefaults)</button>
-<button type="button" class="btn btn-sm">[post](post.md#customdefaults)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#customdefaults)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#customdefaults)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing custom default.  
 ##### Usage:  
@@ -3068,9 +3068,9 @@ CreateLocation,CreatedBy,CreatedDateTime,CustomDefaultCategory.Id,DefaultValue,D
 	
 # D
 ## DeliveryMethods 
-<button type="button" class="btn btn-sm">[get](get.md#deliverymethods)</button>
-<button type="button" class="btn btn-sm">[post](post.md#deliverymethods)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#deliverymethods)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#deliverymethods)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing delivery method.  
 ##### Usage:  
@@ -3107,9 +3107,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,PrintAtHome,
 </div>
 
 ## DesignationCodes 
-<button type="button" class="btn btn-sm">[get](get.md#designationcodes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#designationcodes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#designationcodes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#designationcodes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing designation code.  
 ##### Usage:  
@@ -3147,9 +3147,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 
 
 ## Diagnostics 
-<button type="button" class="btn btn-sm">[get](get.md#diagnostics)</button>
-<button type="button" class="btn btn-sm">[post](post.md#diagnostics)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#diagnostics)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#diagnostics)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Dummy end point to check availability of HTTP PUT.  
 ##### Usage:  
@@ -3186,9 +3186,9 @@ CreatedBy,CreatedDateTime,Description,DiagnosticID,Id,UpdatedBy,UpdatedDateTime
 </div>
 
 ## DirectDebitAccountTypes 
-<button type="button" class="btn btn-sm">[get](get.md#directdebitaccounttypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#directdebitaccounttypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#directdebitaccounttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#directdebitaccounttypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing direct debit account type.  
 ##### Usage:  
@@ -3225,9 +3225,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## DiscountTypes 
-<button type="button" class="btn btn-sm">[get](get.md#discounttypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#discounttypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#discounttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#discounttypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing discount type.  
 ##### Usage:  
@@ -3265,9 +3265,9 @@ Amount,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,Perce
 
 
 ## DocumentCategories 
-<button type="button" class="btn btn-sm">[get](get.md#documentcategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#documentcategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#documentcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#documentcategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing documentCategory.  
 ##### Usage:  
@@ -3305,9 +3305,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 
 
 ## DonationLevels 
-<button type="button" class="btn btn-sm">[get](get.md#donationlevels)</button>
-<button type="button" class="btn btn-sm">[post](post.md#donationlevels)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#donationlevels)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#donationlevels)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing donation level.  
 ##### Usage:  
@@ -3346,9 +3346,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,ProgramType.
 	
 # E
 ## EMV 
-<button type="button" class="btn btn-sm">[get](get.md#emv)</button>
-<button type="button" class="btn btn-sm">[post](post.md#emv)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#emv)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#emv)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Set idle message for a specific lane  
 ##### Usage:  
@@ -3385,9 +3385,9 @@ Cert,IdleMessage,LaneID,Merchant
 </div>
 
 ## ElectronicAddressTypes 
-<button type="button" class="btn btn-sm">[get](get.md#electronicaddresstypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#electronicaddresstypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#electronicaddresstypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#electronicaddresstypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing electronic address type.  
 ##### Usage:  
@@ -3424,9 +3424,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## ElectronicAddresses 
-<button type="button" class="btn btn-sm">[get](get.md#electronicaddresses)</button>
-<button type="button" class="btn btn-sm">[post](post.md#electronicaddresses)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#electronicaddresses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#electronicaddresses)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an electronic address.  
 ##### Usage:  
@@ -3463,9 +3463,9 @@ Address,AffiliatedConstituent.Id,AllowHtmlFormat,AllowMarketing,AltSalutationTyp
 </div>
 
 ## EmailProfiles 
-<button type="button" class="btn btn-sm">[get](get.md#emailprofiles)</button>
-<button type="button" class="btn btn-sm">[post](post.md#emailprofiles)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#emailprofiles)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#emailprofiles)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing email profile  
 ##### Usage:  
@@ -3504,9 +3504,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EmailBcc,Em
 
 
 ## EmarketIndicators 
-<button type="button" class="btn btn-sm">[get](get.md#emarketindicators)</button>
-<button type="button" class="btn btn-sm">[post](post.md#emarketindicators)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#emarketindicators)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#emarketindicators)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing emarket indicator.  
 ##### Usage:  
@@ -3543,9 +3543,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## Eras 
-<button type="button" class="btn btn-sm">[get](get.md#eras)</button>
-<button type="button" class="btn btn-sm">[post](post.md#eras)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#eras)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#eras)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing era.  
 ##### Usage:  
@@ -3585,9 +3585,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 	
 # F
 ## Facilities 
-<button type="button" class="btn btn-sm">[get](get.md#facilities)</button>
-<button type="button" class="btn btn-sm">[post](post.md#facilities)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#facilities)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#facilities)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update a Facility.  
 ##### Usage:  
@@ -3631,9 +3631,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DefaultBestSeatMapId,De
 # G
 
 ## Genders 
-<button type="button" class="btn btn-sm">[get](get.md#genders)</button>
-<button type="button" class="btn btn-sm">[post](post.md#genders)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#genders)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#genders)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing gender.  
 ##### Usage:  
@@ -3670,9 +3670,9 @@ CreateLocation,CreatedBy,CreatedDateTime,DefaultPrefix.Id,Description,ID,Id,Inac
 </div>
 
 ## GiftAidContactMethods 
-<button type="button" class="btn btn-sm">[get](get.md#giftaidcontactmethods)</button>
-<button type="button" class="btn btn-sm">[post](post.md#giftaidcontactmethods)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidcontactmethods)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidcontactmethods)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing gift aid contact method.  
 ##### Usage:  
@@ -3709,9 +3709,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## GiftAidDeclarations 
-<button type="button" class="btn btn-sm">[get](get.md#giftaiddeclarations)</button>
-<button type="button" class="btn btn-sm">[post](post.md#giftaiddeclarations)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaiddeclarations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaiddeclarations)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update a Gift Aid Declaration.  
 ##### Usage:  
@@ -3748,9 +3748,9 @@ ConfirmDateTime,Constituent.Id,ContactMethod.Id,CreateLocation,CreatedBy,Created
 </div>
 
 ## GiftAidDocumentStatuses 
-<button type="button" class="btn btn-sm">[get](get.md#giftaiddocumentstatuses)</button>
-<button type="button" class="btn btn-sm">[post](post.md#giftaiddocumentstatuses)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaiddocumentstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaiddocumentstatuses)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing gift aid document status.  
 ##### Usage:  
@@ -3787,9 +3787,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## GiftAidIneligibleReasons 
-<button type="button" class="btn btn-sm">[get](get.md#giftaidineligiblereasons)</button>
-<button type="button" class="btn btn-sm">[post](post.md#giftaidineligiblereasons)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidineligiblereasons)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidineligiblereasons)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing gift aid ineligible reason.  
 ##### Usage:  
@@ -3826,9 +3826,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## GiftAidRates 
-<button type="button" class="btn btn-sm">[get](get.md#giftaidrates)</button>
-<button type="button" class="btn btn-sm">[post](post.md#giftaidrates)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidrates)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidrates)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing gift aid rate.  
 ##### Usage:  
@@ -3865,9 +3865,9 @@ CreateLocation,CreatedBy,CreatedDateTime,EndDateTime,ID,Id,Rate,StartDateTime,Up
 </div>
 
 ## GiftAidStatuses 
-<button type="button" class="btn btn-sm">[get](get.md#giftaidstatuses)</button>
-<button type="button" class="btn btn-sm">[post](post.md#giftaidstatuses)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidstatuses)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing gift aid status.  
 ##### Usage:  
@@ -3904,9 +3904,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## GiftAidTypes 
-<button type="button" class="btn btn-sm">[get](get.md#giftaidtypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#giftaidtypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidtypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing gift aid type.  
 ##### Usage:  
@@ -3946,9 +3946,9 @@ CharityClaimsRef,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Descri
 	
 # H
 ## HoldCodeCategories 
-<button type="button" class="btn btn-sm">[get](get.md#holdcodecategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#holdcodecategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#holdcodecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#holdcodecategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Hold Code Category.  
 ##### Usage:  
@@ -3985,9 +3985,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## HoldCodeUserGroups 
-<button type="button" class="btn btn-sm">[get](get.md#holdcodeusergroups)</button>
-<button type="button" class="btn btn-sm">[post](post.md#holdcodeusergroups)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#holdcodeusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#holdcodeusergroups)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing hold code/user group mapping.  
 ##### Usage:  
@@ -4024,9 +4024,9 @@ CreateLocation,CreatedBy,CreatedDateTime,HoldCode.Id,HoldCodeUserGroupID,Id,Upda
 </div>
 
 ## HoldCodes 
-<button type="button" class="btn btn-sm">[get](get.md#holdcodes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#holdcodes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#holdcodes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#holdcodes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Hold Code.  
 ##### Usage:  
@@ -4065,9 +4065,9 @@ true,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",true,
 	
 # I
 ## InactiveReasons 
-<button type="button" class="btn btn-sm">[get](get.md#inactivereasons)</button>
-<button type="button" class="btn btn-sm">[post](post.md#inactivereasons)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#inactivereasons)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#inactivereasons)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing inactive reason.  
 ##### Usage:  
@@ -4104,9 +4104,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## IntegrationDefaults 
-<button type="button" class="btn btn-sm">[get](get.md#integrationdefaults)</button>
-<button type="button" class="btn btn-sm">[post](post.md#integrationdefaults)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#integrationdefaults)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#integrationdefaults)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Integration Default.  
 ##### Usage:  
@@ -4143,9 +4143,9 @@ AccessId,CreateLocation,CreatedBy,CreatedDateTime,DefaultValue,Description,Field
 </div>
 
 ## Integrations 
-<button type="button" class="btn btn-sm">[get](get.md#integrations)</button>
-<button type="button" class="btn btn-sm">[post](post.md#integrations)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#integrations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#integrations)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing action type.  
 ##### Usage:  
@@ -4182,9 +4182,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,UpdatedBy,UpdatedDate
 </div>
 
 ## InterestCategories 
-<button type="button" class="btn btn-sm">[get](get.md#interestcategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#interestcategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#interestcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#interestcategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing interest category.  
 ##### Usage:  
@@ -4221,9 +4221,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,UpdatedBy,UpdatedDate
 </div>
 
 ## InterestTypes 
-<button type="button" class="btn btn-sm">[get](get.md#interesttypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#interesttypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#interesttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#interesttypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing interest type.  
 ##### Usage:  
@@ -4260,9 +4260,9 @@ Category.Id,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description
 </div>
 
 ## Interests 
-<button type="button" class="btn btn-sm">[get](get.md#interests)</button>
-<button type="button" class="btn btn-sm">[post](post.md#interests)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#interests)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#interests)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an interest. If the interest is not selected and the weight is 0 or null, it will be deleted.
 For bulk interest edits, consider the CRM/Interests/CreateOrUpdate batching resource which allows multiple interests to be created, updated, or removed in a single request.  
@@ -4300,9 +4300,9 @@ Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,Interes
 </div>
 
 ## Internal 
-<button type="button" class="btn btn-sm">[get](get.md#internal)</button>
-<button type="button" class="btn btn-sm">[post](post.md#internal)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#internal)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#internal)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an address and phones. If the entire information about a phone is added newly then create a new phone. If the phone number of a phone is not given then delete that phone.  
 ##### Usage:  
@@ -4339,9 +4339,9 @@ AddressID,AddressType.Id,AffiliatedConstituent.Id,AllowTelemarketing1,AllowTelem
 </div>
 
 ## InventoryContactPermissionTypes 
-<button type="button" class="btn btn-sm">[get](get.md#inventorycontactpermissiontypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#inventorycontactpermissiontypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#inventorycontactpermissiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#inventorycontactpermissiontypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Updated an existing inventoryContactPermissionType.  
 ##### Usage:  
@@ -4378,9 +4378,9 @@ ContactPermissionType.Id,CreateLocation,CreatedBy,CreatedDateTime,Id,InventoryCo
 </div>
 
 ## InventoryWebContents 
-<button type="button" class="btn btn-sm">[get](get.md#inventorywebcontents)</button>
-<button type="button" class="btn btn-sm">[post](post.md#inventorywebcontents)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#inventorywebcontents)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#inventorywebcontents)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing inventoryWebContent.  
 ##### Usage:  
@@ -4418,9 +4418,9 @@ ContentType.Id,CreateLocation,CreatedBy,CreatedDateTime,Id,InventoryWebContentID
 
 
 ## Issues 
-<button type="button" class="btn btn-sm">[get](get.md#issues)</button>
-<button type="button" class="btn btn-sm">[post](post.md#issues)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#issues)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#issues)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an issue for a Constituent  
 ##### Usage:  
@@ -4459,9 +4459,9 @@ ActivityType.Id,Constituent.Id,ContactType.Id,CreateLocation,CreatedBy,CreatedDa
 	
 # K
 ## KeywordCategories 
-<button type="button" class="btn btn-sm">[get](get.md#keywordcategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#keywordcategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#keywordcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#keywordcategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing keyword category.  
 ##### Usage:  
@@ -4498,9 +4498,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## Keywords 
-<button type="button" class="btn btn-sm">[get](get.md#keywords)</button>
-<button type="button" class="btn btn-sm">[post](post.md#keywords)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#keywords)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#keywords)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing keyword.  
 ##### Usage:  
@@ -4539,9 +4539,9 @@ Category.Id,ConstituentType,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDate
 	
 # L
 ## Languages 
-<button type="button" class="btn btn-sm">[get](get.md#languages)</button>
-<button type="button" class="btn btn-sm">[post](post.md#languages)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#languages)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#languages)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing language.  
 ##### Usage:  
@@ -4578,9 +4578,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## ListCategories 
-<button type="button" class="btn btn-sm">[get](get.md#listcategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#listcategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#listcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#listcategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing list category.  
 ##### Usage:  
@@ -4617,9 +4617,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## Lists 
-<button type="button" class="btn btn-sm">[get](get.md#lists)</button>
-<button type="button" class="btn btn-sm">[post](post.md#lists)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#lists)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#lists)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing List.  
 ##### Usage:  
@@ -4683,9 +4683,9 @@ csv
 </div>
 
 ## LoginTypes 
-<button type="button" class="btn btn-sm">[get](get.md#logintypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#logintypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#logintypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#logintypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing login type.  
 ##### Usage:  
@@ -4724,9 +4724,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 	
 # M
 ## MachineSettings 
-<button type="button" class="btn btn-sm">[get](get.md#machinesettings)</button>
-<button type="button" class="btn btn-sm">[post](post.md#machinesettings)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#machinesettings)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#machinesettings)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Machine Setting.  
 ##### Usage:  
@@ -4763,9 +4763,9 @@ CardReaderHost,CardReaderPort,CardReaderType.Id,CreateLocation,CreatedBy,Created
 </div>
 
 ## MailIndicators 
-<button type="button" class="btn btn-sm">[get](get.md#mailindicators)</button>
-<button type="button" class="btn btn-sm">[post](post.md#mailindicators)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#mailindicators)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#mailindicators)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing mail indicator.  
 ##### Usage:  
@@ -4802,9 +4802,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## MediaTypes 
-<button type="button" class="btn btn-sm">[get](get.md#mediatypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#mediatypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#mediatypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#mediatypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing media type.  
 ##### Usage:  
@@ -4841,9 +4841,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,GenerateCos
 </div>
 
 ## MembershipLevelCategories 
-<button type="button" class="btn btn-sm">[get](get.md#membershiplevelcategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#membershiplevelcategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#membershiplevelcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#membershiplevelcategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing membership level category.  
 ##### Usage:  
@@ -4886,9 +4886,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 
 
 ## ModeOfSaleCategories 
-<button type="button" class="btn btn-sm">[get](get.md#modeofsalecategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#modeofsalecategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsalecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsalecategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing mode of sale category.  
 ##### Usage:  
@@ -4925,9 +4925,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,ModeOfSaleCateg
 </div>
 
 ## ModeOfSaleOffers 
-<button type="button" class="btn btn-sm">[get](get.md#modeofsaleoffers)</button>
-<button type="button" class="btn btn-sm">[post](post.md#modeofsaleoffers)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsaleoffers)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsaleoffers)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing mode of sale offer.  
 ##### Usage:  
@@ -4964,9 +4964,9 @@ AppealId,CreateLocation,CreatedBy,CreatedDateTime,EndDateTime,Id,MaxSeats,ModeOf
 </div>
 
 ## ModeOfSalePriceTypes 
-<button type="button" class="btn btn-sm">[get](get.md#modeofsalepricetypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#modeofsalepricetypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsalepricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsalepricetypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing mode of sale price type.  
 ##### Usage:  
@@ -5003,9 +5003,9 @@ CreateLocation,CreatedBy,CreatedDateTime,DefaultIndicator,Id,ModeOfSale.Id,ModeO
 </div>
 
 ## ModeOfSaleSurveyQuestions 
-<button type="button" class="btn btn-sm">[get](get.md#modeofsalesurveyquestions)</button>
-<button type="button" class="btn btn-sm">[post](post.md#modeofsalesurveyquestions)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsalesurveyquestions)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsalesurveyquestions)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing mode of sale survey question.  
 ##### Usage:  
@@ -5042,9 +5042,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Id,ModeOfSale.Id,ModeOfSaleSurveyQuesti
 </div>
 
 ## ModeOfSaleUserGroups 
-<button type="button" class="btn btn-sm">[get](get.md#modeofsaleusergroups)</button>
-<button type="button" class="btn btn-sm">[post](post.md#modeofsaleusergroups)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsaleusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsaleusergroups)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing mode of sale/user group mapping.  
 ##### Usage:  
@@ -5081,9 +5081,9 @@ CreateLocation,CreatedBy,CreatedDateTime,DefaultIndicator,Id,ModeOfSale.Id,ModeO
 </div>
 
 ## ModesOfSale 
-<button type="button" class="btn btn-sm">[get](get.md#modesofsale)</button>
-<button type="button" class="btn btn-sm">[post](post.md#modesofsale)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#modesofsale)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#modesofsale)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing mode of sale.  
 ##### Usage:  
@@ -5122,9 +5122,9 @@ true,123,true,true,true,true,true,"""string""","""string""","""2000-01-01T00:00:
 	
 # N
 ## NScanAccessAreas 
-<button type="button" class="btn btn-sm">[get](get.md#nscanaccessareas)</button>
-<button type="button" class="btn btn-sm">[post](post.md#nscanaccessareas)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#nscanaccessareas)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#nscanaccessareas)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing NScan Access Area.  
 ##### Usage:  
@@ -5161,9 +5161,9 @@ AreaCode,ConstituencyIds,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTim
 </div>
 
 ## NameStatuses 
-<button type="button" class="btn btn-sm">[get](get.md#namestatuses)</button>
-<button type="button" class="btn btn-sm">[post](post.md#namestatuses)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#namestatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#namestatuses)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing name status.  
 ##### Usage:  
@@ -5202,9 +5202,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 	
 # O
 ## ObjectPermissions 
-<button type="button" class="btn btn-sm">[get](get.md#objectpermissions)</button>
-<button type="button" class="btn btn-sm">[post](post.md#objectpermissions)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#objectpermissions)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#objectpermissions)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing object permission.  
 ##### Usage:  
@@ -5242,9 +5242,9 @@ ApplicationObject.Id,CanCreate,CanDelete,CanEdit,CanView,Constituency.Id,CreateL
 
 
 ## OrderCategories 
-<button type="button" class="btn btn-sm">[get](get.md#ordercategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#ordercategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#ordercategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#ordercategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing order category.  
 ##### Usage:  
@@ -5281,9 +5281,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## Orders 
-<button type="button" class="btn btn-sm">[get](get.md#orders)</button>
-<button type="button" class="btn btn-sm">[post](post.md#orders)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#orders)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#orders)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 This resource is currently strictly for interceptor plugin use. This is called any time an order is saved via the API or from the client application. Only OrderId is provided in the request content.
             
@@ -5320,9 +5320,9 @@ csv
 </div>
 
 ## Organizations 
-<button type="button" class="btn btn-sm">[get](get.md#organizations)</button>
-<button type="button" class="btn btn-sm">[post](post.md#organizations)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#organizations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#organizations)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing organization.  
 ##### Usage:  
@@ -5359,9 +5359,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,LicenseeAcco
 </div>
 
 ## OriginalSources 
-<button type="button" class="btn btn-sm">[get](get.md#originalsources)</button>
-<button type="button" class="btn btn-sm">[post](post.md#originalsources)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#originalsources)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#originalsources)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing original source.  
 ##### Usage:  
@@ -5398,9 +5398,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## Origins 
-<button type="button" class="btn btn-sm">[get](get.md#origins)</button>
-<button type="button" class="btn btn-sm">[post](post.md#origins)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#origins)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#origins)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing origin.  
 ##### Usage:  
@@ -5437,9 +5437,9 @@ ActivityType.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## OutputSets 
-<button type="button" class="btn btn-sm">[get](get.md#outputsets)</button>
-<button type="button" class="btn btn-sm">[post](post.md#outputsets)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#outputsets)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#outputsets)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Output Set.  
 ##### Usage:  
@@ -5477,9 +5477,9 @@ csv
 # P
 
 ## PackagePriceTypes 
-<button type="button" class="btn btn-sm">[get](get.md#packagepricetypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#packagepricetypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#packagepricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#packagepricetypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing package price type.  
 ##### Usage:  
@@ -5516,9 +5516,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Id,PackageId,PackagePriceTypeID,PriceTy
 </div>
 
 ## PackageTypes 
-<button type="button" class="btn btn-sm">[get](get.md#packagetypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#packagetypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#packagetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#packagetypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing package type.  
 ##### Usage:  
@@ -5555,9 +5555,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## PackageWebContents 
-<button type="button" class="btn btn-sm">[get](get.md#packagewebcontents)</button>
-<button type="button" class="btn btn-sm">[post](post.md#packagewebcontents)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#packagewebcontents)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#packagewebcontents)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing packageWebContent.  
 ##### Usage:  
@@ -5597,9 +5597,9 @@ ContentType.Id,CreateLocation,CreatedBy,CreatedDateTime,Id,PackageId,PackageWebC
 
 
 ## PaymentGatewayActivities 
-<button type="button" class="btn btn-sm">[get](get.md#paymentgatewayactivities)</button>
-<button type="button" class="btn btn-sm">[post](post.md#paymentgatewayactivities)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentgatewayactivities)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentgatewayactivities)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Payment Gateway Activity  
 ##### Usage:  
@@ -5638,9 +5638,9 @@ AccountId,AccountNumber,ActivityData,Amount,AuthCode,AvsAddress,AvsPostalcode,Av
 
 
 ## PaymentGatewayNotifications 
-<button type="button" class="btn btn-sm">[get](get.md#paymentgatewaynotifications)</button>
-<button type="button" class="btn btn-sm">[post](post.md#paymentgatewaynotifications)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentgatewaynotifications)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentgatewaynotifications)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update a notification event.  
 ##### Usage:  
@@ -5677,9 +5677,9 @@ CreateLocation,CreatedBy,CreatedDateTime,EventType,Id,NotificationEventID,Payloa
 </div>
 
 ## PaymentGatewayTransactionTypes 
-<button type="button" class="btn btn-sm">[get](get.md#paymentgatewaytransactiontypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#paymentgatewaytransactiontypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentgatewaytransactiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentgatewaytransactiontypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Payment Gateway Transaction Type.  
 ##### Usage:  
@@ -5717,9 +5717,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 
 
 ## PaymentMethodGroups 
-<button type="button" class="btn btn-sm">[get](get.md#paymentmethodgroups)</button>
-<button type="button" class="btn btn-sm">[post](post.md#paymentmethodgroups)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentmethodgroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentmethodgroups)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing payment method group.  
 ##### Usage:  
@@ -5756,9 +5756,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## PaymentMethodUserGroups 
-<button type="button" class="btn btn-sm">[get](get.md#paymentmethodusergroups)</button>
-<button type="button" class="btn btn-sm">[post](post.md#paymentmethodusergroups)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentmethodusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentmethodusergroups)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing payment method/user group mapping.  
 ##### Usage:  
@@ -5795,9 +5795,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Id,IncomeIndicator,MaxRefund,PaymentMet
 </div>
 
 ## PaymentMethods 
-<button type="button" class="btn btn-sm">[get](get.md#paymentmethods)</button>
-<button type="button" class="btn btn-sm">[post](post.md#paymentmethods)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentmethods)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentmethods)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing payment method.  
 ##### Usage:  
@@ -5834,9 +5834,9 @@ AccountType.Id,AuthIndicator,BusinessUnitId,CanRefund,ControlGroup.Id,CreateLoca
 </div>
 
 ## PaymentSignatures 
-<button type="button" class="btn btn-sm">[get](get.md#paymentsignatures)</button>
-<button type="button" class="btn btn-sm">[post](post.md#paymentsignatures)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentsignatures)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentsignatures)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing payment signature.  
 ##### Usage:  
@@ -5873,9 +5873,9 @@ Id,PaymentSignatureID
 </div>
 
 ## PaymentTypes 
-<button type="button" class="btn btn-sm">[get](get.md#paymenttypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#paymenttypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymenttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymenttypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing payment type.  
 ##### Usage:  
@@ -5913,9 +5913,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 
 
 ## PerformanceGroups 
-<button type="button" class="btn btn-sm">[get](get.md#performancegroups)</button>
-<button type="button" class="btn btn-sm">[post](post.md#performancegroups)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancegroups)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update a Performance Group.  
 ##### Usage:  
@@ -5952,9 +5952,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,DisplayByZone,Facility.Id,F
 </div>
 
 ## PerformancePackageModeOfSales 
-<button type="button" class="btn btn-sm">[get](get.md#performancepackagemodeofsales)</button>
-<button type="button" class="btn btn-sm">[post](post.md#performancepackagemodeofsales)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancepackagemodeofsales)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancepackagemodeofsales)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing performance package mode of sale.  
 ##### Usage:  
@@ -5991,9 +5991,9 @@ AutoAttend,ETicketReleaseDateTime,EndDateTime,Id,ModeOfSaleId,PackageId,Performa
 </div>
 
 ## PerformancePriceLayers 
-<button type="button" class="btn btn-sm">[get](get.md#performancepricelayers)</button>
-<button type="button" class="btn btn-sm">[post](post.md#performancepricelayers)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancepricelayers)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancepricelayers)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing performance price layer.  
 ##### Usage:  
@@ -6057,9 +6057,9 @@ csv
 </div>
 
 ## PerformancePriceTypes 
-<button type="button" class="btn btn-sm">[get](get.md#performancepricetypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#performancepricetypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancepricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancepricetypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing performance price type.  
 ##### Usage:  
@@ -6153,9 +6153,9 @@ csv
 </div>
 
 ## PerformancePrices 
-<button type="button" class="btn btn-sm">[get](get.md#performanceprices)</button>
-<button type="button" class="btn btn-sm">[post](post.md#performanceprices)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#performanceprices)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performanceprices)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing performance price.  
 ##### Usage:  
@@ -6192,9 +6192,9 @@ true,"""2000-01-01T00:00:00.000Z""",true,true,123,true,123.456,123,"""string""",
 </div>
 
 ## PerformanceStatuses 
-<button type="button" class="btn btn-sm">[get](get.md#performancestatuses)</button>
-<button type="button" class="btn btn-sm">[post](post.md#performancestatuses)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancestatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancestatuses)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing performance status.  
 ##### Usage:  
@@ -6231,9 +6231,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## PerformanceTypes 
-<button type="button" class="btn btn-sm">[get](get.md#performancetypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#performancetypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancetypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing performance type.  
 ##### Usage:  
@@ -6270,9 +6270,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## Performances 
-<button type="button" class="btn btn-sm">[get](get.md#performances)</button>
-<button type="button" class="btn btn-sm">[post](post.md#performances)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#performances)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performances)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Expires seat holds for a performance and hold code  
 ##### Usage:  
@@ -6309,9 +6309,9 @@ ExpireAsOfDate,HoldCodeID,PerformanceID,SeatIds
 </div>
 
 ## Philanthropy 
-<button type="button" class="btn btn-sm">[get](get.md#philanthropy)</button>
-<button type="button" class="btn btn-sm">[post](post.md#philanthropy)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#philanthropy)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#philanthropy)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Updated an existing philanthropyEntry for a constituent.  
 ##### Usage:  
@@ -6348,9 +6348,9 @@ Activity,Amount,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,DonatedT
 </div>
 
 ## PhilanthropyTypes 
-<button type="button" class="btn btn-sm">[get](get.md#philanthropytypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#philanthropytypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#philanthropytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#philanthropytypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing philosophy type.  
 ##### Usage:  
@@ -6387,9 +6387,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## PhoneIndicators 
-<button type="button" class="btn btn-sm">[get](get.md#phoneindicators)</button>
-<button type="button" class="btn btn-sm">[post](post.md#phoneindicators)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#phoneindicators)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#phoneindicators)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing phone indicator.  
 ##### Usage:  
@@ -6426,9 +6426,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## PhoneTypes 
-<button type="button" class="btn btn-sm">[get](get.md#phonetypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#phonetypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#phonetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#phonetypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing phone type.  
 ##### Usage:  
@@ -6465,9 +6465,9 @@ true,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","
 </div>
 
 ## Phones 
-<button type="button" class="btn btn-sm">[get](get.md#phones)</button>
-<button type="button" class="btn btn-sm">[post](post.md#phones)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#phones)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#phones)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update a phone.  
 ##### Usage:  
@@ -6504,9 +6504,9 @@ Address.Id,AllowTelemarketing,Constituent.Id,CreateLocation,CreatedBy,CreatedDat
 </div>
 
 ## PlanPriorities 
-<button type="button" class="btn btn-sm">[get](get.md#planpriorities)</button>
-<button type="button" class="btn btn-sm">[post](post.md#planpriorities)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#planpriorities)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#planpriorities)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing plan priority.  
 ##### Usage:  
@@ -6543,9 +6543,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## PlanSources 
-<button type="button" class="btn btn-sm">[get](get.md#plansources)</button>
-<button type="button" class="btn btn-sm">[post](post.md#plansources)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#plansources)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#plansources)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing plan source.  
 ##### Usage:  
@@ -6582,9 +6582,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## PlanStatuses 
-<button type="button" class="btn btn-sm">[get](get.md#planstatuses)</button>
-<button type="button" class="btn btn-sm">[post](post.md#planstatuses)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#planstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#planstatuses)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing plan status.  
 ##### Usage:  
@@ -6621,9 +6621,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## PlanTypes 
-<button type="button" class="btn btn-sm">[get](get.md#plantypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#plantypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#plantypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#plantypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing plan type.  
 ##### Usage:  
@@ -6660,9 +6660,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## PlanWorkers 
-<button type="button" class="btn btn-sm">[get](get.md#planworkers)</button>
-<button type="button" class="btn btn-sm">[post](post.md#planworkers)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#planworkers)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#planworkers)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing plan worker.  
 ##### Usage:  
@@ -6699,9 +6699,9 @@ CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,Plan.Id,PlanWorkerID,P
 </div>
 
 ## Plans 
-<button type="button" class="btn btn-sm">[get](get.md#plans)</button>
-<button type="button" class="btn btn-sm">[post](post.md#plans)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#plans)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#plans)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing plan.  
 ##### Usage:  
@@ -6737,9 +6737,9 @@ csv
 
 
 ## PortfolioCustomElements 
-<button type="button" class="btn btn-sm">[get](get.md#portfoliocustomelements)</button>
-<button type="button" class="btn btn-sm">[post](post.md#portfoliocustomelements)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#portfoliocustomelements)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#portfoliocustomelements)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing portfolio custom element.  
 ##### Usage:  
@@ -6777,9 +6777,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DataType,Description,ID
 
 
 ## Prefixes 
-<button type="button" class="btn btn-sm">[get](get.md#prefixes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#prefixes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#prefixes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#prefixes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing prefix.  
 ##### Usage:  
@@ -6816,9 +6816,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## Premieres 
-<button type="button" class="btn btn-sm">[get](get.md#premieres)</button>
-<button type="button" class="btn btn-sm">[post](post.md#premieres)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#premieres)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#premieres)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing premiere.  
 ##### Usage:  
@@ -6855,9 +6855,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## PriceCategories 
-<button type="button" class="btn btn-sm">[get](get.md#pricecategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricecategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricecategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing price category.  
 ##### Usage:  
@@ -6894,8 +6894,8 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,Rank,Updated
 </div>
 
 ## PriceEvents 
-<button type="button" class="btn btn-sm">[get](get.md#priceevents)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#priceevents)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Move a set of price events to a new date.  
 ##### Usage:  
@@ -6932,9 +6932,9 @@ EventDateTime,EventIds
 </div>
 
 ## PriceLayerTypes 
-<button type="button" class="btn btn-sm">[get](get.md#pricelayertypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricelayertypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricelayertypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricelayertypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing price layer type.  
 ##### Usage:  
@@ -6971,9 +6971,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ExcludeFromRules,ID,Id,Inac
 </div>
 
 ## PriceTemplates 
-<button type="button" class="btn btn-sm">[get](get.md#pricetemplates)</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricetemplates)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetemplates)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetemplates)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing price template.  
 ##### Usage:  
@@ -7008,9 +7008,9 @@ csv
 </div>
 
 ## PriceTypeCategories 
-<button type="button" class="btn btn-sm">[get](get.md#pricetypecategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricetypecategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypecategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing price type category.  
 ##### Usage:  
@@ -7047,9 +7047,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,ShortDescription,Upda
 </div>
 
 ## PriceTypeGroups 
-<button type="button" class="btn btn-sm">[get](get.md#pricetypegroups)</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricetypegroups)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypegroups)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing price type group.  
 ##### Usage:  
@@ -7086,9 +7086,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## PriceTypeReasons 
-<button type="button" class="btn btn-sm">[get](get.md#pricetypereasons)</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricetypereasons)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypereasons)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypereasons)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing price type reason.  
 ##### Usage:  
@@ -7125,9 +7125,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,ShortDescrip
 </div>
 
 ## PriceTypeUserGroups 
-<button type="button" class="btn btn-sm">[get](get.md#pricetypeusergroups)</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricetypeusergroups)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypeusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypeusergroups)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing price type/user group mapping.  
 ##### Usage:  
@@ -7164,9 +7164,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Id,PriceType.Id,PriceTypeUserGroupID,Up
 </div>
 
 ## PriceTypes 
-<button type="button" class="btn btn-sm">[get](get.md#pricetypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricetypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing price type.  
 ##### Usage:  
@@ -7203,9 +7203,9 @@ AliasDescription,CreateLocation,CreatedBy,CreatedDateTime,DefaultTicketDesign.Id
 </div>
 
 ## PricingRuleCategories 
-<button type="button" class="btn btn-sm">[get](get.md#pricingrulecategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricingrulecategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricingrulecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricingrulecategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing pricing rule category.  
 ##### Usage:  
@@ -7242,9 +7242,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## PricingRuleMessageTypes 
-<button type="button" class="btn btn-sm">[get](get.md#pricingrulemessagetypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricingrulemessagetypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricingrulemessagetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricingrulemessagetypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing pricing rule message type.  
 ##### Usage:  
@@ -7281,9 +7281,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## PricingRuleSets 
-<button type="button" class="btn btn-sm">[get](get.md#pricingrulesets)</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricingrulesets)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricingrulesets)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricingrulesets)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing pricing rule set.  
 ##### Usage:  
@@ -7319,9 +7319,9 @@ csv
 
 
 ## PricingRules 
-<button type="button" class="btn btn-sm">[get](get.md#pricingrules)</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricingrules)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricingrules)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricingrules)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing pricing rule.  
 ##### Usage:  
@@ -7356,9 +7356,9 @@ csv
 </div>
 
 ## Printers 
-<button type="button" class="btn btn-sm">[get](get.md#printers)</button>
-<button type="button" class="btn btn-sm">[post](post.md#printers)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#printers)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#printers)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing printer.  
 ##### Usage:  
@@ -7396,9 +7396,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,MaxCol,MaxRow,MaxX2va
 
 
 ## ProductionSeasonMembershipOrganizations 
-<button type="button" class="btn btn-sm">[get](get.md#productionseasonmembershiporganizations)</button>
-<button type="button" class="btn btn-sm">[post](post.md#productionseasonmembershiporganizations)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#productionseasonmembershiporganizations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#productionseasonmembershiporganizations)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing production season membership organization.  
 ##### Usage:  
@@ -7438,9 +7438,9 @@ true,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,1
 
 
 ## ProgramListings 
-<button type="button" class="btn btn-sm">[get](get.md#programlistings)</button>
-<button type="button" class="btn btn-sm">[post](post.md#programlistings)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#programlistings)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#programlistings)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update a program listing.  
 ##### Usage:  
@@ -7477,9 +7477,9 @@ Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,DonationLevel.Id,EditInd
 </div>
 
 ## Programs 
-<button type="button" class="btn btn-sm">[get](get.md#programs)</button>
-<button type="button" class="btn btn-sm">[post](post.md#programs)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#programs)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#programs)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing program.  
 ##### Usage:  
@@ -7516,9 +7516,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Updat
 </div>
 
 ## Pronouns 
-<button type="button" class="btn btn-sm">[get](get.md#pronouns)</button>
-<button type="button" class="btn btn-sm">[post](post.md#pronouns)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pronouns)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pronouns)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
   
 ##### Usage:  
@@ -7557,9 +7557,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 	
 # Q
 ## QualificationCategories 
-<button type="button" class="btn btn-sm">[get](get.md#qualificationcategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#qualificationcategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#qualificationcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#qualificationcategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Qualification Category.  
 ##### Usage:  
@@ -7596,9 +7596,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## Qualifications 
-<button type="button" class="btn btn-sm">[get](get.md#qualifications)</button>
-<button type="button" class="btn btn-sm">[post](post.md#qualifications)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#qualifications)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#qualifications)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Qualification.  
 ##### Usage:  
@@ -7635,9 +7635,9 @@ Category.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,
 </div>
 
 ## QueryElementFilters 
-<button type="button" class="btn btn-sm">[get](get.md#queryelementfilters)</button>
-<button type="button" class="btn btn-sm">[post](post.md#queryelementfilters)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#queryelementfilters)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#queryelementfilters)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing query element filter.  
 ##### Usage:  
@@ -7674,9 +7674,9 @@ CreateLocation,CreatedBy,CreatedDateTime,DataType,Description,EndOfDay,FilterEle
 </div>
 
 ## QueryElementGroups 
-<button type="button" class="btn btn-sm">[get](get.md#queryelementgroups)</button>
-<button type="button" class="btn btn-sm">[post](post.md#queryelementgroups)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#queryelementgroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#queryelementgroups)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing query element group.  
 ##### Usage:  
@@ -7713,9 +7713,9 @@ Category,CreateLocation,CreatedBy,CreatedDateTime,DataFrom,DataWhere,Description
 </div>
 
 ## QueryElements 
-<button type="button" class="btn btn-sm">[get](get.md#queryelements)</button>
-<button type="button" class="btn btn-sm">[post](post.md#queryelements)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#queryelements)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#queryelements)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing query element.  
 ##### Usage:  
@@ -7754,9 +7754,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DataSelect,Description,
 	
 # R
 ## RankTypes 
-<button type="button" class="btn btn-sm">[get](get.md#ranktypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#ranktypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#ranktypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#ranktypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing rank type.  
 ##### Usage:  
@@ -7793,9 +7793,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## Rankings 
-<button type="button" class="btn btn-sm">[get](get.md#rankings)</button>
-<button type="button" class="btn btn-sm">[post](post.md#rankings)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#rankings)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#rankings)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update a ranking.  
 ##### Usage:  
@@ -7832,9 +7832,9 @@ Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,Rank,Ra
 </div>
 
 ## ReceiptSettings 
-<button type="button" class="btn btn-sm">[get](get.md#receiptsettings)</button>
-<button type="button" class="btn btn-sm">[post](post.md#receiptsettings)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#receiptsettings)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#receiptsettings)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Receipt Setting.  
 ##### Usage:  
@@ -7873,9 +7873,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EmailFooter
 
 
 ## ReferenceTableUserGroups 
-<button type="button" class="btn btn-sm">[get](get.md#referencetableusergroups)</button>
-<button type="button" class="btn btn-sm">[post](post.md#referencetableusergroups)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#referencetableusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#referencetableusergroups)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing reference table/user group mapping.  
 ##### Usage:  
@@ -7914,9 +7914,9 @@ true,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,1
 
 
 ## RelationshipCategories 
-<button type="button" class="btn btn-sm">[get](get.md#relationshipcategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#relationshipcategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#relationshipcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#relationshipcategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing relationship category.  
 ##### Usage:  
@@ -7954,9 +7954,9 @@ CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
 
 
 ## ReportRequests 
-<button type="button" class="btn btn-sm">[get](get.md#reportrequests)</button>
-<button type="button" class="btn btn-sm">[post](post.md#reportrequests)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#reportrequests)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#reportrequests)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update the details of a report request.  
 ##### Usage:  
@@ -7994,9 +7994,9 @@ csv
    Update the status of all the running requests to error.
 
 ## ReportSchedules 
-<button type="button" class="btn btn-sm">[get](get.md#reportschedules)</button>
-<button type="button" class="btn btn-sm">[post](post.md#reportschedules)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#reportschedules)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#reportschedules)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update the details of a report schedule.  
 ##### Usage:  
@@ -8033,9 +8033,9 @@ AsOfDateTime,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DayOfWeek,
 </div>
 
 ## ReportUserGroups 
-<button type="button" class="btn btn-sm">[get](get.md#reportusergroups)</button>
-<button type="button" class="btn btn-sm">[post](post.md#reportusergroups)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#reportusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#reportusergroups)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing report/user group mapping.  
 ##### Usage:  
@@ -8073,9 +8073,9 @@ CreateLocation,CreatedBy,CreatedDateTime,ID,Id,ReportId,RunRight,UpdatedBy,Updat
 
 
 ## Research 
-<button type="button" class="btn btn-sm">[get](get.md#research)</button>
-<button type="button" class="btn btn-sm">[post](post.md#research)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#research)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#research)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Updated an existing research entry for a constituent.  
 ##### Usage:  
@@ -8112,9 +8112,9 @@ Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,Researc
 </div>
 
 ## ResearchTypes 
-<button type="button" class="btn btn-sm">[get](get.md#researchtypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#researchtypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#researchtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#researchtypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing research type.  
 ##### Usage:  
@@ -8151,9 +8151,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## ResourceCategories 
-<button type="button" class="btn btn-sm">[get](get.md#resourcecategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#resourcecategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#resourcecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#resourcecategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Resource Category.  
 ##### Usage:  
@@ -8190,9 +8190,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## ResourceSchedules 
-<button type="button" class="btn btn-sm">[get](get.md#resourceschedules)</button>
-<button type="button" class="btn btn-sm">[post](post.md#resourceschedules)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#resourceschedules)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#resourceschedules)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update a specific resource schedule.  Only Busy or Available types can be updated.  
 ##### Usage:  
@@ -8229,9 +8229,9 @@ BookingAssignmentId,ConstituentId,Count,CreateLocation,CreatedBy,CreatedDateTime
 </div>
 
 ## ResourceTypes 
-<button type="button" class="btn btn-sm">[get](get.md#resourcetypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#resourcetypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#resourcetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#resourcetypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing resource type.  
 ##### Usage:  
@@ -8268,9 +8268,9 @@ true,123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string"
 </div>
 
 ## Resources 
-<button type="button" class="btn btn-sm">[get](get.md#resources)</button>
-<button type="button" class="btn btn-sm">[post](post.md#resources)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#resources)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#resources)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Resource.  
 ##### Usage:  
@@ -8309,9 +8309,9 @@ Capacity,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,DefaultConfirma
 	
 # S
 ## SalesChannels 
-<button type="button" class="btn btn-sm">[get](get.md#saleschannels)</button>
-<button type="button" class="btn btn-sm">[post](post.md#saleschannels)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#saleschannels)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#saleschannels)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing sales channel.  
 ##### Usage:  
@@ -8348,9 +8348,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## SalesLayoutButtonTypes 
-<button type="button" class="btn btn-sm">[get](get.md#saleslayoutbuttontypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#saleslayoutbuttontypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#saleslayoutbuttontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#saleslayoutbuttontypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing sales layout button type.  
 ##### Usage:  
@@ -8387,9 +8387,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,UpdatedBy,UpdatedDate
 </div>
 
 ## SalesLayouts 
-<button type="button" class="btn btn-sm">[get](get.md#saleslayouts)</button>
-<button type="button" class="btn btn-sm">[post](post.md#saleslayouts)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#saleslayouts)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#saleslayouts)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing sales layout setup.  
 ##### Usage:  
@@ -8424,9 +8424,9 @@ csv
 </div>
 
 ## SalutationTypes 
-<button type="button" class="btn btn-sm">[get](get.md#salutationtypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#salutationtypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#salutationtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#salutationtypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing salutation type.  
 ##### Usage:  
@@ -8463,9 +8463,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## Salutations 
-<button type="button" class="btn btn-sm">[get](get.md#salutations)</button>
-<button type="button" class="btn btn-sm">[post](post.md#salutations)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#salutations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#salutations)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update a salutation.  
 ##### Usage:  
@@ -8502,9 +8502,9 @@ BusinessTitle,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,DefaultInd
 </div>
 
 ## SchedulePatternTypes 
-<button type="button" class="btn btn-sm">[get](get.md#schedulepatterntypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#schedulepatterntypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#schedulepatterntypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#schedulepatterntypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Schedule Pattern.  
 ##### Usage:  
@@ -8541,9 +8541,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## ScheduleTypes 
-<button type="button" class="btn btn-sm">[get](get.md#scheduletypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#scheduletypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#scheduletypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#scheduletypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Schedule Type.  
 ##### Usage:  
@@ -8580,9 +8580,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## SeasonTypes 
-<button type="button" class="btn btn-sm">[get](get.md#seasontypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#seasontypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#seasontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#seasontypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing season type.  
 ##### Usage:  
@@ -8619,9 +8619,9 @@ BusinessUnit.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## Seasons 
-<button type="button" class="btn btn-sm">[get](get.md#seasons)</button>
-<button type="button" class="btn btn-sm">[post](post.md#seasons)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#seasons)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#seasons)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing season.  
 ##### Usage:  
@@ -8658,9 +8658,9 @@ ConfirmationNoticeFormat,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTim
 </div>
 
 ## SeatCodes 
-<button type="button" class="btn btn-sm">[get](get.md#seatcodes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#seatcodes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#seatcodes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#seatcodes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing seat code.  
 ##### Usage:  
@@ -8697,9 +8697,9 @@ BackColor,Context,CreateLocation,CreatedBy,CreatedDateTime,Description,DisplayLe
 </div>
 
 ## SeatStatuses 
-<button type="button" class="btn btn-sm">[get](get.md#seatstatuses)</button>
-<button type="button" class="btn btn-sm">[post](post.md#seatstatuses)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#seatstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#seatstatuses)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing seat status.  
 ##### Usage:  
@@ -8736,9 +8736,9 @@ BackColor,CreateLocation,CreatedBy,CreatedDateTime,Description,ForeColor,ID,Id,I
 </div>
 
 ## Sections 
-<button type="button" class="btn btn-sm">[get](get.md#sections)</button>
-<button type="button" class="btn btn-sm">[post](post.md#sections)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#sections)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#sections)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing section.  
 ##### Usage:  
@@ -8786,9 +8786,9 @@ AdditionalText,AdditionalText2,CreateLocation,CreatedBy,CreatedDateTime,Descript
 
 
 ## ServiceResourceUserGroups 
-<button type="button" class="btn btn-sm">[get](get.md#serviceresourceusergroups)</button>
-<button type="button" class="btn btn-sm">[post](post.md#serviceresourceusergroups)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#serviceresourceusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#serviceresourceusergroups)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing service resource/user group mapping.  
 ##### Usage:  
@@ -8826,9 +8826,9 @@ true,true,true,true,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""
 
 
 ## Session 
-<button type="button" class="btn btn-sm">[get](get.md#session)</button>
-<button type="button" class="btn btn-sm">[post](post.md#session)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#session)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#session)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Sets the current constituent on the cart for a business facing session
 If the Constituent is a primary affiliate of a household, the method obeys the "TRANSACT_AS_HOUSEHOLD_ORDER" entry in T_DEFAULTS to determine if the household constituent should be set. 
@@ -8963,9 +8963,9 @@ EmailAddress,LoginName,LoginTypeId,NewEmailAddress,NewLoginName,NewPassword,Pass
 </div>
 
 ## SourceGroups 
-<button type="button" class="btn btn-sm">[get](get.md#sourcegroups)</button>
-<button type="button" class="btn btn-sm">[post](post.md#sourcegroups)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#sourcegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#sourcegroups)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing source group.  
 ##### Usage:  
@@ -9003,9 +9003,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 
 
 ## SpecialActivities 
-<button type="button" class="btn btn-sm">[get](get.md#specialactivities)</button>
-<button type="button" class="btn btn-sm">[post](post.md#specialactivities)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#specialactivities)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#specialactivities)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an activity record.  
 ##### Usage:  
@@ -9042,9 +9042,9 @@ ConstituentId,CreateLocation,CreatedBy,CreatedDateTime,Id,Notes,NumberOfAttendee
 </div>
 
 ## SpecialActivityStatuses 
-<button type="button" class="btn btn-sm">[get](get.md#specialactivitystatuses)</button>
-<button type="button" class="btn btn-sm">[post](post.md#specialactivitystatuses)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#specialactivitystatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#specialactivitystatuses)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an Special Activity Status.  
 ##### Usage:  
@@ -9081,9 +9081,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## SpecialActivityTypes 
-<button type="button" class="btn btn-sm">[get](get.md#specialactivitytypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#specialactivitytypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#specialactivitytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#specialactivitytypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Special Activity Type.  
 ##### Usage:  
@@ -9120,9 +9120,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## States 
-<button type="button" class="btn btn-sm">[get](get.md#states)</button>
-<button type="button" class="btn btn-sm">[post](post.md#states)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#states)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#states)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing state.  
 ##### Usage:  
@@ -9159,9 +9159,9 @@ Country.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,S
 </div>
 
 ## StepTypes 
-<button type="button" class="btn btn-sm">[get](get.md#steptypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#steptypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#steptypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#steptypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing step type.  
 ##### Usage:  
@@ -9198,9 +9198,9 @@ AllowAttachments,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Descri
 </div>
 
 ## Steps 
-<button type="button" class="btn btn-sm">[get](get.md#steps)</button>
-<button type="button" class="btn btn-sm">[post](post.md#steps)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#steps)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#steps)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing step.  
 ##### Usage:  
@@ -9268,9 +9268,9 @@ Category.Id,ConstituentId,Contents,CreateLocation,CreatedBy,CreatedDateTime,Desc
 </div>
 
 ## SubLineItemStatuses 
-<button type="button" class="btn btn-sm">[get](get.md#sublineitemstatuses)</button>
-<button type="button" class="btn btn-sm">[post](post.md#sublineitemstatuses)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#sublineitemstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#sublineitemstatuses)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing sub line item status.  
 ##### Usage:  
@@ -9308,9 +9308,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,Priority,Sta
 
 
 ## Suffixes 
-<button type="button" class="btn btn-sm">[get](get.md#suffixes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#suffixes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#suffixes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#suffixes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing suffix.  
 ##### Usage:  
@@ -9347,9 +9347,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## SurveyQuestions 
-<button type="button" class="btn btn-sm">[get](get.md#surveyquestions)</button>
-<button type="button" class="btn btn-sm">[post](post.md#surveyquestions)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#surveyquestions)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#surveyquestions)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing survey question.  
 ##### Usage:  
@@ -9386,9 +9386,9 @@ AskType,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DataType,Defaul
 </div>
 
 ## SurveyResponses 
-<button type="button" class="btn btn-sm">[get](get.md#surveyresponses)</button>
-<button type="button" class="btn btn-sm">[post](post.md#surveyresponses)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#surveyresponses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#surveyresponses)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing survey response.  
 ##### Usage:  
@@ -9428,9 +9428,9 @@ Answer,CreateLocation,CreatedBy,CreatedDateTime,Id,OrderId,QuestionId,SurveyResp
 	
 # T
 ## TemplateCategories 
-<button type="button" class="btn btn-sm">[get](get.md#templatecategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#templatecategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#templatecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#templatecategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing template category  
 ##### Usage:  
@@ -9467,9 +9467,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EditIndicat
 </div>
 
 ## TemplatePriceTypes 
-<button type="button" class="btn btn-sm">[get](get.md#templatepricetypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#templatepricetypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#templatepricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#templatepricetypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing template price type.  
 ##### Usage:  
@@ -9504,9 +9504,9 @@ csv
 </div>
 
 ## TemplatePrices 
-<button type="button" class="btn btn-sm">[get](get.md#templateprices)</button>
-<button type="button" class="btn btn-sm">[post](post.md#templateprices)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#templateprices)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#templateprices)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing template price.  
 ##### Usage:  
@@ -9544,9 +9544,9 @@ CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Enabled,Id,MinPrice,Price
 
 
 ## Templates 
-<button type="button" class="btn btn-sm">[get](get.md#templates)</button>
-<button type="button" class="btn btn-sm">[post](post.md#templates)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#templates)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#templates)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing template  
 ##### Usage:  
@@ -9583,9 +9583,9 @@ Category.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EditIndicator,I
 </div>
 
 ## Theaters 
-<button type="button" class="btn btn-sm">[get](get.md#theaters)</button>
-<button type="button" class="btn btn-sm">[post](post.md#theaters)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#theaters)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#theaters)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing theater.  
 ##### Usage:  
@@ -9623,9 +9623,9 @@ City,CreateLocation,CreatedBy,CreatedDateTime,DataWindowDefinition,Description,D
 
 
 ## TimeSlots 
-<button type="button" class="btn btn-sm">[get](get.md#timeslots)</button>
-<button type="button" class="btn btn-sm">[post](post.md#timeslots)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#timeslots)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#timeslots)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing time slot.  
 ##### Usage:  
@@ -9664,9 +9664,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,EndTime,ID,Id,Inactive,Star
 
 
 ## TriPOSCloudConfigurations 
-<button type="button" class="btn btn-sm">[get](get.md#triposcloudconfigurations)</button>
-<button type="button" class="btn btn-sm">[post](post.md#triposcloudconfigurations)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#triposcloudconfigurations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#triposcloudconfigurations)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing TriPOS Cloud configuration.  
 ##### Usage:  
@@ -9705,9 +9705,9 @@ ConfigSetting,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactiv
 	
 # U
 ## UpgradeCategories 
-<button type="button" class="btn btn-sm">[get](get.md#upgradecategories)</button>
-<button type="button" class="btn btn-sm">[post](post.md#upgradecategories)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#upgradecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#upgradecategories)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Upgrade Category.  
 ##### Usage:  
@@ -9744,9 +9744,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,Up
 </div>
 
 ## UpgradeLogs 
-<button type="button" class="btn btn-sm">[get](get.md#upgradelogs)</button>
-<button type="button" class="btn btn-sm">[post](post.md#upgradelogs)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#upgradelogs)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#upgradelogs)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Updates the given upgradeLog.  
 ##### Usage:  
@@ -9784,9 +9784,9 @@ CreateLocation,CreatedBy,CreatedDateTime,HotFixNumber,Id,ReleaseDescription,Scri
 
 
 ## UserPreferences 
-<button type="button" class="btn btn-sm">[get](get.md#userpreferences)</button>
-<button type="button" class="btn btn-sm">[post](post.md#userpreferences)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#userpreferences)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#userpreferences)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update a user preference by id.  
 ##### Usage:  
@@ -9829,9 +9829,9 @@ CreateLocation,CreatedBy,CreatedDateTime,ID,Id,Key,UpdatedBy,UpdatedDateTime,Val
 	
 # W
 ## WebContentTypes 
-<button type="button" class="btn btn-sm">[get](get.md#webcontenttypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#webcontenttypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#webcontenttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#webcontenttypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing Web Content Type.  
 ##### Usage:  
@@ -9869,9 +9869,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EditMask,Fu
 
 
 ## WebLogins 
-<button type="button" class="btn btn-sm">[get](get.md#weblogins)</button>
-<button type="button" class="btn btn-sm">[post](post.md#weblogins)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#weblogins)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#weblogins)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update a weblogin.  
 ##### Usage:  
@@ -9908,9 +9908,9 @@ Constituent.Id,ConstituentUpdateDate,CreateLocation,CreatedBy,CreatedDateTime,Ed
 </div>
 
 ## WorkerQualifications 
-<button type="button" class="btn btn-sm">[get](get.md#workerqualifications)</button>
-<button type="button" class="btn btn-sm">[post](post.md#workerqualifications)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#workerqualifications)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#workerqualifications)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing WorkerQualification.  
 ##### Usage:  
@@ -9947,9 +9947,9 @@ Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EndDateTime,Id,Qualifica
 </div>
 
 ## WorkerRoles 
-<button type="button" class="btn btn-sm">[get](get.md#workerroles)</button>
-<button type="button" class="btn btn-sm">[post](post.md#workerroles)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#workerroles)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#workerroles)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing worker role.  
 ##### Usage:  
@@ -9986,9 +9986,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## WorkerTypes 
-<button type="button" class="btn btn-sm">[get](get.md#workertypes)</button>
-<button type="button" class="btn btn-sm">[post](post.md#workertypes)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#workertypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#workertypes)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing worker type.  
 ##### Usage:  
@@ -10025,9 +10025,9 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inact
 </div>
 
 ## Workers 
-<button type="button" class="btn btn-sm">[get](get.md#workers)</button>
-<button type="button" class="btn btn-sm">[post](post.md#workers)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#workers)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#workers)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing worker.  
 ##### Usage:  
@@ -10066,9 +10066,9 @@ ConstituentId,ConstituentInactive.Id,CreateLocation,CreatedBy,CreatedDateTime,Ed
 	
 # Z
 ## ZoneGroups 
-<button type="button" class="btn btn-sm">[get](get.md#zonegroups)</button>
-<button type="button" class="btn btn-sm">[post](post.md#zonegroups)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#zonegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#zonegroups)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing zone group.  
 ##### Usage:  
@@ -10105,9 +10105,9 @@ AliasDescription,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inac
 </div>
 
 ## ZoneMaps 
-<button type="button" class="btn btn-sm">[get](get.md#zonemaps)</button>
-<button type="button" class="btn btn-sm">[post](post.md#zonemaps)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#zonemaps)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#zonemaps)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing zone map.  
 ##### Usage:  
@@ -10144,9 +10144,9 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,SeatMap.Id,U
 </div>
 
 ## Zones 
-<button type="button" class="btn btn-sm">[get](get.md#zones)</button>
-<button type="button" class="btn btn-sm">[post](post.md#zones)</button>
-<button type="button" class="btn btn-sm" disabled>put</button>  
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#zones)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#zones)</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>put</button>  
 		
 Update an existing zone.  
 ##### Usage:  

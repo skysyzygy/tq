@@ -15,9 +15,9 @@
 		{{- range $op, $_ := $ops }}
 			{{- if and (ne $op "Delete") (ne $op "Head") }}
 			{{- if eq $op $docOp }}
-<button type="button" class="btn btn-sm" disabled>{{- (toLower $op) }}</button>
+<button type="button" class="btn btn-secondary btn-sm" disabled>{{- (toLower $op) }}</button>
 			{{- else }}
-<button type="button" class="btn btn-sm">{{ printf "[%[1]s](%[1]s.md#%[2]s)" (toLower $op) (toLower $name) }}</button>
+<button type="button" class="btn btn-primary btn-sm">{{ printf "[%[1]s](%[1]s.md#%[2]s)" (toLower $op) (toLower $name) }}</button>
 			{{- end }}
 			{{- end }}
 		{{- end }}

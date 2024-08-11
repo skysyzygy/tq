@@ -5,9 +5,9 @@
 	
 # A
 ## AccountTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#accounttypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#accounttypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#accounttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#accounttypes)</button>  
 		
 Get the details of an account type by id.  
 ##### Usage:  
@@ -77,9 +77,9 @@ MaintenanceMode
    Get a summary representation of all account types.
 
 ## Accounts 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#accounts)</button>
-<button type="button" class="btn btn-sm">[put](put.md#accounts)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#accounts)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#accounts)</button>  
 		
 Get details of a specific credit card account  
 ##### Usage:  
@@ -148,9 +148,9 @@ AccountTypeID,ConstituentID,IncludeAffiliates,IncludeInactive
 </div>
 
 ## ActionTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#actiontypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#actiontypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#actiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#actiontypes)</button>  
 		
 Get the details of an action type by id.  
 ##### Usage:  
@@ -220,9 +220,9 @@ MaintenanceMode
    Get a summary representation of all action types.
 
 ## Actions 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#actions)</button>
-<button type="button" class="btn btn-sm">[put](put.md#actions)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#actions)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#actions)</button>  
 		
 Get details of an issue action.  
 ##### Usage:  
@@ -290,9 +290,9 @@ ConstituentID,IssueID
 </div>
 
 ## ActivityCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#activitycategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#activitycategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#activitycategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#activitycategories)</button>  
 		
 Get the details of an activity category by id.  
 ##### Usage:  
@@ -362,9 +362,9 @@ MaintenanceMode
    Get a summary representation of all activity categories.
 
 ## ActivityTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#activitytypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#activitytypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#activitytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#activitytypes)</button>  
 		
 Get the details of an activity type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -434,9 +434,9 @@ Filter,MaintenanceMode
    Get a summary representation of all activity types.
 
 ## AddressTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#addresstypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#addresstypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#addresstypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#addresstypes)</button>  
 		
 Get the details of an address type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -506,9 +506,9 @@ Filter,MaintenanceMode
    Get a summary representation of all address types.
 
 ## Addresses 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#addresses)</button>
-<button type="button" class="btn btn-sm">[put](put.md#addresses)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#addresses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#addresses)</button>  
 		
 Get details of an address using addressId as a URL query parameter. Returns 404 Not Found if an address with the specified Id is not found.  
 ##### Usage:  
@@ -577,9 +577,9 @@ ConstituentID,IncludeAffiliations,IncludeFromAffiliations,PrimaryOnly
 
 
 ## AffiliationTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#affiliationtypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#affiliationtypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#affiliationtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#affiliationtypes)</button>  
 		
 Get the details of an affiliation type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -649,9 +649,9 @@ ConstituentTypeID,Filter,MaintenanceMode
    Get a summary representation of all affiliation types.
 
 ## Affiliations 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#affiliations)</button>
-<button type="button" class="btn btn-sm">[put](put.md#affiliations)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#affiliations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#affiliations)</button>  
 		
 Get details of an affiliation.  
 ##### Usage:  
@@ -719,9 +719,9 @@ EndActiveDate,GroupConstituentID,IndividualConstituentID,PrimaryOnly,ShowWithGro
 </div>
 
 ## AliasTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#aliastypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#aliastypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#aliastypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#aliastypes)</button>  
 		
 Get the details of an alias type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -791,9 +791,9 @@ Filter,MaintenanceMode
    Get a summary representation of all alias types.
 
 ## Aliases 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#aliases)</button>
-<button type="button" class="btn btn-sm">[put](put.md#aliases)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#aliases)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#aliases)</button>  
 		
 Get details of an alias.  
 ##### Usage:  
@@ -861,7 +861,7 @@ ConstituentID,IncludeAffiliations
 </div>
 
 ## AnalyticsCubes 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get the details of an analytics cube.  
 ##### Usage:  
@@ -929,9 +929,9 @@ MaintenanceMode
 </div>
 
 ## AnalyticsReports 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#analyticsreports)</button>
-<button type="button" class="btn btn-sm">[put](put.md#analyticsreports)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#analyticsreports)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#analyticsreports)</button>  
 		
 Get a single SSRS Report for display in Analytics.  
 ##### Usage:  
@@ -971,8 +971,8 @@ AnalyticsReportID
    Get all SSRS Reports for display in Analytics.
 
 ## AppScreenTexts 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[put](put.md#appscreentexts)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#appscreentexts)</button>  
 		
 Get the details of an App Screen Text by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -1042,9 +1042,9 @@ MaintenanceMode
    Get a summary representation of all App Screen Texts.
 
 ## AppealCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#appealcategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#appealcategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#appealcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#appealcategories)</button>  
 		
 Get the details of an appeal category by id.  
 ##### Usage:  
@@ -1114,7 +1114,7 @@ MaintenanceMode
    Get a summary representation of all appeal categories.
 
 ## Appeals 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get details of an Appeal.  
 ##### Usage:  
@@ -1182,7 +1182,7 @@ ActiveOnly
 </div>
 
 ## ApplicationObjects 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get all application objects valid for the context usergroup.  
 ##### Usage:  
@@ -1217,9 +1217,9 @@ csv
 </div>
 
 ## Artists 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#artists)</button>
-<button type="button" class="btn btn-sm">[put](put.md#artists)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#artists)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#artists)</button>  
 		
 Get details of an existing artist.  
 ##### Usage:  
@@ -1259,9 +1259,9 @@ ArtistID
    Get details of all artists.
 
 ## AssetTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#assettypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#assettypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#assettypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#assettypes)</button>  
 		
 Get the details of an asset type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -1331,9 +1331,9 @@ Filter,MaintenanceMode
    Get a summary representation of all asset types.
 
 ## Assets 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#assets)</button>
-<button type="button" class="btn btn-sm">[put](put.md#assets)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#assets)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#assets)</button>  
 		
 Get details of an asset.  
 ##### Usage:  
@@ -1401,9 +1401,9 @@ ConstituentID,IncludeAffiliations
 </div>
 
 ## AssociationTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#associationtypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#associationtypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#associationtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#associationtypes)</button>  
 		
 Get the details of an association type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -1473,9 +1473,9 @@ Filter,MaintenanceMode
    Get a summary representation of all association types.
 
 ## Associations 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#associations)</button>
-<button type="button" class="btn btn-sm">[put](put.md#associations)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#associations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#associations)</button>  
 		
 Get details of an association.  
 ##### Usage:  
@@ -1543,7 +1543,7 @@ AssociatedConstituentID,ConstituentID,EndActiveDate,StartActiveDate
 </div>
 
 ## AttendanceHistory 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Attendance History for a selected constituent optionally including primary affiliates.  Does not return history based on recipient for the selected constituent(s).  
 ##### Usage:  
@@ -1580,9 +1580,9 @@ ConstituentID,IncludeAffiliations
 </div>
 
 ## Attributes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#attributes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#attributes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#attributes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#attributes)</button>  
 		
 Get details of an attribute.  
 ##### Usage:  
@@ -1650,7 +1650,7 @@ ConstituentID,IncludeAffiliations
 </div>
 
 ## AuditLogs 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get details of a audit log.  
 ##### Usage:  
@@ -1751,8 +1751,8 @@ Action,AuditEndTime,AuditStartTime,EntityIds,IncludeSubEntities,PageIndex,PageSi
 </div>
 
 ## Authenticate 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#authenticate)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#authenticate)</button>  
 		
 This is a no-op operation for windows authentication diagnostics.  
 ##### Usage:  
@@ -1791,8 +1791,8 @@ csv
 # B
 
 ## BatchMaintenance 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#batchmaintenance)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#batchmaintenance)</button>  
 		
 Get a single Batch  
 ##### Usage:  
@@ -1860,9 +1860,9 @@ IncludeControlled
 </div>
 
 ## BatchTypeGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#batchtypegroups)</button>
-<button type="button" class="btn btn-sm">[put](put.md#batchtypegroups)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#batchtypegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#batchtypegroups)</button>  
 		
 Get the details of a batch type group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -1932,7 +1932,7 @@ Filter,MaintenanceMode
    Get a summary representation of all batch type groups.
 
 ## BatchTypeUserGroup 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get all batch type/user group mappings.  
 ##### Usage:  
@@ -1969,9 +1969,9 @@ UserGroup
 </div>
 
 ## BatchTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#batchtypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#batchtypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#batchtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#batchtypes)</button>  
 		
 Get the details of a batch type by id.  
 ##### Usage:  
@@ -2041,9 +2041,9 @@ MaintenanceMode
    Get a summary representation of all batch types.
 
 ## BillingSchedules 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#billingschedules)</button>
-<button type="button" class="btn btn-sm">[put](put.md#billingschedules)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#billingschedules)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#billingschedules)</button>  
 		
 Get the details of a Billing Schedule. To get only the resources for which the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -2113,9 +2113,9 @@ Filter,MaintenanceMode
    Get a summary representation of all Billing Schedules.
 
 ## BillingTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#billingtypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#billingtypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#billingtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#billingtypes)</button>  
 		
 Get the details of a Billing Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -2185,9 +2185,9 @@ MaintenanceMode
    Get a summary representation of all Billing Types.
 
 ## BookingCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#bookingcategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#bookingcategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#bookingcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#bookingcategories)</button>  
 		
 Get the details of a Booking Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -2257,9 +2257,9 @@ Filter,MaintenanceMode
    Get a summary representation of all Booking Categories.
 
 ## BookingTemplates 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#bookingtemplates)</button>
-<button type="button" class="btn btn-sm">[put](put.md#bookingtemplates)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#bookingtemplates)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#bookingtemplates)</button>  
 		
 Get a Booking Template by ID  
 ##### Usage:  
@@ -2327,9 +2327,9 @@ CategoryID
 </div>
 
 ## Bookings 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#bookings)</button>
-<button type="button" class="btn btn-sm">[put](put.md#bookings)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#bookings)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#bookings)</button>  
 		
 Get a Booking by id  
 ##### Usage:  
@@ -2487,9 +2487,9 @@ BookingID
 </div>
 
 ## BulkCopySets 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#bulkcopysets)</button>
-<button type="button" class="btn btn-sm">[put](put.md#bulkcopysets)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#bulkcopysets)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#bulkcopysets)</button>  
 		
 Get a bulk copy set by Id.  
 ##### Usage:  
@@ -2561,9 +2561,9 @@ BulkCopySetID
    Get a summary of all bulk copy sets.
 
 ## BulkDailyCopyExclusions 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#bulkdailycopyexclusions)</button>
-<button type="button" class="btn btn-sm">[put](put.md#bulkdailycopyexclusions)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#bulkdailycopyexclusions)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#bulkdailycopyexclusions)</button>  
 		
 Get a bulk daily copy exclusion by id.  
 ##### Usage:  
@@ -2631,9 +2631,9 @@ BulkCopySetID
 </div>
 
 ## BusinessUnits 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#businessunits)</button>
-<button type="button" class="btn btn-sm">[put](put.md#businessunits)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#businessunits)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#businessunits)</button>  
 		
 Get the details of a business unit by id.  
 ##### Usage:  
@@ -2705,7 +2705,7 @@ MaintenanceMode
 	
 # C
 ## Cache 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
   
 ##### Usage:  
@@ -2740,9 +2740,9 @@ csv
 </div>
 
 ## CampaignDesignations 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#campaigndesignations)</button>
-<button type="button" class="btn btn-sm">[put](put.md#campaigndesignations)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#campaigndesignations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#campaigndesignations)</button>  
 		
 Get a single Designation associated to a Campaign.  
 ##### Usage:  
@@ -2810,9 +2810,9 @@ CampaignID
 </div>
 
 ## CampaignFunds 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#campaignfunds)</button>
-<button type="button" class="btn btn-sm">[put](put.md#campaignfunds)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#campaignfunds)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#campaignfunds)</button>  
 		
 Get a single Fund associated to a Campaign.  
 ##### Usage:  
@@ -2880,7 +2880,7 @@ AsOfDateTime,CampaignID
 </div>
 
 ## Campaigns 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get summary of a specific campaign.  
 ##### Usage:  
@@ -2948,9 +2948,9 @@ ActiveOnly
 </div>
 
 ## CardReaderTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#cardreadertypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#cardreadertypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#cardreadertypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#cardreadertypes)</button>  
 		
 Get the details of a Card Reader Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -3020,9 +3020,9 @@ MaintenanceMode
    Get a summary representation of all Card Reader Types.
 
 ## Cart 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#cart)</button>
-<button type="button" class="btn btn-sm">[put](put.md#cart)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#cart)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#cart)</button>  
 		
 Gets the cart details  
 ##### Usage:  
@@ -3182,9 +3182,9 @@ MessageTypes,SavedCart,SessionKey
 </div>
 
 ## Colors 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#colors)</button>
-<button type="button" class="btn btn-sm">[put](put.md#colors)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#colors)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#colors)</button>  
 		
 Get the details of a color by id.  
 ##### Usage:  
@@ -3254,9 +3254,9 @@ MaintenanceMode
    Get a summary representation of all colors.
 
 ## Composers 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#composers)</button>
-<button type="button" class="btn btn-sm">[put](put.md#composers)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#composers)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#composers)</button>  
 		
 Get the details of a composer by id.  
 ##### Usage:  
@@ -3326,9 +3326,9 @@ MaintenanceMode
    Get a summary representation of all composers.
 
 ## Constituencies 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#constituencies)</button>
-<button type="button" class="btn btn-sm">[put](put.md#constituencies)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituencies)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituencies)</button>  
 		
 Get details of constituency.  
 ##### Usage:  
@@ -3396,9 +3396,9 @@ ConstituentID,IncludeAffiliations
 </div>
 
 ## ConstituencyTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#constituencytypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#constituencytypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituencytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituencytypes)</button>  
 		
 Get the details of a constituency type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -3468,7 +3468,7 @@ Filter,MaintenanceMode
    Get a summary representation of all constituency types.
 
 ## ConstituentContributions 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get contributions for a constituent.  
 ##### Usage:  
@@ -3505,9 +3505,9 @@ CampaignIds,ConstituentID,EndDate,FundIds,IncludeAffiliations,StartDate
 </div>
 
 ## ConstituentDocuments 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#constituentdocuments)</button>
-<button type="button" class="btn btn-sm">[put](put.md#constituentdocuments)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituentdocuments)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituentdocuments)</button>  
 		
 Get the details of a document for a constituent.  
 ##### Usage:  
@@ -3605,9 +3605,9 @@ ConstituentID,IncludeAffiliations
 </div>
 
 ## ConstituentGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#constituentgroups)</button>
-<button type="button" class="btn btn-sm">[put](put.md#constituentgroups)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituentgroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituentgroups)</button>  
 		
 Get the details of a constituent group by id.  
 ##### Usage:  
@@ -3677,9 +3677,9 @@ MaintenanceMode
    Get a summary representation of all constituent groups.
 
 ## ConstituentInactives 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#constituentinactives)</button>
-<button type="button" class="btn btn-sm">[put](put.md#constituentinactives)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituentinactives)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituentinactives)</button>  
 		
 Get the details of a constituent inactive by id.  
 ##### Usage:  
@@ -3749,9 +3749,9 @@ MaintenanceMode
    Get a summary representation of all constituent inactives.
 
 ## ConstituentProtectionTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#constituentprotectiontypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#constituentprotectiontypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituentprotectiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituentprotectiontypes)</button>  
 		
 Get the details of a constituent protection type by id.  
 ##### Usage:  
@@ -3821,9 +3821,9 @@ Filter,MaintenanceMode
    Get a summary representation of all constituent protection types.
 
 ## ConstituentTypeAffiliates 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#constituenttypeaffiliates)</button>
-<button type="button" class="btn btn-sm">[put](put.md#constituenttypeaffiliates)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituenttypeaffiliates)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituenttypeaffiliates)</button>  
 		
 Get the details of a constituent type affiliate by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -3893,9 +3893,9 @@ Filter,MaintenanceMode
    Get a summary representation of all constituent type affiliates.
 
 ## ConstituentTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#constituenttypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#constituenttypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituenttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituenttypes)</button>  
 		
 Get the details of a constituent type by id.  
 ##### Usage:  
@@ -3965,9 +3965,9 @@ MaintenanceMode
    Get a summary representation of all constituent types.
 
 ## Constituents 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#constituents)</button>
-<button type="button" class="btn btn-sm">[put](put.md#constituents)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituents)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituents)</button>  
 		
 Get the details of a Constituent using id.  
 ##### Usage:  
@@ -4286,9 +4286,9 @@ Atype,ConstituencyIds,ConstituentGroups,ConstituentID,Dup,Fn,IncludeAffiliates,K
 </div>
 
 ## ContactPermissionCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#contactpermissioncategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#contactpermissioncategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpermissioncategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpermissioncategories)</button>  
 		
 Get the details of a contact permission category. To get only the resoures for which the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -4358,9 +4358,9 @@ Filter,MaintenanceMode
    Get a summary representation of all contact permission categories.
 
 ## ContactPermissionTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#contactpermissiontypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#contactpermissiontypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpermissiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpermissiontypes)</button>  
 		
 Get the details of a contact permission type. To get the resource only if the user has write/edit access, pass filter="writeonly".  To get the resource in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -4460,9 +4460,9 @@ ProductionSeasonIds
    Get a summary representation of all contact permission types.
 
 ## ContactPermissions 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#contactpermissions)</button>
-<button type="button" class="btn btn-sm">[put](put.md#contactpermissions)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpermissions)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpermissions)</button>  
 		
 Get details of a contact permission  
 ##### Usage:  
@@ -4530,9 +4530,9 @@ ActiveOnly,ConstituentID,IncludeAffiliations
 </div>
 
 ## ContactPointCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#contactpointcategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#contactpointcategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointcategories)</button>  
 		
 Get the details of a contact point category by id.  
 ##### Usage:  
@@ -4602,9 +4602,9 @@ MaintenanceMode
    Get a summary representation of all contact point categories.
 
 ## ContactPointCategoryPurposes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#contactpointcategorypurposes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#contactpointcategorypurposes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointcategorypurposes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointcategorypurposes)</button>  
 		
 Get the details of a contact point category purpose by id.  
 ##### Usage:  
@@ -4674,9 +4674,9 @@ Filter,MaintenanceMode
    Get a summary representation of all contact point category purposes.
 
 ## ContactPointPurposeCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#contactpointpurposecategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#contactpointpurposecategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointpurposecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointpurposecategories)</button>  
 		
 Get the details of a contact point purpose category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -4746,9 +4746,9 @@ Filter,MaintenanceMode
    Get a summary representation of all contact point purpose categories.
 
 ## ContactPointPurposeMaps 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#contactpointpurposemaps)</button>
-<button type="button" class="btn btn-sm">[put](put.md#contactpointpurposemaps)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointpurposemaps)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointpurposemaps)</button>  
 		
 Get details of a contact point purpose.  
 ##### Usage:  
@@ -4816,9 +4816,9 @@ ConstituentID,ContactPointCategoryID,ContactPointID,IncludeAffiliations,PurposeI
 </div>
 
 ## ContactPointPurposes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#contactpointpurposes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#contactpointpurposes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointpurposes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointpurposes)</button>  
 		
 Get the details of a contact point purpose by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -4888,7 +4888,7 @@ Filter,MaintenanceMode
    Get a summary representation of all contact point purposes.
 
 ## ContactPoints 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get all the delivery points for the specified constituent (constituentId) and all its visible affiliation's delivery point purposes as well. To exclude delivery point purposes of the visible affiliations pass includeAffiliations=false.  
 ##### Usage:  
@@ -4925,9 +4925,9 @@ ConstituentID,IncludeAffiliations
 </div>
 
 ## ContactTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#contacttypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#contacttypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contacttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contacttypes)</button>  
 		
 Get the details of a contact type by id.  
 ##### Usage:  
@@ -4997,7 +4997,7 @@ MaintenanceMode
    Get a summary representation of all contact types.
 
 ## ContextInformation 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get a commonly used set of default values for the user and usergroup in the current security context.  
 ##### Usage:  
@@ -5032,9 +5032,9 @@ csv
 </div>
 
 ## ContributionDesignations 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#contributiondesignations)</button>
-<button type="button" class="btn btn-sm">[put](put.md#contributiondesignations)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contributiondesignations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contributiondesignations)</button>  
 		
 Get the details of a contribution designation by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -5104,9 +5104,9 @@ Filter,MaintenanceMode
    Get a summary representation of all contribution designations.
 
 ## ContributionImportSets 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#contributionimportsets)</button>
-<button type="button" class="btn btn-sm">[put](put.md#contributionimportsets)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contributionimportsets)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contributionimportsets)</button>  
 		
 Get the details of a contributionImportSet by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -5177,9 +5177,9 @@ MaintenanceMode
 
 
 ## ControlGroupUserGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#controlgroupusergroups)</button>
-<button type="button" class="btn btn-sm">[put](put.md#controlgroupusergroups)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#controlgroupusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#controlgroupusergroups)</button>  
 		
 Get the details of a control group/user group mapping by id.  
 ##### Usage:  
@@ -5221,9 +5221,9 @@ ID
    Get a summary representation of all control group/user group mappings.
 
 ## ControlGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#controlgroups)</button>
-<button type="button" class="btn btn-sm">[put](put.md#controlgroups)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#controlgroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#controlgroups)</button>  
 		
 Get the details of a control group by id.  
 ##### Usage:  
@@ -5293,8 +5293,8 @@ MaintenanceMode
    Get a summary representation of all control groups.
 
 ## CoreIdentity 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#coreidentity)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#coreidentity)</button>  
 		
   
 ##### Usage:  
@@ -5329,9 +5329,9 @@ csv
 </div>
 
 ## Countries 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#countries)</button>
-<button type="button" class="btn btn-sm">[put](put.md#countries)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#countries)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#countries)</button>  
 		
 Get the details of a country by id.  
 ##### Usage:  
@@ -5401,9 +5401,9 @@ MaintenanceMode
    Get a summary representation of all countries.
 
 ## CrediteeTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#crediteetypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#crediteetypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#crediteetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#crediteetypes)</button>  
 		
 Get the details of a crediteeType by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -5473,7 +5473,7 @@ MaintenanceMode
    Get a summary representation of all crediteeTypes.
 
 ## Credits 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Returns all credits for the requested production element, and all credits from above it in the production hierarchy.  
 ##### Usage:  
@@ -5510,7 +5510,7 @@ ProductionElementIds
 </div>
 
 ## CriterionOperators 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get the details of a criterion operator by id.  
 ##### Usage:  
@@ -5580,7 +5580,7 @@ MaintenanceMode
    Get a summary representation of all criterion operators.
 
 ## CumulativeGivingReceipts 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get details of an cumulativeGivingReceipt.  
 ##### Usage:  
@@ -5678,9 +5678,9 @@ ConstituentID,SessionID
 </div>
 
 ## CurrencyTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#currencytypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#currencytypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#currencytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#currencytypes)</button>  
 		
 Get the details of a currency type by id.  
 ##### Usage:  
@@ -5750,8 +5750,8 @@ MaintenanceMode
    Get a summary representation of all currency types.
 
 ## Custom 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#custom)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#custom)</button>  
 		
 Get the metadata information of a custom table as defined by TR_DATASERVICE_TABLES and TR_DATASERVICE_COLUMNS.  
 ##### Usage:  
@@ -5786,9 +5786,9 @@ csv
 </div>
 
 ## CustomDefaultCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#customdefaultcategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#customdefaultcategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#customdefaultcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#customdefaultcategories)</button>  
 		
 Get the details of a custom default category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -5858,9 +5858,9 @@ Filter,MaintenanceMode
    Get a summary representation of all custom default categories.
 
 ## CustomDefaults 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#customdefaults)</button>
-<button type="button" class="btn btn-sm">[put](put.md#customdefaults)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#customdefaults)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#customdefaults)</button>  
 		
 Get the details of a custom default by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -5932,9 +5932,9 @@ Filter,MaintenanceMode
 	
 # D
 ## DeliveryMethods 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#deliverymethods)</button>
-<button type="button" class="btn btn-sm">[put](put.md#deliverymethods)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#deliverymethods)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#deliverymethods)</button>  
 		
 Get the details of a delivery method by id.  
 ##### Usage:  
@@ -6004,9 +6004,9 @@ MaintenanceMode
    Get a summary representation of all delivery methods.
 
 ## DesignationCodes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#designationcodes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#designationcodes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#designationcodes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#designationcodes)</button>  
 		
 Get the details of a designation code by id.  
 ##### Usage:  
@@ -6076,7 +6076,7 @@ MaintenanceMode
    Get a summary representation of all designation codes.
 
 ## Designs 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get the details of a design by id.  
 ##### Usage:  
@@ -6146,9 +6146,9 @@ MaintenanceMode
    Get a summary representation of all designs.
 
 ## Diagnostics 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#diagnostics)</button>
-<button type="button" class="btn btn-sm">[put](put.md#diagnostics)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#diagnostics)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#diagnostics)</button>  
 		
 Validates Encryption Key Dates.  
 ##### Usage:  
@@ -6190,9 +6190,9 @@ csv
    Returns status of the application connection to database and service version information as an html page.
 
 ## DirectDebitAccountTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#directdebitaccounttypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#directdebitaccounttypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#directdebitaccounttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#directdebitaccounttypes)</button>  
 		
 Get the details of a direct debit account type by id.  
 ##### Usage:  
@@ -6262,9 +6262,9 @@ MaintenanceMode
    Get a summary representation of all direct debit account types.
 
 ## DiscountTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#discounttypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#discounttypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#discounttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#discounttypes)</button>  
 		
 Get the details of a discount type by id.  
 ##### Usage:  
@@ -6334,7 +6334,7 @@ MaintenanceMode
    Get a summary representation of all discount types.
 
 ## Divisions 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get the control group/division mappings for the specified division.  
 ##### Usage:  
@@ -6400,9 +6400,9 @@ DivisionID
 </div>
 
 ## DocumentCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#documentcategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#documentcategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#documentcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#documentcategories)</button>  
 		
 Get the details of a documentCategory by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -6472,7 +6472,7 @@ Filter,MaintenanceMode
    Get a summary representation of all documentCategories.
 
 ## Documents 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get the details of a document.  
 ##### Usage:  
@@ -6572,9 +6572,9 @@ StepID
    Get configuration settings for uploading documents.
 
 ## DonationLevels 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#donationlevels)</button>
-<button type="button" class="btn btn-sm">[put](put.md#donationlevels)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#donationlevels)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#donationlevels)</button>  
 		
 Get the details of a donation level by id.  
 ##### Usage:  
@@ -6646,9 +6646,9 @@ MaintenanceMode
 	
 # E
 ## EMV 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#emv)</button>
-<button type="button" class="btn btn-sm">[put](put.md#emv)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#emv)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#emv)</button>  
 		
 Retrieve information on all lanes associated with merchant  
 ##### Usage:  
@@ -6806,9 +6806,9 @@ Cert,LaneID,Merchant
 </div>
 
 ## ElectronicAddressTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#electronicaddresstypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#electronicaddresstypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#electronicaddresstypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#electronicaddresstypes)</button>  
 		
 Get the details of an electronic address type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -6878,9 +6878,9 @@ Filter,MaintenanceMode
    Get a summary representation of all electronic address types.
 
 ## ElectronicAddresses 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#electronicaddresses)</button>
-<button type="button" class="btn btn-sm">[put](put.md#electronicaddresses)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#electronicaddresses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#electronicaddresses)</button>  
 		
 Get details of an electronic address.  
 ##### Usage:  
@@ -6980,9 +6980,9 @@ ElectronicAddressID
 </div>
 
 ## EmailProfiles 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#emailprofiles)</button>
-<button type="button" class="btn btn-sm">[put](put.md#emailprofiles)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#emailprofiles)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#emailprofiles)</button>  
 		
 Get the details of an email profile by id  
 ##### Usage:  
@@ -7054,9 +7054,9 @@ Filter,MaintenanceMode
 
 
 ## EmarketIndicators 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#emarketindicators)</button>
-<button type="button" class="btn btn-sm">[put](put.md#emarketindicators)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#emarketindicators)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#emarketindicators)</button>  
 		
 Get the details of an emarket indicator by id.  
 ##### Usage:  
@@ -7126,9 +7126,9 @@ MaintenanceMode
    Get a summary representation of all emarket indicators.
 
 ## Eras 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#eras)</button>
-<button type="button" class="btn btn-sm">[put](put.md#eras)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#eras)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#eras)</button>  
 		
 Get the details of an era by id.  
 ##### Usage:  
@@ -7198,7 +7198,7 @@ MaintenanceMode
    Get a summary representation of all eras.
 
 ## EventControl 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Returns a response containing a list of EventControl rows for the N-Scan event control table.  
 ##### Usage:  
@@ -7237,9 +7237,9 @@ EndDate,StartDate
 	
 # F
 ## Facilities 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#facilities)</button>
-<button type="button" class="btn btn-sm">[put](put.md#facilities)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#facilities)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#facilities)</button>  
 		
 Get details of a Facility.  
 ##### Usage:  
@@ -7311,7 +7311,7 @@ FacilityID
    Get summary representation of all Facilities.
 
 ## Fees 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get details of a fee.  
 ##### Usage:  
@@ -7409,7 +7409,7 @@ FeeCategoryIds,SeasonID,UserDefined
 </div>
 
 ## FinanceContributions 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get details of a contribution.  
 ##### Usage:  
@@ -7477,7 +7477,7 @@ PlanID
 </div>
 
 ## Formats 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get the details of a format by id.  
 ##### Usage:  
@@ -7547,7 +7547,7 @@ MaintenanceMode
    Get a summary representation of all formats.
 
 ## Funds 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get details of a specific fund  
 ##### Usage:  
@@ -7617,7 +7617,7 @@ TicketingIndicator
 	
 # G
 ## GLAccounts 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get the details of a gl account by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -7687,9 +7687,9 @@ Filter,MaintenanceMode
    Get a summary representation of all gl accounts.
 
 ## Genders 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#genders)</button>
-<button type="button" class="btn btn-sm">[put](put.md#genders)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#genders)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#genders)</button>  
 		
 Get the details of a gender by id.  
 ##### Usage:  
@@ -7759,9 +7759,9 @@ MaintenanceMode
    Get a summary representation of all gender values.
 
 ## GiftAidContactMethods 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#giftaidcontactmethods)</button>
-<button type="button" class="btn btn-sm">[put](put.md#giftaidcontactmethods)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidcontactmethods)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidcontactmethods)</button>  
 		
 Get the details of a gift aid contact method by id.  
 ##### Usage:  
@@ -7831,9 +7831,9 @@ MaintenanceMode
    Get a summary representation of all gift aid contact methods.
 
 ## GiftAidDeclarations 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#giftaiddeclarations)</button>
-<button type="button" class="btn btn-sm">[put](put.md#giftaiddeclarations)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaiddeclarations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaiddeclarations)</button>  
 		
 Gets a single Gift Aid Declaration.  
 ##### Usage:  
@@ -7901,9 +7901,9 @@ ConstituentID,IncludeAffiliations
 </div>
 
 ## GiftAidDocumentStatuses 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#giftaiddocumentstatuses)</button>
-<button type="button" class="btn btn-sm">[put](put.md#giftaiddocumentstatuses)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaiddocumentstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaiddocumentstatuses)</button>  
 		
 Get the details of a gift aid document status by id.  
 ##### Usage:  
@@ -7973,9 +7973,9 @@ MaintenanceMode
    Get a summary representation of all gift aid document statuses.
 
 ## GiftAidIneligibleReasons 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#giftaidineligiblereasons)</button>
-<button type="button" class="btn btn-sm">[put](put.md#giftaidineligiblereasons)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidineligiblereasons)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidineligiblereasons)</button>  
 		
 Get the details of a gift aid ineligible reason by id.  
 ##### Usage:  
@@ -8045,9 +8045,9 @@ MaintenanceMode
    Get a summary representation of all gift aid ineligible reasons.
 
 ## GiftAidRates 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#giftaidrates)</button>
-<button type="button" class="btn btn-sm">[put](put.md#giftaidrates)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidrates)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidrates)</button>  
 		
 Get the details of a gift aid rate by id.  
 ##### Usage:  
@@ -8117,9 +8117,9 @@ MaintenanceMode
    Get a summary representation of all gift aid rates.
 
 ## GiftAidStatuses 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#giftaidstatuses)</button>
-<button type="button" class="btn btn-sm">[put](put.md#giftaidstatuses)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidstatuses)</button>  
 		
 Get the details of a gift aid status by id.  
 ##### Usage:  
@@ -8189,9 +8189,9 @@ MaintenanceMode
    Get a summary representation of all gift aid statuses.
 
 ## GiftAidTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#giftaidtypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#giftaidtypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidtypes)</button>  
 		
 Get the details of a gift aid type by id.  
 ##### Usage:  
@@ -8261,8 +8261,8 @@ Filter,MaintenanceMode
    Get a summary representation of all gift aid types.
 
 ## GiftCertificates 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#giftcertificates)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftcertificates)</button>  
 		
 Get details of a specific gift certificate.
 The original amount, amount used and balance are all returned.  Amounts applied to a current web session are included.  
@@ -8302,9 +8302,9 @@ GiftCertificateNumber
 	
 # H
 ## HoldCodeCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#holdcodecategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#holdcodecategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#holdcodecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#holdcodecategories)</button>  
 		
 Get the details of a Hold Code Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -8374,9 +8374,9 @@ Filter,MaintenanceMode
    Get a summary representation of all Hold Code Categories.
 
 ## HoldCodeUserGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#holdcodeusergroups)</button>
-<button type="button" class="btn btn-sm">[put](put.md#holdcodeusergroups)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#holdcodeusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#holdcodeusergroups)</button>  
 		
 Get the details of a hold code/user group mapping by id.  
 ##### Usage:  
@@ -8504,9 +8504,9 @@ HoldCodeUserGroupID
 </div>
 
 ## HoldCodes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#holdcodes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#holdcodes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#holdcodes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#holdcodes)</button>  
 		
 Get details of a Hold Code.  
 ##### Usage:  
@@ -8548,9 +8548,9 @@ HoldCodeID
 	
 # I
 ## InactiveReasons 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#inactivereasons)</button>
-<button type="button" class="btn btn-sm">[put](put.md#inactivereasons)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#inactivereasons)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#inactivereasons)</button>  
 		
 Get the details of an inactive reason by id.  
 ##### Usage:  
@@ -8620,9 +8620,9 @@ MaintenanceMode
    Get a summary representation of all inactive reasons.
 
 ## IntegrationDefaults 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#integrationdefaults)</button>
-<button type="button" class="btn btn-sm">[put](put.md#integrationdefaults)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#integrationdefaults)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#integrationdefaults)</button>  
 		
 Get the details of an Integration Default by id.  
 ##### Usage:  
@@ -8664,9 +8664,9 @@ ID
    Get a summary representation of all Integration Defaults.
 
 ## Integrations 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#integrations)</button>
-<button type="button" class="btn btn-sm">[put](put.md#integrations)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#integrations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#integrations)</button>  
 		
 Get the details of an action type by id.  
 ##### Usage:  
@@ -8736,9 +8736,9 @@ MaintenanceMode
    Get a summary representation of all action types.
 
 ## InterestCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#interestcategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#interestcategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#interestcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#interestcategories)</button>  
 		
 Get the details of an interest category by id.  
 ##### Usage:  
@@ -8808,9 +8808,9 @@ MaintenanceMode
    Get a summary representation of all interest categories.
 
 ## InterestTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#interesttypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#interesttypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#interesttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#interesttypes)</button>  
 		
 Get the details of an interest type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -8880,9 +8880,9 @@ Filter,MaintenanceMode
    Get a summary representation of all interest types.
 
 ## Interests 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#interests)</button>
-<button type="button" class="btn btn-sm">[put](put.md#interests)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#interests)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#interests)</button>  
 		
 Get details of an interest.  
 ##### Usage:  
@@ -8950,9 +8950,9 @@ CategoryIds,ConstituentID,IncludeAffiliations
 </div>
 
 ## Internal 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#internal)</button>
-<button type="button" class="btn btn-sm">[put](put.md#internal)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#internal)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#internal)</button>  
 		
 Get details of an address and all the phones attached to it.  
 ##### Usage:  
@@ -9050,9 +9050,9 @@ ConstituentID
 </div>
 
 ## InventoryContactPermissionTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#inventorycontactpermissiontypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#inventorycontactpermissiontypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#inventorycontactpermissiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#inventorycontactpermissiontypes)</button>  
 		
 Get details of an inventoryContactPermissionType.  
 ##### Usage:  
@@ -9120,9 +9120,9 @@ ProductionSeasonIds
 </div>
 
 ## InventoryWebContents 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#inventorywebcontents)</button>
-<button type="button" class="btn btn-sm">[put](put.md#inventorywebcontents)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#inventorywebcontents)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#inventorywebcontents)</button>  
 		
 Get details of an inventoryWebContent.  
 ##### Usage:  
@@ -9220,8 +9220,8 @@ ContentTypeIds,ProductionElementIds
 </div>
 
 ## InvoiceBilling 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#invoicebilling)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#invoicebilling)</button>  
 		
 Get status of a processing automated billing run.  
 ##### Usage:  
@@ -9258,9 +9258,9 @@ ID
 </div>
 
 ## Issues 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#issues)</button>
-<button type="button" class="btn btn-sm">[put](put.md#issues)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#issues)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#issues)</button>  
 		
 Get details of a customer issue.  
 ##### Usage:  
@@ -9330,9 +9330,9 @@ ActivityTypeIds,CategoryIds,ConstituentID,ContactTypeIds,EndDate,IncludeAffiliat
 	
 # K
 ## KeywordCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#keywordcategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#keywordcategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#keywordcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#keywordcategories)</button>  
 		
 Get the details of a keyword category by id.  
 ##### Usage:  
@@ -9402,9 +9402,9 @@ MaintenanceMode
    Get a summary representation of all keyword categories.
 
 ## Keywords 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#keywords)</button>
-<button type="button" class="btn btn-sm">[put](put.md#keywords)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#keywords)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#keywords)</button>  
 		
 Get the details of a keyword by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -9506,9 +9506,9 @@ KeywordID
 	
 # L
 ## Languages 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#languages)</button>
-<button type="button" class="btn btn-sm">[put](put.md#languages)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#languages)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#languages)</button>  
 		
 Get the details of a language by id.  
 ##### Usage:  
@@ -9578,9 +9578,9 @@ MaintenanceMode
    Get a summary representation of all languages.
 
 ## ListCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#listcategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#listcategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#listcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#listcategories)</button>  
 		
 Get the details of a list category by id.  
 ##### Usage:  
@@ -9650,9 +9650,9 @@ MaintenanceMode
    Get a summary representation of all list categories.
 
 ## Lists 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#lists)</button>
-<button type="button" class="btn btn-sm">[put](put.md#lists)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#lists)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#lists)</button>  
 		
 Get a single List without contents.  
 ##### Usage:  
@@ -9810,9 +9810,9 @@ ListIds
 </div>
 
 ## LoginTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#logintypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#logintypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#logintypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#logintypes)</button>  
 		
 Get the details of a login type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -9884,9 +9884,9 @@ Filter,MaintenanceMode
 	
 # M
 ## MachineSettings 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#machinesettings)</button>
-<button type="button" class="btn btn-sm">[put](put.md#machinesettings)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#machinesettings)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#machinesettings)</button>  
 		
 Get the details of a Machine Setting by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -9956,9 +9956,9 @@ MaintenanceMode
    Get a summary representation of all Machine Settings.
 
 ## MailIndicators 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#mailindicators)</button>
-<button type="button" class="btn btn-sm">[put](put.md#mailindicators)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#mailindicators)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#mailindicators)</button>  
 		
 Get the details of a mail indicator by id.  
 ##### Usage:  
@@ -10028,9 +10028,9 @@ MaintenanceMode
    Get a summary representation of all mail indicators.
 
 ## MediaTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#mediatypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#mediatypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#mediatypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#mediatypes)</button>  
 		
 Get the details of a media type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -10100,9 +10100,9 @@ Filter,MaintenanceMode
    Get a summary representation of all media types.
 
 ## MembershipLevelCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#membershiplevelcategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#membershiplevelcategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#membershiplevelcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#membershiplevelcategories)</button>  
 		
 Get the details of a membership level category by id.  
 ##### Usage:  
@@ -10172,7 +10172,7 @@ MaintenanceMode
    Get a summary representation of all membership level categories.
 
 ## MembershipLevels 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get a specific membership level.
 NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.  
@@ -10273,7 +10273,7 @@ MembershipOrgID
 </div>
 
 ## MembershipOrganizations 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get a specific membership organization.
 NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.  
@@ -10318,7 +10318,7 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 NOTE: As part of the upcoming changes to membership functionality, this resource will be removed in an upcoming major Tessitura release. Please make a note that code that references it will need to be revisited as part of that upgrade process.
 
 ## MembershipStandings 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get a specific MembershipStanding by id.  
 ##### Usage:  
@@ -10388,8 +10388,8 @@ MaintenanceMode
    Get a summary representation of all MembershipStandings.
 
 ## Memberships 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#memberships)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#memberships)</button>  
 		
 Returns membership details for a constituent.
 NOTE: As part of the upcoming changes to membership functionality, this resource will change significantly in an upcoming major Tessitura release and likely break code that references it. Please make a note that code that references it will need to be revisited as part of that upgrade process.  
@@ -10427,7 +10427,7 @@ ConstituentID,IncludeAffiliations,MembershipOrgIds,OnlyShowCurrent,OnlyShowDefau
 </div>
 
 ## MerchantReferences 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
   
 ##### Usage:  
@@ -10464,7 +10464,7 @@ MerchantAccount,PaymentID
 </div>
 
 ## Merchants 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Retrieve Merchant List  
 ##### Usage:  
@@ -10499,9 +10499,9 @@ csv
 </div>
 
 ## ModeOfSaleCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#modeofsalecategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#modeofsalecategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsalecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsalecategories)</button>  
 		
 Get details of a mode of sale category.  
 ##### Usage:  
@@ -10541,9 +10541,9 @@ ModeOfSaleCategoryID
    Get all mode of sale categories.
 
 ## ModeOfSaleOffers 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#modeofsaleoffers)</button>
-<button type="button" class="btn btn-sm">[put](put.md#modeofsaleoffers)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsaleoffers)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsaleoffers)</button>  
 		
 Get details of a mode of sale offer.  
 ##### Usage:  
@@ -10611,9 +10611,9 @@ AsOfDateTime,ModeOfSaleID,PackageIds,PerformanceIds
 </div>
 
 ## ModeOfSalePriceTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#modeofsalepricetypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#modeofsalepricetypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsalepricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsalepricetypes)</button>  
 		
 Get details of a mode of sale price type.  
 ##### Usage:  
@@ -10681,9 +10681,9 @@ ModeOfSaleID,PriceTypeID
 </div>
 
 ## ModeOfSaleSurveyQuestions 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#modeofsalesurveyquestions)</button>
-<button type="button" class="btn btn-sm">[put](put.md#modeofsalesurveyquestions)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsalesurveyquestions)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsalesurveyquestions)</button>  
 		
 Get details of a mode of sale survey question.  
 ##### Usage:  
@@ -10751,9 +10751,9 @@ ModeOfSaleID
 </div>
 
 ## ModeOfSaleUserGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#modeofsaleusergroups)</button>
-<button type="button" class="btn btn-sm">[put](put.md#modeofsaleusergroups)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsaleusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsaleusergroups)</button>  
 		
 Get the details of a mode of sale/user group mapping by id.  
 ##### Usage:  
@@ -10793,9 +10793,9 @@ ModeOfSaleUserGroupID
    Get all mode of sale/user group mappings.
 
 ## ModesOfSale 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#modesofsale)</button>
-<button type="button" class="btn btn-sm">[put](put.md#modesofsale)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#modesofsale)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#modesofsale)</button>  
 		
 Get details of an existing mode of sale.  
 ##### Usage:  
@@ -10839,9 +10839,9 @@ ModeOfSaleID
 	
 # N
 ## NScanAccessAreas 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#nscanaccessareas)</button>
-<button type="button" class="btn btn-sm">[put](put.md#nscanaccessareas)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#nscanaccessareas)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#nscanaccessareas)</button>  
 		
 Get the details of an NScan Access Area by id. To get the resource only if the user has write/edit access, pass filter="writeonly".. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -10911,9 +10911,9 @@ Filter,MaintenanceMode
    Get a summary representation of all NScan Access Areas.
 
 ## NameStatuses 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#namestatuses)</button>
-<button type="button" class="btn btn-sm">[put](put.md#namestatuses)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#namestatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#namestatuses)</button>  
 		
 Get the details of a name status by id.  
 ##### Usage:  
@@ -10985,9 +10985,9 @@ MaintenanceMode
 	
 # O
 ## ObjectPermissions 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#objectpermissions)</button>
-<button type="button" class="btn btn-sm">[put](put.md#objectpermissions)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#objectpermissions)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#objectpermissions)</button>  
 		
 Get the details of an object permission by id.  
 ##### Usage:  
@@ -11029,8 +11029,8 @@ ID
    Get a summary representation of all object permissions.
 
 ## OrderBilling 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#orderbilling)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#orderbilling)</button>  
 		
 Reprint Order billing  
 ##### Usage:  
@@ -11098,9 +11098,9 @@ OrderBillingID
 </div>
 
 ## OrderCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#ordercategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#ordercategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#ordercategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#ordercategories)</button>  
 		
 Get the details of an order category by id.  
 ##### Usage:  
@@ -11170,9 +11170,9 @@ MaintenanceMode
    Get a summary representation of all order categories.
 
 ## Orders 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#orders)</button>
-<button type="button" class="btn btn-sm">[put](put.md#orders)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#orders)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#orders)</button>  
 		
 Get the details of an existing Order as the contract OrderProductsView, which mirrors the structure of the Cart response entity from GET Web/{sessionKey}/Cart. This resource can be used to fetch any saved order in this view. Order HTML templates use this response contract (OrdersProductsView) as the model within the template. Orders actively in a session/cart will not be available here until after checkout.  
 ##### Usage:  
@@ -11209,9 +11209,9 @@ OrderID
 </div>
 
 ## Organizations 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#organizations)</button>
-<button type="button" class="btn btn-sm">[put](put.md#organizations)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#organizations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#organizations)</button>  
 		
 Get the details of an organization by ID. To get the resource in maintenance mode (ignoring control groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -11281,9 +11281,9 @@ MaintenanceMode
    Get a summary representation of all organizations.
 
 ## OriginalSources 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#originalsources)</button>
-<button type="button" class="btn btn-sm">[put](put.md#originalsources)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#originalsources)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#originalsources)</button>  
 		
 Get the details of an original source by id.  
 ##### Usage:  
@@ -11353,9 +11353,9 @@ MaintenanceMode
    Get a summary representation of all original sources.
 
 ## Origins 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#origins)</button>
-<button type="button" class="btn btn-sm">[put](put.md#origins)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#origins)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#origins)</button>  
 		
 Get the details of an origin by id.  
 ##### Usage:  
@@ -11425,9 +11425,9 @@ MaintenanceMode
    Get a summary representation of all origins.
 
 ## OutputSets 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#outputsets)</button>
-<button type="button" class="btn btn-sm">[put](put.md#outputsets)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#outputsets)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#outputsets)</button>  
 		
 Get a single Output Set.  
 ##### Usage:  
@@ -11497,7 +11497,7 @@ MineOnly
 	
 # P
 ## PackageHistory 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Gets history information for packages  
 ##### Usage:  
@@ -11534,9 +11534,9 @@ ConstituentID,IncludeAffiliations,OrderEndDate,OrderStartDate,PackageID,PackageT
 </div>
 
 ## PackagePriceTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#packagepricetypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#packagepricetypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#packagepricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#packagepricetypes)</button>  
 		
 Get details of a specific package price type.  
 ##### Usage:  
@@ -11604,9 +11604,9 @@ PackageIds
 </div>
 
 ## PackageTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#packagetypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#packagetypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#packagetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#packagetypes)</button>  
 		
 Get the details of a package type by id.  
 ##### Usage:  
@@ -11676,9 +11676,9 @@ MaintenanceMode
    Get a summary representation of all package types.
 
 ## PackageWebContents 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#packagewebcontents)</button>
-<button type="button" class="btn btn-sm">[put](put.md#packagewebcontents)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#packagewebcontents)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#packagewebcontents)</button>  
 		
 Get details of a packageWebContent.  
 ##### Usage:  
@@ -11776,8 +11776,8 @@ ContentTypeIds,PackageIds
 </div>
 
 ## Packages 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#packages)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#packages)</button>  
 		
 Get details of a package.  
 ##### Usage:  
@@ -12063,9 +12063,9 @@ SeasonID
 
 
 ## PaymentGatewayActivities 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#paymentgatewayactivities)</button>
-<button type="button" class="btn btn-sm">[put](put.md#paymentgatewayactivities)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentgatewayactivities)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentgatewayactivities)</button>  
 		
 Get a single Payment Gateway Activity  
 ##### Usage:  
@@ -12105,7 +12105,7 @@ PaymentGatewayActivityID
    Retrieve all Payment Gateway Activity
 
 ## PaymentGatewayConfiguration 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Retrieve Payment Gateway Configuration  
 ##### Usage:  
@@ -12141,9 +12141,9 @@ csv
 
 
 ## PaymentGatewayNotifications 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#paymentgatewaynotifications)</button>
-<button type="button" class="btn btn-sm">[put](put.md#paymentgatewaynotifications)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentgatewaynotifications)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentgatewaynotifications)</button>  
 		
 Get all notification events by reference.  
 ##### Usage:  
@@ -12271,9 +12271,9 @@ NotificationEventID
 </div>
 
 ## PaymentGatewayTransactionTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#paymentgatewaytransactiontypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#paymentgatewaytransactiontypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentgatewaytransactiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentgatewaytransactiontypes)</button>  
 		
 Get the details of a Payment Gateway Transaction Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -12343,7 +12343,7 @@ MaintenanceMode
    Get a summary representation of all Payment Gateway Transaction Types.
 
 ## PaymentHistory 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Gets history information for payments by constituent.  
 ##### Usage:  
@@ -12380,9 +12380,9 @@ ConstituentID,EndDate,IncludeAffiliates,Page,PageSize,PaymentTypeID,SortByDirect
 </div>
 
 ## PaymentMethodGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#paymentmethodgroups)</button>
-<button type="button" class="btn btn-sm">[put](put.md#paymentmethodgroups)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentmethodgroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentmethodgroups)</button>  
 		
 Get the details of a payment method group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -12452,9 +12452,9 @@ Filter,MaintenanceMode
    Get a summary representation of all payment method groups.
 
 ## PaymentMethodUserGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#paymentmethodusergroups)</button>
-<button type="button" class="btn btn-sm">[put](put.md#paymentmethodusergroups)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentmethodusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentmethodusergroups)</button>  
 		
 Get details of a payment method/user group mapping by id.  
 ##### Usage:  
@@ -12522,9 +12522,9 @@ Amount,MaintenanceMode,UserGroup
 </div>
 
 ## PaymentMethods 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#paymentmethods)</button>
-<button type="button" class="btn btn-sm">[put](put.md#paymentmethods)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentmethods)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentmethods)</button>  
 		
 Get details of a payment method.  
 ##### Usage:  
@@ -12652,9 +12652,9 @@ CardReaderTypeID,Mnemonic
 </div>
 
 ## PaymentSignatures 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#paymentsignatures)</button>
-<button type="button" class="btn btn-sm">[put](put.md#paymentsignatures)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentsignatures)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentsignatures)</button>  
 		
 Get details of a payment signature.  
 ##### Usage:  
@@ -12722,9 +12722,9 @@ PaymentID
 </div>
 
 ## PaymentTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#paymenttypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#paymenttypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymenttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymenttypes)</button>  
 		
 Get the details of a payment type by id.  
 ##### Usage:  
@@ -12794,8 +12794,8 @@ MaintenanceMode
    Get a summary representation of all payment types.
 
 ## Payments 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#payments)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#payments)</button>  
 		
 Get a single payment.  
 ##### Usage:  
@@ -12923,9 +12923,9 @@ ConstituentID,PaymentMethodID
 </div>
 
 ## PerformanceGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#performancegroups)</button>
-<button type="button" class="btn btn-sm">[put](put.md#performancegroups)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancegroups)</button>  
 		
 Get details of a Performance Group.  
 ##### Usage:  
@@ -13023,9 +13023,9 @@ SeasonID
 </div>
 
 ## PerformancePackageModeOfSales 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#performancepackagemodeofsales)</button>
-<button type="button" class="btn btn-sm">[put](put.md#performancepackagemodeofsales)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancepackagemodeofsales)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancepackagemodeofsales)</button>  
 		
 Get details of a performance package mode of sale.  
 ##### Usage:  
@@ -13094,9 +13094,9 @@ AsOfDateTime,ModeOfSaleID,PackageIds,PerformanceIds
 </div>
 
 ## PerformancePriceLayers 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#performancepricelayers)</button>
-<button type="button" class="btn btn-sm">[put](put.md#performancepricelayers)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancepricelayers)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancepricelayers)</button>  
 		
 Get details of a performance price layer.  
 ##### Usage:  
@@ -13194,9 +13194,9 @@ PerformanceIds
 </div>
 
 ## PerformancePriceTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#performancepricetypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#performancepricetypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancepricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancepricetypes)</button>  
 		
 Get details of a performance price type.  
 ##### Usage:  
@@ -13264,9 +13264,9 @@ AsOfDateTime,PerformanceIds,PriceTypeIds
 </div>
 
 ## PerformancePrices 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#performanceprices)</button>
-<button type="button" class="btn btn-sm">[put](put.md#performanceprices)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performanceprices)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#performanceprices)</button>  
 		
 Get details of a performance price.  
 ##### Usage:  
@@ -13394,9 +13394,9 @@ PerformancePriceIds
 </div>
 
 ## PerformanceStatuses 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#performancestatuses)</button>
-<button type="button" class="btn btn-sm">[put](put.md#performancestatuses)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancestatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancestatuses)</button>  
 		
 Get the details of a performance status by id.  
 ##### Usage:  
@@ -13466,9 +13466,9 @@ MaintenanceMode
    Get a summary representation of all performance statuses.
 
 ## PerformanceTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#performancetypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#performancetypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancetypes)</button>  
 		
 Get the details of a performance type by id.  
 ##### Usage:  
@@ -13538,9 +13538,9 @@ MaintenanceMode
    Get a summary representation of all performance types.
 
 ## Performances 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#performances)</button>
-<button type="button" class="btn btn-sm">[put](put.md#performances)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performances)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#performances)</button>  
 		
 Get details of a performance.  
 ##### Usage:  
@@ -13887,9 +13887,9 @@ PerformanceIds,ProductionSeasonID,SeasonIds
 </div>
 
 ## Philanthropy 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#philanthropy)</button>
-<button type="button" class="btn btn-sm">[put](put.md#philanthropy)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#philanthropy)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#philanthropy)</button>  
 		
 Get details of an philanthropyEntry.  
 ##### Usage:  
@@ -13957,9 +13957,9 @@ ConstituentID,IncludeAffiliations
 </div>
 
 ## PhilanthropyTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#philanthropytypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#philanthropytypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#philanthropytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#philanthropytypes)</button>  
 		
 Get the details of philosophy type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -14029,9 +14029,9 @@ Filter,MaintenanceMode
    Get a summary representation of all philosophy types.
 
 ## PhoneIndicators 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#phoneindicators)</button>
-<button type="button" class="btn btn-sm">[put](put.md#phoneindicators)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#phoneindicators)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#phoneindicators)</button>  
 		
 Get the details of a phone indicator by id.  
 ##### Usage:  
@@ -14101,9 +14101,9 @@ MaintenanceMode
    Get a summary representation of all phone indicators.
 
 ## PhoneTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#phonetypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#phonetypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#phonetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#phonetypes)</button>  
 		
 Get the details of a phone type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -14173,9 +14173,9 @@ Filter,MaintenanceMode
    Get a summary representation of all phone types.
 
 ## Phones 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#phones)</button>
-<button type="button" class="btn btn-sm">[put](put.md#phones)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#phones)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#phones)</button>  
 		
 Get details of a phone.  
 ##### Usage:  
@@ -14243,9 +14243,9 @@ AddressID,ConstituentID,IncludeAffiliations,PrimaryOnly
 </div>
 
 ## PlanPriorities 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#planpriorities)</button>
-<button type="button" class="btn btn-sm">[put](put.md#planpriorities)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#planpriorities)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#planpriorities)</button>  
 		
 Get the details of a plan priority by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -14315,9 +14315,9 @@ Filter,MaintenanceMode
    Get a summary representation of all plan priorities.
 
 ## PlanSources 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#plansources)</button>
-<button type="button" class="btn btn-sm">[put](put.md#plansources)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#plansources)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#plansources)</button>  
 		
 Get the details of a plan source by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -14387,9 +14387,9 @@ Filter,MaintenanceMode
    Get a summary representation of all plan sources.
 
 ## PlanStatuses 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#planstatuses)</button>
-<button type="button" class="btn btn-sm">[put](put.md#planstatuses)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#planstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#planstatuses)</button>  
 		
 Get the details of a plan status by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -14459,9 +14459,9 @@ Filter,MaintenanceMode
    Get a summary representation of all plan statuses.
 
 ## PlanTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#plantypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#plantypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#plantypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#plantypes)</button>  
 		
 Get the details of a plan type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -14531,9 +14531,9 @@ Filter,MaintenanceMode
    Get a summary representation of all plan types.
 
 ## PlanWorkers 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#planworkers)</button>
-<button type="button" class="btn btn-sm">[put](put.md#planworkers)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#planworkers)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#planworkers)</button>  
 		
 Get details of a plan worker.  
 ##### Usage:  
@@ -14601,9 +14601,9 @@ PlanID
 </div>
 
 ## Plans 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#plans)</button>
-<button type="button" class="btn btn-sm">[put](put.md#plans)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#plans)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#plans)</button>  
 		
 Get details of a plan.  
 ##### Usage:  
@@ -14671,8 +14671,8 @@ CampaignID,ConstituentID,ContributionDesignationID,FundID,IncludeAffiliations,In
 </div>
 
 ## PledgeBilling 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#pledgebilling)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pledgebilling)</button>  
 		
 Get status of a pledge billing run. Job is finished processing when IsCompleted is true.  Only billing runs using automated billing will be running after the response from a POST to Txn/PledgeBilling.  
 ##### Usage:  
@@ -14709,9 +14709,9 @@ ID
 </div>
 
 ## PortfolioCustomElements 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#portfoliocustomelements)</button>
-<button type="button" class="btn btn-sm">[put](put.md#portfoliocustomelements)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#portfoliocustomelements)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#portfoliocustomelements)</button>  
 		
 Get the details of a portfolio custom element by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -14781,7 +14781,7 @@ Filter,MaintenanceMode
    Get a summary representation of all portfolio custom elements.
 
 ## Portfolios 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get portfolio for a constituent.  
 ##### Usage:  
@@ -14849,9 +14849,9 @@ PlanID
 </div>
 
 ## Prefixes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#prefixes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#prefixes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#prefixes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#prefixes)</button>  
 		
 Get the details of a prefix by id.  
 ##### Usage:  
@@ -14921,9 +14921,9 @@ MaintenanceMode
    Get a summary representation of all prefixes.
 
 ## Premieres 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#premieres)</button>
-<button type="button" class="btn btn-sm">[put](put.md#premieres)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#premieres)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#premieres)</button>  
 		
 Get the details of a premiere by id.  
 ##### Usage:  
@@ -14993,9 +14993,9 @@ MaintenanceMode
    Get a summary representation of all premieres.
 
 ## PriceCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricecategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#pricecategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricecategories)</button>  
 		
 Get the details of a price category by id.  
 ##### Usage:  
@@ -15065,8 +15065,8 @@ MaintenanceMode
    Get a summary representation of all price categories.
 
 ## PriceEvents 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[put](put.md#priceevents)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#priceevents)</button>  
 		
 Get details of a price event.  
 ##### Usage:  
@@ -15164,9 +15164,9 @@ PerformanceIds
 </div>
 
 ## PriceLayerTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricelayertypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#pricelayertypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricelayertypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricelayertypes)</button>  
 		
 Get the details of a price layer type by id.  
 ##### Usage:  
@@ -15236,9 +15236,9 @@ MaintenanceMode
    Get a summary representation of all price layer types.
 
 ## PriceTemplates 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricetemplates)</button>
-<button type="button" class="btn btn-sm">[put](put.md#pricetemplates)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetemplates)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetemplates)</button>  
 		
 Get details of a price template.  
 ##### Usage:  
@@ -15336,9 +15336,9 @@ FacilityID,ZoneMapID
 </div>
 
 ## PriceTypeCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricetypecategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#pricetypecategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypecategories)</button>  
 		
 Get the details of a price type category by id.  
 ##### Usage:  
@@ -15408,9 +15408,9 @@ MaintenanceMode
    Get a summary representation of all price type categories.
 
 ## PriceTypeGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricetypegroups)</button>
-<button type="button" class="btn btn-sm">[put](put.md#pricetypegroups)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypegroups)</button>  
 		
 Get the details of a price type group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -15480,9 +15480,9 @@ Filter,MaintenanceMode
    Get a summary representation of all price type groups.
 
 ## PriceTypeReasons 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricetypereasons)</button>
-<button type="button" class="btn btn-sm">[put](put.md#pricetypereasons)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypereasons)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypereasons)</button>  
 		
 Get the details of a price type reason by id.  
 ##### Usage:  
@@ -15552,9 +15552,9 @@ MaintenanceMode
    Get a summary representation of all price type categories.
 
 ## PriceTypeUserGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricetypeusergroups)</button>
-<button type="button" class="btn btn-sm">[put](put.md#pricetypeusergroups)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypeusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypeusergroups)</button>  
 		
 Get details of a price type/user group mapping by id.  
 ##### Usage:  
@@ -15622,9 +15622,9 @@ PriceTypeID,UserGroup
 </div>
 
 ## PriceTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricetypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#pricetypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypes)</button>  
 		
 Get details of a price type.  
 ##### Usage:  
@@ -15812,9 +15812,9 @@ OrderDateTime,PackageID,PerformanceID,PriceTypeID
 </div>
 
 ## PricingRuleCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricingrulecategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#pricingrulecategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricingrulecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricingrulecategories)</button>  
 		
 Get the details of a pricing rule category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -15884,9 +15884,9 @@ Filter,MaintenanceMode
    Get a summary representation of all pricing rule categories.
 
 ## PricingRuleMessageTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricingrulemessagetypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#pricingrulemessagetypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricingrulemessagetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricingrulemessagetypes)</button>  
 		
 Get the details of a pricing rule message type by id.  
 ##### Usage:  
@@ -15956,9 +15956,9 @@ MaintenanceMode
    Get a summary representation of all pricing rule message types.
 
 ## PricingRuleSets 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricingrulesets)</button>
-<button type="button" class="btn btn-sm">[put](put.md#pricingrulesets)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricingrulesets)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricingrulesets)</button>  
 		
 Get details of a pricing rule set.  
 ##### Usage:  
@@ -16000,7 +16000,7 @@ PricingRuleSetID
    Get a summary of all pricing rule sets.
 
 ## PricingRuleTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get the details of a pricing rule type by id.  
 ##### Usage:  
@@ -16070,9 +16070,9 @@ MaintenanceMode
    Get a summary representation of all pricing rule types.
 
 ## PricingRules 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#pricingrules)</button>
-<button type="button" class="btn btn-sm">[put](put.md#pricingrules)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricingrules)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricingrules)</button>  
 		
 Get details of a pricing rule.  
 ##### Usage:  
@@ -16142,9 +16142,9 @@ ModeOfSaleID,OrderDate,PackageIds,PerformanceIds
    Get a summary of all pricing rules.
 
 ## Printers 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#printers)</button>
-<button type="button" class="btn btn-sm">[put](put.md#printers)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#printers)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#printers)</button>  
 		
 Get the details of a printer by id.  
 ##### Usage:  
@@ -16214,7 +16214,7 @@ MaintenanceMode
    Get a summary representation of all printers.
 
 ## ProductKeywords 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Returns keywords for the requested production elements or packages.
 
@@ -16253,9 +16253,9 @@ KeywordIds,PackageIds,ProductionElementIds,ShowAll
 </div>
 
 ## ProductionSeasonMembershipOrganizations 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#productionseasonmembershiporganizations)</button>
-<button type="button" class="btn btn-sm">[put](put.md#productionseasonmembershiporganizations)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#productionseasonmembershiporganizations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#productionseasonmembershiporganizations)</button>  
 		
 Get details of a specific production season membership organization.  
 ##### Usage:  
@@ -16353,8 +16353,8 @@ ProductionSeasonID
 </div>
 
 ## ProductionSeasons 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#productionseasons)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#productionseasons)</button>  
 		
 Get details of a specific production season.
 Returns the full details for a single production season, including description and short description, season, first and last performance date, and the four ticket text lines.  
@@ -16455,7 +16455,7 @@ Ids,ProductionIds,SeasonIds
 </div>
 
 ## Productions 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get details of a specific production.  
 ##### Usage:  
@@ -16554,9 +16554,9 @@ TitleIds
 
 
 ## ProgramListings 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#programlistings)</button>
-<button type="button" class="btn btn-sm">[put](put.md#programlistings)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#programlistings)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#programlistings)</button>  
 		
 Get details of a program listing.  
 ##### Usage:  
@@ -16624,9 +16624,9 @@ ConstituentID,IncludeAffiliations
 </div>
 
 ## Programs 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#programs)</button>
-<button type="button" class="btn btn-sm">[put](put.md#programs)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#programs)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#programs)</button>  
 		
 Get the details of a program by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -16696,9 +16696,9 @@ Filter,MaintenanceMode
    Get a summary representation of all programs.
 
 ## Pronouns 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#pronouns)</button>
-<button type="button" class="btn btn-sm">[put](put.md#pronouns)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pronouns)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pronouns)</button>  
 		
   
 ##### Usage:  
@@ -16770,9 +16770,9 @@ MaintenanceMode
 	
 # Q
 ## QualificationCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#qualificationcategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#qualificationcategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#qualificationcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#qualificationcategories)</button>  
 		
 Get the details of a Qualification Category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -16842,9 +16842,9 @@ Filter,MaintenanceMode
    Get a summary representation of all Qualification Categories.
 
 ## Qualifications 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#qualifications)</button>
-<button type="button" class="btn btn-sm">[put](put.md#qualifications)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#qualifications)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#qualifications)</button>  
 		
 Get the details of a Qualification by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -16914,9 +16914,9 @@ Filter,MaintenanceMode
    Get a summary representation of all Qualifications.
 
 ## QueryElementFilters 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#queryelementfilters)</button>
-<button type="button" class="btn btn-sm">[put](put.md#queryelementfilters)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#queryelementfilters)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#queryelementfilters)</button>  
 		
 Get a specific query element filter.  
 ##### Usage:  
@@ -17044,9 +17044,9 @@ GroupIds
 </div>
 
 ## QueryElementGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#queryelementgroups)</button>
-<button type="button" class="btn btn-sm">[put](put.md#queryelementgroups)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#queryelementgroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#queryelementgroups)</button>  
 		
 Get the details of a query element group by id.  
 ##### Usage:  
@@ -17086,9 +17086,9 @@ QueryElementGroupID
    Get all query element groups.
 
 ## QueryElements 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#queryelements)</button>
-<button type="button" class="btn btn-sm">[put](put.md#queryelements)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#queryelements)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#queryelements)</button>  
 		
 Get details of a query element by id.  
 ##### Usage:  
@@ -17188,9 +17188,9 @@ ActiveOnly,GroupIds
 	
 # R
 ## RankTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#ranktypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#ranktypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#ranktypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#ranktypes)</button>  
 		
 Get the details of a rank type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -17260,9 +17260,9 @@ Filter,MaintenanceMode
    Get a summary representation of all rank types.
 
 ## Rankings 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#rankings)</button>
-<button type="button" class="btn btn-sm">[put](put.md#rankings)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#rankings)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#rankings)</button>  
 		
 Get details of a ranking.  
 ##### Usage:  
@@ -17330,9 +17330,9 @@ ConstituentID,IncludeAffiliations
 </div>
 
 ## ReceiptSettings 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#receiptsettings)</button>
-<button type="button" class="btn btn-sm">[put](put.md#receiptsettings)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#receiptsettings)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#receiptsettings)</button>  
 		
 Get the details of a Receipt Setting by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -17403,7 +17403,7 @@ Filter,MaintenanceMode
 
 
 ## ReferenceColumns 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get all reference columns. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.  
 ##### Usage:  
@@ -17443,9 +17443,9 @@ MaintenanceMode
    Get a summary representation of all reference columns.
 
 ## ReferenceTableUserGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#referencetableusergroups)</button>
-<button type="button" class="btn btn-sm">[put](put.md#referencetableusergroups)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#referencetableusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#referencetableusergroups)</button>  
 		
 Get the details of a reference table/user group mapping by id.  
 ##### Usage:  
@@ -17487,7 +17487,7 @@ ID
    Get a summary representation of all reference table/user group mappings.
 
 ## ReferenceTables 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get details for a reference table by Id.  
 ##### Usage:  
@@ -17558,9 +17558,9 @@ MaintenanceMode
 
 
 ## RelationshipCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#relationshipcategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#relationshipcategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#relationshipcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#relationshipcategories)</button>  
 		
 Get the details of a relationship category by id.  
 ##### Usage:  
@@ -17630,7 +17630,7 @@ MaintenanceMode
    Get a summary representation of all relationship categories.
 
 ## Relationships 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get all affiliations and associations of the specified constituent id or get all affiliations and associations of the specified associated constituent id. If both are specified get all the associations and affiliations between them.  
 ##### Usage:  
@@ -17667,9 +17667,9 @@ ActiveOnly,AssociatedConstituentID,ConstituentID,EndActiveDate,IncludeAffiliatio
 </div>
 
 ## ReportRequests 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#reportrequests)</button>
-<button type="button" class="btn btn-sm">[put](put.md#reportrequests)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#reportrequests)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#reportrequests)</button>  
 		
 Get a report request.  
 ##### Usage:  
@@ -17769,9 +17769,9 @@ AsOfDateTime,ReportTypes
    Get a list of all the requests queued to be run as of the current date/time.
 
 ## ReportSchedules 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#reportschedules)</button>
-<button type="button" class="btn btn-sm">[put](put.md#reportschedules)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#reportschedules)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#reportschedules)</button>  
 		
 Get a report schedule.  
 ##### Usage:  
@@ -17839,9 +17839,9 @@ ActiveOnly
 </div>
 
 ## ReportUserGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#reportusergroups)</button>
-<button type="button" class="btn btn-sm">[put](put.md#reportusergroups)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#reportusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#reportusergroups)</button>  
 		
 Get the details of a report/user group mapping by id.  
 ##### Usage:  
@@ -17883,8 +17883,8 @@ ID
    Get a summary representation of all report/user group mappings.
 
 ## Reports 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#reports)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#reports)</button>  
 		
 Get details of a report.  
 ##### Usage:  
@@ -18044,9 +18044,9 @@ ReportID
 </div>
 
 ## Research 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#research)</button>
-<button type="button" class="btn btn-sm">[put](put.md#research)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#research)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#research)</button>  
 		
 Get details of a research entry.  
 ##### Usage:  
@@ -18114,9 +18114,9 @@ ConstituentID,IncludeAffiliations
 </div>
 
 ## ResearchTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#researchtypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#researchtypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#researchtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#researchtypes)</button>  
 		
 Get the details of research type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -18186,9 +18186,9 @@ Filter,MaintenanceMode
    Get a summary representation of all research types.
 
 ## ResourceCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#resourcecategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#resourcecategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#resourcecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#resourcecategories)</button>  
 		
 Get the details of a Resource Category by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -18258,9 +18258,9 @@ MaintenanceMode
    Get a summary representation of all Resource Categories.
 
 ## ResourceSchedules 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#resourceschedules)</button>
-<button type="button" class="btn btn-sm">[put](put.md#resourceschedules)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#resourceschedules)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#resourceschedules)</button>  
 		
 Get a single resource schedule.  
 ##### Usage:  
@@ -18328,9 +18328,9 @@ ConstituentIds,EndDate,ResourceIds,StartDate,TypeIds
 </div>
 
 ## ResourceTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#resourcetypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#resourcetypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#resourcetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#resourcetypes)</button>  
 		
 Get all resource types.  
 ##### Usage:  
@@ -18428,9 +18428,9 @@ CategoryIds
 </div>
 
 ## Resources 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#resources)</button>
-<button type="button" class="btn btn-sm">[put](put.md#resources)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#resources)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#resources)</button>  
 		
 Get a specific Resource.  
 ##### Usage:  
@@ -18590,9 +18590,9 @@ CategoryIds,ConstituentID,IncludeAffiliations,ResourceTypeIds
 	
 # S
 ## SalesChannels 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#saleschannels)</button>
-<button type="button" class="btn btn-sm">[put](put.md#saleschannels)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#saleschannels)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#saleschannels)</button>  
 		
 Get the details of a sales channel by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -18662,9 +18662,9 @@ Filter,MaintenanceMode
    Get a summary representation of all sales channels.
 
 ## SalesLayoutButtonTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#saleslayoutbuttontypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#saleslayoutbuttontypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#saleslayoutbuttontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#saleslayoutbuttontypes)</button>  
 		
 Get the details of a sales layout button type by id.  
 ##### Usage:  
@@ -18734,9 +18734,9 @@ MaintenanceMode
    Get a summary representation of all sales layout button types.
 
 ## SalesLayouts 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#saleslayouts)</button>
-<button type="button" class="btn btn-sm">[put](put.md#saleslayouts)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#saleslayouts)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#saleslayouts)</button>  
 		
 Get details of a sales layout setup.  
 ##### Usage:  
@@ -18834,9 +18834,9 @@ PrimaryOnly
 </div>
 
 ## SalutationTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#salutationtypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#salutationtypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#salutationtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#salutationtypes)</button>  
 		
 Get the details of a salutation type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -18906,9 +18906,9 @@ Filter,MaintenanceMode
    Get a summary representation of all salutation types.
 
 ## Salutations 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#salutations)</button>
-<button type="button" class="btn btn-sm">[put](put.md#salutations)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#salutations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#salutations)</button>  
 		
 Get details of a salutation.  
 ##### Usage:  
@@ -19006,9 +19006,9 @@ ConstituentID,ConstituentTypeID,Fname1,Fname2,FormulaID,Gender1,Gender2,Lname1,L
 </div>
 
 ## SchedulePatternTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#schedulepatterntypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#schedulepatterntypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#schedulepatterntypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#schedulepatterntypes)</button>  
 		
 Get the details of a Schedule Pattern by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -19078,9 +19078,9 @@ MaintenanceMode
    Get a summary representation of all Schedule Patterns.
 
 ## ScheduleTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#scheduletypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#scheduletypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#scheduletypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#scheduletypes)</button>  
 		
 Get the details of a Schedule Type by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -19150,9 +19150,9 @@ MaintenanceMode
    Get a summary representation of all Schedule Types.
 
 ## SeasonTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#seasontypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#seasontypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#seasontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#seasontypes)</button>  
 		
 Get the details of a season type by id.  
 ##### Usage:  
@@ -19222,9 +19222,9 @@ MaintenanceMode
    Get a summary representation of all season types.
 
 ## Seasons 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#seasons)</button>
-<button type="button" class="btn btn-sm">[put](put.md#seasons)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#seasons)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#seasons)</button>  
 		
 Get the details of a season by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -19294,9 +19294,9 @@ Filter,MaintenanceMode
    Get a summary representation of all seasons.
 
 ## SeatCodes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#seatcodes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#seatcodes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#seatcodes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#seatcodes)</button>  
 		
 Get the details of a seat code by id.  
 ##### Usage:  
@@ -19366,9 +19366,9 @@ MaintenanceMode
    Get a summary representation of all seat codes.
 
 ## SeatStatuses 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#seatstatuses)</button>
-<button type="button" class="btn btn-sm">[put](put.md#seatstatuses)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#seatstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#seatstatuses)</button>  
 		
 Get the details of a seat status by id.  
 ##### Usage:  
@@ -19438,9 +19438,9 @@ MaintenanceMode
    Get a summary representation of all seat statuses.
 
 ## Sections 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#sections)</button>
-<button type="button" class="btn btn-sm">[put](put.md#sections)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#sections)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#sections)</button>  
 		
 Get the details of a section by id.  
 ##### Usage:  
@@ -19510,7 +19510,7 @@ MaintenanceMode,SeatMapID
    Get a summary representation of all sections.
 
 ## SecurityBatchTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get all batch type/user group mappings valid for the context usergroup.  
 ##### Usage:  
@@ -19545,7 +19545,7 @@ csv
 </div>
 
 ## SecurityControlGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get all control group/user group mappings valid for the context usergroup.  
 ##### Usage:  
@@ -19580,7 +19580,7 @@ csv
 </div>
 
 ## SecurityHoldCodes 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get all hold code/user group mappings valid for the context usergroup.  
 ##### Usage:  
@@ -19615,7 +19615,7 @@ csv
 </div>
 
 ## SecurityModesOfSale 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get all mode of sale/user group mappings valid for the context usergroup.  
 ##### Usage:  
@@ -19650,7 +19650,7 @@ csv
 </div>
 
 ## SecurityObjectPermissions 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get all the object permissions valid for the context usergroup. Optionally filter by constituency id and/or object id.  
 ##### Usage:  
@@ -19687,7 +19687,7 @@ ConstituencyID,ObjectIds,Objectid
 </div>
 
 ## SecurityPaymentMethods 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get all payment method/user group mappings valid for the context usergroup.  
 ##### Usage:  
@@ -19724,7 +19724,7 @@ Amount
 </div>
 
 ## SecurityPriceTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get all price type/user group mappings valid for the context usergroup.  
 ##### Usage:  
@@ -19759,7 +19759,7 @@ csv
 </div>
 
 ## SecurityReferenceTables 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get all the reference table/user group mappings valid for the context usergroup.  
 ##### Usage:  
@@ -19794,7 +19794,7 @@ csv
 </div>
 
 ## SecurityReports 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get all report/user group mappings valid for the context usergroup.  
 ##### Usage:  
@@ -19829,7 +19829,7 @@ csv
 </div>
 
 ## SecurityServiceResources 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get all service resource/user group mappings valid for the context usergroup.  
 ##### Usage:  
@@ -19864,7 +19864,7 @@ csv
 </div>
 
 ## SecurityUserGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get all security user groups.  
 ##### Usage:  
@@ -19962,9 +19962,9 @@ UserName
 </div>
 
 ## ServiceResourceUserGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#serviceresourceusergroups)</button>
-<button type="button" class="btn btn-sm">[put](put.md#serviceresourceusergroups)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#serviceresourceusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#serviceresourceusergroups)</button>  
 		
 Get the details of a service resource/user group mapping by id.  
 ##### Usage:  
@@ -20006,7 +20006,7 @@ ID
    Get a summary representation of all service resource/user group mappings.
 
 ## ServiceResources 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get all service resources. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.  
 ##### Usage:  
@@ -20046,9 +20046,9 @@ MaintenanceMode
    Get a summary representation of all service resources.
 
 ## Session 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#session)</button>
-<button type="button" class="btn btn-sm">[put](put.md#session)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#session)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#session)</button>  
 		
 Returns details summarizing a web session's state.
 Includes counts of cart products, the login status, MOS and Source  
@@ -20301,9 +20301,9 @@ SessionKey
 </div>
 
 ## SourceGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#sourcegroups)</button>
-<button type="button" class="btn btn-sm">[put](put.md#sourcegroups)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#sourcegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#sourcegroups)</button>  
 		
 Get the details of a source group by id.  
 ##### Usage:  
@@ -20373,7 +20373,7 @@ MaintenanceMode
    Get a summary representation of all source groups.
 
 ## Sources 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get details of a Source.  
 ##### Usage:  
@@ -20443,9 +20443,9 @@ ActiveOnly,AppealIds
    Gets the source codes configured as the web default that are expiring in 15 days without an overlapping source code.
 
 ## SpecialActivities 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#specialactivities)</button>
-<button type="button" class="btn btn-sm">[put](put.md#specialactivities)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#specialactivities)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#specialactivities)</button>  
 		
 Get details of an activity record.  
 ##### Usage:  
@@ -20513,9 +20513,9 @@ ConstituentID,IncludeAffiliations
 </div>
 
 ## SpecialActivityStatuses 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#specialactivitystatuses)</button>
-<button type="button" class="btn btn-sm">[put](put.md#specialactivitystatuses)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#specialactivitystatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#specialactivitystatuses)</button>  
 		
 Get the details of a Special Activity Status by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -20585,9 +20585,9 @@ MaintenanceMode
    Get a summary representation of all Special Activity Statuses.
 
 ## SpecialActivityTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#specialactivitytypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#specialactivitytypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#specialactivitytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#specialactivitytypes)</button>  
 		
 Get the details of a Special Activity Type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -20657,9 +20657,9 @@ Filter,MaintenanceMode
    Get a summary representation of all Special Activity Types.
 
 ## States 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#states)</button>
-<button type="button" class="btn btn-sm">[put](put.md#states)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#states)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#states)</button>  
 		
 Get the details of a state by id.  
 ##### Usage:  
@@ -20729,9 +20729,9 @@ MaintenanceMode
    Get a summary representation of all states.
 
 ## StepTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#steptypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#steptypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#steptypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#steptypes)</button>  
 		
 Get the details of a step type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -20801,9 +20801,9 @@ Filter,MaintenanceMode
    Get a summary representation of all step types.
 
 ## Steps 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#steps)</button>
-<button type="button" class="btn btn-sm">[put](put.md#steps)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#steps)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#steps)</button>  
 		
 Get details of a step.  
 ##### Usage:  
@@ -20931,9 +20931,9 @@ StepID
 </div>
 
 ## SubLineItemStatuses 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#sublineitemstatuses)</button>
-<button type="button" class="btn btn-sm">[put](put.md#sublineitemstatuses)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#sublineitemstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#sublineitemstatuses)</button>  
 		
 Get the details of a sub line item status by id.  
 ##### Usage:  
@@ -21003,7 +21003,7 @@ MaintenanceMode
    Get a summary representation of all sub line item statuses.
 
 ## SubLineItems 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Returns sub line item summary data for a constituent  
 ##### Usage:  
@@ -21040,9 +21040,9 @@ ConstituentID,IncludeAffiliations,IncludePackageBaseSubLineitems,OrderEndDate,Or
 </div>
 
 ## Suffixes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#suffixes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#suffixes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#suffixes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#suffixes)</button>  
 		
 Get the details of a suffix by id.  
 ##### Usage:  
@@ -21112,9 +21112,9 @@ MaintenanceMode
    Get a summary representation of all suffixes.
 
 ## SurveyQuestions 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#surveyquestions)</button>
-<button type="button" class="btn btn-sm">[put](put.md#surveyquestions)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#surveyquestions)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#surveyquestions)</button>  
 		
 Get the details of a survey question by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -21214,9 +21214,9 @@ QuestionID
    Get a summary representation of all survey questions.
 
 ## SurveyResponses 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#surveyresponses)</button>
-<button type="button" class="btn btn-sm">[put](put.md#surveyresponses)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#surveyresponses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#surveyresponses)</button>  
 		
 Get details of a survey response.  
 ##### Usage:  
@@ -21284,7 +21284,7 @@ OrderID
 </div>
 
 ## SystemDefaults 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get all system defaults. For filtering on specific property value, pass the property name with value as query parameter. If the property is another non primitive object, pass PropertyName.Id and its value as query parameter.  
 ##### Usage:  
@@ -21356,9 +21356,9 @@ Keys
 	
 # T
 ## TemplateCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#templatecategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#templatecategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#templatecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#templatecategories)</button>  
 		
 Get the details of a template category by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -21428,9 +21428,9 @@ Filter,MaintenanceMode
    Get a summary representation of all template categories.
 
 ## TemplatePriceTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#templatepricetypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#templatepricetypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#templatepricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#templatepricetypes)</button>  
 		
 Get details of a template price type.  
 ##### Usage:  
@@ -21498,9 +21498,9 @@ TemplateID
 </div>
 
 ## TemplatePrices 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#templateprices)</button>
-<button type="button" class="btn btn-sm">[put](put.md#templateprices)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#templateprices)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#templateprices)</button>  
 		
 Get details of a template price.  
 ##### Usage:  
@@ -21568,7 +21568,7 @@ TemplateID
 </div>
 
 ## TemplateTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get the details of a template type by id. To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -21638,9 +21638,9 @@ MaintenanceMode
    Get a summary representation of all template types
 
 ## Templates 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#templates)</button>
-<button type="button" class="btn btn-sm">[put](put.md#templates)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#templates)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#templates)</button>  
 		
 Get the details of a template by id  
 ##### Usage:  
@@ -21682,9 +21682,9 @@ TemplateID
    Get a summary representation of all templates
 
 ## Theaters 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#theaters)</button>
-<button type="button" class="btn btn-sm">[put](put.md#theaters)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#theaters)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#theaters)</button>  
 		
 Get the details of a theater by id.  
 ##### Usage:  
@@ -21754,7 +21754,7 @@ MaintenanceMode
    Get a summary representation of all theaters.
 
 ## TicketHistory 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Gets history information for tickets  
 ##### Usage:  
@@ -21791,9 +21791,9 @@ ConstituentID,IncludeAffiliations,OrderEndDate,OrderStartDate,PerformanceEndDate
 </div>
 
 ## TimeSlots 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#timeslots)</button>
-<button type="button" class="btn btn-sm">[put](put.md#timeslots)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#timeslots)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#timeslots)</button>  
 		
 Get the details of a time slot by id.  
 ##### Usage:  
@@ -21863,7 +21863,7 @@ MaintenanceMode
    Get a summary representation of all time slots.
 
 ## Titles 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get details of a specific title.  
 ##### Usage:  
@@ -21905,7 +21905,7 @@ ID
    Get all title summaries
 
 ## TransactionHistory 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get details of all transaction histories for the specified constituent id and all its visible affiliations' transaction histories as well. To exclude transaction histories of the visible affiliations pass includeAffiliations=false. This resource is paged. Pass filters such as transaction reference id, payment id, or start and end date to limit the results. Results can also be sorted.  
 ##### Usage:  
@@ -21942,9 +21942,9 @@ ConstituentID,EndDate,IncludeAffiliations,Page,PageSize,PaymentID,ReferenceID,So
 </div>
 
 ## TriPOSCloudConfigurations 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#triposcloudconfigurations)</button>
-<button type="button" class="btn btn-sm">[put](put.md#triposcloudconfigurations)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#triposcloudconfigurations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#triposcloudconfigurations)</button>  
 		
 Get the details of a TriPOS Cloud configuration by id.  
 ##### Usage:  
@@ -22016,9 +22016,9 @@ MaintenanceMode
 	
 # U
 ## UpgradeCategories 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#upgradecategories)</button>
-<button type="button" class="btn btn-sm">[put](put.md#upgradecategories)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#upgradecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#upgradecategories)</button>  
 		
 Get the details of an Upgrade Category by id. To get the resource in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -22088,9 +22088,9 @@ MaintenanceMode
    Get a summary representation of all Upgrade Categories.
 
 ## UpgradeLogs 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#upgradelogs)</button>
-<button type="button" class="btn btn-sm">[put](put.md#upgradelogs)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#upgradelogs)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#upgradelogs)</button>  
 		
 Returns an upgradeLog for the given id.  
 ##### Usage:  
@@ -22130,7 +22130,7 @@ UpgradeLogID
    Returns a list of UpgradeLog objects.
 
 ## UserGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Get the details of a user group by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode (which ignores Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -22200,9 +22200,9 @@ Filter,MaintenanceMode
    Get a summary representation of all user groups.
 
 ## UserPreferences 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#userpreferences)</button>
-<button type="button" class="btn btn-sm">[put](put.md#userpreferences)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#userpreferences)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#userpreferences)</button>  
 		
 Get a specific user preference by key.  
 ##### Usage:  
@@ -22270,8 +22270,8 @@ Keys
 </div>
 
 ## Users 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#users)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#users)</button>  
 		
 Get the details of a user for the specified username.  
 ##### Usage:  
@@ -22404,9 +22404,9 @@ UserGroupID
 	
 # W
 ## WebContentTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#webcontenttypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#webcontenttypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#webcontenttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#webcontenttypes)</button>  
 		
 Get a specific web content type.  
 ##### Usage:  
@@ -22506,7 +22506,7 @@ ID
    Get a summary representation of all web content types.
 
 ## WebContents 
-<button type="button" class="btn btn-sm" disabled>get</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>  
 		
 Returns web content for the requested production elements or packages.
 The result can be filtered by content types.  At least one package id or production element id is required.
@@ -22545,9 +22545,9 @@ ContentTypeIds,PackageIds,ProductionElementIds,ShowAll
 </div>
 
 ## WebLogins 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#weblogins)</button>
-<button type="button" class="btn btn-sm">[put](put.md#weblogins)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#weblogins)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#weblogins)</button>  
 		
 Get details of a weblogin.  
 ##### Usage:  
@@ -22675,9 +22675,9 @@ EmailAddress,LoginTypeID
 </div>
 
 ## WorkerQualifications 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#workerqualifications)</button>
-<button type="button" class="btn btn-sm">[put](put.md#workerqualifications)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#workerqualifications)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#workerqualifications)</button>  
 		
 Get a single WorkerQualification by Id.  
 ##### Usage:  
@@ -22745,9 +22745,9 @@ ConstituentIds,IncludeAffiliations
 </div>
 
 ## WorkerRoles 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#workerroles)</button>
-<button type="button" class="btn btn-sm">[put](put.md#workerroles)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#workerroles)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#workerroles)</button>  
 		
 Get the details of a worker role by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -22817,9 +22817,9 @@ Filter,MaintenanceMode
    Get a summary representation of all worker roles.
 
 ## WorkerTypes 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#workertypes)</button>
-<button type="button" class="btn btn-sm">[put](put.md#workertypes)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#workertypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#workertypes)</button>  
 		
 Get the details of a worker type by id. To get the resource only if the user has write/edit access, pass filter="writeonly". To get the resources in maintenance mode(ignore Control Groups), pass maintenanceMode="true". Maintenance mode requires users to have access to the reference tables. (Specified in TX_REFTABLE_USERGROUP).  
 ##### Usage:  
@@ -22889,9 +22889,9 @@ Filter,MaintenanceMode
    Get a summary representation of all worker types.
 
 ## Workers 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#workers)</button>
-<button type="button" class="btn btn-sm">[put](put.md#workers)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#workers)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#workers)</button>  
 		
 Get details of a worker.  
 ##### Usage:  
@@ -22991,9 +22991,9 @@ ConstituentID,IncludeAffiliations
 	
 # Z
 ## ZoneGroups 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#zonegroups)</button>
-<button type="button" class="btn btn-sm">[put](put.md#zonegroups)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#zonegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#zonegroups)</button>  
 		
 Get the details of a zone group by id.  
 ##### Usage:  
@@ -23063,9 +23063,9 @@ MaintenanceMode
    Get a summary representation of all zone groups.
 
 ## ZoneMaps 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#zonemaps)</button>
-<button type="button" class="btn btn-sm">[put](put.md#zonemaps)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#zonemaps)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#zonemaps)</button>  
 		
 Get details of a specific zone map.  
 ##### Usage:  
@@ -23163,9 +23163,9 @@ FacilityID,SeatMapID
 </div>
 
 ## Zones 
-<button type="button" class="btn btn-sm" disabled>get</button>
-<button type="button" class="btn btn-sm">[post](post.md#zones)</button>
-<button type="button" class="btn btn-sm">[put](put.md#zones)</button>  
+<button type="button" class="btn btn-secondary btn-sm" disabled>get</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#zones)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#zones)</button>  
 		
 Get details of a specific zone.  
 ##### Usage:  
