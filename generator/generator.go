@@ -25,21 +25,42 @@ var docsCmd = &cobra.Command{
 	Use:   "docs",
 	Short: "Generate mkdocs documentation",
 	Run: func(cmd *cobra.Command, args []string) {
-		generate("docs.tmpl", "../doc/docs", ".md")
+		templateData := make(map[string]any)
+		templateData["commands"] = getCommandData()
+		for _, op := range []string{"Get", "Post", "Put"} {
+			templateData["op"] = op
+			generate("docs.tmpl",
+				"../doc/docs/"+strings.ToLower(op)+".md",
+				templateData)
+		}
 	},
 }
 var cmdCmd = &cobra.Command{
 	Use:   "cmd",
 	Short: "Generate go code in /cmd",
 	Run: func(cmd *cobra.Command, args []string) {
-		generate("commands.go.tmpl", "../cmd", ".go")
+		templateData := make(map[string]any)
+		templateData["commands"] = getCommandData()
+		for _, op := range []string{"Get", "Post", "Put"} {
+			templateData["op"] = op
+			generate("commands.go.tmpl",
+				"../cmd/"+strings.ToLower(op)+".go",
+				templateData)
+		}
 	},
 }
 var testCmd = &cobra.Command{
 	Use:   "test",
 	Short: "Generate go tests in /cmd",
 	Run: func(cmd *cobra.Command, args []string) {
-		generate("commands_test.go.tmpl", "../cmd", "_test.go")
+		templateData := make(map[string]any)
+		templateData["commands"] = getCommandData()
+		for _, op := range []string{"Get", "Post", "Put"} {
+			templateData["op"] = op
+			generate("commands_test.go.tmpl",
+				"../cmd/"+strings.ToLower(op)+"_test.go",
+				templateData)
+		}
 	},
 }
 
@@ -54,7 +75,7 @@ func init() {
 	generateCmd.AddCommand(docsCmd, testCmd, cmdCmd)
 }
 
-func generate(templateFile string, outDir string, outSuffix string) {
+func generate(templateFile string, outFile string, data map[string]any) {
 	// add a new function to the template engine
 	funcs := template.FuncMap{
 		"join":    strings.Join,
@@ -66,15 +87,11 @@ func generate(templateFile string, outDir string, outSuffix string) {
 		panic(err)
 	}
 
-	for _, op := range []string{"Get", "Put", "Post"} {
-		templateData := make(map[string]any)
-		templateData["commands"] = getCommandData()
-		templateData["op"] = op
-		file, err := os.Create(outDir + "/" + strings.ToLower(op) + outSuffix)
-		if err := errors.Join(templ.ExecuteTemplate(file, templateFile, templateData), err); err != nil {
-			panic(err)
-		}
+	file, err := os.Create(outFile)
+	if err := errors.Join(templ.ExecuteTemplate(file, templateFile, data), err); err != nil {
+		panic(err)
 	}
+
 }
 
 // Build data about entities that can be used with `operation` (i.e. "Get", "Post", "Put")

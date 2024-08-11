@@ -11,15 +11,14 @@ import (
 
 func Test_generate(t *testing.T) {
 	defer func() {
-		os.Remove("get.test")
-		os.Remove("post.test")
-		os.Remove("put.test")
+		os.Remove("templ.test")
 	}()
-	generate("generator_test.tmpl", ".", ".test")
-	assert.FileExists(t, "get.test")
-	assert.FileExists(t, "post.test")
-	assert.FileExists(t, "put.test")
-	get, _ := os.ReadFile("get.test")
+	data := make(map[string]any)
+	data["commands"] = getCommandData()
+	data["op"] = "Get"
+	generate("generator_test.tmpl", "templ.test", data)
+	assert.FileExists(t, "templ.test")
+	get, _ := os.ReadFile("templ.test")
 	getLines := strings.Split(string(get), "\n")
 
 	assert.Equal(t, "Op: Get", getLines[0])
