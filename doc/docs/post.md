@@ -2,28 +2,28 @@
 
 
 
+
+
 	
 # A
-## AccountTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#accounttypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#accounttypes)</button>  
+## AccountTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#accounttypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#accounttypes)</button>  
 		
 Create a new account type.  
 ##### Usage:  
 ```shell
 tq post AccountTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountTypesCreate-default" aria-expanded="true" aria-controls="AccountTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountTypesCreate-default" aria-expanded="true" aria-controls="AccountTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountTypesCreate-flat" aria-expanded="false" aria-controls="AccountTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountTypesCreate-flat" aria-expanded="false" aria-controls="AccountTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountTypesCreate-csv" aria-expanded="false" aria-controls="AccountTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountTypesCreate-csv" aria-expanded="false" aria-controls="AccountTypesCreate-csv">
 csv
-</button><div id="AccountTypesCreate-parent">
+</button>
+<div id="AccountTypesCreate-parent">
 <div class="collapse show" id="AccountTypesCreate-default" data-bs-parent="#AccountTypesCreate-parent"> 
 ```json
 {"CardLength":"string", "CardPrefix":"string", "CardtypeIndicator":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditMask":"string", "Id":123, "Inactive":true, "Mod10Indicator":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -43,26 +43,25 @@ CardLength,CardPrefix,CardtypeIndicator,CreateLocation,CreatedBy,CreatedDateTime
 </div>
 </div>
 
-## Accounts 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#accounts)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#accounts)</button>  
+
+## Accounts <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#accounts)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#accounts)</button>  
 		
 Create a credit card account, storing the card number. Will create and store a token if tokenization is enabled.  
 ##### Usage:  
 ```shell
 tq post Accounts
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateCardNumberAccount-default" aria-expanded="true" aria-controls="AccountsCreateCardNumberAccount-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateCardNumberAccount-default" aria-expanded="true" aria-controls="AccountsCreateCardNumberAccount-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateCardNumberAccount-flat" aria-expanded="false" aria-controls="AccountsCreateCardNumberAccount-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateCardNumberAccount-flat" aria-expanded="false" aria-controls="AccountsCreateCardNumberAccount-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateCardNumberAccount-csv" aria-expanded="false" aria-controls="AccountsCreateCardNumberAccount-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateCardNumberAccount-csv" aria-expanded="false" aria-controls="AccountsCreateCardNumberAccount-csv">
 csv
-</button><div id="AccountsCreateCardNumberAccount-parent">
+</button>
+<div id="AccountsCreateCardNumberAccount-parent">
 <div class="collapse show" id="AccountsCreateCardNumberAccount-default" data-bs-parent="#AccountsCreateCardNumberAccount-parent"> 
 ```json
 {"AccountNumber":"string", "CardExpiryMonth":123, "CardExpiryYear":123, "ConstituentId":123, "ExclusiveToControlledBatchId":123, "Inactive":true, "Name":"string", "PaymentMethodGroupId":123, "ReturnAccountIfAccountExists":true, "TransactionOrigin":"string", "VantivEncryptedCard":{"Version":"string"}}
@@ -81,19 +80,21 @@ AccountNumber,CardExpiryMonth,CardExpiryYear,ConstituentId,ExclusiveToControlled
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--DirectDebitAccount*  
    Store a direct debit account.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateDirectDebitAccount-default" aria-expanded="true" aria-controls="AccountsCreateDirectDebitAccount-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateDirectDebitAccount-default" aria-expanded="true" aria-controls="AccountsCreateDirectDebitAccount-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateDirectDebitAccount-flat" aria-expanded="false" aria-controls="AccountsCreateDirectDebitAccount-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateDirectDebitAccount-flat" aria-expanded="false" aria-controls="AccountsCreateDirectDebitAccount-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateDirectDebitAccount-csv" aria-expanded="false" aria-controls="AccountsCreateDirectDebitAccount-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateDirectDebitAccount-csv" aria-expanded="false" aria-controls="AccountsCreateDirectDebitAccount-csv">
 csv
-</button><div id="AccountsCreateDirectDebitAccount-parent">
+</button>
+<div id="AccountsCreateDirectDebitAccount-parent">
 <div class="collapse show" id="AccountsCreateDirectDebitAccount-default" data-bs-parent="#AccountsCreateDirectDebitAccount-parent"> 
 ```json
 {"AccountNumber":"string", "CardExpiryMonth":123, "CardExpiryYear":123, "ConstituentId":123, "DirectDebitAccountType":{"Id":123}, "Inactive":true, "Name":"string"}
@@ -112,18 +113,20 @@ AccountNumber,CardExpiryMonth,CardExpiryYear,ConstituentId,DirectDebitAccountTyp
 ```  
 </div>
 </div>
+
  * *--SepaAccount*  
    Store a SEPA Direct Debit account.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateSepaAccount-default" aria-expanded="true" aria-controls="AccountsCreateSepaAccount-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateSepaAccount-default" aria-expanded="true" aria-controls="AccountsCreateSepaAccount-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateSepaAccount-flat" aria-expanded="false" aria-controls="AccountsCreateSepaAccount-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateSepaAccount-flat" aria-expanded="false" aria-controls="AccountsCreateSepaAccount-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateSepaAccount-csv" aria-expanded="false" aria-controls="AccountsCreateSepaAccount-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateSepaAccount-csv" aria-expanded="false" aria-controls="AccountsCreateSepaAccount-csv">
 csv
-</button><div id="AccountsCreateSepaAccount-parent">
+</button>
+<div id="AccountsCreateSepaAccount-parent">
 <div class="collapse show" id="AccountsCreateSepaAccount-default" data-bs-parent="#AccountsCreateSepaAccount-parent"> 
 ```json
 {"AccountNumber":"string", "BankIdentifierCode":"string", "ConstituentId":123, "Inactive":true, "MandateNumber":"string", "MandateType":123, "Name":"string", "SignatureDate":"2000-01-01T00:00:00.000Z"}
@@ -142,18 +145,20 @@ AccountNumber,BankIdentifierCode,ConstituentId,Inactive,MandateNumber,MandateTyp
 ```  
 </div>
 </div>
+
  * *--VantivEncryptedCardAccount*  
    Create a credit card account from a Vantiv Encrypted Reader using tokenization.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateVantivEncryptedCardAccount-default" aria-expanded="true" aria-controls="AccountsCreateVantivEncryptedCardAccount-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateVantivEncryptedCardAccount-default" aria-expanded="true" aria-controls="AccountsCreateVantivEncryptedCardAccount-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateVantivEncryptedCardAccount-flat" aria-expanded="false" aria-controls="AccountsCreateVantivEncryptedCardAccount-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateVantivEncryptedCardAccount-flat" aria-expanded="false" aria-controls="AccountsCreateVantivEncryptedCardAccount-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateVantivEncryptedCardAccount-csv" aria-expanded="false" aria-controls="AccountsCreateVantivEncryptedCardAccount-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsCreateVantivEncryptedCardAccount-csv" aria-expanded="false" aria-controls="AccountsCreateVantivEncryptedCardAccount-csv">
 csv
-</button><div id="AccountsCreateVantivEncryptedCardAccount-parent">
+</button>
+<div id="AccountsCreateVantivEncryptedCardAccount-parent">
 <div class="collapse show" id="AccountsCreateVantivEncryptedCardAccount-default" data-bs-parent="#AccountsCreateVantivEncryptedCardAccount-parent"> 
 ```json
 {"ConstituentId":123, "ExclusiveToControlledBatchId":123, "Inactive":true, "Name":"string", "PaymentMethodGroupId":123, "VantivEncryptedCard":{"Version":"string"}}
@@ -173,26 +178,25 @@ ConstituentId,ExclusiveToControlledBatchId,Inactive,Name,PaymentMethodGroupId,Va
 </div>
 </div>
 
-## ActionTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#actiontypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#actiontypes)</button>  
+
+## ActionTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#actiontypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#actiontypes)</button>  
 		
 Create a new action type.  
 ##### Usage:  
 ```shell
 tq post ActionTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActionTypesCreate-default" aria-expanded="true" aria-controls="ActionTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActionTypesCreate-default" aria-expanded="true" aria-controls="ActionTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActionTypesCreate-flat" aria-expanded="false" aria-controls="ActionTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActionTypesCreate-flat" aria-expanded="false" aria-controls="ActionTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActionTypesCreate-csv" aria-expanded="false" aria-controls="ActionTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActionTypesCreate-csv" aria-expanded="false" aria-controls="ActionTypesCreate-csv">
 csv
-</button><div id="ActionTypesCreate-parent">
+</button>
+<div id="ActionTypesCreate-parent">
 <div class="collapse show" id="ActionTypesCreate-default" data-bs-parent="#ActionTypesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LetterIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -212,26 +216,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,LetterIndicator
 </div>
 </div>
 
-## Actions 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#actions)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#actions)</button>  
+
+## Actions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#actions)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#actions)</button>  
 		
 Create an issue action for a Constituent  
 ##### Usage:  
 ```shell
 tq post Actions
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActionsCreate-default" aria-expanded="true" aria-controls="ActionsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActionsCreate-default" aria-expanded="true" aria-controls="ActionsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActionsCreate-flat" aria-expanded="false" aria-controls="ActionsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActionsCreate-flat" aria-expanded="false" aria-controls="ActionsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActionsCreate-csv" aria-expanded="false" aria-controls="ActionsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActionsCreate-csv" aria-expanded="false" aria-controls="ActionsCreate-csv">
 csv
-</button><div id="ActionsCreate-parent">
+</button>
+<div id="ActionsCreate-parent">
 <div class="collapse show" id="ActionsCreate-default" data-bs-parent="#ActionsCreate-parent"> 
 ```json
 {"ActionDate":"2000-01-01T00:00:00.000Z", "ActionType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Issue":{"Id":123}, "LetterPrintedDate":"2000-01-01T00:00:00.000Z", "Notes":"string", "Resolved":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -251,26 +254,25 @@ ActionDate,ActionType.Id,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime
 </div>
 </div>
 
-## ActivityCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#activitycategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#activitycategories)</button>  
+
+## ActivityCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#activitycategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#activitycategories)</button>  
 		
 Create a new activity category.  
 ##### Usage:  
 ```shell
 tq post ActivityCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActivityCategoriesCreate-default" aria-expanded="true" aria-controls="ActivityCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActivityCategoriesCreate-default" aria-expanded="true" aria-controls="ActivityCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActivityCategoriesCreate-flat" aria-expanded="false" aria-controls="ActivityCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActivityCategoriesCreate-flat" aria-expanded="false" aria-controls="ActivityCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActivityCategoriesCreate-csv" aria-expanded="false" aria-controls="ActivityCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActivityCategoriesCreate-csv" aria-expanded="false" aria-controls="ActivityCategoriesCreate-csv">
 csv
-</button><div id="ActivityCategoriesCreate-parent">
+</button>
+<div id="ActivityCategoriesCreate-parent">
 <div class="collapse show" id="ActivityCategoriesCreate-default" data-bs-parent="#ActivityCategoriesCreate-parent"> 
 ```json
 {"AutoClose":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -290,26 +292,25 @@ true,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,t
 </div>
 </div>
 
-## ActivityTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#activitytypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#activitytypes)</button>  
+
+## ActivityTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#activitytypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#activitytypes)</button>  
 		
 Create a new activity type.  
 ##### Usage:  
 ```shell
 tq post ActivityTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActivityTypesCreate-default" aria-expanded="true" aria-controls="ActivityTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActivityTypesCreate-default" aria-expanded="true" aria-controls="ActivityTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActivityTypesCreate-flat" aria-expanded="false" aria-controls="ActivityTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActivityTypesCreate-flat" aria-expanded="false" aria-controls="ActivityTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActivityTypesCreate-csv" aria-expanded="false" aria-controls="ActivityTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActivityTypesCreate-csv" aria-expanded="false" aria-controls="ActivityTypesCreate-csv">
 csv
-</button><div id="ActivityTypesCreate-parent">
+</button>
+<div id="ActivityTypesCreate-parent">
 <div class="collapse show" id="ActivityTypesCreate-default" data-bs-parent="#ActivityTypesCreate-parent"> 
 ```json
 {"Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PerfIndicator":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -329,26 +330,25 @@ Category.Id,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description
 </div>
 </div>
 
-## AddressTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#addresstypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#addresstypes)</button>  
+
+## AddressTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#addresstypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#addresstypes)</button>  
 		
 Create a new address type.  
 ##### Usage:  
 ```shell
 tq post AddressTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AddressTypesCreate-default" aria-expanded="true" aria-controls="AddressTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AddressTypesCreate-default" aria-expanded="true" aria-controls="AddressTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AddressTypesCreate-flat" aria-expanded="false" aria-controls="AddressTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AddressTypesCreate-flat" aria-expanded="false" aria-controls="AddressTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AddressTypesCreate-csv" aria-expanded="false" aria-controls="AddressTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AddressTypesCreate-csv" aria-expanded="false" aria-controls="AddressTypesCreate-csv">
 csv
-</button><div id="AddressTypesCreate-parent">
+</button>
+<div id="AddressTypesCreate-parent">
 <div class="collapse show" id="AddressTypesCreate-default" data-bs-parent="#AddressTypesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -368,26 +368,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## Addresses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#addresses)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#addresses)</button>  
+
+## Addresses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#addresses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#addresses)</button>  
 		
 Create a new address for a Constituent by sending an XML or JSON representation of an Address object using HTTP POST.  
 ##### Usage:  
 ```shell
 tq post Addresses
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AddressesCreate-default" aria-expanded="true" aria-controls="AddressesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AddressesCreate-default" aria-expanded="true" aria-controls="AddressesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AddressesCreate-flat" aria-expanded="false" aria-controls="AddressesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AddressesCreate-flat" aria-expanded="false" aria-controls="AddressesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AddressesCreate-csv" aria-expanded="false" aria-controls="AddressesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AddressesCreate-csv" aria-expanded="false" aria-controls="AddressesCreate-csv">
 csv
-</button><div id="AddressesCreate-parent">
+</button>
+<div id="AddressesCreate-parent">
 <div class="collapse show" id="AddressesCreate-default" data-bs-parent="#AddressesCreate-parent"> 
 ```json
 {"AddressType":{"Id":123}, "AffiliatedConstituent":{"Id":123}, "AltSalutationType":{"Id":123}, "City":"string", "Constituent":{"Id":123}, "Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DeliveryPoint":"string", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "GeoArea":123, "Id":123, "Inactive":true, "IsFromAffiliation":true, "Label":true, "Months":"string", "NcoaAction":123, "NcoaSession":123, "PostalCode":"string", "PostalCodeFormatted":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "State":{"Id":123}, "Street1":"string", "Street1Address":{"Number":"string", "Street":"string"}, "Street2":"string", "Street3":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -407,24 +406,25 @@ AddressType.Id,AffiliatedConstituent.Id,AltSalutationType.Id,City,Constituent.Id
 </div>
 </div>
 
-## AffiliationInfo 
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## AffiliationInfo <button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 Create affiliation between a group constituent and its related constituent. If the related constituent does not exist then create the related constituent as well before creating the affiliation.  
 ##### Usage:  
 ```shell
 tq post AffiliationInfo
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationInfoPostAffiliation-default" aria-expanded="true" aria-controls="AffiliationInfoPostAffiliation-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationInfoPostAffiliation-default" aria-expanded="true" aria-controls="AffiliationInfoPostAffiliation-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationInfoPostAffiliation-flat" aria-expanded="false" aria-controls="AffiliationInfoPostAffiliation-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationInfoPostAffiliation-flat" aria-expanded="false" aria-controls="AffiliationInfoPostAffiliation-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationInfoPostAffiliation-csv" aria-expanded="false" aria-controls="AffiliationInfoPostAffiliation-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationInfoPostAffiliation-csv" aria-expanded="false" aria-controls="AffiliationInfoPostAffiliation-csv">
 csv
-</button><div id="AffiliationInfoPostAffiliation-parent">
+</button>
+<div id="AffiliationInfoPostAffiliation-parent">
 <div class="collapse show" id="AffiliationInfoPostAffiliation-default" data-bs-parent="#AffiliationInfoPostAffiliation-parent"> 
 ```json
 {"AffiliationType":{"Id":123}, "ConstituentId":123, "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "IsAllowedToTransact":true, "IsIncludedInSearchResults":true, "NameIndicator":123, "Note":"string", "PrimaryIndicator":true, "ProtectionType":{"Id":123}, "Rank":123, "RelatedConstituentFirstName":"string", "RelatedConstituentGender":{"Id":123}, "RelatedConstituentId":123, "RelatedConstituentInactive":true, "RelatedConstituentLastName":"string", "RelatedConstituentMiddleName":"string", "RelatedConstituentNameStatusDescription":"string", "RelatedConstituentNameStatusId":123, "RelatedConstituentPrefix":{"Id":123}, "RelatedConstituentShortDisplayName":"string", "RelatedConstituentSortName":"string", "RelatedConstituentSuffix":{"Id":123}, "RelatedConstituentType":{"Id":123}, "Salary":123.456, "StartDate":"2000-01-01T00:00:00.000Z", "Title":"string"}
@@ -444,26 +444,25 @@ AffiliationType.Id,ConstituentId,EditIndicator,EndDate,Id,Inactive,IsAllowedToTr
 </div>
 </div>
 
-## AffiliationTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#affiliationtypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#affiliationtypes)</button>  
+
+## AffiliationTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#affiliationtypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#affiliationtypes)</button>  
 		
 Create a new affiliation type.  
 ##### Usage:  
 ```shell
 tq post AffiliationTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationTypesCreate-default" aria-expanded="true" aria-controls="AffiliationTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationTypesCreate-default" aria-expanded="true" aria-controls="AffiliationTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationTypesCreate-flat" aria-expanded="false" aria-controls="AffiliationTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationTypesCreate-flat" aria-expanded="false" aria-controls="AffiliationTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationTypesCreate-csv" aria-expanded="false" aria-controls="AffiliationTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationTypesCreate-csv" aria-expanded="false" aria-controls="AffiliationTypesCreate-csv">
 csv
-</button><div id="AffiliationTypesCreate-parent">
+</button>
+<div id="AffiliationTypesCreate-parent">
 <div class="collapse show" id="AffiliationTypesCreate-default" data-bs-parent="#AffiliationTypesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsAllowedToTransactDefault":true, "IsIncludedInSearchResultsDefault":true, "RelationshipCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseSalary":true, "UseTitle":true}
@@ -483,26 +482,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## Affiliations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#affiliations)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#affiliations)</button>  
+
+## Affiliations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#affiliations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#affiliations)</button>  
 		
 Create a new affiliation.  
 ##### Usage:  
 ```shell
 tq post Affiliations
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationsCreate-default" aria-expanded="true" aria-controls="AffiliationsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationsCreate-default" aria-expanded="true" aria-controls="AffiliationsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationsCreate-flat" aria-expanded="false" aria-controls="AffiliationsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationsCreate-flat" aria-expanded="false" aria-controls="AffiliationsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationsCreate-csv" aria-expanded="false" aria-controls="AffiliationsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationsCreate-csv" aria-expanded="false" aria-controls="AffiliationsCreate-csv">
 csv
-</button><div id="AffiliationsCreate-parent">
+</button>
+<div id="AffiliationsCreate-parent">
 <div class="collapse show" id="AffiliationsCreate-default" data-bs-parent="#AffiliationsCreate-parent"> 
 ```json
 {"AddressId":123, "AffiliatedName":"string", "AffiliationType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "ElectronicAddressId":123, "EndDate":"2000-01-01T00:00:00.000Z", "GroupConstituent":{"Id":123}, "GroupConstituentName":"string", "GroupConstituentSortName":"string", "Id":123, "Inactive":true, "IndividualConstituent":{"Id":123}, "IndividualConstituentName":"string", "IndividualConstituentSortName":"string", "IsAllowedToTransact":true, "IsIncludedInSearchResults":true, "NameIndicator":123, "Note":"string", "PrimaryIndicator":true, "Salary":123.456, "SalutationId":123, "StartDate":"2000-01-01T00:00:00.000Z", "Title":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -522,26 +520,25 @@ AddressId,AffiliatedName,AffiliationType.Id,CreateLocation,CreatedBy,CreatedDate
 </div>
 </div>
 
-## AliasTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#aliastypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#aliastypes)</button>  
+
+## AliasTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#aliastypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#aliastypes)</button>  
 		
 Create a new alias type.  
 ##### Usage:  
 ```shell
 tq post AliasTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AliasTypesCreate-default" aria-expanded="true" aria-controls="AliasTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AliasTypesCreate-default" aria-expanded="true" aria-controls="AliasTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AliasTypesCreate-flat" aria-expanded="false" aria-controls="AliasTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AliasTypesCreate-flat" aria-expanded="false" aria-controls="AliasTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AliasTypesCreate-csv" aria-expanded="false" aria-controls="AliasTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AliasTypesCreate-csv" aria-expanded="false" aria-controls="AliasTypesCreate-csv">
 csv
-</button><div id="AliasTypesCreate-parent">
+</button>
+<div id="AliasTypesCreate-parent">
 <div class="collapse show" id="AliasTypesCreate-default" data-bs-parent="#AliasTypesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -561,26 +558,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## Aliases 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#aliases)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#aliases)</button>  
+
+## Aliases <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#aliases)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#aliases)</button>  
 		
 Create a new alias.  
 ##### Usage:  
 ```shell
 tq post Aliases
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AliasesCreate-default" aria-expanded="true" aria-controls="AliasesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AliasesCreate-default" aria-expanded="true" aria-controls="AliasesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AliasesCreate-flat" aria-expanded="false" aria-controls="AliasesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AliasesCreate-flat" aria-expanded="false" aria-controls="AliasesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AliasesCreate-csv" aria-expanded="false" aria-controls="AliasesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AliasesCreate-csv" aria-expanded="false" aria-controls="AliasesCreate-csv">
 csv
-</button><div id="AliasesCreate-parent">
+</button>
+<div id="AliasesCreate-parent">
 <div class="collapse show" id="AliasesCreate-default" data-bs-parent="#AliasesCreate-parent"> 
 ```json
 {"AliasFirstName":"string", "AliasLastName":"string", "AliasType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -601,26 +597,25 @@ AliasFirstName,AliasLastName,AliasType.Id,Constituent.Id,CreateLocation,CreatedB
 </div>
 
 
-## AnalyticsReports 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#analyticsreports)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#analyticsreports)</button>  
+
+## AnalyticsReports <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#analyticsreports)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#analyticsreports)</button>  
 		
 Create SSRS Reports for display in Analytics.  
 ##### Usage:  
 ```shell
 tq post AnalyticsReports
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AnalyticsReportsCreate-default" aria-expanded="true" aria-controls="AnalyticsReportsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AnalyticsReportsCreate-default" aria-expanded="true" aria-controls="AnalyticsReportsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AnalyticsReportsCreate-flat" aria-expanded="false" aria-controls="AnalyticsReportsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AnalyticsReportsCreate-flat" aria-expanded="false" aria-controls="AnalyticsReportsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AnalyticsReportsCreate-csv" aria-expanded="false" aria-controls="AnalyticsReportsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AnalyticsReportsCreate-csv" aria-expanded="false" aria-controls="AnalyticsReportsCreate-csv">
 csv
-</button><div id="AnalyticsReportsCreate-parent">
+</button>
+<div id="AnalyticsReportsCreate-parent">
 <div class="collapse show" id="AnalyticsReportsCreate-default" data-bs-parent="#AnalyticsReportsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Division":{"Id":"string"}, "Id":123, "Inactive":true, "ReportPath":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -641,26 +636,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Division.Id,Id,Inactive,Rep
 </div>
 
 
-## AppealCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#appealcategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#appealcategories)</button>  
+
+## AppealCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#appealcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#appealcategories)</button>  
 		
 Create a new appeal category.  
 ##### Usage:  
 ```shell
 tq post AppealCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AppealCategoriesCreate-default" aria-expanded="true" aria-controls="AppealCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AppealCategoriesCreate-default" aria-expanded="true" aria-controls="AppealCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AppealCategoriesCreate-flat" aria-expanded="false" aria-controls="AppealCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AppealCategoriesCreate-flat" aria-expanded="false" aria-controls="AppealCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AppealCategoriesCreate-csv" aria-expanded="false" aria-controls="AppealCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AppealCategoriesCreate-csv" aria-expanded="false" aria-controls="AppealCategoriesCreate-csv">
 csv
-</button><div id="AppealCategoriesCreate-parent">
+</button>
+<div id="AppealCategoriesCreate-parent">
 <div class="collapse show" id="AppealCategoriesCreate-default" data-bs-parent="#AppealCategoriesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -682,26 +676,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 
 
 
-## Artists 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#artists)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#artists)</button>  
+
+## Artists <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#artists)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#artists)</button>  
 		
 Create a new artist.  
 ##### Usage:  
 ```shell
 tq post Artists
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ArtistsCreate-default" aria-expanded="true" aria-controls="ArtistsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ArtistsCreate-default" aria-expanded="true" aria-controls="ArtistsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ArtistsCreate-flat" aria-expanded="false" aria-controls="ArtistsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ArtistsCreate-flat" aria-expanded="false" aria-controls="ArtistsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ArtistsCreate-csv" aria-expanded="false" aria-controls="ArtistsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ArtistsCreate-csv" aria-expanded="false" aria-controls="ArtistsCreate-csv">
 csv
-</button><div id="ArtistsCreate-parent">
+</button>
+<div id="ArtistsCreate-parent">
 <div class="collapse show" id="ArtistsCreate-default" data-bs-parent="#ArtistsCreate-parent"> 
 ```json
 {"Bio":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "FirstName":"string", "Id":123, "LastName":"string", "MiddleName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "VoiceId":123}
@@ -721,26 +714,25 @@ Bio,CreateLocation,CreatedBy,CreatedDateTime,FirstName,Id,LastName,MiddleName,Up
 </div>
 </div>
 
-## AssetTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#assettypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#assettypes)</button>  
+
+## AssetTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#assettypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#assettypes)</button>  
 		
 Create a new asset type.  
 ##### Usage:  
 ```shell
 tq post AssetTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssetTypesCreate-default" aria-expanded="true" aria-controls="AssetTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssetTypesCreate-default" aria-expanded="true" aria-controls="AssetTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssetTypesCreate-flat" aria-expanded="false" aria-controls="AssetTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssetTypesCreate-flat" aria-expanded="false" aria-controls="AssetTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssetTypesCreate-csv" aria-expanded="false" aria-controls="AssetTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssetTypesCreate-csv" aria-expanded="false" aria-controls="AssetTypesCreate-csv">
 csv
-</button><div id="AssetTypesCreate-parent">
+</button>
+<div id="AssetTypesCreate-parent">
 <div class="collapse show" id="AssetTypesCreate-default" data-bs-parent="#AssetTypesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -760,26 +752,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## Assets 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#assets)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#assets)</button>  
+
+## Assets <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#assets)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#assets)</button>  
 		
 Create an asset for a constituent.  
 ##### Usage:  
 ```shell
 tq post Assets
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssetsCreate-default" aria-expanded="true" aria-controls="AssetsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssetsCreate-default" aria-expanded="true" aria-controls="AssetsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssetsCreate-flat" aria-expanded="false" aria-controls="AssetsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssetsCreate-flat" aria-expanded="false" aria-controls="AssetsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssetsCreate-csv" aria-expanded="false" aria-controls="AssetsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssetsCreate-csv" aria-expanded="false" aria-controls="AssetsCreate-csv">
 csv
-</button><div id="AssetsCreate-parent">
+</button>
+<div id="AssetsCreate-parent">
 <div class="collapse show" id="AssetsCreate-default" data-bs-parent="#AssetsCreate-parent"> 
 ```json
 {"AcquisitionDateTime":"2000-01-01T00:00:00.000Z", "AssetType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "EstimatedValue":123.456, "Id":123, "Notes":"string", "SaleDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -799,26 +790,25 @@ AcquisitionDateTime,AssetType.Id,Constituent.Id,CreateLocation,CreatedBy,Created
 </div>
 </div>
 
-## AssociationTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#associationtypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#associationtypes)</button>  
+
+## AssociationTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#associationtypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#associationtypes)</button>  
 		
 Create a new association type.  
 ##### Usage:  
 ```shell
 tq post AssociationTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssociationTypesCreate-default" aria-expanded="true" aria-controls="AssociationTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssociationTypesCreate-default" aria-expanded="true" aria-controls="AssociationTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssociationTypesCreate-flat" aria-expanded="false" aria-controls="AssociationTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssociationTypesCreate-flat" aria-expanded="false" aria-controls="AssociationTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssociationTypesCreate-csv" aria-expanded="false" aria-controls="AssociationTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssociationTypesCreate-csv" aria-expanded="false" aria-controls="AssociationTypesCreate-csv">
 csv
-</button><div id="AssociationTypesCreate-parent">
+</button>
+<div id="AssociationTypesCreate-parent">
 <div class="collapse show" id="AssociationTypesCreate-default" data-bs-parent="#AssociationTypesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsIncludedInSearchResultsDefault":true, "ReciprocalType":{"Id":123}, "RelationshipCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseBirthDate":true, "UseGender":true}
@@ -838,26 +828,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## Associations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#associations)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#associations)</button>  
+
+## Associations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#associations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#associations)</button>  
 		
 Create a new association.  
 ##### Usage:  
 ```shell
 tq post Associations
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssociationsCreate-default" aria-expanded="true" aria-controls="AssociationsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssociationsCreate-default" aria-expanded="true" aria-controls="AssociationsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssociationsCreate-flat" aria-expanded="false" aria-controls="AssociationsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssociationsCreate-flat" aria-expanded="false" aria-controls="AssociationsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssociationsCreate-csv" aria-expanded="false" aria-controls="AssociationsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssociationsCreate-csv" aria-expanded="false" aria-controls="AssociationsCreate-csv">
 csv
-</button><div id="AssociationsCreate-parent">
+</button>
+<div id="AssociationsCreate-parent">
 <div class="collapse show" id="AssociationsCreate-default" data-bs-parent="#AssociationsCreate-parent"> 
 ```json
 {"AssociatedConstituent":{"Id":123}, "AssociatedName":"string", "AssociationType":{"Id":123}, "BirthDate":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "Gender":{"Id":123}, "Id":123, "Inactive":true, "IsIncludedInSearchResults":true, "Note":"string", "ReciprocalAssociation":{"Id":123}, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -878,26 +867,25 @@ AssociatedConstituent.Id,AssociatedName,AssociationType.Id,BirthDate,Constituent
 </div>
 
 
-## Attributes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#attributes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#attributes)</button>  
+
+## Attributes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#attributes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#attributes)</button>  
 		
 Create a new attribute.  
 ##### Usage:  
 ```shell
 tq post Attributes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AttributesCreate-default" aria-expanded="true" aria-controls="AttributesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AttributesCreate-default" aria-expanded="true" aria-controls="AttributesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AttributesCreate-flat" aria-expanded="false" aria-controls="AttributesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AttributesCreate-flat" aria-expanded="false" aria-controls="AttributesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AttributesCreate-csv" aria-expanded="false" aria-controls="AttributesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AttributesCreate-csv" aria-expanded="false" aria-controls="AttributesCreate-csv">
 csv
-</button><div id="AttributesCreate-parent">
+</button>
+<div id="AttributesCreate-parent">
 <div class="collapse show" id="AttributesCreate-default" data-bs-parent="#AttributesCreate-parent"> 
 ```json
 {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Keyword":{"Id":123}, "KeywordConstituentType":{"Inactive":true, "Rank":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}
@@ -918,25 +906,25 @@ Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,Keyword
 </div>
 
 
-## Authenticate 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#authenticate)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## Authenticate <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#authenticate)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 Authenticate the provided credentials  
 ##### Usage:  
 ```shell
 tq post Authenticate
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateAuthenticate-default" aria-expanded="true" aria-controls="AuthenticateAuthenticate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateAuthenticate-default" aria-expanded="true" aria-controls="AuthenticateAuthenticate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateAuthenticate-flat" aria-expanded="false" aria-controls="AuthenticateAuthenticate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateAuthenticate-flat" aria-expanded="false" aria-controls="AuthenticateAuthenticate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateAuthenticate-csv" aria-expanded="false" aria-controls="AuthenticateAuthenticate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateAuthenticate-csv" aria-expanded="false" aria-controls="AuthenticateAuthenticate-csv">
 csv
-</button><div id="AuthenticateAuthenticate-parent">
+</button>
+<div id="AuthenticateAuthenticate-parent">
 <div class="collapse show" id="AuthenticateAuthenticate-default" data-bs-parent="#AuthenticateAuthenticate-parent"> 
 ```json
 {"Application":"string", "MachineLocation":"string", "Password":"string", "UserGroup":"string", "UserName":"string"}
@@ -955,19 +943,21 @@ Application,MachineLocation,Password,UserGroup,UserName
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--AuthenticateWindows*  
    Authenticate the provided credentials
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateAuthenticateWindows-default" aria-expanded="true" aria-controls="AuthenticateAuthenticateWindows-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateAuthenticateWindows-default" aria-expanded="true" aria-controls="AuthenticateAuthenticateWindows-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateAuthenticateWindows-flat" aria-expanded="false" aria-controls="AuthenticateAuthenticateWindows-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateAuthenticateWindows-flat" aria-expanded="false" aria-controls="AuthenticateAuthenticateWindows-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateAuthenticateWindows-csv" aria-expanded="false" aria-controls="AuthenticateAuthenticateWindows-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateAuthenticateWindows-csv" aria-expanded="false" aria-controls="AuthenticateAuthenticateWindows-csv">
 csv
-</button><div id="AuthenticateAuthenticateWindows-parent">
+</button>
+<div id="AuthenticateAuthenticateWindows-parent">
 <div class="collapse show" id="AuthenticateAuthenticateWindows-default" data-bs-parent="#AuthenticateAuthenticateWindows-parent"> 
 ```json
 {"Application":"string", "MachineLocation":"string", "UserGroup":"string"}
@@ -986,18 +976,20 @@ Application,MachineLocation,UserGroup
 ```  
 </div>
 </div>
+
  * *--GenerateToken*  
    Authenticate the provided credentials and return a timed token that can be used to proxy this result.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateGenerateToken-default" aria-expanded="true" aria-controls="AuthenticateGenerateToken-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateGenerateToken-default" aria-expanded="true" aria-controls="AuthenticateGenerateToken-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateGenerateToken-flat" aria-expanded="false" aria-controls="AuthenticateGenerateToken-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateGenerateToken-flat" aria-expanded="false" aria-controls="AuthenticateGenerateToken-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateGenerateToken-csv" aria-expanded="false" aria-controls="AuthenticateGenerateToken-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateGenerateToken-csv" aria-expanded="false" aria-controls="AuthenticateGenerateToken-csv">
 csv
-</button><div id="AuthenticateGenerateToken-parent">
+</button>
+<div id="AuthenticateGenerateToken-parent">
 <div class="collapse show" id="AuthenticateGenerateToken-default" data-bs-parent="#AuthenticateGenerateToken-parent"> 
 ```json
 {"Application":"string", "MachineLocation":"string", "Password":"string", "UserGroup":"string", "UserName":"string"}
@@ -1016,18 +1008,20 @@ Application,MachineLocation,Password,UserGroup,UserName
 ```  
 </div>
 </div>
+
  * *--GenerateTokenWindows*  
    Authenticate the provided credentials and return a timed token that can be used to proxy this result.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateGenerateTokenWindows-default" aria-expanded="true" aria-controls="AuthenticateGenerateTokenWindows-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateGenerateTokenWindows-default" aria-expanded="true" aria-controls="AuthenticateGenerateTokenWindows-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateGenerateTokenWindows-flat" aria-expanded="false" aria-controls="AuthenticateGenerateTokenWindows-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateGenerateTokenWindows-flat" aria-expanded="false" aria-controls="AuthenticateGenerateTokenWindows-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateGenerateTokenWindows-csv" aria-expanded="false" aria-controls="AuthenticateGenerateTokenWindows-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateGenerateTokenWindows-csv" aria-expanded="false" aria-controls="AuthenticateGenerateTokenWindows-csv">
 csv
-</button><div id="AuthenticateGenerateTokenWindows-parent">
+</button>
+<div id="AuthenticateGenerateTokenWindows-parent">
 <div class="collapse show" id="AuthenticateGenerateTokenWindows-default" data-bs-parent="#AuthenticateGenerateTokenWindows-parent"> 
 ```json
 {"Application":"string", "MachineLocation":"string", "UserGroup":"string"}
@@ -1046,18 +1040,20 @@ Application,MachineLocation,UserGroup
 ```  
 </div>
 </div>
+
  * *--ValidateToken*  
    Validates an authentication token and returns the standard AuthenticationResponse
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateValidateToken-default" aria-expanded="true" aria-controls="AuthenticateValidateToken-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateValidateToken-default" aria-expanded="true" aria-controls="AuthenticateValidateToken-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateValidateToken-flat" aria-expanded="false" aria-controls="AuthenticateValidateToken-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateValidateToken-flat" aria-expanded="false" aria-controls="AuthenticateValidateToken-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateValidateToken-csv" aria-expanded="false" aria-controls="AuthenticateValidateToken-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthenticateValidateToken-csv" aria-expanded="false" aria-controls="AuthenticateValidateToken-csv">
 csv
-</button><div id="AuthenticateValidateToken-parent">
+</button>
+<div id="AuthenticateValidateToken-parent">
 <div class="collapse show" id="AuthenticateValidateToken-default" data-bs-parent="#AuthenticateValidateToken-parent"> 
 ```json
 {"Token":"string"}
@@ -1077,25 +1073,25 @@ Token
 </div>
 </div>
 
-## Authorization 
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#authorization)</button>  
+
+## Authorization <button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#authorization)</button>  
 		
 Authorize a payment using a manually keyed, swiped or encrypted card data, including payments made using the Tessitura Merchant Services Payment Component.  
 ##### Usage:  
 ```shell
 tq post Authorization
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationAuthorize-default" aria-expanded="true" aria-controls="AuthorizationAuthorize-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationAuthorize-default" aria-expanded="true" aria-controls="AuthorizationAuthorize-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationAuthorize-flat" aria-expanded="false" aria-controls="AuthorizationAuthorize-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationAuthorize-flat" aria-expanded="false" aria-controls="AuthorizationAuthorize-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationAuthorize-csv" aria-expanded="false" aria-controls="AuthorizationAuthorize-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationAuthorize-csv" aria-expanded="false" aria-controls="AuthorizationAuthorize-csv">
 csv
-</button><div id="AuthorizationAuthorize-parent">
+</button>
+<div id="AuthorizationAuthorize-parent">
 <div class="collapse show" id="AuthorizationAuthorize-default" data-bs-parent="#AuthorizationAuthorize-parent"> 
 ```json
 {"AllowPartialAuth":true, "Amount":123.456, "AuthorizationCode":"string", "BillingAddress":{"AddressId":123, "Country":"string", "PostalCode":"string", "Street1":"string"}, "Card":{"AccountId":123, "CardHolderName":"string", "CardNumber":"string", "Cvv2":"string", "ExpirationDate":"string", "TessituraMerchantServicesData":"string", "Track1":"string", "Track2":"string"}, "ConstituentId":123, "DeliveryDate":"2000-01-01T00:00:00.000Z", "IsECommerce":true, "IsRecurring":true, "PaymentId":123, "PaymentMethodId":123, "ReferenceNumber":"string", "ReturnUrl":"string", "ShopperIp":"string", "StoreAccount":true, "ThreeDSecureData":{"EciIndicatorType":"string", "MpiSessionId":"string", "SecureTransactionId":"string", "SecureTransactionSecurity":"string", "VerAuthValue":"string", "VerCertificateSerialCardAcceptor":"string", "VerCertificateSerialCardHolder":"string", "VerHashResult":"string"}, "TransactionOrigin":"string", "UserData":"string"}
@@ -1114,19 +1110,21 @@ true,123.456,"""string""",123,"""string""","""string""","""string""",123,"""stri
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--Confirm*  
    Confirm an authorization using its reference number. For all gateways, this results in a confirm transaction being written to T_PAYMENT_GATEWAY_ACTIVITY. For EPay gateway, the confirm endpoint also sends a capture transaction.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationConfirm-default" aria-expanded="true" aria-controls="AuthorizationConfirm-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationConfirm-default" aria-expanded="true" aria-controls="AuthorizationConfirm-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationConfirm-flat" aria-expanded="false" aria-controls="AuthorizationConfirm-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationConfirm-flat" aria-expanded="false" aria-controls="AuthorizationConfirm-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationConfirm-csv" aria-expanded="false" aria-controls="AuthorizationConfirm-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationConfirm-csv" aria-expanded="false" aria-controls="AuthorizationConfirm-csv">
 csv
-</button><div id="AuthorizationConfirm-parent">
+</button>
+<div id="AuthorizationConfirm-parent">
 <div class="collapse show" id="AuthorizationConfirm-default" data-bs-parent="#AuthorizationConfirm-parent"> 
 ```json
 {"Amount":123.456, "IsECommerce":true, "PaymentId":123, "PaymentMethodId":123, "TransactionOrigin":"string", "UserData":"string", "ReferenceNumber":"string"}
@@ -1145,19 +1143,21 @@ Amount,IsECommerce,PaymentId,PaymentMethodId,ReferenceNumber,TransactionOrigin,U
 ```  
 </div>
 </div>
+
  * *--ConfirmPayByLink*  
    NOTE: THIS IS FOR TESSITURA USE ONLY. Custom implementations of this endpoint are not supported.
 Check to see if a Pay by Link has been authorized.  For Tessitura Merchant Services only.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationConfirmPayByLink-default" aria-expanded="true" aria-controls="AuthorizationConfirmPayByLink-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationConfirmPayByLink-default" aria-expanded="true" aria-controls="AuthorizationConfirmPayByLink-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationConfirmPayByLink-flat" aria-expanded="false" aria-controls="AuthorizationConfirmPayByLink-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationConfirmPayByLink-flat" aria-expanded="false" aria-controls="AuthorizationConfirmPayByLink-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationConfirmPayByLink-csv" aria-expanded="false" aria-controls="AuthorizationConfirmPayByLink-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationConfirmPayByLink-csv" aria-expanded="false" aria-controls="AuthorizationConfirmPayByLink-csv">
 csv
-</button><div id="AuthorizationConfirmPayByLink-parent">
+</button>
+<div id="AuthorizationConfirmPayByLink-parent">
 <div class="collapse show" id="AuthorizationConfirmPayByLink-default" data-bs-parent="#AuthorizationConfirmPayByLink-parent"> 
 ```json
 {"BypassNotificationEventCheck":true, "PaymentID":"string"}
@@ -1176,18 +1176,20 @@ true,"""string"""
 ```  
 </div>
 </div>
+
  * *--Finalize*  
    Finalize an authorization.  For use with Tessitura Merchant Services only. Finalizes a payment authorization derived from the Authorize request.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationFinalize-default" aria-expanded="true" aria-controls="AuthorizationFinalize-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationFinalize-default" aria-expanded="true" aria-controls="AuthorizationFinalize-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationFinalize-flat" aria-expanded="false" aria-controls="AuthorizationFinalize-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationFinalize-flat" aria-expanded="false" aria-controls="AuthorizationFinalize-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationFinalize-csv" aria-expanded="false" aria-controls="AuthorizationFinalize-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationFinalize-csv" aria-expanded="false" aria-controls="AuthorizationFinalize-csv">
 csv
-</button><div id="AuthorizationFinalize-parent">
+</button>
+<div id="AuthorizationFinalize-parent">
 <div class="collapse show" id="AuthorizationFinalize-default" data-bs-parent="#AuthorizationFinalize-parent"> 
 ```json
 {"ActionData":"string", "PaymentId":123, "RedirectResult":"string", "StoreAccount":true}
@@ -1206,19 +1208,21 @@ ActionData,PaymentId,RedirectResult,StoreAccount
 ```  
 </div>
 </div>
+
  * *--Link*  
    NOTE: THIS IS FOR TESSITURA USE ONLY. Custom implementations of this endpoint are not supported.
 Create a payment link to a hosted payment form where shoppers can pay.  For Tessitura Merchant Services only.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationLink-default" aria-expanded="true" aria-controls="AuthorizationLink-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationLink-default" aria-expanded="true" aria-controls="AuthorizationLink-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationLink-flat" aria-expanded="false" aria-controls="AuthorizationLink-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationLink-flat" aria-expanded="false" aria-controls="AuthorizationLink-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationLink-csv" aria-expanded="false" aria-controls="AuthorizationLink-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationLink-csv" aria-expanded="false" aria-controls="AuthorizationLink-csv">
 csv
-</button><div id="AuthorizationLink-parent">
+</button>
+<div id="AuthorizationLink-parent">
 <div class="collapse show" id="AuthorizationLink-default" data-bs-parent="#AuthorizationLink-parent"> 
 ```json
 {"AllowedPaymentMethods":["", ...], "Amount":123.456, "ConstituentId":123, "CountryCode":"string", "Currency":"string", "Description":"string", "IsECommerce":true, "LinkExpiry":"2000-01-01T00:00:00.000Z", "Locale":"string", "MerchantId":"string", "PaymentId":123, "StoreAccount":true, "TransactionOrigin":"string"}
@@ -1235,18 +1239,20 @@ csv
 ```  
 </div>
 </div>
+
  * *--Reverse*  
    Reverse a payment authorization using its reference number.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationReverse-default" aria-expanded="true" aria-controls="AuthorizationReverse-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationReverse-default" aria-expanded="true" aria-controls="AuthorizationReverse-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationReverse-flat" aria-expanded="false" aria-controls="AuthorizationReverse-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationReverse-flat" aria-expanded="false" aria-controls="AuthorizationReverse-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationReverse-csv" aria-expanded="false" aria-controls="AuthorizationReverse-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationReverse-csv" aria-expanded="false" aria-controls="AuthorizationReverse-csv">
 csv
-</button><div id="AuthorizationReverse-parent">
+</button>
+<div id="AuthorizationReverse-parent">
 <div class="collapse show" id="AuthorizationReverse-default" data-bs-parent="#AuthorizationReverse-parent"> 
 ```json
 {"ReferenceNumber":"string", "Amount":123.456, "Card":{"AccountId":123, "CardHolderName":"string", "CardNumber":"string", "Cvv2":"string", "ExpirationDate":"string", "TessituraMerchantServicesData":"string", "Track1":"string", "Track2":"string"}, "ConstituentId":123, "IsECommerce":true, "IsElementDebit":true, "IsSwiped":true, "PaymentId":123, "PaymentMethodId":123, "TransactionOrigin":"string", "UserData":"string"}
@@ -1266,26 +1272,27 @@ Amount,Card.AccountId,Card.CardHolderName,Card.CardNumber,Card.Cvv2,Card.Expirat
 </div>
 </div>
 
+
 	
 # B
-## Batch 
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+## Batch <button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
   
 ##### Usage:  
 ```shell
 tq post Batch
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchSample-default" aria-expanded="true" aria-controls="BatchSample-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchSample-default" aria-expanded="true" aria-controls="BatchSample-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchSample-flat" aria-expanded="false" aria-controls="BatchSample-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchSample-flat" aria-expanded="false" aria-controls="BatchSample-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchSample-csv" aria-expanded="false" aria-controls="BatchSample-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchSample-csv" aria-expanded="false" aria-controls="BatchSample-csv">
 csv
-</button><div id="BatchSample-parent">
+</button>
+<div id="BatchSample-parent">
 <div class="collapse show" id="BatchSample-default" data-bs-parent="#BatchSample-parent"> 
 ```json
 {"Requests":[{"Id":123}, ...]}
@@ -1303,25 +1310,25 @@ csv
 </div>
 </div>
 
-## BatchMaintenance 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#batchmaintenance)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## BatchMaintenance <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#batchmaintenance)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 Create a new Batch  
 ##### Usage:  
 ```shell
 tq post BatchMaintenance
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchMaintenanceCreate-default" aria-expanded="true" aria-controls="BatchMaintenanceCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchMaintenanceCreate-default" aria-expanded="true" aria-controls="BatchMaintenanceCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchMaintenanceCreate-flat" aria-expanded="false" aria-controls="BatchMaintenanceCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchMaintenanceCreate-flat" aria-expanded="false" aria-controls="BatchMaintenanceCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchMaintenanceCreate-csv" aria-expanded="false" aria-controls="BatchMaintenanceCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchMaintenanceCreate-csv" aria-expanded="false" aria-controls="BatchMaintenanceCreate-csv">
 csv
-</button><div id="BatchMaintenanceCreate-parent">
+</button>
+<div id="BatchMaintenanceCreate-parent">
 <div class="collapse show" id="BatchMaintenanceCreate-default" data-bs-parent="#BatchMaintenanceCreate-parent"> 
 ```json
 {"AmtPosted":123.456, "BatchType":{"Id":123}, "CloseDateTime":"2000-01-01T00:00:00.000Z", "ClosedBy":"string", "CntlIndicator":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Notes":"string", "NumAccCc":123, "NumRejCc":123, "OpenLoc":"string", "Owner":"string", "PostId":123, "PostedBy":"string", "PostedDateTime":"2000-01-01T00:00:00.000Z", "Status":"string", "TallyPlAmount":123.456, "TallyReAmount":123.456, "UniqueTag":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1341,26 +1348,25 @@ AmtPosted,BatchType.Id,CloseDateTime,ClosedBy,CntlIndicator,CreatedBy,CreatedDat
 </div>
 </div>
 
-## BatchTypeGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#batchtypegroups)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#batchtypegroups)</button>  
+
+## BatchTypeGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#batchtypegroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#batchtypegroups)</button>  
 		
 Create a new batch type group.  
 ##### Usage:  
 ```shell
 tq post BatchTypeGroups
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchTypeGroupsCreate-default" aria-expanded="true" aria-controls="BatchTypeGroupsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchTypeGroupsCreate-default" aria-expanded="true" aria-controls="BatchTypeGroupsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchTypeGroupsCreate-flat" aria-expanded="false" aria-controls="BatchTypeGroupsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchTypeGroupsCreate-flat" aria-expanded="false" aria-controls="BatchTypeGroupsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchTypeGroupsCreate-csv" aria-expanded="false" aria-controls="BatchTypeGroupsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchTypeGroupsCreate-csv" aria-expanded="false" aria-controls="BatchTypeGroupsCreate-csv">
 csv
-</button><div id="BatchTypeGroupsCreate-parent">
+</button>
+<div id="BatchTypeGroupsCreate-parent">
 <div class="collapse show" id="BatchTypeGroupsCreate-default" data-bs-parent="#BatchTypeGroupsCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1381,26 +1387,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 
 
-## BatchTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#batchtypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#batchtypes)</button>  
+
+## BatchTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#batchtypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#batchtypes)</button>  
 		
 Create a new batch type.  
 ##### Usage:  
 ```shell
 tq post BatchTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchTypesCreate-default" aria-expanded="true" aria-controls="BatchTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchTypesCreate-default" aria-expanded="true" aria-controls="BatchTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchTypesCreate-flat" aria-expanded="false" aria-controls="BatchTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchTypesCreate-flat" aria-expanded="false" aria-controls="BatchTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchTypesCreate-csv" aria-expanded="false" aria-controls="BatchTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchTypesCreate-csv" aria-expanded="false" aria-controls="BatchTypesCreate-csv">
 csv
-</button><div id="BatchTypesCreate-parent">
+</button>
+<div id="BatchTypesCreate-parent">
 <div class="collapse show" id="BatchTypesCreate-default" data-bs-parent="#BatchTypesCreate-parent"> 
 ```json
 {"BatchTypeGroup":{"Id":123}, "BusinessUnit":{"Id":123}, "Category":123, "CntlIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1420,26 +1425,25 @@ BatchTypeGroup.Id,BusinessUnit.Id,Category,CntlIndicator,CreateLocation,CreatedB
 </div>
 </div>
 
-## BillingSchedules 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#billingschedules)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#billingschedules)</button>  
+
+## BillingSchedules <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#billingschedules)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#billingschedules)</button>  
 		
 Create a new Billing Schedule.  
 ##### Usage:  
 ```shell
 tq post BillingSchedules
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BillingSchedulesCreate-default" aria-expanded="true" aria-controls="BillingSchedulesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BillingSchedulesCreate-default" aria-expanded="true" aria-controls="BillingSchedulesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BillingSchedulesCreate-flat" aria-expanded="false" aria-controls="BillingSchedulesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BillingSchedulesCreate-flat" aria-expanded="false" aria-controls="BillingSchedulesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BillingSchedulesCreate-csv" aria-expanded="false" aria-controls="BillingSchedulesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BillingSchedulesCreate-csv" aria-expanded="false" aria-controls="BillingSchedulesCreate-csv">
 csv
-</button><div id="BillingSchedulesCreate-parent">
+</button>
+<div id="BillingSchedulesCreate-parent">
 <div class="collapse show" id="BillingSchedulesCreate-default" data-bs-parent="#BillingSchedulesCreate-parent"> 
 ```json
 {"BillAmounts":"string", "BillDates":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LongDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1459,26 +1463,25 @@ BillAmounts,BillDates,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,D
 </div>
 </div>
 
-## BillingTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#billingtypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#billingtypes)</button>  
+
+## BillingTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#billingtypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#billingtypes)</button>  
 		
 Create a new Billing Type.  
 ##### Usage:  
 ```shell
 tq post BillingTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BillingTypesCreate-default" aria-expanded="true" aria-controls="BillingTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BillingTypesCreate-default" aria-expanded="true" aria-controls="BillingTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BillingTypesCreate-flat" aria-expanded="false" aria-controls="BillingTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BillingTypesCreate-flat" aria-expanded="false" aria-controls="BillingTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BillingTypesCreate-csv" aria-expanded="false" aria-controls="BillingTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BillingTypesCreate-csv" aria-expanded="false" aria-controls="BillingTypesCreate-csv">
 csv
-</button><div id="BillingTypesCreate-parent">
+</button>
+<div id="BillingTypesCreate-parent">
 <div class="collapse show" id="BillingTypesCreate-default" data-bs-parent="#BillingTypesCreate-parent"> 
 ```json
 {"AutoBillingIndicator":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1498,26 +1501,25 @@ AutoBillingIndicator,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Ina
 </div>
 </div>
 
-## BookingCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#bookingcategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#bookingcategories)</button>  
+
+## BookingCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#bookingcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#bookingcategories)</button>  
 		
 Create a new Booking Category.  
 ##### Usage:  
 ```shell
 tq post BookingCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingCategoriesCreate-default" aria-expanded="true" aria-controls="BookingCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingCategoriesCreate-default" aria-expanded="true" aria-controls="BookingCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingCategoriesCreate-flat" aria-expanded="false" aria-controls="BookingCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingCategoriesCreate-flat" aria-expanded="false" aria-controls="BookingCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingCategoriesCreate-csv" aria-expanded="false" aria-controls="BookingCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingCategoriesCreate-csv" aria-expanded="false" aria-controls="BookingCategoriesCreate-csv">
 csv
-</button><div id="BookingCategoriesCreate-parent">
+</button>
+<div id="BookingCategoriesCreate-parent">
 <div class="collapse show" id="BookingCategoriesCreate-default" data-bs-parent="#BookingCategoriesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1537,26 +1539,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EditIndicat
 </div>
 </div>
 
-## BookingTemplates 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#bookingtemplates)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#bookingtemplates)</button>  
+
+## BookingTemplates <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#bookingtemplates)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#bookingtemplates)</button>  
 		
 Create a new Booking Template  
 ##### Usage:  
 ```shell
 tq post BookingTemplates
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingTemplatesCreate-default" aria-expanded="true" aria-controls="BookingTemplatesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingTemplatesCreate-default" aria-expanded="true" aria-controls="BookingTemplatesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingTemplatesCreate-flat" aria-expanded="false" aria-controls="BookingTemplatesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingTemplatesCreate-flat" aria-expanded="false" aria-controls="BookingTemplatesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingTemplatesCreate-csv" aria-expanded="false" aria-controls="BookingTemplatesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingTemplatesCreate-csv" aria-expanded="false" aria-controls="BookingTemplatesCreate-csv">
 csv
-</button><div id="BookingTemplatesCreate-parent">
+</button>
+<div id="BookingTemplatesCreate-parent">
 <div class="collapse show" id="BookingTemplatesCreate-default" data-bs-parent="#BookingTemplatesCreate-parent"> 
 ```json
 {"Assignments":[{"Id":123}, ...], "Category":{"Id":123}, "ConfirmationText":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Notes":"string", "OverrideTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1574,26 +1575,25 @@ csv
 </div>
 </div>
 
-## Bookings 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#bookings)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#bookings)</button>  
+
+## Bookings <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#bookings)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#bookings)</button>  
 		
 Create a new Booking  
 ##### Usage:  
 ```shell
 tq post Bookings
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsCreate-default" aria-expanded="true" aria-controls="BookingsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsCreate-default" aria-expanded="true" aria-controls="BookingsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsCreate-flat" aria-expanded="false" aria-controls="BookingsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsCreate-flat" aria-expanded="false" aria-controls="BookingsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsCreate-csv" aria-expanded="false" aria-controls="BookingsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsCreate-csv" aria-expanded="false" aria-controls="BookingsCreate-csv">
 csv
-</button><div id="BookingsCreate-parent">
+</button>
+<div id="BookingsCreate-parent">
 <div class="collapse show" id="BookingsCreate-default" data-bs-parent="#BookingsCreate-parent"> 
 ```json
 {"Assignments":[{"Id":123}, ...], "BookingSource":123, "Category":{"Id":123}, "ConfirmationText":"string", "Context":{}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultCount":123, "DefaultDateTime":"2000-01-01T00:00:00.000Z", "DefaultDuration":123, "Description":"string", "EditIndicator":true, "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1610,19 +1610,21 @@ csv
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--AddDocument*  
    Add a document to the booking.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsAddDocument-default" aria-expanded="true" aria-controls="BookingsAddDocument-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsAddDocument-default" aria-expanded="true" aria-controls="BookingsAddDocument-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsAddDocument-flat" aria-expanded="false" aria-controls="BookingsAddDocument-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsAddDocument-flat" aria-expanded="false" aria-controls="BookingsAddDocument-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsAddDocument-csv" aria-expanded="false" aria-controls="BookingsAddDocument-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsAddDocument-csv" aria-expanded="false" aria-controls="BookingsAddDocument-csv">
 csv
-</button><div id="BookingsAddDocument-parent">
+</button>
+<div id="BookingsAddDocument-parent">
 <div class="collapse show" id="BookingsAddDocument-default" data-bs-parent="#BookingsAddDocument-parent"> 
 ```json
 {"BookingID":"string", "Category":{"Id":123}, "ConstituentId":123, "Contents":"AA==", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "FileName":"string", "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1641,18 +1643,20 @@ BookingID,Category.Id,ConstituentId,Contents,CreateLocation,CreatedBy,CreatedDat
 ```  
 </div>
 </div>
+
  * *--FromTemplate*  
    Create a new Booking using the details and Resource Type assignments from a Booking Template.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsCreateFromTemplate-default" aria-expanded="true" aria-controls="BookingsCreateFromTemplate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsCreateFromTemplate-default" aria-expanded="true" aria-controls="BookingsCreateFromTemplate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsCreateFromTemplate-flat" aria-expanded="false" aria-controls="BookingsCreateFromTemplate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsCreateFromTemplate-flat" aria-expanded="false" aria-controls="BookingsCreateFromTemplate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsCreateFromTemplate-csv" aria-expanded="false" aria-controls="BookingsCreateFromTemplate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsCreateFromTemplate-csv" aria-expanded="false" aria-controls="BookingsCreateFromTemplate-csv">
 csv
-</button><div id="BookingsCreateFromTemplate-parent">
+</button>
+<div id="BookingsCreateFromTemplate-parent">
 <div class="collapse show" id="BookingsCreateFromTemplate-default" data-bs-parent="#BookingsCreateFromTemplate-parent"> 
 ```json
 {"BookingSource":123, "BookingTemplateId":123, "ConfirmationText":"string", "DefaultCount":123, "DefaultDateTime":"2000-01-01T00:00:00.000Z", "DefaultDuration":123, "Description":"string", "Notes":"string"}
@@ -1672,26 +1676,25 @@ BookingSource,BookingTemplateId,ConfirmationText,DefaultCount,DefaultDateTime,De
 </div>
 </div>
 
-## BulkCopySets 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#bulkcopysets)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#bulkcopysets)</button>  
+
+## BulkCopySets <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#bulkcopysets)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#bulkcopysets)</button>  
 		
 Creates a new bulk copy set.  
 ##### Usage:  
 ```shell
 tq post BulkCopySets
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsCreate-default" aria-expanded="true" aria-controls="BulkCopySetsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsCreate-default" aria-expanded="true" aria-controls="BulkCopySetsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsCreate-flat" aria-expanded="false" aria-controls="BulkCopySetsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsCreate-flat" aria-expanded="false" aria-controls="BulkCopySetsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsCreate-csv" aria-expanded="false" aria-controls="BulkCopySetsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsCreate-csv" aria-expanded="false" aria-controls="BulkCopySetsCreate-csv">
 csv
-</button><div id="BulkCopySetsCreate-parent">
+</button>
+<div id="BulkCopySetsCreate-parent">
 <div class="collapse show" id="BulkCopySetsCreate-default" data-bs-parent="#BulkCopySetsCreate-parent"> 
 ```json
 {"AvailableForSaleIndicator":true, "ControlGroup":{"Id":123}, "CopyCredits":true, "CopyNotes":true, "CopyOffers":true, "CopyPriceEvents":true, "CopyPrices":true, "CreateFriday":true, "CreateFromDateTime":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreateMode":"string", "CreateMonday":true, "CreateSaturday":true, "CreateSunday":true, "CreateThursday":true, "CreateToDateTime":"2000-01-01T00:00:00.000Z", "CreateTuesday":true, "CreateWednesday":true, "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultRelativeDates":"string", "Id":123, "Inactive":true, "OverrideOnSale":true, "PackageCode":"string", "PackageCodeSeed":123, "PackageModeOfSaleRelativeDates":"string", "PerformanceCode":"string", "PerformanceCodeSeed":123, "PerformanceDescription":"string", "PerformanceModeOfSaleRelativeDates":"string", "PerformanceStatus":{"Id":123}, "PerformanceTime":"string", "PerformanceType":{"Id":123}, "PriceEventRelativeDates":"string", "PriceTypeRelativeDates":"string", "ProductionSeason":{"Id":123}, "PublishRelativeDates":"string", "ReferenceDay":"2000-01-01T00:00:00.000Z", "ReferencePerformanceId":123, "ReferenceSeasonString":"string", "SetDescription":"string", "SetType":123, "ShortName":"string", "TimeSlot":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1710,19 +1713,21 @@ true,123,true,true,true,true,true,true,"""2000-01-01T00:00:00.000Z""","""string"
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--CopyDay*  
    Copies the packages, performances groups and performances from a day defined in the bulk copy set to the day specified in the request.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsCopyDay-default" aria-expanded="true" aria-controls="BulkCopySetsCopyDay-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsCopyDay-default" aria-expanded="true" aria-controls="BulkCopySetsCopyDay-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsCopyDay-flat" aria-expanded="false" aria-controls="BulkCopySetsCopyDay-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsCopyDay-flat" aria-expanded="false" aria-controls="BulkCopySetsCopyDay-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsCopyDay-csv" aria-expanded="false" aria-controls="BulkCopySetsCopyDay-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsCopyDay-csv" aria-expanded="false" aria-controls="BulkCopySetsCopyDay-csv">
 csv
-</button><div id="BulkCopySetsCopyDay-parent">
+</button>
+<div id="BulkCopySetsCopyDay-parent">
 <div class="collapse show" id="BulkCopySetsCopyDay-default" data-bs-parent="#BulkCopySetsCopyDay-parent"> 
 ```json
 {"CopyToDate":"2000-01-01T00:00:00.000Z", "PackageCodeCounter":123, "PerformanceCodeCounter":123, "BulkCopySetID":"string"}
@@ -1741,18 +1746,20 @@ BulkCopySetID,CopyToDate,PackageCodeCounter,PerformanceCodeCounter
 ```  
 </div>
 </div>
+
  * *--CopyEvent*  
    Copies the performance specified in the bulk copy set to the date and time specified in the request.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsCopyEvent-default" aria-expanded="true" aria-controls="BulkCopySetsCopyEvent-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsCopyEvent-default" aria-expanded="true" aria-controls="BulkCopySetsCopyEvent-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsCopyEvent-flat" aria-expanded="false" aria-controls="BulkCopySetsCopyEvent-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsCopyEvent-flat" aria-expanded="false" aria-controls="BulkCopySetsCopyEvent-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsCopyEvent-csv" aria-expanded="false" aria-controls="BulkCopySetsCopyEvent-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsCopyEvent-csv" aria-expanded="false" aria-controls="BulkCopySetsCopyEvent-csv">
 csv
-</button><div id="BulkCopySetsCopyEvent-parent">
+</button>
+<div id="BulkCopySetsCopyEvent-parent">
 <div class="collapse show" id="BulkCopySetsCopyEvent-default" data-bs-parent="#BulkCopySetsCopyEvent-parent"> 
 ```json
 {"CopyToDate":"2000-01-01T00:00:00.000Z", "PerformanceCodeCounter":123, "BulkCopySetID":"string"}
@@ -1771,18 +1778,20 @@ BulkCopySetID,CopyToDate,PerformanceCodeCounter
 ```  
 </div>
 </div>
+
  * *--ReplaceExclusions*  
    Replaces bulk copy exclusions for a given set by deleting them and inserting the new collection.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsReplaceExclusions-default" aria-expanded="true" aria-controls="BulkCopySetsReplaceExclusions-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsReplaceExclusions-default" aria-expanded="true" aria-controls="BulkCopySetsReplaceExclusions-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsReplaceExclusions-flat" aria-expanded="false" aria-controls="BulkCopySetsReplaceExclusions-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsReplaceExclusions-flat" aria-expanded="false" aria-controls="BulkCopySetsReplaceExclusions-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsReplaceExclusions-csv" aria-expanded="false" aria-controls="BulkCopySetsReplaceExclusions-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsReplaceExclusions-csv" aria-expanded="false" aria-controls="BulkCopySetsReplaceExclusions-csv">
 csv
-</button><div id="BulkCopySetsReplaceExclusions-parent">
+</button>
+<div id="BulkCopySetsReplaceExclusions-parent">
 <div class="collapse show" id="BulkCopySetsReplaceExclusions-default" data-bs-parent="#BulkCopySetsReplaceExclusions-parent"> 
 ```json
 {"BulkCopySetID":"string", "BulkDailyCopyExclusions":[{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DoNotCopy":true, "Id":123, "IncludeWithoutCopy":true, "PackageId":123, "PerformanceId":123, "SetId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}, ...]}
@@ -1800,26 +1809,25 @@ csv
 </div>
 </div>
 
-## BulkDailyCopyExclusions 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#bulkdailycopyexclusions)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#bulkdailycopyexclusions)</button>  
+
+## BulkDailyCopyExclusions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#bulkdailycopyexclusions)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#bulkdailycopyexclusions)</button>  
 		
 Creates a bulk daily copy exclusion.  
 ##### Usage:  
 ```shell
 tq post BulkDailyCopyExclusions
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkDailyCopyExclusionsCreate-default" aria-expanded="true" aria-controls="BulkDailyCopyExclusionsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkDailyCopyExclusionsCreate-default" aria-expanded="true" aria-controls="BulkDailyCopyExclusionsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkDailyCopyExclusionsCreate-flat" aria-expanded="false" aria-controls="BulkDailyCopyExclusionsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkDailyCopyExclusionsCreate-flat" aria-expanded="false" aria-controls="BulkDailyCopyExclusionsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkDailyCopyExclusionsCreate-csv" aria-expanded="false" aria-controls="BulkDailyCopyExclusionsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkDailyCopyExclusionsCreate-csv" aria-expanded="false" aria-controls="BulkDailyCopyExclusionsCreate-csv">
 csv
-</button><div id="BulkDailyCopyExclusionsCreate-parent">
+</button>
+<div id="BulkDailyCopyExclusionsCreate-parent">
 <div class="collapse show" id="BulkDailyCopyExclusionsCreate-default" data-bs-parent="#BulkDailyCopyExclusionsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DoNotCopy":true, "Id":123, "IncludeWithoutCopy":true, "PackageId":123, "PerformanceId":123, "SetId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1839,26 +1847,25 @@ CreateLocation,CreatedBy,CreatedDateTime,DoNotCopy,Id,IncludeWithoutCopy,Package
 </div>
 </div>
 
-## BusinessUnits 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#businessunits)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#businessunits)</button>  
+
+## BusinessUnits <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#businessunits)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#businessunits)</button>  
 		
 Create a new business unit.  
 ##### Usage:  
 ```shell
 tq post BusinessUnits
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BusinessUnitsCreate-default" aria-expanded="true" aria-controls="BusinessUnitsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BusinessUnitsCreate-default" aria-expanded="true" aria-controls="BusinessUnitsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BusinessUnitsCreate-flat" aria-expanded="false" aria-controls="BusinessUnitsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BusinessUnitsCreate-flat" aria-expanded="false" aria-controls="BusinessUnitsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BusinessUnitsCreate-csv" aria-expanded="false" aria-controls="BusinessUnitsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BusinessUnitsCreate-csv" aria-expanded="false" aria-controls="BusinessUnitsCreate-csv">
 csv
-</button><div id="BusinessUnitsCreate-parent">
+</button>
+<div id="BusinessUnitsCreate-parent">
 <div class="collapse show" id="BusinessUnitsCreate-default" data-bs-parent="#BusinessUnitsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1878,29 +1885,28 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
+
 	
 # C
 
-## CampaignDesignations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#campaigndesignations)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#campaigndesignations)</button>  
+## CampaignDesignations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#campaigndesignations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#campaigndesignations)</button>  
 		
 Create a new association between a Designation and a Campaign.  
 ##### Usage:  
 ```shell
 tq post CampaignDesignations
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CampaignDesignationsCreate-default" aria-expanded="true" aria-controls="CampaignDesignationsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CampaignDesignationsCreate-default" aria-expanded="true" aria-controls="CampaignDesignationsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CampaignDesignationsCreate-flat" aria-expanded="false" aria-controls="CampaignDesignationsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CampaignDesignationsCreate-flat" aria-expanded="false" aria-controls="CampaignDesignationsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CampaignDesignationsCreate-csv" aria-expanded="false" aria-controls="CampaignDesignationsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CampaignDesignationsCreate-csv" aria-expanded="false" aria-controls="CampaignDesignationsCreate-csv">
 csv
-</button><div id="CampaignDesignationsCreate-parent">
+</button>
+<div id="CampaignDesignationsCreate-parent">
 <div class="collapse show" id="CampaignDesignationsCreate-default" data-bs-parent="#CampaignDesignationsCreate-parent"> 
 ```json
 {"Campaign":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Designation":{"Id":123}, "EditIndicator":true, "GoalAmount":123.456, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1920,26 +1926,25 @@ Campaign.Id,CreateLocation,CreatedBy,CreatedDateTime,DefaultIndicator,Designatio
 </div>
 </div>
 
-## CampaignFunds 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#campaignfunds)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#campaignfunds)</button>  
+
+## CampaignFunds <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#campaignfunds)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#campaignfunds)</button>  
 		
 Create a new Fund association to a Campaign.  
 ##### Usage:  
 ```shell
 tq post CampaignFunds
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CampaignFundsCreate-default" aria-expanded="true" aria-controls="CampaignFundsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CampaignFundsCreate-default" aria-expanded="true" aria-controls="CampaignFundsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CampaignFundsCreate-flat" aria-expanded="false" aria-controls="CampaignFundsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CampaignFundsCreate-flat" aria-expanded="false" aria-controls="CampaignFundsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CampaignFundsCreate-csv" aria-expanded="false" aria-controls="CampaignFundsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CampaignFundsCreate-csv" aria-expanded="false" aria-controls="CampaignFundsCreate-csv">
 csv
-</button><div id="CampaignFundsCreate-parent">
+</button>
+<div id="CampaignFundsCreate-parent">
 <div class="collapse show" id="CampaignFundsCreate-default" data-bs-parent="#CampaignFundsCreate-parent"> 
 ```json
 {"Campaign":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "Fund":{"Id":123}, "GoalAmount":123.456, "Id":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1960,26 +1965,25 @@ Campaign.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,EndDateTime,F
 </div>
 
 
-## CardReaderTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#cardreadertypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#cardreadertypes)</button>  
+
+## CardReaderTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#cardreadertypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#cardreadertypes)</button>  
 		
 Create a new Card Reader Type.  
 ##### Usage:  
 ```shell
 tq post CardReaderTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CardReaderTypesCreate-default" aria-expanded="true" aria-controls="CardReaderTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CardReaderTypesCreate-default" aria-expanded="true" aria-controls="CardReaderTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CardReaderTypesCreate-flat" aria-expanded="false" aria-controls="CardReaderTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CardReaderTypesCreate-flat" aria-expanded="false" aria-controls="CardReaderTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CardReaderTypesCreate-csv" aria-expanded="false" aria-controls="CardReaderTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CardReaderTypesCreate-csv" aria-expanded="false" aria-controls="CardReaderTypesCreate-csv">
 csv
-</button><div id="CardReaderTypesCreate-parent">
+</button>
+<div id="CardReaderTypesCreate-parent">
 <div class="collapse show" id="CardReaderTypesCreate-default" data-bs-parent="#CardReaderTypesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -1999,26 +2003,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## Cart 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#cart)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#cart)</button>  
+
+## Cart <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#cart)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#cart)</button>  
 		
 Attach an existing booking to the cart.  
 ##### Usage:  
 ```shell
 tq post Cart
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddBooking-default" aria-expanded="true" aria-controls="CartAddBooking-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddBooking-default" aria-expanded="true" aria-controls="CartAddBooking-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddBooking-flat" aria-expanded="false" aria-controls="CartAddBooking-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddBooking-flat" aria-expanded="false" aria-controls="CartAddBooking-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddBooking-csv" aria-expanded="false" aria-controls="CartAddBooking-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddBooking-csv" aria-expanded="false" aria-controls="CartAddBooking-csv">
 csv
-</button><div id="CartAddBooking-parent">
+</button>
+<div id="CartAddBooking-parent">
 <div class="collapse show" id="CartAddBooking-default" data-bs-parent="#CartAddBooking-parent"> 
 ```json
 {"BookingId":123, "SessionKey":"string"}
@@ -2037,20 +2040,22 @@ BookingId,SessionKey
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--AddContribution*  
    Adds a contribution to the cart
 The donation must be applied directly to a fund.  This method also allows a specific membership level ID to be specified.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddContribution-default" aria-expanded="true" aria-controls="CartAddContribution-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddContribution-default" aria-expanded="true" aria-controls="CartAddContribution-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddContribution-flat" aria-expanded="false" aria-controls="CartAddContribution-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddContribution-flat" aria-expanded="false" aria-controls="CartAddContribution-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddContribution-csv" aria-expanded="false" aria-controls="CartAddContribution-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddContribution-csv" aria-expanded="false" aria-controls="CartAddContribution-csv">
 csv
-</button><div id="CartAddContribution-parent">
+</button>
+<div id="CartAddContribution-parent">
 <div class="collapse show" id="CartAddContribution-default" data-bs-parent="#CartAddContribution-parent"> 
 ```json
 {"Amount":123.456, "CustomDataItems":[{"DataType":"string", "Description":"string", "EditIndicator":true, "Index":123, "IsDropdown":true, "KeywordId":123, "Name":"string", "Value":"string"}, ...], "FundId":123, "MembershipLevelId":123, "Notes":"string", "Renew":true, "Upgrade":true, "SessionKey":"string"}
@@ -2067,19 +2072,21 @@ csv
 ```  
 </div>
 </div>
+
  * *--AddFee*  
    Adds or Updates a fee
 Only user-defined fees can be added.  Seat-based fees can be overridden to zero only, while order-based or user-defined fees can be overridden to any amount, as allowed by the rules in fee setup.  To add and edit a user-defined fee call this method twice, once to add the fee, and once to override the amount.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddUpdateFee-default" aria-expanded="true" aria-controls="CartAddUpdateFee-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddUpdateFee-default" aria-expanded="true" aria-controls="CartAddUpdateFee-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddUpdateFee-flat" aria-expanded="false" aria-controls="CartAddUpdateFee-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddUpdateFee-flat" aria-expanded="false" aria-controls="CartAddUpdateFee-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddUpdateFee-csv" aria-expanded="false" aria-controls="CartAddUpdateFee-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddUpdateFee-csv" aria-expanded="false" aria-controls="CartAddUpdateFee-csv">
 csv
-</button><div id="CartAddUpdateFee-parent">
+</button>
+<div id="CartAddUpdateFee-parent">
 <div class="collapse show" id="CartAddUpdateFee-default" data-bs-parent="#CartAddUpdateFee-parent"> 
 ```json
 {"Action":"string", "Amount":123.456, "FeeId":123, "ItemFeeId":123, "SessionKey":"string"}
@@ -2098,19 +2105,21 @@ Action,Amount,FeeId,ItemFeeId,SessionKey
 ```  
 </div>
 </div>
+
  * *--AddGiftCertificate*  
    Adds a gift certificate for the specified amount to the cart
 The resulting gift certificate number can be found with /Web/Cart (GET).
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddGiftCertificate-default" aria-expanded="true" aria-controls="CartAddGiftCertificate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddGiftCertificate-default" aria-expanded="true" aria-controls="CartAddGiftCertificate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddGiftCertificate-flat" aria-expanded="false" aria-controls="CartAddGiftCertificate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddGiftCertificate-flat" aria-expanded="false" aria-controls="CartAddGiftCertificate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddGiftCertificate-csv" aria-expanded="false" aria-controls="CartAddGiftCertificate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddGiftCertificate-csv" aria-expanded="false" aria-controls="CartAddGiftCertificate-csv">
 csv
-</button><div id="CartAddGiftCertificate-parent">
+</button>
+<div id="CartAddGiftCertificate-parent">
 <div class="collapse show" id="CartAddGiftCertificate-default" data-bs-parent="#CartAddGiftCertificate-parent"> 
 ```json
 {"Amount":123.456, "Name":"string", "Notes":"string", "PaymentMethodId":123, "SessionKey":"string"}
@@ -2129,22 +2138,24 @@ Amount,Name,Notes,PaymentMethodId,SessionKey
 ```  
 </div>
 </div>
+
  * *--AddNFSPackagePerformanceItem*  
    Adds a new nfs package item to the cart
 This method adds a seated or unseated non fixed seat (NFS) or flex package to the cart by adding the component performances.  When the package is seated, the best seating function can be used or specific seat numbers can be passed for use with SYOS functionality.  
 A NFS or flex package line item is created when the first component performance is added to the cart.The ID number from the package line item is required when the remaining component performances are added.  It is returned as NFSPackageLineItemId in the method's response.
 /Web/Cart/Validation can be called at any time, setting the ValidateNFSPackages boolean to true, to determine whether all of the rules for the package have been met with items in the shopping cart.
 This method will allow the reservation of held seats.  To enable this functionality, add the key ''Reserve Held Seats' to T_DEFAULTS with a value of 'Yes' under the "Tessitura Web" parent table (or organization name if operating in a consortium environment).
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddNFSPackagePerformanceItem-default" aria-expanded="true" aria-controls="CartAddNFSPackagePerformanceItem-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddNFSPackagePerformanceItem-default" aria-expanded="true" aria-controls="CartAddNFSPackagePerformanceItem-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddNFSPackagePerformanceItem-flat" aria-expanded="false" aria-controls="CartAddNFSPackagePerformanceItem-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddNFSPackagePerformanceItem-flat" aria-expanded="false" aria-controls="CartAddNFSPackagePerformanceItem-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddNFSPackagePerformanceItem-csv" aria-expanded="false" aria-controls="CartAddNFSPackagePerformanceItem-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddNFSPackagePerformanceItem-csv" aria-expanded="false" aria-controls="CartAddNFSPackagePerformanceItem-csv">
 csv
-</button><div id="CartAddNFSPackagePerformanceItem-parent">
+</button>
+<div id="CartAddNFSPackagePerformanceItem-parent">
 <div class="collapse show" id="CartAddNFSPackagePerformanceItem-default" data-bs-parent="#CartAddNFSPackagePerformanceItem-parent"> 
 ```json
 {"LeaveSingleSeats":true, "NFSPackageLineItemId":123, "NumberOfSeats":123, "PackageId":123, "PerformanceGroupId":123, "PerformanceId":123, "PriceType":"string", "PriceTypeReason":"string", "RequestedSeats":"string", "SpecialRequests":"string", "Unseated":true, "ZoneId":123, "SessionKey":"string"}
@@ -2163,19 +2174,21 @@ true,123,123,123,123,123,"""string""","""string""","""string""","""string""","""
 ```  
 </div>
 </div>
+
  * *--AddOnAccount*  
    Adds an On Account balance to the cart
 Checkout will not be allowed for a general public order if On Account balance is added.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddOnAccount-default" aria-expanded="true" aria-controls="CartAddOnAccount-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddOnAccount-default" aria-expanded="true" aria-controls="CartAddOnAccount-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddOnAccount-flat" aria-expanded="false" aria-controls="CartAddOnAccount-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddOnAccount-flat" aria-expanded="false" aria-controls="CartAddOnAccount-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddOnAccount-csv" aria-expanded="false" aria-controls="CartAddOnAccount-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddOnAccount-csv" aria-expanded="false" aria-controls="CartAddOnAccount-csv">
 csv
-</button><div id="CartAddOnAccount-parent">
+</button>
+<div id="CartAddOnAccount-parent">
 <div class="collapse show" id="CartAddOnAccount-default" data-bs-parent="#CartAddOnAccount-parent"> 
 ```json
 {"Amount":123.456, "Notes":"string", "PaymentMethodId":123, "SessionKey":"string"}
@@ -2194,21 +2207,23 @@ Amount,Notes,PaymentMethodId,SessionKey
 ```  
 </div>
 </div>
+
  * *--AddPackageItem*  
    Adds a new fixed seat package item to the cart
 Adds a seated or unseated fixed seat package line item to the cart and reserves seats using either the best seat function or reserves specific seats.
 PackageId line items can be added as alternate/upgrade line items to another line item in the cart.  To add an alternate/upgrade line item, the parent line item ID must be retrieved using /Web/Cart (GET) and then passed as the ParentPackageLineItemId parameter value for this method.
 This method will allow the reservation of held seats.To enable this functionality, add the key ''Reserve Held Seats' to T_DEFAULTS with a value of 'Yes' under the "Tessitura Web" parent table (or organization name if operating in a consortium environment).
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPackageItem-default" aria-expanded="true" aria-controls="CartAddPackageItem-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPackageItem-default" aria-expanded="true" aria-controls="CartAddPackageItem-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPackageItem-flat" aria-expanded="false" aria-controls="CartAddPackageItem-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPackageItem-flat" aria-expanded="false" aria-controls="CartAddPackageItem-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPackageItem-csv" aria-expanded="false" aria-controls="CartAddPackageItem-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPackageItem-csv" aria-expanded="false" aria-controls="CartAddPackageItem-csv">
 csv
-</button><div id="CartAddPackageItem-parent">
+</button>
+<div id="CartAddPackageItem-parent">
 <div class="collapse show" id="CartAddPackageItem-default" data-bs-parent="#CartAddPackageItem-parent"> 
 ```json
 {"LeaveSingleSeats":true, "NumberOfSeats":123, "PackageId":123, "ParentPackageLineItemId":123, "PriceType":"string", "PriceTypeReason":"string", "RequestedSeats":"string", "Unseated":true, "ZoneId":123, "SessionKey":"string"}
@@ -2227,19 +2242,21 @@ true,123,123,123,"""string""","""string""","""string""","""string""",true,123
 ```  
 </div>
 </div>
+
  * *--AddPaymentPlan*  
    Sets a payment plan on the cart using a start date, end date and a specific number of payments to be spread across the date range.
 The due date for the first payment is set to the entered beginning date, and the due date for subsequent payments is calculated by adding an equal number of days to each previous payment, based on the amount of time between the beginning and ending dates.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPaymentPlan-default" aria-expanded="true" aria-controls="CartAddPaymentPlan-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPaymentPlan-default" aria-expanded="true" aria-controls="CartAddPaymentPlan-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPaymentPlan-flat" aria-expanded="false" aria-controls="CartAddPaymentPlan-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPaymentPlan-flat" aria-expanded="false" aria-controls="CartAddPaymentPlan-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPaymentPlan-csv" aria-expanded="false" aria-controls="CartAddPaymentPlan-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPaymentPlan-csv" aria-expanded="false" aria-controls="CartAddPaymentPlan-csv">
 csv
-</button><div id="CartAddPaymentPlan-parent">
+</button>
+<div id="CartAddPaymentPlan-parent">
 <div class="collapse show" id="CartAddPaymentPlan-default" data-bs-parent="#CartAddPaymentPlan-parent"> 
 ```json
 {"AccountId":123, "BillingTypeId":123, "Card":{"ExpiryMonth":123, "ExpiryYear":123, "Name":"string", "Number":"string", "PaymentMethodGroupId":123}, "EndDate":"2000-01-01T00:00:00.000Z", "NumberOfPayments":123, "StartDate":"2000-01-01T00:00:00.000Z", "SessionKey":"string"}
@@ -2258,19 +2275,21 @@ AccountId,BillingTypeId,Card.ExpiryMonth,Card.ExpiryYear,Card.Name,Card.Number,C
 ```  
 </div>
 </div>
+
  * *--AddPaymentPlanBasedOnBillingSchedule*  
    Sets a payment plan on the cart using a start date, end date and a pre-defined billing schedule.
 The number of payments, payment amounts, and payment due dates are calculated based on the selected billing schedule.  For details on setting up billing schedules see the TR_BILLING_SCHEDULE section of the System Tables document.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPaymentPlanBasedOnBillingSchedule-default" aria-expanded="true" aria-controls="CartAddPaymentPlanBasedOnBillingSchedule-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPaymentPlanBasedOnBillingSchedule-default" aria-expanded="true" aria-controls="CartAddPaymentPlanBasedOnBillingSchedule-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPaymentPlanBasedOnBillingSchedule-flat" aria-expanded="false" aria-controls="CartAddPaymentPlanBasedOnBillingSchedule-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPaymentPlanBasedOnBillingSchedule-flat" aria-expanded="false" aria-controls="CartAddPaymentPlanBasedOnBillingSchedule-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPaymentPlanBasedOnBillingSchedule-csv" aria-expanded="false" aria-controls="CartAddPaymentPlanBasedOnBillingSchedule-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPaymentPlanBasedOnBillingSchedule-csv" aria-expanded="false" aria-controls="CartAddPaymentPlanBasedOnBillingSchedule-csv">
 csv
-</button><div id="CartAddPaymentPlanBasedOnBillingSchedule-parent">
+</button>
+<div id="CartAddPaymentPlanBasedOnBillingSchedule-parent">
 <div class="collapse show" id="CartAddPaymentPlanBasedOnBillingSchedule-default" data-bs-parent="#CartAddPaymentPlanBasedOnBillingSchedule-parent"> 
 ```json
 {"AccountId":123, "BillingScheduleId":123, "BillingTypeId":123, "Card":{"ExpiryMonth":123, "ExpiryYear":123, "Name":"string", "Number":"string", "PaymentMethodGroupId":123}, "EndDate":"2000-01-01T00:00:00.000Z", "OverrideAmountToSchedule":123.456, "StartDate":"2000-01-01T00:00:00.000Z", "SessionKey":"string"}
@@ -2289,19 +2308,21 @@ AccountId,BillingScheduleId,BillingTypeId,Card.ExpiryMonth,Card.ExpiryYear,Card.
 ```  
 </div>
 </div>
+
  * *--AddPaymentPlanInstallments*  
    Sets a payment plan on the cart using a start date, end date and a list of installments with amount and due date.
 The total of the installment amounts must add up to the cart total. /Web/Cart/Validation can be used to validate that the payment plan is correct by passing True for ValidatePaymentPlan in that method.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPaymentPlanInstallments-default" aria-expanded="true" aria-controls="CartAddPaymentPlanInstallments-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPaymentPlanInstallments-default" aria-expanded="true" aria-controls="CartAddPaymentPlanInstallments-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPaymentPlanInstallments-flat" aria-expanded="false" aria-controls="CartAddPaymentPlanInstallments-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPaymentPlanInstallments-flat" aria-expanded="false" aria-controls="CartAddPaymentPlanInstallments-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPaymentPlanInstallments-csv" aria-expanded="false" aria-controls="CartAddPaymentPlanInstallments-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddPaymentPlanInstallments-csv" aria-expanded="false" aria-controls="CartAddPaymentPlanInstallments-csv">
 csv
-</button><div id="CartAddPaymentPlanInstallments-parent">
+</button>
+<div id="CartAddPaymentPlanInstallments-parent">
 <div class="collapse show" id="CartAddPaymentPlanInstallments-default" data-bs-parent="#CartAddPaymentPlanInstallments-parent"> 
 ```json
 {"AccountId":123, "BillingTypeId":123, "Card":{"ExpiryMonth":123, "ExpiryYear":123, "Name":"string", "Number":"string", "PaymentMethodGroupId":123}, "PaymentPlanInstallments":[{"Amount":123.456}, ...], "SessionKey":"string"}
@@ -2318,21 +2339,23 @@ csv
 ```  
 </div>
 </div>
+
  * *--AddSubPackageItem*  
    Adds a new sub package item to the cart
 This method is used to add a seated or unseated super package line item to the cart for the specified session by adding the component sub packages.  When the package is seated, the best seating function can be used or specific seat numbers can be passed for use with SYOS functionality.  The method must be called once for each sub package.
 A super package line item is created when the first sub package is added to the cart.The ID number from the super package line item is required when the remaining component sub packages are added.It is returned as SuperPackageLineItemId in the response.
 Super package line items can be added as alternate/upgrade line items to another super package line item in the cart.  To add an alternate/upgrade line item, the parent line item ID must be passed as the ParentSuperPackageLineItemId parameter value for this method.The parent line item ID can be retrieved using the /Web/Cart (GET) method.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddSubPackageItem-default" aria-expanded="true" aria-controls="CartAddSubPackageItem-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddSubPackageItem-default" aria-expanded="true" aria-controls="CartAddSubPackageItem-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddSubPackageItem-flat" aria-expanded="false" aria-controls="CartAddSubPackageItem-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddSubPackageItem-flat" aria-expanded="false" aria-controls="CartAddSubPackageItem-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddSubPackageItem-csv" aria-expanded="false" aria-controls="CartAddSubPackageItem-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAddSubPackageItem-csv" aria-expanded="false" aria-controls="CartAddSubPackageItem-csv">
 csv
-</button><div id="CartAddSubPackageItem-parent">
+</button>
+<div id="CartAddSubPackageItem-parent">
 <div class="collapse show" id="CartAddSubPackageItem-default" data-bs-parent="#CartAddSubPackageItem-parent"> 
 ```json
 {"LeaveSingleSeats":true, "NumberOfSeats":123, "ParentSuperPackageLineItemId":123, "PriceType":"string", "PriceTypeReason":"string", "RequestedSeats":"string", "SubPackageId":123, "SuperPackageLineItemId":123, "Unseated":true, "ZoneId":123, "SessionKey":"string"}
@@ -2351,18 +2374,20 @@ true,123,123,"""string""","""string""","""string""","""string""",123,123,true,12
 ```  
 </div>
 </div>
+
  * *--ApplyCashPayment*  
    Applies a cash payment to the cart
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyCashPayment-default" aria-expanded="true" aria-controls="CartApplyCashPayment-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyCashPayment-default" aria-expanded="true" aria-controls="CartApplyCashPayment-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyCashPayment-flat" aria-expanded="false" aria-controls="CartApplyCashPayment-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyCashPayment-flat" aria-expanded="false" aria-controls="CartApplyCashPayment-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyCashPayment-csv" aria-expanded="false" aria-controls="CartApplyCashPayment-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyCashPayment-csv" aria-expanded="false" aria-controls="CartApplyCashPayment-csv">
 csv
-</button><div id="CartApplyCashPayment-parent">
+</button>
+<div id="CartApplyCashPayment-parent">
 <div class="collapse show" id="CartApplyCashPayment-default" data-bs-parent="#CartApplyCashPayment-parent"> 
 ```json
 {"Amount":123.456, "Notes":"string", "PaymentMethodId":123, "TenderedAmount":123.456, "SessionKey":"string"}
@@ -2381,18 +2406,20 @@ Amount,Notes,PaymentMethodId,SessionKey,TenderedAmount
 ```  
 </div>
 </div>
+
  * *--ApplyCheckPayment*  
    Applies a check payment to the cart
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyCheckPayment-default" aria-expanded="true" aria-controls="CartApplyCheckPayment-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyCheckPayment-default" aria-expanded="true" aria-controls="CartApplyCheckPayment-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyCheckPayment-flat" aria-expanded="false" aria-controls="CartApplyCheckPayment-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyCheckPayment-flat" aria-expanded="false" aria-controls="CartApplyCheckPayment-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyCheckPayment-csv" aria-expanded="false" aria-controls="CartApplyCheckPayment-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyCheckPayment-csv" aria-expanded="false" aria-controls="CartApplyCheckPayment-csv">
 csv
-</button><div id="CartApplyCheckPayment-parent">
+</button>
+<div id="CartApplyCheckPayment-parent">
 <div class="collapse show" id="CartApplyCheckPayment-default" data-bs-parent="#CartApplyCheckPayment-parent"> 
 ```json
 {"Amount":123.456, "CheckNumber":"string", "Notes":"string", "PayerName":"string", "PaymentMethodId":123, "SessionKey":"string"}
@@ -2411,18 +2438,20 @@ Amount,CheckNumber,Notes,PayerName,PaymentMethodId,SessionKey
 ```  
 </div>
 </div>
+
  * *--ApplyGiftCertificate*  
    Applies a gift certificate as payment for a cart
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyGiftCertificate-default" aria-expanded="true" aria-controls="CartApplyGiftCertificate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyGiftCertificate-default" aria-expanded="true" aria-controls="CartApplyGiftCertificate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyGiftCertificate-flat" aria-expanded="false" aria-controls="CartApplyGiftCertificate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyGiftCertificate-flat" aria-expanded="false" aria-controls="CartApplyGiftCertificate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyGiftCertificate-csv" aria-expanded="false" aria-controls="CartApplyGiftCertificate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyGiftCertificate-csv" aria-expanded="false" aria-controls="CartApplyGiftCertificate-csv">
 csv
-</button><div id="CartApplyGiftCertificate-parent">
+</button>
+<div id="CartApplyGiftCertificate-parent">
 <div class="collapse show" id="CartApplyGiftCertificate-default" data-bs-parent="#CartApplyGiftCertificate-parent"> 
 ```json
 {"Amount":123.456, "GiftCertificateNumber":"string", "Notes":"string", "SessionKey":"string"}
@@ -2441,19 +2470,21 @@ Amount,GiftCertificateNumber,Notes,SessionKey
 ```  
 </div>
 </div>
+
  * *--ApplyInvoicePayment*  
    Applies an invoice payment to the cart
 Checkout will not be allowed for a general public order if an Invoice payment is applied
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyInvoicePayment-default" aria-expanded="true" aria-controls="CartApplyInvoicePayment-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyInvoicePayment-default" aria-expanded="true" aria-controls="CartApplyInvoicePayment-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyInvoicePayment-flat" aria-expanded="false" aria-controls="CartApplyInvoicePayment-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyInvoicePayment-flat" aria-expanded="false" aria-controls="CartApplyInvoicePayment-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyInvoicePayment-csv" aria-expanded="false" aria-controls="CartApplyInvoicePayment-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyInvoicePayment-csv" aria-expanded="false" aria-controls="CartApplyInvoicePayment-csv">
 csv
-</button><div id="CartApplyInvoicePayment-parent">
+</button>
+<div id="CartApplyInvoicePayment-parent">
 <div class="collapse show" id="CartApplyInvoicePayment-default" data-bs-parent="#CartApplyInvoicePayment-parent"> 
 ```json
 {"Amount":123.456, "Notes":"string", "PaymentMethodId":123, "SessionKey":"string"}
@@ -2472,19 +2503,21 @@ Amount,Notes,PaymentMethodId,SessionKey
 ```  
 </div>
 </div>
+
  * *--ApplyOnAccountPayment*  
    Applies an On Account payment to the cart.
 Not valid for a general public cart.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyOnAccountPayment-default" aria-expanded="true" aria-controls="CartApplyOnAccountPayment-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyOnAccountPayment-default" aria-expanded="true" aria-controls="CartApplyOnAccountPayment-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyOnAccountPayment-flat" aria-expanded="false" aria-controls="CartApplyOnAccountPayment-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyOnAccountPayment-flat" aria-expanded="false" aria-controls="CartApplyOnAccountPayment-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyOnAccountPayment-csv" aria-expanded="false" aria-controls="CartApplyOnAccountPayment-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyOnAccountPayment-csv" aria-expanded="false" aria-controls="CartApplyOnAccountPayment-csv">
 csv
-</button><div id="CartApplyOnAccountPayment-parent">
+</button>
+<div id="CartApplyOnAccountPayment-parent">
 <div class="collapse show" id="CartApplyOnAccountPayment-default" data-bs-parent="#CartApplyOnAccountPayment-parent"> 
 ```json
 {"Amount":123.456, "Notes":"string", "PaymentMethodId":123, "SessionKey":"string"}
@@ -2503,18 +2536,20 @@ Amount,Notes,PaymentMethodId,SessionKey
 ```  
 </div>
 </div>
+
  * *--ApplyOtherPayment*  
    Applies an other payment to the cart
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyOtherPayment-default" aria-expanded="true" aria-controls="CartApplyOtherPayment-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyOtherPayment-default" aria-expanded="true" aria-controls="CartApplyOtherPayment-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyOtherPayment-flat" aria-expanded="false" aria-controls="CartApplyOtherPayment-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyOtherPayment-flat" aria-expanded="false" aria-controls="CartApplyOtherPayment-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyOtherPayment-csv" aria-expanded="false" aria-controls="CartApplyOtherPayment-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyOtherPayment-csv" aria-expanded="false" aria-controls="CartApplyOtherPayment-csv">
 csv
-</button><div id="CartApplyOtherPayment-parent">
+</button>
+<div id="CartApplyOtherPayment-parent">
 <div class="collapse show" id="CartApplyOtherPayment-default" data-bs-parent="#CartApplyOtherPayment-parent"> 
 ```json
 {"Amount":123.456, "Notes":"string", "PaymentMethodId":123, "SessionKey":"string"}
@@ -2533,18 +2568,20 @@ Amount,Notes,PaymentMethodId,SessionKey
 ```  
 </div>
 </div>
+
  * *--Authorize*  
    Authorize payment using a card reader in a web based transaction.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAuthorize-default" aria-expanded="true" aria-controls="CartAuthorize-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAuthorize-default" aria-expanded="true" aria-controls="CartAuthorize-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAuthorize-flat" aria-expanded="false" aria-controls="CartAuthorize-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAuthorize-flat" aria-expanded="false" aria-controls="CartAuthorize-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAuthorize-csv" aria-expanded="false" aria-controls="CartAuthorize-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartAuthorize-csv" aria-expanded="false" aria-controls="CartAuthorize-csv">
 csv
-</button><div id="CartAuthorize-parent">
+</button>
+<div id="CartAuthorize-parent">
 <div class="collapse show" id="CartAuthorize-default" data-bs-parent="#CartAuthorize-parent"> 
 ```json
 {"Amount":123.456, "IsMoto":true, "MachineId":123, "TransactionOrigin":"string", "UserData":"string", "SessionKey":"string"}
@@ -2563,6 +2600,7 @@ Amount,IsMoto,MachineId,SessionKey,TransactionOrigin,UserData
 ```  
 </div>
 </div>
+
  * *--Checkout*  
    Validates, processes payment for, and saves an order for a specified session.  
 Payment information can be provided as follows:
@@ -2575,16 +2613,17 @@ Payment information can be provided as follows:
 When the method is run the status of the order is checked to ensure checkout has not started. The procedure will set the status in T_WEB_CHECKOUT to one of the following values: (S)ave in progress, (C)ompleted save, (E)rror when saving.
 The response includes a status and message details about the status.Possible status results are: SaveInProgress, SaveComplete, Error.
 In order to facilitate the use of the interceptor capability, the checkout method now makes a POST call to Txn / Orders.By default this call does nothing unless a developer has added interceptor plug -in code to the exposure.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartCheckout-default" aria-expanded="true" aria-controls="CartCheckout-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartCheckout-default" aria-expanded="true" aria-controls="CartCheckout-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartCheckout-flat" aria-expanded="false" aria-controls="CartCheckout-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartCheckout-flat" aria-expanded="false" aria-controls="CartCheckout-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartCheckout-csv" aria-expanded="false" aria-controls="CartCheckout-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartCheckout-csv" aria-expanded="false" aria-controls="CartCheckout-csv">
 csv
-</button><div id="CartCheckout-parent">
+</button>
+<div id="CartCheckout-parent">
 <div class="collapse show" id="CartCheckout-default" data-bs-parent="#CartCheckout-parent"> 
 ```json
 {"AccountId":123, "Address":"string", "AllowUnderPayment":true, "Amount":123.456, "AuthorizationCode":"string", "Authorize":true, "CreditCardAuthenticationCode":"string", "CreditCardMonth":123, "CreditCardNumber":"string", "CreditCardOwner":"string", "CreditCardType":123, "CreditCardYear":123, "DeliveryDate":"2000-01-01T00:00:00.000Z", "ECommerce":true, "PaymentId":123, "PaymentReference":"string", "SecureValues":"string", "StoreAccount":true, "ZipCode":"string", "SessionKey":"string"}
@@ -2603,21 +2642,23 @@ AccountId,Address,AllowUnderPayment,Amount,AuthorizationCode,Authorize,CreditCar
 ```  
 </div>
 </div>
+
  * *--CheckoutWithCard*  
    Processes checkout for the cart, using card swipe information for payment. Used by TRBO.
  When the method is run the status of the order is checked to ensure checkout has not started. The procedure will set the status in T_WEB_CHECKOUT to one of the following values: (S)ave in progress, (C)ompleted save, (E)rror when saving.
 The response includes a status and message details about the status.Possible status results are: SaveInProgress, SaveComplete, Error.
 In order to facilitate the use of the interceptor capability, the checkout method now makes a POST call to Txn / Orders.By default this call does nothing unless a developer has added interceptor plug -in code to the exposure.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartCheckoutWithCard-default" aria-expanded="true" aria-controls="CartCheckoutWithCard-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartCheckoutWithCard-default" aria-expanded="true" aria-controls="CartCheckoutWithCard-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartCheckoutWithCard-flat" aria-expanded="false" aria-controls="CartCheckoutWithCard-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartCheckoutWithCard-flat" aria-expanded="false" aria-controls="CartCheckoutWithCard-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartCheckoutWithCard-csv" aria-expanded="false" aria-controls="CartCheckoutWithCard-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartCheckoutWithCard-csv" aria-expanded="false" aria-controls="CartCheckoutWithCard-csv">
 csv
-</button><div id="CartCheckoutWithCard-parent">
+</button>
+<div id="CartCheckoutWithCard-parent">
 <div class="collapse show" id="CartCheckoutWithCard-default" data-bs-parent="#CartCheckoutWithCard-parent"> 
 ```json
 {"AllowUnderPayment":true, "Amount":123.456, "AuthorizationCode":"string", "Authorize":true, "CreditCardTrack1":"string", "CreditCardTrack2":"string", "CreditCardType":123, "DeliveryDate":"2000-01-01T00:00:00.000Z", "ECommerce":true, "StoreAccount":true, "ZipCode":"string", "SessionKey":"string"}
@@ -2636,19 +2677,21 @@ true,123.456,"""string""",true,"""string""","""string""",123,"""2000-01-01T00:00
 ```  
 </div>
 </div>
+
  * *--PreviewPaymentPlanBasedOnBillingSchedule*  
    Returns the payment schedule that would be applied to the current cart for the selected billing schedule without applying it to the cart.
 The number of payments, payment amounts, and payment due dates are calculated based on the selected billing schedule.  For details on setting up billing schedules see the TR_BILLING_SCHEDULE section of the System Tables document.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPreviewPaymentPlanBasedOnBillingSchedule-default" aria-expanded="true" aria-controls="CartPreviewPaymentPlanBasedOnBillingSchedule-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPreviewPaymentPlanBasedOnBillingSchedule-default" aria-expanded="true" aria-controls="CartPreviewPaymentPlanBasedOnBillingSchedule-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPreviewPaymentPlanBasedOnBillingSchedule-flat" aria-expanded="false" aria-controls="CartPreviewPaymentPlanBasedOnBillingSchedule-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPreviewPaymentPlanBasedOnBillingSchedule-flat" aria-expanded="false" aria-controls="CartPreviewPaymentPlanBasedOnBillingSchedule-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPreviewPaymentPlanBasedOnBillingSchedule-csv" aria-expanded="false" aria-controls="CartPreviewPaymentPlanBasedOnBillingSchedule-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPreviewPaymentPlanBasedOnBillingSchedule-csv" aria-expanded="false" aria-controls="CartPreviewPaymentPlanBasedOnBillingSchedule-csv">
 csv
-</button><div id="CartPreviewPaymentPlanBasedOnBillingSchedule-parent">
+</button>
+<div id="CartPreviewPaymentPlanBasedOnBillingSchedule-parent">
 <div class="collapse show" id="CartPreviewPaymentPlanBasedOnBillingSchedule-default" data-bs-parent="#CartPreviewPaymentPlanBasedOnBillingSchedule-parent"> 
 ```json
 {"BillingScheduleId":123, "EndDate":"2000-01-01T00:00:00.000Z", "OverrideAmountToSchedule":123.456, "StartDate":"2000-01-01T00:00:00.000Z", "SessionKey":"string"}
@@ -2667,18 +2710,20 @@ BillingScheduleId,EndDate,OverrideAmountToSchedule,SessionKey,StartDate
 ```  
 </div>
 </div>
+
  * *--Price*  
    Price the current web cart associated with the specified sessionKey.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrice-default" aria-expanded="true" aria-controls="CartPrice-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrice-default" aria-expanded="true" aria-controls="CartPrice-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrice-flat" aria-expanded="false" aria-controls="CartPrice-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrice-flat" aria-expanded="false" aria-controls="CartPrice-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrice-csv" aria-expanded="false" aria-controls="CartPrice-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrice-csv" aria-expanded="false" aria-controls="CartPrice-csv">
 csv
-</button><div id="CartPrice-parent">
+</button>
+<div id="CartPrice-parent">
 <div class="collapse show" id="CartPrice-default" data-bs-parent="#CartPrice-parent"> 
 ```json
 {"SessionKey":"string"}
@@ -2697,21 +2742,23 @@ SessionKey
 ```  
 </div>
 </div>
+
  * *--PrintEmail*  
    Prints tickets for specified order, lineitems, or sublineitems and returns a formatted html body and attachments
 The method returns tickets for unprinted fully-paid orders or reprints printed tickets specified via order number, one or more line item numbers, or one or more sub line item numbers.  In the case of partially-paid orders, only line items or sub line items which have been fully-paid will be eligible for printing. Only tickets belonging to the customer associated via the current web session can be returned. Ticket information can be returned in the default design specified for the ticket price type, or you may specify a ticket design to utilize via the request parameters. After the tickets have been returned via the API, seats will be flagged as Ticketed in Tessitura.
 When reprinting tickets, one of the request parameters provides you with the option to regenerate the ticket number or reuse the current ticket number.
 If PrinterType = "B", ticket designs with images are not supported
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrintEmail-default" aria-expanded="true" aria-controls="CartPrintEmail-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrintEmail-default" aria-expanded="true" aria-controls="CartPrintEmail-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrintEmail-flat" aria-expanded="false" aria-controls="CartPrintEmail-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrintEmail-flat" aria-expanded="false" aria-controls="CartPrintEmail-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrintEmail-csv" aria-expanded="false" aria-controls="CartPrintEmail-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrintEmail-csv" aria-expanded="false" aria-controls="CartPrintEmail-csv">
 csv
-</button><div id="CartPrintEmail-parent">
+</button>
+<div id="CartPrintEmail-parent">
 <div class="collapse show" id="CartPrintEmail-default" data-bs-parent="#CartPrintEmail-parent"> 
 ```json
 {"ReceiptSettingsID":"string", "HeaderDesignId":123, "IncludeReceipts":true, "LineItems":"string", "Mode":123, "NewTicketNoForReprints":true, "OrderId":123, "PrinterType":"string", "ReprintTickets":true, "SubLineItems":"string", "TicketDesignId":123, "SessionKey":"string"}
@@ -2730,21 +2777,23 @@ HeaderDesignId,IncludeReceipts,LineItems,Mode,NewTicketNoForReprints,OrderId,Pri
 ```  
 </div>
 </div>
+
  * *--PrintPrintStrings*  
    Prints tickets for specified order, lineitems, or sublineitems and returns a collection of formatted strings based on printer type.
 The returned strings can then be sent to the appropriate printer. NOTE:  Currently only Zebra printer types are supported by this method. (PrinterType = "Z")
 The method returns tickets for unprinted fully-paid orders or reprints printed tickets specified via order number, one or more line item numbers, or one or more sub line item numbers.  In the case of partially-paid orders, only line items or sub line items which have been fully-paid will be eligible for printing. Only tickets belonging to the customer associated via the current web session can be returned. Ticket information can be returned in the default design specified for the ticket price type, or you may specify a ticket design to utilize via the request parameters. After the tickets have been returned via the API, seats will be flagged as Ticketed in Tessitura.
 When reprinting tickets, one of the request parameters provides you with the option to regenerate the ticket number or reuse the current ticket number.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrintPrintStrings-default" aria-expanded="true" aria-controls="CartPrintPrintStrings-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrintPrintStrings-default" aria-expanded="true" aria-controls="CartPrintPrintStrings-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrintPrintStrings-flat" aria-expanded="false" aria-controls="CartPrintPrintStrings-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrintPrintStrings-flat" aria-expanded="false" aria-controls="CartPrintPrintStrings-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrintPrintStrings-csv" aria-expanded="false" aria-controls="CartPrintPrintStrings-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrintPrintStrings-csv" aria-expanded="false" aria-controls="CartPrintPrintStrings-csv">
 csv
-</button><div id="CartPrintPrintStrings-parent">
+</button>
+<div id="CartPrintPrintStrings-parent">
 <div class="collapse show" id="CartPrintPrintStrings-default" data-bs-parent="#CartPrintPrintStrings-parent"> 
 ```json
 {"HeaderDesignId":123, "IncludeReceipts":true, "LineItems":"string", "Mode":123, "NewTicketNoForReprints":true, "OrderId":123, "PrinterType":"string", "ReprintTickets":true, "SubLineItems":"string", "TicketDesignId":123, "SessionKey":"string"}
@@ -2763,20 +2812,22 @@ HeaderDesignId,IncludeReceipts,LineItems,Mode,NewTicketNoForReprints,OrderId,Pri
 ```  
 </div>
 </div>
+
  * *--PrintTicketElements*  
    Prints tickets for specified order, lineitems, or sublineitems and returns all ticket elements.
 The method returns ticket data for unprinted fully-paid orders or reprints printed tickets specified via order number, one or more line item numbers, or one or more sub line item numbers.  In the case of partially-paid orders, only line items or sub line items which have been fully-paid will be eligible for printing. Only tickets belonging to the customer associated via the current web session can be returned. Ticket information can be returned in the default design specified for the ticket price type, or you may specify a ticket design to utilize via the request parameters. After the ticket data has been returned via the API, seats will be flagged as Ticketed in Tessitura.
 When reprinting tickets, one of the request parameters provides you with the option to regenerate the ticket number or reuse the current ticket number.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrintTicketElements-default" aria-expanded="true" aria-controls="CartPrintTicketElements-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrintTicketElements-default" aria-expanded="true" aria-controls="CartPrintTicketElements-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrintTicketElements-flat" aria-expanded="false" aria-controls="CartPrintTicketElements-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrintTicketElements-flat" aria-expanded="false" aria-controls="CartPrintTicketElements-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrintTicketElements-csv" aria-expanded="false" aria-controls="CartPrintTicketElements-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartPrintTicketElements-csv" aria-expanded="false" aria-controls="CartPrintTicketElements-csv">
 csv
-</button><div id="CartPrintTicketElements-parent">
+</button>
+<div id="CartPrintTicketElements-parent">
 <div class="collapse show" id="CartPrintTicketElements-default" data-bs-parent="#CartPrintTicketElements-parent"> 
 ```json
 {"HeaderDesignId":123, "IncludeReceipts":true, "LineItems":"string", "Mode":123, "NewTicketNoForReprints":true, "OrderId":123, "PrinterType":"string", "ReprintTickets":true, "SubLineItems":"string", "TicketDesignId":123, "SessionKey":"string"}
@@ -2795,20 +2846,22 @@ HeaderDesignId,IncludeReceipts,LineItems,Mode,NewTicketNoForReprints,OrderId,Pri
 ```  
 </div>
 </div>
+
  * *--ReserveTickets*  
    Reserves tickets in cart
 Adds a seated or unseated performance line item to the cart and reserves seats using either the best seat function or reserves specific seats.
 This method will allow the reservation of held seats.To enable this functionality, add the key ''Reserve Held Seats' to T_DEFAULTS with a value of 'Yes' under the "Tessitura Web" parent table (or organization name if operating in a consortium environment).
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReserveTickets-default" aria-expanded="true" aria-controls="CartReserveTickets-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReserveTickets-default" aria-expanded="true" aria-controls="CartReserveTickets-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReserveTickets-flat" aria-expanded="false" aria-controls="CartReserveTickets-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReserveTickets-flat" aria-expanded="false" aria-controls="CartReserveTickets-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReserveTickets-csv" aria-expanded="false" aria-controls="CartReserveTickets-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReserveTickets-csv" aria-expanded="false" aria-controls="CartReserveTickets-csv">
 csv
-</button><div id="CartReserveTickets-parent">
+</button>
+<div id="CartReserveTickets-parent">
 <div class="collapse show" id="CartReserveTickets-default" data-bs-parent="#CartReserveTickets-parent"> 
 ```json
 {"NumberOfSeats":123, "PerformanceId":123, "PriceType":"string", "PriceTypeReason":"string", "RequestedSeats":"string", "SpecialRequests":"string", "Unseated":true, "ZoneId":123, "SessionKey":"string"}
@@ -2827,19 +2880,21 @@ NumberOfSeats,PerformanceId,PriceType,PriceTypeReason,RequestedSeats,SessionKey,
 ```  
 </div>
 </div>
+
  * *--ReserveTicketsForLineItem*  
    Reserves tickets in cart for an existing line item
 PerformanceId specified must be valid for the line item
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReserveTicketsForLineItem-default" aria-expanded="true" aria-controls="CartReserveTicketsForLineItem-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReserveTicketsForLineItem-default" aria-expanded="true" aria-controls="CartReserveTicketsForLineItem-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReserveTicketsForLineItem-flat" aria-expanded="false" aria-controls="CartReserveTicketsForLineItem-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReserveTicketsForLineItem-flat" aria-expanded="false" aria-controls="CartReserveTicketsForLineItem-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReserveTicketsForLineItem-csv" aria-expanded="false" aria-controls="CartReserveTicketsForLineItem-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReserveTicketsForLineItem-csv" aria-expanded="false" aria-controls="CartReserveTicketsForLineItem-csv">
 csv
-</button><div id="CartReserveTicketsForLineItem-parent">
+</button>
+<div id="CartReserveTicketsForLineItem-parent">
 <div class="collapse show" id="CartReserveTicketsForLineItem-default" data-bs-parent="#CartReserveTicketsForLineItem-parent"> 
 ```json
 {"LineItemID":"string", "NumberOfSeats":123, "PerformanceId":123, "PriceType":"string", "PriceTypeReason":"string", "RequestedSeats":"string", "SpecialRequests":"string", "Unseated":true, "ZoneId":123, "SessionKey":"string"}
@@ -2858,21 +2913,23 @@ LineItemID,NumberOfSeats,PerformanceId,PriceType,PriceTypeReason,RequestedSeats,
 ```  
 </div>
 </div>
+
  * *--ReturnTicket*  
    Return a ticket by ticket number.
 This method is used to return tickets (generally for exchanges).  The method can also be used to donate a ticket for resale.
 Returning a ticket will generate a credit on the ticket order.The credit must be applied to another line item(performance, package, etc.), fee, contribution, or on account payment method.
 Donating a ticket uses the standard Tessitura Donate for Resale function, which releases the seat without generating a credit.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReturnTicket-default" aria-expanded="true" aria-controls="CartReturnTicket-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReturnTicket-default" aria-expanded="true" aria-controls="CartReturnTicket-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReturnTicket-flat" aria-expanded="false" aria-controls="CartReturnTicket-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReturnTicket-flat" aria-expanded="false" aria-controls="CartReturnTicket-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReturnTicket-csv" aria-expanded="false" aria-controls="CartReturnTicket-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReturnTicket-csv" aria-expanded="false" aria-controls="CartReturnTicket-csv">
 csv
-</button><div id="CartReturnTicket-parent">
+</button>
+<div id="CartReturnTicket-parent">
 <div class="collapse show" id="CartReturnTicket-default" data-bs-parent="#CartReturnTicket-parent"> 
 ```json
 {"Checksum":"string", "ReturnOrDonate":"string", "TicketNumber":123, "SessionKey":"string"}
@@ -2891,21 +2948,23 @@ Checksum,ReturnOrDonate,SessionKey,TicketNumber
 ```  
 </div>
 </div>
+
  * *--ReturnTicketWithSeat*  
    Return a ticket by seat number.
 This method is used to return tickets (generally for exchanges).  The method can also be used to donate a ticket for resale.
 Returning a ticket will generate a credit on the ticket order.The credit must be applied to another line item(performance, package, etc.), fee, contribution, or on account payment method.
 Donating a ticket uses the standard Tessitura Donate for Resale function, which releases the seat without generating a credit.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReturnTicketWithSeat-default" aria-expanded="true" aria-controls="CartReturnTicketWithSeat-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReturnTicketWithSeat-default" aria-expanded="true" aria-controls="CartReturnTicketWithSeat-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReturnTicketWithSeat-flat" aria-expanded="false" aria-controls="CartReturnTicketWithSeat-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReturnTicketWithSeat-flat" aria-expanded="false" aria-controls="CartReturnTicketWithSeat-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReturnTicketWithSeat-csv" aria-expanded="false" aria-controls="CartReturnTicketWithSeat-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartReturnTicketWithSeat-csv" aria-expanded="false" aria-controls="CartReturnTicketWithSeat-csv">
 csv
-</button><div id="CartReturnTicketWithSeat-parent">
+</button>
+<div id="CartReturnTicketWithSeat-parent">
 <div class="collapse show" id="CartReturnTicketWithSeat-default" data-bs-parent="#CartReturnTicketWithSeat-parent"> 
 ```json
 {"Checksum":"string", "PerformanceId":123, "ReturnOrDonate":"string", "SeatNumber":123, "SessionKey":"string"}
@@ -2924,19 +2983,21 @@ Checksum,PerformanceId,ReturnOrDonate,SeatNumber,SessionKey
 ```  
 </div>
 </div>
+
  * *--Validate*  
    Validates various aspects of the cart
 Payment Plans, Fixed Seat Packages, Non-Fixed Seat (flex) packages and Super Packages can be validated by setting the appropriate boolean in the request.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartValidate-default" aria-expanded="true" aria-controls="CartValidate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartValidate-default" aria-expanded="true" aria-controls="CartValidate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartValidate-flat" aria-expanded="false" aria-controls="CartValidate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartValidate-flat" aria-expanded="false" aria-controls="CartValidate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartValidate-csv" aria-expanded="false" aria-controls="CartValidate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartValidate-csv" aria-expanded="false" aria-controls="CartValidate-csv">
 csv
-</button><div id="CartValidate-parent">
+</button>
+<div id="CartValidate-parent">
 <div class="collapse show" id="CartValidate-default" data-bs-parent="#CartValidate-parent"> 
 ```json
 {"ValidateFSPackages":true, "ValidateNFSPackages":true, "ValidatePaymentPlan":true, "ValidateSuperPackages":true, "SessionKey":"string"}
@@ -2955,20 +3016,22 @@ SessionKey,ValidateFSPackages,ValidateNFSPackages,ValidatePaymentPlan,ValidateSu
 ```  
 </div>
 </div>
+
  * *--ValidateLimits*  
    Validates ticket limits
 Offer Limits are evaluated for the specified price type and seat count using the cart source code.  Requires either a performance ID or a package ID.
 To enable ticket limit validation, add the Field Name "ENFORCE_SEAT_LIMIT_FOR_ORDERS" under the "Impresario" parent table with a value of "Yes." This setting applies to both the Web API and the Tessitura Client Application.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartValidateLimits-default" aria-expanded="true" aria-controls="CartValidateLimits-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartValidateLimits-default" aria-expanded="true" aria-controls="CartValidateLimits-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartValidateLimits-flat" aria-expanded="false" aria-controls="CartValidateLimits-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartValidateLimits-flat" aria-expanded="false" aria-controls="CartValidateLimits-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartValidateLimits-csv" aria-expanded="false" aria-controls="CartValidateLimits-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartValidateLimits-csv" aria-expanded="false" aria-controls="CartValidateLimits-csv">
 csv
-</button><div id="CartValidateLimits-parent">
+</button>
+<div id="CartValidateLimits-parent">
 <div class="collapse show" id="CartValidateLimits-default" data-bs-parent="#CartValidateLimits-parent"> 
 ```json
 {"PackageId":123, "PerformanceId":123, "PriceTypeId":123, "SeatCount":123, "SessionKey":"string"}
@@ -2988,26 +3051,25 @@ PackageId,PerformanceId,PriceTypeId,SeatCount,SessionKey
 </div>
 </div>
 
-## Colors 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#colors)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#colors)</button>  
+
+## Colors <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#colors)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#colors)</button>  
 		
 Create a new color.  
 ##### Usage:  
 ```shell
 tq post Colors
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ColorsCreate-default" aria-expanded="true" aria-controls="ColorsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ColorsCreate-default" aria-expanded="true" aria-controls="ColorsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ColorsCreate-flat" aria-expanded="false" aria-controls="ColorsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ColorsCreate-flat" aria-expanded="false" aria-controls="ColorsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ColorsCreate-csv" aria-expanded="false" aria-controls="ColorsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ColorsCreate-csv" aria-expanded="false" aria-controls="ColorsCreate-csv">
 csv
-</button><div id="ColorsCreate-parent">
+</button>
+<div id="ColorsCreate-parent">
 <div class="collapse show" id="ColorsCreate-default" data-bs-parent="#ColorsCreate-parent"> 
 ```json
 {"ColorValue":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3027,26 +3089,25 @@ ColorValue,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,UpdatedBy,Upd
 </div>
 </div>
 
-## Composers 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#composers)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#composers)</button>  
+
+## Composers <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#composers)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#composers)</button>  
 		
 Create a new composer.  
 ##### Usage:  
 ```shell
 tq post Composers
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ComposersCreate-default" aria-expanded="true" aria-controls="ComposersCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ComposersCreate-default" aria-expanded="true" aria-controls="ComposersCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ComposersCreate-flat" aria-expanded="false" aria-controls="ComposersCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ComposersCreate-flat" aria-expanded="false" aria-controls="ComposersCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ComposersCreate-csv" aria-expanded="false" aria-controls="ComposersCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ComposersCreate-csv" aria-expanded="false" aria-controls="ComposersCreate-csv">
 csv
-</button><div id="ComposersCreate-parent">
+</button>
+<div id="ComposersCreate-parent">
 <div class="collapse show" id="ComposersCreate-default" data-bs-parent="#ComposersCreate-parent"> 
 ```json
 {"Bio":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "FirstName":"string", "Id":123, "Inactive":true, "LastName":"string", "MiddleName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3066,26 +3127,25 @@ Bio,CreateLocation,CreatedBy,CreatedDateTime,FirstName,Id,Inactive,LastName,Midd
 </div>
 </div>
 
-## Constituencies 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituencies)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituencies)</button>  
+
+## Constituencies <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituencies)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#constituencies)</button>  
 		
 Create a new constituency.  
 ##### Usage:  
 ```shell
 tq post Constituencies
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituenciesCreate-default" aria-expanded="true" aria-controls="ConstituenciesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituenciesCreate-default" aria-expanded="true" aria-controls="ConstituenciesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituenciesCreate-flat" aria-expanded="false" aria-controls="ConstituenciesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituenciesCreate-flat" aria-expanded="false" aria-controls="ConstituenciesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituenciesCreate-csv" aria-expanded="false" aria-controls="ConstituenciesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituenciesCreate-csv" aria-expanded="false" aria-controls="ConstituenciesCreate-csv">
 csv
-</button><div id="ConstituenciesCreate-parent">
+</button>
+<div id="ConstituenciesCreate-parent">
 <div class="collapse show" id="ConstituenciesCreate-default" data-bs-parent="#ConstituenciesCreate-parent"> 
 ```json
 {"ConstituencyType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "Id":123, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3105,26 +3165,25 @@ ConstituencyType.Id,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,Edit
 </div>
 </div>
 
-## ConstituencyTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituencytypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituencytypes)</button>  
+
+## ConstituencyTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituencytypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#constituencytypes)</button>  
 		
 Create a new constituency type.  
 ##### Usage:  
 ```shell
 tq post ConstituencyTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituencyTypesCreate-default" aria-expanded="true" aria-controls="ConstituencyTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituencyTypesCreate-default" aria-expanded="true" aria-controls="ConstituencyTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituencyTypesCreate-flat" aria-expanded="false" aria-controls="ConstituencyTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituencyTypesCreate-flat" aria-expanded="false" aria-controls="ConstituencyTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituencyTypesCreate-csv" aria-expanded="false" aria-controls="ConstituencyTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituencyTypesCreate-csv" aria-expanded="false" aria-controls="ConstituencyTypesCreate-csv">
 csv
-</button><div id="ConstituencyTypesCreate-parent">
+</button>
+<div id="ConstituencyTypesCreate-parent">
 <div class="collapse show" id="ConstituencyTypesCreate-default" data-bs-parent="#ConstituencyTypesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3145,26 +3204,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 
 
-## ConstituentDocuments 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituentdocuments)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituentdocuments)</button>  
+
+## ConstituentDocuments <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituentdocuments)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#constituentdocuments)</button>  
 		
 Create document for a constituent.  
 ##### Usage:  
 ```shell
 tq post ConstituentDocuments
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentDocumentsCreate-default" aria-expanded="true" aria-controls="ConstituentDocumentsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentDocumentsCreate-default" aria-expanded="true" aria-controls="ConstituentDocumentsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentDocumentsCreate-flat" aria-expanded="false" aria-controls="ConstituentDocumentsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentDocumentsCreate-flat" aria-expanded="false" aria-controls="ConstituentDocumentsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentDocumentsCreate-csv" aria-expanded="false" aria-controls="ConstituentDocumentsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentDocumentsCreate-csv" aria-expanded="false" aria-controls="ConstituentDocumentsCreate-csv">
 csv
-</button><div id="ConstituentDocumentsCreate-parent">
+</button>
+<div id="ConstituentDocumentsCreate-parent">
 <div class="collapse show" id="ConstituentDocumentsCreate-default" data-bs-parent="#ConstituentDocumentsCreate-parent"> 
 ```json
 {"Category":{"Id":123}, "ConstituentId":123, "Contents":"AA==", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "FileName":"string", "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3184,26 +3242,25 @@ Category.Id,ConstituentId,Contents,CreateLocation,CreatedBy,CreatedDateTime,Desc
 </div>
 </div>
 
-## ConstituentGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituentgroups)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituentgroups)</button>  
+
+## ConstituentGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituentgroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#constituentgroups)</button>  
 		
 Create a new constituent group.  
 ##### Usage:  
 ```shell
 tq post ConstituentGroups
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentGroupsCreate-default" aria-expanded="true" aria-controls="ConstituentGroupsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentGroupsCreate-default" aria-expanded="true" aria-controls="ConstituentGroupsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentGroupsCreate-flat" aria-expanded="false" aria-controls="ConstituentGroupsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentGroupsCreate-flat" aria-expanded="false" aria-controls="ConstituentGroupsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentGroupsCreate-csv" aria-expanded="false" aria-controls="ConstituentGroupsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentGroupsCreate-csv" aria-expanded="false" aria-controls="ConstituentGroupsCreate-csv">
 csv
-</button><div id="ConstituentGroupsCreate-parent">
+</button>
+<div id="ConstituentGroupsCreate-parent">
 <div class="collapse show" id="ConstituentGroupsCreate-default" data-bs-parent="#ConstituentGroupsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3223,26 +3280,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## ConstituentInactives 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituentinactives)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituentinactives)</button>  
+
+## ConstituentInactives <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituentinactives)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#constituentinactives)</button>  
 		
 Create a new constituent inactive.  
 ##### Usage:  
 ```shell
 tq post ConstituentInactives
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentInactivesCreate-default" aria-expanded="true" aria-controls="ConstituentInactivesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentInactivesCreate-default" aria-expanded="true" aria-controls="ConstituentInactivesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentInactivesCreate-flat" aria-expanded="false" aria-controls="ConstituentInactivesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentInactivesCreate-flat" aria-expanded="false" aria-controls="ConstituentInactivesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentInactivesCreate-csv" aria-expanded="false" aria-controls="ConstituentInactivesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentInactivesCreate-csv" aria-expanded="false" aria-controls="ConstituentInactivesCreate-csv">
 csv
-</button><div id="ConstituentInactivesCreate-parent">
+</button>
+<div id="ConstituentInactivesCreate-parent">
 <div class="collapse show" id="ConstituentInactivesCreate-default" data-bs-parent="#ConstituentInactivesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3262,26 +3318,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## ConstituentProtectionTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituentprotectiontypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituentprotectiontypes)</button>  
+
+## ConstituentProtectionTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituentprotectiontypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#constituentprotectiontypes)</button>  
 		
 Create a new constituent protection type.  
 ##### Usage:  
 ```shell
 tq post ConstituentProtectionTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentProtectionTypesCreate-default" aria-expanded="true" aria-controls="ConstituentProtectionTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentProtectionTypesCreate-default" aria-expanded="true" aria-controls="ConstituentProtectionTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentProtectionTypesCreate-flat" aria-expanded="false" aria-controls="ConstituentProtectionTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentProtectionTypesCreate-flat" aria-expanded="false" aria-controls="ConstituentProtectionTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentProtectionTypesCreate-csv" aria-expanded="false" aria-controls="ConstituentProtectionTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentProtectionTypesCreate-csv" aria-expanded="false" aria-controls="ConstituentProtectionTypesCreate-csv">
 csv
-</button><div id="ConstituentProtectionTypesCreate-parent">
+</button>
+<div id="ConstituentProtectionTypesCreate-parent">
 <div class="collapse show" id="ConstituentProtectionTypesCreate-default" data-bs-parent="#ConstituentProtectionTypesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3301,26 +3356,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## ConstituentTypeAffiliates 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituenttypeaffiliates)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituenttypeaffiliates)</button>  
+
+## ConstituentTypeAffiliates <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituenttypeaffiliates)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#constituenttypeaffiliates)</button>  
 		
 Create a new constituent type affiliate.  
 ##### Usage:  
 ```shell
 tq post ConstituentTypeAffiliates
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentTypeAffiliatesCreate-default" aria-expanded="true" aria-controls="ConstituentTypeAffiliatesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentTypeAffiliatesCreate-default" aria-expanded="true" aria-controls="ConstituentTypeAffiliatesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentTypeAffiliatesCreate-flat" aria-expanded="false" aria-controls="ConstituentTypeAffiliatesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentTypeAffiliatesCreate-flat" aria-expanded="false" aria-controls="ConstituentTypeAffiliatesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentTypeAffiliatesCreate-csv" aria-expanded="false" aria-controls="ConstituentTypeAffiliatesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentTypeAffiliatesCreate-csv" aria-expanded="false" aria-controls="ConstituentTypeAffiliatesCreate-csv">
 csv
-</button><div id="ConstituentTypeAffiliatesCreate-parent">
+</button>
+<div id="ConstituentTypeAffiliatesCreate-parent">
 <div class="collapse show" id="ConstituentTypeAffiliatesCreate-default" data-bs-parent="#ConstituentTypeAffiliatesCreate-parent"> 
 ```json
 {"AffiliationType":{"Id":123}, "ConstituentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HouseholdPrimary":true, "Id":123, "Rank":123, "ShowWithGroup":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3340,26 +3394,25 @@ AffiliationType.Id,ConstituentType.Id,CreateLocation,CreatedBy,CreatedDateTime,H
 </div>
 </div>
 
-## ConstituentTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituenttypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituenttypes)</button>  
+
+## ConstituentTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituenttypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#constituenttypes)</button>  
 		
 Create a new constituent type.  
 ##### Usage:  
 ```shell
 tq post ConstituentTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentTypesCreate-default" aria-expanded="true" aria-controls="ConstituentTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentTypesCreate-default" aria-expanded="true" aria-controls="ConstituentTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentTypesCreate-flat" aria-expanded="false" aria-controls="ConstituentTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentTypesCreate-flat" aria-expanded="false" aria-controls="ConstituentTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentTypesCreate-csv" aria-expanded="false" aria-controls="ConstituentTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentTypesCreate-csv" aria-expanded="false" aria-controls="ConstituentTypesCreate-csv">
 csv
-</button><div id="ConstituentTypesCreate-parent">
+</button>
+<div id="ConstituentTypesCreate-parent">
 <div class="collapse show" id="ConstituentTypesCreate-default" data-bs-parent="#ConstituentTypesCreate-parent"> 
 ```json
 {"AddressTypeId":123, "ConstituentGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultAffiliatedConstituentTypeId":123, "DefaultAffiliationTypeId":123, "DefaultIndicator":true, "DefaultSalutationId":123, "Description":"string", "ElectronicAddressTypeId":123, "GiftAidIndicator":true, "Id":123, "Inactive":true, "LoginTypeId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3379,26 +3432,25 @@ AddressTypeId,ConstituentGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Defau
 </div>
 </div>
 
-## Constituents 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituents)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituents)</button>  
+
+## Constituents <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituents)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#constituents)</button>  
 		
 Create a new constituent with addresses, electronicAddresses, salutations and phones.  
 ##### Usage:  
 ```shell
 tq post Constituents
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsCreateConstituent-default" aria-expanded="true" aria-controls="ConstituentsCreateConstituent-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsCreateConstituent-default" aria-expanded="true" aria-controls="ConstituentsCreateConstituent-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsCreateConstituent-flat" aria-expanded="false" aria-controls="ConstituentsCreateConstituent-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsCreateConstituent-flat" aria-expanded="false" aria-controls="ConstituentsCreateConstituent-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsCreateConstituent-csv" aria-expanded="false" aria-controls="ConstituentsCreateConstituent-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsCreateConstituent-csv" aria-expanded="false" aria-controls="ConstituentsCreateConstituent-csv">
 csv
-</button><div id="ConstituentsCreateConstituent-parent">
+</button>
+<div id="ConstituentsCreateConstituent-parent">
 <div class="collapse show" id="ConstituentsCreateConstituent-default" data-bs-parent="#ConstituentsCreateConstituent-parent"> 
 ```json
 {"Addresses":[{"Id":123}, ...], "ConstituentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DisplayName":"string", "ElectronicAddresses":[{"Id":123}, ...], "EmarketIndicator":{"Id":123}, "FirstName":"string", "Gender":{"Id":123}, "Id":123, "Inactive":{"Id":123}, "InactiveReason":{"Id":123}, "LastActivityDate":"2000-01-01T00:00:00.000Z", "LastGiftDate":"2000-01-01T00:00:00.000Z", "LastName":"string", "LastTicketDate":"2000-01-01T00:00:00.000Z", "MailIndicator":{"Id":123}, "MiddleName":"string", "NameStatus":{"Id":123}, "OriginalSource":{"Id":123}, "PhoneIndicator":{"Id":123}, "PhoneNumbers":[{"Id":123}, ...], "Prefix":{"Id":123}, "ProtectionType":{"Id":123}, "Salutations":[{"Id":123}, ...], "SortName":"string", "Suffix":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3415,19 +3467,21 @@ csv
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--ConstituentUsingSnapshot*  
    Create a constituent optionally with primary address, primary salutation, primary electronic address, primary &amp; general phones and affiliates information.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsCreateConstituentUsingSnapshot-default" aria-expanded="true" aria-controls="ConstituentsCreateConstituentUsingSnapshot-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsCreateConstituentUsingSnapshot-default" aria-expanded="true" aria-controls="ConstituentsCreateConstituentUsingSnapshot-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsCreateConstituentUsingSnapshot-flat" aria-expanded="false" aria-controls="ConstituentsCreateConstituentUsingSnapshot-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsCreateConstituentUsingSnapshot-flat" aria-expanded="false" aria-controls="ConstituentsCreateConstituentUsingSnapshot-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsCreateConstituentUsingSnapshot-csv" aria-expanded="false" aria-controls="ConstituentsCreateConstituentUsingSnapshot-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsCreateConstituentUsingSnapshot-csv" aria-expanded="false" aria-controls="ConstituentsCreateConstituentUsingSnapshot-csv">
 csv
-</button><div id="ConstituentsCreateConstituentUsingSnapshot-parent">
+</button>
+<div id="ConstituentsCreateConstituentUsingSnapshot-parent">
 <div class="collapse show" id="ConstituentsCreateConstituentUsingSnapshot-default" data-bs-parent="#ConstituentsCreateConstituentUsingSnapshot-parent"> 
 ```json
 {"Address":{"Id":123}, "Affiliates":[{"Id":123}, ...], "ConstituentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DisplayName":"string", "EditIndicator":true, "ElectronicAddress":{"Id":123}, "EmarketIndicator":{"Id":123}, "FirstName":"string", "Gender":{"Id":123}, "Id":123, "Inactive":{"Id":123}, "InactiveReason":{"Id":123}, "LastActivityDate":"2000-01-01T00:00:00.000Z", "LastName":"string", "MailIndicator":{"Id":123}, "MiddleName":"string", "NameStatus":{"Id":123}, "OriginalSource":{"Id":123}, "PhoneIndicator":{"Id":123}, "Prefix":{"Id":123}, "PrimaryPhoneNumbers":[{"Id":123}, ...], "ProtectionType":{"Id":123}, "Salutation":{"Id":123}, "ShortDisplayName":"string", "SortName":"string", "Suffix":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3444,18 +3498,20 @@ csv
 ```  
 </div>
 </div>
+
  * *--ConvertGroupToIndividual*  
    Convert existing household to an individual.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsConvertGroupToIndividual-default" aria-expanded="true" aria-controls="ConstituentsConvertGroupToIndividual-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsConvertGroupToIndividual-default" aria-expanded="true" aria-controls="ConstituentsConvertGroupToIndividual-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsConvertGroupToIndividual-flat" aria-expanded="false" aria-controls="ConstituentsConvertGroupToIndividual-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsConvertGroupToIndividual-flat" aria-expanded="false" aria-controls="ConstituentsConvertGroupToIndividual-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsConvertGroupToIndividual-csv" aria-expanded="false" aria-controls="ConstituentsConvertGroupToIndividual-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsConvertGroupToIndividual-csv" aria-expanded="false" aria-controls="ConstituentsConvertGroupToIndividual-csv">
 csv
-</button><div id="ConstituentsConvertGroupToIndividual-parent">
+</button>
+<div id="ConstituentsConvertGroupToIndividual-parent">
 <div class="collapse show" id="ConstituentsConvertGroupToIndividual-default" data-bs-parent="#ConstituentsConvertGroupToIndividual-parent"> 
 ```json
 {"ConstituentID":"string", "AffiliationIdsToBeDeleted":[0, ...], "AffiliationsToAssociationsInfo":[{"AffiliationId":123, "AssociationTypeId":123}, ...], "AssociationIdsToBeDeleted":[0, ...], "AssociationsToAffiliationsInfo":[{"AffiliationTypeId":123, "AssociationId":123}, ...], "IndividualConstituent":{"FirstName":"string", "GenderId":123, "LastName":"string", "MiddleName":"string", "PrefixId":123, "SuffixId":123}, "Merge":{"ConstituentIdToDelete":123, "ConstituentIdToKeep":123}}
@@ -3472,18 +3528,20 @@ csv
 ```  
 </div>
 </div>
+
  * *--ConvertIndividualToHousehold*  
    Convert existing individual constituent to a household.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsConvertIndividualToHousehold-default" aria-expanded="true" aria-controls="ConstituentsConvertIndividualToHousehold-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsConvertIndividualToHousehold-default" aria-expanded="true" aria-controls="ConstituentsConvertIndividualToHousehold-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsConvertIndividualToHousehold-flat" aria-expanded="false" aria-controls="ConstituentsConvertIndividualToHousehold-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsConvertIndividualToHousehold-flat" aria-expanded="false" aria-controls="ConstituentsConvertIndividualToHousehold-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsConvertIndividualToHousehold-csv" aria-expanded="false" aria-controls="ConstituentsConvertIndividualToHousehold-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsConvertIndividualToHousehold-csv" aria-expanded="false" aria-controls="ConstituentsConvertIndividualToHousehold-csv">
 csv
-</button><div id="ConstituentsConvertIndividualToHousehold-parent">
+</button>
+<div id="ConstituentsConvertIndividualToHousehold-parent">
 <div class="collapse show" id="ConstituentsConvertIndividualToHousehold-default" data-bs-parent="#ConstituentsConvertIndividualToHousehold-parent"> 
 ```json
 {"ConstituentID":"string", "AffiliationTypeId":123, "ConstituentTypeId":123}
@@ -3502,18 +3560,20 @@ AffiliationTypeId,ConstituentID,ConstituentTypeId
 ```  
 </div>
 </div>
+
  * *--ConvertIndividualToOrganization*  
    Convert existing individual constituent to an organization.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsConvertIndividualToOrganization-default" aria-expanded="true" aria-controls="ConstituentsConvertIndividualToOrganization-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsConvertIndividualToOrganization-default" aria-expanded="true" aria-controls="ConstituentsConvertIndividualToOrganization-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsConvertIndividualToOrganization-flat" aria-expanded="false" aria-controls="ConstituentsConvertIndividualToOrganization-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsConvertIndividualToOrganization-flat" aria-expanded="false" aria-controls="ConstituentsConvertIndividualToOrganization-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsConvertIndividualToOrganization-csv" aria-expanded="false" aria-controls="ConstituentsConvertIndividualToOrganization-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsConvertIndividualToOrganization-csv" aria-expanded="false" aria-controls="ConstituentsConvertIndividualToOrganization-csv">
 csv
-</button><div id="ConstituentsConvertIndividualToOrganization-parent">
+</button>
+<div id="ConstituentsConvertIndividualToOrganization-parent">
 <div class="collapse show" id="ConstituentsConvertIndividualToOrganization-default" data-bs-parent="#ConstituentsConvertIndividualToOrganization-parent"> 
 ```json
 {"ConstituentID":"string", "AffiliationIdsToBeDeleted":[0, ...], "AffiliationsToAssociationsInfo":[{"AffiliationId":123, "AssociationTypeId":123}, ...], "AssociationIdsToBeDeleted":[0, ...], "AssociationsToAffiliationsInfo":[{"AffiliationTypeId":123, "AssociationId":123}, ...], "ConstituentTypeId":123, "LastName":"string"}
@@ -3530,18 +3590,20 @@ csv
 ```  
 </div>
 </div>
+
  * *--SchedulePurge*  
    Schedule a constituent to be purged.  This only marks a constituent for purge, but does not actually purge the constituent.  If constituent has open transactions or an order for a future performance, a bad request will be returned indicating open transactions.  Pass IgnoreWarnings = true in request to bypass and schedule.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsSchedulePurge-default" aria-expanded="true" aria-controls="ConstituentsSchedulePurge-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsSchedulePurge-default" aria-expanded="true" aria-controls="ConstituentsSchedulePurge-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsSchedulePurge-flat" aria-expanded="false" aria-controls="ConstituentsSchedulePurge-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsSchedulePurge-flat" aria-expanded="false" aria-controls="ConstituentsSchedulePurge-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsSchedulePurge-csv" aria-expanded="false" aria-controls="ConstituentsSchedulePurge-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsSchedulePurge-csv" aria-expanded="false" aria-controls="ConstituentsSchedulePurge-csv">
 csv
-</button><div id="ConstituentsSchedulePurge-parent">
+</button>
+<div id="ConstituentsSchedulePurge-parent">
 <div class="collapse show" id="ConstituentsSchedulePurge-default" data-bs-parent="#ConstituentsSchedulePurge-parent"> 
 ```json
 {"ConstituentID":"string", "IgnoreWarnings":true}
@@ -3560,18 +3622,20 @@ ConstituentID,IgnoreWarnings
 ```  
 </div>
 </div>
+
  * *--SearchByCardNumber*  
    Search for constituents by card number.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsSearchByCardNumber-default" aria-expanded="true" aria-controls="ConstituentsSearchByCardNumber-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsSearchByCardNumber-default" aria-expanded="true" aria-controls="ConstituentsSearchByCardNumber-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsSearchByCardNumber-flat" aria-expanded="false" aria-controls="ConstituentsSearchByCardNumber-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsSearchByCardNumber-flat" aria-expanded="false" aria-controls="ConstituentsSearchByCardNumber-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsSearchByCardNumber-csv" aria-expanded="false" aria-controls="ConstituentsSearchByCardNumber-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsSearchByCardNumber-csv" aria-expanded="false" aria-controls="ConstituentsSearchByCardNumber-csv">
 csv
-</button><div id="ConstituentsSearchByCardNumber-parent">
+</button>
+<div id="ConstituentsSearchByCardNumber-parent">
 <div class="collapse show" id="ConstituentsSearchByCardNumber-default" data-bs-parent="#ConstituentsSearchByCardNumber-parent"> 
 ```json
 {"CardNumber":"string"}
@@ -3590,18 +3654,20 @@ CardNumber
 ```  
 </div>
 </div>
+
  * *--SwapConstituentA1A2*  
    Swaps A1/A2 names on a household account and regenerates its salutation.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsSwapConstituentA1A2-default" aria-expanded="true" aria-controls="ConstituentsSwapConstituentA1A2-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsSwapConstituentA1A2-default" aria-expanded="true" aria-controls="ConstituentsSwapConstituentA1A2-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsSwapConstituentA1A2-flat" aria-expanded="false" aria-controls="ConstituentsSwapConstituentA1A2-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsSwapConstituentA1A2-flat" aria-expanded="false" aria-controls="ConstituentsSwapConstituentA1A2-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsSwapConstituentA1A2-csv" aria-expanded="false" aria-controls="ConstituentsSwapConstituentA1A2-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsSwapConstituentA1A2-csv" aria-expanded="false" aria-controls="ConstituentsSwapConstituentA1A2-csv">
 csv
-</button><div id="ConstituentsSwapConstituentA1A2-parent">
+</button>
+<div id="ConstituentsSwapConstituentA1A2-parent">
 <div class="collapse show" id="ConstituentsSwapConstituentA1A2-default" data-bs-parent="#ConstituentsSwapConstituentA1A2-parent"> 
 ```json
 {"ConstituentID":"string"}
@@ -3620,18 +3686,20 @@ ConstituentID
 ```  
 </div>
 </div>
+
  * *--UnschedulePurge*  
    Unschedule a constituent that has been previously set to be purged.  If a purge has been completed, an error will be returned.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsUnschedulePurge-default" aria-expanded="true" aria-controls="ConstituentsUnschedulePurge-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsUnschedulePurge-default" aria-expanded="true" aria-controls="ConstituentsUnschedulePurge-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsUnschedulePurge-flat" aria-expanded="false" aria-controls="ConstituentsUnschedulePurge-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsUnschedulePurge-flat" aria-expanded="false" aria-controls="ConstituentsUnschedulePurge-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsUnschedulePurge-csv" aria-expanded="false" aria-controls="ConstituentsUnschedulePurge-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsUnschedulePurge-csv" aria-expanded="false" aria-controls="ConstituentsUnschedulePurge-csv">
 csv
-</button><div id="ConstituentsUnschedulePurge-parent">
+</button>
+<div id="ConstituentsUnschedulePurge-parent">
 <div class="collapse show" id="ConstituentsUnschedulePurge-default" data-bs-parent="#ConstituentsUnschedulePurge-parent"> 
 ```json
 {"ConstituentID":"string"}
@@ -3651,26 +3719,25 @@ ConstituentID
 </div>
 </div>
 
-## ContactPermissionCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpermissioncategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpermissioncategories)</button>  
+
+## ContactPermissionCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpermissioncategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contactpermissioncategories)</button>  
 		
 Create a new contact permission category.  
 ##### Usage:  
 ```shell
 tq post ContactPermissionCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionCategoriesCreate-default" aria-expanded="true" aria-controls="ContactPermissionCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionCategoriesCreate-default" aria-expanded="true" aria-controls="ContactPermissionCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionCategoriesCreate-flat" aria-expanded="false" aria-controls="ContactPermissionCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionCategoriesCreate-flat" aria-expanded="false" aria-controls="ContactPermissionCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionCategoriesCreate-csv" aria-expanded="false" aria-controls="ContactPermissionCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionCategoriesCreate-csv" aria-expanded="false" aria-controls="ContactPermissionCategoriesCreate-csv">
 csv
-</button><div id="ContactPermissionCategoriesCreate-parent">
+</button>
+<div id="ContactPermissionCategoriesCreate-parent">
 <div class="collapse show" id="ContactPermissionCategoriesCreate-default" data-bs-parent="#ContactPermissionCategoriesCreate-parent"> 
 ```json
 {"AskFrequencyMonths":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3690,26 +3757,25 @@ AskFrequencyMonths,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Desc
 </div>
 </div>
 
-## ContactPermissionTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpermissiontypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpermissiontypes)</button>  
+
+## ContactPermissionTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpermissiontypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contactpermissiontypes)</button>  
 		
 Create a new contact permission type.  
 ##### Usage:  
 ```shell
 tq post ContactPermissionTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionTypesCreate-default" aria-expanded="true" aria-controls="ContactPermissionTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionTypesCreate-default" aria-expanded="true" aria-controls="ContactPermissionTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionTypesCreate-flat" aria-expanded="false" aria-controls="ContactPermissionTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionTypesCreate-flat" aria-expanded="false" aria-controls="ContactPermissionTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionTypesCreate-csv" aria-expanded="false" aria-controls="ContactPermissionTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionTypesCreate-csv" aria-expanded="false" aria-controls="ContactPermissionTypesCreate-csv">
 csv
-</button><div id="ContactPermissionTypesCreate-parent">
+</button>
+<div id="ContactPermissionTypesCreate-parent">
 <div class="collapse show" id="ContactPermissionTypesCreate-default" data-bs-parent="#ContactPermissionTypesCreate-parent"> 
 ```json
 {"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultValueForAdd":"string", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Presenter":true, "Rank":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3729,26 +3795,25 @@ Category.Id,CreateLocation,CreatedBy,CreatedDateTime,DefaultValueForAdd,Descript
 </div>
 </div>
 
-## ContactPermissions 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpermissions)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpermissions)</button>  
+
+## ContactPermissions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpermissions)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contactpermissions)</button>  
 		
 Create a new contact permission  
 ##### Usage:  
 ```shell
 tq post ContactPermissions
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionsCreate-default" aria-expanded="true" aria-controls="ContactPermissionsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionsCreate-default" aria-expanded="true" aria-controls="ContactPermissionsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionsCreate-flat" aria-expanded="false" aria-controls="ContactPermissionsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionsCreate-flat" aria-expanded="false" aria-controls="ContactPermissionsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionsCreate-csv" aria-expanded="false" aria-controls="ContactPermissionsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionsCreate-csv" aria-expanded="false" aria-controls="ContactPermissionsCreate-csv">
 csv
-</button><div id="ContactPermissionsCreate-parent">
+</button>
+<div id="ContactPermissionsCreate-parent">
 <div class="collapse show" id="ContactPermissionsCreate-default" data-bs-parent="#ContactPermissionsCreate-parent"> 
 ```json
 {"Answer":"string", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "LastAskedDateTime":"2000-01-01T00:00:00.000Z", "ShouldAsk":true, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3767,19 +3832,21 @@ Answer,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--ForTransaction*  
    Request a set of contact permissions relevant to an order or contribution context.  Send request with ReturnRequiredOnly to true to only send back permissions that require constituent ask.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionsForTransaction-default" aria-expanded="true" aria-controls="ContactPermissionsForTransaction-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionsForTransaction-default" aria-expanded="true" aria-controls="ContactPermissionsForTransaction-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionsForTransaction-flat" aria-expanded="false" aria-controls="ContactPermissionsForTransaction-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionsForTransaction-flat" aria-expanded="false" aria-controls="ContactPermissionsForTransaction-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionsForTransaction-csv" aria-expanded="false" aria-controls="ContactPermissionsForTransaction-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionsForTransaction-csv" aria-expanded="false" aria-controls="ContactPermissionsForTransaction-csv">
 csv
-</button><div id="ContactPermissionsForTransaction-parent">
+</button>
+<div id="ContactPermissionsForTransaction-parent">
 <div class="collapse show" id="ContactPermissionsForTransaction-default" data-bs-parent="#ContactPermissionsForTransaction-parent"> 
 ```json
 {"InitiatorId":123, "OwnerId":123, "ProductionSeasonIds":"string", "ReturnRequiredOnly":true}
@@ -3799,26 +3866,25 @@ InitiatorId,OwnerId,ProductionSeasonIds,ReturnRequiredOnly
 </div>
 </div>
 
-## ContactPointCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointcategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointcategories)</button>  
+
+## ContactPointCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpointcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contactpointcategories)</button>  
 		
 Create a new contact point category.  
 ##### Usage:  
 ```shell
 tq post ContactPointCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointCategoriesCreate-default" aria-expanded="true" aria-controls="ContactPointCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointCategoriesCreate-default" aria-expanded="true" aria-controls="ContactPointCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointCategoriesCreate-flat" aria-expanded="false" aria-controls="ContactPointCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointCategoriesCreate-flat" aria-expanded="false" aria-controls="ContactPointCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointCategoriesCreate-csv" aria-expanded="false" aria-controls="ContactPointCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointCategoriesCreate-csv" aria-expanded="false" aria-controls="ContactPointCategoriesCreate-csv">
 csv
-</button><div id="ContactPointCategoriesCreate-parent">
+</button>
+<div id="ContactPointCategoriesCreate-parent">
 <div class="collapse show" id="ContactPointCategoriesCreate-default" data-bs-parent="#ContactPointCategoriesCreate-parent"> 
 ```json
 {"ContactPointKey":"string", "ContactPointTable":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3838,26 +3904,25 @@ ContactPointKey,ContactPointTable,CreateLocation,CreatedBy,CreatedDateTime,Descr
 </div>
 </div>
 
-## ContactPointCategoryPurposes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointcategorypurposes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointcategorypurposes)</button>  
+
+## ContactPointCategoryPurposes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpointcategorypurposes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contactpointcategorypurposes)</button>  
 		
 Create a new contact point category purpose.  
 ##### Usage:  
 ```shell
 tq post ContactPointCategoryPurposes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointCategoryPurposesCreate-default" aria-expanded="true" aria-controls="ContactPointCategoryPurposesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointCategoryPurposesCreate-default" aria-expanded="true" aria-controls="ContactPointCategoryPurposesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointCategoryPurposesCreate-flat" aria-expanded="false" aria-controls="ContactPointCategoryPurposesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointCategoryPurposesCreate-flat" aria-expanded="false" aria-controls="ContactPointCategoryPurposesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointCategoryPurposesCreate-csv" aria-expanded="false" aria-controls="ContactPointCategoryPurposesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointCategoryPurposesCreate-csv" aria-expanded="false" aria-controls="ContactPointCategoryPurposesCreate-csv">
 csv
-</button><div id="ContactPointCategoryPurposesCreate-parent">
+</button>
+<div id="ContactPointCategoryPurposesCreate-parent">
 <div class="collapse show" id="ContactPointCategoryPurposesCreate-default" data-bs-parent="#ContactPointCategoryPurposesCreate-parent"> 
 ```json
 {"ContactPointCategory":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Purpose":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3877,26 +3942,25 @@ ContactPointCategory.Id,CreateLocation,CreatedBy,CreatedDateTime,Id,Purpose.Id,U
 </div>
 </div>
 
-## ContactPointPurposeCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointpurposecategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointpurposecategories)</button>  
+
+## ContactPointPurposeCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpointpurposecategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contactpointpurposecategories)</button>  
 		
 Create a new contact point purpose category.  
 ##### Usage:  
 ```shell
 tq post ContactPointPurposeCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposeCategoriesCreate-default" aria-expanded="true" aria-controls="ContactPointPurposeCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposeCategoriesCreate-default" aria-expanded="true" aria-controls="ContactPointPurposeCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposeCategoriesCreate-flat" aria-expanded="false" aria-controls="ContactPointPurposeCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposeCategoriesCreate-flat" aria-expanded="false" aria-controls="ContactPointPurposeCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposeCategoriesCreate-csv" aria-expanded="false" aria-controls="ContactPointPurposeCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposeCategoriesCreate-csv" aria-expanded="false" aria-controls="ContactPointPurposeCategoriesCreate-csv">
 csv
-</button><div id="ContactPointPurposeCategoriesCreate-parent">
+</button>
+<div id="ContactPointPurposeCategoriesCreate-parent">
 <div class="collapse show" id="ContactPointPurposeCategoriesCreate-default" data-bs-parent="#ContactPointPurposeCategoriesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3916,26 +3980,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## ContactPointPurposeMaps 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointpurposemaps)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointpurposemaps)</button>  
+
+## ContactPointPurposeMaps <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpointpurposemaps)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contactpointpurposemaps)</button>  
 		
 Create a new contact point purpose.  
 ##### Usage:  
 ```shell
 tq post ContactPointPurposeMaps
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposeMapsCreate-default" aria-expanded="true" aria-controls="ContactPointPurposeMapsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposeMapsCreate-default" aria-expanded="true" aria-controls="ContactPointPurposeMapsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposeMapsCreate-flat" aria-expanded="false" aria-controls="ContactPointPurposeMapsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposeMapsCreate-flat" aria-expanded="false" aria-controls="ContactPointPurposeMapsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposeMapsCreate-csv" aria-expanded="false" aria-controls="ContactPointPurposeMapsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposeMapsCreate-csv" aria-expanded="false" aria-controls="ContactPointPurposeMapsCreate-csv">
 csv
-</button><div id="ContactPointPurposeMapsCreate-parent">
+</button>
+<div id="ContactPointPurposeMapsCreate-parent">
 <div class="collapse show" id="ContactPointPurposeMapsCreate-default" data-bs-parent="#ContactPointPurposeMapsCreate-parent"> 
 ```json
 {"ContactPoint":{"Id":123}, "ContactPointCategory":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Purpose":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3955,26 +4018,25 @@ ContactPoint.Id,ContactPointCategory.Id,CreateLocation,CreatedBy,CreatedDateTime
 </div>
 </div>
 
-## ContactPointPurposes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointpurposes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointpurposes)</button>  
+
+## ContactPointPurposes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpointpurposes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contactpointpurposes)</button>  
 		
 Create a new contact point purpose.  
 ##### Usage:  
 ```shell
 tq post ContactPointPurposes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposesCreate-default" aria-expanded="true" aria-controls="ContactPointPurposesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposesCreate-default" aria-expanded="true" aria-controls="ContactPointPurposesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposesCreate-flat" aria-expanded="false" aria-controls="ContactPointPurposesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposesCreate-flat" aria-expanded="false" aria-controls="ContactPointPurposesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposesCreate-csv" aria-expanded="false" aria-controls="ContactPointPurposesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposesCreate-csv" aria-expanded="false" aria-controls="ContactPointPurposesCreate-csv">
 csv
-</button><div id="ContactPointPurposesCreate-parent">
+</button>
+<div id="ContactPointPurposesCreate-parent">
 <div class="collapse show" id="ContactPointPurposesCreate-default" data-bs-parent="#ContactPointPurposesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PurposeCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -3995,26 +4057,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,PurposeCategory
 </div>
 
 
-## ContactTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contacttypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contacttypes)</button>  
+
+## ContactTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contacttypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contacttypes)</button>  
 		
 Create a new contact type.  
 ##### Usage:  
 ```shell
 tq post ContactTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactTypesCreate-default" aria-expanded="true" aria-controls="ContactTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactTypesCreate-default" aria-expanded="true" aria-controls="ContactTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactTypesCreate-flat" aria-expanded="false" aria-controls="ContactTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactTypesCreate-flat" aria-expanded="false" aria-controls="ContactTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactTypesCreate-csv" aria-expanded="false" aria-controls="ContactTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactTypesCreate-csv" aria-expanded="false" aria-controls="ContactTypesCreate-csv">
 csv
-</button><div id="ContactTypesCreate-parent">
+</button>
+<div id="ContactTypesCreate-parent">
 <div class="collapse show" id="ContactTypesCreate-default" data-bs-parent="#ContactTypesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -4035,26 +4096,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 
 
-## ContributionDesignations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contributiondesignations)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contributiondesignations)</button>  
+
+## ContributionDesignations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contributiondesignations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contributiondesignations)</button>  
 		
 Create a new contribution designation.  
 ##### Usage:  
 ```shell
 tq post ContributionDesignations
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionDesignationsCreate-default" aria-expanded="true" aria-controls="ContributionDesignationsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionDesignationsCreate-default" aria-expanded="true" aria-controls="ContributionDesignationsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionDesignationsCreate-flat" aria-expanded="false" aria-controls="ContributionDesignationsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionDesignationsCreate-flat" aria-expanded="false" aria-controls="ContributionDesignationsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionDesignationsCreate-csv" aria-expanded="false" aria-controls="ContributionDesignationsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionDesignationsCreate-csv" aria-expanded="false" aria-controls="ContributionDesignationsCreate-csv">
 csv
-</button><div id="ContributionDesignationsCreate-parent">
+</button>
+<div id="ContributionDesignationsCreate-parent">
 <div class="collapse show" id="ContributionDesignationsCreate-default" data-bs-parent="#ContributionDesignationsCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LetterText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -4074,26 +4134,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## ContributionImportSets 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contributionimportsets)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contributionimportsets)</button>  
+
+## ContributionImportSets <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contributionimportsets)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contributionimportsets)</button>  
 		
 Create a new contributionImportSet.  
 ##### Usage:  
 ```shell
 tq post ContributionImportSets
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionImportSetsCreate-default" aria-expanded="true" aria-controls="ContributionImportSetsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionImportSetsCreate-default" aria-expanded="true" aria-controls="ContributionImportSetsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionImportSetsCreate-flat" aria-expanded="false" aria-controls="ContributionImportSetsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionImportSetsCreate-flat" aria-expanded="false" aria-controls="ContributionImportSetsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionImportSetsCreate-csv" aria-expanded="false" aria-controls="ContributionImportSetsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionImportSetsCreate-csv" aria-expanded="false" aria-controls="ContributionImportSetsCreate-csv">
 csv
-</button><div id="ContributionImportSetsCreate-parent">
+</button>
+<div id="ContributionImportSetsCreate-parent">
 <div class="collapse show" id="ContributionImportSetsCreate-default" data-bs-parent="#ContributionImportSetsCreate-parent"> 
 ```json
 {"AccountMatchKeyword":{"Id":123}, "AcknowledgmentLetterMode":123, "BatchType":{"Id":123}, "BillingSchedule":{"Id":123}, "BillingType":{"Id":123}, "Campaign":{"Id":123}, "ContributionDateTime":"2000-01-01T00:00:00.000Z", "ContributionPayMode":123, "CreateLocation":"string", "CreatePotentialDuplicate":true, "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CrediteeMode":123, "CrediteeType":{"Id":123}, "DefaultConstituentType":{"Id":123}, "DefaultCountryCode":"string", "DefaultHouseholdConstituentType":{"Id":123}, "DefaultOriginalSource":{"Id":123}, "Description":"string", "Designation":{"Id":123}, "FilePath":"string", "FormatFile":"string", "Fund":{"Id":123}, "Id":123, "ImportRefNoLocation":123, "Inactive":true, "PaymentMethod":{"Id":123}, "SalesChannel":{"Id":123}, "Source":{"Id":123}, "StripPhoneFormatting":true, "TransactAsHousehold":true, "TransactAsHouseholdCreditee":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Worker":{"Id":123}}
@@ -4113,25 +4172,25 @@ AccountMatchKeyword.Id,AcknowledgmentLetterMode,BatchType.Id,BillingSchedule.Id,
 </div>
 </div>
 
-## Contributions 
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contributions)</button>  
+
+## Contributions <button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contributions)</button>  
 		
 This resource is currently strictly for interceptor plugin use. This is called any time a new contribution is saved from the contribution editor in the client application. Only Id (ref_no) is provided in the request content.  
 ##### Usage:  
 ```shell
 tq post Contributions
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionsCreate-default" aria-expanded="true" aria-controls="ContributionsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionsCreate-default" aria-expanded="true" aria-controls="ContributionsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionsCreate-flat" aria-expanded="false" aria-controls="ContributionsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionsCreate-flat" aria-expanded="false" aria-controls="ContributionsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionsCreate-csv" aria-expanded="false" aria-controls="ContributionsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionsCreate-csv" aria-expanded="false" aria-controls="ContributionsCreate-csv">
 csv
-</button><div id="ContributionsCreate-parent">
+</button>
+<div id="ContributionsCreate-parent">
 <div class="collapse show" id="ContributionsCreate-default" data-bs-parent="#ContributionsCreate-parent"> 
 ```json
 {"AccountId":123, "AppealId":123, "BatchId":123, "BillingAccount":"string", "BillingTypeId":123, "BusinessUnitId":123, "Campaign":{"Id":123}, "Cancel":"string", "Channel":{"Id":123}, "Constituent":{"Id":123}, "ContributionAmount":123.456, "ContributionDateTime":"2000-01-01T00:00:00.000Z", "ContributionDesignation":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Custom0":"string", "Custom1":"string", "Custom2":"string", "Custom3":"string", "Custom4":"string", "Custom5":"string", "Custom6":"string", "Custom7":"string", "Custom8":"string", "Custom9":"string", "EditIndicator":true, "Fund":{"Id":123}, "Id":123, "Initiator":{"Id":123}, "KindGiftDescription":"string", "KindGiftTransferDateTime":"2000-01-01T00:00:00.000Z", "MatchIndicator":"string", "MatchingContributionId":123, "MediaType":{"Id":123}, "MirrorLock":123, "Notes":"string", "PaymentEndDateTime":"2000-01-01T00:00:00.000Z", "PaymentStartDateTime":"2000-01-01T00:00:00.000Z", "Plan":{"Id":123}, "PledgeStatusId":123, "ReceivedAmount":123.456, "Solicitor":"string", "SourceId":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -4151,26 +4210,25 @@ AccountId,AppealId,BatchId,BillingAccount,BillingTypeId,BusinessUnitId,Campaign.
 </div>
 </div>
 
-## ControlGroupUserGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#controlgroupusergroups)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#controlgroupusergroups)</button>  
+
+## ControlGroupUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#controlgroupusergroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#controlgroupusergroups)</button>  
 		
 Create a new control group/user group mapping.  
 ##### Usage:  
 ```shell
 tq post ControlGroupUserGroups
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ControlGroupUserGroupsCreate-default" aria-expanded="true" aria-controls="ControlGroupUserGroupsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ControlGroupUserGroupsCreate-default" aria-expanded="true" aria-controls="ControlGroupUserGroupsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ControlGroupUserGroupsCreate-flat" aria-expanded="false" aria-controls="ControlGroupUserGroupsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ControlGroupUserGroupsCreate-flat" aria-expanded="false" aria-controls="ControlGroupUserGroupsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ControlGroupUserGroupsCreate-csv" aria-expanded="false" aria-controls="ControlGroupUserGroupsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ControlGroupUserGroupsCreate-csv" aria-expanded="false" aria-controls="ControlGroupUserGroupsCreate-csv">
 csv
-</button><div id="ControlGroupUserGroupsCreate-parent">
+</button>
+<div id="ControlGroupUserGroupsCreate-parent">
 <div class="collapse show" id="ControlGroupUserGroupsCreate-default" data-bs-parent="#ControlGroupUserGroupsCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "EditIndicator":true, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string"}
@@ -4190,26 +4248,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DefaultIndicator,EditIn
 </div>
 </div>
 
-## ControlGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#controlgroups)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#controlgroups)</button>  
+
+## ControlGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#controlgroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#controlgroups)</button>  
 		
 Create a new control group.  
 ##### Usage:  
 ```shell
 tq post ControlGroups
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ControlGroupsCreate-default" aria-expanded="true" aria-controls="ControlGroupsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ControlGroupsCreate-default" aria-expanded="true" aria-controls="ControlGroupsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ControlGroupsCreate-flat" aria-expanded="false" aria-controls="ControlGroupsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ControlGroupsCreate-flat" aria-expanded="false" aria-controls="ControlGroupsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ControlGroupsCreate-csv" aria-expanded="false" aria-controls="ControlGroupsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ControlGroupsCreate-csv" aria-expanded="false" aria-controls="ControlGroupsCreate-csv">
 csv
-</button><div id="ControlGroupsCreate-parent">
+</button>
+<div id="ControlGroupsCreate-parent">
 <div class="collapse show" id="ControlGroupsCreate-default" data-bs-parent="#ControlGroupsCreate-parent"> 
 ```json
 {"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Permission":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -4229,25 +4286,25 @@ CreatedBy,CreatedDateTime,Description,Id,Inactive,Permission,UpdatedBy,UpdatedDa
 </div>
 </div>
 
-## CoreIdentity 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#coreidentity)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## CoreIdentity <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#coreidentity)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
   
 ##### Usage:  
 ```shell
 tq post CoreIdentity
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CoreIdentitySign-default" aria-expanded="true" aria-controls="CoreIdentitySign-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CoreIdentitySign-default" aria-expanded="true" aria-controls="CoreIdentitySign-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CoreIdentitySign-flat" aria-expanded="false" aria-controls="CoreIdentitySign-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CoreIdentitySign-flat" aria-expanded="false" aria-controls="CoreIdentitySign-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CoreIdentitySign-csv" aria-expanded="false" aria-controls="CoreIdentitySign-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CoreIdentitySign-csv" aria-expanded="false" aria-controls="CoreIdentitySign-csv">
 csv
-</button><div id="CoreIdentitySign-parent">
+</button>
+<div id="CoreIdentitySign-parent">
 <div class="collapse show" id="CoreIdentitySign-default" data-bs-parent="#CoreIdentitySign-parent"> 
 ```json
 {"Body":"string", "Headers":[{"Name":"string", "Value":"string"}, ...], "Method":"string", "Path":"string", "QueryParameters":[{"Name":"string", "Value":"string"}, ...]}
@@ -4265,26 +4322,25 @@ csv
 </div>
 </div>
 
-## Countries 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#countries)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#countries)</button>  
+
+## Countries <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#countries)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#countries)</button>  
 		
 Create a new country.  
 ##### Usage:  
 ```shell
 tq post Countries
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CountriesCreate-default" aria-expanded="true" aria-controls="CountriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CountriesCreate-default" aria-expanded="true" aria-controls="CountriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CountriesCreate-flat" aria-expanded="false" aria-controls="CountriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CountriesCreate-flat" aria-expanded="false" aria-controls="CountriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CountriesCreate-csv" aria-expanded="false" aria-controls="CountriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CountriesCreate-csv" aria-expanded="false" aria-controls="CountriesCreate-csv">
 csv
-</button><div id="CountriesCreate-parent">
+</button>
+<div id="CountriesCreate-parent">
 <div class="collapse show" id="CountriesCreate-default" data-bs-parent="#CountriesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DecimalSeparator":"string", "Description":"string", "Id":123, "Inactive":true, "IsoAlpha2Code":"string", "IsoAlpha3Code":"string", "PhoneCode":"string", "PhoneEditstring":"string", "PhoneMask":"string", "PhoneValidLengths":"string", "ReqCity":true, "ReqPcode":true, "ShortDesc":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseAvs":"string", "UseStateField":"string", "ZipEditstring":"string", "ZipMask":"string", "ZipValidLengths":"string"}
@@ -4304,26 +4360,25 @@ CreateLocation,CreatedBy,CreatedDateTime,DecimalSeparator,Description,Id,Inactiv
 </div>
 </div>
 
-## CrediteeTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#crediteetypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#crediteetypes)</button>  
+
+## CrediteeTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#crediteetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#crediteetypes)</button>  
 		
 Create a new crediteeType.  
 ##### Usage:  
 ```shell
 tq post CrediteeTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CrediteeTypesCreate-default" aria-expanded="true" aria-controls="CrediteeTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CrediteeTypesCreate-default" aria-expanded="true" aria-controls="CrediteeTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CrediteeTypesCreate-flat" aria-expanded="false" aria-controls="CrediteeTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CrediteeTypesCreate-flat" aria-expanded="false" aria-controls="CrediteeTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CrediteeTypesCreate-csv" aria-expanded="false" aria-controls="CrediteeTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CrediteeTypesCreate-csv" aria-expanded="false" aria-controls="CrediteeTypesCreate-csv">
 csv
-</button><div id="CrediteeTypesCreate-parent">
+</button>
+<div id="CrediteeTypesCreate-parent">
 <div class="collapse show" id="CrediteeTypesCreate-default" data-bs-parent="#CrediteeTypesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CreditMembershipIndicator":true, "Description":"string", "GiftAidIndicator":true, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -4346,26 +4401,25 @@ CreateLocation,CreatedBy,CreatedDateTime,CreditMembershipIndicator,Description,G
 
 
 
-## CurrencyTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#currencytypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#currencytypes)</button>  
+
+## CurrencyTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#currencytypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#currencytypes)</button>  
 		
 Create a new currency type.  
 ##### Usage:  
 ```shell
 tq post CurrencyTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CurrencyTypesCreate-default" aria-expanded="true" aria-controls="CurrencyTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CurrencyTypesCreate-default" aria-expanded="true" aria-controls="CurrencyTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CurrencyTypesCreate-flat" aria-expanded="false" aria-controls="CurrencyTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CurrencyTypesCreate-flat" aria-expanded="false" aria-controls="CurrencyTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CurrencyTypesCreate-csv" aria-expanded="false" aria-controls="CurrencyTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CurrencyTypesCreate-csv" aria-expanded="false" aria-controls="CurrencyTypesCreate-csv">
 csv
-</button><div id="CurrencyTypesCreate-parent">
+</button>
+<div id="CurrencyTypesCreate-parent">
 <div class="collapse show" id="CurrencyTypesCreate-default" data-bs-parent="#CurrencyTypesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rate":123.456, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -4385,25 +4439,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,Rate,UpdatedBy,
 </div>
 </div>
 
-## Custom 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#custom)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## Custom <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#custom)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 Executes a local procedure defined in TR_LOCAL_PROCEDURE. This will only return a collection of the first result set in a registered procedure.  For the result set, null values in each data row are not returned as properties.  
 ##### Usage:  
 ```shell
 tq post Custom
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomExecuteLocalProcedure-default" aria-expanded="true" aria-controls="CustomExecuteLocalProcedure-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomExecuteLocalProcedure-default" aria-expanded="true" aria-controls="CustomExecuteLocalProcedure-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomExecuteLocalProcedure-flat" aria-expanded="false" aria-controls="CustomExecuteLocalProcedure-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomExecuteLocalProcedure-flat" aria-expanded="false" aria-controls="CustomExecuteLocalProcedure-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomExecuteLocalProcedure-csv" aria-expanded="false" aria-controls="CustomExecuteLocalProcedure-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomExecuteLocalProcedure-csv" aria-expanded="false" aria-controls="CustomExecuteLocalProcedure-csv">
 csv
-</button><div id="CustomExecuteLocalProcedure-parent">
+</button>
+<div id="CustomExecuteLocalProcedure-parent">
 <div class="collapse show" id="CustomExecuteLocalProcedure-default" data-bs-parent="#CustomExecuteLocalProcedure-parent"> 
 ```json
 {"ParameterValues":[{"Name":"string", "Value":"string"}, ...], "Parameters":"string", "ProcedureId":123, "ProcedureName":"string"}
@@ -4420,19 +4474,21 @@ csv
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--ExecuteLocalProcedureWithMultipleResultSets*  
    Executes a local procedure defined in TR_LOCAL_PROCEDURE.  This resource supports multiple result sets in a registered procedure. The response object is different from Custom/Execute. For each result set, null values are not returned as properties.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomExecuteLocalProcedureWithMultipleResultSets-default" aria-expanded="true" aria-controls="CustomExecuteLocalProcedureWithMultipleResultSets-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomExecuteLocalProcedureWithMultipleResultSets-default" aria-expanded="true" aria-controls="CustomExecuteLocalProcedureWithMultipleResultSets-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomExecuteLocalProcedureWithMultipleResultSets-flat" aria-expanded="false" aria-controls="CustomExecuteLocalProcedureWithMultipleResultSets-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomExecuteLocalProcedureWithMultipleResultSets-flat" aria-expanded="false" aria-controls="CustomExecuteLocalProcedureWithMultipleResultSets-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomExecuteLocalProcedureWithMultipleResultSets-csv" aria-expanded="false" aria-controls="CustomExecuteLocalProcedureWithMultipleResultSets-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomExecuteLocalProcedureWithMultipleResultSets-csv" aria-expanded="false" aria-controls="CustomExecuteLocalProcedureWithMultipleResultSets-csv">
 csv
-</button><div id="CustomExecuteLocalProcedureWithMultipleResultSets-parent">
+</button>
+<div id="CustomExecuteLocalProcedureWithMultipleResultSets-parent">
 <div class="collapse show" id="CustomExecuteLocalProcedureWithMultipleResultSets-default" data-bs-parent="#CustomExecuteLocalProcedureWithMultipleResultSets-parent"> 
 ```json
 {"ParameterValues":[{"Name":"string", "Value":"string"}, ...], "Parameters":"string", "ProcedureId":123, "ProcedureName":"string"}
@@ -4450,26 +4506,25 @@ csv
 </div>
 </div>
 
-## CustomDefaultCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#customdefaultcategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#customdefaultcategories)</button>  
+
+## CustomDefaultCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#customdefaultcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#customdefaultcategories)</button>  
 		
 Create a new custom default category.  
 ##### Usage:  
 ```shell
 tq post CustomDefaultCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomDefaultCategoriesCreate-default" aria-expanded="true" aria-controls="CustomDefaultCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomDefaultCategoriesCreate-default" aria-expanded="true" aria-controls="CustomDefaultCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomDefaultCategoriesCreate-flat" aria-expanded="false" aria-controls="CustomDefaultCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomDefaultCategoriesCreate-flat" aria-expanded="false" aria-controls="CustomDefaultCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomDefaultCategoriesCreate-csv" aria-expanded="false" aria-controls="CustomDefaultCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomDefaultCategoriesCreate-csv" aria-expanded="false" aria-controls="CustomDefaultCategoriesCreate-csv">
 csv
-</button><div id="CustomDefaultCategoriesCreate-parent">
+</button>
+<div id="CustomDefaultCategoriesCreate-parent">
 <div class="collapse show" id="CustomDefaultCategoriesCreate-default" data-bs-parent="#CustomDefaultCategoriesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -4489,26 +4544,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## CustomDefaults 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#customdefaults)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#customdefaults)</button>  
+
+## CustomDefaults <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#customdefaults)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#customdefaults)</button>  
 		
 Create a new custom default.  
 ##### Usage:  
 ```shell
 tq post CustomDefaults
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomDefaultsCreate-default" aria-expanded="true" aria-controls="CustomDefaultsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomDefaultsCreate-default" aria-expanded="true" aria-controls="CustomDefaultsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomDefaultsCreate-flat" aria-expanded="false" aria-controls="CustomDefaultsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomDefaultsCreate-flat" aria-expanded="false" aria-controls="CustomDefaultsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomDefaultsCreate-csv" aria-expanded="false" aria-controls="CustomDefaultsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomDefaultsCreate-csv" aria-expanded="false" aria-controls="CustomDefaultsCreate-csv">
 csv
-</button><div id="CustomDefaultsCreate-parent">
+</button>
+<div id="CustomDefaultsCreate-parent">
 <div class="collapse show" id="CustomDefaultsCreate-default" data-bs-parent="#CustomDefaultsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDefaultCategory":{"Id":123}, "DefaultValue":"string", "Description":"string", "FieldName":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -4528,28 +4582,27 @@ CreateLocation,CreatedBy,CreatedDateTime,CustomDefaultCategory.Id,DefaultValue,D
 </div>
 </div>
 
+
 	
 # D
-## DeliveryMethods 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#deliverymethods)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#deliverymethods)</button>  
+## DeliveryMethods <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#deliverymethods)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#deliverymethods)</button>  
 		
 Create a new delivery method.  
 ##### Usage:  
 ```shell
 tq post DeliveryMethods
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DeliveryMethodsCreate-default" aria-expanded="true" aria-controls="DeliveryMethodsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DeliveryMethodsCreate-default" aria-expanded="true" aria-controls="DeliveryMethodsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DeliveryMethodsCreate-flat" aria-expanded="false" aria-controls="DeliveryMethodsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DeliveryMethodsCreate-flat" aria-expanded="false" aria-controls="DeliveryMethodsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DeliveryMethodsCreate-csv" aria-expanded="false" aria-controls="DeliveryMethodsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DeliveryMethodsCreate-csv" aria-expanded="false" aria-controls="DeliveryMethodsCreate-csv">
 csv
-</button><div id="DeliveryMethodsCreate-parent">
+</button>
+<div id="DeliveryMethodsCreate-parent">
 <div class="collapse show" id="DeliveryMethodsCreate-default" data-bs-parent="#DeliveryMethodsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PrintAtHome":true, "RequireAddress":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -4569,26 +4622,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,PrintAtHome,Req
 </div>
 </div>
 
-## DesignationCodes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#designationcodes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#designationcodes)</button>  
+
+## DesignationCodes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#designationcodes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#designationcodes)</button>  
 		
 Create a new designation code.  
 ##### Usage:  
 ```shell
 tq post DesignationCodes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DesignationCodesCreate-default" aria-expanded="true" aria-controls="DesignationCodesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DesignationCodesCreate-default" aria-expanded="true" aria-controls="DesignationCodesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DesignationCodesCreate-flat" aria-expanded="false" aria-controls="DesignationCodesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DesignationCodesCreate-flat" aria-expanded="false" aria-controls="DesignationCodesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DesignationCodesCreate-csv" aria-expanded="false" aria-controls="DesignationCodesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DesignationCodesCreate-csv" aria-expanded="false" aria-controls="DesignationCodesCreate-csv">
 csv
-</button><div id="DesignationCodesCreate-parent">
+</button>
+<div id="DesignationCodesCreate-parent">
 <div class="collapse show" id="DesignationCodesCreate-default" data-bs-parent="#DesignationCodesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -4609,26 +4661,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 
 
-## Diagnostics 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#diagnostics)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#diagnostics)</button>  
+
+## Diagnostics <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#diagnostics)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#diagnostics)</button>  
 		
 Check connection information.  
 ##### Usage:  
 ```shell
 tq post Diagnostics
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DiagnosticsCheck-default" aria-expanded="true" aria-controls="DiagnosticsCheck-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DiagnosticsCheck-default" aria-expanded="true" aria-controls="DiagnosticsCheck-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DiagnosticsCheck-flat" aria-expanded="false" aria-controls="DiagnosticsCheck-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DiagnosticsCheck-flat" aria-expanded="false" aria-controls="DiagnosticsCheck-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DiagnosticsCheck-csv" aria-expanded="false" aria-controls="DiagnosticsCheck-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DiagnosticsCheck-csv" aria-expanded="false" aria-controls="DiagnosticsCheck-csv">
 csv
-</button><div id="DiagnosticsCheck-parent">
+</button>
+<div id="DiagnosticsCheck-parent">
 <div class="collapse show" id="DiagnosticsCheck-default" data-bs-parent="#DiagnosticsCheck-parent"> 
 ```json
 {"ServerName":"string"}
@@ -4648,26 +4699,25 @@ ServerName
 </div>
 </div>
 
-## DirectDebitAccountTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#directdebitaccounttypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#directdebitaccounttypes)</button>  
+
+## DirectDebitAccountTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#directdebitaccounttypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#directdebitaccounttypes)</button>  
 		
 Create a new direct debit account type.  
 ##### Usage:  
 ```shell
 tq post DirectDebitAccountTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DirectDebitAccountTypesCreate-default" aria-expanded="true" aria-controls="DirectDebitAccountTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DirectDebitAccountTypesCreate-default" aria-expanded="true" aria-controls="DirectDebitAccountTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DirectDebitAccountTypesCreate-flat" aria-expanded="false" aria-controls="DirectDebitAccountTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DirectDebitAccountTypesCreate-flat" aria-expanded="false" aria-controls="DirectDebitAccountTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DirectDebitAccountTypesCreate-csv" aria-expanded="false" aria-controls="DirectDebitAccountTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DirectDebitAccountTypesCreate-csv" aria-expanded="false" aria-controls="DirectDebitAccountTypesCreate-csv">
 csv
-</button><div id="DirectDebitAccountTypesCreate-parent">
+</button>
+<div id="DirectDebitAccountTypesCreate-parent">
 <div class="collapse show" id="DirectDebitAccountTypesCreate-default" data-bs-parent="#DirectDebitAccountTypesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -4687,26 +4737,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## DiscountTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#discounttypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#discounttypes)</button>  
+
+## DiscountTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#discounttypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#discounttypes)</button>  
 		
 Create a new discount type.  
 ##### Usage:  
 ```shell
 tq post DiscountTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DiscountTypesCreate-default" aria-expanded="true" aria-controls="DiscountTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DiscountTypesCreate-default" aria-expanded="true" aria-controls="DiscountTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DiscountTypesCreate-flat" aria-expanded="false" aria-controls="DiscountTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DiscountTypesCreate-flat" aria-expanded="false" aria-controls="DiscountTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DiscountTypesCreate-csv" aria-expanded="false" aria-controls="DiscountTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DiscountTypesCreate-csv" aria-expanded="false" aria-controls="DiscountTypesCreate-csv">
 csv
-</button><div id="DiscountTypesCreate-parent">
+</button>
+<div id="DiscountTypesCreate-parent">
 <div class="collapse show" id="DiscountTypesCreate-default" data-bs-parent="#DiscountTypesCreate-parent"> 
 ```json
 {"Amount":123.456, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PercentIndicator":true, "RespectMinimumPrice":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -4727,26 +4776,25 @@ Amount,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,PercentI
 </div>
 
 
-## DocumentCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#documentcategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#documentcategories)</button>  
+
+## DocumentCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#documentcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#documentcategories)</button>  
 		
 Create a new documentCategory.  
 ##### Usage:  
 ```shell
 tq post DocumentCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DocumentCategoriesCreate-default" aria-expanded="true" aria-controls="DocumentCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DocumentCategoriesCreate-default" aria-expanded="true" aria-controls="DocumentCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DocumentCategoriesCreate-flat" aria-expanded="false" aria-controls="DocumentCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DocumentCategoriesCreate-flat" aria-expanded="false" aria-controls="DocumentCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DocumentCategoriesCreate-csv" aria-expanded="false" aria-controls="DocumentCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DocumentCategoriesCreate-csv" aria-expanded="false" aria-controls="DocumentCategoriesCreate-csv">
 csv
-</button><div id="DocumentCategoriesCreate-parent">
+</button>
+<div id="DocumentCategoriesCreate-parent">
 <div class="collapse show" id="DocumentCategoriesCreate-default" data-bs-parent="#DocumentCategoriesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ParentTableName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -4767,26 +4815,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 
 
-## DonationLevels 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#donationlevels)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#donationlevels)</button>  
+
+## DonationLevels <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#donationlevels)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#donationlevels)</button>  
 		
 Create a new donation level.  
 ##### Usage:  
 ```shell
 tq post DonationLevels
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DonationLevelsCreate-default" aria-expanded="true" aria-controls="DonationLevelsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DonationLevelsCreate-default" aria-expanded="true" aria-controls="DonationLevelsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DonationLevelsCreate-flat" aria-expanded="false" aria-controls="DonationLevelsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DonationLevelsCreate-flat" aria-expanded="false" aria-controls="DonationLevelsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DonationLevelsCreate-csv" aria-expanded="false" aria-controls="DonationLevelsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DonationLevelsCreate-csv" aria-expanded="false" aria-controls="DonationLevelsCreate-csv">
 csv
-</button><div id="DonationLevelsCreate-parent">
+</button>
+<div id="DonationLevelsCreate-parent">
 <div class="collapse show" id="DonationLevelsCreate-default" data-bs-parent="#DonationLevelsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ProgramType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -4806,28 +4853,27 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,ProgramType.Id,
 </div>
 </div>
 
+
 	
 # E
-## EMV 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#emv)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#emv)</button>  
+## EMV <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#emv)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#emv)</button>  
 		
 Authorize a payment via a Payment Express HIT, TriPOSCloud, or Adyen device.  
 ##### Usage:  
 ```shell
 tq post EMV
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVAuthorization-default" aria-expanded="true" aria-controls="EMVAuthorization-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVAuthorization-default" aria-expanded="true" aria-controls="EMVAuthorization-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVAuthorization-flat" aria-expanded="false" aria-controls="EMVAuthorization-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVAuthorization-flat" aria-expanded="false" aria-controls="EMVAuthorization-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVAuthorization-csv" aria-expanded="false" aria-controls="EMVAuthorization-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVAuthorization-csv" aria-expanded="false" aria-controls="EMVAuthorization-csv">
 csv
-</button><div id="EMVAuthorization-parent">
+</button>
+<div id="EMVAuthorization-parent">
 <div class="collapse show" id="EMVAuthorization-default" data-bs-parent="#EMVAuthorization-parent"> 
 ```json
 {"Amount":123.456, "BillingAddress":{"AddressId":123, "Country":"string", "PostalCode":"string", "Street1":"string"}, "ConstituentId":123, "IsMoto":true, "MachineId":123, "PaymentId":123, "StoreAccount":true, "TransactionOrigin":"string", "UserData":"string"}
@@ -4846,19 +4892,21 @@ Amount,BillingAddress.AddressId,BillingAddress.Country,BillingAddress.PostalCode
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--Lane*  
    Add a new lane to merchant
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVCreateLane-default" aria-expanded="true" aria-controls="EMVCreateLane-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVCreateLane-default" aria-expanded="true" aria-controls="EMVCreateLane-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVCreateLane-flat" aria-expanded="false" aria-controls="EMVCreateLane-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVCreateLane-flat" aria-expanded="false" aria-controls="EMVCreateLane-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVCreateLane-csv" aria-expanded="false" aria-controls="EMVCreateLane-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVCreateLane-csv" aria-expanded="false" aria-controls="EMVCreateLane-csv">
 csv
-</button><div id="EMVCreateLane-parent">
+</button>
+<div id="EMVCreateLane-parent">
 <div class="collapse show" id="EMVCreateLane-default" data-bs-parent="#EMVCreateLane-parent"> 
 ```json
 {"Cert":"string", "ActivationCode":"string", "Description":"string", "LaneId":"string", "MarketCode":"string", "TerminalId":"string", "Merchant":"string"}
@@ -4877,18 +4925,20 @@ ActivationCode,Cert,Description,LaneId,MarketCode,Merchant,TerminalId
 ```  
 </div>
 </div>
+
  * *--Signature*  
    Accepts the signature for a Payment Express HIT authorization.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVSignature-default" aria-expanded="true" aria-controls="EMVSignature-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVSignature-default" aria-expanded="true" aria-controls="EMVSignature-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVSignature-flat" aria-expanded="false" aria-controls="EMVSignature-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVSignature-flat" aria-expanded="false" aria-controls="EMVSignature-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVSignature-csv" aria-expanded="false" aria-controls="EMVSignature-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVSignature-csv" aria-expanded="false" aria-controls="EMVSignature-csv">
 csv
-</button><div id="EMVSignature-parent">
+</button>
+<div id="EMVSignature-parent">
 <div class="collapse show" id="EMVSignature-default" data-bs-parent="#EMVSignature-parent"> 
 ```json
 {"MachineId":123, "PaymentId":123, "SignatureMatches":true, "StoreAccount":true}
@@ -4907,18 +4957,20 @@ MachineId,PaymentId,SignatureMatches,StoreAccount
 ```  
 </div>
 </div>
+
  * *--Token*  
    Creates a token on the specified constituent via a Payment Express HIT, TriPOSCloud, or Adyen device without authorizing a transaction.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVTokenCreate-default" aria-expanded="true" aria-controls="EMVTokenCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVTokenCreate-default" aria-expanded="true" aria-controls="EMVTokenCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVTokenCreate-flat" aria-expanded="false" aria-controls="EMVTokenCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVTokenCreate-flat" aria-expanded="false" aria-controls="EMVTokenCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVTokenCreate-csv" aria-expanded="false" aria-controls="EMVTokenCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVTokenCreate-csv" aria-expanded="false" aria-controls="EMVTokenCreate-csv">
 csv
-</button><div id="EMVTokenCreate-parent">
+</button>
+<div id="EMVTokenCreate-parent">
 <div class="collapse show" id="EMVTokenCreate-default" data-bs-parent="#EMVTokenCreate-parent"> 
 ```json
 {"ConstituentId":123, "IsMoto":true, "MachineId":123, "TransactionOrigin":"string"}
@@ -4938,26 +4990,25 @@ ConstituentId,IsMoto,MachineId,TransactionOrigin
 </div>
 </div>
 
-## ElectronicAddressTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#electronicaddresstypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#electronicaddresstypes)</button>  
+
+## ElectronicAddressTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#electronicaddresstypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#electronicaddresstypes)</button>  
 		
 Create a new electronic address type.  
 ##### Usage:  
 ```shell
 tq post ElectronicAddressTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressTypesCreate-default" aria-expanded="true" aria-controls="ElectronicAddressTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressTypesCreate-default" aria-expanded="true" aria-controls="ElectronicAddressTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressTypesCreate-flat" aria-expanded="false" aria-controls="ElectronicAddressTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressTypesCreate-flat" aria-expanded="false" aria-controls="ElectronicAddressTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressTypesCreate-csv" aria-expanded="false" aria-controls="ElectronicAddressTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressTypesCreate-csv" aria-expanded="false" aria-controls="ElectronicAddressTypesCreate-csv">
 csv
-</button><div id="ElectronicAddressTypesCreate-parent">
+</button>
+<div id="ElectronicAddressTypesCreate-parent">
 <div class="collapse show" id="ElectronicAddressTypesCreate-default" data-bs-parent="#ElectronicAddressTypesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsEmail":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -4977,26 +5028,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## ElectronicAddresses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#electronicaddresses)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#electronicaddresses)</button>  
+
+## ElectronicAddresses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#electronicaddresses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#electronicaddresses)</button>  
 		
 Create a new electronic address.  
 ##### Usage:  
 ```shell
 tq post ElectronicAddresses
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressesCreate-default" aria-expanded="true" aria-controls="ElectronicAddressesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressesCreate-default" aria-expanded="true" aria-controls="ElectronicAddressesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressesCreate-flat" aria-expanded="false" aria-controls="ElectronicAddressesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressesCreate-flat" aria-expanded="false" aria-controls="ElectronicAddressesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressesCreate-csv" aria-expanded="false" aria-controls="ElectronicAddressesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressesCreate-csv" aria-expanded="false" aria-controls="ElectronicAddressesCreate-csv">
 csv
-</button><div id="ElectronicAddressesCreate-parent">
+</button>
+<div id="ElectronicAddressesCreate-parent">
 <div class="collapse show" id="ElectronicAddressesCreate-default" data-bs-parent="#ElectronicAddressesCreate-parent"> 
 ```json
 {"Address":"string", "AffiliatedConstituent":{"Id":123}, "AllowHtmlFormat":true, "AllowMarketing":true, "AltSalutationType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "ElectronicAddressType":{"Id":123}, "EndDate":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "IsEmail":true, "IsFromAffiliation":true, "Months":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -5015,19 +5065,21 @@ Address,AffiliatedConstituent.Id,AllowHtmlFormat,AllowMarketing,AltSalutationTyp
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--Move*  
    Change the ownership of the electronic address to a new constituent.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressesMove-default" aria-expanded="true" aria-controls="ElectronicAddressesMove-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressesMove-default" aria-expanded="true" aria-controls="ElectronicAddressesMove-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressesMove-flat" aria-expanded="false" aria-controls="ElectronicAddressesMove-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressesMove-flat" aria-expanded="false" aria-controls="ElectronicAddressesMove-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressesMove-csv" aria-expanded="false" aria-controls="ElectronicAddressesMove-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressesMove-csv" aria-expanded="false" aria-controls="ElectronicAddressesMove-csv">
 csv
-</button><div id="ElectronicAddressesMove-parent">
+</button>
+<div id="ElectronicAddressesMove-parent">
 <div class="collapse show" id="ElectronicAddressesMove-default" data-bs-parent="#ElectronicAddressesMove-parent"> 
 ```json
 {"ConstituentID":"string", "ElectronicAddressID":"string"}
@@ -5047,26 +5099,25 @@ ConstituentID,ElectronicAddressID
 </div>
 </div>
 
-## EmailProfiles 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#emailprofiles)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#emailprofiles)</button>  
+
+## EmailProfiles <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#emailprofiles)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#emailprofiles)</button>  
 		
 Create a new email profile  
 ##### Usage:  
 ```shell
 tq post EmailProfiles
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailProfilesCreate-default" aria-expanded="true" aria-controls="EmailProfilesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailProfilesCreate-default" aria-expanded="true" aria-controls="EmailProfilesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailProfilesCreate-flat" aria-expanded="false" aria-controls="EmailProfilesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailProfilesCreate-flat" aria-expanded="false" aria-controls="EmailProfilesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailProfilesCreate-csv" aria-expanded="false" aria-controls="EmailProfilesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailProfilesCreate-csv" aria-expanded="false" aria-controls="EmailProfilesCreate-csv">
 csv
-</button><div id="EmailProfilesCreate-parent">
+</button>
+<div id="EmailProfilesCreate-parent">
 <div class="collapse show" id="EmailProfilesCreate-default" data-bs-parent="#EmailProfilesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EmailBcc":"string", "EmailCc":"string", "EmailDefaultSubject":"string", "EmailFrom":"string", "Id":123, "Inactive":true, "SMTPPassword":"string", "SMTPPort":123, "SMTPServer":"string", "SMTPUserName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseSsl":true}
@@ -5086,24 +5137,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EmailBcc,Em
 </div>
 </div>
 
-## EmailResponses 
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## EmailResponses <button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 Updates an appeal with customer data in response to an email event. EventName should be one of open, click, hard-bounce, soft-bounce or opt-out.  
 ##### Usage:  
 ```shell
 tq post EmailResponses
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailResponsesUpdateAppeal-default" aria-expanded="true" aria-controls="EmailResponsesUpdateAppeal-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailResponsesUpdateAppeal-default" aria-expanded="true" aria-controls="EmailResponsesUpdateAppeal-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailResponsesUpdateAppeal-flat" aria-expanded="false" aria-controls="EmailResponsesUpdateAppeal-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailResponsesUpdateAppeal-flat" aria-expanded="false" aria-controls="EmailResponsesUpdateAppeal-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailResponsesUpdateAppeal-csv" aria-expanded="false" aria-controls="EmailResponsesUpdateAppeal-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailResponsesUpdateAppeal-csv" aria-expanded="false" aria-controls="EmailResponsesUpdateAppeal-csv">
 csv
-</button><div id="EmailResponsesUpdateAppeal-parent">
+</button>
+<div id="EmailResponsesUpdateAppeal-parent">
 <div class="collapse show" id="EmailResponsesUpdateAppeal-default" data-bs-parent="#EmailResponsesUpdateAppeal-parent"> 
 ```json
 {"ConstituentId":123, "DownloadNumber":123, "EventDateTime":"2000-01-01T00:00:00.000Z", "EventName":"string"}
@@ -5123,24 +5175,25 @@ ConstituentId,DownloadNumber,EventDateTime,EventName
 </div>
 </div>
 
-## Emails 
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## Emails <button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 Sends an email via SMTP  
 ##### Usage:  
 ```shell
 tq post Emails
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSend-default" aria-expanded="true" aria-controls="EmailsSend-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSend-default" aria-expanded="true" aria-controls="EmailsSend-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSend-flat" aria-expanded="false" aria-controls="EmailsSend-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSend-flat" aria-expanded="false" aria-controls="EmailsSend-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSend-csv" aria-expanded="false" aria-controls="EmailsSend-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSend-csv" aria-expanded="false" aria-controls="EmailsSend-csv">
 csv
-</button><div id="EmailsSend-parent">
+</button>
+<div id="EmailsSend-parent">
 <div class="collapse show" id="EmailsSend-default" data-bs-parent="#EmailsSend-parent"> 
 ```json
 {"Attachments":[{"Name":"string"}, ...], "DuplicateBodyAsAttachment":true, "DuplicateBodyAttachmentName":"string", "EmailProfileId":123, "EmbeddedImages":[{"MediaType":"string", "Name":"string"}, ...], "FromAddress":"string", "HtmlBody":"string", "PlainTextBody":"string", "RecipientAddress":"string", "Subject":"string"}
@@ -5157,19 +5210,21 @@ csv
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--SendConstituentInfo*  
    Queues a Constituents Info email
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendConstituentInfo-default" aria-expanded="true" aria-controls="EmailsSendConstituentInfo-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendConstituentInfo-default" aria-expanded="true" aria-controls="EmailsSendConstituentInfo-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendConstituentInfo-flat" aria-expanded="false" aria-controls="EmailsSendConstituentInfo-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendConstituentInfo-flat" aria-expanded="false" aria-controls="EmailsSendConstituentInfo-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendConstituentInfo-csv" aria-expanded="false" aria-controls="EmailsSendConstituentInfo-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendConstituentInfo-csv" aria-expanded="false" aria-controls="EmailsSendConstituentInfo-csv">
 csv
-</button><div id="EmailsSendConstituentInfo-parent">
+</button>
+<div id="EmailsSendConstituentInfo-parent">
 <div class="collapse show" id="EmailsSendConstituentInfo-default" data-bs-parent="#EmailsSendConstituentInfo-parent"> 
 ```json
 {"ConstituentID":"string", "EmailAddress":"string", "EmailProfileId":123, "NameValues":[{"Name":"string", "Value":"string"}, ...], "TemplateId":123}
@@ -5186,20 +5241,22 @@ csv
 ```  
 </div>
 </div>
+
  * *--SendLoginCredentials*  
    Queues a Login Credentials email.
 This endpoint will not generate a password token and should be used for testing a login credentials template.
 Use the SendCredentials endpoint in Web/Session to send a login credentials email with a generated password token.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendLoginCredentials-default" aria-expanded="true" aria-controls="EmailsSendLoginCredentials-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendLoginCredentials-default" aria-expanded="true" aria-controls="EmailsSendLoginCredentials-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendLoginCredentials-flat" aria-expanded="false" aria-controls="EmailsSendLoginCredentials-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendLoginCredentials-flat" aria-expanded="false" aria-controls="EmailsSendLoginCredentials-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendLoginCredentials-csv" aria-expanded="false" aria-controls="EmailsSendLoginCredentials-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendLoginCredentials-csv" aria-expanded="false" aria-controls="EmailsSendLoginCredentials-csv">
 csv
-</button><div id="EmailsSendLoginCredentials-parent">
+</button>
+<div id="EmailsSendLoginCredentials-parent">
 <div class="collapse show" id="EmailsSendLoginCredentials-default" data-bs-parent="#EmailsSendLoginCredentials-parent"> 
 ```json
 {"LoginID":"string", "EmailAddress":"string", "EmailProfileId":123, "NameValues":[{"Name":"string", "Value":"string"}, ...], "TemplateId":123}
@@ -5216,18 +5273,20 @@ csv
 ```  
 </div>
 </div>
+
  * *--SendOrderConfirmation*  
    Queues an Order Confirmation email
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendOrderConfirmation-default" aria-expanded="true" aria-controls="EmailsSendOrderConfirmation-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendOrderConfirmation-default" aria-expanded="true" aria-controls="EmailsSendOrderConfirmation-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendOrderConfirmation-flat" aria-expanded="false" aria-controls="EmailsSendOrderConfirmation-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendOrderConfirmation-flat" aria-expanded="false" aria-controls="EmailsSendOrderConfirmation-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendOrderConfirmation-csv" aria-expanded="false" aria-controls="EmailsSendOrderConfirmation-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendOrderConfirmation-csv" aria-expanded="false" aria-controls="EmailsSendOrderConfirmation-csv">
 csv
-</button><div id="EmailsSendOrderConfirmation-parent">
+</button>
+<div id="EmailsSendOrderConfirmation-parent">
 <div class="collapse show" id="EmailsSendOrderConfirmation-default" data-bs-parent="#EmailsSendOrderConfirmation-parent"> 
 ```json
 {"OrderID":"string", "EmailAddress":"string", "EmailProfileId":123, "NameValues":[{"Name":"string", "Value":"string"}, ...], "TemplateId":123}
@@ -5244,18 +5303,20 @@ csv
 ```  
 </div>
 </div>
+
  * *--SendTickets*  
    Queues a ticket email
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendTickets-default" aria-expanded="true" aria-controls="EmailsSendTickets-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendTickets-default" aria-expanded="true" aria-controls="EmailsSendTickets-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendTickets-flat" aria-expanded="false" aria-controls="EmailsSendTickets-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendTickets-flat" aria-expanded="false" aria-controls="EmailsSendTickets-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendTickets-csv" aria-expanded="false" aria-controls="EmailsSendTickets-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailsSendTickets-csv" aria-expanded="false" aria-controls="EmailsSendTickets-csv">
 csv
-</button><div id="EmailsSendTickets-parent">
+</button>
+<div id="EmailsSendTickets-parent">
 <div class="collapse show" id="EmailsSendTickets-default" data-bs-parent="#EmailsSendTickets-parent"> 
 ```json
 {"OrderID":"string", "EmailAddress":"string", "EmailProfileId":123, "PrintOrderTicketsRequest":{"BatchId":123, "HeaderDesignId":123, "IncludeReceipts":true, "LineItems":"string", "NewTicketNoForReprints":true, "PrinterType":"string", "ReprintTickets":true, "SubLineItems":"string", "TicketDesignId":123}, "TemplateId":123}
@@ -5275,26 +5336,25 @@ EmailAddress,EmailProfileId,OrderID,PrintOrderTicketsRequest.BatchId,PrintOrderT
 </div>
 </div>
 
-## EmarketIndicators 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#emarketindicators)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#emarketindicators)</button>  
+
+## EmarketIndicators <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#emarketindicators)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#emarketindicators)</button>  
 		
 Create a new emarket indicator.  
 ##### Usage:  
 ```shell
 tq post EmarketIndicators
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmarketIndicatorsCreate-default" aria-expanded="true" aria-controls="EmarketIndicatorsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmarketIndicatorsCreate-default" aria-expanded="true" aria-controls="EmarketIndicatorsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmarketIndicatorsCreate-flat" aria-expanded="false" aria-controls="EmarketIndicatorsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmarketIndicatorsCreate-flat" aria-expanded="false" aria-controls="EmarketIndicatorsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmarketIndicatorsCreate-csv" aria-expanded="false" aria-controls="EmarketIndicatorsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmarketIndicatorsCreate-csv" aria-expanded="false" aria-controls="EmarketIndicatorsCreate-csv">
 csv
-</button><div id="EmarketIndicatorsCreate-parent">
+</button>
+<div id="EmarketIndicatorsCreate-parent">
 <div class="collapse show" id="EmarketIndicatorsCreate-default" data-bs-parent="#EmarketIndicatorsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -5314,26 +5374,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## Eras 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#eras)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#eras)</button>  
+
+## Eras <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#eras)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#eras)</button>  
 		
 Create a new era.  
 ##### Usage:  
 ```shell
 tq post Eras
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ErasCreate-default" aria-expanded="true" aria-controls="ErasCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ErasCreate-default" aria-expanded="true" aria-controls="ErasCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ErasCreate-flat" aria-expanded="false" aria-controls="ErasCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ErasCreate-flat" aria-expanded="false" aria-controls="ErasCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ErasCreate-csv" aria-expanded="false" aria-controls="ErasCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ErasCreate-csv" aria-expanded="false" aria-controls="ErasCreate-csv">
 csv
-</button><div id="ErasCreate-parent">
+</button>
+<div id="ErasCreate-parent">
 <div class="collapse show" id="ErasCreate-default" data-bs-parent="#ErasCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -5354,28 +5413,27 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 
 
+
 	
 # F
-## Facilities 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#facilities)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#facilities)</button>  
+## Facilities <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#facilities)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#facilities)</button>  
 		
 Create a new Facility.  
 ##### Usage:  
 ```shell
 tq post Facilities
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#FacilitiesCreate-default" aria-expanded="true" aria-controls="FacilitiesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#FacilitiesCreate-default" aria-expanded="true" aria-controls="FacilitiesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#FacilitiesCreate-flat" aria-expanded="false" aria-controls="FacilitiesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#FacilitiesCreate-flat" aria-expanded="false" aria-controls="FacilitiesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#FacilitiesCreate-csv" aria-expanded="false" aria-controls="FacilitiesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#FacilitiesCreate-csv" aria-expanded="false" aria-controls="FacilitiesCreate-csv">
 csv
-</button><div id="FacilitiesCreate-parent">
+</button>
+<div id="FacilitiesCreate-parent">
 <div class="collapse show" id="FacilitiesCreate-default" data-bs-parent="#FacilitiesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultBestSeatMapId":123, "DefaultZoneMapId":123, "Description":"string", "Id":123, "SeatMap":{"Id":123}, "Theater":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -5399,29 +5457,28 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DefaultBestSeatMapId,De
 
 
 
+
 	
 # G
 
-## Genders 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#genders)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#genders)</button>  
+## Genders <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#genders)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#genders)</button>  
 		
 Create a new gender.  
 ##### Usage:  
 ```shell
 tq post Genders
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GendersCreate-default" aria-expanded="true" aria-controls="GendersCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GendersCreate-default" aria-expanded="true" aria-controls="GendersCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GendersCreate-flat" aria-expanded="false" aria-controls="GendersCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GendersCreate-flat" aria-expanded="false" aria-controls="GendersCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GendersCreate-csv" aria-expanded="false" aria-controls="GendersCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GendersCreate-csv" aria-expanded="false" aria-controls="GendersCreate-csv">
 csv
-</button><div id="GendersCreate-parent">
+</button>
+<div id="GendersCreate-parent">
 <div class="collapse show" id="GendersCreate-default" data-bs-parent="#GendersCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultPrefix":{"Id":123}, "Description":"string", "Id":123, "Inactive":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -5441,26 +5498,25 @@ CreateLocation,CreatedBy,CreatedDateTime,DefaultPrefix.Id,Description,Id,Inactiv
 </div>
 </div>
 
-## GiftAidContactMethods 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidcontactmethods)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidcontactmethods)</button>  
+
+## GiftAidContactMethods <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaidcontactmethods)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#giftaidcontactmethods)</button>  
 		
 Create a new gift aid contact method.  
 ##### Usage:  
 ```shell
 tq post GiftAidContactMethods
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidContactMethodsCreate-default" aria-expanded="true" aria-controls="GiftAidContactMethodsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidContactMethodsCreate-default" aria-expanded="true" aria-controls="GiftAidContactMethodsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidContactMethodsCreate-flat" aria-expanded="false" aria-controls="GiftAidContactMethodsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidContactMethodsCreate-flat" aria-expanded="false" aria-controls="GiftAidContactMethodsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidContactMethodsCreate-csv" aria-expanded="false" aria-controls="GiftAidContactMethodsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidContactMethodsCreate-csv" aria-expanded="false" aria-controls="GiftAidContactMethodsCreate-csv">
 csv
-</button><div id="GiftAidContactMethodsCreate-parent">
+</button>
+<div id="GiftAidContactMethodsCreate-parent">
 <div class="collapse show" id="GiftAidContactMethodsCreate-default" data-bs-parent="#GiftAidContactMethodsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -5480,26 +5536,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## GiftAidDeclarations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaiddeclarations)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaiddeclarations)</button>  
+
+## GiftAidDeclarations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaiddeclarations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#giftaiddeclarations)</button>  
 		
 Creates a Gift Aid Declaration.  
 ##### Usage:  
 ```shell
 tq post GiftAidDeclarations
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidDeclarationsCreate-default" aria-expanded="true" aria-controls="GiftAidDeclarationsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidDeclarationsCreate-default" aria-expanded="true" aria-controls="GiftAidDeclarationsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidDeclarationsCreate-flat" aria-expanded="false" aria-controls="GiftAidDeclarationsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidDeclarationsCreate-flat" aria-expanded="false" aria-controls="GiftAidDeclarationsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidDeclarationsCreate-csv" aria-expanded="false" aria-controls="GiftAidDeclarationsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidDeclarationsCreate-csv" aria-expanded="false" aria-controls="GiftAidDeclarationsCreate-csv">
 csv
-</button><div id="GiftAidDeclarationsCreate-parent">
+</button>
+<div id="GiftAidDeclarationsCreate-parent">
 <div class="collapse show" id="GiftAidDeclarationsCreate-default" data-bs-parent="#GiftAidDeclarationsCreate-parent"> 
 ```json
 {"ConfirmDateTime":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "ContactMethod":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DocumentStatus":{"Id":123}, "EligibleIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "GiftAidType":{"Id":123}, "Id":123, "IneligibleReason":{"Id":123}, "Notes":"string", "ReceivedDateTime":"2000-01-01T00:00:00.000Z", "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -5519,26 +5574,25 @@ ConfirmDateTime,Constituent.Id,ContactMethod.Id,CreateLocation,CreatedBy,Created
 </div>
 </div>
 
-## GiftAidDocumentStatuses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaiddocumentstatuses)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaiddocumentstatuses)</button>  
+
+## GiftAidDocumentStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaiddocumentstatuses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#giftaiddocumentstatuses)</button>  
 		
 Create a new gift aid document status.  
 ##### Usage:  
 ```shell
 tq post GiftAidDocumentStatuses
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidDocumentStatusesCreate-default" aria-expanded="true" aria-controls="GiftAidDocumentStatusesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidDocumentStatusesCreate-default" aria-expanded="true" aria-controls="GiftAidDocumentStatusesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidDocumentStatusesCreate-flat" aria-expanded="false" aria-controls="GiftAidDocumentStatusesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidDocumentStatusesCreate-flat" aria-expanded="false" aria-controls="GiftAidDocumentStatusesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidDocumentStatusesCreate-csv" aria-expanded="false" aria-controls="GiftAidDocumentStatusesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidDocumentStatusesCreate-csv" aria-expanded="false" aria-controls="GiftAidDocumentStatusesCreate-csv">
 csv
-</button><div id="GiftAidDocumentStatusesCreate-parent">
+</button>
+<div id="GiftAidDocumentStatusesCreate-parent">
 <div class="collapse show" id="GiftAidDocumentStatusesCreate-default" data-bs-parent="#GiftAidDocumentStatusesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -5558,26 +5612,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## GiftAidIneligibleReasons 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidineligiblereasons)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidineligiblereasons)</button>  
+
+## GiftAidIneligibleReasons <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaidineligiblereasons)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#giftaidineligiblereasons)</button>  
 		
 Create a new gift aid ineligible reason.  
 ##### Usage:  
 ```shell
 tq post GiftAidIneligibleReasons
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidIneligibleReasonsCreate-default" aria-expanded="true" aria-controls="GiftAidIneligibleReasonsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidIneligibleReasonsCreate-default" aria-expanded="true" aria-controls="GiftAidIneligibleReasonsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidIneligibleReasonsCreate-flat" aria-expanded="false" aria-controls="GiftAidIneligibleReasonsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidIneligibleReasonsCreate-flat" aria-expanded="false" aria-controls="GiftAidIneligibleReasonsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidIneligibleReasonsCreate-csv" aria-expanded="false" aria-controls="GiftAidIneligibleReasonsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidIneligibleReasonsCreate-csv" aria-expanded="false" aria-controls="GiftAidIneligibleReasonsCreate-csv">
 csv
-</button><div id="GiftAidIneligibleReasonsCreate-parent">
+</button>
+<div id="GiftAidIneligibleReasonsCreate-parent">
 <div class="collapse show" id="GiftAidIneligibleReasonsCreate-default" data-bs-parent="#GiftAidIneligibleReasonsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -5597,26 +5650,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## GiftAidRates 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidrates)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidrates)</button>  
+
+## GiftAidRates <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaidrates)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#giftaidrates)</button>  
 		
 Create a new gift aid rate.  
 ##### Usage:  
 ```shell
 tq post GiftAidRates
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidRatesCreate-default" aria-expanded="true" aria-controls="GiftAidRatesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidRatesCreate-default" aria-expanded="true" aria-controls="GiftAidRatesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidRatesCreate-flat" aria-expanded="false" aria-controls="GiftAidRatesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidRatesCreate-flat" aria-expanded="false" aria-controls="GiftAidRatesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidRatesCreate-csv" aria-expanded="false" aria-controls="GiftAidRatesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidRatesCreate-csv" aria-expanded="false" aria-controls="GiftAidRatesCreate-csv">
 csv
-</button><div id="GiftAidRatesCreate-parent">
+</button>
+<div id="GiftAidRatesCreate-parent">
 <div class="collapse show" id="GiftAidRatesCreate-default" data-bs-parent="#GiftAidRatesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Rate":123.456, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -5636,26 +5688,25 @@ CreateLocation,CreatedBy,CreatedDateTime,EndDateTime,Id,Rate,StartDateTime,Updat
 </div>
 </div>
 
-## GiftAidStatuses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidstatuses)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidstatuses)</button>  
+
+## GiftAidStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaidstatuses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#giftaidstatuses)</button>  
 		
 Create a new gift aid status.  
 ##### Usage:  
 ```shell
 tq post GiftAidStatuses
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidStatusesCreate-default" aria-expanded="true" aria-controls="GiftAidStatusesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidStatusesCreate-default" aria-expanded="true" aria-controls="GiftAidStatusesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidStatusesCreate-flat" aria-expanded="false" aria-controls="GiftAidStatusesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidStatusesCreate-flat" aria-expanded="false" aria-controls="GiftAidStatusesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidStatusesCreate-csv" aria-expanded="false" aria-controls="GiftAidStatusesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidStatusesCreate-csv" aria-expanded="false" aria-controls="GiftAidStatusesCreate-csv">
 csv
-</button><div id="GiftAidStatusesCreate-parent">
+</button>
+<div id="GiftAidStatusesCreate-parent">
 <div class="collapse show" id="GiftAidStatusesCreate-default" data-bs-parent="#GiftAidStatusesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -5675,26 +5726,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## GiftAidTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidtypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidtypes)</button>  
+
+## GiftAidTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaidtypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#giftaidtypes)</button>  
 		
 Create a new gift aid type.  
 ##### Usage:  
 ```shell
 tq post GiftAidTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidTypesCreate-default" aria-expanded="true" aria-controls="GiftAidTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidTypesCreate-default" aria-expanded="true" aria-controls="GiftAidTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidTypesCreate-flat" aria-expanded="false" aria-controls="GiftAidTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidTypesCreate-flat" aria-expanded="false" aria-controls="GiftAidTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidTypesCreate-csv" aria-expanded="false" aria-controls="GiftAidTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidTypesCreate-csv" aria-expanded="false" aria-controls="GiftAidTypesCreate-csv">
 csv
-</button><div id="GiftAidTypesCreate-parent">
+</button>
+<div id="GiftAidTypesCreate-parent">
 <div class="collapse show" id="GiftAidTypesCreate-default" data-bs-parent="#GiftAidTypesCreate-parent"> 
 ```json
 {"CharityClaimsRef":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -5714,25 +5764,25 @@ CharityClaimsRef,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Descri
 </div>
 </div>
 
-## GiftCertificates 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftcertificates)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## GiftCertificates <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftcertificates)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 Get transaction details for a gift certificate and lock it for redemption in a specific batch.  
 ##### Usage:  
 ```shell
 tq post GiftCertificates
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftCertificatesTransactionDetailsForRedemption-default" aria-expanded="true" aria-controls="GiftCertificatesTransactionDetailsForRedemption-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftCertificatesTransactionDetailsForRedemption-default" aria-expanded="true" aria-controls="GiftCertificatesTransactionDetailsForRedemption-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftCertificatesTransactionDetailsForRedemption-flat" aria-expanded="false" aria-controls="GiftCertificatesTransactionDetailsForRedemption-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftCertificatesTransactionDetailsForRedemption-flat" aria-expanded="false" aria-controls="GiftCertificatesTransactionDetailsForRedemption-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftCertificatesTransactionDetailsForRedemption-csv" aria-expanded="false" aria-controls="GiftCertificatesTransactionDetailsForRedemption-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftCertificatesTransactionDetailsForRedemption-csv" aria-expanded="false" aria-controls="GiftCertificatesTransactionDetailsForRedemption-csv">
 csv
-</button><div id="GiftCertificatesTransactionDetailsForRedemption-parent">
+</button>
+<div id="GiftCertificatesTransactionDetailsForRedemption-parent">
 <div class="collapse show" id="GiftCertificatesTransactionDetailsForRedemption-default" data-bs-parent="#GiftCertificatesTransactionDetailsForRedemption-parent"> 
 ```json
 {"BatchId":123, "LockForBatch":true, "Number":"string", "PaymentMethodId":123}
@@ -5751,19 +5801,21 @@ BatchId,LockForBatch,Number,PaymentMethodId
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--Unlock*  
    Removes lock for gift certificate from any batch.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftCertificatesUnlock-default" aria-expanded="true" aria-controls="GiftCertificatesUnlock-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftCertificatesUnlock-default" aria-expanded="true" aria-controls="GiftCertificatesUnlock-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftCertificatesUnlock-flat" aria-expanded="false" aria-controls="GiftCertificatesUnlock-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftCertificatesUnlock-flat" aria-expanded="false" aria-controls="GiftCertificatesUnlock-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftCertificatesUnlock-csv" aria-expanded="false" aria-controls="GiftCertificatesUnlock-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftCertificatesUnlock-csv" aria-expanded="false" aria-controls="GiftCertificatesUnlock-csv">
 csv
-</button><div id="GiftCertificatesUnlock-parent">
+</button>
+<div id="GiftCertificatesUnlock-parent">
 <div class="collapse show" id="GiftCertificatesUnlock-default" data-bs-parent="#GiftCertificatesUnlock-parent"> 
 ```json
 {"GiftCertificateNumber":"string"}
@@ -5783,28 +5835,27 @@ GiftCertificateNumber
 </div>
 </div>
 
+
 	
 # H
-## HoldCodeCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#holdcodecategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#holdcodecategories)</button>  
+## HoldCodeCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#holdcodecategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#holdcodecategories)</button>  
 		
 Create a new Hold Code Category.  
 ##### Usage:  
 ```shell
 tq post HoldCodeCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodeCategoriesCreate-default" aria-expanded="true" aria-controls="HoldCodeCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodeCategoriesCreate-default" aria-expanded="true" aria-controls="HoldCodeCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodeCategoriesCreate-flat" aria-expanded="false" aria-controls="HoldCodeCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodeCategoriesCreate-flat" aria-expanded="false" aria-controls="HoldCodeCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodeCategoriesCreate-csv" aria-expanded="false" aria-controls="HoldCodeCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodeCategoriesCreate-csv" aria-expanded="false" aria-controls="HoldCodeCategoriesCreate-csv">
 csv
-</button><div id="HoldCodeCategoriesCreate-parent">
+</button>
+<div id="HoldCodeCategoriesCreate-parent">
 <div class="collapse show" id="HoldCodeCategoriesCreate-default" data-bs-parent="#HoldCodeCategoriesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -5824,26 +5875,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## HoldCodeUserGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#holdcodeusergroups)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#holdcodeusergroups)</button>  
+
+## HoldCodeUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#holdcodeusergroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#holdcodeusergroups)</button>  
 		
 Create a new hold code/user group mapping.  
 ##### Usage:  
 ```shell
 tq post HoldCodeUserGroups
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodeUserGroupsCreate-default" aria-expanded="true" aria-controls="HoldCodeUserGroupsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodeUserGroupsCreate-default" aria-expanded="true" aria-controls="HoldCodeUserGroupsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodeUserGroupsCreate-flat" aria-expanded="false" aria-controls="HoldCodeUserGroupsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodeUserGroupsCreate-flat" aria-expanded="false" aria-controls="HoldCodeUserGroupsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodeUserGroupsCreate-csv" aria-expanded="false" aria-controls="HoldCodeUserGroupsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodeUserGroupsCreate-csv" aria-expanded="false" aria-controls="HoldCodeUserGroupsCreate-csv">
 csv
-</button><div id="HoldCodeUserGroupsCreate-parent">
+</button>
+<div id="HoldCodeUserGroupsCreate-parent">
 <div class="collapse show" id="HoldCodeUserGroupsCreate-default" data-bs-parent="#HoldCodeUserGroupsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HoldCode":{"Id":123}, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string"}
@@ -5863,26 +5913,25 @@ CreateLocation,CreatedBy,CreatedDateTime,HoldCode.Id,Id,UpdatedBy,UpdatedDateTim
 </div>
 </div>
 
-## HoldCodes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#holdcodes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#holdcodes)</button>  
+
+## HoldCodes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#holdcodes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#holdcodes)</button>  
 		
 Create a Hold Code.  
 ##### Usage:  
 ```shell
 tq post HoldCodes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodesCreate-default" aria-expanded="true" aria-controls="HoldCodesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodesCreate-default" aria-expanded="true" aria-controls="HoldCodesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodesCreate-flat" aria-expanded="false" aria-controls="HoldCodesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodesCreate-flat" aria-expanded="false" aria-controls="HoldCodesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodesCreate-csv" aria-expanded="false" aria-controls="HoldCodesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodesCreate-csv" aria-expanded="false" aria-controls="HoldCodesCreate-csv">
 csv
-</button><div id="HoldCodesCreate-parent">
+</button>
+<div id="HoldCodesCreate-parent">
 <div class="collapse show" id="HoldCodesCreate-default" data-bs-parent="#HoldCodesCreate-parent"> 
 ```json
 {"BlackoutIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Legend":"string", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -5902,28 +5951,27 @@ true,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",true,
 </div>
 </div>
 
+
 	
 # I
-## InactiveReasons 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#inactivereasons)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#inactivereasons)</button>  
+## InactiveReasons <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#inactivereasons)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#inactivereasons)</button>  
 		
 Create a new inactive reason.  
 ##### Usage:  
 ```shell
 tq post InactiveReasons
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InactiveReasonsCreate-default" aria-expanded="true" aria-controls="InactiveReasonsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InactiveReasonsCreate-default" aria-expanded="true" aria-controls="InactiveReasonsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InactiveReasonsCreate-flat" aria-expanded="false" aria-controls="InactiveReasonsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InactiveReasonsCreate-flat" aria-expanded="false" aria-controls="InactiveReasonsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InactiveReasonsCreate-csv" aria-expanded="false" aria-controls="InactiveReasonsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InactiveReasonsCreate-csv" aria-expanded="false" aria-controls="InactiveReasonsCreate-csv">
 csv
-</button><div id="InactiveReasonsCreate-parent">
+</button>
+<div id="InactiveReasonsCreate-parent">
 <div class="collapse show" id="InactiveReasonsCreate-default" data-bs-parent="#InactiveReasonsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -5943,26 +5991,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## IntegrationDefaults 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#integrationdefaults)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#integrationdefaults)</button>  
+
+## IntegrationDefaults <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#integrationdefaults)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#integrationdefaults)</button>  
 		
 Create a new Integration Default.  
 ##### Usage:  
 ```shell
 tq post IntegrationDefaults
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IntegrationDefaultsCreate-default" aria-expanded="true" aria-controls="IntegrationDefaultsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IntegrationDefaultsCreate-default" aria-expanded="true" aria-controls="IntegrationDefaultsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IntegrationDefaultsCreate-flat" aria-expanded="false" aria-controls="IntegrationDefaultsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IntegrationDefaultsCreate-flat" aria-expanded="false" aria-controls="IntegrationDefaultsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IntegrationDefaultsCreate-csv" aria-expanded="false" aria-controls="IntegrationDefaultsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IntegrationDefaultsCreate-csv" aria-expanded="false" aria-controls="IntegrationDefaultsCreate-csv">
 csv
-</button><div id="IntegrationDefaultsCreate-parent">
+</button>
+<div id="IntegrationDefaultsCreate-parent">
 <div class="collapse show" id="IntegrationDefaultsCreate-default" data-bs-parent="#IntegrationDefaultsCreate-parent"> 
 ```json
 {"AccessId":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultValue":"string", "Description":"string", "FieldName":"string", "Id":123, "Integration":{"Id":123}, "Organization":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -5982,26 +6029,25 @@ AccessId,CreateLocation,CreatedBy,CreatedDateTime,DefaultValue,Description,Field
 </div>
 </div>
 
-## Integrations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#integrations)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#integrations)</button>  
+
+## Integrations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#integrations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#integrations)</button>  
 		
 Create a new action type.  
 ##### Usage:  
 ```shell
 tq post Integrations
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IntegrationsCreate-default" aria-expanded="true" aria-controls="IntegrationsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IntegrationsCreate-default" aria-expanded="true" aria-controls="IntegrationsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IntegrationsCreate-flat" aria-expanded="false" aria-controls="IntegrationsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IntegrationsCreate-flat" aria-expanded="false" aria-controls="IntegrationsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IntegrationsCreate-csv" aria-expanded="false" aria-controls="IntegrationsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IntegrationsCreate-csv" aria-expanded="false" aria-controls="IntegrationsCreate-csv">
 csv
-</button><div id="IntegrationsCreate-parent">
+</button>
+<div id="IntegrationsCreate-parent">
 <div class="collapse show" id="IntegrationsCreate-default" data-bs-parent="#IntegrationsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -6021,26 +6067,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,UpdatedBy,UpdatedDateTim
 </div>
 </div>
 
-## InterestCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#interestcategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#interestcategories)</button>  
+
+## InterestCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#interestcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#interestcategories)</button>  
 		
 Create a new interest category.  
 ##### Usage:  
 ```shell
 tq post InterestCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestCategoriesCreate-default" aria-expanded="true" aria-controls="InterestCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestCategoriesCreate-default" aria-expanded="true" aria-controls="InterestCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestCategoriesCreate-flat" aria-expanded="false" aria-controls="InterestCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestCategoriesCreate-flat" aria-expanded="false" aria-controls="InterestCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestCategoriesCreate-csv" aria-expanded="false" aria-controls="InterestCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestCategoriesCreate-csv" aria-expanded="false" aria-controls="InterestCategoriesCreate-csv">
 csv
-</button><div id="InterestCategoriesCreate-parent">
+</button>
+<div id="InterestCategoriesCreate-parent">
 <div class="collapse show" id="InterestCategoriesCreate-default" data-bs-parent="#InterestCategoriesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -6060,26 +6105,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,UpdatedBy,UpdatedDateTim
 </div>
 </div>
 
-## InterestTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#interesttypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#interesttypes)</button>  
+
+## InterestTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#interesttypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#interesttypes)</button>  
 		
 Create a new interest type.  
 ##### Usage:  
 ```shell
 tq post InterestTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestTypesCreate-default" aria-expanded="true" aria-controls="InterestTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestTypesCreate-default" aria-expanded="true" aria-controls="InterestTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestTypesCreate-flat" aria-expanded="false" aria-controls="InterestTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestTypesCreate-flat" aria-expanded="false" aria-controls="InterestTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestTypesCreate-csv" aria-expanded="false" aria-controls="InterestTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestTypesCreate-csv" aria-expanded="false" aria-controls="InterestTypesCreate-csv">
 csv
-</button><div id="InterestTypesCreate-parent">
+</button>
+<div id="InterestTypesCreate-parent">
 <div class="collapse show" id="InterestTypesCreate-default" data-bs-parent="#InterestTypesCreate-parent"> 
 ```json
 {"Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "SearchIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UsedIn":"string"}
@@ -6099,10 +6143,8 @@ Category.Id,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description
 </div>
 </div>
 
-## Interests 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#interests)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#interests)</button>  
+
+## Interests <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#interests)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#interests)</button>  
 		
 Create a new interest associating an interest type to a constituent.
 For bulk interest edits, consider the CRM/Interests/CreateOrUpdate batching resource which allows multiple interests to be created, updated, or removed in a single request.  
@@ -6110,16 +6152,17 @@ For bulk interest edits, consider the CRM/Interests/CreateOrUpdate batching reso
 ```shell
 tq post Interests
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestsCreate-default" aria-expanded="true" aria-controls="InterestsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestsCreate-default" aria-expanded="true" aria-controls="InterestsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestsCreate-flat" aria-expanded="false" aria-controls="InterestsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestsCreate-flat" aria-expanded="false" aria-controls="InterestsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestsCreate-csv" aria-expanded="false" aria-controls="InterestsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestsCreate-csv" aria-expanded="false" aria-controls="InterestsCreate-csv">
 csv
-</button><div id="InterestsCreate-parent">
+</button>
+<div id="InterestsCreate-parent">
 <div class="collapse show" id="InterestsCreate-default" data-bs-parent="#InterestsCreate-parent"> 
 ```json
 {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "InterestType":{"Id":123}, "Selected":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Weight":123}
@@ -6138,19 +6181,21 @@ Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,Interes
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--Or*  
    Creates, updates, or deletes interests passed as a collection. We recommend that this resource be used for making multiple edits to Constituent Interests in a single API request. Interests that exist will be updated with provided Weight and Selected values. If an existing interest is provided with a Weight of 0 or NULL and a Selected: false, the interest will be deleted. New Interests should be created with an Id of -999 (or NULL).
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestsCreateOrUpdate-default" aria-expanded="true" aria-controls="InterestsCreateOrUpdate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestsCreateOrUpdate-default" aria-expanded="true" aria-controls="InterestsCreateOrUpdate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestsCreateOrUpdate-flat" aria-expanded="false" aria-controls="InterestsCreateOrUpdate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestsCreateOrUpdate-flat" aria-expanded="false" aria-controls="InterestsCreateOrUpdate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestsCreateOrUpdate-csv" aria-expanded="false" aria-controls="InterestsCreateOrUpdate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestsCreateOrUpdate-csv" aria-expanded="false" aria-controls="InterestsCreateOrUpdate-csv">
 csv
-</button><div id="InterestsCreateOrUpdate-parent">
+</button>
+<div id="InterestsCreateOrUpdate-parent">
 <div class="collapse show" id="InterestsCreateOrUpdate-default" data-bs-parent="#InterestsCreateOrUpdate-parent"> 
 ```json
 {"Interests":[{"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "InterestType":{"Id":123}, "Selected":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Weight":123}, ...]}
@@ -6168,26 +6213,25 @@ csv
 </div>
 </div>
 
-## Internal 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#internal)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#internal)</button>  
+
+## Internal <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#internal)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#internal)</button>  
 		
 Create a new address along with the phones and attach all the phones to the address. By default first phone is of phone type 1, second phone is of phone type 2 and third phone is of phone type 3.  
 ##### Usage:  
 ```shell
 tq post Internal
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InternalCreate-default" aria-expanded="true" aria-controls="InternalCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InternalCreate-default" aria-expanded="true" aria-controls="InternalCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InternalCreate-flat" aria-expanded="false" aria-controls="InternalCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InternalCreate-flat" aria-expanded="false" aria-controls="InternalCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InternalCreate-csv" aria-expanded="false" aria-controls="InternalCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InternalCreate-csv" aria-expanded="false" aria-controls="InternalCreate-csv">
 csv
-</button><div id="InternalCreate-parent">
+</button>
+<div id="InternalCreate-parent">
 <div class="collapse show" id="InternalCreate-default" data-bs-parent="#InternalCreate-parent"> 
 ```json
 {"AddressType":{"Id":123}, "AffiliatedConstituent":{"Id":123}, "AllowTelemarketing1":true, "AllowTelemarketing2":true, "AllowTelemarketing3":true, "AltSalutationType":{"Id":123}, "City":"string", "Constituent":{"Id":123}, "Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator1":"string", "DayEveningIndicator2":"string", "DayEveningIndicator3":"string", "DeliveryPoint":"string", "EditIndicator":true, "EditIndicator1":true, "EditIndicator2":true, "EditIndicator3":true, "EndDate":"2000-01-01T00:00:00.000Z", "GeoArea":123, "Id":123, "Inactive":true, "Label":true, "Months":"string", "NcoaAction":123, "NcoaSession":123, "PhoneId1":123, "PhoneId2":123, "PhoneId3":123, "PhoneNumber1":"string", "PhoneNumber1Formatted":"string", "PhoneNumber2":"string", "PhoneNumber2Formatted":"string", "PhoneNumber3":"string", "PhoneNumber3Formatted":"string", "PhoneSearch1":"string", "PhoneSearch2":"string", "PhoneSearch3":"string", "PostalCode":"string", "PostalCodeFormatted":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "State":{"Id":123}, "Street1":"string", "Street2":"string", "Street3":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UpdatedDateTime1":"2000-01-01T00:00:00.000Z", "UpdatedDateTime2":"2000-01-01T00:00:00.000Z", "UpdatedDateTime3":"2000-01-01T00:00:00.000Z"}
@@ -6207,26 +6251,25 @@ AddressType.Id,AffiliatedConstituent.Id,AllowTelemarketing1,AllowTelemarketing2,
 </div>
 </div>
 
-## InventoryContactPermissionTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#inventorycontactpermissiontypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#inventorycontactpermissiontypes)</button>  
+
+## InventoryContactPermissionTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#inventorycontactpermissiontypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#inventorycontactpermissiontypes)</button>  
 		
 Create an inventoryContactPermissionType.  
 ##### Usage:  
 ```shell
 tq post InventoryContactPermissionTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InventoryContactPermissionTypesCreate-default" aria-expanded="true" aria-controls="InventoryContactPermissionTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InventoryContactPermissionTypesCreate-default" aria-expanded="true" aria-controls="InventoryContactPermissionTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InventoryContactPermissionTypesCreate-flat" aria-expanded="false" aria-controls="InventoryContactPermissionTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InventoryContactPermissionTypesCreate-flat" aria-expanded="false" aria-controls="InventoryContactPermissionTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InventoryContactPermissionTypesCreate-csv" aria-expanded="false" aria-controls="InventoryContactPermissionTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InventoryContactPermissionTypesCreate-csv" aria-expanded="false" aria-controls="InventoryContactPermissionTypesCreate-csv">
 csv
-</button><div id="InventoryContactPermissionTypesCreate-parent">
+</button>
+<div id="InventoryContactPermissionTypesCreate-parent">
 <div class="collapse show" id="InventoryContactPermissionTypesCreate-default" data-bs-parent="#InventoryContactPermissionTypesCreate-parent"> 
 ```json
 {"ContactPermissionType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ProductionElementId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -6246,26 +6289,25 @@ ContactPermissionType.Id,CreateLocation,CreatedBy,CreatedDateTime,Id,ProductionE
 </div>
 </div>
 
-## InventoryWebContents 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#inventorywebcontents)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#inventorywebcontents)</button>  
+
+## InventoryWebContents <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#inventorywebcontents)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#inventorywebcontents)</button>  
 		
 Create an inventoryWebContent.  
 ##### Usage:  
 ```shell
 tq post InventoryWebContents
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InventoryWebContentsCreate-default" aria-expanded="true" aria-controls="InventoryWebContentsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InventoryWebContentsCreate-default" aria-expanded="true" aria-controls="InventoryWebContentsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InventoryWebContentsCreate-flat" aria-expanded="false" aria-controls="InventoryWebContentsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InventoryWebContentsCreate-flat" aria-expanded="false" aria-controls="InventoryWebContentsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InventoryWebContentsCreate-csv" aria-expanded="false" aria-controls="InventoryWebContentsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InventoryWebContentsCreate-csv" aria-expanded="false" aria-controls="InventoryWebContentsCreate-csv">
 csv
-</button><div id="InventoryWebContentsCreate-parent">
+</button>
+<div id="InventoryWebContentsCreate-parent">
 <div class="collapse show" id="InventoryWebContentsCreate-default" data-bs-parent="#InventoryWebContentsCreate-parent"> 
 ```json
 {"ContentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ProductionElementId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}
@@ -6285,25 +6327,25 @@ ContentType.Id,CreateLocation,CreatedBy,CreatedDateTime,Id,ProductionElementId,U
 </div>
 </div>
 
-## InvoiceBilling 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#invoicebilling)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## InvoiceBilling <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#invoicebilling)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 Invoice billing  
 ##### Usage:  
 ```shell
 tq post InvoiceBilling
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InvoiceBillingBillInvoices-default" aria-expanded="true" aria-controls="InvoiceBillingBillInvoices-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InvoiceBillingBillInvoices-default" aria-expanded="true" aria-controls="InvoiceBillingBillInvoices-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InvoiceBillingBillInvoices-flat" aria-expanded="false" aria-controls="InvoiceBillingBillInvoices-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InvoiceBillingBillInvoices-flat" aria-expanded="false" aria-controls="InvoiceBillingBillInvoices-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InvoiceBillingBillInvoices-csv" aria-expanded="false" aria-controls="InvoiceBillingBillInvoices-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InvoiceBillingBillInvoices-csv" aria-expanded="false" aria-controls="InvoiceBillingBillInvoices-csv">
 csv
-</button><div id="InvoiceBillingBillInvoices-parent">
+</button>
+<div id="InvoiceBillingBillInvoices-parent">
 <div class="collapse show" id="InvoiceBillingBillInvoices-default" data-bs-parent="#InvoiceBillingBillInvoices-parent"> 
 ```json
 {"AppealId":123, "BatchTypeId":123, "BillingTypeId":123, "BusinessUnitId":123, "CutoffDateTime":"2000-01-01T00:00:00.000Z", "ElectronicAddressPurposeId":123, "ElectronicAddressTypeId":123, "EndDateTime":"2000-01-01T00:00:00.000Z", "InvoiceEndDateTime":"2000-01-01T00:00:00.000Z", "InvoiceStartDateTime":"2000-01-01T00:00:00.000Z", "IsLabel":true, "ListId":123, "MailDateTime":"2000-01-01T00:00:00.000Z", "MailTypeId":123, "MaxNumberOfBillsToPrint":123, "MediaTypeId":123, "MinAmount":123.456, "MinNumberOfBillsToPrint":123, "NewSourceDescription":"string", "PaymentMethodGroupId":123, "PaymentMethodId":123, "RespectElectronicAddressMarketingFlag":true, "SalutationTypeId":123, "ShouldCollectAll":true, "ShouldUpdate":true, "StartDateTime":"2000-01-01T00:00:00.000Z", "UserId":"string"}
@@ -6323,26 +6365,25 @@ AppealId,BatchTypeId,BillingTypeId,BusinessUnitId,CutoffDateTime,ElectronicAddre
 </div>
 </div>
 
-## Issues 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#issues)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#issues)</button>  
+
+## Issues <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#issues)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#issues)</button>  
 		
 Create an issue for a Constituent  
 ##### Usage:  
 ```shell
 tq post Issues
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IssuesCreate-default" aria-expanded="true" aria-controls="IssuesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IssuesCreate-default" aria-expanded="true" aria-controls="IssuesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IssuesCreate-flat" aria-expanded="false" aria-controls="IssuesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IssuesCreate-flat" aria-expanded="false" aria-controls="IssuesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IssuesCreate-csv" aria-expanded="false" aria-controls="IssuesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IssuesCreate-csv" aria-expanded="false" aria-controls="IssuesCreate-csv">
 csv
-</button><div id="IssuesCreate-parent">
+</button>
+<div id="IssuesCreate-parent">
 <div class="collapse show" id="IssuesCreate-default" data-bs-parent="#IssuesCreate-parent"> 
 ```json
 {"ActivityType":{"Id":123}, "Constituent":{"Id":123}, "ContactType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "HasReminder":true, "Id":123, "IssueDate":"2000-01-01T00:00:00.000Z", "Notes":"string", "Origin":{"Id":123}, "PackageId":123, "PerformanceId":123, "ResolvedIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UrgentIndicator":true}
@@ -6362,28 +6403,27 @@ ActivityType.Id,Constituent.Id,ContactType.Id,CreateLocation,CreatedBy,CreatedDa
 </div>
 </div>
 
+
 	
 # K
-## KeywordCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#keywordcategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#keywordcategories)</button>  
+## KeywordCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#keywordcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#keywordcategories)</button>  
 		
 Create a new keyword category.  
 ##### Usage:  
 ```shell
 tq post KeywordCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#KeywordCategoriesCreate-default" aria-expanded="true" aria-controls="KeywordCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#KeywordCategoriesCreate-default" aria-expanded="true" aria-controls="KeywordCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#KeywordCategoriesCreate-flat" aria-expanded="false" aria-controls="KeywordCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#KeywordCategoriesCreate-flat" aria-expanded="false" aria-controls="KeywordCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#KeywordCategoriesCreate-csv" aria-expanded="false" aria-controls="KeywordCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#KeywordCategoriesCreate-csv" aria-expanded="false" aria-controls="KeywordCategoriesCreate-csv">
 csv
-</button><div id="KeywordCategoriesCreate-parent">
+</button>
+<div id="KeywordCategoriesCreate-parent">
 <div class="collapse show" id="KeywordCategoriesCreate-default" data-bs-parent="#KeywordCategoriesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -6403,26 +6443,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## Keywords 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#keywords)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#keywords)</button>  
+
+## Keywords <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#keywords)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#keywords)</button>  
 		
 Create a new keyword.  
 ##### Usage:  
 ```shell
 tq post Keywords
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#KeywordsCreate-default" aria-expanded="true" aria-controls="KeywordsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#KeywordsCreate-default" aria-expanded="true" aria-controls="KeywordsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#KeywordsCreate-flat" aria-expanded="false" aria-controls="KeywordsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#KeywordsCreate-flat" aria-expanded="false" aria-controls="KeywordsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#KeywordsCreate-csv" aria-expanded="false" aria-controls="KeywordsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#KeywordsCreate-csv" aria-expanded="false" aria-controls="KeywordsCreate-csv">
 csv
-</button><div id="KeywordsCreate-parent">
+</button>
+<div id="KeywordsCreate-parent">
 <div class="collapse show" id="KeywordsCreate-default" data-bs-parent="#KeywordsCreate-parent"> 
 ```json
 {"Category":{"Id":123}, "ConstituentType":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDefaultValue":"string", "CustomId":123, "CustomLimit":123, "CustomRequired":true, "DataType":"string", "Description":"string", "DetailColumn":"string", "DetailTable":"string", "EditIndicator":true, "EditMask":"string", "ExtendedDescription":"string", "FrequentUpdateDate":"2000-01-01T00:00:00.000Z", "HelpText":"string", "Id":123, "KeyColumn":"string", "KeywordUse":"string", "MultipleValue":true, "ParentKeyColumn":"string", "ParentTable":"string", "PrimaryGroupDefault":"string", "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "SortOrder":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseForSearch":true, "ValuesCodedIndicator":true}
@@ -6442,28 +6481,27 @@ Category.Id,ConstituentType,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDate
 </div>
 </div>
 
+
 	
 # L
-## Languages 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#languages)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#languages)</button>  
+## Languages <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#languages)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#languages)</button>  
 		
 Create a new language.  
 ##### Usage:  
 ```shell
 tq post Languages
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#LanguagesCreate-default" aria-expanded="true" aria-controls="LanguagesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#LanguagesCreate-default" aria-expanded="true" aria-controls="LanguagesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#LanguagesCreate-flat" aria-expanded="false" aria-controls="LanguagesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#LanguagesCreate-flat" aria-expanded="false" aria-controls="LanguagesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#LanguagesCreate-csv" aria-expanded="false" aria-controls="LanguagesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#LanguagesCreate-csv" aria-expanded="false" aria-controls="LanguagesCreate-csv">
 csv
-</button><div id="LanguagesCreate-parent">
+</button>
+<div id="LanguagesCreate-parent">
 <div class="collapse show" id="LanguagesCreate-default" data-bs-parent="#LanguagesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -6483,26 +6521,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## ListCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#listcategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#listcategories)</button>  
+
+## ListCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#listcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#listcategories)</button>  
 		
 Create a new list category.  
 ##### Usage:  
 ```shell
 tq post ListCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListCategoriesCreate-default" aria-expanded="true" aria-controls="ListCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListCategoriesCreate-default" aria-expanded="true" aria-controls="ListCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListCategoriesCreate-flat" aria-expanded="false" aria-controls="ListCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListCategoriesCreate-flat" aria-expanded="false" aria-controls="ListCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListCategoriesCreate-csv" aria-expanded="false" aria-controls="ListCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListCategoriesCreate-csv" aria-expanded="false" aria-controls="ListCategoriesCreate-csv">
 csv
-</button><div id="ListCategoriesCreate-parent">
+</button>
+<div id="ListCategoriesCreate-parent">
 <div class="collapse show" id="ListCategoriesCreate-default" data-bs-parent="#ListCategoriesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -6522,26 +6559,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## Lists 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#lists)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#lists)</button>  
+
+## Lists <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#lists)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#lists)</button>  
 		
 Create a List.  
 ##### Usage:  
 ```shell
 tq post Lists
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsCreate-default" aria-expanded="true" aria-controls="ListsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsCreate-default" aria-expanded="true" aria-controls="ListsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsCreate-flat" aria-expanded="false" aria-controls="ListsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsCreate-flat" aria-expanded="false" aria-controls="ListsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsCreate-csv" aria-expanded="false" aria-controls="ListsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsCreate-csv" aria-expanded="false" aria-controls="ListsCreate-csv">
 csv
-</button><div id="ListsCreate-parent">
+</button>
+<div id="ListsCreate-parent">
 <div class="collapse show" id="ListsCreate-default" data-bs-parent="#ListsCreate-parent"> 
 ```json
 {"AffiliatedIndividuals":123, "AnalyticsIndicator":true, "Category":{"Id":123}, "ConstituentCount":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Criteria":[{"Id":123}, ...], "Description":"string", "EditIndicator":true, "EditMode":"string", "Generate":true, "Households":123, "Id":123, "Inactive":true, "Individuals":123, "IsDynamic":true, "LastUsedDateTime":"2000-01-01T00:00:00.000Z", "ListSql":"string", "Organizations":123, "OutputSet":{"Id":123}, "RelationshipOptions":{"AffiliatedGroupInactive":true, "AffiliatedGroupTypes":"string", "AffiliatedGroupUseDates":true, "AffiliatedIndividualInactive":true, "AffiliatedIndividualTypes":"string", "AffiliatedIndividualUseDates":true, "AssociatedInactive":true, "AssociatedTypes":"string", "AssociatedUseDates":true, "CreateLocation":"string", "CreatedBy":"string", "KeepOrReplaceOriginal":"string", "ReplaceIndividuals":"string", "UpdatedBy":"string"}, "TMSIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -6558,19 +6594,21 @@ csv
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--Generate*  
    Generate a List.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsGenerate-default" aria-expanded="true" aria-controls="ListsGenerate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsGenerate-default" aria-expanded="true" aria-controls="ListsGenerate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsGenerate-flat" aria-expanded="false" aria-controls="ListsGenerate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsGenerate-flat" aria-expanded="false" aria-controls="ListsGenerate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsGenerate-csv" aria-expanded="false" aria-controls="ListsGenerate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsGenerate-csv" aria-expanded="false" aria-controls="ListsGenerate-csv">
 csv
-</button><div id="ListsGenerate-parent">
+</button>
+<div id="ListsGenerate-parent">
 <div class="collapse show" id="ListsGenerate-default" data-bs-parent="#ListsGenerate-parent"> 
 ```json
 {"ListID":"string"}
@@ -6589,19 +6627,21 @@ ListID
 ```  
 </div>
 </div>
+
  * *--Results*  
    Get results for List and OutputSet combination. If no outputSetId is passed in the request, a default output set must be set for the list. 
 Response returns custom HTTP headers: X-Page, X-Page-Size, and X-Total-Count. Default page is 1 and default page size is 100.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsResults-default" aria-expanded="true" aria-controls="ListsResults-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsResults-default" aria-expanded="true" aria-controls="ListsResults-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsResults-flat" aria-expanded="false" aria-controls="ListsResults-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsResults-flat" aria-expanded="false" aria-controls="ListsResults-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsResults-csv" aria-expanded="false" aria-controls="ListsResults-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsResults-csv" aria-expanded="false" aria-controls="ListsResults-csv">
 csv
-</button><div id="ListsResults-parent">
+</button>
+<div id="ListsResults-parent">
 <div class="collapse show" id="ListsResults-default" data-bs-parent="#ListsResults-parent"> 
 ```json
 {"ListID":"string", "AddressPurposeId":123, "DisableListGenerate":true, "EMarketingIndicator":true, "ElectronicAddressPurposeId":123, "ElectronicAddressTypeId":123, "FormatDate":true, "MailingDateTime":"2000-01-01T00:00:00.000Z", "MembershipOrganizationId":123, "OutputSetId":123, "Page":123, "PageSize":123, "SalutationTypeId":123, "SearchText":"string", "SortBy":"string", "UseLabelAddress":true}
@@ -6620,18 +6660,20 @@ AddressPurposeId,DisableListGenerate,EMarketingIndicator,ElectronicAddressPurpos
 ```  
 </div>
 </div>
+
  * *--Search*  
    Search for List. Response returns custom HTTP headers: X-Page, X-Page-Size, and X-Total-Count. Default page is 1 and default page size is 50.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsSearch-default" aria-expanded="true" aria-controls="ListsSearch-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsSearch-default" aria-expanded="true" aria-controls="ListsSearch-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsSearch-flat" aria-expanded="false" aria-controls="ListsSearch-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsSearch-flat" aria-expanded="false" aria-controls="ListsSearch-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsSearch-csv" aria-expanded="false" aria-controls="ListsSearch-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsSearch-csv" aria-expanded="false" aria-controls="ListsSearch-csv">
 csv
-</button><div id="ListsSearch-parent">
+</button>
+<div id="ListsSearch-parent">
 <div class="collapse show" id="ListsSearch-default" data-bs-parent="#ListsSearch-parent"> 
 ```json
 {"CategoryId":123, "MyListsOnly":true, "Page":123, "PageSize":123, "SearchText":"string", "ShowEmpty":true}
@@ -6651,26 +6693,25 @@ CategoryId,MyListsOnly,Page,PageSize,SearchText,ShowEmpty
 </div>
 </div>
 
-## LoginTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#logintypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#logintypes)</button>  
+
+## LoginTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#logintypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#logintypes)</button>  
 		
 Create a new login type.  
 ##### Usage:  
 ```shell
 tq post LoginTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#LoginTypesCreate-default" aria-expanded="true" aria-controls="LoginTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#LoginTypesCreate-default" aria-expanded="true" aria-controls="LoginTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#LoginTypesCreate-flat" aria-expanded="false" aria-controls="LoginTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#LoginTypesCreate-flat" aria-expanded="false" aria-controls="LoginTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#LoginTypesCreate-csv" aria-expanded="false" aria-controls="LoginTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#LoginTypesCreate-csv" aria-expanded="false" aria-controls="LoginTypesCreate-csv">
 csv
-</button><div id="LoginTypesCreate-parent">
+</button>
+<div id="LoginTypesCreate-parent">
 <div class="collapse show" id="LoginTypesCreate-default" data-bs-parent="#LoginTypesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -6690,28 +6731,27 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
+
 	
 # M
-## MachineSettings 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#machinesettings)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#machinesettings)</button>  
+## MachineSettings <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#machinesettings)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#machinesettings)</button>  
 		
 Create a new Machine Setting.  
 ##### Usage:  
 ```shell
 tq post MachineSettings
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MachineSettingsCreate-default" aria-expanded="true" aria-controls="MachineSettingsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MachineSettingsCreate-default" aria-expanded="true" aria-controls="MachineSettingsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MachineSettingsCreate-flat" aria-expanded="false" aria-controls="MachineSettingsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MachineSettingsCreate-flat" aria-expanded="false" aria-controls="MachineSettingsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MachineSettingsCreate-csv" aria-expanded="false" aria-controls="MachineSettingsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MachineSettingsCreate-csv" aria-expanded="false" aria-controls="MachineSettingsCreate-csv">
 csv
-</button><div id="MachineSettingsCreate-parent">
+</button>
+<div id="MachineSettingsCreate-parent">
 <div class="collapse show" id="MachineSettingsCreate-default" data-bs-parent="#MachineSettingsCreate-parent"> 
 ```json
 {"CardReaderHost":"string", "CardReaderPort":123, "CardReaderType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "MerchantId":"string", "PXStation":"string", "PXUserKey":"string", "PXUserName":"string", "TessituraPaymentsPosDevice":"string", "TessituraPaymentsPosDeviceModel":"string", "TnspaySoftwareTerminal":true, "TriPOSCloudConfiguration":{"Id":123}, "TriposLane":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkstationName":"string"}
@@ -6731,26 +6771,25 @@ CardReaderHost,CardReaderPort,CardReaderType.Id,CreateLocation,CreatedBy,Created
 </div>
 </div>
 
-## MailIndicators 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#mailindicators)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#mailindicators)</button>  
+
+## MailIndicators <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#mailindicators)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#mailindicators)</button>  
 		
 Create a new mail indicator.  
 ##### Usage:  
 ```shell
 tq post MailIndicators
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MailIndicatorsCreate-default" aria-expanded="true" aria-controls="MailIndicatorsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MailIndicatorsCreate-default" aria-expanded="true" aria-controls="MailIndicatorsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MailIndicatorsCreate-flat" aria-expanded="false" aria-controls="MailIndicatorsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MailIndicatorsCreate-flat" aria-expanded="false" aria-controls="MailIndicatorsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MailIndicatorsCreate-csv" aria-expanded="false" aria-controls="MailIndicatorsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MailIndicatorsCreate-csv" aria-expanded="false" aria-controls="MailIndicatorsCreate-csv">
 csv
-</button><div id="MailIndicatorsCreate-parent">
+</button>
+<div id="MailIndicatorsCreate-parent">
 <div class="collapse show" id="MailIndicatorsCreate-default" data-bs-parent="#MailIndicatorsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -6770,26 +6809,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## MediaTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#mediatypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#mediatypes)</button>  
+
+## MediaTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#mediatypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#mediatypes)</button>  
 		
 Create a new media type.  
 ##### Usage:  
 ```shell
 tq post MediaTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MediaTypesCreate-default" aria-expanded="true" aria-controls="MediaTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MediaTypesCreate-default" aria-expanded="true" aria-controls="MediaTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MediaTypesCreate-flat" aria-expanded="false" aria-controls="MediaTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MediaTypesCreate-flat" aria-expanded="false" aria-controls="MediaTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MediaTypesCreate-csv" aria-expanded="false" aria-controls="MediaTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MediaTypesCreate-csv" aria-expanded="false" aria-controls="MediaTypesCreate-csv">
 csv
-</button><div id="MediaTypesCreate-parent">
+</button>
+<div id="MediaTypesCreate-parent">
 <div class="collapse show" id="MediaTypesCreate-default" data-bs-parent="#MediaTypesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "GenerateCost":123.456, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -6809,26 +6847,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,GenerateCos
 </div>
 </div>
 
-## MembershipLevelCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#membershiplevelcategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#membershiplevelcategories)</button>  
+
+## MembershipLevelCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#membershiplevelcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#membershiplevelcategories)</button>  
 		
 Create a new membership level category.  
 ##### Usage:  
 ```shell
 tq post MembershipLevelCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MembershipLevelCategoriesCreate-default" aria-expanded="true" aria-controls="MembershipLevelCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MembershipLevelCategoriesCreate-default" aria-expanded="true" aria-controls="MembershipLevelCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MembershipLevelCategoriesCreate-flat" aria-expanded="false" aria-controls="MembershipLevelCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MembershipLevelCategoriesCreate-flat" aria-expanded="false" aria-controls="MembershipLevelCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MembershipLevelCategoriesCreate-csv" aria-expanded="false" aria-controls="MembershipLevelCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MembershipLevelCategoriesCreate-csv" aria-expanded="false" aria-controls="MembershipLevelCategoriesCreate-csv">
 csv
-</button><div id="MembershipLevelCategoriesCreate-parent">
+</button>
+<div id="MembershipLevelCategoriesCreate-parent">
 <div class="collapse show" id="MembershipLevelCategoriesCreate-default" data-bs-parent="#MembershipLevelCategoriesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -6851,9 +6888,8 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 
 
 
-## Memberships 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#memberships)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## Memberships <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#memberships)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 This returns a result of calculated changes to a constituent membership.  This resource makes no actual changes and only returns calculated membership data for information purposes.
 NOTE: As part of the upcoming changes to membership functionality, this resource will change significantly in an upcoming major Tessitura release and likely break code that references it. Please make a note that code that references it will need to be revisited as part of that upgrade process.  
@@ -6861,16 +6897,17 @@ NOTE: As part of the upcoming changes to membership functionality, this resource
 ```shell
 tq post Memberships
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MembershipsCalculate-default" aria-expanded="true" aria-controls="MembershipsCalculate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MembershipsCalculate-default" aria-expanded="true" aria-controls="MembershipsCalculate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MembershipsCalculate-flat" aria-expanded="false" aria-controls="MembershipsCalculate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MembershipsCalculate-flat" aria-expanded="false" aria-controls="MembershipsCalculate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MembershipsCalculate-csv" aria-expanded="false" aria-controls="MembershipsCalculate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MembershipsCalculate-csv" aria-expanded="false" aria-controls="MembershipsCalculate-csv">
 csv
-</button><div id="MembershipsCalculate-parent">
+</button>
+<div id="MembershipsCalculate-parent">
 <div class="collapse show" id="MembershipsCalculate-default" data-bs-parent="#MembershipsCalculate-parent"> 
 ```json
 {"CalcCampaignId":123, "CalcConstituentId":123, "CalcContributionAmount":123.456, "CalcContributionDate":"2000-01-01T00:00:00.000Z", "CalcExpirationDate":"2000-01-01T00:00:00.000Z", "CalcInitialDate":"2000-01-01T00:00:00.000Z", "CrediteeId":123, "DeclineBenefits":"string", "MembershipLevelOverride":"string", "MembershipOrganizationId":123, "RealOrMirror":"string", "RenewUpgradeIndicator":"string"}
@@ -6892,26 +6929,25 @@ CalcCampaignId,CalcConstituentId,CalcContributionAmount,CalcContributionDate,Cal
 
 
 
-## ModeOfSaleCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsalecategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsalecategories)</button>  
+
+## ModeOfSaleCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#modeofsalecategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#modeofsalecategories)</button>  
 		
 Create a new mode of sale category.  
 ##### Usage:  
 ```shell
 tq post ModeOfSaleCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleCategoriesCreate-default" aria-expanded="true" aria-controls="ModeOfSaleCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleCategoriesCreate-default" aria-expanded="true" aria-controls="ModeOfSaleCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleCategoriesCreate-flat" aria-expanded="false" aria-controls="ModeOfSaleCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleCategoriesCreate-flat" aria-expanded="false" aria-controls="ModeOfSaleCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleCategoriesCreate-csv" aria-expanded="false" aria-controls="ModeOfSaleCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleCategoriesCreate-csv" aria-expanded="false" aria-controls="ModeOfSaleCategoriesCreate-csv">
 csv
-</button><div id="ModeOfSaleCategoriesCreate-parent">
+</button>
+<div id="ModeOfSaleCategoriesCreate-parent">
 <div class="collapse show" id="ModeOfSaleCategoriesCreate-default" data-bs-parent="#ModeOfSaleCategoriesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Sequence":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -6931,26 +6967,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,Sequence,ShortD
 </div>
 </div>
 
-## ModeOfSaleOffers 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsaleoffers)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsaleoffers)</button>  
+
+## ModeOfSaleOffers <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#modeofsaleoffers)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#modeofsaleoffers)</button>  
 		
 Create a new mode of sale offer.  
 ##### Usage:  
 ```shell
 tq post ModeOfSaleOffers
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleOffersCreate-default" aria-expanded="true" aria-controls="ModeOfSaleOffersCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleOffersCreate-default" aria-expanded="true" aria-controls="ModeOfSaleOffersCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleOffersCreate-flat" aria-expanded="false" aria-controls="ModeOfSaleOffersCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleOffersCreate-flat" aria-expanded="false" aria-controls="ModeOfSaleOffersCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleOffersCreate-csv" aria-expanded="false" aria-controls="ModeOfSaleOffersCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleOffersCreate-csv" aria-expanded="false" aria-controls="ModeOfSaleOffersCreate-csv">
 csv
-</button><div id="ModeOfSaleOffersCreate-parent">
+</button>
+<div id="ModeOfSaleOffersCreate-parent">
 <div class="collapse show" id="ModeOfSaleOffersCreate-default" data-bs-parent="#ModeOfSaleOffersCreate-parent"> 
 ```json
 {"AppealId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "MaxSeats":123, "ModeOfSaleId":123, "OverrideDefaultPriceTypeIndicator":true, "PackageId":123, "PerformanceId":123, "PriceTypeId":123, "Rank":123, "SourceId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "Terms":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -6970,26 +7005,25 @@ AppealId,CreateLocation,CreatedBy,CreatedDateTime,EndDateTime,Id,MaxSeats,ModeOf
 </div>
 </div>
 
-## ModeOfSalePriceTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsalepricetypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsalepricetypes)</button>  
+
+## ModeOfSalePriceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#modeofsalepricetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#modeofsalepricetypes)</button>  
 		
 Create a new mode of sale price type.  
 ##### Usage:  
 ```shell
 tq post ModeOfSalePriceTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSalePriceTypesCreate-default" aria-expanded="true" aria-controls="ModeOfSalePriceTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSalePriceTypesCreate-default" aria-expanded="true" aria-controls="ModeOfSalePriceTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSalePriceTypesCreate-flat" aria-expanded="false" aria-controls="ModeOfSalePriceTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSalePriceTypesCreate-flat" aria-expanded="false" aria-controls="ModeOfSalePriceTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSalePriceTypesCreate-csv" aria-expanded="false" aria-controls="ModeOfSalePriceTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSalePriceTypesCreate-csv" aria-expanded="false" aria-controls="ModeOfSalePriceTypesCreate-csv">
 csv
-</button><div id="ModeOfSalePriceTypesCreate-parent">
+</button>
+<div id="ModeOfSalePriceTypesCreate-parent">
 <div class="collapse show" id="ModeOfSalePriceTypesCreate-default" data-bs-parent="#ModeOfSalePriceTypesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Id":123, "ModeOfSale":{"Id":123}, "PriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -7009,26 +7043,25 @@ CreateLocation,CreatedBy,CreatedDateTime,DefaultIndicator,Id,ModeOfSale.Id,Price
 </div>
 </div>
 
-## ModeOfSaleSurveyQuestions 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsalesurveyquestions)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsalesurveyquestions)</button>  
+
+## ModeOfSaleSurveyQuestions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#modeofsalesurveyquestions)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#modeofsalesurveyquestions)</button>  
 		
 Create a new mode of sale survey question.  
 ##### Usage:  
 ```shell
 tq post ModeOfSaleSurveyQuestions
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleSurveyQuestionsCreate-default" aria-expanded="true" aria-controls="ModeOfSaleSurveyQuestionsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleSurveyQuestionsCreate-default" aria-expanded="true" aria-controls="ModeOfSaleSurveyQuestionsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleSurveyQuestionsCreate-flat" aria-expanded="false" aria-controls="ModeOfSaleSurveyQuestionsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleSurveyQuestionsCreate-flat" aria-expanded="false" aria-controls="ModeOfSaleSurveyQuestionsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleSurveyQuestionsCreate-csv" aria-expanded="false" aria-controls="ModeOfSaleSurveyQuestionsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleSurveyQuestionsCreate-csv" aria-expanded="false" aria-controls="ModeOfSaleSurveyQuestionsCreate-csv">
 csv
-</button><div id="ModeOfSaleSurveyQuestionsCreate-parent">
+</button>
+<div id="ModeOfSaleSurveyQuestionsCreate-parent">
 <div class="collapse show" id="ModeOfSaleSurveyQuestionsCreate-default" data-bs-parent="#ModeOfSaleSurveyQuestionsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ModeOfSale":{"Id":123}, "Question":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -7048,26 +7081,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Id,ModeOfSale.Id,Question.Id,UpdatedBy,
 </div>
 </div>
 
-## ModeOfSaleUserGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsaleusergroups)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsaleusergroups)</button>  
+
+## ModeOfSaleUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#modeofsaleusergroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#modeofsaleusergroups)</button>  
 		
 Create a new mode of sale/user group mapping.  
 ##### Usage:  
 ```shell
 tq post ModeOfSaleUserGroups
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleUserGroupsCreate-default" aria-expanded="true" aria-controls="ModeOfSaleUserGroupsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleUserGroupsCreate-default" aria-expanded="true" aria-controls="ModeOfSaleUserGroupsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleUserGroupsCreate-flat" aria-expanded="false" aria-controls="ModeOfSaleUserGroupsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleUserGroupsCreate-flat" aria-expanded="false" aria-controls="ModeOfSaleUserGroupsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleUserGroupsCreate-csv" aria-expanded="false" aria-controls="ModeOfSaleUserGroupsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleUserGroupsCreate-csv" aria-expanded="false" aria-controls="ModeOfSaleUserGroupsCreate-csv">
 csv
-</button><div id="ModeOfSaleUserGroupsCreate-parent">
+</button>
+<div id="ModeOfSaleUserGroupsCreate-parent">
 <div class="collapse show" id="ModeOfSaleUserGroupsCreate-default" data-bs-parent="#ModeOfSaleUserGroupsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Id":123, "ModeOfSale":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string"}
@@ -7087,26 +7119,25 @@ CreateLocation,CreatedBy,CreatedDateTime,DefaultIndicator,Id,ModeOfSale.Id,Updat
 </div>
 </div>
 
-## ModesOfSale 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#modesofsale)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#modesofsale)</button>  
+
+## ModesOfSale <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#modesofsale)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#modesofsale)</button>  
 		
 Create a new mode of sale.  
 ##### Usage:  
 ```shell
 tq post ModesOfSale
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModesOfSaleCreate-default" aria-expanded="true" aria-controls="ModesOfSaleCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModesOfSaleCreate-default" aria-expanded="true" aria-controls="ModesOfSaleCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModesOfSaleCreate-flat" aria-expanded="false" aria-controls="ModesOfSaleCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModesOfSaleCreate-flat" aria-expanded="false" aria-controls="ModesOfSaleCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModesOfSaleCreate-csv" aria-expanded="false" aria-controls="ModesOfSaleCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModesOfSaleCreate-csv" aria-expanded="false" aria-controls="ModesOfSaleCreate-csv">
 csv
-</button><div id="ModesOfSaleCreate-parent">
+</button>
+<div id="ModesOfSaleCreate-parent">
 <div class="collapse show" id="ModesOfSaleCreate-default" data-bs-parent="#ModesOfSaleCreate-parent"> 
 ```json
 {"AllowUnseatedPaidInd":true, "Category":{"Id":123}, "CategoryRequired":true, "ClearSourceNoInd":true, "ClearSourceOnReload":true, "ConfirmationMode":true, "ConstLinkRequired":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultAckFormatId":123, "DefaultChannelId":123, "DefaultDeliveryMethodId":123, "DefaultHeaderFormatId":123, "DefaultSalesLayoutId":123, "Description":"string", "EditDate":true, "EditSourceOnReload":true, "GeneralPublicInd":true, "HaboDays":123, "HaboForeign":true, "HoldUntilDate":"2000-01-01T00:00:00.000Z", "HoldUntilDays":123, "HoldUntilMethod":"string", "Id":123, "Inactive":true, "MustBePaidInd":true, "MustBeSeatedInd":true, "MustBeTicketedInd":true, "PricingRuleSetId":123, "SampleForGeneralPublic":123, "SampleForKnownConstituent":123, "SliAutoDeleteInd":true, "StartPkgOrPerf":"string", "SubsSummaryRequired":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -7126,28 +7157,27 @@ true,123,true,true,true,true,true,"""string""","""string""","""2000-01-01T00:00:
 </div>
 </div>
 
+
 	
 # N
-## NScanAccessAreas 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#nscanaccessareas)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#nscanaccessareas)</button>  
+## NScanAccessAreas <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#nscanaccessareas)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#nscanaccessareas)</button>  
 		
 Create a new NScan Access Area.  
 ##### Usage:  
 ```shell
 tq post NScanAccessAreas
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#NScanAccessAreasCreate-default" aria-expanded="true" aria-controls="NScanAccessAreasCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#NScanAccessAreasCreate-default" aria-expanded="true" aria-controls="NScanAccessAreasCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#NScanAccessAreasCreate-flat" aria-expanded="false" aria-controls="NScanAccessAreasCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#NScanAccessAreasCreate-flat" aria-expanded="false" aria-controls="NScanAccessAreasCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#NScanAccessAreasCreate-csv" aria-expanded="false" aria-controls="NScanAccessAreasCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#NScanAccessAreasCreate-csv" aria-expanded="false" aria-controls="NScanAccessAreasCreate-csv">
 csv
-</button><div id="NScanAccessAreasCreate-parent">
+</button>
+<div id="NScanAccessAreasCreate-parent">
 <div class="collapse show" id="NScanAccessAreasCreate-default" data-bs-parent="#NScanAccessAreasCreate-parent"> 
 ```json
 {"AreaCode":"string", "ConstituencyIds":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "KeywordId":123, "KeywordValue":"string", "ListId":123, "MaxEntries":123, "MembershipLevelIds":"string", "PerformanceIds":"string", "PriceTypeIds":"string", "PriceZoneIds":"string", "PromptQuantity":true, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -7167,26 +7197,25 @@ AreaCode,ConstituencyIds,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTim
 </div>
 </div>
 
-## NameStatuses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#namestatuses)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#namestatuses)</button>  
+
+## NameStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#namestatuses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#namestatuses)</button>  
 		
 Create a new name status.  
 ##### Usage:  
 ```shell
 tq post NameStatuses
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#NameStatusesCreate-default" aria-expanded="true" aria-controls="NameStatusesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#NameStatusesCreate-default" aria-expanded="true" aria-controls="NameStatusesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#NameStatusesCreate-flat" aria-expanded="false" aria-controls="NameStatusesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#NameStatusesCreate-flat" aria-expanded="false" aria-controls="NameStatusesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#NameStatusesCreate-csv" aria-expanded="false" aria-controls="NameStatusesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#NameStatusesCreate-csv" aria-expanded="false" aria-controls="NameStatusesCreate-csv">
 csv
-</button><div id="NameStatusesCreate-parent">
+</button>
+<div id="NameStatusesCreate-parent">
 <div class="collapse show" id="NameStatusesCreate-default" data-bs-parent="#NameStatusesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -7206,28 +7235,27 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
+
 	
 # O
-## ObjectPermissions 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#objectpermissions)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#objectpermissions)</button>  
+## ObjectPermissions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#objectpermissions)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#objectpermissions)</button>  
 		
 Create a new object permission.  
 ##### Usage:  
 ```shell
 tq post ObjectPermissions
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ObjectPermissionsCreate-default" aria-expanded="true" aria-controls="ObjectPermissionsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ObjectPermissionsCreate-default" aria-expanded="true" aria-controls="ObjectPermissionsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ObjectPermissionsCreate-flat" aria-expanded="false" aria-controls="ObjectPermissionsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ObjectPermissionsCreate-flat" aria-expanded="false" aria-controls="ObjectPermissionsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ObjectPermissionsCreate-csv" aria-expanded="false" aria-controls="ObjectPermissionsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ObjectPermissionsCreate-csv" aria-expanded="false" aria-controls="ObjectPermissionsCreate-csv">
 csv
-</button><div id="ObjectPermissionsCreate-parent">
+</button>
+<div id="ObjectPermissionsCreate-parent">
 <div class="collapse show" id="ObjectPermissionsCreate-default" data-bs-parent="#ObjectPermissionsCreate-parent"> 
 ```json
 {"ApplicationObject":{"Id":123}, "CanCreate":"string", "CanDelete":"string", "CanEdit":"string", "CanView":"string", "Constituency":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroup":{"Id":"string"}}
@@ -7247,25 +7275,25 @@ ApplicationObject.Id,CanCreate,CanDelete,CanEdit,CanView,Constituency.Id,CreateL
 </div>
 </div>
 
-## OrderBilling 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#orderbilling)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## OrderBilling <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#orderbilling)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 Order billing  
 ##### Usage:  
 ```shell
 tq post OrderBilling
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrderBillingBillOrders-default" aria-expanded="true" aria-controls="OrderBillingBillOrders-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrderBillingBillOrders-default" aria-expanded="true" aria-controls="OrderBillingBillOrders-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrderBillingBillOrders-flat" aria-expanded="false" aria-controls="OrderBillingBillOrders-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrderBillingBillOrders-flat" aria-expanded="false" aria-controls="OrderBillingBillOrders-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrderBillingBillOrders-csv" aria-expanded="false" aria-controls="OrderBillingBillOrders-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrderBillingBillOrders-csv" aria-expanded="false" aria-controls="OrderBillingBillOrders-csv">
 csv
-</button><div id="OrderBillingBillOrders-parent">
+</button>
+<div id="OrderBillingBillOrders-parent">
 <div class="collapse show" id="OrderBillingBillOrders-default" data-bs-parent="#OrderBillingBillOrders-parent"> 
 ```json
 {"AppealId":123, "BatchTypeId":123, "BillingTypeId":123, "CutoffDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "ListId":123, "MaxNumberOfBillsToPrint":123, "MediaTypeId":123, "MinAmount":123.456, "MinNumberOfBillsToPrint":123, "ModesOfSale":"string", "NewSourceDescription":"string", "OrderEndDateTime":"2000-01-01T00:00:00.000Z", "OrderStartDateTime":"2000-01-01T00:00:00.000Z", "PaymentMethodGroupId":123, "PerformanceEndDateTime":"2000-01-01T00:00:00.000Z", "PerformanceStartDateTime":"2000-01-01T00:00:00.000Z", "Seasons":"string", "ShouldUpdate":true, "StartDateTime":"2000-01-01T00:00:00.000Z", "UserId":"string"}
@@ -7285,26 +7313,25 @@ AppealId,BatchTypeId,BillingTypeId,CutoffDateTime,EndDateTime,ListId,MaxNumberOf
 </div>
 </div>
 
-## OrderCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#ordercategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#ordercategories)</button>  
+
+## OrderCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#ordercategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#ordercategories)</button>  
 		
 Create a new order category.  
 ##### Usage:  
 ```shell
 tq post OrderCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrderCategoriesCreate-default" aria-expanded="true" aria-controls="OrderCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrderCategoriesCreate-default" aria-expanded="true" aria-controls="OrderCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrderCategoriesCreate-flat" aria-expanded="false" aria-controls="OrderCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrderCategoriesCreate-flat" aria-expanded="false" aria-controls="OrderCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrderCategoriesCreate-csv" aria-expanded="false" aria-controls="OrderCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrderCategoriesCreate-csv" aria-expanded="false" aria-controls="OrderCategoriesCreate-csv">
 csv
-</button><div id="OrderCategoriesCreate-parent">
+</button>
+<div id="OrderCategoriesCreate-parent">
 <div class="collapse show" id="OrderCategoriesCreate-default" data-bs-parent="#OrderCategoriesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -7324,10 +7351,8 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## Orders 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#orders)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#orders)</button>  
+
+## Orders <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#orders)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#orders)</button>  
 		
 This resource is currently only for interceptor plugin use. This is called any time a new order is saved via the API or from the client application. Only OrderId is provided in the request content.
             
@@ -7336,16 +7361,17 @@ This resource will be invoked from a cart checkout.
 ```shell
 tq post Orders
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersCreate-default" aria-expanded="true" aria-controls="OrdersCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersCreate-default" aria-expanded="true" aria-controls="OrdersCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersCreate-flat" aria-expanded="false" aria-controls="OrdersCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersCreate-flat" aria-expanded="false" aria-controls="OrdersCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersCreate-csv" aria-expanded="false" aria-controls="OrdersCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersCreate-csv" aria-expanded="false" aria-controls="OrdersCreate-csv">
 csv
-</button><div id="OrdersCreate-parent">
+</button>
+<div id="OrdersCreate-parent">
 <div class="collapse show" id="OrdersCreate-default" data-bs-parent="#OrdersCreate-parent"> 
 ```json
 {"AcceptingRollovers":true, "AccountId":123, "AltAddressId":123, "AltElectronicAddressId":123, "AppealId":123, "AppliedMessageRules":"string", "BatchId":123, "BusinessUnitId":123, "CategoryId":123, "ChannelId":123, "ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Custom0":"string", "Custom1":"string", "Custom2":"string", "Custom3":"string", "Custom4":"string", "Custom5":"string", "Custom6":"string", "Custom7":"string", "Custom8":"string", "Custom9":"string", "DeliveryDate":"2000-01-01T00:00:00.000Z", "DeliveryMethodId":123, "HoldUntilDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "InitiatorId":123, "LineItems":[{"Id":123}, ...], "Messages":[{"Id":123}, ...], "MirrorLock":123, "ModeOfSaleId":123, "Notes":"string", "OrderDateTime":"2000-01-01T00:00:00.000Z", "ReloadPricingRules":true, "Solicitor":"string", "SourceId":123, "TotalDue":123.456, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "VirtualConstituencies":"string"}
@@ -7362,19 +7388,21 @@ csv
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--OrdersForDelivery*  
    Get all the orders for delivery.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersGetOrdersForDelivery-default" aria-expanded="true" aria-controls="OrdersGetOrdersForDelivery-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersGetOrdersForDelivery-default" aria-expanded="true" aria-controls="OrdersGetOrdersForDelivery-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersGetOrdersForDelivery-flat" aria-expanded="false" aria-controls="OrdersGetOrdersForDelivery-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersGetOrdersForDelivery-flat" aria-expanded="false" aria-controls="OrdersGetOrdersForDelivery-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersGetOrdersForDelivery-csv" aria-expanded="false" aria-controls="OrdersGetOrdersForDelivery-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersGetOrdersForDelivery-csv" aria-expanded="false" aria-controls="OrdersGetOrdersForDelivery-csv">
 csv
-</button><div id="OrdersGetOrdersForDelivery-parent">
+</button>
+<div id="OrdersGetOrdersForDelivery-parent">
 <div class="collapse show" id="OrdersGetOrdersForDelivery-default" data-bs-parent="#OrdersGetOrdersForDelivery-parent"> 
 ```json
 {"DeliveryMethods":"string", "MaxRowsToReturn":123, "ModesOfSale":"string", "OrderDaysInPast":123, "OrderEndDateTime":"2000-01-01T00:00:00.000Z", "OrderStartDateTime":"2000-01-01T00:00:00.000Z", "OrganizationName":"string", "PerformanceEndDateTime":"2000-01-01T00:00:00.000Z", "PerformanceStartDateTime":"2000-01-01T00:00:00.000Z", "UsePrimaryEmail":true}
@@ -7393,19 +7421,21 @@ DeliveryMethods,MaxRowsToReturn,ModesOfSale,OrderDaysInPast,OrderEndDateTime,Ord
 ```  
 </div>
 </div>
+
  * *--Price*  
    Prices an order(including pricing rules). Should have at least one line item, with each line item having at least one sub line item.
 Individual sub line items can be ignored for pricing by passing ApplyPricing = false, on those sub line items.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersPrice-default" aria-expanded="true" aria-controls="OrdersPrice-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersPrice-default" aria-expanded="true" aria-controls="OrdersPrice-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersPrice-flat" aria-expanded="false" aria-controls="OrdersPrice-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersPrice-flat" aria-expanded="false" aria-controls="OrdersPrice-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersPrice-csv" aria-expanded="false" aria-controls="OrdersPrice-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersPrice-csv" aria-expanded="false" aria-controls="OrdersPrice-csv">
 csv
-</button><div id="OrdersPrice-parent">
+</button>
+<div id="OrdersPrice-parent">
 <div class="collapse show" id="OrdersPrice-default" data-bs-parent="#OrdersPrice-parent"> 
 ```json
 {"AcceptingRollovers":true, "AccountId":123, "AltAddressId":123, "AltElectronicAddressId":123, "AppealId":123, "AppliedMessageRules":"string", "BatchId":123, "BusinessUnitId":123, "CategoryId":123, "ChannelId":123, "ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Custom0":"string", "Custom1":"string", "Custom2":"string", "Custom3":"string", "Custom4":"string", "Custom5":"string", "Custom6":"string", "Custom7":"string", "Custom8":"string", "Custom9":"string", "DeliveryDate":"2000-01-01T00:00:00.000Z", "DeliveryMethodId":123, "HoldUntilDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "InitiatorId":123, "LineItems":[{"Id":123}, ...], "Messages":[{"Id":123}, ...], "MirrorLock":123, "ModeOfSaleId":123, "Notes":"string", "OrderDateTime":"2000-01-01T00:00:00.000Z", "ReloadPricingRules":true, "Solicitor":"string", "SourceId":123, "TotalDue":123.456, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "VirtualConstituencies":"string"}
@@ -7422,21 +7452,23 @@ csv
 ```  
 </div>
 </div>
+
  * *--PrintTicketElements*  
    Returns ticket elements by header, receipts, and tickets; created primarily for use for building HTML ticket templates
 The method returns ticket data for unprinted fully-paid orders or reprints printed tickets specified via order number, one or more line item numbers, or one or more sub line item numbers.  In the case of partially-paid orders, only line items or sub line items which have been fully-paid will be eligible for printing. Ticket information can be returned in the default design specified for the ticket price type, or you may specify a ticket design to utilize via the request parameters. After the ticket data has been returned via the API, seats will be flagged as Ticketed in Tessitura.
 When reprinting tickets, one of the request parameters provides you with the option to regenerate the ticket number or reuse the current ticket number.
 Composite tickets are not currently supported, so a request to print one will instead return ticket elements for each performance, as if no composite ticket design had been selected for the package.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersPrintTicketElements-default" aria-expanded="true" aria-controls="OrdersPrintTicketElements-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersPrintTicketElements-default" aria-expanded="true" aria-controls="OrdersPrintTicketElements-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersPrintTicketElements-flat" aria-expanded="false" aria-controls="OrdersPrintTicketElements-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersPrintTicketElements-flat" aria-expanded="false" aria-controls="OrdersPrintTicketElements-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersPrintTicketElements-csv" aria-expanded="false" aria-controls="OrdersPrintTicketElements-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersPrintTicketElements-csv" aria-expanded="false" aria-controls="OrdersPrintTicketElements-csv">
 csv
-</button><div id="OrdersPrintTicketElements-parent">
+</button>
+<div id="OrdersPrintTicketElements-parent">
 <div class="collapse show" id="OrdersPrintTicketElements-default" data-bs-parent="#OrdersPrintTicketElements-parent"> 
 ```json
 {"OrderID":"string", "BatchId":123, "HeaderDesignId":123, "IncludeReceipts":true, "LineItems":"string", "NewTicketNoForReprints":true, "PrinterType":"string", "ReprintTickets":true, "SubLineItems":"string", "TicketDesignId":123}
@@ -7456,26 +7488,25 @@ BatchId,HeaderDesignId,IncludeReceipts,LineItems,NewTicketNoForReprints,OrderID,
 </div>
 </div>
 
-## Organizations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#organizations)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#organizations)</button>  
+
+## Organizations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#organizations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#organizations)</button>  
 		
 Create a new organization.  
 ##### Usage:  
 ```shell
 tq post Organizations
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrganizationsCreate-default" aria-expanded="true" aria-controls="OrganizationsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrganizationsCreate-default" aria-expanded="true" aria-controls="OrganizationsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrganizationsCreate-flat" aria-expanded="false" aria-controls="OrganizationsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrganizationsCreate-flat" aria-expanded="false" aria-controls="OrganizationsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrganizationsCreate-csv" aria-expanded="false" aria-controls="OrganizationsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrganizationsCreate-csv" aria-expanded="false" aria-controls="OrganizationsCreate-csv">
 csv
-</button><div id="OrganizationsCreate-parent">
+</button>
+<div id="OrganizationsCreate-parent">
 <div class="collapse show" id="OrganizationsCreate-default" data-bs-parent="#OrganizationsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LicenseeAccountCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -7495,26 +7526,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,LicenseeAccount
 </div>
 </div>
 
-## OriginalSources 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#originalsources)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#originalsources)</button>  
+
+## OriginalSources <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#originalsources)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#originalsources)</button>  
 		
 Create a new original source.  
 ##### Usage:  
 ```shell
 tq post OriginalSources
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OriginalSourcesCreate-default" aria-expanded="true" aria-controls="OriginalSourcesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OriginalSourcesCreate-default" aria-expanded="true" aria-controls="OriginalSourcesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OriginalSourcesCreate-flat" aria-expanded="false" aria-controls="OriginalSourcesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OriginalSourcesCreate-flat" aria-expanded="false" aria-controls="OriginalSourcesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OriginalSourcesCreate-csv" aria-expanded="false" aria-controls="OriginalSourcesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OriginalSourcesCreate-csv" aria-expanded="false" aria-controls="OriginalSourcesCreate-csv">
 csv
-</button><div id="OriginalSourcesCreate-parent">
+</button>
+<div id="OriginalSourcesCreate-parent">
 <div class="collapse show" id="OriginalSourcesCreate-default" data-bs-parent="#OriginalSourcesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -7534,26 +7564,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## Origins 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#origins)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#origins)</button>  
+
+## Origins <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#origins)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#origins)</button>  
 		
 Create a new origin.  
 ##### Usage:  
 ```shell
 tq post Origins
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OriginsCreate-default" aria-expanded="true" aria-controls="OriginsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OriginsCreate-default" aria-expanded="true" aria-controls="OriginsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OriginsCreate-flat" aria-expanded="false" aria-controls="OriginsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OriginsCreate-flat" aria-expanded="false" aria-controls="OriginsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OriginsCreate-csv" aria-expanded="false" aria-controls="OriginsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OriginsCreate-csv" aria-expanded="false" aria-controls="OriginsCreate-csv">
 csv
-</button><div id="OriginsCreate-parent">
+</button>
+<div id="OriginsCreate-parent">
 <div class="collapse show" id="OriginsCreate-default" data-bs-parent="#OriginsCreate-parent"> 
 ```json
 {"ActivityType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -7573,26 +7602,25 @@ ActivityType.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## OutputSets 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#outputsets)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#outputsets)</button>  
+
+## OutputSets <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#outputsets)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#outputsets)</button>  
 		
 Create an Output Set.  
 ##### Usage:  
 ```shell
 tq post OutputSets
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OutputSetsCreate-default" aria-expanded="true" aria-controls="OutputSetsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OutputSetsCreate-default" aria-expanded="true" aria-controls="OutputSetsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OutputSetsCreate-flat" aria-expanded="false" aria-controls="OutputSetsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OutputSetsCreate-flat" aria-expanded="false" aria-controls="OutputSetsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OutputSetsCreate-csv" aria-expanded="false" aria-controls="OutputSetsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OutputSetsCreate-csv" aria-expanded="false" aria-controls="OutputSetsCreate-csv">
 csv
-</button><div id="OutputSetsCreate-parent">
+</button>
+<div id="OutputSetsCreate-parent">
 <div class="collapse show" id="OutputSetsCreate-default" data-bs-parent="#OutputSetsCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "ElementGroups":[{"IncludePrimaryAffiliation":true, "IsSingleRow":true, "KeywordId":123}, ...], "Id":123, "LastUsedDateTime":"2000-01-01T00:00:00.000Z", "TMSIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -7610,29 +7638,28 @@ csv
 </div>
 </div>
 
+
 	
 # P
 
-## PackagePriceTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#packagepricetypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#packagepricetypes)</button>  
+## PackagePriceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#packagepricetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#packagepricetypes)</button>  
 		
 Create a new package price type.  
 ##### Usage:  
 ```shell
 tq post PackagePriceTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackagePriceTypesCreate-default" aria-expanded="true" aria-controls="PackagePriceTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackagePriceTypesCreate-default" aria-expanded="true" aria-controls="PackagePriceTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackagePriceTypesCreate-flat" aria-expanded="false" aria-controls="PackagePriceTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackagePriceTypesCreate-flat" aria-expanded="false" aria-controls="PackagePriceTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackagePriceTypesCreate-csv" aria-expanded="false" aria-controls="PackagePriceTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackagePriceTypesCreate-csv" aria-expanded="false" aria-controls="PackagePriceTypesCreate-csv">
 csv
-</button><div id="PackagePriceTypesCreate-parent">
+</button>
+<div id="PackagePriceTypesCreate-parent">
 <div class="collapse show" id="PackagePriceTypesCreate-default" data-bs-parent="#PackagePriceTypesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PackageId":123, "PriceTypeId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -7652,26 +7679,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Id,PackageId,PriceTypeId,UpdatedBy,Upda
 </div>
 </div>
 
-## PackageTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#packagetypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#packagetypes)</button>  
+
+## PackageTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#packagetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#packagetypes)</button>  
 		
 Create a new package type.  
 ##### Usage:  
 ```shell
 tq post PackageTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackageTypesCreate-default" aria-expanded="true" aria-controls="PackageTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackageTypesCreate-default" aria-expanded="true" aria-controls="PackageTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackageTypesCreate-flat" aria-expanded="false" aria-controls="PackageTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackageTypesCreate-flat" aria-expanded="false" aria-controls="PackageTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackageTypesCreate-csv" aria-expanded="false" aria-controls="PackageTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackageTypesCreate-csv" aria-expanded="false" aria-controls="PackageTypesCreate-csv">
 csv
-</button><div id="PackageTypesCreate-parent">
+</button>
+<div id="PackageTypesCreate-parent">
 <div class="collapse show" id="PackageTypesCreate-default" data-bs-parent="#PackageTypesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -7691,26 +7717,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## PackageWebContents 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#packagewebcontents)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#packagewebcontents)</button>  
+
+## PackageWebContents <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#packagewebcontents)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#packagewebcontents)</button>  
 		
 Create a packageWebContent.  
 ##### Usage:  
 ```shell
 tq post PackageWebContents
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackageWebContentsCreate-default" aria-expanded="true" aria-controls="PackageWebContentsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackageWebContentsCreate-default" aria-expanded="true" aria-controls="PackageWebContentsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackageWebContentsCreate-flat" aria-expanded="false" aria-controls="PackageWebContentsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackageWebContentsCreate-flat" aria-expanded="false" aria-controls="PackageWebContentsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackageWebContentsCreate-csv" aria-expanded="false" aria-controls="PackageWebContentsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackageWebContentsCreate-csv" aria-expanded="false" aria-controls="PackageWebContentsCreate-csv">
 csv
-</button><div id="PackageWebContentsCreate-parent">
+</button>
+<div id="PackageWebContentsCreate-parent">
 <div class="collapse show" id="PackageWebContentsCreate-default" data-bs-parent="#PackageWebContentsCreate-parent"> 
 ```json
 {"ContentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PackageId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}
@@ -7730,25 +7755,25 @@ ContentType.Id,CreateLocation,CreatedBy,CreatedDateTime,Id,PackageId,UpdatedBy,U
 </div>
 </div>
 
-## Packages 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#packages)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## Packages <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#packages)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 Search for packages  
 ##### Usage:  
 ```shell
 tq post Packages
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackagesSearch-default" aria-expanded="true" aria-controls="PackagesSearch-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackagesSearch-default" aria-expanded="true" aria-controls="PackagesSearch-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackagesSearch-flat" aria-expanded="false" aria-controls="PackagesSearch-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackagesSearch-flat" aria-expanded="false" aria-controls="PackagesSearch-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackagesSearch-csv" aria-expanded="false" aria-controls="PackagesSearch-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackagesSearch-csv" aria-expanded="false" aria-controls="PackagesSearch-csv">
 csv
-</button><div id="PackagesSearch-parent">
+</button>
+<div id="PackagesSearch-parent">
 <div class="collapse show" id="PackagesSearch-default" data-bs-parent="#PackagesSearch-parent"> 
 ```json
 {"ArtistIds":"string", "BusinessUnitId":123, "ConstituentId":123, "FullTextSearch":"string", "MatchAllPerformances":true, "ModeOfSaleId":123, "PackageEndDate":"2000-01-01T00:00:00.000Z", "PackageFacilityIds":"string", "PackageKeywordAndOr":"string", "PackageKeywordIds":"string", "PackageStartDate":"2000-01-01T00:00:00.000Z", "PackageTypeIds":"string", "PerformanceEndDate":"2000-01-01T00:00:00.000Z", "PerformanceFacilityIds":"string", "PerformanceKeywordAndOr":"string", "PerformanceKeywordIds":"string", "PerformanceStartDate":"2000-01-01T00:00:00.000Z", "SeasonIds":"string"}
@@ -7768,8 +7793,8 @@ ArtistIds,BusinessUnitId,ConstituentId,FullTextSearch,MatchAllPerformances,ModeO
 </div>
 </div>
 
-## PaymentComponent 
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## PaymentComponent <button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 This request is used to configure a transaction and retrieve the JavaScript location for implementing the Tessitura Merchant Services Payment Component. 
 For complete documentation on how to implement the Payment Component, please visit https://bitbucket.org/TN_WebShare/tessituramerchantservicesintegrationsample  
@@ -7777,16 +7802,17 @@ For complete documentation on how to implement the Payment Component, please vis
 ```shell
 tq post PaymentComponent
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentComponentGetPaymentComponent-default" aria-expanded="true" aria-controls="PaymentComponentGetPaymentComponent-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentComponentGetPaymentComponent-default" aria-expanded="true" aria-controls="PaymentComponentGetPaymentComponent-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentComponentGetPaymentComponent-flat" aria-expanded="false" aria-controls="PaymentComponentGetPaymentComponent-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentComponentGetPaymentComponent-flat" aria-expanded="false" aria-controls="PaymentComponentGetPaymentComponent-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentComponentGetPaymentComponent-csv" aria-expanded="false" aria-controls="PaymentComponentGetPaymentComponent-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentComponentGetPaymentComponent-csv" aria-expanded="false" aria-controls="PaymentComponentGetPaymentComponent-csv">
 csv
-</button><div id="PaymentComponentGetPaymentComponent-parent">
+</button>
+<div id="PaymentComponentGetPaymentComponent-parent">
 <div class="collapse show" id="PaymentComponentGetPaymentComponent-default" data-bs-parent="#PaymentComponentGetPaymentComponent-parent"> 
 ```json
 {"Amount":123.456, "CardBrandsToInclude":["", ...], "ComponentVersion":"string", "ConstituentId":123, "MerchantId":"string", "ShowStoredCards":true}
@@ -7804,24 +7830,25 @@ csv
 </div>
 </div>
 
-## PaymentGatewayAccounts 
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## PaymentGatewayAccounts <button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 Generate a payment card token from a ReferenceNumber obtained from a previous Authorization request (Vantiv only)  
 ##### Usage:  
 ```shell
 tq post PaymentGatewayAccounts
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayAccountsCreateAccount-default" aria-expanded="true" aria-controls="PaymentGatewayAccountsCreateAccount-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayAccountsCreateAccount-default" aria-expanded="true" aria-controls="PaymentGatewayAccountsCreateAccount-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayAccountsCreateAccount-flat" aria-expanded="false" aria-controls="PaymentGatewayAccountsCreateAccount-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayAccountsCreateAccount-flat" aria-expanded="false" aria-controls="PaymentGatewayAccountsCreateAccount-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayAccountsCreateAccount-csv" aria-expanded="false" aria-controls="PaymentGatewayAccountsCreateAccount-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayAccountsCreateAccount-csv" aria-expanded="false" aria-controls="PaymentGatewayAccountsCreateAccount-csv">
 csv
-</button><div id="PaymentGatewayAccountsCreateAccount-parent">
+</button>
+<div id="PaymentGatewayAccountsCreateAccount-parent">
 <div class="collapse show" id="PaymentGatewayAccountsCreateAccount-default" data-bs-parent="#PaymentGatewayAccountsCreateAccount-parent"> 
 ```json
 {"ConstituentId":123, "ReferenceNumber":"string"}
@@ -7840,19 +7867,21 @@ ConstituentId,ReferenceNumber
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--StoreToken*  
    Store an externally generated payment card token in Tessitura. Note that for this call to function, the card_mnemonic column in TR_ACCOUNT_TYPE must be filled in appropriately for your credit card processor. Look for the TR_ACCOUNT_TYPE topic in the Tessitura help documentation for more information on the card mnemonic column.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayAccountsStoreToken-default" aria-expanded="true" aria-controls="PaymentGatewayAccountsStoreToken-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayAccountsStoreToken-default" aria-expanded="true" aria-controls="PaymentGatewayAccountsStoreToken-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayAccountsStoreToken-flat" aria-expanded="false" aria-controls="PaymentGatewayAccountsStoreToken-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayAccountsStoreToken-flat" aria-expanded="false" aria-controls="PaymentGatewayAccountsStoreToken-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayAccountsStoreToken-csv" aria-expanded="false" aria-controls="PaymentGatewayAccountsStoreToken-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayAccountsStoreToken-csv" aria-expanded="false" aria-controls="PaymentGatewayAccountsStoreToken-csv">
 csv
-</button><div id="PaymentGatewayAccountsStoreToken-parent">
+</button>
+<div id="PaymentGatewayAccountsStoreToken-parent">
 <div class="collapse show" id="PaymentGatewayAccountsStoreToken-default" data-bs-parent="#PaymentGatewayAccountsStoreToken-parent"> 
 ```json
 {"Card":{"AccountId":123, "CardHolderName":"string", "CardNumber":"string", "Cvv2":"string", "ExpirationDate":"string", "TessituraMerchantServicesData":"string", "Track1":"string", "Track2":"string"}, "ConstituentId":123, "DateUsed":"2000-01-01T00:00:00.000Z", "IsECommerce":true, "NetworkTransactionId":"string", "PaymentMethodGroupId":123, "ShopperReference":"string", "Token":"string"}
@@ -7872,26 +7901,25 @@ Card.AccountId,Card.CardHolderName,Card.CardNumber,Card.Cvv2,Card.ExpirationDate
 </div>
 </div>
 
-## PaymentGatewayActivities 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentgatewayactivities)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentgatewayactivities)</button>  
+
+## PaymentGatewayActivities <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentgatewayactivities)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#paymentgatewayactivities)</button>  
 		
 Create a new Payment Gateway Activity  
 ##### Usage:  
 ```shell
 tq post PaymentGatewayActivities
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayActivitiesCreate-default" aria-expanded="true" aria-controls="PaymentGatewayActivitiesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayActivitiesCreate-default" aria-expanded="true" aria-controls="PaymentGatewayActivitiesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayActivitiesCreate-flat" aria-expanded="false" aria-controls="PaymentGatewayActivitiesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayActivitiesCreate-flat" aria-expanded="false" aria-controls="PaymentGatewayActivitiesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayActivitiesCreate-csv" aria-expanded="false" aria-controls="PaymentGatewayActivitiesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayActivitiesCreate-csv" aria-expanded="false" aria-controls="PaymentGatewayActivitiesCreate-csv">
 csv
-</button><div id="PaymentGatewayActivitiesCreate-parent">
+</button>
+<div id="PaymentGatewayActivitiesCreate-parent">
 <div class="collapse show" id="PaymentGatewayActivitiesCreate-default" data-bs-parent="#PaymentGatewayActivitiesCreate-parent"> 
 ```json
 {"AccountId":123, "AccountNumber":"string", "ActivityData":"string", "Amount":123.456, "AuthCode":"string", "AvsAddress":"string", "AvsPostalcode":"string", "AvsResultCode":"string", "BalanceAmount":123.456, "BalanceCurrencyCode":"string", "ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CvvResultCode":"string", "EcommerceIndicator":"string", "EmvApplicationIdentifier":"string", "EmvApplicationName":"string", "EmvCryptogram":"string", "EmvHostResponseCode":"string", "EmvHostResponseMessage":"string", "EmvPinVerified":"string", "EntryMethod":"string", "ExpirationDate":"string", "Id":123, "MerchantId":"string", "Name":"string", "NetworkTransactionId":"string", "Origin":"string", "PaymentGatewayTransactionType":{"Id":123}, "PaymentId":123, "PaymentMethodGroupId":123, "PaymentMethodId":123, "ProviderCommunicationDurationMs":123, "ProviderTransactionDateTime":"2000-01-01T00:00:00.000Z", "ReferenceNumber":"string", "ResponseCode":"string", "ResponseMessage":"string", "Success":"string", "TerminalIdentifier":"string", "TotalDurationMs":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserData":"string"}
@@ -7912,24 +7940,25 @@ AccountId,AccountNumber,ActivityData,Amount,AuthCode,AvsAddress,AvsPostalcode,Av
 </div>
 
 
-## PaymentGatewayCredentials 
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## PaymentGatewayCredentials <button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
   
 ##### Usage:  
 ```shell
 tq post PaymentGatewayCredentials
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayCredentialsGetCredential-default" aria-expanded="true" aria-controls="PaymentGatewayCredentialsGetCredential-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayCredentialsGetCredential-default" aria-expanded="true" aria-controls="PaymentGatewayCredentialsGetCredential-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayCredentialsGetCredential-flat" aria-expanded="false" aria-controls="PaymentGatewayCredentialsGetCredential-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayCredentialsGetCredential-flat" aria-expanded="false" aria-controls="PaymentGatewayCredentialsGetCredential-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayCredentialsGetCredential-csv" aria-expanded="false" aria-controls="PaymentGatewayCredentialsGetCredential-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayCredentialsGetCredential-csv" aria-expanded="false" aria-controls="PaymentGatewayCredentialsGetCredential-csv">
 csv
-</button><div id="PaymentGatewayCredentialsGetCredential-parent">
+</button>
+<div id="PaymentGatewayCredentialsGetCredential-parent">
 <div class="collapse show" id="PaymentGatewayCredentialsGetCredential-default" data-bs-parent="#PaymentGatewayCredentialsGetCredential-parent"> 
 ```json
 {"ConstituentId":123, "MerchantId":"string"}
@@ -7949,26 +7978,25 @@ ConstituentId,MerchantId
 </div>
 </div>
 
-## PaymentGatewayNotifications 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentgatewaynotifications)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentgatewaynotifications)</button>  
+
+## PaymentGatewayNotifications <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentgatewaynotifications)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#paymentgatewaynotifications)</button>  
 		
 Create a new notification event.  
 ##### Usage:  
 ```shell
 tq post PaymentGatewayNotifications
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayNotificationsCreateNotificationEvent-default" aria-expanded="true" aria-controls="PaymentGatewayNotificationsCreateNotificationEvent-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayNotificationsCreateNotificationEvent-default" aria-expanded="true" aria-controls="PaymentGatewayNotificationsCreateNotificationEvent-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayNotificationsCreateNotificationEvent-flat" aria-expanded="false" aria-controls="PaymentGatewayNotificationsCreateNotificationEvent-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayNotificationsCreateNotificationEvent-flat" aria-expanded="false" aria-controls="PaymentGatewayNotificationsCreateNotificationEvent-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayNotificationsCreateNotificationEvent-csv" aria-expanded="false" aria-controls="PaymentGatewayNotificationsCreateNotificationEvent-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayNotificationsCreateNotificationEvent-csv" aria-expanded="false" aria-controls="PaymentGatewayNotificationsCreateNotificationEvent-csv">
 csv
-</button><div id="PaymentGatewayNotificationsCreateNotificationEvent-parent">
+</button>
+<div id="PaymentGatewayNotificationsCreateNotificationEvent-parent">
 <div class="collapse show" id="PaymentGatewayNotificationsCreateNotificationEvent-default" data-bs-parent="#PaymentGatewayNotificationsCreateNotificationEvent-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EventType":"string", "Id":123, "Payload":"string", "ProcessedDate":"2000-01-01T00:00:00.000Z", "ReceivedDate":"2000-01-01T00:00:00.000Z", "Reference":"string", "Topic":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -7988,26 +8016,25 @@ CreateLocation,CreatedBy,CreatedDateTime,EventType,Id,Payload,ProcessedDate,Rece
 </div>
 </div>
 
-## PaymentGatewayTransactionTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentgatewaytransactiontypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentgatewaytransactiontypes)</button>  
+
+## PaymentGatewayTransactionTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentgatewaytransactiontypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#paymentgatewaytransactiontypes)</button>  
 		
 Create a new Payment Gateway Transaction Type.  
 ##### Usage:  
 ```shell
 tq post PaymentGatewayTransactionTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayTransactionTypesCreate-default" aria-expanded="true" aria-controls="PaymentGatewayTransactionTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayTransactionTypesCreate-default" aria-expanded="true" aria-controls="PaymentGatewayTransactionTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayTransactionTypesCreate-flat" aria-expanded="false" aria-controls="PaymentGatewayTransactionTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayTransactionTypesCreate-flat" aria-expanded="false" aria-controls="PaymentGatewayTransactionTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayTransactionTypesCreate-csv" aria-expanded="false" aria-controls="PaymentGatewayTransactionTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayTransactionTypesCreate-csv" aria-expanded="false" aria-controls="PaymentGatewayTransactionTypesCreate-csv">
 csv
-</button><div id="PaymentGatewayTransactionTypesCreate-parent">
+</button>
+<div id="PaymentGatewayTransactionTypesCreate-parent">
 <div class="collapse show" id="PaymentGatewayTransactionTypesCreate-default" data-bs-parent="#PaymentGatewayTransactionTypesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -8028,26 +8055,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 
 
-## PaymentMethodGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentmethodgroups)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentmethodgroups)</button>  
+
+## PaymentMethodGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentmethodgroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#paymentmethodgroups)</button>  
 		
 Create a new payment method group.  
 ##### Usage:  
 ```shell
 tq post PaymentMethodGroups
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodGroupsCreate-default" aria-expanded="true" aria-controls="PaymentMethodGroupsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodGroupsCreate-default" aria-expanded="true" aria-controls="PaymentMethodGroupsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodGroupsCreate-flat" aria-expanded="false" aria-controls="PaymentMethodGroupsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodGroupsCreate-flat" aria-expanded="false" aria-controls="PaymentMethodGroupsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodGroupsCreate-csv" aria-expanded="false" aria-controls="PaymentMethodGroupsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodGroupsCreate-csv" aria-expanded="false" aria-controls="PaymentMethodGroupsCreate-csv">
 csv
-</button><div id="PaymentMethodGroupsCreate-parent">
+</button>
+<div id="PaymentMethodGroupsCreate-parent">
 <div class="collapse show" id="PaymentMethodGroupsCreate-default" data-bs-parent="#PaymentMethodGroupsCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "MerchantId":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -8067,26 +8093,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## PaymentMethodUserGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentmethodusergroups)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentmethodusergroups)</button>  
+
+## PaymentMethodUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentmethodusergroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#paymentmethodusergroups)</button>  
 		
 Create a new payment method/user group mapping.  
 ##### Usage:  
 ```shell
 tq post PaymentMethodUserGroups
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodUserGroupsCreate-default" aria-expanded="true" aria-controls="PaymentMethodUserGroupsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodUserGroupsCreate-default" aria-expanded="true" aria-controls="PaymentMethodUserGroupsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodUserGroupsCreate-flat" aria-expanded="false" aria-controls="PaymentMethodUserGroupsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodUserGroupsCreate-flat" aria-expanded="false" aria-controls="PaymentMethodUserGroupsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodUserGroupsCreate-csv" aria-expanded="false" aria-controls="PaymentMethodUserGroupsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodUserGroupsCreate-csv" aria-expanded="false" aria-controls="PaymentMethodUserGroupsCreate-csv">
 csv
-</button><div id="PaymentMethodUserGroupsCreate-parent">
+</button>
+<div id="PaymentMethodUserGroupsCreate-parent">
 <div class="collapse show" id="PaymentMethodUserGroupsCreate-default" data-bs-parent="#PaymentMethodUserGroupsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "IncomeIndicator":true, "MaxRefund":123.456, "PaymentMethod":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string"}
@@ -8106,26 +8131,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Id,IncomeIndicator,MaxRefund,PaymentMet
 </div>
 </div>
 
-## PaymentMethods 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentmethods)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentmethods)</button>  
+
+## PaymentMethods <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentmethods)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#paymentmethods)</button>  
 		
 Create a new payment method.  
 ##### Usage:  
 ```shell
 tq post PaymentMethods
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodsCreate-default" aria-expanded="true" aria-controls="PaymentMethodsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodsCreate-default" aria-expanded="true" aria-controls="PaymentMethodsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodsCreate-flat" aria-expanded="false" aria-controls="PaymentMethodsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodsCreate-flat" aria-expanded="false" aria-controls="PaymentMethodsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodsCreate-csv" aria-expanded="false" aria-controls="PaymentMethodsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodsCreate-csv" aria-expanded="false" aria-controls="PaymentMethodsCreate-csv">
 csv
-</button><div id="PaymentMethodsCreate-parent">
+</button>
+<div id="PaymentMethodsCreate-parent">
 <div class="collapse show" id="PaymentMethodsCreate-default" data-bs-parent="#PaymentMethodsCreate-parent"> 
 ```json
 {"AccountType":{"Id":123}, "AuthIndicator":true, "BusinessUnitId":123, "CanRefund":true, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CurrencyTypeId":123, "DefaultIndicator":true, "Description":"string", "GiftAidIndicator":true, "GlAccountId":"string", "Id":123, "Inactive":true, "Income":true, "MerchantId":"string", "MerchantIdForSwipe":"string", "NoCopiesOnAuth":123, "NoCopiesOnSave":123, "OpenCashDrawer":true, "PaymentMethodGroup":{"Id":123}, "PaymentType":{"Id":123}, "ReceiptFormatId":123, "RequireCheckIndicator":true, "RequireCvv":true, "RequirePostalCode":"string", "ShortDesc":"string", "StoreTenderedAmount":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseWithCardReader":true}
@@ -8145,26 +8169,25 @@ AccountType.Id,AuthIndicator,BusinessUnitId,CanRefund,ControlGroup.Id,CreateLoca
 </div>
 </div>
 
-## PaymentSignatures 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentsignatures)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentsignatures)</button>  
+
+## PaymentSignatures <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentsignatures)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#paymentsignatures)</button>  
 		
 Create a new payment signature.  
 ##### Usage:  
 ```shell
 tq post PaymentSignatures
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentSignaturesCreate-default" aria-expanded="true" aria-controls="PaymentSignaturesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentSignaturesCreate-default" aria-expanded="true" aria-controls="PaymentSignaturesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentSignaturesCreate-flat" aria-expanded="false" aria-controls="PaymentSignaturesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentSignaturesCreate-flat" aria-expanded="false" aria-controls="PaymentSignaturesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentSignaturesCreate-csv" aria-expanded="false" aria-controls="PaymentSignaturesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentSignaturesCreate-csv" aria-expanded="false" aria-controls="PaymentSignaturesCreate-csv">
 csv
-</button><div id="PaymentSignaturesCreate-parent">
+</button>
+<div id="PaymentSignaturesCreate-parent">
 <div class="collapse show" id="PaymentSignaturesCreate-default" data-bs-parent="#PaymentSignaturesCreate-parent"> 
 ```json
 {"Id":123}
@@ -8183,19 +8206,21 @@ Id
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--PostForOrder*  
    Create a new payment signature.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentSignaturesPostForOrder-default" aria-expanded="true" aria-controls="PaymentSignaturesPostForOrder-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentSignaturesPostForOrder-default" aria-expanded="true" aria-controls="PaymentSignaturesPostForOrder-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentSignaturesPostForOrder-flat" aria-expanded="false" aria-controls="PaymentSignaturesPostForOrder-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentSignaturesPostForOrder-flat" aria-expanded="false" aria-controls="PaymentSignaturesPostForOrder-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentSignaturesPostForOrder-csv" aria-expanded="false" aria-controls="PaymentSignaturesPostForOrder-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentSignaturesPostForOrder-csv" aria-expanded="false" aria-controls="PaymentSignaturesPostForOrder-csv">
 csv
-</button><div id="PaymentSignaturesPostForOrder-parent">
+</button>
+<div id="PaymentSignaturesPostForOrder-parent">
 <div class="collapse show" id="PaymentSignaturesPostForOrder-default" data-bs-parent="#PaymentSignaturesPostForOrder-parent"> 
 ```json
 {"OrderID":"string", "Id":123}
@@ -8215,26 +8240,25 @@ Id,OrderID
 </div>
 </div>
 
-## PaymentTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymenttypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymenttypes)</button>  
+
+## PaymentTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymenttypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#paymenttypes)</button>  
 		
 Create a new payment type.  
 ##### Usage:  
 ```shell
 tq post PaymentTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentTypesCreate-default" aria-expanded="true" aria-controls="PaymentTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentTypesCreate-default" aria-expanded="true" aria-controls="PaymentTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentTypesCreate-flat" aria-expanded="false" aria-controls="PaymentTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentTypesCreate-flat" aria-expanded="false" aria-controls="PaymentTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentTypesCreate-csv" aria-expanded="false" aria-controls="PaymentTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentTypesCreate-csv" aria-expanded="false" aria-controls="PaymentTypesCreate-csv">
 csv
-</button><div id="PaymentTypesCreate-parent">
+</button>
+<div id="PaymentTypesCreate-parent">
 <div class="collapse show" id="PaymentTypesCreate-default" data-bs-parent="#PaymentTypesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -8254,25 +8278,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## Payments 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#payments)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## Payments <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#payments)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 Reserves a payment id generated per the request's required "increment" parameter. Increment number must be greater than 0.  
 ##### Usage:  
 ```shell
 tq post Payments
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentsReserveIds-default" aria-expanded="true" aria-controls="PaymentsReserveIds-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentsReserveIds-default" aria-expanded="true" aria-controls="PaymentsReserveIds-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentsReserveIds-flat" aria-expanded="false" aria-controls="PaymentsReserveIds-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentsReserveIds-flat" aria-expanded="false" aria-controls="PaymentsReserveIds-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentsReserveIds-csv" aria-expanded="false" aria-controls="PaymentsReserveIds-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentsReserveIds-csv" aria-expanded="false" aria-controls="PaymentsReserveIds-csv">
 csv
-</button><div id="PaymentsReserveIds-parent">
+</button>
+<div id="PaymentsReserveIds-parent">
 <div class="collapse show" id="PaymentsReserveIds-default" data-bs-parent="#PaymentsReserveIds-parent"> 
 ```json
 {"Increment":123}
@@ -8292,26 +8316,25 @@ Increment
 </div>
 </div>
 
-## PerformanceGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancegroups)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancegroups)</button>  
+
+## PerformanceGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performancegroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#performancegroups)</button>  
 		
 Create a new Performance Group.  
 ##### Usage:  
 ```shell
 tq post PerformanceGroups
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceGroupsCreate-default" aria-expanded="true" aria-controls="PerformanceGroupsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceGroupsCreate-default" aria-expanded="true" aria-controls="PerformanceGroupsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceGroupsCreate-flat" aria-expanded="false" aria-controls="PerformanceGroupsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceGroupsCreate-flat" aria-expanded="false" aria-controls="PerformanceGroupsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceGroupsCreate-csv" aria-expanded="false" aria-controls="PerformanceGroupsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceGroupsCreate-csv" aria-expanded="false" aria-controls="PerformanceGroupsCreate-csv">
 csv
-</button><div id="PerformanceGroupsCreate-parent">
+</button>
+<div id="PerformanceGroupsCreate-parent">
 <div class="collapse show" id="PerformanceGroupsCreate-default" data-bs-parent="#PerformanceGroupsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DisplayByZone":true, "Facility":{"Id":123}, "FixedSeatIndicator":true, "Id":123, "Season":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneMap":{"Id":123}}
@@ -8331,26 +8354,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,DisplayByZone,Facility.Id,F
 </div>
 </div>
 
-## PerformancePackageModeOfSales 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancepackagemodeofsales)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancepackagemodeofsales)</button>  
+
+## PerformancePackageModeOfSales <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performancepackagemodeofsales)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#performancepackagemodeofsales)</button>  
 		
 Create a new performance package mode of sale.  
 ##### Usage:  
 ```shell
 tq post PerformancePackageModeOfSales
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePackageModeOfSalesCreate-default" aria-expanded="true" aria-controls="PerformancePackageModeOfSalesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePackageModeOfSalesCreate-default" aria-expanded="true" aria-controls="PerformancePackageModeOfSalesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePackageModeOfSalesCreate-flat" aria-expanded="false" aria-controls="PerformancePackageModeOfSalesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePackageModeOfSalesCreate-flat" aria-expanded="false" aria-controls="PerformancePackageModeOfSalesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePackageModeOfSalesCreate-csv" aria-expanded="false" aria-controls="PerformancePackageModeOfSalesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePackageModeOfSalesCreate-csv" aria-expanded="false" aria-controls="PerformancePackageModeOfSalesCreate-csv">
 csv
-</button><div id="PerformancePackageModeOfSalesCreate-parent">
+</button>
+<div id="PerformancePackageModeOfSalesCreate-parent">
 <div class="collapse show" id="PerformancePackageModeOfSalesCreate-default" data-bs-parent="#PerformancePackageModeOfSalesCreate-parent"> 
 ```json
 {"AutoAttend":"string", "ETicketReleaseDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ModeOfSaleId":123, "PackageId":123, "PerformanceId":123, "PrintIndicator":true, "PrintOnAutoAttend":true, "SeatIndicator":true, "StartDateTime":"2000-01-01T00:00:00.000Z"}
@@ -8370,26 +8392,25 @@ AutoAttend,ETicketReleaseDateTime,EndDateTime,Id,ModeOfSaleId,PackageId,Performa
 </div>
 </div>
 
-## PerformancePriceLayers 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancepricelayers)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancepricelayers)</button>  
+
+## PerformancePriceLayers <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performancepricelayers)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#performancepricelayers)</button>  
 		
 Create a new performance price layer.  
 ##### Usage:  
 ```shell
 tq post PerformancePriceLayers
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersCreate-default" aria-expanded="true" aria-controls="PerformancePriceLayersCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersCreate-default" aria-expanded="true" aria-controls="PerformancePriceLayersCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersCreate-flat" aria-expanded="false" aria-controls="PerformancePriceLayersCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersCreate-flat" aria-expanded="false" aria-controls="PerformancePriceLayersCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersCreate-csv" aria-expanded="false" aria-controls="PerformancePriceLayersCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersCreate-csv" aria-expanded="false" aria-controls="PerformancePriceLayersCreate-csv">
 csv
-</button><div id="PerformancePriceLayersCreate-parent">
+</button>
+<div id="PerformancePriceLayersCreate-parent">
 <div class="collapse show" id="PerformancePriceLayersCreate-default" data-bs-parent="#PerformancePriceLayersCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultDesignationCodeId":123, "DefaultGlAccountId":123, "DefaultResaleAccountId":123, "Description":"string", "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PerformanceId":123, "PerformancePriceTypes":[{"Id":123}, ...], "PriceLayerType":{"Id":123}, "TemplateId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -8406,19 +8427,21 @@ csv
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--PostSummaries*  
    Create/Update the prices for a set of performances.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersPostSummaries-default" aria-expanded="true" aria-controls="PerformancePriceLayersPostSummaries-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersPostSummaries-default" aria-expanded="true" aria-controls="PerformancePriceLayersPostSummaries-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersPostSummaries-flat" aria-expanded="false" aria-controls="PerformancePriceLayersPostSummaries-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersPostSummaries-flat" aria-expanded="false" aria-controls="PerformancePriceLayersPostSummaries-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersPostSummaries-csv" aria-expanded="false" aria-controls="PerformancePriceLayersPostSummaries-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersPostSummaries-csv" aria-expanded="false" aria-controls="PerformancePriceLayersPostSummaries-csv">
 csv
-</button><div id="PerformancePriceLayersPostSummaries-parent">
+</button>
+<div id="PerformancePriceLayersPostSummaries-parent">
 <div class="collapse show" id="PerformancePriceLayersPostSummaries-default" data-bs-parent="#PerformancePriceLayersPostSummaries-parent"> 
 ```json
 {"Layers":[{"DefaultDesignationCodeId":123, "DefaultGlAccountId":123, "DefaultResaleAccountId":123, "Description":"string", "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PerformanceId":123, "PerformancePriceTypes":[{"Id":123}, ...], "PriceLayerTypeId":123, "TemplateId":123}, ...]}
@@ -8435,18 +8458,20 @@ csv
 ```  
 </div>
 </div>
+
  * *--Search*  
    Get all performance price layers for the list of performances. Only one of AsOfDateTime or AsOfRelativeDate can be specified to get prices effective for that date time.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersSearch-default" aria-expanded="true" aria-controls="PerformancePriceLayersSearch-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersSearch-default" aria-expanded="true" aria-controls="PerformancePriceLayersSearch-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersSearch-flat" aria-expanded="false" aria-controls="PerformancePriceLayersSearch-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersSearch-flat" aria-expanded="false" aria-controls="PerformancePriceLayersSearch-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersSearch-csv" aria-expanded="false" aria-controls="PerformancePriceLayersSearch-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersSearch-csv" aria-expanded="false" aria-controls="PerformancePriceLayersSearch-csv">
 csv
-</button><div id="PerformancePriceLayersSearch-parent">
+</button>
+<div id="PerformancePriceLayersSearch-parent">
 <div class="collapse show" id="PerformancePriceLayersSearch-default" data-bs-parent="#PerformancePriceLayersSearch-parent"> 
 ```json
 {"AsOfDateTime":"string", "AsOfRelativeDate":"string", "PerformanceIds":"string"}
@@ -8465,18 +8490,20 @@ AsOfDateTime,AsOfRelativeDate,PerformanceIds
 ```  
 </div>
 </div>
+
  * *--SearchSummaries*  
    Get all performance price layers for the list of performances. Only one of AsOfDateTime or AsOfRelativeDate can be specified to get prices effective for that date time.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersSearchSummaries-default" aria-expanded="true" aria-controls="PerformancePriceLayersSearchSummaries-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersSearchSummaries-default" aria-expanded="true" aria-controls="PerformancePriceLayersSearchSummaries-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersSearchSummaries-flat" aria-expanded="false" aria-controls="PerformancePriceLayersSearchSummaries-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersSearchSummaries-flat" aria-expanded="false" aria-controls="PerformancePriceLayersSearchSummaries-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersSearchSummaries-csv" aria-expanded="false" aria-controls="PerformancePriceLayersSearchSummaries-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersSearchSummaries-csv" aria-expanded="false" aria-controls="PerformancePriceLayersSearchSummaries-csv">
 csv
-</button><div id="PerformancePriceLayersSearchSummaries-parent">
+</button>
+<div id="PerformancePriceLayersSearchSummaries-parent">
 <div class="collapse show" id="PerformancePriceLayersSearchSummaries-default" data-bs-parent="#PerformancePriceLayersSearchSummaries-parent"> 
 ```json
 {"AsOfDateTime":"string", "AsOfRelativeDate":"string", "PerformanceIds":"string"}
@@ -8496,26 +8523,25 @@ AsOfDateTime,AsOfRelativeDate,PerformanceIds
 </div>
 </div>
 
-## PerformancePriceTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancepricetypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancepricetypes)</button>  
+
+## PerformancePriceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performancepricetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#performancepricetypes)</button>  
 		
 Create a new performance price type.  
 ##### Usage:  
 ```shell
 tq post PerformancePriceTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceTypesCreate-default" aria-expanded="true" aria-controls="PerformancePriceTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceTypesCreate-default" aria-expanded="true" aria-controls="PerformancePriceTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceTypesCreate-flat" aria-expanded="false" aria-controls="PerformancePriceTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceTypesCreate-flat" aria-expanded="false" aria-controls="PerformancePriceTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceTypesCreate-csv" aria-expanded="false" aria-controls="PerformancePriceTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceTypesCreate-csv" aria-expanded="false" aria-controls="PerformancePriceTypesCreate-csv">
 csv
-</button><div id="PerformancePriceTypesCreate-parent">
+</button>
+<div id="PerformancePriceTypesCreate-parent">
 <div class="collapse show" id="PerformancePriceTypesCreate-default" data-bs-parent="#PerformancePriceTypesCreate-parent"> 
 ```json
 {"BaseIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DesignationCodeId":123, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "GlAccountId":123, "Id":123, "IsWithinDateRange":true, "PerformanceId":123, "PerformancePriceLayerId":123, "PerformancePrices":[{"Id":123}, ...], "PriceTypeId":123, "ResaleAccountId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "TicketDesignId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -8533,26 +8559,25 @@ csv
 </div>
 </div>
 
-## PerformancePrices 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#performanceprices)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#performanceprices)</button>  
+
+## PerformancePrices <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performanceprices)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#performanceprices)</button>  
 		
 Create a new performance price.  
 ##### Usage:  
 ```shell
 tq post PerformancePrices
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePricesCreate-default" aria-expanded="true" aria-controls="PerformancePricesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePricesCreate-default" aria-expanded="true" aria-controls="PerformancePricesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePricesCreate-flat" aria-expanded="false" aria-controls="PerformancePricesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePricesCreate-flat" aria-expanded="false" aria-controls="PerformancePricesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePricesCreate-csv" aria-expanded="false" aria-controls="PerformancePricesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePricesCreate-csv" aria-expanded="false" aria-controls="PerformancePricesCreate-csv">
 csv
-</button><div id="PerformancePricesCreate-parent">
+</button>
+<div id="PerformancePricesCreate-parent">
 <div class="collapse show" id="PerformancePricesCreate-default" data-bs-parent="#PerformancePricesCreate-parent"> 
 ```json
 {"EditIndicator":true, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Enabled":true, "HasEvents":true, "Id":123, "IsPriceBasedOnCurrentEvent":true, "MinPrice":123.456, "PerformanceId":123, "PerformancePriceTypeId":123, "Price":123.456, "ZoneId":123}
@@ -8572,26 +8597,25 @@ true,"""2000-01-01T00:00:00.000Z""",true,true,123,true,123.456,123,123,123.456,1
 </div>
 </div>
 
-## PerformanceStatuses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancestatuses)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancestatuses)</button>  
+
+## PerformanceStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performancestatuses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#performancestatuses)</button>  
 		
 Create a new performance status.  
 ##### Usage:  
 ```shell
 tq post PerformanceStatuses
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceStatusesCreate-default" aria-expanded="true" aria-controls="PerformanceStatusesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceStatusesCreate-default" aria-expanded="true" aria-controls="PerformanceStatusesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceStatusesCreate-flat" aria-expanded="false" aria-controls="PerformanceStatusesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceStatusesCreate-flat" aria-expanded="false" aria-controls="PerformanceStatusesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceStatusesCreate-csv" aria-expanded="false" aria-controls="PerformanceStatusesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceStatusesCreate-csv" aria-expanded="false" aria-controls="PerformanceStatusesCreate-csv">
 csv
-</button><div id="PerformanceStatusesCreate-parent">
+</button>
+<div id="PerformanceStatusesCreate-parent">
 <div class="collapse show" id="PerformanceStatusesCreate-default" data-bs-parent="#PerformanceStatusesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -8611,26 +8635,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## PerformanceTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancetypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancetypes)</button>  
+
+## PerformanceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performancetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#performancetypes)</button>  
 		
 Create a new performance type.  
 ##### Usage:  
 ```shell
 tq post PerformanceTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceTypesCreate-default" aria-expanded="true" aria-controls="PerformanceTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceTypesCreate-default" aria-expanded="true" aria-controls="PerformanceTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceTypesCreate-flat" aria-expanded="false" aria-controls="PerformanceTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceTypesCreate-flat" aria-expanded="false" aria-controls="PerformanceTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceTypesCreate-csv" aria-expanded="false" aria-controls="PerformanceTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceTypesCreate-csv" aria-expanded="false" aria-controls="PerformanceTypesCreate-csv">
 csv
-</button><div id="PerformanceTypesCreate-parent">
+</button>
+<div id="PerformanceTypesCreate-parent">
 <div class="collapse show" id="PerformanceTypesCreate-default" data-bs-parent="#PerformanceTypesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ValidCountryList":"string"}
@@ -8650,26 +8673,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## Performances 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#performances)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#performances)</button>  
+
+## Performances <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performances)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#performances)</button>  
 		
 Apply a single hold on a performance seat.  
 ##### Usage:  
 ```shell
 tq post Performances
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesApplySingleHold-default" aria-expanded="true" aria-controls="PerformancesApplySingleHold-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesApplySingleHold-default" aria-expanded="true" aria-controls="PerformancesApplySingleHold-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesApplySingleHold-flat" aria-expanded="false" aria-controls="PerformancesApplySingleHold-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesApplySingleHold-flat" aria-expanded="false" aria-controls="PerformancesApplySingleHold-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesApplySingleHold-csv" aria-expanded="false" aria-controls="PerformancesApplySingleHold-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesApplySingleHold-csv" aria-expanded="false" aria-controls="PerformancesApplySingleHold-csv">
 csv
-</button><div id="PerformancesApplySingleHold-parent">
+</button>
+<div id="PerformancesApplySingleHold-parent">
 <div class="collapse show" id="PerformancesApplySingleHold-default" data-bs-parent="#PerformancesApplySingleHold-parent"> 
 ```json
 {"PerformanceID":"string", "HoldCodeId":123, "HoldUntilDate":"2000-01-01T00:00:00.000Z", "ReplaceMode":123, "SeatID":"string"}
@@ -8688,19 +8710,21 @@ HoldCodeId,HoldUntilDate,PerformanceID,ReplaceMode,SeatID
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--Copy*  
    Copy existing performance to a new performance with options.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesCopy-default" aria-expanded="true" aria-controls="PerformancesCopy-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesCopy-default" aria-expanded="true" aria-controls="PerformancesCopy-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesCopy-flat" aria-expanded="false" aria-controls="PerformancesCopy-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesCopy-flat" aria-expanded="false" aria-controls="PerformancesCopy-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesCopy-csv" aria-expanded="false" aria-controls="PerformancesCopy-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesCopy-csv" aria-expanded="false" aria-controls="PerformancesCopy-csv">
 csv
-</button><div id="PerformancesCopy-parent">
+</button>
+<div id="PerformancesCopy-parent">
 <div class="collapse show" id="PerformancesCopy-default" data-bs-parent="#PerformancesCopy-parent"> 
 ```json
 {"AvailSaleIndicator":true, "Code":"string", "CopyCredits":true, "CopyNotes":true, "CopyOffers":true, "CopyPriceEvents":true, "CopyPriceLayers":true, "DateTime":"2000-01-01T00:00:00.000Z", "DefaultSaleDateOption":123, "Description":"string", "ModeOfSaleDateOption":123, "PriceEventDateOption":123, "PriceTypeDateOption":123, "ProductionSeasonId":123, "PublishDateOption":123, "ShortName":"string", "SourcePerformanceId":123, "StatusId":123, "TimeSlotId":123, "TypeId":123}
@@ -8719,18 +8743,20 @@ true,"""string""",true,true,true,true,true,"""2000-01-01T00:00:00.000Z""",123,""
 ```  
 </div>
 </div>
+
  * *--Reschedule*  
    Reschedules an existing performance according to the provided options
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesReschedule-default" aria-expanded="true" aria-controls="PerformancesReschedule-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesReschedule-default" aria-expanded="true" aria-controls="PerformancesReschedule-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesReschedule-flat" aria-expanded="false" aria-controls="PerformancesReschedule-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesReschedule-flat" aria-expanded="false" aria-controls="PerformancesReschedule-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesReschedule-csv" aria-expanded="false" aria-controls="PerformancesReschedule-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesReschedule-csv" aria-expanded="false" aria-controls="PerformancesReschedule-csv">
 csv
-</button><div id="PerformancesReschedule-parent">
+</button>
+<div id="PerformancesReschedule-parent">
 <div class="collapse show" id="PerformancesReschedule-default" data-bs-parent="#PerformancesReschedule-parent"> 
 ```json
 {"Campaign":{"Id":123}, "Code":"string", "DateTime":"2000-01-01T00:00:00.000Z", "DefaultSaleDateOption":123, "Id":123, "ModeOfSaleDateOption":123, "OffersDateOption":123, "PriceEventDateOption":123, "PriceTypeDateOption":123, "ProductionSeasonId":123, "PublishDateOption":123, "TimeSlotId":123}
@@ -8749,18 +8775,20 @@ Campaign.Id,Code,DateTime,DefaultSaleDateOption,Id,ModeOfSaleDateOption,OffersDa
 ```  
 </div>
 </div>
+
  * *--Search*  
    Search for performances, based on provided criteria.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesSearch-default" aria-expanded="true" aria-controls="PerformancesSearch-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesSearch-default" aria-expanded="true" aria-controls="PerformancesSearch-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesSearch-flat" aria-expanded="false" aria-controls="PerformancesSearch-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesSearch-flat" aria-expanded="false" aria-controls="PerformancesSearch-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesSearch-csv" aria-expanded="false" aria-controls="PerformancesSearch-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesSearch-csv" aria-expanded="false" aria-controls="PerformancesSearch-csv">
 csv
-</button><div id="PerformancesSearch-parent">
+</button>
+<div id="PerformancesSearch-parent">
 <div class="collapse show" id="PerformancesSearch-default" data-bs-parent="#PerformancesSearch-parent"> 
 ```json
 {"ArtistIds":"string", "BusinessUnitId":123, "ConstituentId":123, "FacilityIds":"string", "FullTextSearch":"string", "KeywordAndOr":"string", "KeywordIds":"string", "ModeOfSaleId":123, "PerformanceEndDate":"2000-01-01T00:00:00.000Z", "PerformanceStartDate":"2000-01-01T00:00:00.000Z", "PerformanceTypeIds":"string", "ProductionSeasonIds":"string", "SeasonIds":"string"}
@@ -8779,19 +8807,21 @@ ArtistIds,BusinessUnitId,ConstituentId,FacilityIds,FullTextSearch,KeywordAndOr,K
 ```  
 </div>
 </div>
+
  * *--SeatHolds*  
    Update seat holds for a performance
 Can be used to add or remove holds from seats for the specified performance. Specifying a hold code of -1 for a seat will remove all hold codes from that seat.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesUpdateSeatHolds-default" aria-expanded="true" aria-controls="PerformancesUpdateSeatHolds-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesUpdateSeatHolds-default" aria-expanded="true" aria-controls="PerformancesUpdateSeatHolds-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesUpdateSeatHolds-flat" aria-expanded="false" aria-controls="PerformancesUpdateSeatHolds-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesUpdateSeatHolds-flat" aria-expanded="false" aria-controls="PerformancesUpdateSeatHolds-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesUpdateSeatHolds-csv" aria-expanded="false" aria-controls="PerformancesUpdateSeatHolds-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesUpdateSeatHolds-csv" aria-expanded="false" aria-controls="PerformancesUpdateSeatHolds-csv">
 csv
-</button><div id="PerformancesUpdateSeatHolds-parent">
+</button>
+<div id="PerformancesUpdateSeatHolds-parent">
 <div class="collapse show" id="PerformancesUpdateSeatHolds-default" data-bs-parent="#PerformancesUpdateSeatHolds-parent"> 
 ```json
 {"PerformanceID":"string", "HoldUntilDate":"2000-01-01T00:00:00.000Z", "OnlyAffectAvailable":true, "ReplaceMode":123, "SeatHolds":[{"HoldCodeId":123, "SeatId":123}, ...]}
@@ -8809,26 +8839,25 @@ csv
 </div>
 </div>
 
-## Philanthropy 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#philanthropy)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#philanthropy)</button>  
+
+## Philanthropy <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#philanthropy)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#philanthropy)</button>  
 		
 Create an philanthropyEntry for a constituent.  
 ##### Usage:  
 ```shell
 tq post Philanthropy
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhilanthropyCreate-default" aria-expanded="true" aria-controls="PhilanthropyCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhilanthropyCreate-default" aria-expanded="true" aria-controls="PhilanthropyCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhilanthropyCreate-flat" aria-expanded="false" aria-controls="PhilanthropyCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhilanthropyCreate-flat" aria-expanded="false" aria-controls="PhilanthropyCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhilanthropyCreate-csv" aria-expanded="false" aria-controls="PhilanthropyCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhilanthropyCreate-csv" aria-expanded="false" aria-controls="PhilanthropyCreate-csv">
 csv
-</button><div id="PhilanthropyCreate-parent">
+</button>
+<div id="PhilanthropyCreate-parent">
 <div class="collapse show" id="PhilanthropyCreate-default" data-bs-parent="#PhilanthropyCreate-parent"> 
 ```json
 {"Activity":"string", "Amount":123.456, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DonatedTo":"string", "DonatedToConstituent":{"Id":123}, "DonationDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PhilanthropyType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -8848,26 +8877,25 @@ Activity,Amount,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,DonatedT
 </div>
 </div>
 
-## PhilanthropyTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#philanthropytypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#philanthropytypes)</button>  
+
+## PhilanthropyTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#philanthropytypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#philanthropytypes)</button>  
 		
 Create a new philosophy type.  
 ##### Usage:  
 ```shell
 tq post PhilanthropyTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhilanthropyTypesCreate-default" aria-expanded="true" aria-controls="PhilanthropyTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhilanthropyTypesCreate-default" aria-expanded="true" aria-controls="PhilanthropyTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhilanthropyTypesCreate-flat" aria-expanded="false" aria-controls="PhilanthropyTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhilanthropyTypesCreate-flat" aria-expanded="false" aria-controls="PhilanthropyTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhilanthropyTypesCreate-csv" aria-expanded="false" aria-controls="PhilanthropyTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhilanthropyTypesCreate-csv" aria-expanded="false" aria-controls="PhilanthropyTypesCreate-csv">
 csv
-</button><div id="PhilanthropyTypesCreate-parent">
+</button>
+<div id="PhilanthropyTypesCreate-parent">
 <div class="collapse show" id="PhilanthropyTypesCreate-default" data-bs-parent="#PhilanthropyTypesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -8887,26 +8915,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## PhoneIndicators 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#phoneindicators)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#phoneindicators)</button>  
+
+## PhoneIndicators <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#phoneindicators)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#phoneindicators)</button>  
 		
 Create a new phone indicator.  
 ##### Usage:  
 ```shell
 tq post PhoneIndicators
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhoneIndicatorsCreate-default" aria-expanded="true" aria-controls="PhoneIndicatorsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhoneIndicatorsCreate-default" aria-expanded="true" aria-controls="PhoneIndicatorsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhoneIndicatorsCreate-flat" aria-expanded="false" aria-controls="PhoneIndicatorsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhoneIndicatorsCreate-flat" aria-expanded="false" aria-controls="PhoneIndicatorsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhoneIndicatorsCreate-csv" aria-expanded="false" aria-controls="PhoneIndicatorsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhoneIndicatorsCreate-csv" aria-expanded="false" aria-controls="PhoneIndicatorsCreate-csv">
 csv
-</button><div id="PhoneIndicatorsCreate-parent">
+</button>
+<div id="PhoneIndicatorsCreate-parent">
 <div class="collapse show" id="PhoneIndicatorsCreate-default" data-bs-parent="#PhoneIndicatorsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -8926,26 +8953,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## PhoneTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#phonetypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#phonetypes)</button>  
+
+## PhoneTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#phonetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#phonetypes)</button>  
 		
 Create a new phone type.  
 ##### Usage:  
 ```shell
 tq post PhoneTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhoneTypesCreate-default" aria-expanded="true" aria-controls="PhoneTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhoneTypesCreate-default" aria-expanded="true" aria-controls="PhoneTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhoneTypesCreate-flat" aria-expanded="false" aria-controls="PhoneTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhoneTypesCreate-flat" aria-expanded="false" aria-controls="PhoneTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhoneTypesCreate-csv" aria-expanded="false" aria-controls="PhoneTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhoneTypesCreate-csv" aria-expanded="false" aria-controls="PhoneTypesCreate-csv">
 csv
-</button><div id="PhoneTypesCreate-parent">
+</button>
+<div id="PhoneTypesCreate-parent">
 <div class="collapse show" id="PhoneTypesCreate-default" data-bs-parent="#PhoneTypesCreate-parent"> 
 ```json
 {"AllowMarketing":true, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator":"string", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -8965,26 +8991,25 @@ true,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","
 </div>
 </div>
 
-## Phones 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#phones)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#phones)</button>  
+
+## Phones <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#phones)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#phones)</button>  
 		
 Create a new phone.  
 ##### Usage:  
 ```shell
 tq post Phones
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhonesCreate-default" aria-expanded="true" aria-controls="PhonesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhonesCreate-default" aria-expanded="true" aria-controls="PhonesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhonesCreate-flat" aria-expanded="false" aria-controls="PhonesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhonesCreate-flat" aria-expanded="false" aria-controls="PhonesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhonesCreate-csv" aria-expanded="false" aria-controls="PhonesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhonesCreate-csv" aria-expanded="false" aria-controls="PhonesCreate-csv">
 csv
-</button><div id="PhonesCreate-parent">
+</button>
+<div id="PhonesCreate-parent">
 <div class="collapse show" id="PhonesCreate-default" data-bs-parent="#PhonesCreate-parent"> 
 ```json
 {"Address":{"Id":123}, "AllowTelemarketing":true, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator":"string", "EditIndicator":true, "Id":123, "Inactive":true, "PhoneFormatted":"string", "PhoneNumber":"string", "PhoneSearch":"string", "PhoneType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9004,26 +9029,25 @@ Address.Id,AllowTelemarketing,Constituent.Id,CreateLocation,CreatedBy,CreatedDat
 </div>
 </div>
 
-## PlanPriorities 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#planpriorities)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#planpriorities)</button>  
+
+## PlanPriorities <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#planpriorities)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#planpriorities)</button>  
 		
 Create a new plan priority.  
 ##### Usage:  
 ```shell
 tq post PlanPriorities
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanPrioritiesCreate-default" aria-expanded="true" aria-controls="PlanPrioritiesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanPrioritiesCreate-default" aria-expanded="true" aria-controls="PlanPrioritiesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanPrioritiesCreate-flat" aria-expanded="false" aria-controls="PlanPrioritiesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanPrioritiesCreate-flat" aria-expanded="false" aria-controls="PlanPrioritiesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanPrioritiesCreate-csv" aria-expanded="false" aria-controls="PlanPrioritiesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanPrioritiesCreate-csv" aria-expanded="false" aria-controls="PlanPrioritiesCreate-csv">
 csv
-</button><div id="PlanPrioritiesCreate-parent">
+</button>
+<div id="PlanPrioritiesCreate-parent">
 <div class="collapse show" id="PlanPrioritiesCreate-default" data-bs-parent="#PlanPrioritiesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Ranking":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9043,26 +9067,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## PlanSources 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#plansources)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#plansources)</button>  
+
+## PlanSources <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#plansources)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#plansources)</button>  
 		
 Create a new plan source.  
 ##### Usage:  
 ```shell
 tq post PlanSources
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanSourcesCreate-default" aria-expanded="true" aria-controls="PlanSourcesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanSourcesCreate-default" aria-expanded="true" aria-controls="PlanSourcesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanSourcesCreate-flat" aria-expanded="false" aria-controls="PlanSourcesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanSourcesCreate-flat" aria-expanded="false" aria-controls="PlanSourcesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanSourcesCreate-csv" aria-expanded="false" aria-controls="PlanSourcesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanSourcesCreate-csv" aria-expanded="false" aria-controls="PlanSourcesCreate-csv">
 csv
-</button><div id="PlanSourcesCreate-parent">
+</button>
+<div id="PlanSourcesCreate-parent">
 <div class="collapse show" id="PlanSourcesCreate-default" data-bs-parent="#PlanSourcesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9082,26 +9105,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## PlanStatuses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#planstatuses)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#planstatuses)</button>  
+
+## PlanStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#planstatuses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#planstatuses)</button>  
 		
 Create a new plan status.  
 ##### Usage:  
 ```shell
 tq post PlanStatuses
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanStatusesCreate-default" aria-expanded="true" aria-controls="PlanStatusesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanStatusesCreate-default" aria-expanded="true" aria-controls="PlanStatusesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanStatusesCreate-flat" aria-expanded="false" aria-controls="PlanStatusesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanStatusesCreate-flat" aria-expanded="false" aria-controls="PlanStatusesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanStatusesCreate-csv" aria-expanded="false" aria-controls="PlanStatusesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanStatusesCreate-csv" aria-expanded="false" aria-controls="PlanStatusesCreate-csv">
 csv
-</button><div id="PlanStatusesCreate-parent">
+</button>
+<div id="PlanStatusesCreate-parent">
 <div class="collapse show" id="PlanStatusesCreate-default" data-bs-parent="#PlanStatusesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9121,26 +9143,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## PlanTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#plantypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#plantypes)</button>  
+
+## PlanTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#plantypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#plantypes)</button>  
 		
 Create a new plan type.  
 ##### Usage:  
 ```shell
 tq post PlanTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanTypesCreate-default" aria-expanded="true" aria-controls="PlanTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanTypesCreate-default" aria-expanded="true" aria-controls="PlanTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanTypesCreate-flat" aria-expanded="false" aria-controls="PlanTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanTypesCreate-flat" aria-expanded="false" aria-controls="PlanTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanTypesCreate-csv" aria-expanded="false" aria-controls="PlanTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanTypesCreate-csv" aria-expanded="false" aria-controls="PlanTypesCreate-csv">
 csv
-</button><div id="PlanTypesCreate-parent">
+</button>
+<div id="PlanTypesCreate-parent">
 <div class="collapse show" id="PlanTypesCreate-default" data-bs-parent="#PlanTypesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9160,26 +9181,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## PlanWorkers 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#planworkers)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#planworkers)</button>  
+
+## PlanWorkers <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#planworkers)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#planworkers)</button>  
 		
 Create a new plan worker.  
 ##### Usage:  
 ```shell
 tq post PlanWorkers
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanWorkersCreate-default" aria-expanded="true" aria-controls="PlanWorkersCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanWorkersCreate-default" aria-expanded="true" aria-controls="PlanWorkersCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanWorkersCreate-flat" aria-expanded="false" aria-controls="PlanWorkersCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanWorkersCreate-flat" aria-expanded="false" aria-controls="PlanWorkersCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanWorkersCreate-csv" aria-expanded="false" aria-controls="PlanWorkersCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanWorkersCreate-csv" aria-expanded="false" aria-controls="PlanWorkersCreate-csv">
 csv
-</button><div id="PlanWorkersCreate-parent">
+</button>
+<div id="PlanWorkersCreate-parent">
 <div class="collapse show" id="PlanWorkersCreate-default" data-bs-parent="#PlanWorkersCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Plan":{"Id":123}, "PrimaryIndicator":true, "Role":{"Id":123}, "ShowInPortfolio":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Worker":{"Id":123}}
@@ -9199,26 +9219,25 @@ CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,Plan.Id,PrimaryIndicat
 </div>
 </div>
 
-## Plans 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#plans)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#plans)</button>  
+
+## Plans <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#plans)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#plans)</button>  
 		
 Create a new plan.  
 ##### Usage:  
 ```shell
 tq post Plans
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlansCreate-default" aria-expanded="true" aria-controls="PlansCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlansCreate-default" aria-expanded="true" aria-controls="PlansCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlansCreate-flat" aria-expanded="false" aria-controls="PlansCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlansCreate-flat" aria-expanded="false" aria-controls="PlansCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlansCreate-csv" aria-expanded="false" aria-controls="PlansCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlansCreate-csv" aria-expanded="false" aria-controls="PlansCreate-csv">
 csv
-</button><div id="PlansCreate-parent">
+</button>
+<div id="PlansCreate-parent">
 <div class="collapse show" id="PlansCreate-default" data-bs-parent="#PlansCreate-parent"> 
 ```json
 {"AskAmount":123.456, "Campaign":{"Id":123}, "CompleteByDateTime":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "ContributionAmount":123.456, "ContributionDesignation":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDataItems":[{"DataType":"string", "Description":"string", "EditIndicator":true, "Index":123, "IsDropdown":true, "KeywordId":123, "Name":"string", "Value":"string"}, ...], "EditIndicator":true, "Fund":{"Id":123}, "GoalAmount":123.456, "HasOpenSteps":true, "HasSteps":true, "Id":123, "LastStepDate":"2000-01-01T00:00:00.000Z", "LastStepType":{"Id":123}, "LastWorkerDisplayName":"string", "NextStepDate":"2000-01-01T00:00:00.000Z", "NextStepType":{"Id":123}, "Notes":"string", "OriginalSource":{"Id":123}, "PlanAssociates":"string", "PrimaryWorker":{"Id":123}, "Priority":{"Id":123}, "Probability":123.456, "RecordedAmount":123.456, "StartDateTime":"2000-01-01T00:00:00.000Z", "Status":{"Id":123}, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9236,25 +9255,25 @@ csv
 </div>
 </div>
 
-## PledgeBilling 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pledgebilling)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## PledgeBilling <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pledgebilling)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 This is not intended for use outside of the Tessitura application.  There is no standard way to return billing details for a run. For a given campaign, funds, bill types etc., It raises bills for all those scheduled payments that have due date between given start and end dates. It also checks to see that a bill was not raised after a given 'cut off date'.  
 ##### Usage:  
 ```shell
 tq post PledgeBilling
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PledgeBillingBillPledges-default" aria-expanded="true" aria-controls="PledgeBillingBillPledges-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PledgeBillingBillPledges-default" aria-expanded="true" aria-controls="PledgeBillingBillPledges-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PledgeBillingBillPledges-flat" aria-expanded="false" aria-controls="PledgeBillingBillPledges-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PledgeBillingBillPledges-flat" aria-expanded="false" aria-controls="PledgeBillingBillPledges-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PledgeBillingBillPledges-csv" aria-expanded="false" aria-controls="PledgeBillingBillPledges-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PledgeBillingBillPledges-csv" aria-expanded="false" aria-controls="PledgeBillingBillPledges-csv">
 csv
-</button><div id="PledgeBillingBillPledges-parent">
+</button>
+<div id="PledgeBillingBillPledges-parent">
 <div class="collapse show" id="PledgeBillingBillPledges-default" data-bs-parent="#PledgeBillingBillPledges-parent"> 
 ```json
 {"AcknowledgementLetterId":123, "AppealId":123, "BatchTypeId":123, "BillingTypeId":123, "CampaignId":123, "CutoffDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "FundIds":"string", "IsLabel":true, "ListId":123, "MailDateTime":"2000-01-01T00:00:00.000Z", "MailTypeId":123, "MaxNumberOfBillsToPrint":123, "MediaTypeId":123, "MinAmount":123.456, "MinNumberOfBillsToPrint":123, "NewSourceDescription":"string", "PaymentMethodGroupId":123, "SalutationTypeId":123, "ShouldUpdate":true, "StartDateTime":"2000-01-01T00:00:00.000Z", "UserId":"string"}
@@ -9274,26 +9293,25 @@ AcknowledgementLetterId,AppealId,BatchTypeId,BillingTypeId,CampaignId,CutoffDate
 </div>
 </div>
 
-## PortfolioCustomElements 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#portfoliocustomelements)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#portfoliocustomelements)</button>  
+
+## PortfolioCustomElements <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#portfoliocustomelements)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#portfoliocustomelements)</button>  
 		
 Create a new portfolio custom element.  
 ##### Usage:  
 ```shell
 tq post PortfolioCustomElements
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PortfolioCustomElementsCreate-default" aria-expanded="true" aria-controls="PortfolioCustomElementsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PortfolioCustomElementsCreate-default" aria-expanded="true" aria-controls="PortfolioCustomElementsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PortfolioCustomElementsCreate-flat" aria-expanded="false" aria-controls="PortfolioCustomElementsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PortfolioCustomElementsCreate-flat" aria-expanded="false" aria-controls="PortfolioCustomElementsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PortfolioCustomElementsCreate-csv" aria-expanded="false" aria-controls="PortfolioCustomElementsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PortfolioCustomElementsCreate-csv" aria-expanded="false" aria-controls="PortfolioCustomElementsCreate-csv">
 csv
-</button><div id="PortfolioCustomElementsCreate-parent">
+</button>
+<div id="PortfolioCustomElementsCreate-parent">
 <div class="collapse show" id="PortfolioCustomElementsCreate-default" data-bs-parent="#PortfolioCustomElementsCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "Description":"string", "Id":123, "Inactive":true, "SqlQuery":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9314,26 +9332,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DataType,Description,Id
 </div>
 
 
-## Prefixes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#prefixes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#prefixes)</button>  
+
+## Prefixes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#prefixes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#prefixes)</button>  
 		
 Create a new prefix.  
 ##### Usage:  
 ```shell
 tq post Prefixes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PrefixesCreate-default" aria-expanded="true" aria-controls="PrefixesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PrefixesCreate-default" aria-expanded="true" aria-controls="PrefixesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PrefixesCreate-flat" aria-expanded="false" aria-controls="PrefixesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PrefixesCreate-flat" aria-expanded="false" aria-controls="PrefixesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PrefixesCreate-csv" aria-expanded="false" aria-controls="PrefixesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PrefixesCreate-csv" aria-expanded="false" aria-controls="PrefixesCreate-csv">
 csv
-</button><div id="PrefixesCreate-parent">
+</button>
+<div id="PrefixesCreate-parent">
 <div class="collapse show" id="PrefixesCreate-default" data-bs-parent="#PrefixesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9353,26 +9370,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## Premieres 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#premieres)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#premieres)</button>  
+
+## Premieres <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#premieres)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#premieres)</button>  
 		
 Create a new premiere.  
 ##### Usage:  
 ```shell
 tq post Premieres
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PremieresCreate-default" aria-expanded="true" aria-controls="PremieresCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PremieresCreate-default" aria-expanded="true" aria-controls="PremieresCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PremieresCreate-flat" aria-expanded="false" aria-controls="PremieresCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PremieresCreate-flat" aria-expanded="false" aria-controls="PremieresCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PremieresCreate-csv" aria-expanded="false" aria-controls="PremieresCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PremieresCreate-csv" aria-expanded="false" aria-controls="PremieresCreate-csv">
 csv
-</button><div id="PremieresCreate-parent">
+</button>
+<div id="PremieresCreate-parent">
 <div class="collapse show" id="PremieresCreate-default" data-bs-parent="#PremieresCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9392,26 +9408,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## PriceCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricecategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricecategories)</button>  
+
+## PriceCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricecategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricecategories)</button>  
 		
 Create a new price category.  
 ##### Usage:  
 ```shell
 tq post PriceCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceCategoriesCreate-default" aria-expanded="true" aria-controls="PriceCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceCategoriesCreate-default" aria-expanded="true" aria-controls="PriceCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceCategoriesCreate-flat" aria-expanded="false" aria-controls="PriceCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceCategoriesCreate-flat" aria-expanded="false" aria-controls="PriceCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceCategoriesCreate-csv" aria-expanded="false" aria-controls="PriceCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceCategoriesCreate-csv" aria-expanded="false" aria-controls="PriceCategoriesCreate-csv">
 csv
-</button><div id="PriceCategoriesCreate-parent">
+</button>
+<div id="PriceCategoriesCreate-parent">
 <div class="collapse show" id="PriceCategoriesCreate-default" data-bs-parent="#PriceCategoriesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9432,26 +9447,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,Rank,UpdatedBy,
 </div>
 
 
-## PriceLayerTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricelayertypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricelayertypes)</button>  
+
+## PriceLayerTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricelayertypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricelayertypes)</button>  
 		
 Create a new price layer type.  
 ##### Usage:  
 ```shell
 tq post PriceLayerTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceLayerTypesCreate-default" aria-expanded="true" aria-controls="PriceLayerTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceLayerTypesCreate-default" aria-expanded="true" aria-controls="PriceLayerTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceLayerTypesCreate-flat" aria-expanded="false" aria-controls="PriceLayerTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceLayerTypesCreate-flat" aria-expanded="false" aria-controls="PriceLayerTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceLayerTypesCreate-csv" aria-expanded="false" aria-controls="PriceLayerTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceLayerTypesCreate-csv" aria-expanded="false" aria-controls="PriceLayerTypesCreate-csv">
 csv
-</button><div id="PriceLayerTypesCreate-parent">
+</button>
+<div id="PriceLayerTypesCreate-parent">
 <div class="collapse show" id="PriceLayerTypesCreate-default" data-bs-parent="#PriceLayerTypesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "ExcludeFromRules":true, "Id":123, "Inactive":true, "PriceCategory":{"Id":123}, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9471,26 +9485,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,ExcludeFromRules,Id,Inactiv
 </div>
 </div>
 
-## PriceTemplates 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetemplates)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetemplates)</button>  
+
+## PriceTemplates <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricetemplates)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricetemplates)</button>  
 		
 Create a new price template.  
 ##### Usage:  
 ```shell
 tq post PriceTemplates
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTemplatesCreate-default" aria-expanded="true" aria-controls="PriceTemplatesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTemplatesCreate-default" aria-expanded="true" aria-controls="PriceTemplatesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTemplatesCreate-flat" aria-expanded="false" aria-controls="PriceTemplatesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTemplatesCreate-flat" aria-expanded="false" aria-controls="PriceTemplatesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTemplatesCreate-csv" aria-expanded="false" aria-controls="PriceTemplatesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTemplatesCreate-csv" aria-expanded="false" aria-controls="PriceTemplatesCreate-csv">
 csv
-</button><div id="PriceTemplatesCreate-parent">
+</button>
+<div id="PriceTemplatesCreate-parent">
 <div class="collapse show" id="PriceTemplatesCreate-default" data-bs-parent="#PriceTemplatesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultDesignationCode":{"Id":123}, "DefaultGlAccount":{"Id":123}, "DefaultPriceLayerType":{"Id":123}, "DefaultResaleAccount":{"Id":123}, "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Name":"string", "PriceCategory":{"Id":123}, "TemplatePriceTypes":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneMap":{"Id":123}}
@@ -9508,26 +9521,25 @@ csv
 </div>
 </div>
 
-## PriceTypeCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypecategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypecategories)</button>  
+
+## PriceTypeCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricetypecategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricetypecategories)</button>  
 		
 Create a new price type category.  
 ##### Usage:  
 ```shell
 tq post PriceTypeCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeCategoriesCreate-default" aria-expanded="true" aria-controls="PriceTypeCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeCategoriesCreate-default" aria-expanded="true" aria-controls="PriceTypeCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeCategoriesCreate-flat" aria-expanded="false" aria-controls="PriceTypeCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeCategoriesCreate-flat" aria-expanded="false" aria-controls="PriceTypeCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeCategoriesCreate-csv" aria-expanded="false" aria-controls="PriceTypeCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeCategoriesCreate-csv" aria-expanded="false" aria-controls="PriceTypeCategoriesCreate-csv">
 csv
-</button><div id="PriceTypeCategoriesCreate-parent">
+</button>
+<div id="PriceTypeCategoriesCreate-parent">
 <div class="collapse show" id="PriceTypeCategoriesCreate-default" data-bs-parent="#PriceTypeCategoriesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9547,26 +9559,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,ShortDescription,Updated
 </div>
 </div>
 
-## PriceTypeGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypegroups)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypegroups)</button>  
+
+## PriceTypeGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricetypegroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricetypegroups)</button>  
 		
 Create a new price type group.  
 ##### Usage:  
 ```shell
 tq post PriceTypeGroups
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeGroupsCreate-default" aria-expanded="true" aria-controls="PriceTypeGroupsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeGroupsCreate-default" aria-expanded="true" aria-controls="PriceTypeGroupsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeGroupsCreate-flat" aria-expanded="false" aria-controls="PriceTypeGroupsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeGroupsCreate-flat" aria-expanded="false" aria-controls="PriceTypeGroupsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeGroupsCreate-csv" aria-expanded="false" aria-controls="PriceTypeGroupsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeGroupsCreate-csv" aria-expanded="false" aria-controls="PriceTypeGroupsCreate-csv">
 csv
-</button><div id="PriceTypeGroupsCreate-parent">
+</button>
+<div id="PriceTypeGroupsCreate-parent">
 <div class="collapse show" id="PriceTypeGroupsCreate-default" data-bs-parent="#PriceTypeGroupsCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9586,26 +9597,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## PriceTypeReasons 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypereasons)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypereasons)</button>  
+
+## PriceTypeReasons <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricetypereasons)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricetypereasons)</button>  
 		
 Create a new price type reason.  
 ##### Usage:  
 ```shell
 tq post PriceTypeReasons
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeReasonsCreate-default" aria-expanded="true" aria-controls="PriceTypeReasonsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeReasonsCreate-default" aria-expanded="true" aria-controls="PriceTypeReasonsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeReasonsCreate-flat" aria-expanded="false" aria-controls="PriceTypeReasonsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeReasonsCreate-flat" aria-expanded="false" aria-controls="PriceTypeReasonsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeReasonsCreate-csv" aria-expanded="false" aria-controls="PriceTypeReasonsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeReasonsCreate-csv" aria-expanded="false" aria-controls="PriceTypeReasonsCreate-csv">
 csv
-</button><div id="PriceTypeReasonsCreate-parent">
+</button>
+<div id="PriceTypeReasonsCreate-parent">
 <div class="collapse show" id="PriceTypeReasonsCreate-default" data-bs-parent="#PriceTypeReasonsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ShortDescription":"string", "TicketText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9625,26 +9635,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,ShortDescriptio
 </div>
 </div>
 
-## PriceTypeUserGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypeusergroups)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypeusergroups)</button>  
+
+## PriceTypeUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricetypeusergroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricetypeusergroups)</button>  
 		
 Create a new price typ/user group mapping.  
 ##### Usage:  
 ```shell
 tq post PriceTypeUserGroups
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeUserGroupsCreate-default" aria-expanded="true" aria-controls="PriceTypeUserGroupsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeUserGroupsCreate-default" aria-expanded="true" aria-controls="PriceTypeUserGroupsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeUserGroupsCreate-flat" aria-expanded="false" aria-controls="PriceTypeUserGroupsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeUserGroupsCreate-flat" aria-expanded="false" aria-controls="PriceTypeUserGroupsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeUserGroupsCreate-csv" aria-expanded="false" aria-controls="PriceTypeUserGroupsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeUserGroupsCreate-csv" aria-expanded="false" aria-controls="PriceTypeUserGroupsCreate-csv">
 csv
-</button><div id="PriceTypeUserGroupsCreate-parent">
+</button>
+<div id="PriceTypeUserGroupsCreate-parent">
 <div class="collapse show" id="PriceTypeUserGroupsCreate-default" data-bs-parent="#PriceTypeUserGroupsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string"}
@@ -9664,26 +9673,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Id,PriceType.Id,UpdatedBy,UpdatedDateTi
 </div>
 </div>
 
-## PriceTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypes)</button>  
+
+## PriceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricetypes)</button>  
 		
 Create a new price type.  
 ##### Usage:  
 ```shell
 tq post PriceTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypesCreate-default" aria-expanded="true" aria-controls="PriceTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypesCreate-default" aria-expanded="true" aria-controls="PriceTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypesCreate-flat" aria-expanded="false" aria-controls="PriceTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypesCreate-flat" aria-expanded="false" aria-controls="PriceTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypesCreate-csv" aria-expanded="false" aria-controls="PriceTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypesCreate-csv" aria-expanded="false" aria-controls="PriceTypesCreate-csv">
 csv
-</button><div id="PriceTypesCreate-parent">
+</button>
+<div id="PriceTypesCreate-parent">
 <div class="collapse show" id="PriceTypesCreate-default" data-bs-parent="#PriceTypesCreate-parent"> 
 ```json
 {"AliasDescription":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultTicketDesign":{"Id":123}, "Description":"string", "EditIndicator":true, "EditableIndicator":true, "Id":123, "Inactive":true, "PriceTypeCategory":{"Id":123}, "PriceTypeGroup":{"Id":123}, "ReasonIndicator":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9703,26 +9711,25 @@ AliasDescription,CreateLocation,CreatedBy,CreatedDateTime,DefaultTicketDesign.Id
 </div>
 </div>
 
-## PricingRuleCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricingrulecategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricingrulecategories)</button>  
+
+## PricingRuleCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricingrulecategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricingrulecategories)</button>  
 		
 Create a new pricing rule category.  
 ##### Usage:  
 ```shell
 tq post PricingRuleCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleCategoriesCreate-default" aria-expanded="true" aria-controls="PricingRuleCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleCategoriesCreate-default" aria-expanded="true" aria-controls="PricingRuleCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleCategoriesCreate-flat" aria-expanded="false" aria-controls="PricingRuleCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleCategoriesCreate-flat" aria-expanded="false" aria-controls="PricingRuleCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleCategoriesCreate-csv" aria-expanded="false" aria-controls="PricingRuleCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleCategoriesCreate-csv" aria-expanded="false" aria-controls="PricingRuleCategoriesCreate-csv">
 csv
-</button><div id="PricingRuleCategoriesCreate-parent">
+</button>
+<div id="PricingRuleCategoriesCreate-parent">
 <div class="collapse show" id="PricingRuleCategoriesCreate-default" data-bs-parent="#PricingRuleCategoriesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9742,26 +9749,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## PricingRuleMessageTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricingrulemessagetypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricingrulemessagetypes)</button>  
+
+## PricingRuleMessageTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricingrulemessagetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricingrulemessagetypes)</button>  
 		
 Create a new pricing rule message type.  
 ##### Usage:  
 ```shell
 tq post PricingRuleMessageTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleMessageTypesCreate-default" aria-expanded="true" aria-controls="PricingRuleMessageTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleMessageTypesCreate-default" aria-expanded="true" aria-controls="PricingRuleMessageTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleMessageTypesCreate-flat" aria-expanded="false" aria-controls="PricingRuleMessageTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleMessageTypesCreate-flat" aria-expanded="false" aria-controls="PricingRuleMessageTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleMessageTypesCreate-csv" aria-expanded="false" aria-controls="PricingRuleMessageTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleMessageTypesCreate-csv" aria-expanded="false" aria-controls="PricingRuleMessageTypesCreate-csv">
 csv
-</button><div id="PricingRuleMessageTypesCreate-parent">
+</button>
+<div id="PricingRuleMessageTypesCreate-parent">
 <div class="collapse show" id="PricingRuleMessageTypesCreate-default" data-bs-parent="#PricingRuleMessageTypesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9781,26 +9787,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## PricingRuleSets 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricingrulesets)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricingrulesets)</button>  
+
+## PricingRuleSets <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricingrulesets)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricingrulesets)</button>  
 		
 Create a new pricing rule set.  
 ##### Usage:  
 ```shell
 tq post PricingRuleSets
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleSetsCreate-default" aria-expanded="true" aria-controls="PricingRuleSetsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleSetsCreate-default" aria-expanded="true" aria-controls="PricingRuleSetsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleSetsCreate-flat" aria-expanded="false" aria-controls="PricingRuleSetsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleSetsCreate-flat" aria-expanded="false" aria-controls="PricingRuleSetsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleSetsCreate-csv" aria-expanded="false" aria-controls="PricingRuleSetsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleSetsCreate-csv" aria-expanded="false" aria-controls="PricingRuleSetsCreate-csv">
 csv
-</button><div id="PricingRuleSetsCreate-parent">
+</button>
+<div id="PricingRuleSetsCreate-parent">
 <div class="collapse show" id="PricingRuleSetsCreate-default" data-bs-parent="#PricingRuleSetsCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Rules":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9819,26 +9824,25 @@ csv
 </div>
 
 
-## PricingRules 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricingrules)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricingrules)</button>  
+
+## PricingRules <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricingrules)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricingrules)</button>  
 		
 Create a new pricing rule.  
 ##### Usage:  
 ```shell
 tq post PricingRules
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRulesCreate-default" aria-expanded="true" aria-controls="PricingRulesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRulesCreate-default" aria-expanded="true" aria-controls="PricingRulesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRulesCreate-flat" aria-expanded="false" aria-controls="PricingRulesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRulesCreate-flat" aria-expanded="false" aria-controls="PricingRulesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRulesCreate-csv" aria-expanded="false" aria-controls="PricingRulesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRulesCreate-csv" aria-expanded="false" aria-controls="PricingRulesCreate-csv">
 csv
-</button><div id="PricingRulesCreate-parent">
+</button>
+<div id="PricingRulesCreate-parent">
 <div class="collapse show" id="PricingRulesCreate-default" data-bs-parent="#PricingRulesCreate-parent"> 
 ```json
 {"Appeals":"string", "ApplyOncePerOrder":true, "ApplyToLowestCommonNumberOfSeats":true, "Constituencies":"string", "ConstituentAttribute":123, "ConstituentAttributeOperator":{"Id":123}, "ConstituentAttributeValue1":"string", "ConstituentAttributeValue2":"string", "ConstituentExclusionListId":123, "ConstituentListId":123, "ConstituentRankType":123, "ConstituentRankingOperator":{"Id":123}, "ConstituentRankingValue1":123, "ConstituentRankingValue2":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DiscountAmount":123.456, "DiscountIsPercent":true, "DiscountPercentRound":123, "DiscountPriceTypeId":123, "EditIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "ExcludeGeneralPublic":true, "Id":123, "Inactive":true, "MaxSeats":123, "Messages":[{"Id":123}, ...], "OverTheLimitDateTime":"2000-01-01T00:00:00.000Z", "PromotedAppeals":"string", "PromotedSources":"string", "QualifyingPackage":"string", "QualifyingPerformance":"string", "QualifyingPriceType1":"string", "QualifyingPriceType2":"string", "QualifyingProductionSeason":"string", "QualifyingSeasonPackageType":"string", "QualifyingSeatCount1Value1":123, "QualifyingSeatCount1Value2":123, "QualifyingSeatCount2Value1":123, "QualifyingSeatCount2Value2":123, "QualifyingZone":"string", "RespectMinimumPrice":true, "ResultMaximumSeats":123, "ResultMaximumSeats2":123, "ResultPackage":"string", "ResultPerformance":"string", "ResultPriceType":"string", "ResultProductionSeason":"string", "ResultSeasonPackageType":"string", "ResultSeatCount":123, "ResultZone":"string", "RuleAction":123, "RuleCategory":{"Id":123}, "RuleType":{"Id":123}, "Sources":"string", "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9856,26 +9860,25 @@ csv
 </div>
 </div>
 
-## Printers 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#printers)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#printers)</button>  
+
+## Printers <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#printers)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#printers)</button>  
 		
 Create a new printer.  
 ##### Usage:  
 ```shell
 tq post Printers
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PrintersCreate-default" aria-expanded="true" aria-controls="PrintersCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PrintersCreate-default" aria-expanded="true" aria-controls="PrintersCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PrintersCreate-flat" aria-expanded="false" aria-controls="PrintersCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PrintersCreate-flat" aria-expanded="false" aria-controls="PrintersCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PrintersCreate-csv" aria-expanded="false" aria-controls="PrintersCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PrintersCreate-csv" aria-expanded="false" aria-controls="PrintersCreate-csv">
 csv
-</button><div id="PrintersCreate-parent">
+</button>
+<div id="PrintersCreate-parent">
 <div class="collapse show" id="PrintersCreate-default" data-bs-parent="#PrintersCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "MaxCol":123, "MaxRow":123, "MaxX2val":123, "MaxY2val":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9896,26 +9899,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,MaxCol,MaxRow,MaxX2val,M
 </div>
 
 
-## ProductionSeasonMembershipOrganizations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#productionseasonmembershiporganizations)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#productionseasonmembershiporganizations)</button>  
+
+## ProductionSeasonMembershipOrganizations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#productionseasonmembershiporganizations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#productionseasonmembershiporganizations)</button>  
 		
 Create a new production season membership organization.  
 ##### Usage:  
 ```shell
 tq post ProductionSeasonMembershipOrganizations
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductionSeasonMembershipOrganizationsCreate-default" aria-expanded="true" aria-controls="ProductionSeasonMembershipOrganizationsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductionSeasonMembershipOrganizationsCreate-default" aria-expanded="true" aria-controls="ProductionSeasonMembershipOrganizationsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductionSeasonMembershipOrganizationsCreate-flat" aria-expanded="false" aria-controls="ProductionSeasonMembershipOrganizationsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductionSeasonMembershipOrganizationsCreate-flat" aria-expanded="false" aria-controls="ProductionSeasonMembershipOrganizationsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductionSeasonMembershipOrganizationsCreate-csv" aria-expanded="false" aria-controls="ProductionSeasonMembershipOrganizationsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductionSeasonMembershipOrganizationsCreate-csv" aria-expanded="false" aria-controls="ProductionSeasonMembershipOrganizationsCreate-csv">
 csv
-</button><div id="ProductionSeasonMembershipOrganizationsCreate-parent">
+</button>
+<div id="ProductionSeasonMembershipOrganizationsCreate-parent">
 <div class="collapse show" id="ProductionSeasonMembershipOrganizationsCreate-default" data-bs-parent="#ProductionSeasonMembershipOrganizationsCreate-parent"> 
 ```json
 {"AllowMultipleEntry":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "MembershipOrganization":{"Id":123}, "ProductionSeason":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -9935,9 +9937,8 @@ true,"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,123,123,"""str
 </div>
 </div>
 
-## ProductionSeasons 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#productionseasons)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## ProductionSeasons <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#productionseasons)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 Search for production seasons
 Returns production seasons matching the specified search criteria.  
@@ -9945,16 +9946,17 @@ Returns production seasons matching the specified search criteria.
 ```shell
 tq post ProductionSeasons
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductionSeasonsSearch-default" aria-expanded="true" aria-controls="ProductionSeasonsSearch-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductionSeasonsSearch-default" aria-expanded="true" aria-controls="ProductionSeasonsSearch-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductionSeasonsSearch-flat" aria-expanded="false" aria-controls="ProductionSeasonsSearch-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductionSeasonsSearch-flat" aria-expanded="false" aria-controls="ProductionSeasonsSearch-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductionSeasonsSearch-csv" aria-expanded="false" aria-controls="ProductionSeasonsSearch-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductionSeasonsSearch-csv" aria-expanded="false" aria-controls="ProductionSeasonsSearch-csv">
 csv
-</button><div id="ProductionSeasonsSearch-parent">
+</button>
+<div id="ProductionSeasonsSearch-parent">
 <div class="collapse show" id="ProductionSeasonsSearch-default" data-bs-parent="#ProductionSeasonsSearch-parent"> 
 ```json
 {"ArtistIds":"string", "BusinessUnitId":123, "ConstituentId":123, "FacilityIds":"string", "FullTextSearch":"string", "KeywordAndOr":"string", "KeywordIds":"string", "MatchAllPerformances":true, "ModeOfSaleId":123, "PerformanceEndDate":"2000-01-01T00:00:00.000Z", "PerformanceStartDate":"2000-01-01T00:00:00.000Z", "SeasonIds":"string"}
@@ -9975,24 +9977,25 @@ ArtistIds,BusinessUnitId,ConstituentId,FacilityIds,FullTextSearch,KeywordAndOr,K
 </div>
 
 
-## Products 
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## Products <button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 Get product descriptions  
 ##### Usage:  
 ```shell
 tq post Products
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductsDescribe-default" aria-expanded="true" aria-controls="ProductsDescribe-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductsDescribe-default" aria-expanded="true" aria-controls="ProductsDescribe-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductsDescribe-flat" aria-expanded="false" aria-controls="ProductsDescribe-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductsDescribe-flat" aria-expanded="false" aria-controls="ProductsDescribe-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductsDescribe-csv" aria-expanded="false" aria-controls="ProductsDescribe-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductsDescribe-csv" aria-expanded="false" aria-controls="ProductsDescribe-csv">
 csv
-</button><div id="ProductsDescribe-parent">
+</button>
+<div id="ProductsDescribe-parent">
 <div class="collapse show" id="ProductsDescribe-default" data-bs-parent="#ProductsDescribe-parent"> 
 ```json
 {"PackageIds":"string", "PackageTypeIds":"string", "PerformanceIds":"string", "ProductionSeasonIds":"string"}
@@ -10011,19 +10014,21 @@ PackageIds,PackageTypeIds,PerformanceIds,ProductionSeasonIds
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--Search*  
    Search for products based on a set of criteria.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductsSearch-default" aria-expanded="true" aria-controls="ProductsSearch-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductsSearch-default" aria-expanded="true" aria-controls="ProductsSearch-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductsSearch-flat" aria-expanded="false" aria-controls="ProductsSearch-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductsSearch-flat" aria-expanded="false" aria-controls="ProductsSearch-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductsSearch-csv" aria-expanded="false" aria-controls="ProductsSearch-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductsSearch-csv" aria-expanded="false" aria-controls="ProductsSearch-csv">
 csv
-</button><div id="ProductsSearch-parent">
+</button>
+<div id="ProductsSearch-parent">
 <div class="collapse show" id="ProductsSearch-default" data-bs-parent="#ProductsSearch-parent"> 
 ```json
 {"ArtistId":123, "BusinessUnitId":123, "ComposerId":123, "ConstituentId":123, "DayOfWeek":"string", "EndDateRange":"2000-01-01T00:00:00.000Z", "EndDateRangePackage":"2000-01-01T00:00:00.000Z", "FacilityId":123, "FullText":"string", "FullTextType":"string", "IsWebSearch":true, "KeywordAndOr":123, "KeywordDescriptions":"string", "KeywordId":123, "Keywords":"string", "LanguageId":123, "ModeOfSaleId":123, "OnSaleOnly":true, "OneOrAllPerformancesInPackage":"string", "PackageId":123, "PackageIds":"string", "PackageSeasonId":123, "PackageTypeId":123, "PerformanceIds":"string", "ProductionSeasonId":123, "ProductionSeasonIds":"string", "SeasonId":123, "SeasonIds":"string", "ShowAll":true, "ShowConstituentAvailability":true, "ShowGrossAvailability":true, "StartDateRange":"2000-01-01T00:00:00.000Z", "StartDateRangePackage":"2000-01-01T00:00:00.000Z", "TimeSlotId":123, "TitleId":123}
@@ -10043,26 +10048,25 @@ ArtistId,BusinessUnitId,ComposerId,ConstituentId,DayOfWeek,EndDateRange,EndDateR
 </div>
 </div>
 
-## ProgramListings 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#programlistings)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#programlistings)</button>  
+
+## ProgramListings <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#programlistings)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#programlistings)</button>  
 		
 Create a new program listing.  
 ##### Usage:  
 ```shell
 tq post ProgramListings
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProgramListingsCreate-default" aria-expanded="true" aria-controls="ProgramListingsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProgramListingsCreate-default" aria-expanded="true" aria-controls="ProgramListingsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProgramListingsCreate-flat" aria-expanded="false" aria-controls="ProgramListingsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProgramListingsCreate-flat" aria-expanded="false" aria-controls="ProgramListingsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProgramListingsCreate-csv" aria-expanded="false" aria-controls="ProgramListingsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProgramListingsCreate-csv" aria-expanded="false" aria-controls="ProgramListingsCreate-csv">
 csv
-</button><div id="ProgramListingsCreate-parent">
+</button>
+<div id="ProgramListingsCreate-parent">
 <div class="collapse show" id="ProgramListingsCreate-default" data-bs-parent="#ProgramListingsCreate-parent"> 
 ```json
 {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DonationLevel":{"Id":123}, "EditIndicator":true, "Id":123, "ProgramName":"string", "ProgramType":{"Id":123}, "SortName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -10082,26 +10086,25 @@ Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,DonationLevel.Id,EditInd
 </div>
 </div>
 
-## Programs 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#programs)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#programs)</button>  
+
+## Programs <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#programs)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#programs)</button>  
 		
 Create a new program.  
 ##### Usage:  
 ```shell
 tq post Programs
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProgramsCreate-default" aria-expanded="true" aria-controls="ProgramsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProgramsCreate-default" aria-expanded="true" aria-controls="ProgramsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProgramsCreate-flat" aria-expanded="false" aria-controls="ProgramsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProgramsCreate-flat" aria-expanded="false" aria-controls="ProgramsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProgramsCreate-csv" aria-expanded="false" aria-controls="ProgramsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProgramsCreate-csv" aria-expanded="false" aria-controls="ProgramsCreate-csv">
 csv
-</button><div id="ProgramsCreate-parent">
+</button>
+<div id="ProgramsCreate-parent">
 <div class="collapse show" id="ProgramsCreate-default" data-bs-parent="#ProgramsCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -10121,26 +10124,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,UpdatedB
 </div>
 </div>
 
-## Pronouns 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pronouns)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pronouns)</button>  
+
+## Pronouns <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pronouns)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pronouns)</button>  
 		
   
 ##### Usage:  
 ```shell
 tq post Pronouns
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PronounsCreate-default" aria-expanded="true" aria-controls="PronounsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PronounsCreate-default" aria-expanded="true" aria-controls="PronounsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PronounsCreate-flat" aria-expanded="false" aria-controls="PronounsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PronounsCreate-flat" aria-expanded="false" aria-controls="PronounsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PronounsCreate-csv" aria-expanded="false" aria-controls="PronounsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PronounsCreate-csv" aria-expanded="false" aria-controls="PronounsCreate-csv">
 csv
-</button><div id="PronounsCreate-parent">
+</button>
+<div id="PronounsCreate-parent">
 <div class="collapse show" id="PronounsCreate-default" data-bs-parent="#PronounsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -10160,28 +10162,27 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
+
 	
 # Q
-## QualificationCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#qualificationcategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#qualificationcategories)</button>  
+## QualificationCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#qualificationcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#qualificationcategories)</button>  
 		
 Create a new Qualification Category.  
 ##### Usage:  
 ```shell
 tq post QualificationCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QualificationCategoriesCreate-default" aria-expanded="true" aria-controls="QualificationCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QualificationCategoriesCreate-default" aria-expanded="true" aria-controls="QualificationCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QualificationCategoriesCreate-flat" aria-expanded="false" aria-controls="QualificationCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QualificationCategoriesCreate-flat" aria-expanded="false" aria-controls="QualificationCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QualificationCategoriesCreate-csv" aria-expanded="false" aria-controls="QualificationCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QualificationCategoriesCreate-csv" aria-expanded="false" aria-controls="QualificationCategoriesCreate-csv">
 csv
-</button><div id="QualificationCategoriesCreate-parent">
+</button>
+<div id="QualificationCategoriesCreate-parent">
 <div class="collapse show" id="QualificationCategoriesCreate-default" data-bs-parent="#QualificationCategoriesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -10201,26 +10202,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## Qualifications 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#qualifications)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#qualifications)</button>  
+
+## Qualifications <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#qualifications)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#qualifications)</button>  
 		
 Create a new Qualification.  
 ##### Usage:  
 ```shell
 tq post Qualifications
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QualificationsCreate-default" aria-expanded="true" aria-controls="QualificationsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QualificationsCreate-default" aria-expanded="true" aria-controls="QualificationsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QualificationsCreate-flat" aria-expanded="false" aria-controls="QualificationsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QualificationsCreate-flat" aria-expanded="false" aria-controls="QualificationsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QualificationsCreate-csv" aria-expanded="false" aria-controls="QualificationsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QualificationsCreate-csv" aria-expanded="false" aria-controls="QualificationsCreate-csv">
 csv
-</button><div id="QualificationsCreate-parent">
+</button>
+<div id="QualificationsCreate-parent">
 <div class="collapse show" id="QualificationsCreate-default" data-bs-parent="#QualificationsCreate-parent"> 
 ```json
 {"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -10240,26 +10240,25 @@ Category.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,Upd
 </div>
 </div>
 
-## QueryElementFilters 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#queryelementfilters)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#queryelementfilters)</button>  
+
+## QueryElementFilters <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#queryelementfilters)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#queryelementfilters)</button>  
 		
 Create a query element filter.  
 ##### Usage:  
 ```shell
 tq post QueryElementFilters
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementFiltersCreate-default" aria-expanded="true" aria-controls="QueryElementFiltersCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementFiltersCreate-default" aria-expanded="true" aria-controls="QueryElementFiltersCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementFiltersCreate-flat" aria-expanded="false" aria-controls="QueryElementFiltersCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementFiltersCreate-flat" aria-expanded="false" aria-controls="QueryElementFiltersCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementFiltersCreate-csv" aria-expanded="false" aria-controls="QueryElementFiltersCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementFiltersCreate-csv" aria-expanded="false" aria-controls="QueryElementFiltersCreate-csv">
 csv
-</button><div id="QueryElementFiltersCreate-parent">
+</button>
+<div id="QueryElementFiltersCreate-parent">
 <div class="collapse show" id="QueryElementFiltersCreate-default" data-bs-parent="#QueryElementFiltersCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "Description":"string", "EndOfDay":true, "FilterElement":"string", "Group":{"Id":123}, "Id":123, "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -10279,26 +10278,25 @@ CreateLocation,CreatedBy,CreatedDateTime,DataType,Description,EndOfDay,FilterEle
 </div>
 </div>
 
-## QueryElementGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#queryelementgroups)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#queryelementgroups)</button>  
+
+## QueryElementGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#queryelementgroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#queryelementgroups)</button>  
 		
 Create a new query element group.  
 ##### Usage:  
 ```shell
 tq post QueryElementGroups
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementGroupsCreate-default" aria-expanded="true" aria-controls="QueryElementGroupsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementGroupsCreate-default" aria-expanded="true" aria-controls="QueryElementGroupsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementGroupsCreate-flat" aria-expanded="false" aria-controls="QueryElementGroupsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementGroupsCreate-flat" aria-expanded="false" aria-controls="QueryElementGroupsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementGroupsCreate-csv" aria-expanded="false" aria-controls="QueryElementGroupsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementGroupsCreate-csv" aria-expanded="false" aria-controls="QueryElementGroupsCreate-csv">
 csv
-</button><div id="QueryElementGroupsCreate-parent">
+</button>
+<div id="QueryElementGroupsCreate-parent">
 <div class="collapse show" id="QueryElementGroupsCreate-default" data-bs-parent="#QueryElementGroupsCreate-parent"> 
 ```json
 {"Category":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataFrom":"string", "DataWhere":"string", "Description":"string", "Id":123, "IsVirtual":true, "NumberOfParameters":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -10318,26 +10316,25 @@ Category,CreateLocation,CreatedBy,CreatedDateTime,DataFrom,DataWhere,Description
 </div>
 </div>
 
-## QueryElements 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#queryelements)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#queryelements)</button>  
+
+## QueryElements <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#queryelements)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#queryelements)</button>  
 		
 Create a new query element.  
 ##### Usage:  
 ```shell
 tq post QueryElements
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementsCreate-default" aria-expanded="true" aria-controls="QueryElementsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementsCreate-default" aria-expanded="true" aria-controls="QueryElementsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementsCreate-flat" aria-expanded="false" aria-controls="QueryElementsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementsCreate-flat" aria-expanded="false" aria-controls="QueryElementsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementsCreate-csv" aria-expanded="false" aria-controls="QueryElementsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementsCreate-csv" aria-expanded="false" aria-controls="QueryElementsCreate-csv">
 csv
-</button><div id="QueryElementsCreate-parent">
+</button>
+<div id="QueryElementsCreate-parent">
 <div class="collapse show" id="QueryElementsCreate-default" data-bs-parent="#QueryElementsCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataSelect":"string", "Description":"string", "Group":{"Id":123}, "Id":123, "Inactive":true, "IsSingleRow":true, "KeywordId":123, "PrimaryGroupDefault":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -10357,28 +10354,27 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DataSelect,Description,
 </div>
 </div>
 
+
 	
 # R
-## RankTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#ranktypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#ranktypes)</button>  
+## RankTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#ranktypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#ranktypes)</button>  
 		
 Create a new rank type.  
 ##### Usage:  
 ```shell
 tq post RankTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RankTypesCreate-default" aria-expanded="true" aria-controls="RankTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RankTypesCreate-default" aria-expanded="true" aria-controls="RankTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RankTypesCreate-flat" aria-expanded="false" aria-controls="RankTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RankTypesCreate-flat" aria-expanded="false" aria-controls="RankTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RankTypesCreate-csv" aria-expanded="false" aria-controls="RankTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RankTypesCreate-csv" aria-expanded="false" aria-controls="RankTypesCreate-csv">
 csv
-</button><div id="RankTypesCreate-parent">
+</button>
+<div id="RankTypesCreate-parent">
 <div class="collapse show" id="RankTypesCreate-default" data-bs-parent="#RankTypesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -10398,26 +10394,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## Rankings 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#rankings)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#rankings)</button>  
+
+## Rankings <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#rankings)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#rankings)</button>  
 		
 Create a new ranking.  
 ##### Usage:  
 ```shell
 tq post Rankings
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RankingsCreate-default" aria-expanded="true" aria-controls="RankingsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RankingsCreate-default" aria-expanded="true" aria-controls="RankingsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RankingsCreate-flat" aria-expanded="false" aria-controls="RankingsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RankingsCreate-flat" aria-expanded="false" aria-controls="RankingsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RankingsCreate-csv" aria-expanded="false" aria-controls="RankingsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RankingsCreate-csv" aria-expanded="false" aria-controls="RankingsCreate-csv">
 csv
-</button><div id="RankingsCreate-parent">
+</button>
+<div id="RankingsCreate-parent">
 <div class="collapse show" id="RankingsCreate-default" data-bs-parent="#RankingsCreate-parent"> 
 ```json
 {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Rank":123, "RankType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -10437,26 +10432,25 @@ Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,Rank,Ra
 </div>
 </div>
 
-## ReceiptSettings 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#receiptsettings)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#receiptsettings)</button>  
+
+## ReceiptSettings <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#receiptsettings)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#receiptsettings)</button>  
 		
 Create a new Receipt Setting.  
 ##### Usage:  
 ```shell
 tq post ReceiptSettings
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReceiptSettingsCreate-default" aria-expanded="true" aria-controls="ReceiptSettingsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReceiptSettingsCreate-default" aria-expanded="true" aria-controls="ReceiptSettingsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReceiptSettingsCreate-flat" aria-expanded="false" aria-controls="ReceiptSettingsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReceiptSettingsCreate-flat" aria-expanded="false" aria-controls="ReceiptSettingsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReceiptSettingsCreate-csv" aria-expanded="false" aria-controls="ReceiptSettingsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReceiptSettingsCreate-csv" aria-expanded="false" aria-controls="ReceiptSettingsCreate-csv">
 csv
-</button><div id="ReceiptSettingsCreate-parent">
+</button>
+<div id="ReceiptSettingsCreate-parent">
 <div class="collapse show" id="ReceiptSettingsCreate-default" data-bs-parent="#ReceiptSettingsCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EmailFooter":"string", "EmailHeader":"string", "EmailSubject":"string", "Id":123, "Inactive":true, "PrintFooter":"string", "PrintHeader":"string", "ReceiptEmailProfile":{"Id":123}, "TicketEmailProfile":{"Id":123}, "TicketEmailSubject":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -10476,24 +10470,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EmailFooter
 </div>
 </div>
 
-## RecordAttendance 
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## RecordAttendance <button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 Records attendance for a given ticket number.  
 ##### Usage:  
 ```shell
 tq post RecordAttendance
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RecordAttendanceRecordTicket-default" aria-expanded="true" aria-controls="RecordAttendanceRecordTicket-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RecordAttendanceRecordTicket-default" aria-expanded="true" aria-controls="RecordAttendanceRecordTicket-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RecordAttendanceRecordTicket-flat" aria-expanded="false" aria-controls="RecordAttendanceRecordTicket-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RecordAttendanceRecordTicket-flat" aria-expanded="false" aria-controls="RecordAttendanceRecordTicket-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RecordAttendanceRecordTicket-csv" aria-expanded="false" aria-controls="RecordAttendanceRecordTicket-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RecordAttendanceRecordTicket-csv" aria-expanded="false" aria-controls="RecordAttendanceRecordTicket-csv">
 csv
-</button><div id="RecordAttendanceRecordTicket-parent">
+</button>
+<div id="RecordAttendanceRecordTicket-parent">
 <div class="collapse show" id="RecordAttendanceRecordTicket-default" data-bs-parent="#RecordAttendanceRecordTicket-parent"> 
 ```json
 {"OverrideDoorsOpen":true, "ProfileId":123, "TicketNo":123}
@@ -10514,26 +10509,25 @@ true,123,123
 </div>
 
 
-## ReferenceTableUserGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#referencetableusergroups)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#referencetableusergroups)</button>  
+
+## ReferenceTableUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#referencetableusergroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#referencetableusergroups)</button>  
 		
 Create a new reference table/user group mapping.  
 ##### Usage:  
 ```shell
 tq post ReferenceTableUserGroups
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReferenceTableUserGroupsCreate-default" aria-expanded="true" aria-controls="ReferenceTableUserGroupsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReferenceTableUserGroupsCreate-default" aria-expanded="true" aria-controls="ReferenceTableUserGroupsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReferenceTableUserGroupsCreate-flat" aria-expanded="false" aria-controls="ReferenceTableUserGroupsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReferenceTableUserGroupsCreate-flat" aria-expanded="false" aria-controls="ReferenceTableUserGroupsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReferenceTableUserGroupsCreate-csv" aria-expanded="false" aria-controls="ReferenceTableUserGroupsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReferenceTableUserGroupsCreate-csv" aria-expanded="false" aria-controls="ReferenceTableUserGroupsCreate-csv">
 csv
-</button><div id="ReferenceTableUserGroupsCreate-parent">
+</button>
+<div id="ReferenceTableUserGroupsCreate-parent">
 <div class="collapse show" id="ReferenceTableUserGroupsCreate-default" data-bs-parent="#ReferenceTableUserGroupsCreate-parent"> 
 ```json
 {"CanEdit":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ReferenceTable":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string"}
@@ -10554,8 +10548,8 @@ true,"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,123,"""string"
 </div>
 
 
-## Registration 
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## Registration <button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 This is a combined resource for registering a new constituent with logging into the current session. This resource combines a workflow of multiple API actions into a single request. This is primarily designed for creating a constituent with a primary electronic address, a primary login, and logging into the session using the provide login.
 Creates a new constituent and login. Affiliates can be specified for the constituent to create a household account.
@@ -10564,16 +10558,17 @@ The login must be unique for the login type. The electronic address for this con
 ```shell
 tq post Registration
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RegistrationRegister-default" aria-expanded="true" aria-controls="RegistrationRegister-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RegistrationRegister-default" aria-expanded="true" aria-controls="RegistrationRegister-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RegistrationRegister-flat" aria-expanded="false" aria-controls="RegistrationRegister-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RegistrationRegister-flat" aria-expanded="false" aria-controls="RegistrationRegister-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RegistrationRegister-csv" aria-expanded="false" aria-controls="RegistrationRegister-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RegistrationRegister-csv" aria-expanded="false" aria-controls="RegistrationRegister-csv">
 csv
-</button><div id="RegistrationRegister-parent">
+</button>
+<div id="RegistrationRegister-parent">
 <div class="collapse show" id="RegistrationRegister-default" data-bs-parent="#RegistrationRegister-parent"> 
 ```json
 {"Address":{"AddressTypeId":123, "City":"string", "CountryId":123, "PostalCode":"string", "StateId":"string", "Street1":"string", "Street2":"string", "Street3":"string"}, "Affiliates":[{"AffiliationTypeId":123, "ConstituentTypeId":123, "FirstName":"string", "LastName":"string", "MiddleName":"string", "NameIndicator":123, "NameStatusId":123, "Note":"string", "SortName":"string", "Title":"string"}, ...], "ConstituentTypeId":123, "ElectronicAddress":{"Address":"string", "AllowHtmlFormat":true, "AllowMarketing":true, "ElectronicAddressTypeId":123}, "EmarketIndicatorId":123, "FirstName":"string", "GenderId":123, "LastName":"string", "MailIndicatorId":123, "MiddleName":"string", "NameStatusId":123, "OriginalSourceId":123, "PhoneIndicatorId":123, "Phones":[{"AllowTelemarketing":true, "DayEveningIndicator":"string", "PhoneNumber":"string", "PhoneTypeId":123}, ...], "PrefixId":123, "Salutation":{"BusinessTitle":"string", "EnvelopeSalutation1":"string", "EnvelopeSalutation2":"string", "LetterSalutation":"string", "SalutationTypeId":123}, "SortName":"string", "SourceId":123, "SuffixId":123, "WebLogin":{"Login":"string", "LoginTypeId":123, "Password":"string"}, "SessionKey":"string"}
@@ -10591,26 +10586,25 @@ csv
 </div>
 </div>
 
-## RelationshipCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#relationshipcategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#relationshipcategories)</button>  
+
+## RelationshipCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#relationshipcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#relationshipcategories)</button>  
 		
 Create a new relationship category.  
 ##### Usage:  
 ```shell
 tq post RelationshipCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RelationshipCategoriesCreate-default" aria-expanded="true" aria-controls="RelationshipCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RelationshipCategoriesCreate-default" aria-expanded="true" aria-controls="RelationshipCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RelationshipCategoriesCreate-flat" aria-expanded="false" aria-controls="RelationshipCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RelationshipCategoriesCreate-flat" aria-expanded="false" aria-controls="RelationshipCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RelationshipCategoriesCreate-csv" aria-expanded="false" aria-controls="RelationshipCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RelationshipCategoriesCreate-csv" aria-expanded="false" aria-controls="RelationshipCategoriesCreate-csv">
 csv
-</button><div id="RelationshipCategoriesCreate-parent">
+</button>
+<div id="RelationshipCategoriesCreate-parent">
 <div class="collapse show" id="RelationshipCategoriesCreate-default" data-bs-parent="#RelationshipCategoriesCreate-parent"> 
 ```json
 {"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -10631,26 +10625,25 @@ CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,UpdatedDateTime
 </div>
 
 
-## ReportRequests 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#reportrequests)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#reportrequests)</button>  
+
+## ReportRequests <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#reportrequests)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#reportrequests)</button>  
 		
 Creates the report request.  
 ##### Usage:  
 ```shell
 tq post ReportRequests
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportRequestsCreate-default" aria-expanded="true" aria-controls="ReportRequestsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportRequestsCreate-default" aria-expanded="true" aria-controls="ReportRequestsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportRequestsCreate-flat" aria-expanded="false" aria-controls="ReportRequestsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportRequestsCreate-flat" aria-expanded="false" aria-controls="ReportRequestsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportRequestsCreate-csv" aria-expanded="false" aria-controls="ReportRequestsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportRequestsCreate-csv" aria-expanded="false" aria-controls="ReportRequestsCreate-csv">
 csv
-</button><div id="ReportRequestsCreate-parent">
+</button>
+<div id="ReportRequestsCreate-parent">
 <div class="collapse show" id="ReportRequestsCreate-default" data-bs-parent="#ReportRequestsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DeletedIndicator":true, "EmailBody":"string", "EmailRecipients":"string", "EmailSubject":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OutputOption":"string", "Parameters":[{"ParameterId":123, "ReportId":"string", "RequestId":123, "Value":"string"}, ...], "PublicIndicator":true, "QueueStatus":"string", "ReportId":"string", "ReportType":123, "RequestDateTime":"2000-01-01T00:00:00.000Z", "ResultCode":"string", "ResultText":"string", "ScheduleId":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "UserId":"string"}
@@ -10667,19 +10660,21 @@ csv
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--GenerateScheduled*  
    
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportRequestsGenerateScheduled-default" aria-expanded="true" aria-controls="ReportRequestsGenerateScheduled-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportRequestsGenerateScheduled-default" aria-expanded="true" aria-controls="ReportRequestsGenerateScheduled-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportRequestsGenerateScheduled-flat" aria-expanded="false" aria-controls="ReportRequestsGenerateScheduled-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportRequestsGenerateScheduled-flat" aria-expanded="false" aria-controls="ReportRequestsGenerateScheduled-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportRequestsGenerateScheduled-csv" aria-expanded="false" aria-controls="ReportRequestsGenerateScheduled-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportRequestsGenerateScheduled-csv" aria-expanded="false" aria-controls="ReportRequestsGenerateScheduled-csv">
 csv
-</button><div id="ReportRequestsGenerateScheduled-parent">
+</button>
+<div id="ReportRequestsGenerateScheduled-parent">
 <div class="collapse show" id="ReportRequestsGenerateScheduled-default" data-bs-parent="#ReportRequestsGenerateScheduled-parent"> 
 ```json
 {}
@@ -10699,26 +10694,25 @@ csv
 </div>
 </div>
 
-## ReportSchedules 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#reportschedules)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#reportschedules)</button>  
+
+## ReportSchedules <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#reportschedules)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#reportschedules)</button>  
 		
 Verify the next run for a schedule's recurrence pattern by passing the pattern.  Returns its calculated next run date/time.  
 ##### Usage:  
 ```shell
 tq post ReportSchedules
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportSchedulesCalculateNextRun-default" aria-expanded="true" aria-controls="ReportSchedulesCalculateNextRun-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportSchedulesCalculateNextRun-default" aria-expanded="true" aria-controls="ReportSchedulesCalculateNextRun-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportSchedulesCalculateNextRun-flat" aria-expanded="false" aria-controls="ReportSchedulesCalculateNextRun-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportSchedulesCalculateNextRun-flat" aria-expanded="false" aria-controls="ReportSchedulesCalculateNextRun-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportSchedulesCalculateNextRun-csv" aria-expanded="false" aria-controls="ReportSchedulesCalculateNextRun-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportSchedulesCalculateNextRun-csv" aria-expanded="false" aria-controls="ReportSchedulesCalculateNextRun-csv">
 csv
-</button><div id="ReportSchedulesCalculateNextRun-parent">
+</button>
+<div id="ReportSchedulesCalculateNextRun-parent">
 <div class="collapse show" id="ReportSchedulesCalculateNextRun-default" data-bs-parent="#ReportSchedulesCalculateNextRun-parent"> 
 ```json
 {"DayOfWeek":123, "DayWeekNumber":123, "EndDate":"2000-01-01T00:00:00.000Z", "EndTime":"2000-01-01T00:00:00.000Z", "Interval":123, "StartDate":"2000-01-01T00:00:00.000Z", "StartTime":"2000-01-01T00:00:00.000Z", "Type":"string"}
@@ -10737,19 +10731,21 @@ DayOfWeek,DayWeekNumber,EndDate,EndTime,Interval,StartDate,StartTime,Type
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--Save*  
    Create a report schedule.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportSchedulesSave-default" aria-expanded="true" aria-controls="ReportSchedulesSave-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportSchedulesSave-default" aria-expanded="true" aria-controls="ReportSchedulesSave-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportSchedulesSave-flat" aria-expanded="false" aria-controls="ReportSchedulesSave-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportSchedulesSave-flat" aria-expanded="false" aria-controls="ReportSchedulesSave-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportSchedulesSave-csv" aria-expanded="false" aria-controls="ReportSchedulesSave-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportSchedulesSave-csv" aria-expanded="false" aria-controls="ReportSchedulesSave-csv">
 csv
-</button><div id="ReportSchedulesSave-parent">
+</button>
+<div id="ReportSchedulesSave-parent">
 <div class="collapse show" id="ReportSchedulesSave-default" data-bs-parent="#ReportSchedulesSave-parent"> 
 ```json
 {"AsOfDateTime":"2000-01-01T00:00:00.000Z", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayOfWeek":123, "DayWeekNumber":123, "EndDate":"2000-01-01T00:00:00.000Z", "EndTime":"2000-01-01T00:00:00.000Z", "HeaderRequest":{"Id":123}, "Id":123, "Inactive":true, "Interval":123, "Name":"string", "StartDate":"2000-01-01T00:00:00.000Z", "StartTime":"2000-01-01T00:00:00.000Z", "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -10769,26 +10765,25 @@ AsOfDateTime,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DayOfWeek,
 </div>
 </div>
 
-## ReportUserGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#reportusergroups)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#reportusergroups)</button>  
+
+## ReportUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#reportusergroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#reportusergroups)</button>  
 		
 Create a new report/user group mapping.  
 ##### Usage:  
 ```shell
 tq post ReportUserGroups
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportUserGroupsCreate-default" aria-expanded="true" aria-controls="ReportUserGroupsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportUserGroupsCreate-default" aria-expanded="true" aria-controls="ReportUserGroupsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportUserGroupsCreate-flat" aria-expanded="false" aria-controls="ReportUserGroupsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportUserGroupsCreate-flat" aria-expanded="false" aria-controls="ReportUserGroupsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportUserGroupsCreate-csv" aria-expanded="false" aria-controls="ReportUserGroupsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportUserGroupsCreate-csv" aria-expanded="false" aria-controls="ReportUserGroupsCreate-csv">
 csv
-</button><div id="ReportUserGroupsCreate-parent">
+</button>
+<div id="ReportUserGroupsCreate-parent">
 <div class="collapse show" id="ReportUserGroupsCreate-default" data-bs-parent="#ReportUserGroupsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ReportId":"string", "RunRight":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ViewRight":"string"}
@@ -10808,25 +10803,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Id,ReportId,RunRight,UpdatedBy,UpdatedD
 </div>
 </div>
 
-## Reports 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#reports)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## Reports <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#reports)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 Get parameter values for a report parameter.  
 ##### Usage:  
 ```shell
 tq post Reports
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportsGetParameterValues-default" aria-expanded="true" aria-controls="ReportsGetParameterValues-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportsGetParameterValues-default" aria-expanded="true" aria-controls="ReportsGetParameterValues-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportsGetParameterValues-flat" aria-expanded="false" aria-controls="ReportsGetParameterValues-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportsGetParameterValues-flat" aria-expanded="false" aria-controls="ReportsGetParameterValues-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportsGetParameterValues-csv" aria-expanded="false" aria-controls="ReportsGetParameterValues-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportsGetParameterValues-csv" aria-expanded="false" aria-controls="ReportsGetParameterValues-csv">
 csv
-</button><div id="ReportsGetParameterValues-parent">
+</button>
+<div id="ReportsGetParameterValues-parent">
 <div class="collapse show" id="ReportsGetParameterValues-default" data-bs-parent="#ReportsGetParameterValues-parent"> 
 ```json
 {"ParameterName":"string", "ReportId":"string", "WhereDependencies":[{"ParameterId":"string"}, ...]}
@@ -10844,26 +10839,25 @@ csv
 </div>
 </div>
 
-## Research 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#research)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#research)</button>  
+
+## Research <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#research)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#research)</button>  
 		
 Create a research entry for a constituent.  
 ##### Usage:  
 ```shell
 tq post Research
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResearchCreate-default" aria-expanded="true" aria-controls="ResearchCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResearchCreate-default" aria-expanded="true" aria-controls="ResearchCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResearchCreate-flat" aria-expanded="false" aria-controls="ResearchCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResearchCreate-flat" aria-expanded="false" aria-controls="ResearchCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResearchCreate-csv" aria-expanded="false" aria-controls="ResearchCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResearchCreate-csv" aria-expanded="false" aria-controls="ResearchCreate-csv">
 csv
-</button><div id="ResearchCreate-parent">
+</button>
+<div id="ResearchCreate-parent">
 <div class="collapse show" id="ResearchCreate-default" data-bs-parent="#ResearchCreate-parent"> 
 ```json
 {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "ResearchDate":"2000-01-01T00:00:00.000Z", "ResearchSource":"string", "ResearchType":{"Id":123}, "Researcher":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -10883,26 +10877,25 @@ Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,Researc
 </div>
 </div>
 
-## ResearchTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#researchtypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#researchtypes)</button>  
+
+## ResearchTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#researchtypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#researchtypes)</button>  
 		
 Create a new research type.  
 ##### Usage:  
 ```shell
 tq post ResearchTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResearchTypesCreate-default" aria-expanded="true" aria-controls="ResearchTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResearchTypesCreate-default" aria-expanded="true" aria-controls="ResearchTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResearchTypesCreate-flat" aria-expanded="false" aria-controls="ResearchTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResearchTypesCreate-flat" aria-expanded="false" aria-controls="ResearchTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResearchTypesCreate-csv" aria-expanded="false" aria-controls="ResearchTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResearchTypesCreate-csv" aria-expanded="false" aria-controls="ResearchTypesCreate-csv">
 csv
-</button><div id="ResearchTypesCreate-parent">
+</button>
+<div id="ResearchTypesCreate-parent">
 <div class="collapse show" id="ResearchTypesCreate-default" data-bs-parent="#ResearchTypesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -10922,26 +10915,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## ResourceCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#resourcecategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#resourcecategories)</button>  
+
+## ResourceCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#resourcecategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#resourcecategories)</button>  
 		
 Create a new Resource Category.  
 ##### Usage:  
 ```shell
 tq post ResourceCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceCategoriesCreate-default" aria-expanded="true" aria-controls="ResourceCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceCategoriesCreate-default" aria-expanded="true" aria-controls="ResourceCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceCategoriesCreate-flat" aria-expanded="false" aria-controls="ResourceCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceCategoriesCreate-flat" aria-expanded="false" aria-controls="ResourceCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceCategoriesCreate-csv" aria-expanded="false" aria-controls="ResourceCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceCategoriesCreate-csv" aria-expanded="false" aria-controls="ResourceCategoriesCreate-csv">
 csv
-</button><div id="ResourceCategoriesCreate-parent">
+</button>
+<div id="ResourceCategoriesCreate-parent">
 <div class="collapse show" id="ResourceCategoriesCreate-default" data-bs-parent="#ResourceCategoriesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -10961,26 +10953,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## ResourceSchedules 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#resourceschedules)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#resourceschedules)</button>  
+
+## ResourceSchedules <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#resourceschedules)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#resourceschedules)</button>  
 		
 Create a Busy or Available resource schedule.  Booking Assignment Schedules must be created in a booking.  
 ##### Usage:  
 ```shell
 tq post ResourceSchedules
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceSchedulesCreate-default" aria-expanded="true" aria-controls="ResourceSchedulesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceSchedulesCreate-default" aria-expanded="true" aria-controls="ResourceSchedulesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceSchedulesCreate-flat" aria-expanded="false" aria-controls="ResourceSchedulesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceSchedulesCreate-flat" aria-expanded="false" aria-controls="ResourceSchedulesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceSchedulesCreate-csv" aria-expanded="false" aria-controls="ResourceSchedulesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceSchedulesCreate-csv" aria-expanded="false" aria-controls="ResourceSchedulesCreate-csv">
 csv
-</button><div id="ResourceSchedulesCreate-parent">
+</button>
+<div id="ResourceSchedulesCreate-parent">
 <div class="collapse show" id="ResourceSchedulesCreate-default" data-bs-parent="#ResourceSchedulesCreate-parent"> 
 ```json
 {"BookingAssignmentId":123, "ConstituentId":123, "Count":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OverrideConflicts":true, "RecurrenceDayOfWeek":"string", "RecurrenceEndDate":"2000-01-01T00:00:00.000Z", "RecurrenceInterval":123, "RecurrenceOrdinal":123, "RecurrencePattern":123, "ResourceId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -11000,26 +10991,25 @@ BookingAssignmentId,ConstituentId,Count,CreateLocation,CreatedBy,CreatedDateTime
 </div>
 </div>
 
-## ResourceTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#resourcetypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#resourcetypes)</button>  
+
+## ResourceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#resourcetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#resourcetypes)</button>  
 		
 Create a new resource type.  
 ##### Usage:  
 ```shell
 tq post ResourceTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceTypesCreate-default" aria-expanded="true" aria-controls="ResourceTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceTypesCreate-default" aria-expanded="true" aria-controls="ResourceTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceTypesCreate-flat" aria-expanded="false" aria-controls="ResourceTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceTypesCreate-flat" aria-expanded="false" aria-controls="ResourceTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceTypesCreate-csv" aria-expanded="false" aria-controls="ResourceTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceTypesCreate-csv" aria-expanded="false" aria-controls="ResourceTypesCreate-csv">
 csv
-</button><div id="ResourceTypesCreate-parent">
+</button>
+<div id="ResourceTypesCreate-parent">
 <div class="collapse show" id="ResourceTypesCreate-default" data-bs-parent="#ResourceTypesCreate-parent"> 
 ```json
 {"CanBeShared":true, "Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "HasCapacity":true, "Id":123, "Inactive":true, "RequireAvailability":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -11039,26 +11029,25 @@ true,123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string"
 </div>
 </div>
 
-## Resources 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#resources)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#resources)</button>  
+
+## Resources <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#resources)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#resources)</button>  
 		
 Create a Resource.  
 ##### Usage:  
 ```shell
 tq post Resources
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesCreate-default" aria-expanded="true" aria-controls="ResourcesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesCreate-default" aria-expanded="true" aria-controls="ResourcesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesCreate-flat" aria-expanded="false" aria-controls="ResourcesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesCreate-flat" aria-expanded="false" aria-controls="ResourcesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesCreate-csv" aria-expanded="false" aria-controls="ResourcesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesCreate-csv" aria-expanded="false" aria-controls="ResourcesCreate-csv">
 csv
-</button><div id="ResourcesCreate-parent">
+</button>
+<div id="ResourcesCreate-parent">
 <div class="collapse show" id="ResourcesCreate-default" data-bs-parent="#ResourcesCreate-parent"> 
 ```json
 {"Capacity":123, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultConfirmationText":"string", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Notes":"string", "ResourceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -11077,19 +11066,21 @@ Capacity,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,DefaultConfirma
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--FindAvailableResources*  
    Get a set of resources available at the requested time/count/qualifications.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesFindAvailableResources-default" aria-expanded="true" aria-controls="ResourcesFindAvailableResources-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesFindAvailableResources-default" aria-expanded="true" aria-controls="ResourcesFindAvailableResources-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesFindAvailableResources-flat" aria-expanded="false" aria-controls="ResourcesFindAvailableResources-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesFindAvailableResources-flat" aria-expanded="false" aria-controls="ResourcesFindAvailableResources-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesFindAvailableResources-csv" aria-expanded="false" aria-controls="ResourcesFindAvailableResources-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesFindAvailableResources-csv" aria-expanded="false" aria-controls="ResourcesFindAvailableResources-csv">
 csv
-</button><div id="ResourcesFindAvailableResources-parent">
+</button>
+<div id="ResourcesFindAvailableResources-parent">
 <div class="collapse show" id="ResourcesFindAvailableResources-default" data-bs-parent="#ResourcesFindAvailableResources-parent"> 
 ```json
 {"EndDateTime":"2000-01-01T00:00:00.000Z", "QualificationIds":"string", "ResourceCount":123, "ResourceTypeId":123, "StartDateTime":"2000-01-01T00:00:00.000Z"}
@@ -11108,18 +11099,20 @@ EndDateTime,QualificationIds,ResourceCount,ResourceTypeId,StartDateTime
 ```  
 </div>
 </div>
+
  * *--ScheduleOccurrences*  
    Get schedule occurrences for set of resources and/or constituents during certain period of time.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesGetScheduleOccurrences-default" aria-expanded="true" aria-controls="ResourcesGetScheduleOccurrences-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesGetScheduleOccurrences-default" aria-expanded="true" aria-controls="ResourcesGetScheduleOccurrences-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesGetScheduleOccurrences-flat" aria-expanded="false" aria-controls="ResourcesGetScheduleOccurrences-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesGetScheduleOccurrences-flat" aria-expanded="false" aria-controls="ResourcesGetScheduleOccurrences-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesGetScheduleOccurrences-csv" aria-expanded="false" aria-controls="ResourcesGetScheduleOccurrences-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesGetScheduleOccurrences-csv" aria-expanded="false" aria-controls="ResourcesGetScheduleOccurrences-csv">
 csv
-</button><div id="ResourcesGetScheduleOccurrences-parent">
+</button>
+<div id="ResourcesGetScheduleOccurrences-parent">
 <div class="collapse show" id="ResourcesGetScheduleOccurrences-default" data-bs-parent="#ResourcesGetScheduleOccurrences-parent"> 
 ```json
 {"ConstituentIds":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "ExpandWorkerAssignments":true, "ResourceIds":"string", "ResourceTypeIds":"string", "StartDateTime":"2000-01-01T00:00:00.000Z"}
@@ -11139,28 +11132,27 @@ ConstituentIds,EndDateTime,ExpandWorkerAssignments,ResourceIds,ResourceTypeIds,S
 </div>
 </div>
 
+
 	
 # S
-## SalesChannels 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#saleschannels)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#saleschannels)</button>  
+## SalesChannels <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#saleschannels)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#saleschannels)</button>  
 		
 Create a new sales channel.  
 ##### Usage:  
 ```shell
 tq post SalesChannels
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesChannelsCreate-default" aria-expanded="true" aria-controls="SalesChannelsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesChannelsCreate-default" aria-expanded="true" aria-controls="SalesChannelsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesChannelsCreate-flat" aria-expanded="false" aria-controls="SalesChannelsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesChannelsCreate-flat" aria-expanded="false" aria-controls="SalesChannelsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesChannelsCreate-csv" aria-expanded="false" aria-controls="SalesChannelsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesChannelsCreate-csv" aria-expanded="false" aria-controls="SalesChannelsCreate-csv">
 csv
-</button><div id="SalesChannelsCreate-parent">
+</button>
+<div id="SalesChannelsCreate-parent">
 <div class="collapse show" id="SalesChannelsCreate-default" data-bs-parent="#SalesChannelsCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -11180,26 +11172,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## SalesLayoutButtonTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#saleslayoutbuttontypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#saleslayoutbuttontypes)</button>  
+
+## SalesLayoutButtonTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#saleslayoutbuttontypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#saleslayoutbuttontypes)</button>  
 		
 Create a new sales layout button type.  
 ##### Usage:  
 ```shell
 tq post SalesLayoutButtonTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesLayoutButtonTypesCreate-default" aria-expanded="true" aria-controls="SalesLayoutButtonTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesLayoutButtonTypesCreate-default" aria-expanded="true" aria-controls="SalesLayoutButtonTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesLayoutButtonTypesCreate-flat" aria-expanded="false" aria-controls="SalesLayoutButtonTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesLayoutButtonTypesCreate-flat" aria-expanded="false" aria-controls="SalesLayoutButtonTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesLayoutButtonTypesCreate-csv" aria-expanded="false" aria-controls="SalesLayoutButtonTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesLayoutButtonTypesCreate-csv" aria-expanded="false" aria-controls="SalesLayoutButtonTypesCreate-csv">
 csv
-</button><div id="SalesLayoutButtonTypesCreate-parent">
+</button>
+<div id="SalesLayoutButtonTypesCreate-parent">
 <div class="collapse show" id="SalesLayoutButtonTypesCreate-default" data-bs-parent="#SalesLayoutButtonTypesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -11219,26 +11210,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,UpdatedBy,UpdatedDateTim
 </div>
 </div>
 
-## SalesLayouts 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#saleslayouts)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#saleslayouts)</button>  
+
+## SalesLayouts <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#saleslayouts)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#saleslayouts)</button>  
 		
 Create a new sales layout setup.  
 ##### Usage:  
 ```shell
 tq post SalesLayouts
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesLayoutsCreate-default" aria-expanded="true" aria-controls="SalesLayoutsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesLayoutsCreate-default" aria-expanded="true" aria-controls="SalesLayoutsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesLayoutsCreate-flat" aria-expanded="false" aria-controls="SalesLayoutsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesLayoutsCreate-flat" aria-expanded="false" aria-controls="SalesLayoutsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesLayoutsCreate-csv" aria-expanded="false" aria-controls="SalesLayoutsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesLayoutsCreate-csv" aria-expanded="false" aria-controls="SalesLayoutsCreate-csv">
 csv
-</button><div id="SalesLayoutsCreate-parent">
+</button>
+<div id="SalesLayoutsCreate-parent">
 <div class="collapse show" id="SalesLayoutsCreate-default" data-bs-parent="#SalesLayoutsCreate-parent"> 
 ```json
 {"Columns":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PaymentMethods":[{"Id":123}, ...], "PriceTypes":[{"Id":123}, ...], "PrimaryIndicator":true, "Rows":123, "SalesLayoutButtons":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -11256,26 +11246,25 @@ csv
 </div>
 </div>
 
-## SalutationTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#salutationtypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#salutationtypes)</button>  
+
+## SalutationTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#salutationtypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#salutationtypes)</button>  
 		
 Create a new salutation type.  
 ##### Usage:  
 ```shell
 tq post SalutationTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalutationTypesCreate-default" aria-expanded="true" aria-controls="SalutationTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalutationTypesCreate-default" aria-expanded="true" aria-controls="SalutationTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalutationTypesCreate-flat" aria-expanded="false" aria-controls="SalutationTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalutationTypesCreate-flat" aria-expanded="false" aria-controls="SalutationTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalutationTypesCreate-csv" aria-expanded="false" aria-controls="SalutationTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalutationTypesCreate-csv" aria-expanded="false" aria-controls="SalutationTypesCreate-csv">
 csv
-</button><div id="SalutationTypesCreate-parent">
+</button>
+<div id="SalutationTypesCreate-parent">
 <div class="collapse show" id="SalutationTypesCreate-default" data-bs-parent="#SalutationTypesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -11295,26 +11284,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## Salutations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#salutations)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#salutations)</button>  
+
+## Salutations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#salutations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#salutations)</button>  
 		
 Create a new salutation.  
 ##### Usage:  
 ```shell
 tq post Salutations
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalutationsCreate-default" aria-expanded="true" aria-controls="SalutationsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalutationsCreate-default" aria-expanded="true" aria-controls="SalutationsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalutationsCreate-flat" aria-expanded="false" aria-controls="SalutationsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalutationsCreate-flat" aria-expanded="false" aria-controls="SalutationsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalutationsCreate-csv" aria-expanded="false" aria-controls="SalutationsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalutationsCreate-csv" aria-expanded="false" aria-controls="SalutationsCreate-csv">
 csv
-</button><div id="SalutationsCreate-parent">
+</button>
+<div id="SalutationsCreate-parent">
 <div class="collapse show" id="SalutationsCreate-default" data-bs-parent="#SalutationsCreate-parent"> 
 ```json
 {"BusinessTitle":"string", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "EditIndicator":true, "EnvelopeSalutation1":"string", "EnvelopeSalutation2":"string", "Id":123, "IsFromAffiliation":true, "Label":true, "LetterSalutation":"string", "SalutationType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -11334,26 +11322,25 @@ BusinessTitle,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,DefaultInd
 </div>
 </div>
 
-## SchedulePatternTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#schedulepatterntypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#schedulepatterntypes)</button>  
+
+## SchedulePatternTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#schedulepatterntypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#schedulepatterntypes)</button>  
 		
 Create a new Schedule Pattern.  
 ##### Usage:  
 ```shell
 tq post SchedulePatternTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SchedulePatternTypesCreate-default" aria-expanded="true" aria-controls="SchedulePatternTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SchedulePatternTypesCreate-default" aria-expanded="true" aria-controls="SchedulePatternTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SchedulePatternTypesCreate-flat" aria-expanded="false" aria-controls="SchedulePatternTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SchedulePatternTypesCreate-flat" aria-expanded="false" aria-controls="SchedulePatternTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SchedulePatternTypesCreate-csv" aria-expanded="false" aria-controls="SchedulePatternTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SchedulePatternTypesCreate-csv" aria-expanded="false" aria-controls="SchedulePatternTypesCreate-csv">
 csv
-</button><div id="SchedulePatternTypesCreate-parent">
+</button>
+<div id="SchedulePatternTypesCreate-parent">
 <div class="collapse show" id="SchedulePatternTypesCreate-default" data-bs-parent="#SchedulePatternTypesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -11373,26 +11360,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## ScheduleTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#scheduletypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#scheduletypes)</button>  
+
+## ScheduleTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#scheduletypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#scheduletypes)</button>  
 		
 Create a new Schedule Type.  
 ##### Usage:  
 ```shell
 tq post ScheduleTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ScheduleTypesCreate-default" aria-expanded="true" aria-controls="ScheduleTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ScheduleTypesCreate-default" aria-expanded="true" aria-controls="ScheduleTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ScheduleTypesCreate-flat" aria-expanded="false" aria-controls="ScheduleTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ScheduleTypesCreate-flat" aria-expanded="false" aria-controls="ScheduleTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ScheduleTypesCreate-csv" aria-expanded="false" aria-controls="ScheduleTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ScheduleTypesCreate-csv" aria-expanded="false" aria-controls="ScheduleTypesCreate-csv">
 csv
-</button><div id="ScheduleTypesCreate-parent">
+</button>
+<div id="ScheduleTypesCreate-parent">
 <div class="collapse show" id="ScheduleTypesCreate-default" data-bs-parent="#ScheduleTypesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -11412,26 +11398,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## SeasonTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#seasontypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#seasontypes)</button>  
+
+## SeasonTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#seasontypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#seasontypes)</button>  
 		
 Create a new season type.  
 ##### Usage:  
 ```shell
 tq post SeasonTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeasonTypesCreate-default" aria-expanded="true" aria-controls="SeasonTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeasonTypesCreate-default" aria-expanded="true" aria-controls="SeasonTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeasonTypesCreate-flat" aria-expanded="false" aria-controls="SeasonTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeasonTypesCreate-flat" aria-expanded="false" aria-controls="SeasonTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeasonTypesCreate-csv" aria-expanded="false" aria-controls="SeasonTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeasonTypesCreate-csv" aria-expanded="false" aria-controls="SeasonTypesCreate-csv">
 csv
-</button><div id="SeasonTypesCreate-parent">
+</button>
+<div id="SeasonTypesCreate-parent">
 <div class="collapse show" id="SeasonTypesCreate-default" data-bs-parent="#SeasonTypesCreate-parent"> 
 ```json
 {"BusinessUnit":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -11451,26 +11436,25 @@ BusinessUnit.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## Seasons 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#seasons)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#seasons)</button>  
+
+## Seasons <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#seasons)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#seasons)</button>  
 		
 Create a new season.  
 ##### Usage:  
 ```shell
 tq post Seasons
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeasonsCreate-default" aria-expanded="true" aria-controls="SeasonsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeasonsCreate-default" aria-expanded="true" aria-controls="SeasonsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeasonsCreate-flat" aria-expanded="false" aria-controls="SeasonsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeasonsCreate-flat" aria-expanded="false" aria-controls="SeasonsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeasonsCreate-csv" aria-expanded="false" aria-controls="SeasonsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeasonsCreate-csv" aria-expanded="false" aria-controls="SeasonsCreate-csv">
 csv
-</button><div id="SeasonsCreate-parent">
+</button>
+<div id="SeasonsCreate-parent">
 <div class="collapse show" id="SeasonsCreate-default" data-bs-parent="#SeasonsCreate-parent"> 
 ```json
 {"ConfirmationNoticeFormat":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Description":"string", "DisplayInSeasonOverview":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "FYear":123, "Id":123, "Inactive":true, "RenewalNoticeFormat":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "SubscriptionFund1":123, "SubscriptionFund2":123, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "YearlySeason":123}
@@ -11490,26 +11474,25 @@ ConfirmationNoticeFormat,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTim
 </div>
 </div>
 
-## SeatCodes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#seatcodes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#seatcodes)</button>  
+
+## SeatCodes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#seatcodes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#seatcodes)</button>  
 		
 Create a new seat code.  
 ##### Usage:  
 ```shell
 tq post SeatCodes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeatCodesCreate-default" aria-expanded="true" aria-controls="SeatCodesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeatCodesCreate-default" aria-expanded="true" aria-controls="SeatCodesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeatCodesCreate-flat" aria-expanded="false" aria-controls="SeatCodesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeatCodesCreate-flat" aria-expanded="false" aria-controls="SeatCodesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeatCodesCreate-csv" aria-expanded="false" aria-controls="SeatCodesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeatCodesCreate-csv" aria-expanded="false" aria-controls="SeatCodesCreate-csv">
 csv
-</button><div id="SeatCodesCreate-parent">
+</button>
+<div id="SeatCodesCreate-parent">
 <div class="collapse show" id="SeatCodesCreate-default" data-bs-parent="#SeatCodesCreate-parent"> 
 ```json
 {"BackColor":123, "Context":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DisplayLetter":"string", "ForeColor":123, "Id":123, "Inactive":true, "IsSeat":123, "TicketText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -11529,26 +11512,25 @@ BackColor,Context,CreateLocation,CreatedBy,CreatedDateTime,Description,DisplayLe
 </div>
 </div>
 
-## SeatStatuses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#seatstatuses)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#seatstatuses)</button>  
+
+## SeatStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#seatstatuses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#seatstatuses)</button>  
 		
 Create a new seat status.  
 ##### Usage:  
 ```shell
 tq post SeatStatuses
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeatStatusesCreate-default" aria-expanded="true" aria-controls="SeatStatusesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeatStatusesCreate-default" aria-expanded="true" aria-controls="SeatStatusesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeatStatusesCreate-flat" aria-expanded="false" aria-controls="SeatStatusesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeatStatusesCreate-flat" aria-expanded="false" aria-controls="SeatStatusesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeatStatusesCreate-csv" aria-expanded="false" aria-controls="SeatStatusesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeatStatusesCreate-csv" aria-expanded="false" aria-controls="SeatStatusesCreate-csv">
 csv
-</button><div id="SeatStatusesCreate-parent">
+</button>
+<div id="SeatStatusesCreate-parent">
 <div class="collapse show" id="SeatStatusesCreate-default" data-bs-parent="#SeatStatusesCreate-parent"> 
 ```json
 {"BackColor":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "ForeColor":123, "Id":123, "Inactive":true, "StatusCode":"string", "StatusLegend":"string", "StatusPriority":123, "Tck":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -11568,26 +11550,25 @@ BackColor,CreateLocation,CreatedBy,CreatedDateTime,Description,ForeColor,Id,Inac
 </div>
 </div>
 
-## Sections 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#sections)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#sections)</button>  
+
+## Sections <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#sections)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#sections)</button>  
 		
 Create a new section.  
 ##### Usage:  
 ```shell
 tq post Sections
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SectionsCreate-default" aria-expanded="true" aria-controls="SectionsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SectionsCreate-default" aria-expanded="true" aria-controls="SectionsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SectionsCreate-flat" aria-expanded="false" aria-controls="SectionsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SectionsCreate-flat" aria-expanded="false" aria-controls="SectionsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SectionsCreate-csv" aria-expanded="false" aria-controls="SectionsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SectionsCreate-csv" aria-expanded="false" aria-controls="SectionsCreate-csv">
 csv
-</button><div id="SectionsCreate-parent">
+</button>
+<div id="SectionsCreate-parent">
 <div class="collapse show" id="SectionsCreate-default" data-bs-parent="#SectionsCreate-parent"> 
 ```json
 {"AdditionalText":"string", "AdditionalText2":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "PrintDesc":"string", "PrintSequence":123, "SectionLegend":"string", "ShortDesc":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -11618,26 +11599,25 @@ AdditionalText,AdditionalText2,CreateLocation,CreatedBy,CreatedDateTime,Descript
 
 
 
-## ServiceResourceUserGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#serviceresourceusergroups)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#serviceresourceusergroups)</button>  
+
+## ServiceResourceUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#serviceresourceusergroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#serviceresourceusergroups)</button>  
 		
 Create a new service resource/user group mapping.  
 ##### Usage:  
 ```shell
 tq post ServiceResourceUserGroups
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ServiceResourceUserGroupsCreate-default" aria-expanded="true" aria-controls="ServiceResourceUserGroupsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ServiceResourceUserGroupsCreate-default" aria-expanded="true" aria-controls="ServiceResourceUserGroupsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ServiceResourceUserGroupsCreate-flat" aria-expanded="false" aria-controls="ServiceResourceUserGroupsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ServiceResourceUserGroupsCreate-flat" aria-expanded="false" aria-controls="ServiceResourceUserGroupsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ServiceResourceUserGroupsCreate-csv" aria-expanded="false" aria-controls="ServiceResourceUserGroupsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ServiceResourceUserGroupsCreate-csv" aria-expanded="false" aria-controls="ServiceResourceUserGroupsCreate-csv">
 csv
-</button><div id="ServiceResourceUserGroupsCreate-parent">
+</button>
+<div id="ServiceResourceUserGroupsCreate-parent">
 <div class="collapse show" id="ServiceResourceUserGroupsCreate-default" data-bs-parent="#ServiceResourceUserGroupsCreate-parent"> 
 ```json
 {"CanCreate":true, "CanDelete":true, "CanRead":true, "CanUpdate":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ServiceResource":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string"}
@@ -11658,26 +11638,25 @@ true,true,true,true,"""string""","""string""","""2000-01-01T00:00:00.000Z""",123
 </div>
 
 
-## Session 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#session)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#session)</button>  
+
+## Session <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#session)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#session)</button>  
 		
 Add a new session variable to specified session.  
 ##### Usage:  
 ```shell
 tq post Session
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionAddVariable-default" aria-expanded="true" aria-controls="SessionAddVariable-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionAddVariable-default" aria-expanded="true" aria-controls="SessionAddVariable-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionAddVariable-flat" aria-expanded="false" aria-controls="SessionAddVariable-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionAddVariable-flat" aria-expanded="false" aria-controls="SessionAddVariable-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionAddVariable-csv" aria-expanded="false" aria-controls="SessionAddVariable-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionAddVariable-csv" aria-expanded="false" aria-controls="SessionAddVariable-csv">
 csv
-</button><div id="SessionAddVariable-parent">
+</button>
+<div id="SessionAddVariable-parent">
 <div class="collapse show" id="SessionAddVariable-default" data-bs-parent="#SessionAddVariable-parent"> 
 ```json
 {"SessionKey":"string", "Name":"string", "Value":"string"}
@@ -11696,20 +11675,22 @@ Name,SessionKey,Value
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--BusinessFacingSession*  
    Creates a new business-facing session and returns a unique session key.
 A source number and mode of sale must be supplied. An optional valid batch id may be included.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionCreateBusinessFacingSession-default" aria-expanded="true" aria-controls="SessionCreateBusinessFacingSession-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionCreateBusinessFacingSession-default" aria-expanded="true" aria-controls="SessionCreateBusinessFacingSession-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionCreateBusinessFacingSession-flat" aria-expanded="false" aria-controls="SessionCreateBusinessFacingSession-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionCreateBusinessFacingSession-flat" aria-expanded="false" aria-controls="SessionCreateBusinessFacingSession-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionCreateBusinessFacingSession-csv" aria-expanded="false" aria-controls="SessionCreateBusinessFacingSession-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionCreateBusinessFacingSession-csv" aria-expanded="false" aria-controls="SessionCreateBusinessFacingSession-csv">
 csv
-</button><div id="SessionCreateBusinessFacingSession-parent">
+</button>
+<div id="SessionCreateBusinessFacingSession-parent">
 <div class="collapse show" id="SessionCreateBusinessFacingSession-default" data-bs-parent="#SessionCreateBusinessFacingSession-parent"> 
 ```json
 {"BusinessUnit":123, "IpAddress":"string", "Organization":"string", "SessionInfo":{"BatchId":123, "ModeOfSaleId":123, "PromotionCode":123}}
@@ -11728,6 +11709,7 @@ BusinessUnit,IpAddress,Organization,SessionInfo.BatchId,SessionInfo.ModeOfSaleId
 ```  
 </div>
 </div>
+
  * *--LoadOrder*  
    Load an existing order into the cart and return the cart details
 
@@ -11735,16 +11717,17 @@ Once an order is loaded, changes can be made to the order. When loaded, the sess
 This method loads all products and payments. Generally, these reloaded products and payments cannot be manipulated by the API. New products and payments can be added, then saved with Checkout.
 Locked orders cannot be loaded by this method. If the method is called for a locked order, a determination of whether or not the order is locked by an abandoned web session will be made based on the last access time of the session and the Order Lock Timeout value specified in T_DEFAULTS.  (Order Lock Timeout is the number of minutes after which to consider an idle session abandoned.)  If the session is determined to be abandoned, the order will be unlocked and loaded.
 NOTE:  All orders loaded by this procedure get a mir_lock value of -1.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoadOrder-default" aria-expanded="true" aria-controls="SessionLoadOrder-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoadOrder-default" aria-expanded="true" aria-controls="SessionLoadOrder-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoadOrder-flat" aria-expanded="false" aria-controls="SessionLoadOrder-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoadOrder-flat" aria-expanded="false" aria-controls="SessionLoadOrder-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoadOrder-csv" aria-expanded="false" aria-controls="SessionLoadOrder-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoadOrder-csv" aria-expanded="false" aria-controls="SessionLoadOrder-csv">
 csv
-</button><div id="SessionLoadOrder-parent">
+</button>
+<div id="SessionLoadOrder-parent">
 <div class="collapse show" id="SessionLoadOrder-default" data-bs-parent="#SessionLoadOrder-parent"> 
 ```json
 {"OrderID":"string", "SessionKey":"string"}
@@ -11763,6 +11746,7 @@ OrderID,SessionKey
 ```  
 </div>
 </div>
+
  * *--Login*  
    Login a constituent using Username and Password.
 A constituent record must have an existing login in order for successful authentication.  
@@ -11773,16 +11757,17 @@ This method sets four session variables:
 - UserName -- The username for the session
 - Status -- The status of the login (P = permanent, T = temporary)
 A constituent can be locked out of logging in after a certain number of failed log in attempts.  The number of failed attempts before lockout and the length of lockout are set in the T_DEFAULTS table.  Should a constituent exceed the allowed number of failed log in attempts, the method returns data on the number of failed login attempts per login along with a timestamp of the time at which the user was locked out of the login process.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLogin-default" aria-expanded="true" aria-controls="SessionLogin-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLogin-default" aria-expanded="true" aria-controls="SessionLogin-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLogin-flat" aria-expanded="false" aria-controls="SessionLogin-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLogin-flat" aria-expanded="false" aria-controls="SessionLogin-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLogin-csv" aria-expanded="false" aria-controls="SessionLogin-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLogin-csv" aria-expanded="false" aria-controls="SessionLogin-csv">
 csv
-</button><div id="SessionLogin-parent">
+</button>
+<div id="SessionLogin-parent">
 <div class="collapse show" id="SessionLogin-default" data-bs-parent="#SessionLogin-parent"> 
 ```json
 {"LoginTypeId":123, "Password":"string", "PersistSessionOnFailure":true, "PromotionCode":123, "UserName":"string", "SessionKey":"string"}
@@ -11801,20 +11786,22 @@ LoginTypeId,Password,PersistSessionOnFailure,PromotionCode,SessionKey,UserName
 ```  
 </div>
 </div>
+
  * *--LoginAsGuest*  
    Login for guest checkout.
 Allows anonymous checkout under constituent 0, attaching the supplied email address to the cart.  The session will be marked as a guest login.
 If the email address exists attached to a login of the specified login type, that login's constituent ID will be used on the cart.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginAsGuest-default" aria-expanded="true" aria-controls="SessionLoginAsGuest-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginAsGuest-default" aria-expanded="true" aria-controls="SessionLoginAsGuest-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginAsGuest-flat" aria-expanded="false" aria-controls="SessionLoginAsGuest-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginAsGuest-flat" aria-expanded="false" aria-controls="SessionLoginAsGuest-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginAsGuest-csv" aria-expanded="false" aria-controls="SessionLoginAsGuest-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginAsGuest-csv" aria-expanded="false" aria-controls="SessionLoginAsGuest-csv">
 csv
-</button><div id="SessionLoginAsGuest-parent">
+</button>
+<div id="SessionLoginAsGuest-parent">
 <div class="collapse show" id="SessionLoginAsGuest-default" data-bs-parent="#SessionLoginAsGuest-parent"> 
 ```json
 {"ElectronicAddressTypeId":123, "EmailAddress":"string", "LoginTypeId":123, "SessionKey":"string"}
@@ -11833,6 +11820,7 @@ ElectronicAddressTypeId,EmailAddress,LoginTypeId,SessionKey
 ```  
 </div>
 </div>
+
  * *--LoginUsingConstituentInfo*  
    Login a constituent using Constituent ID, Phone Number and Postal Code.  Email can also be passed for additional validation but is optional.
 A constituent record must have an existing login in order for successful authentication.  
@@ -11843,16 +11831,17 @@ This method sets four session variables:
 - UserName -- The username for the session
 - Status -- The status of the login (P = permanent, T = temporary)
 A constituent can be locked out of logging in after a certain number of failed log in attempts.  The number of failed attempts before lockout and the length of lockout are set in the T_DEFAULTS table.  Should a constituent exceed the allowed number of failed log in attempts, the method returns data on the number of failed login attempts per login along with a timestamp of the time at which the user was locked out of the login process.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingConstituentInfo-default" aria-expanded="true" aria-controls="SessionLoginUsingConstituentInfo-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingConstituentInfo-default" aria-expanded="true" aria-controls="SessionLoginUsingConstituentInfo-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingConstituentInfo-flat" aria-expanded="false" aria-controls="SessionLoginUsingConstituentInfo-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingConstituentInfo-flat" aria-expanded="false" aria-controls="SessionLoginUsingConstituentInfo-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingConstituentInfo-csv" aria-expanded="false" aria-controls="SessionLoginUsingConstituentInfo-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingConstituentInfo-csv" aria-expanded="false" aria-controls="SessionLoginUsingConstituentInfo-csv">
 csv
-</button><div id="SessionLoginUsingConstituentInfo-parent">
+</button>
+<div id="SessionLoginUsingConstituentInfo-parent">
 <div class="collapse show" id="SessionLoginUsingConstituentInfo-default" data-bs-parent="#SessionLoginUsingConstituentInfo-parent"> 
 ```json
 {"ConstituentId":123, "EmailAddress":"string", "LoginTypeId":123, "PhoneNumber":"string", "PostalCode":"string", "PromotionCode":123, "SessionKey":"string"}
@@ -11871,6 +11860,7 @@ ConstituentId,EmailAddress,LoginTypeId,PhoneNumber,PostalCode,PromotionCode,Sess
 ```  
 </div>
 </div>
+
  * *--LoginUsingEmail*  
    Login a constituent using Email and Password
 A constituent record must have an existing login in order for successful authentication.  
@@ -11881,16 +11871,17 @@ This method sets four session variables:
 - UserName -- The username for the session
 - Status -- The status of the login (P = permanent, T = temporary)
 A constituent can be locked out of logging in after a certain number of failed log in attempts.  The number of failed attempts before lockout and the length of lockout are set in the T_DEFAULTS table.  Should a constituent exceed the allowed number of failed log in attempts, the method returns data on the number of failed login attempts per login along with a timestamp of the time at which the user was locked out of the login process.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingEmail-default" aria-expanded="true" aria-controls="SessionLoginUsingEmail-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingEmail-default" aria-expanded="true" aria-controls="SessionLoginUsingEmail-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingEmail-flat" aria-expanded="false" aria-controls="SessionLoginUsingEmail-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingEmail-flat" aria-expanded="false" aria-controls="SessionLoginUsingEmail-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingEmail-csv" aria-expanded="false" aria-controls="SessionLoginUsingEmail-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingEmail-csv" aria-expanded="false" aria-controls="SessionLoginUsingEmail-csv">
 csv
-</button><div id="SessionLoginUsingEmail-parent">
+</button>
+<div id="SessionLoginUsingEmail-parent">
 <div class="collapse show" id="SessionLoginUsingEmail-default" data-bs-parent="#SessionLoginUsingEmail-parent"> 
 ```json
 {"EmailAddress":"string", "LoginTypeId":123, "Password":"string", "PromotionCode":123, "SessionKey":"string"}
@@ -11909,6 +11900,7 @@ EmailAddress,LoginTypeId,Password,PromotionCode,SessionKey
 ```  
 </div>
 </div>
+
  * *--LoginUsingExternal*  
    Login a constituent using External Authentication 
 A constituent record must have an existing login in order for successful authentication.  
@@ -11919,16 +11911,17 @@ This method sets four session variables:
 - UserName -- The username for the session
 - Status -- The status of the login (P = permanent, T = temporary)
 A constituent can be locked out of logging in after a certain number of failed log in attempts.  The number of failed attempts before lockout and the length of lockout are set in the T_DEFAULTS table.  Should a constituent exceed the allowed number of failed log in attempts, the method returns data on the number of failed login attempts per login along with a timestamp of the time at which the user was locked out of the login process.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingExternal-default" aria-expanded="true" aria-controls="SessionLoginUsingExternal-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingExternal-default" aria-expanded="true" aria-controls="SessionLoginUsingExternal-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingExternal-flat" aria-expanded="false" aria-controls="SessionLoginUsingExternal-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingExternal-flat" aria-expanded="false" aria-controls="SessionLoginUsingExternal-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingExternal-csv" aria-expanded="false" aria-controls="SessionLoginUsingExternal-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingExternal-csv" aria-expanded="false" aria-controls="SessionLoginUsingExternal-csv">
 csv
-</button><div id="SessionLoginUsingExternal-parent">
+</button>
+<div id="SessionLoginUsingExternal-parent">
 <div class="collapse show" id="SessionLoginUsingExternal-default" data-bs-parent="#SessionLoginUsingExternal-parent"> 
 ```json
 {"LoginTypeId":123, "PromotionCode":123, "UserName":"string", "SessionKey":"string"}
@@ -11947,6 +11940,7 @@ LoginTypeId,PromotionCode,SessionKey,UserName
 ```  
 </div>
 </div>
+
  * *--LoginUsingToken*  
    Login a constituent using Login Token and Email
 A constituent record must have an existing login in order for successful authentication.  
@@ -11957,16 +11951,17 @@ This method sets four session variables:
 - UserName -- The username for the session
 - Status -- The status of the login (P = permanent, T = temporary)
 A constituent can be locked out of logging in after a certain number of failed log in attempts.  The number of failed attempts before lockout and the length of lockout are set in the T_DEFAULTS table.  Should a constituent exceed the allowed number of failed log in attempts, the method returns data on the number of failed login attempts per login along with a timestamp of the time at which the user was locked out of the login process.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingToken-default" aria-expanded="true" aria-controls="SessionLoginUsingToken-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingToken-default" aria-expanded="true" aria-controls="SessionLoginUsingToken-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingToken-flat" aria-expanded="false" aria-controls="SessionLoginUsingToken-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingToken-flat" aria-expanded="false" aria-controls="SessionLoginUsingToken-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingToken-csv" aria-expanded="false" aria-controls="SessionLoginUsingToken-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLoginUsingToken-csv" aria-expanded="false" aria-controls="SessionLoginUsingToken-csv">
 csv
-</button><div id="SessionLoginUsingToken-parent">
+</button>
+<div id="SessionLoginUsingToken-parent">
 <div class="collapse show" id="SessionLoginUsingToken-default" data-bs-parent="#SessionLoginUsingToken-parent"> 
 ```json
 {"EmailAddress":"string", "ForgotLoginToken":"string", "LoginTypeId":123, "PromotionCode":123, "SessionKey":"string"}
@@ -11985,19 +11980,21 @@ EmailAddress,ForgotLoginToken,LoginTypeId,PromotionCode,SessionKey
 ```  
 </div>
 </div>
+
  * *--Logout*  
    Logout a constituent
 Seats locked by the session are automatically released during logout. This behavior can be disabled by setting the DISCONNECT_ON_LOGOUT entry in T_DEFAULTS or the web.config file to False.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLogout-default" aria-expanded="true" aria-controls="SessionLogout-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLogout-default" aria-expanded="true" aria-controls="SessionLogout-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLogout-flat" aria-expanded="false" aria-controls="SessionLogout-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLogout-flat" aria-expanded="false" aria-controls="SessionLogout-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLogout-csv" aria-expanded="false" aria-controls="SessionLogout-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionLogout-csv" aria-expanded="false" aria-controls="SessionLogout-csv">
 csv
-</button><div id="SessionLogout-parent">
+</button>
+<div id="SessionLogout-parent">
 <div class="collapse show" id="SessionLogout-default" data-bs-parent="#SessionLogout-parent"> 
 ```json
 {"SessionKey":"string"}
@@ -12016,19 +12013,21 @@ SessionKey
 ```  
 </div>
 </div>
+
  * *--PromoCode*  
    Returns promotion information for a session by number or description
 A primary use of this method is to translate promo codes (text) into source codes (integers). This method also returns the 6 fields of text that can be recorded for each web source, which can be used to display specific messaging when a promo code is entered by a constituent.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionGetPromoCode-default" aria-expanded="true" aria-controls="SessionGetPromoCode-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionGetPromoCode-default" aria-expanded="true" aria-controls="SessionGetPromoCode-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionGetPromoCode-flat" aria-expanded="false" aria-controls="SessionGetPromoCode-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionGetPromoCode-flat" aria-expanded="false" aria-controls="SessionGetPromoCode-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionGetPromoCode-csv" aria-expanded="false" aria-controls="SessionGetPromoCode-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionGetPromoCode-csv" aria-expanded="false" aria-controls="SessionGetPromoCode-csv">
 csv
-</button><div id="SessionGetPromoCode-parent">
+</button>
+<div id="SessionGetPromoCode-parent">
 <div class="collapse show" id="SessionGetPromoCode-default" data-bs-parent="#SessionGetPromoCode-parent"> 
 ```json
 {"PromoCode":123, "PromoCodeString":"string", "SessionKey":"string"}
@@ -12047,21 +12046,23 @@ PromoCode,PromoCodeString,SessionKey
 ```  
 </div>
 </div>
+
  * *--Reprint*  
    This method causes a Print at Home reprint request to be written for the specified order.
 Note that the order will only be reprinted by the Tessitura Print at Home Ticketing service if the service is configured to recognize the delivery method used by the order.
 The mode of sale for the order must also be set in the TR_PAHT_CONFIGURATION table to allow TPAHT reprints.
 See the Tessitura Print at Home Ticketing Service document for more details.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionReprint-default" aria-expanded="true" aria-controls="SessionReprint-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionReprint-default" aria-expanded="true" aria-controls="SessionReprint-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionReprint-flat" aria-expanded="false" aria-controls="SessionReprint-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionReprint-flat" aria-expanded="false" aria-controls="SessionReprint-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionReprint-csv" aria-expanded="false" aria-controls="SessionReprint-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionReprint-csv" aria-expanded="false" aria-controls="SessionReprint-csv">
 csv
-</button><div id="SessionReprint-parent">
+</button>
+<div id="SessionReprint-parent">
 <div class="collapse show" id="SessionReprint-default" data-bs-parent="#SessionReprint-parent"> 
 ```json
 {"EmailAddressId":123, "OrderId":123, "SessionKey":"string"}
@@ -12080,19 +12081,21 @@ EmailAddressId,OrderId,SessionKey
 ```  
 </div>
 </div>
+
  * *--SendLoginCredentials*  
    Sends an email with a temporary login token to a specific email address and login type.
 The service searches for the email address in logins of the specified type. If it is found, a password token will be generated and the login credentials template that is configured in T_FORMAT_INFO will be sent.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionSendLoginCredentials-default" aria-expanded="true" aria-controls="SessionSendLoginCredentials-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionSendLoginCredentials-default" aria-expanded="true" aria-controls="SessionSendLoginCredentials-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionSendLoginCredentials-flat" aria-expanded="false" aria-controls="SessionSendLoginCredentials-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionSendLoginCredentials-flat" aria-expanded="false" aria-controls="SessionSendLoginCredentials-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionSendLoginCredentials-csv" aria-expanded="false" aria-controls="SessionSendLoginCredentials-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionSendLoginCredentials-csv" aria-expanded="false" aria-controls="SessionSendLoginCredentials-csv">
 csv
-</button><div id="SessionSendLoginCredentials-parent">
+</button>
+<div id="SessionSendLoginCredentials-parent">
 <div class="collapse show" id="SessionSendLoginCredentials-default" data-bs-parent="#SessionSendLoginCredentials-parent"> 
 ```json
 {"EmailAddress":"string", "LoginTypeId":123, "TemplateFormatId":123, "SessionKey":"string"}
@@ -12111,18 +12114,20 @@ EmailAddress,LoginTypeId,SessionKey,TemplateFormatId
 ```  
 </div>
 </div>
+
  * *--Session*  
    Creates a new session and returns a unique session key.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionCreateSession-default" aria-expanded="true" aria-controls="SessionCreateSession-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionCreateSession-default" aria-expanded="true" aria-controls="SessionCreateSession-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionCreateSession-flat" aria-expanded="false" aria-controls="SessionCreateSession-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionCreateSession-flat" aria-expanded="false" aria-controls="SessionCreateSession-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionCreateSession-csv" aria-expanded="false" aria-controls="SessionCreateSession-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionCreateSession-csv" aria-expanded="false" aria-controls="SessionCreateSession-csv">
 csv
-</button><div id="SessionCreateSession-parent">
+</button>
+<div id="SessionCreateSession-parent">
 <div class="collapse show" id="SessionCreateSession-default" data-bs-parent="#SessionCreateSession-parent"> 
 ```json
 {"BusinessUnitId":123, "IpAddress":"string", "Organization":"string", "PromotionCode":123}
@@ -12141,20 +12146,22 @@ BusinessUnitId,IpAddress,Organization,PromotionCode
 ```  
 </div>
 </div>
+
  * *--TransferSession*  
     Transfers the authentication for the specified session to another session. 
 This method is typically called after completing checkout, so the constituent is automatically transferred to a new session.  This avoids having to log in again. NOTE:  The new session must be generated using the /Web/Session (POST) method.
  You can choose to have the web API automatically disconnect the constituent's session from the Seat Server once transfer session has completed by setting the configuration value of DISCONNECT_SEAT_SERVER_SESSION_WHEN_TRANSFERING_SESSION to True in the Web API config file.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionTransferSession-default" aria-expanded="true" aria-controls="SessionTransferSession-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionTransferSession-default" aria-expanded="true" aria-controls="SessionTransferSession-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionTransferSession-flat" aria-expanded="false" aria-controls="SessionTransferSession-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionTransferSession-flat" aria-expanded="false" aria-controls="SessionTransferSession-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionTransferSession-csv" aria-expanded="false" aria-controls="SessionTransferSession-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionTransferSession-csv" aria-expanded="false" aria-controls="SessionTransferSession-csv">
 csv
-</button><div id="SessionTransferSession-parent">
+</button>
+<div id="SessionTransferSession-parent">
 <div class="collapse show" id="SessionTransferSession-default" data-bs-parent="#SessionTransferSession-parent"> 
 ```json
 {"NewSessionKey":"string", "SessionKey":"string"}
@@ -12173,18 +12180,20 @@ NewSessionKey,SessionKey
 ```  
 </div>
 </div>
+
  * *--WebLogin*  
    Creates a webLogin for a user and logs back into the session using new credentials.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionCreateWebLogin-default" aria-expanded="true" aria-controls="SessionCreateWebLogin-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionCreateWebLogin-default" aria-expanded="true" aria-controls="SessionCreateWebLogin-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionCreateWebLogin-flat" aria-expanded="false" aria-controls="SessionCreateWebLogin-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionCreateWebLogin-flat" aria-expanded="false" aria-controls="SessionCreateWebLogin-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionCreateWebLogin-csv" aria-expanded="false" aria-controls="SessionCreateWebLogin-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionCreateWebLogin-csv" aria-expanded="false" aria-controls="SessionCreateWebLogin-csv">
 csv
-</button><div id="SessionCreateWebLogin-parent">
+</button>
+<div id="SessionCreateWebLogin-parent">
 <div class="collapse show" id="SessionCreateWebLogin-default" data-bs-parent="#SessionCreateWebLogin-parent"> 
 ```json
 {"SessionKey":"string", "Constituent":{"Id":123}, "ConstituentUpdateDate":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Email":{"Id":123}, "FailedAttempts":123, "Id":123, "Inactive":true, "LastLoginDate":"2000-01-01T00:00:00.000Z", "LockedDate":"2000-01-01T00:00:00.000Z", "Login":"string", "LoginType":{"Id":123}, "Password":"string", "PrimaryIndicator":true, "TemporaryIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -12204,26 +12213,25 @@ Constituent.Id,ConstituentUpdateDate,CreateLocation,CreatedBy,CreatedDateTime,Ed
 </div>
 </div>
 
-## SourceGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#sourcegroups)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#sourcegroups)</button>  
+
+## SourceGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#sourcegroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#sourcegroups)</button>  
 		
 Create a new source group.  
 ##### Usage:  
 ```shell
 tq post SourceGroups
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SourceGroupsCreate-default" aria-expanded="true" aria-controls="SourceGroupsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SourceGroupsCreate-default" aria-expanded="true" aria-controls="SourceGroupsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SourceGroupsCreate-flat" aria-expanded="false" aria-controls="SourceGroupsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SourceGroupsCreate-flat" aria-expanded="false" aria-controls="SourceGroupsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SourceGroupsCreate-csv" aria-expanded="false" aria-controls="SourceGroupsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SourceGroupsCreate-csv" aria-expanded="false" aria-controls="SourceGroupsCreate-csv">
 csv
-</button><div id="SourceGroupsCreate-parent">
+</button>
+<div id="SourceGroupsCreate-parent">
 <div class="collapse show" id="SourceGroupsCreate-default" data-bs-parent="#SourceGroupsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -12244,26 +12252,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 
 
-## SpecialActivities 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#specialactivities)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#specialactivities)</button>  
+
+## SpecialActivities <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#specialactivities)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#specialactivities)</button>  
 		
 Create a new activity record.  
 ##### Usage:  
 ```shell
 tq post SpecialActivities
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivitiesCreate-default" aria-expanded="true" aria-controls="SpecialActivitiesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivitiesCreate-default" aria-expanded="true" aria-controls="SpecialActivitiesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivitiesCreate-flat" aria-expanded="false" aria-controls="SpecialActivitiesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivitiesCreate-flat" aria-expanded="false" aria-controls="SpecialActivitiesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivitiesCreate-csv" aria-expanded="false" aria-controls="SpecialActivitiesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivitiesCreate-csv" aria-expanded="false" aria-controls="SpecialActivitiesCreate-csv">
 csv
-</button><div id="SpecialActivitiesCreate-parent">
+</button>
+<div id="SpecialActivitiesCreate-parent">
 <div class="collapse show" id="SpecialActivitiesCreate-default" data-bs-parent="#SpecialActivitiesCreate-parent"> 
 ```json
 {"ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Notes":"string", "NumberOfAttendees":123, "Performance":"string", "SpecialActivityDateTime":"2000-01-01T00:00:00.000Z", "Status":{"Id":123}, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerConstituentId":123}
@@ -12283,26 +12290,25 @@ ConstituentId,CreateLocation,CreatedBy,CreatedDateTime,Id,Notes,NumberOfAttendee
 </div>
 </div>
 
-## SpecialActivityStatuses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#specialactivitystatuses)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#specialactivitystatuses)</button>  
+
+## SpecialActivityStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#specialactivitystatuses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#specialactivitystatuses)</button>  
 		
 Create a new Special Activity Status.  
 ##### Usage:  
 ```shell
 tq post SpecialActivityStatuses
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivityStatusesCreate-default" aria-expanded="true" aria-controls="SpecialActivityStatusesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivityStatusesCreate-default" aria-expanded="true" aria-controls="SpecialActivityStatusesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivityStatusesCreate-flat" aria-expanded="false" aria-controls="SpecialActivityStatusesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivityStatusesCreate-flat" aria-expanded="false" aria-controls="SpecialActivityStatusesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivityStatusesCreate-csv" aria-expanded="false" aria-controls="SpecialActivityStatusesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivityStatusesCreate-csv" aria-expanded="false" aria-controls="SpecialActivityStatusesCreate-csv">
 csv
-</button><div id="SpecialActivityStatusesCreate-parent">
+</button>
+<div id="SpecialActivityStatusesCreate-parent">
 <div class="collapse show" id="SpecialActivityStatusesCreate-default" data-bs-parent="#SpecialActivityStatusesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -12322,26 +12328,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## SpecialActivityTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#specialactivitytypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#specialactivitytypes)</button>  
+
+## SpecialActivityTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#specialactivitytypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#specialactivitytypes)</button>  
 		
 Create a new Special Activity Type.  
 ##### Usage:  
 ```shell
 tq post SpecialActivityTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivityTypesCreate-default" aria-expanded="true" aria-controls="SpecialActivityTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivityTypesCreate-default" aria-expanded="true" aria-controls="SpecialActivityTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivityTypesCreate-flat" aria-expanded="false" aria-controls="SpecialActivityTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivityTypesCreate-flat" aria-expanded="false" aria-controls="SpecialActivityTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivityTypesCreate-csv" aria-expanded="false" aria-controls="SpecialActivityTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivityTypesCreate-csv" aria-expanded="false" aria-controls="SpecialActivityTypesCreate-csv">
 csv
-</button><div id="SpecialActivityTypesCreate-parent">
+</button>
+<div id="SpecialActivityTypesCreate-parent">
 <div class="collapse show" id="SpecialActivityTypesCreate-default" data-bs-parent="#SpecialActivityTypesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -12361,26 +12366,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## States 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#states)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#states)</button>  
+
+## States <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#states)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#states)</button>  
 		
 Create a new state.  
 ##### Usage:  
 ```shell
 tq post States
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StatesCreate-default" aria-expanded="true" aria-controls="StatesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StatesCreate-default" aria-expanded="true" aria-controls="StatesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StatesCreate-flat" aria-expanded="false" aria-controls="StatesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StatesCreate-flat" aria-expanded="false" aria-controls="StatesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StatesCreate-csv" aria-expanded="false" aria-controls="StatesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StatesCreate-csv" aria-expanded="false" aria-controls="StatesCreate-csv">
 csv
-</button><div id="StatesCreate-parent">
+</button>
+<div id="StatesCreate-parent">
 <div class="collapse show" id="StatesCreate-default" data-bs-parent="#StatesCreate-parent"> 
 ```json
 {"Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "StateCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -12400,26 +12404,25 @@ Country.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,Stat
 </div>
 </div>
 
-## StepTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#steptypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#steptypes)</button>  
+
+## StepTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#steptypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#steptypes)</button>  
 		
 Create a new step type.  
 ##### Usage:  
 ```shell
 tq post StepTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepTypesCreate-default" aria-expanded="true" aria-controls="StepTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepTypesCreate-default" aria-expanded="true" aria-controls="StepTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepTypesCreate-flat" aria-expanded="false" aria-controls="StepTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepTypesCreate-flat" aria-expanded="false" aria-controls="StepTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepTypesCreate-csv" aria-expanded="false" aria-controls="StepTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepTypesCreate-csv" aria-expanded="false" aria-controls="StepTypesCreate-csv">
 csv
-</button><div id="StepTypesCreate-parent">
+</button>
+<div id="StepTypesCreate-parent">
 <div class="collapse show" id="StepTypesCreate-default" data-bs-parent="#StepTypesCreate-parent"> 
 ```json
 {"AllowAttachments":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseAssociate":"string", "UseCompletedOnDateTime":"string", "UseDueDateTime":"string", "UseNote":"string", "UseWarningDays":"string", "UseWorker":"string"}
@@ -12439,26 +12442,25 @@ AllowAttachments,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Descri
 </div>
 </div>
 
-## Steps 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#steps)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#steps)</button>  
+
+## Steps <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#steps)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#steps)</button>  
 		
 Create a new step.  
 ##### Usage:  
 ```shell
 tq post Steps
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepsCreate-default" aria-expanded="true" aria-controls="StepsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepsCreate-default" aria-expanded="true" aria-controls="StepsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepsCreate-flat" aria-expanded="false" aria-controls="StepsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepsCreate-flat" aria-expanded="false" aria-controls="StepsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepsCreate-csv" aria-expanded="false" aria-controls="StepsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepsCreate-csv" aria-expanded="false" aria-controls="StepsCreate-csv">
 csv
-</button><div id="StepsCreate-parent">
+</button>
+<div id="StepsCreate-parent">
 <div class="collapse show" id="StepsCreate-default" data-bs-parent="#StepsCreate-parent"> 
 ```json
 {"Associate":{"Id":123}, "CompletedOnDateTime":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DueDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "NewValue":"string", "Notes":"string", "OldValue":"string", "Plan":{"Id":123}, "Priority":123, "StepDateTime":"2000-01-01T00:00:00.000Z", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WarningDays":123, "Worker":{"Id":123}}
@@ -12477,19 +12479,21 @@ Associate.Id,CompletedOnDateTime,CreateLocation,CreatedBy,CreatedDateTime,Descri
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--AddDocument*  
    Add a document to the step.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepsAddDocument-default" aria-expanded="true" aria-controls="StepsAddDocument-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepsAddDocument-default" aria-expanded="true" aria-controls="StepsAddDocument-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepsAddDocument-flat" aria-expanded="false" aria-controls="StepsAddDocument-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepsAddDocument-flat" aria-expanded="false" aria-controls="StepsAddDocument-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepsAddDocument-csv" aria-expanded="false" aria-controls="StepsAddDocument-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepsAddDocument-csv" aria-expanded="false" aria-controls="StepsAddDocument-csv">
 csv
-</button><div id="StepsAddDocument-parent">
+</button>
+<div id="StepsAddDocument-parent">
 <div class="collapse show" id="StepsAddDocument-default" data-bs-parent="#StepsAddDocument-parent"> 
 ```json
 {"Category":{"Id":123}, "ConstituentId":123, "Contents":"AA==", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "FileName":"string", "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "StepID":"string"}
@@ -12509,26 +12513,25 @@ Category.Id,ConstituentId,Contents,CreateLocation,CreatedBy,CreatedDateTime,Desc
 </div>
 </div>
 
-## SubLineItemStatuses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#sublineitemstatuses)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#sublineitemstatuses)</button>  
+
+## SubLineItemStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#sublineitemstatuses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#sublineitemstatuses)</button>  
 		
 Create a new sub line item status.  
 ##### Usage:  
 ```shell
 tq post SubLineItemStatuses
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SubLineItemStatusesCreate-default" aria-expanded="true" aria-controls="SubLineItemStatusesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SubLineItemStatusesCreate-default" aria-expanded="true" aria-controls="SubLineItemStatusesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SubLineItemStatusesCreate-flat" aria-expanded="false" aria-controls="SubLineItemStatusesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SubLineItemStatusesCreate-flat" aria-expanded="false" aria-controls="SubLineItemStatusesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SubLineItemStatusesCreate-csv" aria-expanded="false" aria-controls="SubLineItemStatusesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SubLineItemStatusesCreate-csv" aria-expanded="false" aria-controls="SubLineItemStatusesCreate-csv">
 csv
-</button><div id="SubLineItemStatusesCreate-parent">
+</button>
+<div id="SubLineItemStatusesCreate-parent">
 <div class="collapse show" id="SubLineItemStatusesCreate-default" data-bs-parent="#SubLineItemStatusesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Priority":123, "StatusCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -12549,26 +12552,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,Priority,Status
 </div>
 
 
-## Suffixes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#suffixes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#suffixes)</button>  
+
+## Suffixes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#suffixes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#suffixes)</button>  
 		
 Create a new suffix.  
 ##### Usage:  
 ```shell
 tq post Suffixes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SuffixesCreate-default" aria-expanded="true" aria-controls="SuffixesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SuffixesCreate-default" aria-expanded="true" aria-controls="SuffixesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SuffixesCreate-flat" aria-expanded="false" aria-controls="SuffixesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SuffixesCreate-flat" aria-expanded="false" aria-controls="SuffixesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SuffixesCreate-csv" aria-expanded="false" aria-controls="SuffixesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SuffixesCreate-csv" aria-expanded="false" aria-controls="SuffixesCreate-csv">
 csv
-</button><div id="SuffixesCreate-parent">
+</button>
+<div id="SuffixesCreate-parent">
 <div class="collapse show" id="SuffixesCreate-default" data-bs-parent="#SuffixesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -12588,26 +12590,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## SurveyQuestions 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#surveyquestions)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#surveyquestions)</button>  
+
+## SurveyQuestions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#surveyquestions)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#surveyquestions)</button>  
 		
 Create a new survey question.  
 ##### Usage:  
 ```shell
 tq post SurveyQuestions
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SurveyQuestionsCreate-default" aria-expanded="true" aria-controls="SurveyQuestionsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SurveyQuestionsCreate-default" aria-expanded="true" aria-controls="SurveyQuestionsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SurveyQuestionsCreate-flat" aria-expanded="false" aria-controls="SurveyQuestionsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SurveyQuestionsCreate-flat" aria-expanded="false" aria-controls="SurveyQuestionsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SurveyQuestionsCreate-csv" aria-expanded="false" aria-controls="SurveyQuestionsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SurveyQuestionsCreate-csv" aria-expanded="false" aria-controls="SurveyQuestionsCreate-csv">
 csv
-</button><div id="SurveyQuestionsCreate-parent">
+</button>
+<div id="SurveyQuestionsCreate-parent">
 <div class="collapse show" id="SurveyQuestionsCreate-default" data-bs-parent="#SurveyQuestionsCreate-parent"> 
 ```json
 {"AskType":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "DefaultValue":"string", "Id":123, "Inactive":true, "Question":"string", "ReferenceTable":"string", "ReferenceTableDescriptionColumn":"string", "ReferenceTableIdColumn":"string", "ReferenceTableSort":"string", "ReferenceTableWhereClause":"string", "Required":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -12627,26 +12628,25 @@ AskType,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DataType,Defaul
 </div>
 </div>
 
-## SurveyResponses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#surveyresponses)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#surveyresponses)</button>  
+
+## SurveyResponses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#surveyresponses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#surveyresponses)</button>  
 		
 Create a new survey response.  
 ##### Usage:  
 ```shell
 tq post SurveyResponses
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SurveyResponsesCreate-default" aria-expanded="true" aria-controls="SurveyResponsesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SurveyResponsesCreate-default" aria-expanded="true" aria-controls="SurveyResponsesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SurveyResponsesCreate-flat" aria-expanded="false" aria-controls="SurveyResponsesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SurveyResponsesCreate-flat" aria-expanded="false" aria-controls="SurveyResponsesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SurveyResponsesCreate-csv" aria-expanded="false" aria-controls="SurveyResponsesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SurveyResponsesCreate-csv" aria-expanded="false" aria-controls="SurveyResponsesCreate-csv">
 csv
-</button><div id="SurveyResponsesCreate-parent">
+</button>
+<div id="SurveyResponsesCreate-parent">
 <div class="collapse show" id="SurveyResponsesCreate-default" data-bs-parent="#SurveyResponsesCreate-parent"> 
 ```json
 {"Answer":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OrderId":123, "QuestionId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -12667,28 +12667,27 @@ Answer,CreateLocation,CreatedBy,CreatedDateTime,Id,OrderId,QuestionId,UpdatedBy,
 </div>
 
 
+
 	
 # T
-## TemplateCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#templatecategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#templatecategories)</button>  
+## TemplateCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#templatecategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#templatecategories)</button>  
 		
 Create a new template category  
 ##### Usage:  
 ```shell
 tq post TemplateCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplateCategoriesCreate-default" aria-expanded="true" aria-controls="TemplateCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplateCategoriesCreate-default" aria-expanded="true" aria-controls="TemplateCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplateCategoriesCreate-flat" aria-expanded="false" aria-controls="TemplateCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplateCategoriesCreate-flat" aria-expanded="false" aria-controls="TemplateCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplateCategoriesCreate-csv" aria-expanded="false" aria-controls="TemplateCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplateCategoriesCreate-csv" aria-expanded="false" aria-controls="TemplateCategoriesCreate-csv">
 csv
-</button><div id="TemplateCategoriesCreate-parent">
+</button>
+<div id="TemplateCategoriesCreate-parent">
 <div class="collapse show" id="TemplateCategoriesCreate-default" data-bs-parent="#TemplateCategoriesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -12708,26 +12707,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EditIndicat
 </div>
 </div>
 
-## TemplatePriceTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#templatepricetypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#templatepricetypes)</button>  
+
+## TemplatePriceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#templatepricetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#templatepricetypes)</button>  
 		
 Create a new template price type.  
 ##### Usage:  
 ```shell
 tq post TemplatePriceTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePriceTypesCreate-default" aria-expanded="true" aria-controls="TemplatePriceTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePriceTypesCreate-default" aria-expanded="true" aria-controls="TemplatePriceTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePriceTypesCreate-flat" aria-expanded="false" aria-controls="TemplatePriceTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePriceTypesCreate-flat" aria-expanded="false" aria-controls="TemplatePriceTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePriceTypesCreate-csv" aria-expanded="false" aria-controls="TemplatePriceTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePriceTypesCreate-csv" aria-expanded="false" aria-controls="TemplatePriceTypesCreate-csv">
 csv
-</button><div id="TemplatePriceTypesCreate-parent">
+</button>
+<div id="TemplatePriceTypesCreate-parent">
 <div class="collapse show" id="TemplatePriceTypesCreate-default" data-bs-parent="#TemplatePriceTypesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DesignationCode":{"Id":123}, "GlAccount":{"Id":123}, "Id":123, "PriceTemplate":{"Id":123}, "PriceType":{"Id":123}, "ResaleAccount":{"Id":123}, "TemplatePrices":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -12744,19 +12742,21 @@ csv
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--Batch*  
    Create or update a set of template price types.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePriceTypesBatchCreate-default" aria-expanded="true" aria-controls="TemplatePriceTypesBatchCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePriceTypesBatchCreate-default" aria-expanded="true" aria-controls="TemplatePriceTypesBatchCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePriceTypesBatchCreate-flat" aria-expanded="false" aria-controls="TemplatePriceTypesBatchCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePriceTypesBatchCreate-flat" aria-expanded="false" aria-controls="TemplatePriceTypesBatchCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePriceTypesBatchCreate-csv" aria-expanded="false" aria-controls="TemplatePriceTypesBatchCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePriceTypesBatchCreate-csv" aria-expanded="false" aria-controls="TemplatePriceTypesBatchCreate-csv">
 csv
-</button><div id="TemplatePriceTypesBatchCreate-parent">
+</button>
+<div id="TemplatePriceTypesBatchCreate-parent">
 <div class="collapse show" id="TemplatePriceTypesBatchCreate-default" data-bs-parent="#TemplatePriceTypesBatchCreate-parent"> 
 ```json
 {"TemplatePriceTypes":[{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DesignationCode":{"Id":123}, "GlAccount":{"Id":123}, "Id":123, "PriceTemplate":{"Id":123}, "PriceType":{"Id":123}, "ResaleAccount":{"Id":123}, "TemplatePrices":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}, ...]}
@@ -12774,26 +12774,25 @@ csv
 </div>
 </div>
 
-## TemplatePrices 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#templateprices)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#templateprices)</button>  
+
+## TemplatePrices <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#templateprices)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#templateprices)</button>  
 		
 Create a new template price.  
 ##### Usage:  
 ```shell
 tq post TemplatePrices
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePricesCreate-default" aria-expanded="true" aria-controls="TemplatePricesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePricesCreate-default" aria-expanded="true" aria-controls="TemplatePricesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePricesCreate-flat" aria-expanded="false" aria-controls="TemplatePricesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePricesCreate-flat" aria-expanded="false" aria-controls="TemplatePricesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePricesCreate-csv" aria-expanded="false" aria-controls="TemplatePricesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePricesCreate-csv" aria-expanded="false" aria-controls="TemplatePricesCreate-csv">
 csv
-</button><div id="TemplatePricesCreate-parent">
+</button>
+<div id="TemplatePricesCreate-parent">
 <div class="collapse show" id="TemplatePricesCreate-default" data-bs-parent="#TemplatePricesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Enabled":true, "Id":123, "MinPrice":123.456, "Price":123.456, "TemplatePriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Zone":{"Id":123}}
@@ -12812,19 +12811,21 @@ CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Enabled,Id,MinPrice,Price
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--Batch*  
    Create or update a set of template prices.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePricesBatchCreate-default" aria-expanded="true" aria-controls="TemplatePricesBatchCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePricesBatchCreate-default" aria-expanded="true" aria-controls="TemplatePricesBatchCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePricesBatchCreate-flat" aria-expanded="false" aria-controls="TemplatePricesBatchCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePricesBatchCreate-flat" aria-expanded="false" aria-controls="TemplatePricesBatchCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePricesBatchCreate-csv" aria-expanded="false" aria-controls="TemplatePricesBatchCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePricesBatchCreate-csv" aria-expanded="false" aria-controls="TemplatePricesBatchCreate-csv">
 csv
-</button><div id="TemplatePricesBatchCreate-parent">
+</button>
+<div id="TemplatePricesBatchCreate-parent">
 <div class="collapse show" id="TemplatePricesBatchCreate-default" data-bs-parent="#TemplatePricesBatchCreate-parent"> 
 ```json
 {"TemplatePrices":[{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Enabled":true, "Id":123, "MinPrice":123.456, "Price":123.456, "TemplatePriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Zone":{"Id":123}}, ...]}
@@ -12843,26 +12844,25 @@ csv
 </div>
 
 
-## Templates 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#templates)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#templates)</button>  
+
+## Templates <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#templates)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#templates)</button>  
 		
 Create a new template  
 ##### Usage:  
 ```shell
 tq post Templates
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesCreate-default" aria-expanded="true" aria-controls="TemplatesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesCreate-default" aria-expanded="true" aria-controls="TemplatesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesCreate-flat" aria-expanded="false" aria-controls="TemplatesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesCreate-flat" aria-expanded="false" aria-controls="TemplatesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesCreate-csv" aria-expanded="false" aria-controls="TemplatesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesCreate-csv" aria-expanded="false" aria-controls="TemplatesCreate-csv">
 csv
-</button><div id="TemplatesCreate-parent">
+</button>
+<div id="TemplatesCreate-parent">
 <div class="collapse show" id="TemplatesCreate-default" data-bs-parent="#TemplatesCreate-parent"> 
 ```json
 {"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "IsHtmlBody":true, "TemplateBody":"string", "TemplateSubject":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -12881,19 +12881,21 @@ Category.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EditIndicator,I
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--ConstituentInfo*  
    Get a formatted html body for constituent info
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetConstituentInfo-default" aria-expanded="true" aria-controls="TemplatesGetConstituentInfo-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetConstituentInfo-default" aria-expanded="true" aria-controls="TemplatesGetConstituentInfo-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetConstituentInfo-flat" aria-expanded="false" aria-controls="TemplatesGetConstituentInfo-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetConstituentInfo-flat" aria-expanded="false" aria-controls="TemplatesGetConstituentInfo-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetConstituentInfo-csv" aria-expanded="false" aria-controls="TemplatesGetConstituentInfo-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetConstituentInfo-csv" aria-expanded="false" aria-controls="TemplatesGetConstituentInfo-csv">
 csv
-</button><div id="TemplatesGetConstituentInfo-parent">
+</button>
+<div id="TemplatesGetConstituentInfo-parent">
 <div class="collapse show" id="TemplatesGetConstituentInfo-default" data-bs-parent="#TemplatesGetConstituentInfo-parent"> 
 ```json
 {"ConstituentID":"string", "Request":[{"Name":"string", "Value":"string"}, ...], "TemplateID":"string"}
@@ -12910,20 +12912,22 @@ csv
 ```  
 </div>
 </div>
+
  * *--LoginCredentials*  
    Get a formatted html body for login credentials.
 This endpoint will not generate a password token and should be used for testing a login credentials template.
 Use the SendCredentials endpoint in Web/Session to send a login credentials email with a generated password token.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetLoginCredentials-default" aria-expanded="true" aria-controls="TemplatesGetLoginCredentials-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetLoginCredentials-default" aria-expanded="true" aria-controls="TemplatesGetLoginCredentials-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetLoginCredentials-flat" aria-expanded="false" aria-controls="TemplatesGetLoginCredentials-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetLoginCredentials-flat" aria-expanded="false" aria-controls="TemplatesGetLoginCredentials-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetLoginCredentials-csv" aria-expanded="false" aria-controls="TemplatesGetLoginCredentials-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetLoginCredentials-csv" aria-expanded="false" aria-controls="TemplatesGetLoginCredentials-csv">
 csv
-</button><div id="TemplatesGetLoginCredentials-parent">
+</button>
+<div id="TemplatesGetLoginCredentials-parent">
 <div class="collapse show" id="TemplatesGetLoginCredentials-default" data-bs-parent="#TemplatesGetLoginCredentials-parent"> 
 ```json
 {"LoginID":"string", "Request":[{"Name":"string", "Value":"string"}, ...], "TemplateID":"string"}
@@ -12940,18 +12944,20 @@ csv
 ```  
 </div>
 </div>
+
  * *--OrderConfirmation*  
    Get a formatted html body for an order confirmation
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetOrderConfirmation-default" aria-expanded="true" aria-controls="TemplatesGetOrderConfirmation-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetOrderConfirmation-default" aria-expanded="true" aria-controls="TemplatesGetOrderConfirmation-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetOrderConfirmation-flat" aria-expanded="false" aria-controls="TemplatesGetOrderConfirmation-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetOrderConfirmation-flat" aria-expanded="false" aria-controls="TemplatesGetOrderConfirmation-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetOrderConfirmation-csv" aria-expanded="false" aria-controls="TemplatesGetOrderConfirmation-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetOrderConfirmation-csv" aria-expanded="false" aria-controls="TemplatesGetOrderConfirmation-csv">
 csv
-</button><div id="TemplatesGetOrderConfirmation-parent">
+</button>
+<div id="TemplatesGetOrderConfirmation-parent">
 <div class="collapse show" id="TemplatesGetOrderConfirmation-default" data-bs-parent="#TemplatesGetOrderConfirmation-parent"> 
 ```json
 {"OrderID":"string", "Request":[{"Name":"string", "Value":"string"}, ...], "TemplateID":"string"}
@@ -12968,18 +12974,20 @@ csv
 ```  
 </div>
 </div>
+
  * *--RenderConstituentInfo*  
    Return the rendered constituent info template for the provided constituent Id
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderConstituentInfo-default" aria-expanded="true" aria-controls="TemplatesRenderConstituentInfo-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderConstituentInfo-default" aria-expanded="true" aria-controls="TemplatesRenderConstituentInfo-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderConstituentInfo-flat" aria-expanded="false" aria-controls="TemplatesRenderConstituentInfo-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderConstituentInfo-flat" aria-expanded="false" aria-controls="TemplatesRenderConstituentInfo-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderConstituentInfo-csv" aria-expanded="false" aria-controls="TemplatesRenderConstituentInfo-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderConstituentInfo-csv" aria-expanded="false" aria-controls="TemplatesRenderConstituentInfo-csv">
 csv
-</button><div id="TemplatesRenderConstituentInfo-parent">
+</button>
+<div id="TemplatesRenderConstituentInfo-parent">
 <div class="collapse show" id="TemplatesRenderConstituentInfo-default" data-bs-parent="#TemplatesRenderConstituentInfo-parent"> 
 ```json
 {"ConstituentID":"string", "Body":"string", "NameValues":[{"Name":"string", "Value":"string"}, ...]}
@@ -12996,20 +13004,22 @@ csv
 ```  
 </div>
 </div>
+
  * *--RenderLoginCredentials*  
    Return the rendered login credentials template for the provided web login id
 This endpoint will not generate a password token and should be used for testing a login credentials template.
 Use the SendCredentials endpoint in Web/Session to send a login credentials email with a generated password token.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderLoginCredentials-default" aria-expanded="true" aria-controls="TemplatesRenderLoginCredentials-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderLoginCredentials-default" aria-expanded="true" aria-controls="TemplatesRenderLoginCredentials-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderLoginCredentials-flat" aria-expanded="false" aria-controls="TemplatesRenderLoginCredentials-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderLoginCredentials-flat" aria-expanded="false" aria-controls="TemplatesRenderLoginCredentials-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderLoginCredentials-csv" aria-expanded="false" aria-controls="TemplatesRenderLoginCredentials-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderLoginCredentials-csv" aria-expanded="false" aria-controls="TemplatesRenderLoginCredentials-csv">
 csv
-</button><div id="TemplatesRenderLoginCredentials-parent">
+</button>
+<div id="TemplatesRenderLoginCredentials-parent">
 <div class="collapse show" id="TemplatesRenderLoginCredentials-default" data-bs-parent="#TemplatesRenderLoginCredentials-parent"> 
 ```json
 {"LoginID":"string", "Body":"string", "NameValues":[{"Name":"string", "Value":"string"}, ...]}
@@ -13026,18 +13036,20 @@ csv
 ```  
 </div>
 </div>
+
  * *--RenderOrderConfirmation*  
    Return the rendered order confirmation template for the provided order Id
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderOrderConfirmation-default" aria-expanded="true" aria-controls="TemplatesRenderOrderConfirmation-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderOrderConfirmation-default" aria-expanded="true" aria-controls="TemplatesRenderOrderConfirmation-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderOrderConfirmation-flat" aria-expanded="false" aria-controls="TemplatesRenderOrderConfirmation-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderOrderConfirmation-flat" aria-expanded="false" aria-controls="TemplatesRenderOrderConfirmation-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderOrderConfirmation-csv" aria-expanded="false" aria-controls="TemplatesRenderOrderConfirmation-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderOrderConfirmation-csv" aria-expanded="false" aria-controls="TemplatesRenderOrderConfirmation-csv">
 csv
-</button><div id="TemplatesRenderOrderConfirmation-parent">
+</button>
+<div id="TemplatesRenderOrderConfirmation-parent">
 <div class="collapse show" id="TemplatesRenderOrderConfirmation-default" data-bs-parent="#TemplatesRenderOrderConfirmation-parent"> 
 ```json
 {"OrderID":"string", "Body":"string", "NameValues":[{"Name":"string", "Value":"string"}, ...]}
@@ -13054,19 +13066,21 @@ csv
 ```  
 </div>
 </div>
+
  * *--RenderTickets*  
    Return the rendered tickets for the provided order Id
 Composite tickets are not currently supported, so a request to print one will instead return ticket elements for each performance, as if no composite ticket design had been selected for the package.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderTickets-default" aria-expanded="true" aria-controls="TemplatesRenderTickets-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderTickets-default" aria-expanded="true" aria-controls="TemplatesRenderTickets-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderTickets-flat" aria-expanded="false" aria-controls="TemplatesRenderTickets-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderTickets-flat" aria-expanded="false" aria-controls="TemplatesRenderTickets-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderTickets-csv" aria-expanded="false" aria-controls="TemplatesRenderTickets-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesRenderTickets-csv" aria-expanded="false" aria-controls="TemplatesRenderTickets-csv">
 csv
-</button><div id="TemplatesRenderTickets-parent">
+</button>
+<div id="TemplatesRenderTickets-parent">
 <div class="collapse show" id="TemplatesRenderTickets-default" data-bs-parent="#TemplatesRenderTickets-parent"> 
 ```json
 {"OrderID":"string", "Body":"string", "PrintOrderTicketsRequest":{"BatchId":123, "HeaderDesignId":123, "IncludeReceipts":true, "LineItems":"string", "NewTicketNoForReprints":true, "PrinterType":"string", "ReprintTickets":true, "SubLineItems":"string", "TicketDesignId":123}}
@@ -13085,19 +13099,21 @@ Body,OrderID,PrintOrderTicketsRequest.BatchId,PrintOrderTicketsRequest.HeaderDes
 ```  
 </div>
 </div>
+
  * *--Tickets*  
    Get a formatted html body for tickets
 Composite tickets are not currently supported, so a request to print one will instead return ticket elements for each performance, as if no composite ticket design had been selected for the package.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetTickets-default" aria-expanded="true" aria-controls="TemplatesGetTickets-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetTickets-default" aria-expanded="true" aria-controls="TemplatesGetTickets-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetTickets-flat" aria-expanded="false" aria-controls="TemplatesGetTickets-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetTickets-flat" aria-expanded="false" aria-controls="TemplatesGetTickets-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetTickets-csv" aria-expanded="false" aria-controls="TemplatesGetTickets-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesGetTickets-csv" aria-expanded="false" aria-controls="TemplatesGetTickets-csv">
 csv
-</button><div id="TemplatesGetTickets-parent">
+</button>
+<div id="TemplatesGetTickets-parent">
 <div class="collapse show" id="TemplatesGetTickets-default" data-bs-parent="#TemplatesGetTickets-parent"> 
 ```json
 {"OrderID":"string", "BatchId":123, "HeaderDesignId":123, "IncludeReceipts":true, "LineItems":"string", "NewTicketNoForReprints":true, "PrinterType":"string", "ReprintTickets":true, "SubLineItems":"string", "TicketDesignId":123, "TemplateID":"string"}
@@ -13117,26 +13133,25 @@ BatchId,HeaderDesignId,IncludeReceipts,LineItems,NewTicketNoForReprints,OrderID,
 </div>
 </div>
 
-## Theaters 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#theaters)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#theaters)</button>  
+
+## Theaters <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#theaters)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#theaters)</button>  
 		
 Create a new theater.  
 ##### Usage:  
 ```shell
 tq post Theaters
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TheatersCreate-default" aria-expanded="true" aria-controls="TheatersCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TheatersCreate-default" aria-expanded="true" aria-controls="TheatersCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TheatersCreate-flat" aria-expanded="false" aria-controls="TheatersCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TheatersCreate-flat" aria-expanded="false" aria-controls="TheatersCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TheatersCreate-csv" aria-expanded="false" aria-controls="TheatersCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TheatersCreate-csv" aria-expanded="false" aria-controls="TheatersCreate-csv">
 csv
-</button><div id="TheatersCreate-parent">
+</button>
+<div id="TheatersCreate-parent">
 <div class="collapse show" id="TheatersCreate-default" data-bs-parent="#TheatersCreate-parent"> 
 ```json
 {"City":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataWindowDefinition":"string", "Description":"string", "DrivingDirections":"string", "Id":123, "Inactive":true, "MaximumNumberOfSeats":123, "Phone":"string", "PostalCode":"string", "State":"string", "Street":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -13157,26 +13172,25 @@ City,CreateLocation,CreatedBy,CreatedDateTime,DataWindowDefinition,Description,D
 </div>
 
 
-## TimeSlots 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#timeslots)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#timeslots)</button>  
+
+## TimeSlots <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#timeslots)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#timeslots)</button>  
 		
 Create a new time slot.  
 ##### Usage:  
 ```shell
 tq post TimeSlots
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TimeSlotsCreate-default" aria-expanded="true" aria-controls="TimeSlotsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TimeSlotsCreate-default" aria-expanded="true" aria-controls="TimeSlotsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TimeSlotsCreate-flat" aria-expanded="false" aria-controls="TimeSlotsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TimeSlotsCreate-flat" aria-expanded="false" aria-controls="TimeSlotsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TimeSlotsCreate-csv" aria-expanded="false" aria-controls="TimeSlotsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TimeSlotsCreate-csv" aria-expanded="false" aria-controls="TimeSlotsCreate-csv">
 csv
-</button><div id="TimeSlotsCreate-parent">
+</button>
+<div id="TimeSlotsCreate-parent">
 <div class="collapse show" id="TimeSlotsCreate-default" data-bs-parent="#TimeSlotsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "StartTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -13198,26 +13212,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,EndTime,Id,Inactive,StartTi
 
 
 
-## TriPOSCloudConfigurations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#triposcloudconfigurations)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#triposcloudconfigurations)</button>  
+
+## TriPOSCloudConfigurations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#triposcloudconfigurations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#triposcloudconfigurations)</button>  
 		
 Create a new TriPOS Cloud configuration.  
 ##### Usage:  
 ```shell
 tq post TriPOSCloudConfigurations
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TriPOSCloudConfigurationsCreate-default" aria-expanded="true" aria-controls="TriPOSCloudConfigurationsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TriPOSCloudConfigurationsCreate-default" aria-expanded="true" aria-controls="TriPOSCloudConfigurationsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TriPOSCloudConfigurationsCreate-flat" aria-expanded="false" aria-controls="TriPOSCloudConfigurationsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TriPOSCloudConfigurationsCreate-flat" aria-expanded="false" aria-controls="TriPOSCloudConfigurationsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TriPOSCloudConfigurationsCreate-csv" aria-expanded="false" aria-controls="TriPOSCloudConfigurationsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TriPOSCloudConfigurationsCreate-csv" aria-expanded="false" aria-controls="TriPOSCloudConfigurationsCreate-csv">
 csv
-</button><div id="TriPOSCloudConfigurationsCreate-parent">
+</button>
+<div id="TriPOSCloudConfigurationsCreate-parent">
 <div class="collapse show" id="TriPOSCloudConfigurationsCreate-default" data-bs-parent="#TriPOSCloudConfigurationsCreate-parent"> 
 ```json
 {"ConfigSetting":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -13237,28 +13250,27 @@ ConfigSetting,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,U
 </div>
 </div>
 
+
 	
 # U
-## UpgradeCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#upgradecategories)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#upgradecategories)</button>  
+## UpgradeCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#upgradecategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#upgradecategories)</button>  
 		
 Create a new Upgrade Category.  
 ##### Usage:  
 ```shell
 tq post UpgradeCategories
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UpgradeCategoriesCreate-default" aria-expanded="true" aria-controls="UpgradeCategoriesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UpgradeCategoriesCreate-default" aria-expanded="true" aria-controls="UpgradeCategoriesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UpgradeCategoriesCreate-flat" aria-expanded="false" aria-controls="UpgradeCategoriesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UpgradeCategoriesCreate-flat" aria-expanded="false" aria-controls="UpgradeCategoriesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UpgradeCategoriesCreate-csv" aria-expanded="false" aria-controls="UpgradeCategoriesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UpgradeCategoriesCreate-csv" aria-expanded="false" aria-controls="UpgradeCategoriesCreate-csv">
 csv
-</button><div id="UpgradeCategoriesCreate-parent">
+</button>
+<div id="UpgradeCategoriesCreate-parent">
 <div class="collapse show" id="UpgradeCategoriesCreate-default" data-bs-parent="#UpgradeCategoriesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -13278,26 +13290,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,UpdatedBy,Updat
 </div>
 </div>
 
-## UpgradeLogs 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#upgradelogs)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#upgradelogs)</button>  
+
+## UpgradeLogs <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#upgradelogs)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#upgradelogs)</button>  
 		
 Saves the given upgradeLog.  
 ##### Usage:  
 ```shell
 tq post UpgradeLogs
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UpgradeLogsCreate-default" aria-expanded="true" aria-controls="UpgradeLogsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UpgradeLogsCreate-default" aria-expanded="true" aria-controls="UpgradeLogsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UpgradeLogsCreate-flat" aria-expanded="false" aria-controls="UpgradeLogsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UpgradeLogsCreate-flat" aria-expanded="false" aria-controls="UpgradeLogsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UpgradeLogsCreate-csv" aria-expanded="false" aria-controls="UpgradeLogsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UpgradeLogsCreate-csv" aria-expanded="false" aria-controls="UpgradeLogsCreate-csv">
 csv
-</button><div id="UpgradeLogsCreate-parent">
+</button>
+<div id="UpgradeLogsCreate-parent">
 <div class="collapse show" id="UpgradeLogsCreate-default" data-bs-parent="#UpgradeLogsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HotFixNumber":123, "Id":123, "ReleaseDescription":"string", "ScriptId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UpgradeCategorySummary":{"Id":123}, "Version":"string"}
@@ -13318,26 +13329,25 @@ CreateLocation,CreatedBy,CreatedDateTime,HotFixNumber,Id,ReleaseDescription,Scri
 </div>
 
 
-## UserPreferences 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#userpreferences)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#userpreferences)</button>  
+
+## UserPreferences <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#userpreferences)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#userpreferences)</button>  
 		
 Create a new user preference.  
 ##### Usage:  
 ```shell
 tq post UserPreferences
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UserPreferencesCreate-default" aria-expanded="true" aria-controls="UserPreferencesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UserPreferencesCreate-default" aria-expanded="true" aria-controls="UserPreferencesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UserPreferencesCreate-flat" aria-expanded="false" aria-controls="UserPreferencesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UserPreferencesCreate-flat" aria-expanded="false" aria-controls="UserPreferencesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UserPreferencesCreate-csv" aria-expanded="false" aria-controls="UserPreferencesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UserPreferencesCreate-csv" aria-expanded="false" aria-controls="UserPreferencesCreate-csv">
 csv
-</button><div id="UserPreferencesCreate-parent">
+</button>
+<div id="UserPreferencesCreate-parent">
 <div class="collapse show" id="UserPreferencesCreate-default" data-bs-parent="#UserPreferencesCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Key":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}
@@ -13356,19 +13366,21 @@ CreateLocation,CreatedBy,CreatedDateTime,Id,Key,UpdatedBy,UpdatedDateTime,Value
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--SaveBatch*  
    Save a batch of user preferences.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UserPreferencesSaveBatch-default" aria-expanded="true" aria-controls="UserPreferencesSaveBatch-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UserPreferencesSaveBatch-default" aria-expanded="true" aria-controls="UserPreferencesSaveBatch-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UserPreferencesSaveBatch-flat" aria-expanded="false" aria-controls="UserPreferencesSaveBatch-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UserPreferencesSaveBatch-flat" aria-expanded="false" aria-controls="UserPreferencesSaveBatch-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UserPreferencesSaveBatch-csv" aria-expanded="false" aria-controls="UserPreferencesSaveBatch-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UserPreferencesSaveBatch-csv" aria-expanded="false" aria-controls="UserPreferencesSaveBatch-csv">
 csv
-</button><div id="UserPreferencesSaveBatch-parent">
+</button>
+<div id="UserPreferencesSaveBatch-parent">
 <div class="collapse show" id="UserPreferencesSaveBatch-default" data-bs-parent="#UserPreferencesSaveBatch-parent"> 
 ```json
 {"UserPreferences":[{"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Key":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}, ...]}
@@ -13386,25 +13398,25 @@ csv
 </div>
 </div>
 
-## Users 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#users)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+
+## Users <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#users)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 Allows for changing of a user's password  
 ##### Usage:  
 ```shell
 tq post Users
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UsersChangePassword-default" aria-expanded="true" aria-controls="UsersChangePassword-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UsersChangePassword-default" aria-expanded="true" aria-controls="UsersChangePassword-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UsersChangePassword-flat" aria-expanded="false" aria-controls="UsersChangePassword-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UsersChangePassword-flat" aria-expanded="false" aria-controls="UsersChangePassword-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UsersChangePassword-csv" aria-expanded="false" aria-controls="UsersChangePassword-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UsersChangePassword-csv" aria-expanded="false" aria-controls="UsersChangePassword-csv">
 csv
-</button><div id="UsersChangePassword-parent">
+</button>
+<div id="UsersChangePassword-parent">
 <div class="collapse show" id="UsersChangePassword-default" data-bs-parent="#UsersChangePassword-parent"> 
 ```json
 {"NewPassword":"string", "OldPassword":"string", "UserName":"string"}
@@ -13424,26 +13436,27 @@ NewPassword,OldPassword,UserName
 </div>
 </div>
 
+
 	
 # V
-## ValidateWebLogin 
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>  
+## ValidateWebLogin <button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button>  
 		
 Validate a web login.  
 ##### Usage:  
 ```shell
 tq post ValidateWebLogin
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ValidateWebLoginCreate-default" aria-expanded="true" aria-controls="ValidateWebLoginCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ValidateWebLoginCreate-default" aria-expanded="true" aria-controls="ValidateWebLoginCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ValidateWebLoginCreate-flat" aria-expanded="false" aria-controls="ValidateWebLoginCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ValidateWebLoginCreate-flat" aria-expanded="false" aria-controls="ValidateWebLoginCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ValidateWebLoginCreate-csv" aria-expanded="false" aria-controls="ValidateWebLoginCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ValidateWebLoginCreate-csv" aria-expanded="false" aria-controls="ValidateWebLoginCreate-csv">
 csv
-</button><div id="ValidateWebLoginCreate-parent">
+</button>
+<div id="ValidateWebLoginCreate-parent">
 <div class="collapse show" id="ValidateWebLoginCreate-default" data-bs-parent="#ValidateWebLoginCreate-parent"> 
 ```json
 {"LoginName":"string", "LoginTypeId":123, "Password":"string"}
@@ -13463,28 +13476,27 @@ LoginName,LoginTypeId,Password
 </div>
 </div>
 
+
 	
 # W
-## WebContentTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#webcontenttypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#webcontenttypes)</button>  
+## WebContentTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#webcontenttypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#webcontenttypes)</button>  
 		
 Create a Web Content Type.  
 ##### Usage:  
 ```shell
 tq post WebContentTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WebContentTypesCreate-default" aria-expanded="true" aria-controls="WebContentTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WebContentTypesCreate-default" aria-expanded="true" aria-controls="WebContentTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WebContentTypesCreate-flat" aria-expanded="false" aria-controls="WebContentTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WebContentTypesCreate-flat" aria-expanded="false" aria-controls="WebContentTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WebContentTypesCreate-csv" aria-expanded="false" aria-controls="WebContentTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WebContentTypesCreate-csv" aria-expanded="false" aria-controls="WebContentTypesCreate-csv">
 csv
-</button><div id="WebContentTypesCreate-parent">
+</button>
+<div id="WebContentTypesCreate-parent">
 <div class="collapse show" id="WebContentTypesCreate-default" data-bs-parent="#WebContentTypesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditMask":"string", "FullTextSearchIndicator":true, "Id":123, "Inactive":true, "LastContentUseUpdateDateTime":"2000-01-01T00:00:00.000Z", "Limit":123, "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseWebApi":true}
@@ -13505,26 +13517,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EditMask,Fu
 </div>
 
 
-## WebLogins 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#weblogins)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#weblogins)</button>  
+
+## WebLogins <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#weblogins)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#weblogins)</button>  
 		
 Create a new weblogin.  
 ##### Usage:  
 ```shell
 tq post WebLogins
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WebLoginsCreate-default" aria-expanded="true" aria-controls="WebLoginsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WebLoginsCreate-default" aria-expanded="true" aria-controls="WebLoginsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WebLoginsCreate-flat" aria-expanded="false" aria-controls="WebLoginsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WebLoginsCreate-flat" aria-expanded="false" aria-controls="WebLoginsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WebLoginsCreate-csv" aria-expanded="false" aria-controls="WebLoginsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WebLoginsCreate-csv" aria-expanded="false" aria-controls="WebLoginsCreate-csv">
 csv
-</button><div id="WebLoginsCreate-parent">
+</button>
+<div id="WebLoginsCreate-parent">
 <div class="collapse show" id="WebLoginsCreate-default" data-bs-parent="#WebLoginsCreate-parent"> 
 ```json
 {"Constituent":{"Id":123}, "ConstituentUpdateDate":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Email":{"Id":123}, "FailedAttempts":123, "Id":123, "Inactive":true, "LastLoginDate":"2000-01-01T00:00:00.000Z", "LockedDate":"2000-01-01T00:00:00.000Z", "Login":"string", "LoginType":{"Id":123}, "PrimaryIndicator":true, "TemporaryIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -13544,26 +13555,25 @@ Constituent.Id,ConstituentUpdateDate,CreateLocation,CreatedBy,CreatedDateTime,Ed
 </div>
 </div>
 
-## WorkerQualifications 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#workerqualifications)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#workerqualifications)</button>  
+
+## WorkerQualifications <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#workerqualifications)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#workerqualifications)</button>  
 		
 Create a WorkerQualification.  
 ##### Usage:  
 ```shell
 tq post WorkerQualifications
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerQualificationsCreate-default" aria-expanded="true" aria-controls="WorkerQualificationsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerQualificationsCreate-default" aria-expanded="true" aria-controls="WorkerQualificationsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerQualificationsCreate-flat" aria-expanded="false" aria-controls="WorkerQualificationsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerQualificationsCreate-flat" aria-expanded="false" aria-controls="WorkerQualificationsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerQualificationsCreate-csv" aria-expanded="false" aria-controls="WorkerQualificationsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerQualificationsCreate-csv" aria-expanded="false" aria-controls="WorkerQualificationsCreate-csv">
 csv
-</button><div id="WorkerQualificationsCreate-parent">
+</button>
+<div id="WorkerQualificationsCreate-parent">
 <div class="collapse show" id="WorkerQualificationsCreate-default" data-bs-parent="#WorkerQualificationsCreate-parent"> 
 ```json
 {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Qualification":{"Id":123}, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -13583,26 +13593,25 @@ Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EndDateTime,Id,Qualifica
 </div>
 </div>
 
-## WorkerRoles 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#workerroles)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#workerroles)</button>  
+
+## WorkerRoles <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#workerroles)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#workerroles)</button>  
 		
 Create a new worker role.  
 ##### Usage:  
 ```shell
 tq post WorkerRoles
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerRolesCreate-default" aria-expanded="true" aria-controls="WorkerRolesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerRolesCreate-default" aria-expanded="true" aria-controls="WorkerRolesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerRolesCreate-flat" aria-expanded="false" aria-controls="WorkerRolesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerRolesCreate-flat" aria-expanded="false" aria-controls="WorkerRolesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerRolesCreate-csv" aria-expanded="false" aria-controls="WorkerRolesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerRolesCreate-csv" aria-expanded="false" aria-controls="WorkerRolesCreate-csv">
 csv
-</button><div id="WorkerRolesCreate-parent">
+</button>
+<div id="WorkerRolesCreate-parent">
 <div class="collapse show" id="WorkerRolesCreate-default" data-bs-parent="#WorkerRolesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ShowInPortfolioDefault":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -13622,26 +13631,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## WorkerTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#workertypes)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#workertypes)</button>  
+
+## WorkerTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#workertypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#workertypes)</button>  
 		
 Create a new worker type.  
 ##### Usage:  
 ```shell
 tq post WorkerTypes
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerTypesCreate-default" aria-expanded="true" aria-controls="WorkerTypesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerTypesCreate-default" aria-expanded="true" aria-controls="WorkerTypesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerTypesCreate-flat" aria-expanded="false" aria-controls="WorkerTypesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerTypesCreate-flat" aria-expanded="false" aria-controls="WorkerTypesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerTypesCreate-csv" aria-expanded="false" aria-controls="WorkerTypesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerTypesCreate-csv" aria-expanded="false" aria-controls="WorkerTypesCreate-csv">
 csv
-</button><div id="WorkerTypesCreate-parent">
+</button>
+<div id="WorkerTypesCreate-parent">
 <div class="collapse show" id="WorkerTypesCreate-default" data-bs-parent="#WorkerTypesCreate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -13661,26 +13669,25 @@ ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive
 </div>
 </div>
 
-## Workers 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#workers)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#workers)</button>  
+
+## Workers <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#workers)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#workers)</button>  
 		
 Create a new worker.  
 ##### Usage:  
 ```shell
 tq post Workers
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkersCreate-default" aria-expanded="true" aria-controls="WorkersCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkersCreate-default" aria-expanded="true" aria-controls="WorkersCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkersCreate-flat" aria-expanded="false" aria-controls="WorkersCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkersCreate-flat" aria-expanded="false" aria-controls="WorkersCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkersCreate-csv" aria-expanded="false" aria-controls="WorkersCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkersCreate-csv" aria-expanded="false" aria-controls="WorkersCreate-csv">
 csv
-</button><div id="WorkersCreate-parent">
+</button>
+<div id="WorkersCreate-parent">
 <div class="collapse show" id="WorkersCreate-default" data-bs-parent="#WorkersCreate-parent"> 
 ```json
 {"ConstituentId":123, "ConstituentInactive":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "FirstName":"string", "Id":123, "Inactive":true, "LastName":"string", "Prefix":{"Id":123}, "ShortDisplayName":"string", "SortName":"string", "Suffix":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerType":{"Id":123}}
@@ -13700,28 +13707,27 @@ ConstituentId,ConstituentInactive.Id,CreateLocation,CreatedBy,CreatedDateTime,Ed
 </div>
 </div>
 
+
 	
 # Z
-## ZoneGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#zonegroups)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#zonegroups)</button>  
+## ZoneGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#zonegroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#zonegroups)</button>  
 		
 Create a new zone group.  
 ##### Usage:  
 ```shell
 tq post ZoneGroups
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZoneGroupsCreate-default" aria-expanded="true" aria-controls="ZoneGroupsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZoneGroupsCreate-default" aria-expanded="true" aria-controls="ZoneGroupsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZoneGroupsCreate-flat" aria-expanded="false" aria-controls="ZoneGroupsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZoneGroupsCreate-flat" aria-expanded="false" aria-controls="ZoneGroupsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZoneGroupsCreate-csv" aria-expanded="false" aria-controls="ZoneGroupsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZoneGroupsCreate-csv" aria-expanded="false" aria-controls="ZoneGroupsCreate-csv">
 csv
-</button><div id="ZoneGroupsCreate-parent">
+</button>
+<div id="ZoneGroupsCreate-parent">
 <div class="collapse show" id="ZoneGroupsCreate-default" data-bs-parent="#ZoneGroupsCreate-parent"> 
 ```json
 {"AliasDescription":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -13741,26 +13747,25 @@ AliasDescription,CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactiv
 </div>
 </div>
 
-## ZoneMaps 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#zonemaps)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#zonemaps)</button>  
+
+## ZoneMaps <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#zonemaps)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#zonemaps)</button>  
 		
 Create a new zone map.  
 ##### Usage:  
 ```shell
 tq post ZoneMaps
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZoneMapsCreate-default" aria-expanded="true" aria-controls="ZoneMapsCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZoneMapsCreate-default" aria-expanded="true" aria-controls="ZoneMapsCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZoneMapsCreate-flat" aria-expanded="false" aria-controls="ZoneMapsCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZoneMapsCreate-flat" aria-expanded="false" aria-controls="ZoneMapsCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZoneMapsCreate-csv" aria-expanded="false" aria-controls="ZoneMapsCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZoneMapsCreate-csv" aria-expanded="false" aria-controls="ZoneMapsCreate-csv">
 csv
-</button><div id="ZoneMapsCreate-parent">
+</button>
+<div id="ZoneMapsCreate-parent">
 <div class="collapse show" id="ZoneMapsCreate-default" data-bs-parent="#ZoneMapsCreate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "SeatMap":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
@@ -13780,26 +13785,25 @@ CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,SeatMap.Id,Upda
 </div>
 </div>
 
-## Zones 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#zones)</button>
-<button type="button" class="btn btn-secondary btn-sm" disabled>post</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#zones)</button>  
+
+## Zones <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#zones)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>post</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#zones)</button>  
 		
 Create a new zone.  
 ##### Usage:  
 ```shell
 tq post Zones
 ``` 
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZonesCreate-default" aria-expanded="true" aria-controls="ZonesCreate-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZonesCreate-default" aria-expanded="true" aria-controls="ZonesCreate-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZonesCreate-flat" aria-expanded="false" aria-controls="ZonesCreate-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZonesCreate-flat" aria-expanded="false" aria-controls="ZonesCreate-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZonesCreate-csv" aria-expanded="false" aria-controls="ZonesCreate-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZonesCreate-csv" aria-expanded="false" aria-controls="ZonesCreate-csv">
 csv
-</button><div id="ZonesCreate-parent">
+</button>
+<div id="ZonesCreate-parent">
 <div class="collapse show" id="ZonesCreate-default" data-bs-parent="#ZonesCreate-parent"> 
 ```json
 {"Abbreviation":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndTime":"string", "Id":123, "Rank":123, "ShortDescription":"string", "StartTime":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneGroup":{"Id":123}, "ZoneLegend":"string", "ZoneMapId":123, "ZoneTime":"string"}
@@ -13818,19 +13822,21 @@ Abbreviation,CreateLocation,CreatedBy,CreatedDateTime,Description,EndTime,Id,Ran
 ```  
 </div>
 </div>
+
 ### Flags:
  * *--Search*  
    Search for products based on a set of criteria.
-##### Query:  
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZonesSearch-default" aria-expanded="true" aria-controls="ZonesSearch-default">
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZonesSearch-default" aria-expanded="true" aria-controls="ZonesSearch-default">
 default
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZonesSearch-flat" aria-expanded="false" aria-controls="ZonesSearch-flat">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZonesSearch-flat" aria-expanded="false" aria-controls="ZonesSearch-flat">
 flat
 </button>
-<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZonesSearch-csv" aria-expanded="false" aria-controls="ZonesSearch-csv">
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZonesSearch-csv" aria-expanded="false" aria-controls="ZonesSearch-csv">
 csv
-</button><div id="ZonesSearch-parent">
+</button>
+<div id="ZonesSearch-parent">
 <div class="collapse show" id="ZonesSearch-default" data-bs-parent="#ZonesSearch-parent"> 
 ```json
 {"PackageIds":"string", "PackageTypeIds":"string", "PerformanceIds":"string", "ProductionSeasonIds":"string", "ZoneIds":"string"}
@@ -13849,6 +13855,7 @@ PackageIds,PackageTypeIds,PerformanceIds,ProductionSeasonIds,ZoneIds
 ```  
 </div>
 </div>
+
  
 
 <link rel="stylesheet" type="text/css" href="../css/toc.css"/>

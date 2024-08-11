@@ -3,1188 +3,374 @@
 
 	
 # A
-## AccountTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#accounttypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#accounttypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#accounttypes)</button>
-## Accounts 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#accounts)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#accounts)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#accounts)</button>
-## ActionTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#actiontypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#actiontypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#actiontypes)</button>
-## Actions 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#actions)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#actions)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#actions)</button>
-## ActivityCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#activitycategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#activitycategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#activitycategories)</button>
-## ActivityTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#activitytypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#activitytypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#activitytypes)</button>
-## AddressTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#addresstypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#addresstypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#addresstypes)</button>
-## Addresses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#addresses)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#addresses)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#addresses)</button>
-## AffiliationInfo 
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#affiliationinfo)</button>
-## AffiliationTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#affiliationtypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#affiliationtypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#affiliationtypes)</button>
-## Affiliations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#affiliations)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#affiliations)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#affiliations)</button>
-## AliasTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#aliastypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#aliastypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#aliastypes)</button>
-## Aliases 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#aliases)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#aliases)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#aliases)</button>
-## AnalyticsCubes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#analyticscubes)</button>
-## AnalyticsReports 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#analyticsreports)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#analyticsreports)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#analyticsreports)</button>
-## AppScreenTexts 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#appscreentexts)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#appscreentexts)</button>
-## AppealCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#appealcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#appealcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#appealcategories)</button>
-## Appeals 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#appeals)</button>
-## ApplicationObjects 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#applicationobjects)</button>
-## Artists 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#artists)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#artists)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#artists)</button>
-## AssetTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#assettypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#assettypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#assettypes)</button>
-## Assets 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#assets)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#assets)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#assets)</button>
-## AssociationTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#associationtypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#associationtypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#associationtypes)</button>
-## Associations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#associations)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#associations)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#associations)</button>
-## AttendanceHistory 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#attendancehistory)</button>
-## Attributes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#attributes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#attributes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#attributes)</button>
-## AuditLogs 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#auditlogs)</button>
-## Authenticate 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#authenticate)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#authenticate)</button>
-## Authorization 
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#authorization)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#authorization)</button>
+## AccountTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#accounttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#accounttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#accounttypes)</button>
+## Accounts <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#accounts)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#accounts)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#accounts)</button>
+## ActionTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#actiontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#actiontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#actiontypes)</button>
+## Actions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#actions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#actions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#actions)</button>
+## ActivityCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#activitycategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#activitycategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#activitycategories)</button>
+## ActivityTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#activitytypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#activitytypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#activitytypes)</button>
+## AddressTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#addresstypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#addresstypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#addresstypes)</button>
+## Addresses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#addresses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#addresses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#addresses)</button>
+## AffiliationInfo <button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#affiliationinfo)</button>
+## AffiliationTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#affiliationtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#affiliationtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#affiliationtypes)</button>
+## Affiliations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#affiliations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#affiliations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#affiliations)</button>
+## AliasTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#aliastypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#aliastypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#aliastypes)</button>
+## Aliases <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#aliases)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#aliases)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#aliases)</button>
+## AnalyticsCubes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#analyticscubes)</button>
+## AnalyticsReports <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#analyticsreports)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#analyticsreports)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#analyticsreports)</button>
+## AppScreenTexts <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#appscreentexts)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#appscreentexts)</button>
+## AppealCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#appealcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#appealcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#appealcategories)</button>
+## Appeals <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#appeals)</button>
+## ApplicationObjects <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#applicationobjects)</button>
+## Artists <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#artists)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#artists)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#artists)</button>
+## AssetTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#assettypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#assettypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#assettypes)</button>
+## Assets <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#assets)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#assets)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#assets)</button>
+## AssociationTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#associationtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#associationtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#associationtypes)</button>
+## Associations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#associations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#associations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#associations)</button>
+## AttendanceHistory <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#attendancehistory)</button>
+## Attributes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#attributes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#attributes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#attributes)</button>
+## AuditLogs <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#auditlogs)</button>
+## Authenticate <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#authenticate)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#authenticate)</button>
+## Authorization <button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#authorization)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#authorization)</button>
 	
 # B
-## Batch 
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#batch)</button>
-## BatchMaintenance 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#batchmaintenance)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#batchmaintenance)</button>
-## BatchTypeGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#batchtypegroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#batchtypegroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#batchtypegroups)</button>
-## BatchTypeUserGroup 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#batchtypeusergroup)</button>
-## BatchTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#batchtypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#batchtypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#batchtypes)</button>
-## BillingSchedules 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#billingschedules)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#billingschedules)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#billingschedules)</button>
-## BillingTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#billingtypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#billingtypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#billingtypes)</button>
-## BookingCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#bookingcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#bookingcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#bookingcategories)</button>
-## BookingTemplates 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#bookingtemplates)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#bookingtemplates)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#bookingtemplates)</button>
-## Bookings 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#bookings)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#bookings)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#bookings)</button>
-## BulkCopySets 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#bulkcopysets)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#bulkcopysets)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#bulkcopysets)</button>
-## BulkDailyCopyExclusions 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#bulkdailycopyexclusions)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#bulkdailycopyexclusions)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#bulkdailycopyexclusions)</button>
-## BusinessUnits 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#businessunits)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#businessunits)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#businessunits)</button>
+## Batch <button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#batch)</button>
+## BatchMaintenance <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#batchmaintenance)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#batchmaintenance)</button>
+## BatchTypeGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#batchtypegroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#batchtypegroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#batchtypegroups)</button>
+## BatchTypeUserGroup <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#batchtypeusergroup)</button>
+## BatchTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#batchtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#batchtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#batchtypes)</button>
+## BillingSchedules <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#billingschedules)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#billingschedules)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#billingschedules)</button>
+## BillingTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#billingtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#billingtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#billingtypes)</button>
+## BookingCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#bookingcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#bookingcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#bookingcategories)</button>
+## BookingTemplates <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#bookingtemplates)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#bookingtemplates)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#bookingtemplates)</button>
+## Bookings <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#bookings)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#bookings)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#bookings)</button>
+## BulkCopySets <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#bulkcopysets)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#bulkcopysets)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#bulkcopysets)</button>
+## BulkDailyCopyExclusions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#bulkdailycopyexclusions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#bulkdailycopyexclusions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#bulkdailycopyexclusions)</button>
+## BusinessUnits <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#businessunits)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#businessunits)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#businessunits)</button>
 	
 # C
-## Cache 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#cache)</button>
-## CampaignDesignations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#campaigndesignations)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#campaigndesignations)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#campaigndesignations)</button>
-## CampaignFunds 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#campaignfunds)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#campaignfunds)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#campaignfunds)</button>
-## Campaigns 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#campaigns)</button>
-## CardReaderTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#cardreadertypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#cardreadertypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#cardreadertypes)</button>
-## Cart 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#cart)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#cart)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#cart)</button>
-## Colors 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#colors)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#colors)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#colors)</button>
-## Composers 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#composers)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#composers)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#composers)</button>
-## Constituencies 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituencies)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituencies)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituencies)</button>
-## ConstituencyTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituencytypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituencytypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituencytypes)</button>
-## ConstituentContributions 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituentcontributions)</button>
-## ConstituentDocuments 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituentdocuments)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituentdocuments)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituentdocuments)</button>
-## ConstituentGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituentgroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituentgroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituentgroups)</button>
-## ConstituentInactives 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituentinactives)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituentinactives)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituentinactives)</button>
-## ConstituentProtectionTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituentprotectiontypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituentprotectiontypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituentprotectiontypes)</button>
-## ConstituentTypeAffiliates 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituenttypeaffiliates)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituenttypeaffiliates)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituenttypeaffiliates)</button>
-## ConstituentTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituenttypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituenttypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituenttypes)</button>
-## Constituents 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituents)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituents)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituents)</button>
-## ContactPermissionCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpermissioncategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpermissioncategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpermissioncategories)</button>
-## ContactPermissionTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpermissiontypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpermissiontypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpermissiontypes)</button>
-## ContactPermissions 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpermissions)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpermissions)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpermissions)</button>
-## ContactPointCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointcategories)</button>
-## ContactPointCategoryPurposes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointcategorypurposes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointcategorypurposes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointcategorypurposes)</button>
-## ContactPointPurposeCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointpurposecategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointpurposecategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointpurposecategories)</button>
-## ContactPointPurposeMaps 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointpurposemaps)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointpurposemaps)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointpurposemaps)</button>
-## ContactPointPurposes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointpurposes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointpurposes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointpurposes)</button>
-## ContactPoints 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpoints)</button>
-## ContactTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contacttypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#contacttypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contacttypes)</button>
-## ContextInformation 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contextinformation)</button>
-## ContributionDesignations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contributiondesignations)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#contributiondesignations)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contributiondesignations)</button>
-## ContributionImportSets 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#contributionimportsets)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#contributionimportsets)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contributionimportsets)</button>
-## Contributions 
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#contributions)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#contributions)</button>
-## ControlGroupUserGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#controlgroupusergroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#controlgroupusergroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#controlgroupusergroups)</button>
-## ControlGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#controlgroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#controlgroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#controlgroups)</button>
-## CoreIdentity 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#coreidentity)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#coreidentity)</button>
-## Countries 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#countries)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#countries)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#countries)</button>
-## CrediteeTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#crediteetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#crediteetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#crediteetypes)</button>
-## Credits 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#credits)</button>
-## CriterionOperators 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#criterionoperators)</button>
-## CumulativeGivingReceipts 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#cumulativegivingreceipts)</button>
-## CurrencyTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#currencytypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#currencytypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#currencytypes)</button>
-## Custom 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#custom)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#custom)</button>
-## CustomDefaultCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#customdefaultcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#customdefaultcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#customdefaultcategories)</button>
-## CustomDefaults 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#customdefaults)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#customdefaults)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#customdefaults)</button>
+## Cache <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#cache)</button>
+## CampaignDesignations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#campaigndesignations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#campaigndesignations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#campaigndesignations)</button>
+## CampaignFunds <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#campaignfunds)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#campaignfunds)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#campaignfunds)</button>
+## Campaigns <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#campaigns)</button>
+## CardReaderTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#cardreadertypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#cardreadertypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#cardreadertypes)</button>
+## Cart <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#cart)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#cart)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#cart)</button>
+## Colors <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#colors)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#colors)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#colors)</button>
+## Composers <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#composers)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#composers)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#composers)</button>
+## Constituencies <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituencies)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#constituencies)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#constituencies)</button>
+## ConstituencyTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituencytypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#constituencytypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#constituencytypes)</button>
+## ConstituentContributions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituentcontributions)</button>
+## ConstituentDocuments <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituentdocuments)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#constituentdocuments)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#constituentdocuments)</button>
+## ConstituentGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituentgroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#constituentgroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#constituentgroups)</button>
+## ConstituentInactives <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituentinactives)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#constituentinactives)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#constituentinactives)</button>
+## ConstituentProtectionTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituentprotectiontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#constituentprotectiontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#constituentprotectiontypes)</button>
+## ConstituentTypeAffiliates <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituenttypeaffiliates)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#constituenttypeaffiliates)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#constituenttypeaffiliates)</button>
+## ConstituentTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituenttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#constituenttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#constituenttypes)</button>
+## Constituents <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituents)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#constituents)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#constituents)</button>
+## ContactPermissionCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpermissioncategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contactpermissioncategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contactpermissioncategories)</button>
+## ContactPermissionTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpermissiontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contactpermissiontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contactpermissiontypes)</button>
+## ContactPermissions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpermissions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contactpermissions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contactpermissions)</button>
+## ContactPointCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpointcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contactpointcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contactpointcategories)</button>
+## ContactPointCategoryPurposes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpointcategorypurposes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contactpointcategorypurposes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contactpointcategorypurposes)</button>
+## ContactPointPurposeCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpointpurposecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contactpointpurposecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contactpointpurposecategories)</button>
+## ContactPointPurposeMaps <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpointpurposemaps)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contactpointpurposemaps)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contactpointpurposemaps)</button>
+## ContactPointPurposes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpointpurposes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contactpointpurposes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contactpointpurposes)</button>
+## ContactPoints <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpoints)</button>
+## ContactTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contacttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contacttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contacttypes)</button>
+## ContextInformation <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contextinformation)</button>
+## ContributionDesignations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contributiondesignations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contributiondesignations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contributiondesignations)</button>
+## ContributionImportSets <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contributionimportsets)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contributionimportsets)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contributionimportsets)</button>
+## Contributions <button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contributions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#contributions)</button>
+## ControlGroupUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#controlgroupusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#controlgroupusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#controlgroupusergroups)</button>
+## ControlGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#controlgroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#controlgroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#controlgroups)</button>
+## CoreIdentity <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#coreidentity)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#coreidentity)</button>
+## Countries <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#countries)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#countries)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#countries)</button>
+## CrediteeTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#crediteetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#crediteetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#crediteetypes)</button>
+## Credits <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#credits)</button>
+## CriterionOperators <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#criterionoperators)</button>
+## CumulativeGivingReceipts <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#cumulativegivingreceipts)</button>
+## CurrencyTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#currencytypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#currencytypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#currencytypes)</button>
+## Custom <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#custom)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#custom)</button>
+## CustomDefaultCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#customdefaultcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#customdefaultcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#customdefaultcategories)</button>
+## CustomDefaults <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#customdefaults)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#customdefaults)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#customdefaults)</button>
 	
 # D
-## DeliveryMethods 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#deliverymethods)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#deliverymethods)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#deliverymethods)</button>
-## DesignationCodes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#designationcodes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#designationcodes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#designationcodes)</button>
-## Designs 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#designs)</button>
-## Diagnostics 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#diagnostics)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#diagnostics)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#diagnostics)</button>
-## DirectDebitAccountTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#directdebitaccounttypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#directdebitaccounttypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#directdebitaccounttypes)</button>
-## DiscountTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#discounttypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#discounttypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#discounttypes)</button>
-## Divisions 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#divisions)</button>
-## DocumentCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#documentcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#documentcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#documentcategories)</button>
-## Documents 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#documents)</button>
-## DonationLevels 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#donationlevels)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#donationlevels)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#donationlevels)</button>
+## DeliveryMethods <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#deliverymethods)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#deliverymethods)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#deliverymethods)</button>
+## DesignationCodes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#designationcodes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#designationcodes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#designationcodes)</button>
+## Designs <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#designs)</button>
+## Diagnostics <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#diagnostics)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#diagnostics)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#diagnostics)</button>
+## DirectDebitAccountTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#directdebitaccounttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#directdebitaccounttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#directdebitaccounttypes)</button>
+## DiscountTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#discounttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#discounttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#discounttypes)</button>
+## Divisions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#divisions)</button>
+## DocumentCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#documentcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#documentcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#documentcategories)</button>
+## Documents <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#documents)</button>
+## DonationLevels <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#donationlevels)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#donationlevels)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#donationlevels)</button>
 	
 # E
-## EMV 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#emv)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#emv)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#emv)</button>
-## ElectronicAddressTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#electronicaddresstypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#electronicaddresstypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#electronicaddresstypes)</button>
-## ElectronicAddresses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#electronicaddresses)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#electronicaddresses)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#electronicaddresses)</button>
-## EmailProfiles 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#emailprofiles)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#emailprofiles)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#emailprofiles)</button>
-## EmailResponses 
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#emailresponses)</button>
-## Emails 
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#emails)</button>
-## EmarketIndicators 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#emarketindicators)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#emarketindicators)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#emarketindicators)</button>
-## Eras 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#eras)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#eras)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#eras)</button>
-## EventControl 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#eventcontrol)</button>
+## EMV <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#emv)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#emv)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#emv)</button>
+## ElectronicAddressTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#electronicaddresstypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#electronicaddresstypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#electronicaddresstypes)</button>
+## ElectronicAddresses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#electronicaddresses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#electronicaddresses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#electronicaddresses)</button>
+## EmailProfiles <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#emailprofiles)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#emailprofiles)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#emailprofiles)</button>
+## EmailResponses <button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#emailresponses)</button>
+## Emails <button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#emails)</button>
+## EmarketIndicators <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#emarketindicators)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#emarketindicators)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#emarketindicators)</button>
+## Eras <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#eras)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#eras)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#eras)</button>
+## EventControl <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#eventcontrol)</button>
 	
 # F
-## Facilities 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#facilities)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#facilities)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#facilities)</button>
-## Fees 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#fees)</button>
-## FinanceContributions 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#financecontributions)</button>
-## Formats 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#formats)</button>
-## Funds 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#funds)</button>
+## Facilities <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#facilities)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#facilities)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#facilities)</button>
+## Fees <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#fees)</button>
+## FinanceContributions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#financecontributions)</button>
+## Formats <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#formats)</button>
+## Funds <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#funds)</button>
 	
 # G
-## GLAccounts 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#glaccounts)</button>
-## Genders 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#genders)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#genders)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#genders)</button>
-## GiftAidContactMethods 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidcontactmethods)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidcontactmethods)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidcontactmethods)</button>
-## GiftAidDeclarations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaiddeclarations)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaiddeclarations)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaiddeclarations)</button>
-## GiftAidDocumentStatuses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaiddocumentstatuses)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaiddocumentstatuses)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaiddocumentstatuses)</button>
-## GiftAidIneligibleReasons 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidineligiblereasons)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidineligiblereasons)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidineligiblereasons)</button>
-## GiftAidRates 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidrates)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidrates)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidrates)</button>
-## GiftAidStatuses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidstatuses)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidstatuses)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidstatuses)</button>
-## GiftAidTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidtypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidtypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidtypes)</button>
-## GiftCertificates 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftcertificates)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftcertificates)</button>
+## GLAccounts <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#glaccounts)</button>
+## Genders <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#genders)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#genders)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#genders)</button>
+## GiftAidContactMethods <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaidcontactmethods)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#giftaidcontactmethods)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#giftaidcontactmethods)</button>
+## GiftAidDeclarations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaiddeclarations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#giftaiddeclarations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#giftaiddeclarations)</button>
+## GiftAidDocumentStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaiddocumentstatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#giftaiddocumentstatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#giftaiddocumentstatuses)</button>
+## GiftAidIneligibleReasons <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaidineligiblereasons)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#giftaidineligiblereasons)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#giftaidineligiblereasons)</button>
+## GiftAidRates <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaidrates)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#giftaidrates)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#giftaidrates)</button>
+## GiftAidStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaidstatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#giftaidstatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#giftaidstatuses)</button>
+## GiftAidTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaidtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#giftaidtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#giftaidtypes)</button>
+## GiftCertificates <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftcertificates)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#giftcertificates)</button>
 	
 # H
-## HoldCodeCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#holdcodecategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#holdcodecategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#holdcodecategories)</button>
-## HoldCodeUserGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#holdcodeusergroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#holdcodeusergroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#holdcodeusergroups)</button>
-## HoldCodes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#holdcodes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#holdcodes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#holdcodes)</button>
+## HoldCodeCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#holdcodecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#holdcodecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#holdcodecategories)</button>
+## HoldCodeUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#holdcodeusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#holdcodeusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#holdcodeusergroups)</button>
+## HoldCodes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#holdcodes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#holdcodes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#holdcodes)</button>
 	
 # I
-## InactiveReasons 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#inactivereasons)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#inactivereasons)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#inactivereasons)</button>
-## IntegrationDefaults 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#integrationdefaults)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#integrationdefaults)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#integrationdefaults)</button>
-## Integrations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#integrations)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#integrations)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#integrations)</button>
-## InterestCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#interestcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#interestcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#interestcategories)</button>
-## InterestTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#interesttypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#interesttypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#interesttypes)</button>
-## Interests 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#interests)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#interests)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#interests)</button>
-## Internal 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#internal)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#internal)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#internal)</button>
-## InventoryContactPermissionTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#inventorycontactpermissiontypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#inventorycontactpermissiontypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#inventorycontactpermissiontypes)</button>
-## InventoryWebContents 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#inventorywebcontents)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#inventorywebcontents)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#inventorywebcontents)</button>
-## InvoiceBilling 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#invoicebilling)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#invoicebilling)</button>
-## Issues 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#issues)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#issues)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#issues)</button>
+## InactiveReasons <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#inactivereasons)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#inactivereasons)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#inactivereasons)</button>
+## IntegrationDefaults <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#integrationdefaults)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#integrationdefaults)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#integrationdefaults)</button>
+## Integrations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#integrations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#integrations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#integrations)</button>
+## InterestCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#interestcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#interestcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#interestcategories)</button>
+## InterestTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#interesttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#interesttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#interesttypes)</button>
+## Interests <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#interests)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#interests)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#interests)</button>
+## Internal <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#internal)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#internal)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#internal)</button>
+## InventoryContactPermissionTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#inventorycontactpermissiontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#inventorycontactpermissiontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#inventorycontactpermissiontypes)</button>
+## InventoryWebContents <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#inventorywebcontents)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#inventorywebcontents)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#inventorywebcontents)</button>
+## InvoiceBilling <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#invoicebilling)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#invoicebilling)</button>
+## Issues <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#issues)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#issues)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#issues)</button>
 	
 # K
-## KeywordCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#keywordcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#keywordcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#keywordcategories)</button>
-## Keywords 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#keywords)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#keywords)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#keywords)</button>
+## KeywordCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#keywordcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#keywordcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#keywordcategories)</button>
+## Keywords <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#keywords)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#keywords)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#keywords)</button>
 	
 # L
-## Languages 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#languages)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#languages)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#languages)</button>
-## ListCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#listcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#listcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#listcategories)</button>
-## Lists 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#lists)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#lists)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#lists)</button>
-## LoginTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#logintypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#logintypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#logintypes)</button>
+## Languages <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#languages)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#languages)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#languages)</button>
+## ListCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#listcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#listcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#listcategories)</button>
+## Lists <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#lists)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#lists)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#lists)</button>
+## LoginTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#logintypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#logintypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#logintypes)</button>
 	
 # M
-## MachineSettings 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#machinesettings)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#machinesettings)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#machinesettings)</button>
-## MailIndicators 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#mailindicators)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#mailindicators)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#mailindicators)</button>
-## MediaTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#mediatypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#mediatypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#mediatypes)</button>
-## MembershipLevelCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#membershiplevelcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#membershiplevelcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#membershiplevelcategories)</button>
-## MembershipLevels 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#membershiplevels)</button>
-## MembershipOrganizations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#membershiporganizations)</button>
-## MembershipStandings 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#membershipstandings)</button>
-## Memberships 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#memberships)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#memberships)</button>
-## MerchantReferences 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#merchantreferences)</button>
-## Merchants 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#merchants)</button>
-## ModeOfSaleCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsalecategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsalecategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsalecategories)</button>
-## ModeOfSaleOffers 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsaleoffers)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsaleoffers)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsaleoffers)</button>
-## ModeOfSalePriceTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsalepricetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsalepricetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsalepricetypes)</button>
-## ModeOfSaleSurveyQuestions 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsalesurveyquestions)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsalesurveyquestions)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsalesurveyquestions)</button>
-## ModeOfSaleUserGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsaleusergroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsaleusergroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsaleusergroups)</button>
-## ModesOfSale 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#modesofsale)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#modesofsale)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#modesofsale)</button>
+## MachineSettings <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#machinesettings)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#machinesettings)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#machinesettings)</button>
+## MailIndicators <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#mailindicators)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#mailindicators)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#mailindicators)</button>
+## MediaTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#mediatypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#mediatypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#mediatypes)</button>
+## MembershipLevelCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#membershiplevelcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#membershiplevelcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#membershiplevelcategories)</button>
+## MembershipLevels <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#membershiplevels)</button>
+## MembershipOrganizations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#membershiporganizations)</button>
+## MembershipStandings <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#membershipstandings)</button>
+## Memberships <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#memberships)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#memberships)</button>
+## MerchantReferences <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#merchantreferences)</button>
+## Merchants <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#merchants)</button>
+## ModeOfSaleCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#modeofsalecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#modeofsalecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#modeofsalecategories)</button>
+## ModeOfSaleOffers <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#modeofsaleoffers)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#modeofsaleoffers)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#modeofsaleoffers)</button>
+## ModeOfSalePriceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#modeofsalepricetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#modeofsalepricetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#modeofsalepricetypes)</button>
+## ModeOfSaleSurveyQuestions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#modeofsalesurveyquestions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#modeofsalesurveyquestions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#modeofsalesurveyquestions)</button>
+## ModeOfSaleUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#modeofsaleusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#modeofsaleusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#modeofsaleusergroups)</button>
+## ModesOfSale <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#modesofsale)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#modesofsale)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#modesofsale)</button>
 	
 # N
-## NScanAccessAreas 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#nscanaccessareas)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#nscanaccessareas)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#nscanaccessareas)</button>
-## NameStatuses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#namestatuses)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#namestatuses)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#namestatuses)</button>
+## NScanAccessAreas <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#nscanaccessareas)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#nscanaccessareas)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#nscanaccessareas)</button>
+## NameStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#namestatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#namestatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#namestatuses)</button>
 	
 # O
-## ObjectPermissions 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#objectpermissions)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#objectpermissions)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#objectpermissions)</button>
-## OrderBilling 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#orderbilling)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#orderbilling)</button>
-## OrderCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#ordercategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#ordercategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#ordercategories)</button>
-## Orders 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#orders)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#orders)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#orders)</button>
-## Organizations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#organizations)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#organizations)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#organizations)</button>
-## OriginalSources 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#originalsources)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#originalsources)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#originalsources)</button>
-## Origins 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#origins)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#origins)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#origins)</button>
-## OutputSets 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#outputsets)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#outputsets)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#outputsets)</button>
+## ObjectPermissions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#objectpermissions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#objectpermissions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#objectpermissions)</button>
+## OrderBilling <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#orderbilling)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#orderbilling)</button>
+## OrderCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#ordercategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#ordercategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#ordercategories)</button>
+## Orders <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#orders)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#orders)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#orders)</button>
+## Organizations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#organizations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#organizations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#organizations)</button>
+## OriginalSources <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#originalsources)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#originalsources)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#originalsources)</button>
+## Origins <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#origins)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#origins)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#origins)</button>
+## OutputSets <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#outputsets)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#outputsets)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#outputsets)</button>
 	
 # P
-## PackageHistory 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#packagehistory)</button>
-## PackagePriceTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#packagepricetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#packagepricetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#packagepricetypes)</button>
-## PackageTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#packagetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#packagetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#packagetypes)</button>
-## PackageWebContents 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#packagewebcontents)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#packagewebcontents)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#packagewebcontents)</button>
-## Packages 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#packages)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#packages)</button>
-## PaymentComponent 
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentcomponent)</button>
-## PaymentGatewayAccounts 
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentgatewayaccounts)</button>
-## PaymentGatewayActivities 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentgatewayactivities)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentgatewayactivities)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentgatewayactivities)</button>
-## PaymentGatewayConfiguration 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentgatewayconfiguration)</button>
-## PaymentGatewayCredentials 
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentgatewaycredentials)</button>
-## PaymentGatewayNotifications 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentgatewaynotifications)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentgatewaynotifications)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentgatewaynotifications)</button>
-## PaymentGatewayTransactionTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentgatewaytransactiontypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentgatewaytransactiontypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentgatewaytransactiontypes)</button>
-## PaymentHistory 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymenthistory)</button>
-## PaymentMethodGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentmethodgroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentmethodgroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentmethodgroups)</button>
-## PaymentMethodUserGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentmethodusergroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentmethodusergroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentmethodusergroups)</button>
-## PaymentMethods 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentmethods)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentmethods)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentmethods)</button>
-## PaymentSignatures 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentsignatures)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentsignatures)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentsignatures)</button>
-## PaymentTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymenttypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymenttypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymenttypes)</button>
-## Payments 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#payments)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#payments)</button>
-## PerformanceGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancegroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancegroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancegroups)</button>
-## PerformancePackageModeOfSales 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancepackagemodeofsales)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancepackagemodeofsales)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancepackagemodeofsales)</button>
-## PerformancePriceLayers 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancepricelayers)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancepricelayers)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancepricelayers)</button>
-## PerformancePriceTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancepricetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancepricetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancepricetypes)</button>
-## PerformancePrices 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#performanceprices)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#performanceprices)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#performanceprices)</button>
-## PerformanceStatuses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancestatuses)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancestatuses)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancestatuses)</button>
-## PerformanceTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancetypes)</button>
-## Performances 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#performances)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#performances)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#performances)</button>
-## Philanthropy 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#philanthropy)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#philanthropy)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#philanthropy)</button>
-## PhilanthropyTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#philanthropytypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#philanthropytypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#philanthropytypes)</button>
-## PhoneIndicators 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#phoneindicators)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#phoneindicators)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#phoneindicators)</button>
-## PhoneTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#phonetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#phonetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#phonetypes)</button>
-## Phones 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#phones)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#phones)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#phones)</button>
-## PlanPriorities 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#planpriorities)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#planpriorities)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#planpriorities)</button>
-## PlanSources 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#plansources)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#plansources)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#plansources)</button>
-## PlanStatuses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#planstatuses)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#planstatuses)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#planstatuses)</button>
-## PlanTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#plantypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#plantypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#plantypes)</button>
-## PlanWorkers 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#planworkers)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#planworkers)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#planworkers)</button>
-## Plans 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#plans)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#plans)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#plans)</button>
-## PledgeBilling 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pledgebilling)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#pledgebilling)</button>
-## PortfolioCustomElements 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#portfoliocustomelements)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#portfoliocustomelements)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#portfoliocustomelements)</button>
-## Portfolios 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#portfolios)</button>
-## Prefixes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#prefixes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#prefixes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#prefixes)</button>
-## Premieres 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#premieres)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#premieres)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#premieres)</button>
-## PriceCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricecategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricecategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricecategories)</button>
-## PriceEvents 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#priceevents)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#priceevents)</button>
-## PriceLayerTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricelayertypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricelayertypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricelayertypes)</button>
-## PriceTemplates 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetemplates)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetemplates)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetemplates)</button>
-## PriceTypeCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypecategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypecategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypecategories)</button>
-## PriceTypeGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypegroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypegroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypegroups)</button>
-## PriceTypeReasons 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypereasons)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypereasons)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypereasons)</button>
-## PriceTypeUserGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypeusergroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypeusergroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypeusergroups)</button>
-## PriceTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypes)</button>
-## PricingRuleCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricingrulecategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricingrulecategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricingrulecategories)</button>
-## PricingRuleMessageTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricingrulemessagetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricingrulemessagetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricingrulemessagetypes)</button>
-## PricingRuleSets 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricingrulesets)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricingrulesets)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricingrulesets)</button>
-## PricingRuleTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricingruletypes)</button>
-## PricingRules 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricingrules)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricingrules)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricingrules)</button>
-## Printers 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#printers)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#printers)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#printers)</button>
-## ProductKeywords 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#productkeywords)</button>
-## ProductionSeasonMembershipOrganizations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#productionseasonmembershiporganizations)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#productionseasonmembershiporganizations)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#productionseasonmembershiporganizations)</button>
-## ProductionSeasons 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#productionseasons)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#productionseasons)</button>
-## Productions 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#productions)</button>
-## Products 
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#products)</button>
-## ProgramListings 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#programlistings)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#programlistings)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#programlistings)</button>
-## Programs 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#programs)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#programs)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#programs)</button>
-## Pronouns 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#pronouns)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#pronouns)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#pronouns)</button>
+## PackageHistory <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#packagehistory)</button>
+## PackagePriceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#packagepricetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#packagepricetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#packagepricetypes)</button>
+## PackageTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#packagetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#packagetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#packagetypes)</button>
+## PackageWebContents <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#packagewebcontents)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#packagewebcontents)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#packagewebcontents)</button>
+## Packages <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#packages)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#packages)</button>
+## PaymentComponent <button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymentcomponent)</button>
+## PaymentGatewayAccounts <button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymentgatewayaccounts)</button>
+## PaymentGatewayActivities <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentgatewayactivities)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymentgatewayactivities)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#paymentgatewayactivities)</button>
+## PaymentGatewayConfiguration <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentgatewayconfiguration)</button>
+## PaymentGatewayCredentials <button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymentgatewaycredentials)</button>
+## PaymentGatewayNotifications <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentgatewaynotifications)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymentgatewaynotifications)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#paymentgatewaynotifications)</button>
+## PaymentGatewayTransactionTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentgatewaytransactiontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymentgatewaytransactiontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#paymentgatewaytransactiontypes)</button>
+## PaymentHistory <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymenthistory)</button>
+## PaymentMethodGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentmethodgroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymentmethodgroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#paymentmethodgroups)</button>
+## PaymentMethodUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentmethodusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymentmethodusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#paymentmethodusergroups)</button>
+## PaymentMethods <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentmethods)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymentmethods)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#paymentmethods)</button>
+## PaymentSignatures <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentsignatures)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymentsignatures)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#paymentsignatures)</button>
+## PaymentTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymenttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymenttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#paymenttypes)</button>
+## Payments <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#payments)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#payments)</button>
+## PerformanceGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performancegroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#performancegroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#performancegroups)</button>
+## PerformancePackageModeOfSales <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performancepackagemodeofsales)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#performancepackagemodeofsales)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#performancepackagemodeofsales)</button>
+## PerformancePriceLayers <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performancepricelayers)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#performancepricelayers)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#performancepricelayers)</button>
+## PerformancePriceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performancepricetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#performancepricetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#performancepricetypes)</button>
+## PerformancePrices <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performanceprices)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#performanceprices)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#performanceprices)</button>
+## PerformanceStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performancestatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#performancestatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#performancestatuses)</button>
+## PerformanceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performancetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#performancetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#performancetypes)</button>
+## Performances <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performances)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#performances)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#performances)</button>
+## Philanthropy <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#philanthropy)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#philanthropy)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#philanthropy)</button>
+## PhilanthropyTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#philanthropytypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#philanthropytypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#philanthropytypes)</button>
+## PhoneIndicators <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#phoneindicators)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#phoneindicators)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#phoneindicators)</button>
+## PhoneTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#phonetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#phonetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#phonetypes)</button>
+## Phones <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#phones)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#phones)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#phones)</button>
+## PlanPriorities <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#planpriorities)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#planpriorities)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#planpriorities)</button>
+## PlanSources <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#plansources)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#plansources)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#plansources)</button>
+## PlanStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#planstatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#planstatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#planstatuses)</button>
+## PlanTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#plantypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#plantypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#plantypes)</button>
+## PlanWorkers <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#planworkers)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#planworkers)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#planworkers)</button>
+## Plans <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#plans)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#plans)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#plans)</button>
+## PledgeBilling <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pledgebilling)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pledgebilling)</button>
+## PortfolioCustomElements <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#portfoliocustomelements)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#portfoliocustomelements)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#portfoliocustomelements)</button>
+## Portfolios <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#portfolios)</button>
+## Prefixes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#prefixes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#prefixes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#prefixes)</button>
+## Premieres <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#premieres)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#premieres)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#premieres)</button>
+## PriceCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricecategories)</button>
+## PriceEvents <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#priceevents)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#priceevents)</button>
+## PriceLayerTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricelayertypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricelayertypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricelayertypes)</button>
+## PriceTemplates <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricetemplates)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricetemplates)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricetemplates)</button>
+## PriceTypeCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricetypecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricetypecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricetypecategories)</button>
+## PriceTypeGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricetypegroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricetypegroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricetypegroups)</button>
+## PriceTypeReasons <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricetypereasons)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricetypereasons)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricetypereasons)</button>
+## PriceTypeUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricetypeusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricetypeusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricetypeusergroups)</button>
+## PriceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricetypes)</button>
+## PricingRuleCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricingrulecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricingrulecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricingrulecategories)</button>
+## PricingRuleMessageTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricingrulemessagetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricingrulemessagetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricingrulemessagetypes)</button>
+## PricingRuleSets <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricingrulesets)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricingrulesets)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricingrulesets)</button>
+## PricingRuleTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricingruletypes)</button>
+## PricingRules <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricingrules)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricingrules)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pricingrules)</button>
+## Printers <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#printers)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#printers)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#printers)</button>
+## ProductKeywords <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#productkeywords)</button>
+## ProductionSeasonMembershipOrganizations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#productionseasonmembershiporganizations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#productionseasonmembershiporganizations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#productionseasonmembershiporganizations)</button>
+## ProductionSeasons <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#productionseasons)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#productionseasons)</button>
+## Productions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#productions)</button>
+## Products <button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#products)</button>
+## ProgramListings <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#programlistings)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#programlistings)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#programlistings)</button>
+## Programs <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#programs)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#programs)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#programs)</button>
+## Pronouns <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pronouns)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pronouns)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#pronouns)</button>
 	
 # Q
-## QualificationCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#qualificationcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#qualificationcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#qualificationcategories)</button>
-## Qualifications 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#qualifications)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#qualifications)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#qualifications)</button>
-## QueryElementFilters 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#queryelementfilters)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#queryelementfilters)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#queryelementfilters)</button>
-## QueryElementGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#queryelementgroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#queryelementgroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#queryelementgroups)</button>
-## QueryElements 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#queryelements)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#queryelements)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#queryelements)</button>
+## QualificationCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#qualificationcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#qualificationcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#qualificationcategories)</button>
+## Qualifications <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#qualifications)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#qualifications)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#qualifications)</button>
+## QueryElementFilters <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#queryelementfilters)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#queryelementfilters)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#queryelementfilters)</button>
+## QueryElementGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#queryelementgroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#queryelementgroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#queryelementgroups)</button>
+## QueryElements <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#queryelements)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#queryelements)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#queryelements)</button>
 	
 # R
-## RankTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#ranktypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#ranktypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#ranktypes)</button>
-## Rankings 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#rankings)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#rankings)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#rankings)</button>
-## ReceiptSettings 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#receiptsettings)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#receiptsettings)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#receiptsettings)</button>
-## RecordAttendance 
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#recordattendance)</button>
-## ReferenceColumns 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#referencecolumns)</button>
-## ReferenceTableUserGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#referencetableusergroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#referencetableusergroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#referencetableusergroups)</button>
-## ReferenceTables 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#referencetables)</button>
-## Registration 
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#registration)</button>
-## RelationshipCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#relationshipcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#relationshipcategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#relationshipcategories)</button>
-## Relationships 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#relationships)</button>
-## ReportRequests 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#reportrequests)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#reportrequests)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#reportrequests)</button>
-## ReportSchedules 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#reportschedules)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#reportschedules)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#reportschedules)</button>
-## ReportUserGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#reportusergroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#reportusergroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#reportusergroups)</button>
-## Reports 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#reports)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#reports)</button>
-## Research 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#research)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#research)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#research)</button>
-## ResearchTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#researchtypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#researchtypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#researchtypes)</button>
-## ResourceCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#resourcecategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#resourcecategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#resourcecategories)</button>
-## ResourceSchedules 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#resourceschedules)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#resourceschedules)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#resourceschedules)</button>
-## ResourceTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#resourcetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#resourcetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#resourcetypes)</button>
-## Resources 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#resources)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#resources)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#resources)</button>
+## RankTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#ranktypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#ranktypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#ranktypes)</button>
+## Rankings <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#rankings)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#rankings)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#rankings)</button>
+## ReceiptSettings <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#receiptsettings)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#receiptsettings)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#receiptsettings)</button>
+## RecordAttendance <button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#recordattendance)</button>
+## ReferenceColumns <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#referencecolumns)</button>
+## ReferenceTableUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#referencetableusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#referencetableusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#referencetableusergroups)</button>
+## ReferenceTables <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#referencetables)</button>
+## Registration <button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#registration)</button>
+## RelationshipCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#relationshipcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#relationshipcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#relationshipcategories)</button>
+## Relationships <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#relationships)</button>
+## ReportRequests <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#reportrequests)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#reportrequests)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#reportrequests)</button>
+## ReportSchedules <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#reportschedules)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#reportschedules)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#reportschedules)</button>
+## ReportUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#reportusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#reportusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#reportusergroups)</button>
+## Reports <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#reports)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#reports)</button>
+## Research <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#research)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#research)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#research)</button>
+## ResearchTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#researchtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#researchtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#researchtypes)</button>
+## ResourceCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#resourcecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#resourcecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#resourcecategories)</button>
+## ResourceSchedules <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#resourceschedules)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#resourceschedules)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#resourceschedules)</button>
+## ResourceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#resourcetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#resourcetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#resourcetypes)</button>
+## Resources <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#resources)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#resources)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#resources)</button>
 	
 # S
-## SalesChannels 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#saleschannels)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#saleschannels)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#saleschannels)</button>
-## SalesLayoutButtonTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#saleslayoutbuttontypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#saleslayoutbuttontypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#saleslayoutbuttontypes)</button>
-## SalesLayouts 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#saleslayouts)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#saleslayouts)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#saleslayouts)</button>
-## SalutationTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#salutationtypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#salutationtypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#salutationtypes)</button>
-## Salutations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#salutations)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#salutations)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#salutations)</button>
-## SchedulePatternTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#schedulepatterntypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#schedulepatterntypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#schedulepatterntypes)</button>
-## ScheduleTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#scheduletypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#scheduletypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#scheduletypes)</button>
-## SeasonTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#seasontypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#seasontypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#seasontypes)</button>
-## Seasons 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#seasons)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#seasons)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#seasons)</button>
-## SeatCodes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#seatcodes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#seatcodes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#seatcodes)</button>
-## SeatStatuses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#seatstatuses)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#seatstatuses)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#seatstatuses)</button>
-## Sections 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#sections)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#sections)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#sections)</button>
-## SecurityBatchTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#securitybatchtypes)</button>
-## SecurityControlGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#securitycontrolgroups)</button>
-## SecurityHoldCodes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#securityholdcodes)</button>
-## SecurityModesOfSale 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#securitymodesofsale)</button>
-## SecurityObjectPermissions 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#securityobjectpermissions)</button>
-## SecurityPaymentMethods 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#securitypaymentmethods)</button>
-## SecurityPriceTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#securitypricetypes)</button>
-## SecurityReferenceTables 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#securityreferencetables)</button>
-## SecurityReports 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#securityreports)</button>
-## SecurityServiceResources 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#securityserviceresources)</button>
-## SecurityUserGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#securityusergroups)</button>
-## ServiceResourceUserGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#serviceresourceusergroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#serviceresourceusergroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#serviceresourceusergroups)</button>
-## ServiceResources 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#serviceresources)</button>
-## Session 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#session)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#session)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#session)</button>
-## SourceGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#sourcegroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#sourcegroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#sourcegroups)</button>
-## Sources 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#sources)</button>
-## SpecialActivities 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#specialactivities)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#specialactivities)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#specialactivities)</button>
-## SpecialActivityStatuses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#specialactivitystatuses)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#specialactivitystatuses)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#specialactivitystatuses)</button>
-## SpecialActivityTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#specialactivitytypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#specialactivitytypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#specialactivitytypes)</button>
-## States 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#states)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#states)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#states)</button>
-## StepTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#steptypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#steptypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#steptypes)</button>
-## Steps 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#steps)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#steps)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#steps)</button>
-## SubLineItemStatuses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#sublineitemstatuses)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#sublineitemstatuses)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#sublineitemstatuses)</button>
-## SubLineItems 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#sublineitems)</button>
-## Suffixes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#suffixes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#suffixes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#suffixes)</button>
-## SurveyQuestions 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#surveyquestions)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#surveyquestions)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#surveyquestions)</button>
-## SurveyResponses 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#surveyresponses)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#surveyresponses)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#surveyresponses)</button>
-## SystemDefaults 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#systemdefaults)</button>
+## SalesChannels <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#saleschannels)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#saleschannels)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#saleschannels)</button>
+## SalesLayoutButtonTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#saleslayoutbuttontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#saleslayoutbuttontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#saleslayoutbuttontypes)</button>
+## SalesLayouts <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#saleslayouts)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#saleslayouts)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#saleslayouts)</button>
+## SalutationTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#salutationtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#salutationtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#salutationtypes)</button>
+## Salutations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#salutations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#salutations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#salutations)</button>
+## SchedulePatternTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#schedulepatterntypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#schedulepatterntypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#schedulepatterntypes)</button>
+## ScheduleTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#scheduletypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#scheduletypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#scheduletypes)</button>
+## SeasonTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#seasontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#seasontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#seasontypes)</button>
+## Seasons <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#seasons)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#seasons)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#seasons)</button>
+## SeatCodes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#seatcodes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#seatcodes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#seatcodes)</button>
+## SeatStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#seatstatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#seatstatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#seatstatuses)</button>
+## Sections <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#sections)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#sections)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#sections)</button>
+## SecurityBatchTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#securitybatchtypes)</button>
+## SecurityControlGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#securitycontrolgroups)</button>
+## SecurityHoldCodes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#securityholdcodes)</button>
+## SecurityModesOfSale <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#securitymodesofsale)</button>
+## SecurityObjectPermissions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#securityobjectpermissions)</button>
+## SecurityPaymentMethods <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#securitypaymentmethods)</button>
+## SecurityPriceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#securitypricetypes)</button>
+## SecurityReferenceTables <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#securityreferencetables)</button>
+## SecurityReports <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#securityreports)</button>
+## SecurityServiceResources <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#securityserviceresources)</button>
+## SecurityUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#securityusergroups)</button>
+## ServiceResourceUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#serviceresourceusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#serviceresourceusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#serviceresourceusergroups)</button>
+## ServiceResources <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#serviceresources)</button>
+## Session <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#session)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#session)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#session)</button>
+## SourceGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#sourcegroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#sourcegroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#sourcegroups)</button>
+## Sources <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#sources)</button>
+## SpecialActivities <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#specialactivities)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#specialactivities)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#specialactivities)</button>
+## SpecialActivityStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#specialactivitystatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#specialactivitystatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#specialactivitystatuses)</button>
+## SpecialActivityTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#specialactivitytypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#specialactivitytypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#specialactivitytypes)</button>
+## States <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#states)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#states)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#states)</button>
+## StepTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#steptypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#steptypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#steptypes)</button>
+## Steps <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#steps)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#steps)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#steps)</button>
+## SubLineItemStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#sublineitemstatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#sublineitemstatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#sublineitemstatuses)</button>
+## SubLineItems <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#sublineitems)</button>
+## Suffixes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#suffixes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#suffixes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#suffixes)</button>
+## SurveyQuestions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#surveyquestions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#surveyquestions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#surveyquestions)</button>
+## SurveyResponses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#surveyresponses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#surveyresponses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#surveyresponses)</button>
+## SystemDefaults <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#systemdefaults)</button>
 	
 # T
-## TemplateCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#templatecategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#templatecategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#templatecategories)</button>
-## TemplatePriceTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#templatepricetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#templatepricetypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#templatepricetypes)</button>
-## TemplatePrices 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#templateprices)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#templateprices)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#templateprices)</button>
-## TemplateTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#templatetypes)</button>
-## Templates 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#templates)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#templates)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#templates)</button>
-## Theaters 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#theaters)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#theaters)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#theaters)</button>
-## TicketHistory 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#tickethistory)</button>
-## TimeSlots 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#timeslots)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#timeslots)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#timeslots)</button>
-## Titles 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#titles)</button>
-## TransactionHistory 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#transactionhistory)</button>
-## TriPOSCloudConfigurations 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#triposcloudconfigurations)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#triposcloudconfigurations)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#triposcloudconfigurations)</button>
+## TemplateCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#templatecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#templatecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#templatecategories)</button>
+## TemplatePriceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#templatepricetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#templatepricetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#templatepricetypes)</button>
+## TemplatePrices <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#templateprices)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#templateprices)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#templateprices)</button>
+## TemplateTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#templatetypes)</button>
+## Templates <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#templates)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#templates)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#templates)</button>
+## Theaters <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#theaters)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#theaters)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#theaters)</button>
+## TicketHistory <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#tickethistory)</button>
+## TimeSlots <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#timeslots)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#timeslots)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#timeslots)</button>
+## Titles <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#titles)</button>
+## TransactionHistory <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#transactionhistory)</button>
+## TriPOSCloudConfigurations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#triposcloudconfigurations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#triposcloudconfigurations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#triposcloudconfigurations)</button>
 	
 # U
-## UpgradeCategories 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#upgradecategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#upgradecategories)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#upgradecategories)</button>
-## UpgradeLogs 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#upgradelogs)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#upgradelogs)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#upgradelogs)</button>
-## UserGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#usergroups)</button>
-## UserPreferences 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#userpreferences)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#userpreferences)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#userpreferences)</button>
-## Users 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#users)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#users)</button>
+## UpgradeCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#upgradecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#upgradecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#upgradecategories)</button>
+## UpgradeLogs <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#upgradelogs)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#upgradelogs)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#upgradelogs)</button>
+## UserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#usergroups)</button>
+## UserPreferences <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#userpreferences)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#userpreferences)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#userpreferences)</button>
+## Users <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#users)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#users)</button>
 	
 # V
-## ValidateWebLogin 
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#validateweblogin)</button>
+## ValidateWebLogin <button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#validateweblogin)</button>
 	
 # W
-## WebContentTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#webcontenttypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#webcontenttypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#webcontenttypes)</button>
-## WebContents 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#webcontents)</button>
-## WebLogins 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#weblogins)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#weblogins)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#weblogins)</button>
-## WorkerQualifications 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#workerqualifications)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#workerqualifications)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#workerqualifications)</button>
-## WorkerRoles 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#workerroles)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#workerroles)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#workerroles)</button>
-## WorkerTypes 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#workertypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#workertypes)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#workertypes)</button>
-## Workers 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#workers)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#workers)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#workers)</button>
+## WebContentTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#webcontenttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#webcontenttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#webcontenttypes)</button>
+## WebContents <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#webcontents)</button>
+## WebLogins <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#weblogins)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#weblogins)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#weblogins)</button>
+## WorkerQualifications <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#workerqualifications)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#workerqualifications)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#workerqualifications)</button>
+## WorkerRoles <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#workerroles)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#workerroles)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#workerroles)</button>
+## WorkerTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#workertypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#workertypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#workertypes)</button>
+## Workers <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#workers)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#workers)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#workers)</button>
 	
 # Z
-## ZoneGroups 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#zonegroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#zonegroups)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#zonegroups)</button>
-## ZoneMaps 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#zonemaps)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#zonemaps)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#zonemaps)</button>
-## Zones 
-<button type="button" class="btn btn-primary btn-sm">[get](get.md#zones)</button>
-<button type="button" class="btn btn-primary btn-sm">[post](post.md#zones)</button>
-<button type="button" class="btn btn-primary btn-sm">[put](put.md#zones)</button>    
+## ZoneGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#zonegroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#zonegroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#zonegroups)</button>
+## ZoneMaps <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#zonemaps)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#zonemaps)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#zonemaps)</button>
+## Zones <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#zones)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#zones)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[put](put.md#zones)</button>    
 
 
 <link rel="stylesheet" type="text/css" href="../css/toc.css"/>
