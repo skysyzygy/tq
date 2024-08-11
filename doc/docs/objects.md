@@ -4,1187 +4,1187 @@
 	
 # A
 ## AccountTypes 
-<span class="badge bg-primary">[get](get.md#accounttypes)</span>
-<span class="badge bg-primary">[post](post.md#accounttypes)</span>
-<span class="badge bg-primary">[put](put.md#accounttypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#accounttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#accounttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#accounttypes)</button>
 ## Accounts 
-<span class="badge bg-primary">[get](get.md#accounts)</span>
-<span class="badge bg-primary">[post](post.md#accounts)</span>
-<span class="badge bg-primary">[put](put.md#accounts)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#accounts)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#accounts)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#accounts)</button>
 ## ActionTypes 
-<span class="badge bg-primary">[get](get.md#actiontypes)</span>
-<span class="badge bg-primary">[post](post.md#actiontypes)</span>
-<span class="badge bg-primary">[put](put.md#actiontypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#actiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#actiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#actiontypes)</button>
 ## Actions 
-<span class="badge bg-primary">[get](get.md#actions)</span>
-<span class="badge bg-primary">[post](post.md#actions)</span>
-<span class="badge bg-primary">[put](put.md#actions)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#actions)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#actions)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#actions)</button>
 ## ActivityCategories 
-<span class="badge bg-primary">[get](get.md#activitycategories)</span>
-<span class="badge bg-primary">[post](post.md#activitycategories)</span>
-<span class="badge bg-primary">[put](put.md#activitycategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#activitycategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#activitycategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#activitycategories)</button>
 ## ActivityTypes 
-<span class="badge bg-primary">[get](get.md#activitytypes)</span>
-<span class="badge bg-primary">[post](post.md#activitytypes)</span>
-<span class="badge bg-primary">[put](put.md#activitytypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#activitytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#activitytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#activitytypes)</button>
 ## AddressTypes 
-<span class="badge bg-primary">[get](get.md#addresstypes)</span>
-<span class="badge bg-primary">[post](post.md#addresstypes)</span>
-<span class="badge bg-primary">[put](put.md#addresstypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#addresstypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#addresstypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#addresstypes)</button>
 ## Addresses 
-<span class="badge bg-primary">[get](get.md#addresses)</span>
-<span class="badge bg-primary">[post](post.md#addresses)</span>
-<span class="badge bg-primary">[put](put.md#addresses)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#addresses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#addresses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#addresses)</button>
 ## AffiliationInfo 
-<span class="badge bg-primary">[post](post.md#affiliationinfo)</span>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#affiliationinfo)</button>
 ## AffiliationTypes 
-<span class="badge bg-primary">[get](get.md#affiliationtypes)</span>
-<span class="badge bg-primary">[post](post.md#affiliationtypes)</span>
-<span class="badge bg-primary">[put](put.md#affiliationtypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#affiliationtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#affiliationtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#affiliationtypes)</button>
 ## Affiliations 
-<span class="badge bg-primary">[get](get.md#affiliations)</span>
-<span class="badge bg-primary">[post](post.md#affiliations)</span>
-<span class="badge bg-primary">[put](put.md#affiliations)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#affiliations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#affiliations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#affiliations)</button>
 ## AliasTypes 
-<span class="badge bg-primary">[get](get.md#aliastypes)</span>
-<span class="badge bg-primary">[post](post.md#aliastypes)</span>
-<span class="badge bg-primary">[put](put.md#aliastypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#aliastypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#aliastypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#aliastypes)</button>
 ## Aliases 
-<span class="badge bg-primary">[get](get.md#aliases)</span>
-<span class="badge bg-primary">[post](post.md#aliases)</span>
-<span class="badge bg-primary">[put](put.md#aliases)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#aliases)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#aliases)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#aliases)</button>
 ## AnalyticsCubes 
-<span class="badge bg-primary">[get](get.md#analyticscubes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#analyticscubes)</button>
 ## AnalyticsReports 
-<span class="badge bg-primary">[get](get.md#analyticsreports)</span>
-<span class="badge bg-primary">[post](post.md#analyticsreports)</span>
-<span class="badge bg-primary">[put](put.md#analyticsreports)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#analyticsreports)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#analyticsreports)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#analyticsreports)</button>
 ## AppScreenTexts 
-<span class="badge bg-primary">[get](get.md#appscreentexts)</span>
-<span class="badge bg-primary">[put](put.md#appscreentexts)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#appscreentexts)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#appscreentexts)</button>
 ## AppealCategories 
-<span class="badge bg-primary">[get](get.md#appealcategories)</span>
-<span class="badge bg-primary">[post](post.md#appealcategories)</span>
-<span class="badge bg-primary">[put](put.md#appealcategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#appealcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#appealcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#appealcategories)</button>
 ## Appeals 
-<span class="badge bg-primary">[get](get.md#appeals)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#appeals)</button>
 ## ApplicationObjects 
-<span class="badge bg-primary">[get](get.md#applicationobjects)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#applicationobjects)</button>
 ## Artists 
-<span class="badge bg-primary">[get](get.md#artists)</span>
-<span class="badge bg-primary">[post](post.md#artists)</span>
-<span class="badge bg-primary">[put](put.md#artists)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#artists)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#artists)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#artists)</button>
 ## AssetTypes 
-<span class="badge bg-primary">[get](get.md#assettypes)</span>
-<span class="badge bg-primary">[post](post.md#assettypes)</span>
-<span class="badge bg-primary">[put](put.md#assettypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#assettypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#assettypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#assettypes)</button>
 ## Assets 
-<span class="badge bg-primary">[get](get.md#assets)</span>
-<span class="badge bg-primary">[post](post.md#assets)</span>
-<span class="badge bg-primary">[put](put.md#assets)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#assets)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#assets)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#assets)</button>
 ## AssociationTypes 
-<span class="badge bg-primary">[get](get.md#associationtypes)</span>
-<span class="badge bg-primary">[post](post.md#associationtypes)</span>
-<span class="badge bg-primary">[put](put.md#associationtypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#associationtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#associationtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#associationtypes)</button>
 ## Associations 
-<span class="badge bg-primary">[get](get.md#associations)</span>
-<span class="badge bg-primary">[post](post.md#associations)</span>
-<span class="badge bg-primary">[put](put.md#associations)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#associations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#associations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#associations)</button>
 ## AttendanceHistory 
-<span class="badge bg-primary">[get](get.md#attendancehistory)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#attendancehistory)</button>
 ## Attributes 
-<span class="badge bg-primary">[get](get.md#attributes)</span>
-<span class="badge bg-primary">[post](post.md#attributes)</span>
-<span class="badge bg-primary">[put](put.md#attributes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#attributes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#attributes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#attributes)</button>
 ## AuditLogs 
-<span class="badge bg-primary">[get](get.md#auditlogs)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#auditlogs)</button>
 ## Authenticate 
-<span class="badge bg-primary">[get](get.md#authenticate)</span>
-<span class="badge bg-primary">[post](post.md#authenticate)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#authenticate)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#authenticate)</button>
 ## Authorization 
-<span class="badge bg-primary">[post](post.md#authorization)</span>
-<span class="badge bg-primary">[put](put.md#authorization)</span>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#authorization)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#authorization)</button>
 	
 # B
 ## Batch 
-<span class="badge bg-primary">[post](post.md#batch)</span>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#batch)</button>
 ## BatchMaintenance 
-<span class="badge bg-primary">[get](get.md#batchmaintenance)</span>
-<span class="badge bg-primary">[post](post.md#batchmaintenance)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#batchmaintenance)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#batchmaintenance)</button>
 ## BatchTypeGroups 
-<span class="badge bg-primary">[get](get.md#batchtypegroups)</span>
-<span class="badge bg-primary">[post](post.md#batchtypegroups)</span>
-<span class="badge bg-primary">[put](put.md#batchtypegroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#batchtypegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#batchtypegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#batchtypegroups)</button>
 ## BatchTypeUserGroup 
-<span class="badge bg-primary">[get](get.md#batchtypeusergroup)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#batchtypeusergroup)</button>
 ## BatchTypes 
-<span class="badge bg-primary">[get](get.md#batchtypes)</span>
-<span class="badge bg-primary">[post](post.md#batchtypes)</span>
-<span class="badge bg-primary">[put](put.md#batchtypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#batchtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#batchtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#batchtypes)</button>
 ## BillingSchedules 
-<span class="badge bg-primary">[get](get.md#billingschedules)</span>
-<span class="badge bg-primary">[post](post.md#billingschedules)</span>
-<span class="badge bg-primary">[put](put.md#billingschedules)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#billingschedules)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#billingschedules)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#billingschedules)</button>
 ## BillingTypes 
-<span class="badge bg-primary">[get](get.md#billingtypes)</span>
-<span class="badge bg-primary">[post](post.md#billingtypes)</span>
-<span class="badge bg-primary">[put](put.md#billingtypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#billingtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#billingtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#billingtypes)</button>
 ## BookingCategories 
-<span class="badge bg-primary">[get](get.md#bookingcategories)</span>
-<span class="badge bg-primary">[post](post.md#bookingcategories)</span>
-<span class="badge bg-primary">[put](put.md#bookingcategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#bookingcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#bookingcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#bookingcategories)</button>
 ## BookingTemplates 
-<span class="badge bg-primary">[get](get.md#bookingtemplates)</span>
-<span class="badge bg-primary">[post](post.md#bookingtemplates)</span>
-<span class="badge bg-primary">[put](put.md#bookingtemplates)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#bookingtemplates)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#bookingtemplates)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#bookingtemplates)</button>
 ## Bookings 
-<span class="badge bg-primary">[get](get.md#bookings)</span>
-<span class="badge bg-primary">[post](post.md#bookings)</span>
-<span class="badge bg-primary">[put](put.md#bookings)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#bookings)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#bookings)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#bookings)</button>
 ## BulkCopySets 
-<span class="badge bg-primary">[get](get.md#bulkcopysets)</span>
-<span class="badge bg-primary">[post](post.md#bulkcopysets)</span>
-<span class="badge bg-primary">[put](put.md#bulkcopysets)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#bulkcopysets)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#bulkcopysets)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#bulkcopysets)</button>
 ## BulkDailyCopyExclusions 
-<span class="badge bg-primary">[get](get.md#bulkdailycopyexclusions)</span>
-<span class="badge bg-primary">[post](post.md#bulkdailycopyexclusions)</span>
-<span class="badge bg-primary">[put](put.md#bulkdailycopyexclusions)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#bulkdailycopyexclusions)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#bulkdailycopyexclusions)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#bulkdailycopyexclusions)</button>
 ## BusinessUnits 
-<span class="badge bg-primary">[get](get.md#businessunits)</span>
-<span class="badge bg-primary">[post](post.md#businessunits)</span>
-<span class="badge bg-primary">[put](put.md#businessunits)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#businessunits)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#businessunits)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#businessunits)</button>
 	
 # C
 ## Cache 
-<span class="badge bg-primary">[get](get.md#cache)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#cache)</button>
 ## CampaignDesignations 
-<span class="badge bg-primary">[get](get.md#campaigndesignations)</span>
-<span class="badge bg-primary">[post](post.md#campaigndesignations)</span>
-<span class="badge bg-primary">[put](put.md#campaigndesignations)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#campaigndesignations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#campaigndesignations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#campaigndesignations)</button>
 ## CampaignFunds 
-<span class="badge bg-primary">[get](get.md#campaignfunds)</span>
-<span class="badge bg-primary">[post](post.md#campaignfunds)</span>
-<span class="badge bg-primary">[put](put.md#campaignfunds)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#campaignfunds)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#campaignfunds)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#campaignfunds)</button>
 ## Campaigns 
-<span class="badge bg-primary">[get](get.md#campaigns)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#campaigns)</button>
 ## CardReaderTypes 
-<span class="badge bg-primary">[get](get.md#cardreadertypes)</span>
-<span class="badge bg-primary">[post](post.md#cardreadertypes)</span>
-<span class="badge bg-primary">[put](put.md#cardreadertypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#cardreadertypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#cardreadertypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#cardreadertypes)</button>
 ## Cart 
-<span class="badge bg-primary">[get](get.md#cart)</span>
-<span class="badge bg-primary">[post](post.md#cart)</span>
-<span class="badge bg-primary">[put](put.md#cart)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#cart)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#cart)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#cart)</button>
 ## Colors 
-<span class="badge bg-primary">[get](get.md#colors)</span>
-<span class="badge bg-primary">[post](post.md#colors)</span>
-<span class="badge bg-primary">[put](put.md#colors)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#colors)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#colors)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#colors)</button>
 ## Composers 
-<span class="badge bg-primary">[get](get.md#composers)</span>
-<span class="badge bg-primary">[post](post.md#composers)</span>
-<span class="badge bg-primary">[put](put.md#composers)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#composers)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#composers)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#composers)</button>
 ## Constituencies 
-<span class="badge bg-primary">[get](get.md#constituencies)</span>
-<span class="badge bg-primary">[post](post.md#constituencies)</span>
-<span class="badge bg-primary">[put](put.md#constituencies)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituencies)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituencies)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituencies)</button>
 ## ConstituencyTypes 
-<span class="badge bg-primary">[get](get.md#constituencytypes)</span>
-<span class="badge bg-primary">[post](post.md#constituencytypes)</span>
-<span class="badge bg-primary">[put](put.md#constituencytypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituencytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituencytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituencytypes)</button>
 ## ConstituentContributions 
-<span class="badge bg-primary">[get](get.md#constituentcontributions)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituentcontributions)</button>
 ## ConstituentDocuments 
-<span class="badge bg-primary">[get](get.md#constituentdocuments)</span>
-<span class="badge bg-primary">[post](post.md#constituentdocuments)</span>
-<span class="badge bg-primary">[put](put.md#constituentdocuments)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituentdocuments)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituentdocuments)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituentdocuments)</button>
 ## ConstituentGroups 
-<span class="badge bg-primary">[get](get.md#constituentgroups)</span>
-<span class="badge bg-primary">[post](post.md#constituentgroups)</span>
-<span class="badge bg-primary">[put](put.md#constituentgroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituentgroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituentgroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituentgroups)</button>
 ## ConstituentInactives 
-<span class="badge bg-primary">[get](get.md#constituentinactives)</span>
-<span class="badge bg-primary">[post](post.md#constituentinactives)</span>
-<span class="badge bg-primary">[put](put.md#constituentinactives)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituentinactives)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituentinactives)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituentinactives)</button>
 ## ConstituentProtectionTypes 
-<span class="badge bg-primary">[get](get.md#constituentprotectiontypes)</span>
-<span class="badge bg-primary">[post](post.md#constituentprotectiontypes)</span>
-<span class="badge bg-primary">[put](put.md#constituentprotectiontypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituentprotectiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituentprotectiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituentprotectiontypes)</button>
 ## ConstituentTypeAffiliates 
-<span class="badge bg-primary">[get](get.md#constituenttypeaffiliates)</span>
-<span class="badge bg-primary">[post](post.md#constituenttypeaffiliates)</span>
-<span class="badge bg-primary">[put](put.md#constituenttypeaffiliates)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituenttypeaffiliates)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituenttypeaffiliates)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituenttypeaffiliates)</button>
 ## ConstituentTypes 
-<span class="badge bg-primary">[get](get.md#constituenttypes)</span>
-<span class="badge bg-primary">[post](post.md#constituenttypes)</span>
-<span class="badge bg-primary">[put](put.md#constituenttypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituenttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituenttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituenttypes)</button>
 ## Constituents 
-<span class="badge bg-primary">[get](get.md#constituents)</span>
-<span class="badge bg-primary">[post](post.md#constituents)</span>
-<span class="badge bg-primary">[put](put.md#constituents)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#constituents)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#constituents)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#constituents)</button>
 ## ContactPermissionCategories 
-<span class="badge bg-primary">[get](get.md#contactpermissioncategories)</span>
-<span class="badge bg-primary">[post](post.md#contactpermissioncategories)</span>
-<span class="badge bg-primary">[put](put.md#contactpermissioncategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpermissioncategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpermissioncategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpermissioncategories)</button>
 ## ContactPermissionTypes 
-<span class="badge bg-primary">[get](get.md#contactpermissiontypes)</span>
-<span class="badge bg-primary">[post](post.md#contactpermissiontypes)</span>
-<span class="badge bg-primary">[put](put.md#contactpermissiontypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpermissiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpermissiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpermissiontypes)</button>
 ## ContactPermissions 
-<span class="badge bg-primary">[get](get.md#contactpermissions)</span>
-<span class="badge bg-primary">[post](post.md#contactpermissions)</span>
-<span class="badge bg-primary">[put](put.md#contactpermissions)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpermissions)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpermissions)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpermissions)</button>
 ## ContactPointCategories 
-<span class="badge bg-primary">[get](get.md#contactpointcategories)</span>
-<span class="badge bg-primary">[post](post.md#contactpointcategories)</span>
-<span class="badge bg-primary">[put](put.md#contactpointcategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointcategories)</button>
 ## ContactPointCategoryPurposes 
-<span class="badge bg-primary">[get](get.md#contactpointcategorypurposes)</span>
-<span class="badge bg-primary">[post](post.md#contactpointcategorypurposes)</span>
-<span class="badge bg-primary">[put](put.md#contactpointcategorypurposes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointcategorypurposes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointcategorypurposes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointcategorypurposes)</button>
 ## ContactPointPurposeCategories 
-<span class="badge bg-primary">[get](get.md#contactpointpurposecategories)</span>
-<span class="badge bg-primary">[post](post.md#contactpointpurposecategories)</span>
-<span class="badge bg-primary">[put](put.md#contactpointpurposecategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointpurposecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointpurposecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointpurposecategories)</button>
 ## ContactPointPurposeMaps 
-<span class="badge bg-primary">[get](get.md#contactpointpurposemaps)</span>
-<span class="badge bg-primary">[post](post.md#contactpointpurposemaps)</span>
-<span class="badge bg-primary">[put](put.md#contactpointpurposemaps)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointpurposemaps)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointpurposemaps)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointpurposemaps)</button>
 ## ContactPointPurposes 
-<span class="badge bg-primary">[get](get.md#contactpointpurposes)</span>
-<span class="badge bg-primary">[post](post.md#contactpointpurposes)</span>
-<span class="badge bg-primary">[put](put.md#contactpointpurposes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpointpurposes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contactpointpurposes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contactpointpurposes)</button>
 ## ContactPoints 
-<span class="badge bg-primary">[get](get.md#contactpoints)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contactpoints)</button>
 ## ContactTypes 
-<span class="badge bg-primary">[get](get.md#contacttypes)</span>
-<span class="badge bg-primary">[post](post.md#contacttypes)</span>
-<span class="badge bg-primary">[put](put.md#contacttypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contacttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contacttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contacttypes)</button>
 ## ContextInformation 
-<span class="badge bg-primary">[get](get.md#contextinformation)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contextinformation)</button>
 ## ContributionDesignations 
-<span class="badge bg-primary">[get](get.md#contributiondesignations)</span>
-<span class="badge bg-primary">[post](post.md#contributiondesignations)</span>
-<span class="badge bg-primary">[put](put.md#contributiondesignations)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contributiondesignations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contributiondesignations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contributiondesignations)</button>
 ## ContributionImportSets 
-<span class="badge bg-primary">[get](get.md#contributionimportsets)</span>
-<span class="badge bg-primary">[post](post.md#contributionimportsets)</span>
-<span class="badge bg-primary">[put](put.md#contributionimportsets)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#contributionimportsets)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contributionimportsets)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contributionimportsets)</button>
 ## Contributions 
-<span class="badge bg-primary">[post](post.md#contributions)</span>
-<span class="badge bg-primary">[put](put.md#contributions)</span>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#contributions)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#contributions)</button>
 ## ControlGroupUserGroups 
-<span class="badge bg-primary">[get](get.md#controlgroupusergroups)</span>
-<span class="badge bg-primary">[post](post.md#controlgroupusergroups)</span>
-<span class="badge bg-primary">[put](put.md#controlgroupusergroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#controlgroupusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#controlgroupusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#controlgroupusergroups)</button>
 ## ControlGroups 
-<span class="badge bg-primary">[get](get.md#controlgroups)</span>
-<span class="badge bg-primary">[post](post.md#controlgroups)</span>
-<span class="badge bg-primary">[put](put.md#controlgroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#controlgroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#controlgroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#controlgroups)</button>
 ## CoreIdentity 
-<span class="badge bg-primary">[get](get.md#coreidentity)</span>
-<span class="badge bg-primary">[post](post.md#coreidentity)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#coreidentity)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#coreidentity)</button>
 ## Countries 
-<span class="badge bg-primary">[get](get.md#countries)</span>
-<span class="badge bg-primary">[post](post.md#countries)</span>
-<span class="badge bg-primary">[put](put.md#countries)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#countries)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#countries)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#countries)</button>
 ## CrediteeTypes 
-<span class="badge bg-primary">[get](get.md#crediteetypes)</span>
-<span class="badge bg-primary">[post](post.md#crediteetypes)</span>
-<span class="badge bg-primary">[put](put.md#crediteetypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#crediteetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#crediteetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#crediteetypes)</button>
 ## Credits 
-<span class="badge bg-primary">[get](get.md#credits)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#credits)</button>
 ## CriterionOperators 
-<span class="badge bg-primary">[get](get.md#criterionoperators)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#criterionoperators)</button>
 ## CumulativeGivingReceipts 
-<span class="badge bg-primary">[get](get.md#cumulativegivingreceipts)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#cumulativegivingreceipts)</button>
 ## CurrencyTypes 
-<span class="badge bg-primary">[get](get.md#currencytypes)</span>
-<span class="badge bg-primary">[post](post.md#currencytypes)</span>
-<span class="badge bg-primary">[put](put.md#currencytypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#currencytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#currencytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#currencytypes)</button>
 ## Custom 
-<span class="badge bg-primary">[get](get.md#custom)</span>
-<span class="badge bg-primary">[post](post.md#custom)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#custom)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#custom)</button>
 ## CustomDefaultCategories 
-<span class="badge bg-primary">[get](get.md#customdefaultcategories)</span>
-<span class="badge bg-primary">[post](post.md#customdefaultcategories)</span>
-<span class="badge bg-primary">[put](put.md#customdefaultcategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#customdefaultcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#customdefaultcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#customdefaultcategories)</button>
 ## CustomDefaults 
-<span class="badge bg-primary">[get](get.md#customdefaults)</span>
-<span class="badge bg-primary">[post](post.md#customdefaults)</span>
-<span class="badge bg-primary">[put](put.md#customdefaults)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#customdefaults)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#customdefaults)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#customdefaults)</button>
 	
 # D
 ## DeliveryMethods 
-<span class="badge bg-primary">[get](get.md#deliverymethods)</span>
-<span class="badge bg-primary">[post](post.md#deliverymethods)</span>
-<span class="badge bg-primary">[put](put.md#deliverymethods)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#deliverymethods)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#deliverymethods)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#deliverymethods)</button>
 ## DesignationCodes 
-<span class="badge bg-primary">[get](get.md#designationcodes)</span>
-<span class="badge bg-primary">[post](post.md#designationcodes)</span>
-<span class="badge bg-primary">[put](put.md#designationcodes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#designationcodes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#designationcodes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#designationcodes)</button>
 ## Designs 
-<span class="badge bg-primary">[get](get.md#designs)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#designs)</button>
 ## Diagnostics 
-<span class="badge bg-primary">[get](get.md#diagnostics)</span>
-<span class="badge bg-primary">[post](post.md#diagnostics)</span>
-<span class="badge bg-primary">[put](put.md#diagnostics)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#diagnostics)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#diagnostics)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#diagnostics)</button>
 ## DirectDebitAccountTypes 
-<span class="badge bg-primary">[get](get.md#directdebitaccounttypes)</span>
-<span class="badge bg-primary">[post](post.md#directdebitaccounttypes)</span>
-<span class="badge bg-primary">[put](put.md#directdebitaccounttypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#directdebitaccounttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#directdebitaccounttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#directdebitaccounttypes)</button>
 ## DiscountTypes 
-<span class="badge bg-primary">[get](get.md#discounttypes)</span>
-<span class="badge bg-primary">[post](post.md#discounttypes)</span>
-<span class="badge bg-primary">[put](put.md#discounttypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#discounttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#discounttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#discounttypes)</button>
 ## Divisions 
-<span class="badge bg-primary">[get](get.md#divisions)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#divisions)</button>
 ## DocumentCategories 
-<span class="badge bg-primary">[get](get.md#documentcategories)</span>
-<span class="badge bg-primary">[post](post.md#documentcategories)</span>
-<span class="badge bg-primary">[put](put.md#documentcategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#documentcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#documentcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#documentcategories)</button>
 ## Documents 
-<span class="badge bg-primary">[get](get.md#documents)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#documents)</button>
 ## DonationLevels 
-<span class="badge bg-primary">[get](get.md#donationlevels)</span>
-<span class="badge bg-primary">[post](post.md#donationlevels)</span>
-<span class="badge bg-primary">[put](put.md#donationlevels)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#donationlevels)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#donationlevels)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#donationlevels)</button>
 	
 # E
 ## EMV 
-<span class="badge bg-primary">[get](get.md#emv)</span>
-<span class="badge bg-primary">[post](post.md#emv)</span>
-<span class="badge bg-primary">[put](put.md#emv)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#emv)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#emv)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#emv)</button>
 ## ElectronicAddressTypes 
-<span class="badge bg-primary">[get](get.md#electronicaddresstypes)</span>
-<span class="badge bg-primary">[post](post.md#electronicaddresstypes)</span>
-<span class="badge bg-primary">[put](put.md#electronicaddresstypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#electronicaddresstypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#electronicaddresstypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#electronicaddresstypes)</button>
 ## ElectronicAddresses 
-<span class="badge bg-primary">[get](get.md#electronicaddresses)</span>
-<span class="badge bg-primary">[post](post.md#electronicaddresses)</span>
-<span class="badge bg-primary">[put](put.md#electronicaddresses)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#electronicaddresses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#electronicaddresses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#electronicaddresses)</button>
 ## EmailProfiles 
-<span class="badge bg-primary">[get](get.md#emailprofiles)</span>
-<span class="badge bg-primary">[post](post.md#emailprofiles)</span>
-<span class="badge bg-primary">[put](put.md#emailprofiles)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#emailprofiles)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#emailprofiles)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#emailprofiles)</button>
 ## EmailResponses 
-<span class="badge bg-primary">[post](post.md#emailresponses)</span>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#emailresponses)</button>
 ## Emails 
-<span class="badge bg-primary">[post](post.md#emails)</span>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#emails)</button>
 ## EmarketIndicators 
-<span class="badge bg-primary">[get](get.md#emarketindicators)</span>
-<span class="badge bg-primary">[post](post.md#emarketindicators)</span>
-<span class="badge bg-primary">[put](put.md#emarketindicators)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#emarketindicators)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#emarketindicators)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#emarketindicators)</button>
 ## Eras 
-<span class="badge bg-primary">[get](get.md#eras)</span>
-<span class="badge bg-primary">[post](post.md#eras)</span>
-<span class="badge bg-primary">[put](put.md#eras)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#eras)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#eras)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#eras)</button>
 ## EventControl 
-<span class="badge bg-primary">[get](get.md#eventcontrol)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#eventcontrol)</button>
 	
 # F
 ## Facilities 
-<span class="badge bg-primary">[get](get.md#facilities)</span>
-<span class="badge bg-primary">[post](post.md#facilities)</span>
-<span class="badge bg-primary">[put](put.md#facilities)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#facilities)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#facilities)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#facilities)</button>
 ## Fees 
-<span class="badge bg-primary">[get](get.md#fees)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#fees)</button>
 ## FinanceContributions 
-<span class="badge bg-primary">[get](get.md#financecontributions)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#financecontributions)</button>
 ## Formats 
-<span class="badge bg-primary">[get](get.md#formats)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#formats)</button>
 ## Funds 
-<span class="badge bg-primary">[get](get.md#funds)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#funds)</button>
 	
 # G
 ## GLAccounts 
-<span class="badge bg-primary">[get](get.md#glaccounts)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#glaccounts)</button>
 ## Genders 
-<span class="badge bg-primary">[get](get.md#genders)</span>
-<span class="badge bg-primary">[post](post.md#genders)</span>
-<span class="badge bg-primary">[put](put.md#genders)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#genders)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#genders)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#genders)</button>
 ## GiftAidContactMethods 
-<span class="badge bg-primary">[get](get.md#giftaidcontactmethods)</span>
-<span class="badge bg-primary">[post](post.md#giftaidcontactmethods)</span>
-<span class="badge bg-primary">[put](put.md#giftaidcontactmethods)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidcontactmethods)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidcontactmethods)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidcontactmethods)</button>
 ## GiftAidDeclarations 
-<span class="badge bg-primary">[get](get.md#giftaiddeclarations)</span>
-<span class="badge bg-primary">[post](post.md#giftaiddeclarations)</span>
-<span class="badge bg-primary">[put](put.md#giftaiddeclarations)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaiddeclarations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaiddeclarations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaiddeclarations)</button>
 ## GiftAidDocumentStatuses 
-<span class="badge bg-primary">[get](get.md#giftaiddocumentstatuses)</span>
-<span class="badge bg-primary">[post](post.md#giftaiddocumentstatuses)</span>
-<span class="badge bg-primary">[put](put.md#giftaiddocumentstatuses)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaiddocumentstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaiddocumentstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaiddocumentstatuses)</button>
 ## GiftAidIneligibleReasons 
-<span class="badge bg-primary">[get](get.md#giftaidineligiblereasons)</span>
-<span class="badge bg-primary">[post](post.md#giftaidineligiblereasons)</span>
-<span class="badge bg-primary">[put](put.md#giftaidineligiblereasons)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidineligiblereasons)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidineligiblereasons)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidineligiblereasons)</button>
 ## GiftAidRates 
-<span class="badge bg-primary">[get](get.md#giftaidrates)</span>
-<span class="badge bg-primary">[post](post.md#giftaidrates)</span>
-<span class="badge bg-primary">[put](put.md#giftaidrates)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidrates)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidrates)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidrates)</button>
 ## GiftAidStatuses 
-<span class="badge bg-primary">[get](get.md#giftaidstatuses)</span>
-<span class="badge bg-primary">[post](post.md#giftaidstatuses)</span>
-<span class="badge bg-primary">[put](put.md#giftaidstatuses)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidstatuses)</button>
 ## GiftAidTypes 
-<span class="badge bg-primary">[get](get.md#giftaidtypes)</span>
-<span class="badge bg-primary">[post](post.md#giftaidtypes)</span>
-<span class="badge bg-primary">[put](put.md#giftaidtypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftaidtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftaidtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#giftaidtypes)</button>
 ## GiftCertificates 
-<span class="badge bg-primary">[get](get.md#giftcertificates)</span>
-<span class="badge bg-primary">[post](post.md#giftcertificates)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#giftcertificates)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#giftcertificates)</button>
 	
 # H
 ## HoldCodeCategories 
-<span class="badge bg-primary">[get](get.md#holdcodecategories)</span>
-<span class="badge bg-primary">[post](post.md#holdcodecategories)</span>
-<span class="badge bg-primary">[put](put.md#holdcodecategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#holdcodecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#holdcodecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#holdcodecategories)</button>
 ## HoldCodeUserGroups 
-<span class="badge bg-primary">[get](get.md#holdcodeusergroups)</span>
-<span class="badge bg-primary">[post](post.md#holdcodeusergroups)</span>
-<span class="badge bg-primary">[put](put.md#holdcodeusergroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#holdcodeusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#holdcodeusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#holdcodeusergroups)</button>
 ## HoldCodes 
-<span class="badge bg-primary">[get](get.md#holdcodes)</span>
-<span class="badge bg-primary">[post](post.md#holdcodes)</span>
-<span class="badge bg-primary">[put](put.md#holdcodes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#holdcodes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#holdcodes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#holdcodes)</button>
 	
 # I
 ## InactiveReasons 
-<span class="badge bg-primary">[get](get.md#inactivereasons)</span>
-<span class="badge bg-primary">[post](post.md#inactivereasons)</span>
-<span class="badge bg-primary">[put](put.md#inactivereasons)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#inactivereasons)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#inactivereasons)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#inactivereasons)</button>
 ## IntegrationDefaults 
-<span class="badge bg-primary">[get](get.md#integrationdefaults)</span>
-<span class="badge bg-primary">[post](post.md#integrationdefaults)</span>
-<span class="badge bg-primary">[put](put.md#integrationdefaults)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#integrationdefaults)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#integrationdefaults)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#integrationdefaults)</button>
 ## Integrations 
-<span class="badge bg-primary">[get](get.md#integrations)</span>
-<span class="badge bg-primary">[post](post.md#integrations)</span>
-<span class="badge bg-primary">[put](put.md#integrations)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#integrations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#integrations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#integrations)</button>
 ## InterestCategories 
-<span class="badge bg-primary">[get](get.md#interestcategories)</span>
-<span class="badge bg-primary">[post](post.md#interestcategories)</span>
-<span class="badge bg-primary">[put](put.md#interestcategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#interestcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#interestcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#interestcategories)</button>
 ## InterestTypes 
-<span class="badge bg-primary">[get](get.md#interesttypes)</span>
-<span class="badge bg-primary">[post](post.md#interesttypes)</span>
-<span class="badge bg-primary">[put](put.md#interesttypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#interesttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#interesttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#interesttypes)</button>
 ## Interests 
-<span class="badge bg-primary">[get](get.md#interests)</span>
-<span class="badge bg-primary">[post](post.md#interests)</span>
-<span class="badge bg-primary">[put](put.md#interests)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#interests)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#interests)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#interests)</button>
 ## Internal 
-<span class="badge bg-primary">[get](get.md#internal)</span>
-<span class="badge bg-primary">[post](post.md#internal)</span>
-<span class="badge bg-primary">[put](put.md#internal)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#internal)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#internal)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#internal)</button>
 ## InventoryContactPermissionTypes 
-<span class="badge bg-primary">[get](get.md#inventorycontactpermissiontypes)</span>
-<span class="badge bg-primary">[post](post.md#inventorycontactpermissiontypes)</span>
-<span class="badge bg-primary">[put](put.md#inventorycontactpermissiontypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#inventorycontactpermissiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#inventorycontactpermissiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#inventorycontactpermissiontypes)</button>
 ## InventoryWebContents 
-<span class="badge bg-primary">[get](get.md#inventorywebcontents)</span>
-<span class="badge bg-primary">[post](post.md#inventorywebcontents)</span>
-<span class="badge bg-primary">[put](put.md#inventorywebcontents)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#inventorywebcontents)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#inventorywebcontents)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#inventorywebcontents)</button>
 ## InvoiceBilling 
-<span class="badge bg-primary">[get](get.md#invoicebilling)</span>
-<span class="badge bg-primary">[post](post.md#invoicebilling)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#invoicebilling)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#invoicebilling)</button>
 ## Issues 
-<span class="badge bg-primary">[get](get.md#issues)</span>
-<span class="badge bg-primary">[post](post.md#issues)</span>
-<span class="badge bg-primary">[put](put.md#issues)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#issues)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#issues)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#issues)</button>
 	
 # K
 ## KeywordCategories 
-<span class="badge bg-primary">[get](get.md#keywordcategories)</span>
-<span class="badge bg-primary">[post](post.md#keywordcategories)</span>
-<span class="badge bg-primary">[put](put.md#keywordcategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#keywordcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#keywordcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#keywordcategories)</button>
 ## Keywords 
-<span class="badge bg-primary">[get](get.md#keywords)</span>
-<span class="badge bg-primary">[post](post.md#keywords)</span>
-<span class="badge bg-primary">[put](put.md#keywords)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#keywords)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#keywords)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#keywords)</button>
 	
 # L
 ## Languages 
-<span class="badge bg-primary">[get](get.md#languages)</span>
-<span class="badge bg-primary">[post](post.md#languages)</span>
-<span class="badge bg-primary">[put](put.md#languages)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#languages)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#languages)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#languages)</button>
 ## ListCategories 
-<span class="badge bg-primary">[get](get.md#listcategories)</span>
-<span class="badge bg-primary">[post](post.md#listcategories)</span>
-<span class="badge bg-primary">[put](put.md#listcategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#listcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#listcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#listcategories)</button>
 ## Lists 
-<span class="badge bg-primary">[get](get.md#lists)</span>
-<span class="badge bg-primary">[post](post.md#lists)</span>
-<span class="badge bg-primary">[put](put.md#lists)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#lists)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#lists)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#lists)</button>
 ## LoginTypes 
-<span class="badge bg-primary">[get](get.md#logintypes)</span>
-<span class="badge bg-primary">[post](post.md#logintypes)</span>
-<span class="badge bg-primary">[put](put.md#logintypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#logintypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#logintypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#logintypes)</button>
 	
 # M
 ## MachineSettings 
-<span class="badge bg-primary">[get](get.md#machinesettings)</span>
-<span class="badge bg-primary">[post](post.md#machinesettings)</span>
-<span class="badge bg-primary">[put](put.md#machinesettings)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#machinesettings)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#machinesettings)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#machinesettings)</button>
 ## MailIndicators 
-<span class="badge bg-primary">[get](get.md#mailindicators)</span>
-<span class="badge bg-primary">[post](post.md#mailindicators)</span>
-<span class="badge bg-primary">[put](put.md#mailindicators)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#mailindicators)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#mailindicators)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#mailindicators)</button>
 ## MediaTypes 
-<span class="badge bg-primary">[get](get.md#mediatypes)</span>
-<span class="badge bg-primary">[post](post.md#mediatypes)</span>
-<span class="badge bg-primary">[put](put.md#mediatypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#mediatypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#mediatypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#mediatypes)</button>
 ## MembershipLevelCategories 
-<span class="badge bg-primary">[get](get.md#membershiplevelcategories)</span>
-<span class="badge bg-primary">[post](post.md#membershiplevelcategories)</span>
-<span class="badge bg-primary">[put](put.md#membershiplevelcategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#membershiplevelcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#membershiplevelcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#membershiplevelcategories)</button>
 ## MembershipLevels 
-<span class="badge bg-primary">[get](get.md#membershiplevels)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#membershiplevels)</button>
 ## MembershipOrganizations 
-<span class="badge bg-primary">[get](get.md#membershiporganizations)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#membershiporganizations)</button>
 ## MembershipStandings 
-<span class="badge bg-primary">[get](get.md#membershipstandings)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#membershipstandings)</button>
 ## Memberships 
-<span class="badge bg-primary">[get](get.md#memberships)</span>
-<span class="badge bg-primary">[post](post.md#memberships)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#memberships)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#memberships)</button>
 ## MerchantReferences 
-<span class="badge bg-primary">[get](get.md#merchantreferences)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#merchantreferences)</button>
 ## Merchants 
-<span class="badge bg-primary">[get](get.md#merchants)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#merchants)</button>
 ## ModeOfSaleCategories 
-<span class="badge bg-primary">[get](get.md#modeofsalecategories)</span>
-<span class="badge bg-primary">[post](post.md#modeofsalecategories)</span>
-<span class="badge bg-primary">[put](put.md#modeofsalecategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsalecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsalecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsalecategories)</button>
 ## ModeOfSaleOffers 
-<span class="badge bg-primary">[get](get.md#modeofsaleoffers)</span>
-<span class="badge bg-primary">[post](post.md#modeofsaleoffers)</span>
-<span class="badge bg-primary">[put](put.md#modeofsaleoffers)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsaleoffers)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsaleoffers)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsaleoffers)</button>
 ## ModeOfSalePriceTypes 
-<span class="badge bg-primary">[get](get.md#modeofsalepricetypes)</span>
-<span class="badge bg-primary">[post](post.md#modeofsalepricetypes)</span>
-<span class="badge bg-primary">[put](put.md#modeofsalepricetypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsalepricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsalepricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsalepricetypes)</button>
 ## ModeOfSaleSurveyQuestions 
-<span class="badge bg-primary">[get](get.md#modeofsalesurveyquestions)</span>
-<span class="badge bg-primary">[post](post.md#modeofsalesurveyquestions)</span>
-<span class="badge bg-primary">[put](put.md#modeofsalesurveyquestions)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsalesurveyquestions)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsalesurveyquestions)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsalesurveyquestions)</button>
 ## ModeOfSaleUserGroups 
-<span class="badge bg-primary">[get](get.md#modeofsaleusergroups)</span>
-<span class="badge bg-primary">[post](post.md#modeofsaleusergroups)</span>
-<span class="badge bg-primary">[put](put.md#modeofsaleusergroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#modeofsaleusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#modeofsaleusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#modeofsaleusergroups)</button>
 ## ModesOfSale 
-<span class="badge bg-primary">[get](get.md#modesofsale)</span>
-<span class="badge bg-primary">[post](post.md#modesofsale)</span>
-<span class="badge bg-primary">[put](put.md#modesofsale)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#modesofsale)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#modesofsale)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#modesofsale)</button>
 	
 # N
 ## NScanAccessAreas 
-<span class="badge bg-primary">[get](get.md#nscanaccessareas)</span>
-<span class="badge bg-primary">[post](post.md#nscanaccessareas)</span>
-<span class="badge bg-primary">[put](put.md#nscanaccessareas)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#nscanaccessareas)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#nscanaccessareas)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#nscanaccessareas)</button>
 ## NameStatuses 
-<span class="badge bg-primary">[get](get.md#namestatuses)</span>
-<span class="badge bg-primary">[post](post.md#namestatuses)</span>
-<span class="badge bg-primary">[put](put.md#namestatuses)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#namestatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#namestatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#namestatuses)</button>
 	
 # O
 ## ObjectPermissions 
-<span class="badge bg-primary">[get](get.md#objectpermissions)</span>
-<span class="badge bg-primary">[post](post.md#objectpermissions)</span>
-<span class="badge bg-primary">[put](put.md#objectpermissions)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#objectpermissions)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#objectpermissions)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#objectpermissions)</button>
 ## OrderBilling 
-<span class="badge bg-primary">[get](get.md#orderbilling)</span>
-<span class="badge bg-primary">[post](post.md#orderbilling)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#orderbilling)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#orderbilling)</button>
 ## OrderCategories 
-<span class="badge bg-primary">[get](get.md#ordercategories)</span>
-<span class="badge bg-primary">[post](post.md#ordercategories)</span>
-<span class="badge bg-primary">[put](put.md#ordercategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#ordercategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#ordercategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#ordercategories)</button>
 ## Orders 
-<span class="badge bg-primary">[get](get.md#orders)</span>
-<span class="badge bg-primary">[post](post.md#orders)</span>
-<span class="badge bg-primary">[put](put.md#orders)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#orders)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#orders)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#orders)</button>
 ## Organizations 
-<span class="badge bg-primary">[get](get.md#organizations)</span>
-<span class="badge bg-primary">[post](post.md#organizations)</span>
-<span class="badge bg-primary">[put](put.md#organizations)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#organizations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#organizations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#organizations)</button>
 ## OriginalSources 
-<span class="badge bg-primary">[get](get.md#originalsources)</span>
-<span class="badge bg-primary">[post](post.md#originalsources)</span>
-<span class="badge bg-primary">[put](put.md#originalsources)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#originalsources)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#originalsources)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#originalsources)</button>
 ## Origins 
-<span class="badge bg-primary">[get](get.md#origins)</span>
-<span class="badge bg-primary">[post](post.md#origins)</span>
-<span class="badge bg-primary">[put](put.md#origins)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#origins)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#origins)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#origins)</button>
 ## OutputSets 
-<span class="badge bg-primary">[get](get.md#outputsets)</span>
-<span class="badge bg-primary">[post](post.md#outputsets)</span>
-<span class="badge bg-primary">[put](put.md#outputsets)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#outputsets)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#outputsets)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#outputsets)</button>
 	
 # P
 ## PackageHistory 
-<span class="badge bg-primary">[get](get.md#packagehistory)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#packagehistory)</button>
 ## PackagePriceTypes 
-<span class="badge bg-primary">[get](get.md#packagepricetypes)</span>
-<span class="badge bg-primary">[post](post.md#packagepricetypes)</span>
-<span class="badge bg-primary">[put](put.md#packagepricetypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#packagepricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#packagepricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#packagepricetypes)</button>
 ## PackageTypes 
-<span class="badge bg-primary">[get](get.md#packagetypes)</span>
-<span class="badge bg-primary">[post](post.md#packagetypes)</span>
-<span class="badge bg-primary">[put](put.md#packagetypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#packagetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#packagetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#packagetypes)</button>
 ## PackageWebContents 
-<span class="badge bg-primary">[get](get.md#packagewebcontents)</span>
-<span class="badge bg-primary">[post](post.md#packagewebcontents)</span>
-<span class="badge bg-primary">[put](put.md#packagewebcontents)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#packagewebcontents)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#packagewebcontents)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#packagewebcontents)</button>
 ## Packages 
-<span class="badge bg-primary">[get](get.md#packages)</span>
-<span class="badge bg-primary">[post](post.md#packages)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#packages)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#packages)</button>
 ## PaymentComponent 
-<span class="badge bg-primary">[post](post.md#paymentcomponent)</span>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentcomponent)</button>
 ## PaymentGatewayAccounts 
-<span class="badge bg-primary">[post](post.md#paymentgatewayaccounts)</span>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentgatewayaccounts)</button>
 ## PaymentGatewayActivities 
-<span class="badge bg-primary">[get](get.md#paymentgatewayactivities)</span>
-<span class="badge bg-primary">[post](post.md#paymentgatewayactivities)</span>
-<span class="badge bg-primary">[put](put.md#paymentgatewayactivities)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentgatewayactivities)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentgatewayactivities)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentgatewayactivities)</button>
 ## PaymentGatewayConfiguration 
-<span class="badge bg-primary">[get](get.md#paymentgatewayconfiguration)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentgatewayconfiguration)</button>
 ## PaymentGatewayCredentials 
-<span class="badge bg-primary">[post](post.md#paymentgatewaycredentials)</span>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentgatewaycredentials)</button>
 ## PaymentGatewayNotifications 
-<span class="badge bg-primary">[get](get.md#paymentgatewaynotifications)</span>
-<span class="badge bg-primary">[post](post.md#paymentgatewaynotifications)</span>
-<span class="badge bg-primary">[put](put.md#paymentgatewaynotifications)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentgatewaynotifications)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentgatewaynotifications)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentgatewaynotifications)</button>
 ## PaymentGatewayTransactionTypes 
-<span class="badge bg-primary">[get](get.md#paymentgatewaytransactiontypes)</span>
-<span class="badge bg-primary">[post](post.md#paymentgatewaytransactiontypes)</span>
-<span class="badge bg-primary">[put](put.md#paymentgatewaytransactiontypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentgatewaytransactiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentgatewaytransactiontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentgatewaytransactiontypes)</button>
 ## PaymentHistory 
-<span class="badge bg-primary">[get](get.md#paymenthistory)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymenthistory)</button>
 ## PaymentMethodGroups 
-<span class="badge bg-primary">[get](get.md#paymentmethodgroups)</span>
-<span class="badge bg-primary">[post](post.md#paymentmethodgroups)</span>
-<span class="badge bg-primary">[put](put.md#paymentmethodgroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentmethodgroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentmethodgroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentmethodgroups)</button>
 ## PaymentMethodUserGroups 
-<span class="badge bg-primary">[get](get.md#paymentmethodusergroups)</span>
-<span class="badge bg-primary">[post](post.md#paymentmethodusergroups)</span>
-<span class="badge bg-primary">[put](put.md#paymentmethodusergroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentmethodusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentmethodusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentmethodusergroups)</button>
 ## PaymentMethods 
-<span class="badge bg-primary">[get](get.md#paymentmethods)</span>
-<span class="badge bg-primary">[post](post.md#paymentmethods)</span>
-<span class="badge bg-primary">[put](put.md#paymentmethods)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentmethods)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentmethods)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentmethods)</button>
 ## PaymentSignatures 
-<span class="badge bg-primary">[get](get.md#paymentsignatures)</span>
-<span class="badge bg-primary">[post](post.md#paymentsignatures)</span>
-<span class="badge bg-primary">[put](put.md#paymentsignatures)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymentsignatures)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymentsignatures)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymentsignatures)</button>
 ## PaymentTypes 
-<span class="badge bg-primary">[get](get.md#paymenttypes)</span>
-<span class="badge bg-primary">[post](post.md#paymenttypes)</span>
-<span class="badge bg-primary">[put](put.md#paymenttypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#paymenttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#paymenttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#paymenttypes)</button>
 ## Payments 
-<span class="badge bg-primary">[get](get.md#payments)</span>
-<span class="badge bg-primary">[post](post.md#payments)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#payments)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#payments)</button>
 ## PerformanceGroups 
-<span class="badge bg-primary">[get](get.md#performancegroups)</span>
-<span class="badge bg-primary">[post](post.md#performancegroups)</span>
-<span class="badge bg-primary">[put](put.md#performancegroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancegroups)</button>
 ## PerformancePackageModeOfSales 
-<span class="badge bg-primary">[get](get.md#performancepackagemodeofsales)</span>
-<span class="badge bg-primary">[post](post.md#performancepackagemodeofsales)</span>
-<span class="badge bg-primary">[put](put.md#performancepackagemodeofsales)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancepackagemodeofsales)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancepackagemodeofsales)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancepackagemodeofsales)</button>
 ## PerformancePriceLayers 
-<span class="badge bg-primary">[get](get.md#performancepricelayers)</span>
-<span class="badge bg-primary">[post](post.md#performancepricelayers)</span>
-<span class="badge bg-primary">[put](put.md#performancepricelayers)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancepricelayers)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancepricelayers)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancepricelayers)</button>
 ## PerformancePriceTypes 
-<span class="badge bg-primary">[get](get.md#performancepricetypes)</span>
-<span class="badge bg-primary">[post](post.md#performancepricetypes)</span>
-<span class="badge bg-primary">[put](put.md#performancepricetypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancepricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancepricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancepricetypes)</button>
 ## PerformancePrices 
-<span class="badge bg-primary">[get](get.md#performanceprices)</span>
-<span class="badge bg-primary">[post](post.md#performanceprices)</span>
-<span class="badge bg-primary">[put](put.md#performanceprices)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#performanceprices)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performanceprices)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#performanceprices)</button>
 ## PerformanceStatuses 
-<span class="badge bg-primary">[get](get.md#performancestatuses)</span>
-<span class="badge bg-primary">[post](post.md#performancestatuses)</span>
-<span class="badge bg-primary">[put](put.md#performancestatuses)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancestatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancestatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancestatuses)</button>
 ## PerformanceTypes 
-<span class="badge bg-primary">[get](get.md#performancetypes)</span>
-<span class="badge bg-primary">[post](post.md#performancetypes)</span>
-<span class="badge bg-primary">[put](put.md#performancetypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#performancetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performancetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#performancetypes)</button>
 ## Performances 
-<span class="badge bg-primary">[get](get.md#performances)</span>
-<span class="badge bg-primary">[post](post.md#performances)</span>
-<span class="badge bg-primary">[put](put.md#performances)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#performances)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#performances)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#performances)</button>
 ## Philanthropy 
-<span class="badge bg-primary">[get](get.md#philanthropy)</span>
-<span class="badge bg-primary">[post](post.md#philanthropy)</span>
-<span class="badge bg-primary">[put](put.md#philanthropy)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#philanthropy)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#philanthropy)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#philanthropy)</button>
 ## PhilanthropyTypes 
-<span class="badge bg-primary">[get](get.md#philanthropytypes)</span>
-<span class="badge bg-primary">[post](post.md#philanthropytypes)</span>
-<span class="badge bg-primary">[put](put.md#philanthropytypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#philanthropytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#philanthropytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#philanthropytypes)</button>
 ## PhoneIndicators 
-<span class="badge bg-primary">[get](get.md#phoneindicators)</span>
-<span class="badge bg-primary">[post](post.md#phoneindicators)</span>
-<span class="badge bg-primary">[put](put.md#phoneindicators)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#phoneindicators)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#phoneindicators)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#phoneindicators)</button>
 ## PhoneTypes 
-<span class="badge bg-primary">[get](get.md#phonetypes)</span>
-<span class="badge bg-primary">[post](post.md#phonetypes)</span>
-<span class="badge bg-primary">[put](put.md#phonetypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#phonetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#phonetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#phonetypes)</button>
 ## Phones 
-<span class="badge bg-primary">[get](get.md#phones)</span>
-<span class="badge bg-primary">[post](post.md#phones)</span>
-<span class="badge bg-primary">[put](put.md#phones)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#phones)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#phones)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#phones)</button>
 ## PlanPriorities 
-<span class="badge bg-primary">[get](get.md#planpriorities)</span>
-<span class="badge bg-primary">[post](post.md#planpriorities)</span>
-<span class="badge bg-primary">[put](put.md#planpriorities)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#planpriorities)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#planpriorities)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#planpriorities)</button>
 ## PlanSources 
-<span class="badge bg-primary">[get](get.md#plansources)</span>
-<span class="badge bg-primary">[post](post.md#plansources)</span>
-<span class="badge bg-primary">[put](put.md#plansources)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#plansources)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#plansources)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#plansources)</button>
 ## PlanStatuses 
-<span class="badge bg-primary">[get](get.md#planstatuses)</span>
-<span class="badge bg-primary">[post](post.md#planstatuses)</span>
-<span class="badge bg-primary">[put](put.md#planstatuses)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#planstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#planstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#planstatuses)</button>
 ## PlanTypes 
-<span class="badge bg-primary">[get](get.md#plantypes)</span>
-<span class="badge bg-primary">[post](post.md#plantypes)</span>
-<span class="badge bg-primary">[put](put.md#plantypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#plantypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#plantypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#plantypes)</button>
 ## PlanWorkers 
-<span class="badge bg-primary">[get](get.md#planworkers)</span>
-<span class="badge bg-primary">[post](post.md#planworkers)</span>
-<span class="badge bg-primary">[put](put.md#planworkers)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#planworkers)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#planworkers)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#planworkers)</button>
 ## Plans 
-<span class="badge bg-primary">[get](get.md#plans)</span>
-<span class="badge bg-primary">[post](post.md#plans)</span>
-<span class="badge bg-primary">[put](put.md#plans)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#plans)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#plans)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#plans)</button>
 ## PledgeBilling 
-<span class="badge bg-primary">[get](get.md#pledgebilling)</span>
-<span class="badge bg-primary">[post](post.md#pledgebilling)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pledgebilling)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pledgebilling)</button>
 ## PortfolioCustomElements 
-<span class="badge bg-primary">[get](get.md#portfoliocustomelements)</span>
-<span class="badge bg-primary">[post](post.md#portfoliocustomelements)</span>
-<span class="badge bg-primary">[put](put.md#portfoliocustomelements)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#portfoliocustomelements)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#portfoliocustomelements)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#portfoliocustomelements)</button>
 ## Portfolios 
-<span class="badge bg-primary">[get](get.md#portfolios)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#portfolios)</button>
 ## Prefixes 
-<span class="badge bg-primary">[get](get.md#prefixes)</span>
-<span class="badge bg-primary">[post](post.md#prefixes)</span>
-<span class="badge bg-primary">[put](put.md#prefixes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#prefixes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#prefixes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#prefixes)</button>
 ## Premieres 
-<span class="badge bg-primary">[get](get.md#premieres)</span>
-<span class="badge bg-primary">[post](post.md#premieres)</span>
-<span class="badge bg-primary">[put](put.md#premieres)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#premieres)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#premieres)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#premieres)</button>
 ## PriceCategories 
-<span class="badge bg-primary">[get](get.md#pricecategories)</span>
-<span class="badge bg-primary">[post](post.md#pricecategories)</span>
-<span class="badge bg-primary">[put](put.md#pricecategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricecategories)</button>
 ## PriceEvents 
-<span class="badge bg-primary">[get](get.md#priceevents)</span>
-<span class="badge bg-primary">[put](put.md#priceevents)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#priceevents)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#priceevents)</button>
 ## PriceLayerTypes 
-<span class="badge bg-primary">[get](get.md#pricelayertypes)</span>
-<span class="badge bg-primary">[post](post.md#pricelayertypes)</span>
-<span class="badge bg-primary">[put](put.md#pricelayertypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricelayertypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricelayertypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricelayertypes)</button>
 ## PriceTemplates 
-<span class="badge bg-primary">[get](get.md#pricetemplates)</span>
-<span class="badge bg-primary">[post](post.md#pricetemplates)</span>
-<span class="badge bg-primary">[put](put.md#pricetemplates)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetemplates)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetemplates)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetemplates)</button>
 ## PriceTypeCategories 
-<span class="badge bg-primary">[get](get.md#pricetypecategories)</span>
-<span class="badge bg-primary">[post](post.md#pricetypecategories)</span>
-<span class="badge bg-primary">[put](put.md#pricetypecategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypecategories)</button>
 ## PriceTypeGroups 
-<span class="badge bg-primary">[get](get.md#pricetypegroups)</span>
-<span class="badge bg-primary">[post](post.md#pricetypegroups)</span>
-<span class="badge bg-primary">[put](put.md#pricetypegroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypegroups)</button>
 ## PriceTypeReasons 
-<span class="badge bg-primary">[get](get.md#pricetypereasons)</span>
-<span class="badge bg-primary">[post](post.md#pricetypereasons)</span>
-<span class="badge bg-primary">[put](put.md#pricetypereasons)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypereasons)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypereasons)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypereasons)</button>
 ## PriceTypeUserGroups 
-<span class="badge bg-primary">[get](get.md#pricetypeusergroups)</span>
-<span class="badge bg-primary">[post](post.md#pricetypeusergroups)</span>
-<span class="badge bg-primary">[put](put.md#pricetypeusergroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypeusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypeusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypeusergroups)</button>
 ## PriceTypes 
-<span class="badge bg-primary">[get](get.md#pricetypes)</span>
-<span class="badge bg-primary">[post](post.md#pricetypes)</span>
-<span class="badge bg-primary">[put](put.md#pricetypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricetypes)</button>
 ## PricingRuleCategories 
-<span class="badge bg-primary">[get](get.md#pricingrulecategories)</span>
-<span class="badge bg-primary">[post](post.md#pricingrulecategories)</span>
-<span class="badge bg-primary">[put](put.md#pricingrulecategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricingrulecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricingrulecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricingrulecategories)</button>
 ## PricingRuleMessageTypes 
-<span class="badge bg-primary">[get](get.md#pricingrulemessagetypes)</span>
-<span class="badge bg-primary">[post](post.md#pricingrulemessagetypes)</span>
-<span class="badge bg-primary">[put](put.md#pricingrulemessagetypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricingrulemessagetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricingrulemessagetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricingrulemessagetypes)</button>
 ## PricingRuleSets 
-<span class="badge bg-primary">[get](get.md#pricingrulesets)</span>
-<span class="badge bg-primary">[post](post.md#pricingrulesets)</span>
-<span class="badge bg-primary">[put](put.md#pricingrulesets)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricingrulesets)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricingrulesets)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricingrulesets)</button>
 ## PricingRuleTypes 
-<span class="badge bg-primary">[get](get.md#pricingruletypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricingruletypes)</button>
 ## PricingRules 
-<span class="badge bg-primary">[get](get.md#pricingrules)</span>
-<span class="badge bg-primary">[post](post.md#pricingrules)</span>
-<span class="badge bg-primary">[put](put.md#pricingrules)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pricingrules)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pricingrules)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pricingrules)</button>
 ## Printers 
-<span class="badge bg-primary">[get](get.md#printers)</span>
-<span class="badge bg-primary">[post](post.md#printers)</span>
-<span class="badge bg-primary">[put](put.md#printers)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#printers)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#printers)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#printers)</button>
 ## ProductKeywords 
-<span class="badge bg-primary">[get](get.md#productkeywords)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#productkeywords)</button>
 ## ProductionSeasonMembershipOrganizations 
-<span class="badge bg-primary">[get](get.md#productionseasonmembershiporganizations)</span>
-<span class="badge bg-primary">[post](post.md#productionseasonmembershiporganizations)</span>
-<span class="badge bg-primary">[put](put.md#productionseasonmembershiporganizations)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#productionseasonmembershiporganizations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#productionseasonmembershiporganizations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#productionseasonmembershiporganizations)</button>
 ## ProductionSeasons 
-<span class="badge bg-primary">[get](get.md#productionseasons)</span>
-<span class="badge bg-primary">[post](post.md#productionseasons)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#productionseasons)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#productionseasons)</button>
 ## Productions 
-<span class="badge bg-primary">[get](get.md#productions)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#productions)</button>
 ## Products 
-<span class="badge bg-primary">[post](post.md#products)</span>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#products)</button>
 ## ProgramListings 
-<span class="badge bg-primary">[get](get.md#programlistings)</span>
-<span class="badge bg-primary">[post](post.md#programlistings)</span>
-<span class="badge bg-primary">[put](put.md#programlistings)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#programlistings)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#programlistings)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#programlistings)</button>
 ## Programs 
-<span class="badge bg-primary">[get](get.md#programs)</span>
-<span class="badge bg-primary">[post](post.md#programs)</span>
-<span class="badge bg-primary">[put](put.md#programs)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#programs)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#programs)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#programs)</button>
 ## Pronouns 
-<span class="badge bg-primary">[get](get.md#pronouns)</span>
-<span class="badge bg-primary">[post](post.md#pronouns)</span>
-<span class="badge bg-primary">[put](put.md#pronouns)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#pronouns)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#pronouns)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#pronouns)</button>
 	
 # Q
 ## QualificationCategories 
-<span class="badge bg-primary">[get](get.md#qualificationcategories)</span>
-<span class="badge bg-primary">[post](post.md#qualificationcategories)</span>
-<span class="badge bg-primary">[put](put.md#qualificationcategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#qualificationcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#qualificationcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#qualificationcategories)</button>
 ## Qualifications 
-<span class="badge bg-primary">[get](get.md#qualifications)</span>
-<span class="badge bg-primary">[post](post.md#qualifications)</span>
-<span class="badge bg-primary">[put](put.md#qualifications)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#qualifications)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#qualifications)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#qualifications)</button>
 ## QueryElementFilters 
-<span class="badge bg-primary">[get](get.md#queryelementfilters)</span>
-<span class="badge bg-primary">[post](post.md#queryelementfilters)</span>
-<span class="badge bg-primary">[put](put.md#queryelementfilters)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#queryelementfilters)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#queryelementfilters)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#queryelementfilters)</button>
 ## QueryElementGroups 
-<span class="badge bg-primary">[get](get.md#queryelementgroups)</span>
-<span class="badge bg-primary">[post](post.md#queryelementgroups)</span>
-<span class="badge bg-primary">[put](put.md#queryelementgroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#queryelementgroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#queryelementgroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#queryelementgroups)</button>
 ## QueryElements 
-<span class="badge bg-primary">[get](get.md#queryelements)</span>
-<span class="badge bg-primary">[post](post.md#queryelements)</span>
-<span class="badge bg-primary">[put](put.md#queryelements)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#queryelements)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#queryelements)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#queryelements)</button>
 	
 # R
 ## RankTypes 
-<span class="badge bg-primary">[get](get.md#ranktypes)</span>
-<span class="badge bg-primary">[post](post.md#ranktypes)</span>
-<span class="badge bg-primary">[put](put.md#ranktypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#ranktypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#ranktypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#ranktypes)</button>
 ## Rankings 
-<span class="badge bg-primary">[get](get.md#rankings)</span>
-<span class="badge bg-primary">[post](post.md#rankings)</span>
-<span class="badge bg-primary">[put](put.md#rankings)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#rankings)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#rankings)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#rankings)</button>
 ## ReceiptSettings 
-<span class="badge bg-primary">[get](get.md#receiptsettings)</span>
-<span class="badge bg-primary">[post](post.md#receiptsettings)</span>
-<span class="badge bg-primary">[put](put.md#receiptsettings)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#receiptsettings)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#receiptsettings)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#receiptsettings)</button>
 ## RecordAttendance 
-<span class="badge bg-primary">[post](post.md#recordattendance)</span>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#recordattendance)</button>
 ## ReferenceColumns 
-<span class="badge bg-primary">[get](get.md#referencecolumns)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#referencecolumns)</button>
 ## ReferenceTableUserGroups 
-<span class="badge bg-primary">[get](get.md#referencetableusergroups)</span>
-<span class="badge bg-primary">[post](post.md#referencetableusergroups)</span>
-<span class="badge bg-primary">[put](put.md#referencetableusergroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#referencetableusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#referencetableusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#referencetableusergroups)</button>
 ## ReferenceTables 
-<span class="badge bg-primary">[get](get.md#referencetables)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#referencetables)</button>
 ## Registration 
-<span class="badge bg-primary">[post](post.md#registration)</span>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#registration)</button>
 ## RelationshipCategories 
-<span class="badge bg-primary">[get](get.md#relationshipcategories)</span>
-<span class="badge bg-primary">[post](post.md#relationshipcategories)</span>
-<span class="badge bg-primary">[put](put.md#relationshipcategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#relationshipcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#relationshipcategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#relationshipcategories)</button>
 ## Relationships 
-<span class="badge bg-primary">[get](get.md#relationships)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#relationships)</button>
 ## ReportRequests 
-<span class="badge bg-primary">[get](get.md#reportrequests)</span>
-<span class="badge bg-primary">[post](post.md#reportrequests)</span>
-<span class="badge bg-primary">[put](put.md#reportrequests)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#reportrequests)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#reportrequests)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#reportrequests)</button>
 ## ReportSchedules 
-<span class="badge bg-primary">[get](get.md#reportschedules)</span>
-<span class="badge bg-primary">[post](post.md#reportschedules)</span>
-<span class="badge bg-primary">[put](put.md#reportschedules)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#reportschedules)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#reportschedules)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#reportschedules)</button>
 ## ReportUserGroups 
-<span class="badge bg-primary">[get](get.md#reportusergroups)</span>
-<span class="badge bg-primary">[post](post.md#reportusergroups)</span>
-<span class="badge bg-primary">[put](put.md#reportusergroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#reportusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#reportusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#reportusergroups)</button>
 ## Reports 
-<span class="badge bg-primary">[get](get.md#reports)</span>
-<span class="badge bg-primary">[post](post.md#reports)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#reports)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#reports)</button>
 ## Research 
-<span class="badge bg-primary">[get](get.md#research)</span>
-<span class="badge bg-primary">[post](post.md#research)</span>
-<span class="badge bg-primary">[put](put.md#research)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#research)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#research)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#research)</button>
 ## ResearchTypes 
-<span class="badge bg-primary">[get](get.md#researchtypes)</span>
-<span class="badge bg-primary">[post](post.md#researchtypes)</span>
-<span class="badge bg-primary">[put](put.md#researchtypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#researchtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#researchtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#researchtypes)</button>
 ## ResourceCategories 
-<span class="badge bg-primary">[get](get.md#resourcecategories)</span>
-<span class="badge bg-primary">[post](post.md#resourcecategories)</span>
-<span class="badge bg-primary">[put](put.md#resourcecategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#resourcecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#resourcecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#resourcecategories)</button>
 ## ResourceSchedules 
-<span class="badge bg-primary">[get](get.md#resourceschedules)</span>
-<span class="badge bg-primary">[post](post.md#resourceschedules)</span>
-<span class="badge bg-primary">[put](put.md#resourceschedules)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#resourceschedules)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#resourceschedules)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#resourceschedules)</button>
 ## ResourceTypes 
-<span class="badge bg-primary">[get](get.md#resourcetypes)</span>
-<span class="badge bg-primary">[post](post.md#resourcetypes)</span>
-<span class="badge bg-primary">[put](put.md#resourcetypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#resourcetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#resourcetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#resourcetypes)</button>
 ## Resources 
-<span class="badge bg-primary">[get](get.md#resources)</span>
-<span class="badge bg-primary">[post](post.md#resources)</span>
-<span class="badge bg-primary">[put](put.md#resources)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#resources)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#resources)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#resources)</button>
 	
 # S
 ## SalesChannels 
-<span class="badge bg-primary">[get](get.md#saleschannels)</span>
-<span class="badge bg-primary">[post](post.md#saleschannels)</span>
-<span class="badge bg-primary">[put](put.md#saleschannels)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#saleschannels)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#saleschannels)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#saleschannels)</button>
 ## SalesLayoutButtonTypes 
-<span class="badge bg-primary">[get](get.md#saleslayoutbuttontypes)</span>
-<span class="badge bg-primary">[post](post.md#saleslayoutbuttontypes)</span>
-<span class="badge bg-primary">[put](put.md#saleslayoutbuttontypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#saleslayoutbuttontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#saleslayoutbuttontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#saleslayoutbuttontypes)</button>
 ## SalesLayouts 
-<span class="badge bg-primary">[get](get.md#saleslayouts)</span>
-<span class="badge bg-primary">[post](post.md#saleslayouts)</span>
-<span class="badge bg-primary">[put](put.md#saleslayouts)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#saleslayouts)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#saleslayouts)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#saleslayouts)</button>
 ## SalutationTypes 
-<span class="badge bg-primary">[get](get.md#salutationtypes)</span>
-<span class="badge bg-primary">[post](post.md#salutationtypes)</span>
-<span class="badge bg-primary">[put](put.md#salutationtypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#salutationtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#salutationtypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#salutationtypes)</button>
 ## Salutations 
-<span class="badge bg-primary">[get](get.md#salutations)</span>
-<span class="badge bg-primary">[post](post.md#salutations)</span>
-<span class="badge bg-primary">[put](put.md#salutations)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#salutations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#salutations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#salutations)</button>
 ## SchedulePatternTypes 
-<span class="badge bg-primary">[get](get.md#schedulepatterntypes)</span>
-<span class="badge bg-primary">[post](post.md#schedulepatterntypes)</span>
-<span class="badge bg-primary">[put](put.md#schedulepatterntypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#schedulepatterntypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#schedulepatterntypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#schedulepatterntypes)</button>
 ## ScheduleTypes 
-<span class="badge bg-primary">[get](get.md#scheduletypes)</span>
-<span class="badge bg-primary">[post](post.md#scheduletypes)</span>
-<span class="badge bg-primary">[put](put.md#scheduletypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#scheduletypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#scheduletypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#scheduletypes)</button>
 ## SeasonTypes 
-<span class="badge bg-primary">[get](get.md#seasontypes)</span>
-<span class="badge bg-primary">[post](post.md#seasontypes)</span>
-<span class="badge bg-primary">[put](put.md#seasontypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#seasontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#seasontypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#seasontypes)</button>
 ## Seasons 
-<span class="badge bg-primary">[get](get.md#seasons)</span>
-<span class="badge bg-primary">[post](post.md#seasons)</span>
-<span class="badge bg-primary">[put](put.md#seasons)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#seasons)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#seasons)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#seasons)</button>
 ## SeatCodes 
-<span class="badge bg-primary">[get](get.md#seatcodes)</span>
-<span class="badge bg-primary">[post](post.md#seatcodes)</span>
-<span class="badge bg-primary">[put](put.md#seatcodes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#seatcodes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#seatcodes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#seatcodes)</button>
 ## SeatStatuses 
-<span class="badge bg-primary">[get](get.md#seatstatuses)</span>
-<span class="badge bg-primary">[post](post.md#seatstatuses)</span>
-<span class="badge bg-primary">[put](put.md#seatstatuses)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#seatstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#seatstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#seatstatuses)</button>
 ## Sections 
-<span class="badge bg-primary">[get](get.md#sections)</span>
-<span class="badge bg-primary">[post](post.md#sections)</span>
-<span class="badge bg-primary">[put](put.md#sections)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#sections)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#sections)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#sections)</button>
 ## SecurityBatchTypes 
-<span class="badge bg-primary">[get](get.md#securitybatchtypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#securitybatchtypes)</button>
 ## SecurityControlGroups 
-<span class="badge bg-primary">[get](get.md#securitycontrolgroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#securitycontrolgroups)</button>
 ## SecurityHoldCodes 
-<span class="badge bg-primary">[get](get.md#securityholdcodes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#securityholdcodes)</button>
 ## SecurityModesOfSale 
-<span class="badge bg-primary">[get](get.md#securitymodesofsale)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#securitymodesofsale)</button>
 ## SecurityObjectPermissions 
-<span class="badge bg-primary">[get](get.md#securityobjectpermissions)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#securityobjectpermissions)</button>
 ## SecurityPaymentMethods 
-<span class="badge bg-primary">[get](get.md#securitypaymentmethods)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#securitypaymentmethods)</button>
 ## SecurityPriceTypes 
-<span class="badge bg-primary">[get](get.md#securitypricetypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#securitypricetypes)</button>
 ## SecurityReferenceTables 
-<span class="badge bg-primary">[get](get.md#securityreferencetables)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#securityreferencetables)</button>
 ## SecurityReports 
-<span class="badge bg-primary">[get](get.md#securityreports)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#securityreports)</button>
 ## SecurityServiceResources 
-<span class="badge bg-primary">[get](get.md#securityserviceresources)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#securityserviceresources)</button>
 ## SecurityUserGroups 
-<span class="badge bg-primary">[get](get.md#securityusergroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#securityusergroups)</button>
 ## ServiceResourceUserGroups 
-<span class="badge bg-primary">[get](get.md#serviceresourceusergroups)</span>
-<span class="badge bg-primary">[post](post.md#serviceresourceusergroups)</span>
-<span class="badge bg-primary">[put](put.md#serviceresourceusergroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#serviceresourceusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#serviceresourceusergroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#serviceresourceusergroups)</button>
 ## ServiceResources 
-<span class="badge bg-primary">[get](get.md#serviceresources)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#serviceresources)</button>
 ## Session 
-<span class="badge bg-primary">[get](get.md#session)</span>
-<span class="badge bg-primary">[post](post.md#session)</span>
-<span class="badge bg-primary">[put](put.md#session)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#session)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#session)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#session)</button>
 ## SourceGroups 
-<span class="badge bg-primary">[get](get.md#sourcegroups)</span>
-<span class="badge bg-primary">[post](post.md#sourcegroups)</span>
-<span class="badge bg-primary">[put](put.md#sourcegroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#sourcegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#sourcegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#sourcegroups)</button>
 ## Sources 
-<span class="badge bg-primary">[get](get.md#sources)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#sources)</button>
 ## SpecialActivities 
-<span class="badge bg-primary">[get](get.md#specialactivities)</span>
-<span class="badge bg-primary">[post](post.md#specialactivities)</span>
-<span class="badge bg-primary">[put](put.md#specialactivities)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#specialactivities)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#specialactivities)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#specialactivities)</button>
 ## SpecialActivityStatuses 
-<span class="badge bg-primary">[get](get.md#specialactivitystatuses)</span>
-<span class="badge bg-primary">[post](post.md#specialactivitystatuses)</span>
-<span class="badge bg-primary">[put](put.md#specialactivitystatuses)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#specialactivitystatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#specialactivitystatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#specialactivitystatuses)</button>
 ## SpecialActivityTypes 
-<span class="badge bg-primary">[get](get.md#specialactivitytypes)</span>
-<span class="badge bg-primary">[post](post.md#specialactivitytypes)</span>
-<span class="badge bg-primary">[put](put.md#specialactivitytypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#specialactivitytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#specialactivitytypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#specialactivitytypes)</button>
 ## States 
-<span class="badge bg-primary">[get](get.md#states)</span>
-<span class="badge bg-primary">[post](post.md#states)</span>
-<span class="badge bg-primary">[put](put.md#states)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#states)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#states)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#states)</button>
 ## StepTypes 
-<span class="badge bg-primary">[get](get.md#steptypes)</span>
-<span class="badge bg-primary">[post](post.md#steptypes)</span>
-<span class="badge bg-primary">[put](put.md#steptypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#steptypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#steptypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#steptypes)</button>
 ## Steps 
-<span class="badge bg-primary">[get](get.md#steps)</span>
-<span class="badge bg-primary">[post](post.md#steps)</span>
-<span class="badge bg-primary">[put](put.md#steps)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#steps)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#steps)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#steps)</button>
 ## SubLineItemStatuses 
-<span class="badge bg-primary">[get](get.md#sublineitemstatuses)</span>
-<span class="badge bg-primary">[post](post.md#sublineitemstatuses)</span>
-<span class="badge bg-primary">[put](put.md#sublineitemstatuses)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#sublineitemstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#sublineitemstatuses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#sublineitemstatuses)</button>
 ## SubLineItems 
-<span class="badge bg-primary">[get](get.md#sublineitems)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#sublineitems)</button>
 ## Suffixes 
-<span class="badge bg-primary">[get](get.md#suffixes)</span>
-<span class="badge bg-primary">[post](post.md#suffixes)</span>
-<span class="badge bg-primary">[put](put.md#suffixes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#suffixes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#suffixes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#suffixes)</button>
 ## SurveyQuestions 
-<span class="badge bg-primary">[get](get.md#surveyquestions)</span>
-<span class="badge bg-primary">[post](post.md#surveyquestions)</span>
-<span class="badge bg-primary">[put](put.md#surveyquestions)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#surveyquestions)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#surveyquestions)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#surveyquestions)</button>
 ## SurveyResponses 
-<span class="badge bg-primary">[get](get.md#surveyresponses)</span>
-<span class="badge bg-primary">[post](post.md#surveyresponses)</span>
-<span class="badge bg-primary">[put](put.md#surveyresponses)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#surveyresponses)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#surveyresponses)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#surveyresponses)</button>
 ## SystemDefaults 
-<span class="badge bg-primary">[get](get.md#systemdefaults)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#systemdefaults)</button>
 	
 # T
 ## TemplateCategories 
-<span class="badge bg-primary">[get](get.md#templatecategories)</span>
-<span class="badge bg-primary">[post](post.md#templatecategories)</span>
-<span class="badge bg-primary">[put](put.md#templatecategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#templatecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#templatecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#templatecategories)</button>
 ## TemplatePriceTypes 
-<span class="badge bg-primary">[get](get.md#templatepricetypes)</span>
-<span class="badge bg-primary">[post](post.md#templatepricetypes)</span>
-<span class="badge bg-primary">[put](put.md#templatepricetypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#templatepricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#templatepricetypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#templatepricetypes)</button>
 ## TemplatePrices 
-<span class="badge bg-primary">[get](get.md#templateprices)</span>
-<span class="badge bg-primary">[post](post.md#templateprices)</span>
-<span class="badge bg-primary">[put](put.md#templateprices)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#templateprices)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#templateprices)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#templateprices)</button>
 ## TemplateTypes 
-<span class="badge bg-primary">[get](get.md#templatetypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#templatetypes)</button>
 ## Templates 
-<span class="badge bg-primary">[get](get.md#templates)</span>
-<span class="badge bg-primary">[post](post.md#templates)</span>
-<span class="badge bg-primary">[put](put.md#templates)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#templates)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#templates)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#templates)</button>
 ## Theaters 
-<span class="badge bg-primary">[get](get.md#theaters)</span>
-<span class="badge bg-primary">[post](post.md#theaters)</span>
-<span class="badge bg-primary">[put](put.md#theaters)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#theaters)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#theaters)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#theaters)</button>
 ## TicketHistory 
-<span class="badge bg-primary">[get](get.md#tickethistory)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#tickethistory)</button>
 ## TimeSlots 
-<span class="badge bg-primary">[get](get.md#timeslots)</span>
-<span class="badge bg-primary">[post](post.md#timeslots)</span>
-<span class="badge bg-primary">[put](put.md#timeslots)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#timeslots)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#timeslots)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#timeslots)</button>
 ## Titles 
-<span class="badge bg-primary">[get](get.md#titles)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#titles)</button>
 ## TransactionHistory 
-<span class="badge bg-primary">[get](get.md#transactionhistory)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#transactionhistory)</button>
 ## TriPOSCloudConfigurations 
-<span class="badge bg-primary">[get](get.md#triposcloudconfigurations)</span>
-<span class="badge bg-primary">[post](post.md#triposcloudconfigurations)</span>
-<span class="badge bg-primary">[put](put.md#triposcloudconfigurations)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#triposcloudconfigurations)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#triposcloudconfigurations)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#triposcloudconfigurations)</button>
 	
 # U
 ## UpgradeCategories 
-<span class="badge bg-primary">[get](get.md#upgradecategories)</span>
-<span class="badge bg-primary">[post](post.md#upgradecategories)</span>
-<span class="badge bg-primary">[put](put.md#upgradecategories)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#upgradecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#upgradecategories)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#upgradecategories)</button>
 ## UpgradeLogs 
-<span class="badge bg-primary">[get](get.md#upgradelogs)</span>
-<span class="badge bg-primary">[post](post.md#upgradelogs)</span>
-<span class="badge bg-primary">[put](put.md#upgradelogs)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#upgradelogs)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#upgradelogs)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#upgradelogs)</button>
 ## UserGroups 
-<span class="badge bg-primary">[get](get.md#usergroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#usergroups)</button>
 ## UserPreferences 
-<span class="badge bg-primary">[get](get.md#userpreferences)</span>
-<span class="badge bg-primary">[post](post.md#userpreferences)</span>
-<span class="badge bg-primary">[put](put.md#userpreferences)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#userpreferences)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#userpreferences)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#userpreferences)</button>
 ## Users 
-<span class="badge bg-primary">[get](get.md#users)</span>
-<span class="badge bg-primary">[post](post.md#users)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#users)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#users)</button>
 	
 # V
 ## ValidateWebLogin 
-<span class="badge bg-primary">[post](post.md#validateweblogin)</span>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#validateweblogin)</button>
 	
 # W
 ## WebContentTypes 
-<span class="badge bg-primary">[get](get.md#webcontenttypes)</span>
-<span class="badge bg-primary">[post](post.md#webcontenttypes)</span>
-<span class="badge bg-primary">[put](put.md#webcontenttypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#webcontenttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#webcontenttypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#webcontenttypes)</button>
 ## WebContents 
-<span class="badge bg-primary">[get](get.md#webcontents)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#webcontents)</button>
 ## WebLogins 
-<span class="badge bg-primary">[get](get.md#weblogins)</span>
-<span class="badge bg-primary">[post](post.md#weblogins)</span>
-<span class="badge bg-primary">[put](put.md#weblogins)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#weblogins)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#weblogins)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#weblogins)</button>
 ## WorkerQualifications 
-<span class="badge bg-primary">[get](get.md#workerqualifications)</span>
-<span class="badge bg-primary">[post](post.md#workerqualifications)</span>
-<span class="badge bg-primary">[put](put.md#workerqualifications)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#workerqualifications)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#workerqualifications)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#workerqualifications)</button>
 ## WorkerRoles 
-<span class="badge bg-primary">[get](get.md#workerroles)</span>
-<span class="badge bg-primary">[post](post.md#workerroles)</span>
-<span class="badge bg-primary">[put](put.md#workerroles)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#workerroles)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#workerroles)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#workerroles)</button>
 ## WorkerTypes 
-<span class="badge bg-primary">[get](get.md#workertypes)</span>
-<span class="badge bg-primary">[post](post.md#workertypes)</span>
-<span class="badge bg-primary">[put](put.md#workertypes)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#workertypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#workertypes)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#workertypes)</button>
 ## Workers 
-<span class="badge bg-primary">[get](get.md#workers)</span>
-<span class="badge bg-primary">[post](post.md#workers)</span>
-<span class="badge bg-primary">[put](put.md#workers)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#workers)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#workers)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#workers)</button>
 	
 # Z
 ## ZoneGroups 
-<span class="badge bg-primary">[get](get.md#zonegroups)</span>
-<span class="badge bg-primary">[post](post.md#zonegroups)</span>
-<span class="badge bg-primary">[put](put.md#zonegroups)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#zonegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#zonegroups)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#zonegroups)</button>
 ## ZoneMaps 
-<span class="badge bg-primary">[get](get.md#zonemaps)</span>
-<span class="badge bg-primary">[post](post.md#zonemaps)</span>
-<span class="badge bg-primary">[put](put.md#zonemaps)</span>
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#zonemaps)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#zonemaps)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#zonemaps)</button>
 ## Zones 
-<span class="badge bg-primary">[get](get.md#zones)</span>
-<span class="badge bg-primary">[post](post.md#zones)</span>
-<span class="badge bg-primary">[put](put.md#zones)</span>    
+<button type="button" class="btn btn-primary btn-sm">[get](get.md#zones)</button>
+<button type="button" class="btn btn-primary btn-sm">[post](post.md#zones)</button>
+<button type="button" class="btn btn-primary btn-sm">[put](put.md#zones)</button>    
 
 
 <link rel="stylesheet" type="text/css" href="../css/toc.css"/>
