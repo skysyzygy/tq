@@ -1,8 +1,10 @@
 site_name: tq Documentation
 nav:
-    - Get: get.md
-    - Post: post.md
-    - Put: put.md
+    - Objects: objects.md
+    - Verbs: 
+      - Get: get.md
+      - Post: post.md
+      - Put: put.md
 theme: 
   name: mkdocs
   color_mode: auto

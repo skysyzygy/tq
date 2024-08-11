@@ -14,6 +14,7 @@ import (
 	"text/template"
 
 	"github.com/skysyzygy/tq/client"
+	"github.com/skysyzygy/tq/tq"
 	"github.com/spf13/cobra"
 )
 
@@ -29,10 +30,11 @@ var docsCmd = &cobra.Command{
 		templateData["commands"] = getCommandData()
 		for _, op := range []string{"Get", "Post", "Put"} {
 			templateData["op"] = op
-			generate("docs.tmpl",
+			generate("docs_verbs.tmpl",
 				"../doc/docs/"+strings.ToLower(op)+".md",
 				templateData)
 		}
+		generate("docs_objects.tmpl", "../doc/docs/objects.md", templateData)
 	},
 }
 var cmdCmd = &cobra.Command{
@@ -77,12 +79,29 @@ func init() {
 
 func generate(templateFile string, outFile string, data map[string]any) {
 	// add a new function to the template engine
+	_tq := tq.TqConfig{}
+
 	funcs := template.FuncMap{
 		"join":    strings.Join,
 		"left":    func(s string) string { return string(s[0]) },
 		"toLower": strings.ToLower,
+		"toFlat": func(s string) string {
+			_tq.OutFlat = true
+			_tq.OutFmt = "json"
+			_tq.SetOutput([]byte(s))
+			o, _ := _tq.GetOutput()
+			return string(o)
+		},
+		"toCsv": func(s string) string {
+			_tq.OutFlat = true
+			_tq.OutFmt = "csv"
+			_tq.SetOutput([]byte(s))
+			o, _ := _tq.GetOutput()
+			return string(o)
+
+		},
 	}
-	templ, err := template.New("commands").Funcs(funcs).ParseFiles(templateFile)
+	templ, err := template.New("commands").Funcs(funcs).ParseFiles(templateFile, "docs_code.tmpl")
 	if err != nil {
 		panic(err)
 	}

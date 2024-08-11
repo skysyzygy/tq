@@ -1,0 +1,25 @@
+<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#{{.Name}}-default" aria-expanded="true" aria-controls="{{.Name}}-default">
+default
+</button>
+<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#{{.Name}}-flat" aria-expanded="false" aria-controls="{{.Name}}-flat">
+flat
+</button>
+<button class="btn btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#{{.Name}}-csv" aria-expanded="false" aria-controls="{{.Name}}-csv">
+csv
+</button><div id="{{ .Name }}-parent">
+<div class="collapse show" id="{{ .Name }}-default" data-bs-parent="#{{ .Name }}-parent"> 
+```json
+{{ .Usage }}
+```  
+</div>
+<div class="collapse" id="{{ .Name }}-flat"  data-bs-parent="#{{ .Name }}-parent">
+```json
+{{ .Usage | toFlat }}
+```  
+</div>
+<div class="collapse" id="{{ .Name }}-csv" data-bs-parent="#{{ .Name }}-parent">
+```json
+{{ .Usage | toCsv }}
+```  
+</div>
+</div>
