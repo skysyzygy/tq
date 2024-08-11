@@ -14,6 +14,7 @@ import (
 	"text/template"
 
 	"github.com/skysyzygy/tq/client"
+	"github.com/skysyzygy/tq/tq"
 	"github.com/spf13/cobra"
 )
 
@@ -25,21 +26,43 @@ var docsCmd = &cobra.Command{
 	Use:   "docs",
 	Short: "Generate mkdocs documentation",
 	Run: func(cmd *cobra.Command, args []string) {
-		generate("docs.tmpl", "../doc/docs", ".md")
+		templateData := make(map[string]any)
+		templateData["commands"] = getCommandData()
+		for _, op := range []string{"Get", "Post", "Put"} {
+			templateData["op"] = op
+			generate("docs_verbs.tmpl",
+				"../doc/docs/"+strings.ToLower(op)+".md",
+				templateData)
+		}
+		generate("docs_objects.tmpl", "../doc/docs/objects.md", templateData)
 	},
 }
 var cmdCmd = &cobra.Command{
 	Use:   "cmd",
 	Short: "Generate go code in /cmd",
 	Run: func(cmd *cobra.Command, args []string) {
-		generate("commands.go.tmpl", "../cmd", ".go")
+		templateData := make(map[string]any)
+		templateData["commands"] = getCommandData()
+		for _, op := range []string{"Get", "Post", "Put"} {
+			templateData["op"] = op
+			generate("commands.go.tmpl",
+				"../cmd/"+strings.ToLower(op)+".go",
+				templateData)
+		}
 	},
 }
 var testCmd = &cobra.Command{
 	Use:   "test",
 	Short: "Generate go tests in /cmd",
 	Run: func(cmd *cobra.Command, args []string) {
-		generate("commands_test.go.tmpl", "../cmd", "_test.go")
+		templateData := make(map[string]any)
+		templateData["commands"] = getCommandData()
+		for _, op := range []string{"Get", "Post", "Put"} {
+			templateData["op"] = op
+			generate("commands_test.go.tmpl",
+				"../cmd/"+strings.ToLower(op)+"_test.go",
+				templateData)
+		}
 	},
 }
 
@@ -54,27 +77,40 @@ func init() {
 	generateCmd.AddCommand(docsCmd, testCmd, cmdCmd)
 }
 
-func generate(templateFile string, outDir string, outSuffix string) {
+func generate(templateFile string, outFile string, data map[string]any) {
 	// add a new function to the template engine
+	_tq := tq.TqConfig{}
+
 	funcs := template.FuncMap{
 		"join":    strings.Join,
 		"left":    func(s string) string { return string(s[0]) },
 		"toLower": strings.ToLower,
+		"toFlat": func(s string) string {
+			_tq.OutFlat = true
+			_tq.OutFmt = "json"
+			_tq.SetOutput([]byte(s))
+			o, _ := _tq.GetOutput()
+			return string(o)
+		},
+		"toCsv": func(s string) string {
+			_tq.OutFlat = true
+			_tq.OutFmt = "csv"
+			_tq.SetOutput([]byte(s))
+			o, _ := _tq.GetOutput()
+			return string(o)
+
+		},
 	}
-	templ, err := template.New("commands").Funcs(funcs).ParseFiles(templateFile)
+	templ, err := template.New("commands").Funcs(funcs).ParseFiles(templateFile, "docs_code.tmpl")
 	if err != nil {
 		panic(err)
 	}
 
-	for _, op := range []string{"Get", "Put", "Post"} {
-		templateData := make(map[string]any)
-		templateData["commands"] = getCommandData()
-		templateData["op"] = op
-		file, err := os.Create(outDir + "/" + strings.ToLower(op) + outSuffix)
-		if err := errors.Join(templ.ExecuteTemplate(file, templateFile, templateData), err); err != nil {
-			panic(err)
-		}
+	file, err := os.Create(outFile)
+	if err := errors.Join(templ.ExecuteTemplate(file, templateFile, data), err); err != nil {
+		panic(err)
 	}
+
 }
 
 // Build data about entities that can be used with `operation` (i.e. "Get", "Post", "Put")

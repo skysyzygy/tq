@@ -2,20 +2,50 @@
 
 
 
+
+
 	
 # A
-## AccountTypes [![get](https://img.shields.io/badge/get-blue)](get.md#accounttypes) [![post](https://img.shields.io/badge/post-blue)](post.md#accounttypes) ![put](https://img.shields.io/badge/put-gray)   
+## AccountTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#accounttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#accounttypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing account type.  
 ##### Usage:  
 ```shell
 tq put AccountTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountTypesUpdate-default" aria-expanded="true" aria-controls="AccountTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountTypesUpdate-flat" aria-expanded="false" aria-controls="AccountTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountTypesUpdate-csv" aria-expanded="false" aria-controls="AccountTypesUpdate-csv">
+csv
+</button>
+<div id="AccountTypesUpdate-parent">
+<div class="collapse show" id="AccountTypesUpdate-default" data-bs-parent="#AccountTypesUpdate-parent"> 
 ```json
 {"CardLength":"string", "CardPrefix":"string", "CardtypeIndicator":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditMask":"string", "Id":123, "Inactive":true, "Mod10Indicator":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="AccountTypesUpdate-flat"  data-bs-parent="#AccountTypesUpdate-parent">
+```json
+[{"CardLength":"string","CardPrefix":"string","CardtypeIndicator":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditMask":"string","ID":"string","Id":123,"Inactive":true,"Mod10Indicator":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="AccountTypesUpdate-csv" data-bs-parent="#AccountTypesUpdate-parent">
+```json
+CardLength,CardPrefix,CardtypeIndicator,CreateLocation,CreatedBy,CreatedDateTime,Description,EditMask,ID,Id,Inactive,Mod10Indicator,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""","""string""",123,true,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## Accounts [![get](https://img.shields.io/badge/get-blue)](get.md#accounts) [![post](https://img.shields.io/badge/post-blue)](post.md#accounts) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Accounts <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#accounts)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#accounts)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update expiration date or name on a credit card account or token. Will also tokenize the credit card if tokenization is enabled.
 PaymentMethodGroupId is ignored if the account already has a PaymentMethodGroupId assigned.  This value cannot be updated.
 If tokenizing a non-tokenized card, PaymentMethodGroupId is required if one has not already been assigned to the account.  
@@ -23,405 +53,1371 @@ If tokenizing a non-tokenized card, PaymentMethodGroupId is required if one has 
 ```shell
 tq put Accounts
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsUpdateCardNumberAccount-default" aria-expanded="true" aria-controls="AccountsUpdateCardNumberAccount-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsUpdateCardNumberAccount-flat" aria-expanded="false" aria-controls="AccountsUpdateCardNumberAccount-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsUpdateCardNumberAccount-csv" aria-expanded="false" aria-controls="AccountsUpdateCardNumberAccount-csv">
+csv
+</button>
+<div id="AccountsUpdateCardNumberAccount-parent">
+<div class="collapse show" id="AccountsUpdateCardNumberAccount-default" data-bs-parent="#AccountsUpdateCardNumberAccount-parent"> 
 ```json
 {"AccountID":"string", "CardExpiryMonth":123, "CardExpiryYear":123, "Inactive":true, "Name":"string", "PaymentMethodGroupId":123, "TransactionOrigin":"string"}
-```
+```  
+</div>
+<div class="collapse" id="AccountsUpdateCardNumberAccount-flat"  data-bs-parent="#AccountsUpdateCardNumberAccount-parent">
+```json
+[{"AccountID":"string","CardExpiryMonth":123,"CardExpiryYear":123,"Inactive":true,"Name":"string","PaymentMethodGroupId":123,"TransactionOrigin":"string"}]
+```  
+</div>
+<div class="collapse" id="AccountsUpdateCardNumberAccount-csv" data-bs-parent="#AccountsUpdateCardNumberAccount-parent">
+```json
+AccountID,CardExpiryMonth,CardExpiryYear,Inactive,Name,PaymentMethodGroupId,TransactionOrigin
+"""string""",123,123,true,"""string""",123,"""string"""
+
+```  
+</div>
+</div>
+
 ### Flags:
  * *--DirectDebitAccount*  
    Updates expiration date or name on a direct debit account.
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsUpdateDirectDebitAccount-default" aria-expanded="true" aria-controls="AccountsUpdateDirectDebitAccount-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsUpdateDirectDebitAccount-flat" aria-expanded="false" aria-controls="AccountsUpdateDirectDebitAccount-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsUpdateDirectDebitAccount-csv" aria-expanded="false" aria-controls="AccountsUpdateDirectDebitAccount-csv">
+csv
+</button>
+<div id="AccountsUpdateDirectDebitAccount-parent">
+<div class="collapse show" id="AccountsUpdateDirectDebitAccount-default" data-bs-parent="#AccountsUpdateDirectDebitAccount-parent"> 
 ```json
 {"AccountID":"string", "CardExpiryMonth":123, "CardExpiryYear":123, "DirectDebitAccountType":{"Id":123}, "Inactive":true, "Name":"string"}
-```
+```  
+</div>
+<div class="collapse" id="AccountsUpdateDirectDebitAccount-flat"  data-bs-parent="#AccountsUpdateDirectDebitAccount-parent">
+```json
+[{"AccountID":"string","CardExpiryMonth":123,"CardExpiryYear":123,"DirectDebitAccountType.Id":123,"Inactive":true,"Name":"string"}]
+```  
+</div>
+<div class="collapse" id="AccountsUpdateDirectDebitAccount-csv" data-bs-parent="#AccountsUpdateDirectDebitAccount-parent">
+```json
+AccountID,CardExpiryMonth,CardExpiryYear,DirectDebitAccountType.Id,Inactive,Name
+"""string""",123,123,123,true,"""string"""
+
+```  
+</div>
+</div>
+
  * *--SepaAccount*  
    Updates information on a SEPA Direct Debit Account.
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsUpdateSepaAccount-default" aria-expanded="true" aria-controls="AccountsUpdateSepaAccount-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsUpdateSepaAccount-flat" aria-expanded="false" aria-controls="AccountsUpdateSepaAccount-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AccountsUpdateSepaAccount-csv" aria-expanded="false" aria-controls="AccountsUpdateSepaAccount-csv">
+csv
+</button>
+<div id="AccountsUpdateSepaAccount-parent">
+<div class="collapse show" id="AccountsUpdateSepaAccount-default" data-bs-parent="#AccountsUpdateSepaAccount-parent"> 
 ```json
 {"AccountID":"string", "BankIdentifierCode":"string", "Inactive":true, "MandateType":123, "Name":"string", "SignatureDate":"2000-01-01T00:00:00.000Z"}
-```
+```  
+</div>
+<div class="collapse" id="AccountsUpdateSepaAccount-flat"  data-bs-parent="#AccountsUpdateSepaAccount-parent">
+```json
+[{"AccountID":"string","BankIdentifierCode":"string","Inactive":true,"MandateType":123,"Name":"string","SignatureDate":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="AccountsUpdateSepaAccount-csv" data-bs-parent="#AccountsUpdateSepaAccount-parent">
+```json
+AccountID,BankIdentifierCode,Inactive,MandateType,Name,SignatureDate
+"""string""","""string""",true,123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ActionTypes [![get](https://img.shields.io/badge/get-blue)](get.md#actiontypes) [![post](https://img.shields.io/badge/post-blue)](post.md#actiontypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ActionTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#actiontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#actiontypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing action type.  
 ##### Usage:  
 ```shell
 tq put ActionTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActionTypesUpdate-default" aria-expanded="true" aria-controls="ActionTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActionTypesUpdate-flat" aria-expanded="false" aria-controls="ActionTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActionTypesUpdate-csv" aria-expanded="false" aria-controls="ActionTypesUpdate-csv">
+csv
+</button>
+<div id="ActionTypesUpdate-parent">
+<div class="collapse show" id="ActionTypesUpdate-default" data-bs-parent="#ActionTypesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LetterIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ActionTypesUpdate-flat"  data-bs-parent="#ActionTypesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"LetterIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ActionTypesUpdate-csv" data-bs-parent="#ActionTypesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,LetterIndicator,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Actions [![get](https://img.shields.io/badge/get-blue)](get.md#actions) [![post](https://img.shields.io/badge/post-blue)](post.md#actions) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Actions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#actions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#actions)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an issue action for a Constituent  
 ##### Usage:  
 ```shell
 tq put Actions
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActionsUpdate-default" aria-expanded="true" aria-controls="ActionsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActionsUpdate-flat" aria-expanded="false" aria-controls="ActionsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActionsUpdate-csv" aria-expanded="false" aria-controls="ActionsUpdate-csv">
+csv
+</button>
+<div id="ActionsUpdate-parent">
+<div class="collapse show" id="ActionsUpdate-default" data-bs-parent="#ActionsUpdate-parent"> 
 ```json
 {"ActionID":"string", "ActionDate":"2000-01-01T00:00:00.000Z", "ActionType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Issue":{"Id":123}, "LetterPrintedDate":"2000-01-01T00:00:00.000Z", "Notes":"string", "Resolved":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
-```
+```  
+</div>
+<div class="collapse" id="ActionsUpdate-flat"  data-bs-parent="#ActionsUpdate-parent">
+```json
+[{"ActionDate":"2000-01-01T00:00:00.000Z","ActionID":"string","ActionType.Id":123,"Constituent.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Issue.Id":123,"LetterPrintedDate":"2000-01-01T00:00:00.000Z","Notes":"string","Resolved":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ActionsUpdate-csv" data-bs-parent="#ActionsUpdate-parent">
+```json
+ActionDate,ActionID,ActionType.Id,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,Issue.Id,LetterPrintedDate,Notes,Resolved,UpdatedBy,UpdatedDateTime
+"""2000-01-01T00:00:00.000Z""","""string""",123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,123,123,"""2000-01-01T00:00:00.000Z""","""string""",true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ActivityCategories [![get](https://img.shields.io/badge/get-blue)](get.md#activitycategories) [![post](https://img.shields.io/badge/post-blue)](post.md#activitycategories) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ActivityCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#activitycategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#activitycategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing activity category.  
 ##### Usage:  
 ```shell
 tq put ActivityCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActivityCategoriesUpdate-default" aria-expanded="true" aria-controls="ActivityCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActivityCategoriesUpdate-flat" aria-expanded="false" aria-controls="ActivityCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActivityCategoriesUpdate-csv" aria-expanded="false" aria-controls="ActivityCategoriesUpdate-csv">
+csv
+</button>
+<div id="ActivityCategoriesUpdate-parent">
+<div class="collapse show" id="ActivityCategoriesUpdate-default" data-bs-parent="#ActivityCategoriesUpdate-parent"> 
 ```json
 {"AutoClose":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ActivityCategoriesUpdate-flat"  data-bs-parent="#ActivityCategoriesUpdate-parent">
+```json
+[{"AutoClose":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ActivityCategoriesUpdate-csv" data-bs-parent="#ActivityCategoriesUpdate-parent">
+```json
+AutoClose,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+true,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ActivityTypes [![get](https://img.shields.io/badge/get-blue)](get.md#activitytypes) [![post](https://img.shields.io/badge/post-blue)](post.md#activitytypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ActivityTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#activitytypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#activitytypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing activity type.  
 ##### Usage:  
 ```shell
 tq put ActivityTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActivityTypesUpdate-default" aria-expanded="true" aria-controls="ActivityTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActivityTypesUpdate-flat" aria-expanded="false" aria-controls="ActivityTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ActivityTypesUpdate-csv" aria-expanded="false" aria-controls="ActivityTypesUpdate-csv">
+csv
+</button>
+<div id="ActivityTypesUpdate-parent">
+<div class="collapse show" id="ActivityTypesUpdate-default" data-bs-parent="#ActivityTypesUpdate-parent"> 
 ```json
 {"Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PerfIndicator":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ActivityTypesUpdate-flat"  data-bs-parent="#ActivityTypesUpdate-parent">
+```json
+[{"Category.Id":123,"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"PerfIndicator":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ActivityTypesUpdate-csv" data-bs-parent="#ActivityTypesUpdate-parent">
+```json
+Category.Id,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,PerfIndicator,UpdatedBy,UpdatedDateTime
+123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## AddressTypes [![get](https://img.shields.io/badge/get-blue)](get.md#addresstypes) [![post](https://img.shields.io/badge/post-blue)](post.md#addresstypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## AddressTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#addresstypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#addresstypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing address type.  
 ##### Usage:  
 ```shell
 tq put AddressTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AddressTypesUpdate-default" aria-expanded="true" aria-controls="AddressTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AddressTypesUpdate-flat" aria-expanded="false" aria-controls="AddressTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AddressTypesUpdate-csv" aria-expanded="false" aria-controls="AddressTypesUpdate-csv">
+csv
+</button>
+<div id="AddressTypesUpdate-parent">
+<div class="collapse show" id="AddressTypesUpdate-default" data-bs-parent="#AddressTypesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="AddressTypesUpdate-flat"  data-bs-parent="#AddressTypesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="AddressTypesUpdate-csv" data-bs-parent="#AddressTypesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Addresses [![get](https://img.shields.io/badge/get-blue)](get.md#addresses) [![post](https://img.shields.io/badge/post-blue)](post.md#addresses) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Addresses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#addresses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#addresses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an address for a Constituent by sending an XML or JSON representation of an existing Address object using HTTP PUT.  
 ##### Usage:  
 ```shell
 tq put Addresses
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AddressesUpdate-default" aria-expanded="true" aria-controls="AddressesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AddressesUpdate-flat" aria-expanded="false" aria-controls="AddressesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AddressesUpdate-csv" aria-expanded="false" aria-controls="AddressesUpdate-csv">
+csv
+</button>
+<div id="AddressesUpdate-parent">
+<div class="collapse show" id="AddressesUpdate-default" data-bs-parent="#AddressesUpdate-parent"> 
 ```json
 {"AddressType":{"Id":123}, "AffiliatedConstituent":{"Id":123}, "AltSalutationType":{"Id":123}, "City":"string", "Constituent":{"Id":123}, "Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DeliveryPoint":"string", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "GeoArea":123, "Id":123, "Inactive":true, "IsFromAffiliation":true, "Label":true, "Months":"string", "NcoaAction":123, "NcoaSession":123, "PostalCode":"string", "PostalCodeFormatted":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "State":{"Id":123}, "Street1":"string", "Street1Address":{"Number":"string", "Street":"string"}, "Street2":"string", "Street3":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AddressID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="AddressesUpdate-flat"  data-bs-parent="#AddressesUpdate-parent">
+```json
+[{"AddressID":"string","AddressType.Id":123,"AffiliatedConstituent.Id":123,"AltSalutationType.Id":123,"City":"string","Constituent.Id":123,"Country.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DeliveryPoint":"string","EditIndicator":true,"EndDate":"2000-01-01T00:00:00.000Z","GeoArea":123,"Id":123,"Inactive":true,"IsFromAffiliation":true,"Label":true,"Months":"string","NcoaAction":123,"NcoaSession":123,"PostalCode":"string","PostalCodeFormatted":"string","PrimaryIndicator":true,"StartDate":"2000-01-01T00:00:00.000Z","State.Id":123,"Street1":"string","Street1Address.Number":"string","Street1Address.Street":"string","Street2":"string","Street3":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="AddressesUpdate-csv" data-bs-parent="#AddressesUpdate-parent">
+```json
+AddressID,AddressType.Id,AffiliatedConstituent.Id,AltSalutationType.Id,City,Constituent.Id,Country.Id,CreateLocation,CreatedBy,CreatedDateTime,DeliveryPoint,EditIndicator,EndDate,GeoArea,Id,Inactive,IsFromAffiliation,Label,Months,NcoaAction,NcoaSession,PostalCode,PostalCodeFormatted,PrimaryIndicator,StartDate,State.Id,Street1,Street1Address.Number,Street1Address.Street,Street2,Street3,UpdatedBy,UpdatedDateTime
+"""string""",123,123,123,"""string""",123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",true,"""2000-01-01T00:00:00.000Z""",123,123,true,true,true,"""string""",123,123,"""string""","""string""",true,"""2000-01-01T00:00:00.000Z""",123,"""string""","""string""","""string""","""string""","""string""","""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## AffiliationTypes [![get](https://img.shields.io/badge/get-blue)](get.md#affiliationtypes) [![post](https://img.shields.io/badge/post-blue)](post.md#affiliationtypes) ![put](https://img.shields.io/badge/put-gray)   
+
+## AffiliationTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#affiliationtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#affiliationtypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing affiliation type.  
 ##### Usage:  
 ```shell
 tq put AffiliationTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationTypesUpdate-default" aria-expanded="true" aria-controls="AffiliationTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationTypesUpdate-flat" aria-expanded="false" aria-controls="AffiliationTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationTypesUpdate-csv" aria-expanded="false" aria-controls="AffiliationTypesUpdate-csv">
+csv
+</button>
+<div id="AffiliationTypesUpdate-parent">
+<div class="collapse show" id="AffiliationTypesUpdate-default" data-bs-parent="#AffiliationTypesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsAllowedToTransactDefault":true, "IsIncludedInSearchResultsDefault":true, "RelationshipCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseSalary":true, "UseTitle":true, "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="AffiliationTypesUpdate-flat"  data-bs-parent="#AffiliationTypesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"IsAllowedToTransactDefault":true,"IsIncludedInSearchResultsDefault":true,"RelationshipCategory.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseSalary":true,"UseTitle":true}]
+```  
+</div>
+<div class="collapse" id="AffiliationTypesUpdate-csv" data-bs-parent="#AffiliationTypesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,IsAllowedToTransactDefault,IsIncludedInSearchResultsDefault,RelationshipCategory.Id,UpdatedBy,UpdatedDateTime,UseSalary,UseTitle
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,true,true,123,"""string""","""2000-01-01T00:00:00.000Z""",true,true
 
-## Affiliations [![get](https://img.shields.io/badge/get-blue)](get.md#affiliations) [![post](https://img.shields.io/badge/post-blue)](post.md#affiliations) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Affiliations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#affiliations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#affiliations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an affiliation.  
 ##### Usage:  
 ```shell
 tq put Affiliations
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationsUpdate-default" aria-expanded="true" aria-controls="AffiliationsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationsUpdate-flat" aria-expanded="false" aria-controls="AffiliationsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AffiliationsUpdate-csv" aria-expanded="false" aria-controls="AffiliationsUpdate-csv">
+csv
+</button>
+<div id="AffiliationsUpdate-parent">
+<div class="collapse show" id="AffiliationsUpdate-default" data-bs-parent="#AffiliationsUpdate-parent"> 
 ```json
 {"AddressId":123, "AffiliatedName":"string", "AffiliationType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "ElectronicAddressId":123, "EndDate":"2000-01-01T00:00:00.000Z", "GroupConstituent":{"Id":123}, "GroupConstituentName":"string", "GroupConstituentSortName":"string", "Id":123, "Inactive":true, "IndividualConstituent":{"Id":123}, "IndividualConstituentName":"string", "IndividualConstituentSortName":"string", "IsAllowedToTransact":true, "IsIncludedInSearchResults":true, "NameIndicator":123, "Note":"string", "PrimaryIndicator":true, "Salary":123.456, "SalutationId":123, "StartDate":"2000-01-01T00:00:00.000Z", "Title":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AffiliationID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="AffiliationsUpdate-flat"  data-bs-parent="#AffiliationsUpdate-parent">
+```json
+[{"AddressId":123,"AffiliatedName":"string","AffiliationID":"string","AffiliationType.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"ElectronicAddressId":123,"EndDate":"2000-01-01T00:00:00.000Z","GroupConstituent.Id":123,"GroupConstituentName":"string","GroupConstituentSortName":"string","Id":123,"Inactive":true,"IndividualConstituent.Id":123,"IndividualConstituentName":"string","IndividualConstituentSortName":"string","IsAllowedToTransact":true,"IsIncludedInSearchResults":true,"NameIndicator":123,"Note":"string","PrimaryIndicator":true,"Salary":123.456,"SalutationId":123,"StartDate":"2000-01-01T00:00:00.000Z","Title":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="AffiliationsUpdate-csv" data-bs-parent="#AffiliationsUpdate-parent">
+```json
+AddressId,AffiliatedName,AffiliationID,AffiliationType.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,ElectronicAddressId,EndDate,GroupConstituent.Id,GroupConstituentName,GroupConstituentSortName,Id,Inactive,IndividualConstituent.Id,IndividualConstituentName,IndividualConstituentSortName,IsAllowedToTransact,IsIncludedInSearchResults,NameIndicator,Note,PrimaryIndicator,Salary,SalutationId,StartDate,Title,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,123,"""2000-01-01T00:00:00.000Z""",123,"""string""","""string""",123,true,123,"""string""","""string""",true,true,123,"""string""",true,123.456,123,"""2000-01-01T00:00:00.000Z""","""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## AliasTypes [![get](https://img.shields.io/badge/get-blue)](get.md#aliastypes) [![post](https://img.shields.io/badge/post-blue)](post.md#aliastypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## AliasTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#aliastypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#aliastypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing alias type.  
 ##### Usage:  
 ```shell
 tq put AliasTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AliasTypesUpdate-default" aria-expanded="true" aria-controls="AliasTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AliasTypesUpdate-flat" aria-expanded="false" aria-controls="AliasTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AliasTypesUpdate-csv" aria-expanded="false" aria-controls="AliasTypesUpdate-csv">
+csv
+</button>
+<div id="AliasTypesUpdate-parent">
+<div class="collapse show" id="AliasTypesUpdate-default" data-bs-parent="#AliasTypesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="AliasTypesUpdate-flat"  data-bs-parent="#AliasTypesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="AliasTypesUpdate-csv" data-bs-parent="#AliasTypesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Aliases [![get](https://img.shields.io/badge/get-blue)](get.md#aliases) [![post](https://img.shields.io/badge/post-blue)](post.md#aliases) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Aliases <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#aliases)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#aliases)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an alias.  
 ##### Usage:  
 ```shell
 tq put Aliases
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AliasesUpdate-default" aria-expanded="true" aria-controls="AliasesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AliasesUpdate-flat" aria-expanded="false" aria-controls="AliasesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AliasesUpdate-csv" aria-expanded="false" aria-controls="AliasesUpdate-csv">
+csv
+</button>
+<div id="AliasesUpdate-parent">
+<div class="collapse show" id="AliasesUpdate-default" data-bs-parent="#AliasesUpdate-parent"> 
 ```json
 {"AliasFirstName":"string", "AliasLastName":"string", "AliasType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AliasID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="AliasesUpdate-flat"  data-bs-parent="#AliasesUpdate-parent">
+```json
+[{"AliasFirstName":"string","AliasID":"string","AliasLastName":"string","AliasType.Id":123,"Constituent.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="AliasesUpdate-csv" data-bs-parent="#AliasesUpdate-parent">
+```json
+AliasFirstName,AliasID,AliasLastName,AliasType.Id,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""string""",123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,123,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## AnalyticsReports [![get](https://img.shields.io/badge/get-blue)](get.md#analyticsreports) [![post](https://img.shields.io/badge/post-blue)](post.md#analyticsreports) ![put](https://img.shields.io/badge/put-gray)   
+
+## AnalyticsReports <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#analyticsreports)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#analyticsreports)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update SSRS Reports for display in Analytics.  
 ##### Usage:  
 ```shell
 tq put AnalyticsReports
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AnalyticsReportsUpdate-default" aria-expanded="true" aria-controls="AnalyticsReportsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AnalyticsReportsUpdate-flat" aria-expanded="false" aria-controls="AnalyticsReportsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AnalyticsReportsUpdate-csv" aria-expanded="false" aria-controls="AnalyticsReportsUpdate-csv">
+csv
+</button>
+<div id="AnalyticsReportsUpdate-parent">
+<div class="collapse show" id="AnalyticsReportsUpdate-default" data-bs-parent="#AnalyticsReportsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Division":{"Id":"string"}, "Id":123, "Inactive":true, "ReportPath":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AnalyticsReportID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="AnalyticsReportsUpdate-flat"  data-bs-parent="#AnalyticsReportsUpdate-parent">
+```json
+[{"AnalyticsReportID":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Division.Id":"string","Id":123,"Inactive":true,"ReportPath":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="AnalyticsReportsUpdate-csv" data-bs-parent="#AnalyticsReportsUpdate-parent">
+```json
+AnalyticsReportID,CreateLocation,CreatedBy,CreatedDateTime,Description,Division.Id,Id,Inactive,ReportPath,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## AppScreenTexts [![get](https://img.shields.io/badge/get-blue)](get.md#appscreentexts) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## AppScreenTexts <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#appscreentexts)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Create or update a new App Screen Text.  
 ##### Usage:  
 ```shell
 tq put AppScreenTexts
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AppScreenTextsCreateOrUpdate-default" aria-expanded="true" aria-controls="AppScreenTextsCreateOrUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AppScreenTextsCreateOrUpdate-flat" aria-expanded="false" aria-controls="AppScreenTextsCreateOrUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AppScreenTextsCreateOrUpdate-csv" aria-expanded="false" aria-controls="AppScreenTextsCreateOrUpdate-csv">
+csv
+</button>
+<div id="AppScreenTextsCreateOrUpdate-parent">
+<div class="collapse show" id="AppScreenTextsCreateOrUpdate-default" data-bs-parent="#AppScreenTextsCreateOrUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Name":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}
-```
+```  
+</div>
+<div class="collapse" id="AppScreenTextsCreateOrUpdate-flat"  data-bs-parent="#AppScreenTextsCreateOrUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Name":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Value":"string"}]
+```  
+</div>
+<div class="collapse" id="AppScreenTextsCreateOrUpdate-csv" data-bs-parent="#AppScreenTextsCreateOrUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Id,Name,UpdatedBy,UpdatedDateTime,Value
+"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string"""
 
-## AppealCategories [![get](https://img.shields.io/badge/get-blue)](get.md#appealcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#appealcategories) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## AppealCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#appealcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#appealcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing appeal category.  
 ##### Usage:  
 ```shell
 tq put AppealCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AppealCategoriesUpdate-default" aria-expanded="true" aria-controls="AppealCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AppealCategoriesUpdate-flat" aria-expanded="false" aria-controls="AppealCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AppealCategoriesUpdate-csv" aria-expanded="false" aria-controls="AppealCategoriesUpdate-csv">
+csv
+</button>
+<div id="AppealCategoriesUpdate-parent">
+<div class="collapse show" id="AppealCategoriesUpdate-default" data-bs-parent="#AppealCategoriesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="AppealCategoriesUpdate-flat"  data-bs-parent="#AppealCategoriesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="AppealCategoriesUpdate-csv" data-bs-parent="#AppealCategoriesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
 
-## Artists [![get](https://img.shields.io/badge/get-blue)](get.md#artists) [![post](https://img.shields.io/badge/post-blue)](post.md#artists) ![put](https://img.shields.io/badge/put-gray)   
+
+## Artists <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#artists)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#artists)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing artist.  
 ##### Usage:  
 ```shell
 tq put Artists
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ArtistsUpdate-default" aria-expanded="true" aria-controls="ArtistsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ArtistsUpdate-flat" aria-expanded="false" aria-controls="ArtistsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ArtistsUpdate-csv" aria-expanded="false" aria-controls="ArtistsUpdate-csv">
+csv
+</button>
+<div id="ArtistsUpdate-parent">
+<div class="collapse show" id="ArtistsUpdate-default" data-bs-parent="#ArtistsUpdate-parent"> 
 ```json
 {"Bio":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "FirstName":"string", "Id":123, "LastName":"string", "MiddleName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "VoiceId":123, "ArtistID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ArtistsUpdate-flat"  data-bs-parent="#ArtistsUpdate-parent">
+```json
+[{"ArtistID":"string","Bio":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","FirstName":"string","Id":123,"LastName":"string","MiddleName":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","VoiceId":123}]
+```  
+</div>
+<div class="collapse" id="ArtistsUpdate-csv" data-bs-parent="#ArtistsUpdate-parent">
+```json
+ArtistID,Bio,CreateLocation,CreatedBy,CreatedDateTime,FirstName,Id,LastName,MiddleName,UpdatedBy,UpdatedDateTime,VoiceId
+"""string""","""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""",123
 
-## AssetTypes [![get](https://img.shields.io/badge/get-blue)](get.md#assettypes) [![post](https://img.shields.io/badge/post-blue)](post.md#assettypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## AssetTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#assettypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#assettypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing asset type.  
 ##### Usage:  
 ```shell
 tq put AssetTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssetTypesUpdate-default" aria-expanded="true" aria-controls="AssetTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssetTypesUpdate-flat" aria-expanded="false" aria-controls="AssetTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssetTypesUpdate-csv" aria-expanded="false" aria-controls="AssetTypesUpdate-csv">
+csv
+</button>
+<div id="AssetTypesUpdate-parent">
+<div class="collapse show" id="AssetTypesUpdate-default" data-bs-parent="#AssetTypesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="AssetTypesUpdate-flat"  data-bs-parent="#AssetTypesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="AssetTypesUpdate-csv" data-bs-parent="#AssetTypesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Assets [![get](https://img.shields.io/badge/get-blue)](get.md#assets) [![post](https://img.shields.io/badge/post-blue)](post.md#assets) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Assets <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#assets)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#assets)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing asset for a constituent.  
 ##### Usage:  
 ```shell
 tq put Assets
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssetsUpdate-default" aria-expanded="true" aria-controls="AssetsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssetsUpdate-flat" aria-expanded="false" aria-controls="AssetsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssetsUpdate-csv" aria-expanded="false" aria-controls="AssetsUpdate-csv">
+csv
+</button>
+<div id="AssetsUpdate-parent">
+<div class="collapse show" id="AssetsUpdate-default" data-bs-parent="#AssetsUpdate-parent"> 
 ```json
 {"AcquisitionDateTime":"2000-01-01T00:00:00.000Z", "AssetType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "EstimatedValue":123.456, "Id":123, "Notes":"string", "SaleDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AssetID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="AssetsUpdate-flat"  data-bs-parent="#AssetsUpdate-parent">
+```json
+[{"AcquisitionDateTime":"2000-01-01T00:00:00.000Z","AssetID":"string","AssetType.Id":123,"Constituent.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"EstimatedValue":123.456,"Id":123,"Notes":"string","SaleDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="AssetsUpdate-csv" data-bs-parent="#AssetsUpdate-parent">
+```json
+AcquisitionDateTime,AssetID,AssetType.Id,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EditIndicator,EstimatedValue,Id,Notes,SaleDateTime,UpdatedBy,UpdatedDateTime
+"""2000-01-01T00:00:00.000Z""","""string""",123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",true,123.456,123,"""string""","""2000-01-01T00:00:00.000Z""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## AssociationTypes [![get](https://img.shields.io/badge/get-blue)](get.md#associationtypes) [![post](https://img.shields.io/badge/post-blue)](post.md#associationtypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## AssociationTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#associationtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#associationtypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing association type.  
 ##### Usage:  
 ```shell
 tq put AssociationTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssociationTypesUpdate-default" aria-expanded="true" aria-controls="AssociationTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssociationTypesUpdate-flat" aria-expanded="false" aria-controls="AssociationTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssociationTypesUpdate-csv" aria-expanded="false" aria-controls="AssociationTypesUpdate-csv">
+csv
+</button>
+<div id="AssociationTypesUpdate-parent">
+<div class="collapse show" id="AssociationTypesUpdate-default" data-bs-parent="#AssociationTypesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsIncludedInSearchResultsDefault":true, "ReciprocalType":{"Id":123}, "RelationshipCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseBirthDate":true, "UseGender":true, "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="AssociationTypesUpdate-flat"  data-bs-parent="#AssociationTypesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"IsIncludedInSearchResultsDefault":true,"ReciprocalType.Id":123,"RelationshipCategory.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseBirthDate":true,"UseGender":true}]
+```  
+</div>
+<div class="collapse" id="AssociationTypesUpdate-csv" data-bs-parent="#AssociationTypesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,IsIncludedInSearchResultsDefault,ReciprocalType.Id,RelationshipCategory.Id,UpdatedBy,UpdatedDateTime,UseBirthDate,UseGender
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,true,123,123,"""string""","""2000-01-01T00:00:00.000Z""",true,true
 
-## Associations [![get](https://img.shields.io/badge/get-blue)](get.md#associations) [![post](https://img.shields.io/badge/post-blue)](post.md#associations) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Associations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#associations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#associations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update a association.  
 ##### Usage:  
 ```shell
 tq put Associations
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssociationsUpdate-default" aria-expanded="true" aria-controls="AssociationsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssociationsUpdate-flat" aria-expanded="false" aria-controls="AssociationsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AssociationsUpdate-csv" aria-expanded="false" aria-controls="AssociationsUpdate-csv">
+csv
+</button>
+<div id="AssociationsUpdate-parent">
+<div class="collapse show" id="AssociationsUpdate-default" data-bs-parent="#AssociationsUpdate-parent"> 
 ```json
 {"AssociatedConstituent":{"Id":123}, "AssociatedName":"string", "AssociationType":{"Id":123}, "BirthDate":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "Gender":{"Id":123}, "Id":123, "Inactive":true, "IsIncludedInSearchResults":true, "Note":"string", "ReciprocalAssociation":{"Id":123}, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "AssociationID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="AssociationsUpdate-flat"  data-bs-parent="#AssociationsUpdate-parent">
+```json
+[{"AssociatedConstituent.Id":123,"AssociatedName":"string","AssociationID":"string","AssociationType.Id":123,"BirthDate":"2000-01-01T00:00:00.000Z","Constituent.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"EndDate":"2000-01-01T00:00:00.000Z","Gender.Id":123,"Id":123,"Inactive":true,"IsIncludedInSearchResults":true,"Note":"string","ReciprocalAssociation.Id":123,"StartDate":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="AssociationsUpdate-csv" data-bs-parent="#AssociationsUpdate-parent">
+```json
+AssociatedConstituent.Id,AssociatedName,AssociationID,AssociationType.Id,BirthDate,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,EndDate,Gender.Id,Id,Inactive,IsIncludedInSearchResults,Note,ReciprocalAssociation.Id,StartDate,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""",123,"""2000-01-01T00:00:00.000Z""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,"""2000-01-01T00:00:00.000Z""",123,123,true,true,"""string""",123,"""2000-01-01T00:00:00.000Z""","""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## Attributes [![get](https://img.shields.io/badge/get-blue)](get.md#attributes) [![post](https://img.shields.io/badge/post-blue)](post.md#attributes) ![put](https://img.shields.io/badge/put-gray)   
+
+## Attributes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#attributes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#attributes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an attribute.  
 ##### Usage:  
 ```shell
 tq put Attributes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AttributesUpdate-default" aria-expanded="true" aria-controls="AttributesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AttributesUpdate-flat" aria-expanded="false" aria-controls="AttributesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AttributesUpdate-csv" aria-expanded="false" aria-controls="AttributesUpdate-csv">
+csv
+</button>
+<div id="AttributesUpdate-parent">
+<div class="collapse show" id="AttributesUpdate-default" data-bs-parent="#AttributesUpdate-parent"> 
 ```json
 {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Keyword":{"Id":123}, "KeywordConstituentType":{"Inactive":true, "Rank":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string", "AttributeID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="AttributesUpdate-flat"  data-bs-parent="#AttributesUpdate-parent">
+```json
+[{"AttributeID":"string","Constituent.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Keyword.Id":123,"KeywordConstituentType.Inactive":true,"KeywordConstituentType.Rank":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Value":"string"}]
+```  
+</div>
+<div class="collapse" id="AttributesUpdate-csv" data-bs-parent="#AttributesUpdate-parent">
+```json
+AttributeID,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,Keyword.Id,KeywordConstituentType.Inactive,KeywordConstituentType.Rank,UpdatedBy,UpdatedDateTime,Value
+"""string""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,123,123,true,123,"""string""","""2000-01-01T00:00:00.000Z""","""string"""
+
+```  
+</div>
+</div>
 
 
 
-## Authorization [![post](https://img.shields.io/badge/post-blue)](post.md#authorization) ![put](https://img.shields.io/badge/put-gray)   
+
+## Authorization <button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#authorization)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 NOTE: THIS IS FOR TESSITURA USE ONLY. Custom implementations of this endpoint are not supported.
 Expire a payment link which has yet to be authorized or already expired.  For Tessitura Merchant Services only.  
 ##### Usage:  
 ```shell
 tq put Authorization
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationExpirePayByLink-default" aria-expanded="true" aria-controls="AuthorizationExpirePayByLink-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationExpirePayByLink-flat" aria-expanded="false" aria-controls="AuthorizationExpirePayByLink-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#AuthorizationExpirePayByLink-csv" aria-expanded="false" aria-controls="AuthorizationExpirePayByLink-csv">
+csv
+</button>
+<div id="AuthorizationExpirePayByLink-parent">
+<div class="collapse show" id="AuthorizationExpirePayByLink-default" data-bs-parent="#AuthorizationExpirePayByLink-parent"> 
 ```json
 {"PaymentID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="AuthorizationExpirePayByLink-flat"  data-bs-parent="#AuthorizationExpirePayByLink-parent">
+```json
+[{"PaymentID":"string"}]
+```  
+</div>
+<div class="collapse" id="AuthorizationExpirePayByLink-csv" data-bs-parent="#AuthorizationExpirePayByLink-parent">
+```json
+PaymentID
+"""string"""
+
+```  
+</div>
+</div>
+
 
 	
 # B
 
 
-## BatchTypeGroups [![get](https://img.shields.io/badge/get-blue)](get.md#batchtypegroups) [![post](https://img.shields.io/badge/post-blue)](post.md#batchtypegroups) ![put](https://img.shields.io/badge/put-gray)   
+## BatchTypeGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#batchtypegroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#batchtypegroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing batch type group.  
 ##### Usage:  
 ```shell
 tq put BatchTypeGroups
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchTypeGroupsUpdate-default" aria-expanded="true" aria-controls="BatchTypeGroupsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchTypeGroupsUpdate-flat" aria-expanded="false" aria-controls="BatchTypeGroupsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchTypeGroupsUpdate-csv" aria-expanded="false" aria-controls="BatchTypeGroupsUpdate-csv">
+csv
+</button>
+<div id="BatchTypeGroupsUpdate-parent">
+<div class="collapse show" id="BatchTypeGroupsUpdate-default" data-bs-parent="#BatchTypeGroupsUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="BatchTypeGroupsUpdate-flat"  data-bs-parent="#BatchTypeGroupsUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="BatchTypeGroupsUpdate-csv" data-bs-parent="#BatchTypeGroupsUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## BatchTypes [![get](https://img.shields.io/badge/get-blue)](get.md#batchtypes) [![post](https://img.shields.io/badge/post-blue)](post.md#batchtypes) ![put](https://img.shields.io/badge/put-gray)   
+
+## BatchTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#batchtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#batchtypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing batch type.  
 ##### Usage:  
 ```shell
 tq put BatchTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchTypesUpdate-default" aria-expanded="true" aria-controls="BatchTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchTypesUpdate-flat" aria-expanded="false" aria-controls="BatchTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BatchTypesUpdate-csv" aria-expanded="false" aria-controls="BatchTypesUpdate-csv">
+csv
+</button>
+<div id="BatchTypesUpdate-parent">
+<div class="collapse show" id="BatchTypesUpdate-default" data-bs-parent="#BatchTypesUpdate-parent"> 
 ```json
 {"BatchTypeGroup":{"Id":123}, "BusinessUnit":{"Id":123}, "Category":123, "CntlIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="BatchTypesUpdate-flat"  data-bs-parent="#BatchTypesUpdate-parent">
+```json
+[{"BatchTypeGroup.Id":123,"BusinessUnit.Id":123,"Category":123,"CntlIndicator":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="BatchTypesUpdate-csv" data-bs-parent="#BatchTypesUpdate-parent">
+```json
+BatchTypeGroup.Id,BusinessUnit.Id,Category,CntlIndicator,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,123,123,true,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## BillingSchedules [![get](https://img.shields.io/badge/get-blue)](get.md#billingschedules) [![post](https://img.shields.io/badge/post-blue)](post.md#billingschedules) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## BillingSchedules <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#billingschedules)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#billingschedules)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Billing Schedule.  
 ##### Usage:  
 ```shell
 tq put BillingSchedules
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BillingSchedulesUpdate-default" aria-expanded="true" aria-controls="BillingSchedulesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BillingSchedulesUpdate-flat" aria-expanded="false" aria-controls="BillingSchedulesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BillingSchedulesUpdate-csv" aria-expanded="false" aria-controls="BillingSchedulesUpdate-csv">
+csv
+</button>
+<div id="BillingSchedulesUpdate-parent">
+<div class="collapse show" id="BillingSchedulesUpdate-default" data-bs-parent="#BillingSchedulesUpdate-parent"> 
 ```json
 {"BillAmounts":"string", "BillDates":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LongDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="BillingSchedulesUpdate-flat"  data-bs-parent="#BillingSchedulesUpdate-parent">
+```json
+[{"BillAmounts":"string","BillDates":"string","ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"LongDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="BillingSchedulesUpdate-csv" data-bs-parent="#BillingSchedulesUpdate-parent">
+```json
+BillAmounts,BillDates,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,LongDescription,UpdatedBy,UpdatedDateTime
+"""string""","""string""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## BillingTypes [![get](https://img.shields.io/badge/get-blue)](get.md#billingtypes) [![post](https://img.shields.io/badge/post-blue)](post.md#billingtypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## BillingTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#billingtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#billingtypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Billing Type.  
 ##### Usage:  
 ```shell
 tq put BillingTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BillingTypesUpdate-default" aria-expanded="true" aria-controls="BillingTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BillingTypesUpdate-flat" aria-expanded="false" aria-controls="BillingTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BillingTypesUpdate-csv" aria-expanded="false" aria-controls="BillingTypesUpdate-csv">
+csv
+</button>
+<div id="BillingTypesUpdate-parent">
+<div class="collapse show" id="BillingTypesUpdate-default" data-bs-parent="#BillingTypesUpdate-parent"> 
 ```json
 {"AutoBillingIndicator":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="BillingTypesUpdate-flat"  data-bs-parent="#BillingTypesUpdate-parent">
+```json
+[{"AutoBillingIndicator":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="BillingTypesUpdate-csv" data-bs-parent="#BillingTypesUpdate-parent">
+```json
+AutoBillingIndicator,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## BookingCategories [![get](https://img.shields.io/badge/get-blue)](get.md#bookingcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#bookingcategories) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## BookingCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#bookingcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#bookingcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Booking Category.  
 ##### Usage:  
 ```shell
 tq put BookingCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingCategoriesUpdate-default" aria-expanded="true" aria-controls="BookingCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingCategoriesUpdate-flat" aria-expanded="false" aria-controls="BookingCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingCategoriesUpdate-csv" aria-expanded="false" aria-controls="BookingCategoriesUpdate-csv">
+csv
+</button>
+<div id="BookingCategoriesUpdate-parent">
+<div class="collapse show" id="BookingCategoriesUpdate-default" data-bs-parent="#BookingCategoriesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="BookingCategoriesUpdate-flat"  data-bs-parent="#BookingCategoriesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="BookingCategoriesUpdate-csv" data-bs-parent="#BookingCategoriesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EditIndicator,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",true,"""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## BookingTemplates [![get](https://img.shields.io/badge/get-blue)](get.md#bookingtemplates) [![post](https://img.shields.io/badge/post-blue)](post.md#bookingtemplates) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## BookingTemplates <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#bookingtemplates)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#bookingtemplates)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Booking Template  
 ##### Usage:  
 ```shell
 tq put BookingTemplates
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingTemplatesUpdate-default" aria-expanded="true" aria-controls="BookingTemplatesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingTemplatesUpdate-flat" aria-expanded="false" aria-controls="BookingTemplatesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingTemplatesUpdate-csv" aria-expanded="false" aria-controls="BookingTemplatesUpdate-csv">
+csv
+</button>
+<div id="BookingTemplatesUpdate-parent">
+<div class="collapse show" id="BookingTemplatesUpdate-default" data-bs-parent="#BookingTemplatesUpdate-parent"> 
 ```json
 {"Assignments":[{"Id":123}, ...], "Category":{"Id":123}, "ConfirmationText":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Notes":"string", "OverrideTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BookingTemplateID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="BookingTemplatesUpdate-flat"  data-bs-parent="#BookingTemplatesUpdate-parent">
+```json
 
-## Bookings [![get](https://img.shields.io/badge/get-blue)](get.md#bookings) [![post](https://img.shields.io/badge/post-blue)](post.md#bookings) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+<div class="collapse" id="BookingTemplatesUpdate-csv" data-bs-parent="#BookingTemplatesUpdate-parent">
+```json
+
+```  
+</div>
+</div>
+
+
+## Bookings <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#bookings)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#bookings)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Booking  
 ##### Usage:  
 ```shell
 tq put Bookings
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsUpdate-default" aria-expanded="true" aria-controls="BookingsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsUpdate-flat" aria-expanded="false" aria-controls="BookingsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BookingsUpdate-csv" aria-expanded="false" aria-controls="BookingsUpdate-csv">
+csv
+</button>
+<div id="BookingsUpdate-parent">
+<div class="collapse show" id="BookingsUpdate-default" data-bs-parent="#BookingsUpdate-parent"> 
 ```json
 {"Assignments":[{"Id":123}, ...], "BookingSource":123, "Category":{"Id":123}, "ConfirmationText":"string", "Context":{}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultCount":123, "DefaultDateTime":"2000-01-01T00:00:00.000Z", "DefaultDuration":123, "Description":"string", "EditIndicator":true, "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BookingID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="BookingsUpdate-flat"  data-bs-parent="#BookingsUpdate-parent">
+```json
 
-## BulkCopySets [![get](https://img.shields.io/badge/get-blue)](get.md#bulkcopysets) [![post](https://img.shields.io/badge/post-blue)](post.md#bulkcopysets) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+<div class="collapse" id="BookingsUpdate-csv" data-bs-parent="#BookingsUpdate-parent">
+```json
+
+```  
+</div>
+</div>
+
+
+## BulkCopySets <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#bulkcopysets)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#bulkcopysets)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Updates an existing bulk copy set.  
 ##### Usage:  
 ```shell
 tq put BulkCopySets
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsUpdate-default" aria-expanded="true" aria-controls="BulkCopySetsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsUpdate-flat" aria-expanded="false" aria-controls="BulkCopySetsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkCopySetsUpdate-csv" aria-expanded="false" aria-controls="BulkCopySetsUpdate-csv">
+csv
+</button>
+<div id="BulkCopySetsUpdate-parent">
+<div class="collapse show" id="BulkCopySetsUpdate-default" data-bs-parent="#BulkCopySetsUpdate-parent"> 
 ```json
 {"AvailableForSaleIndicator":true, "ControlGroup":{"Id":123}, "CopyCredits":true, "CopyNotes":true, "CopyOffers":true, "CopyPriceEvents":true, "CopyPrices":true, "CreateFriday":true, "CreateFromDateTime":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreateMode":"string", "CreateMonday":true, "CreateSaturday":true, "CreateSunday":true, "CreateThursday":true, "CreateToDateTime":"2000-01-01T00:00:00.000Z", "CreateTuesday":true, "CreateWednesday":true, "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultRelativeDates":"string", "Id":123, "Inactive":true, "OverrideOnSale":true, "PackageCode":"string", "PackageCodeSeed":123, "PackageModeOfSaleRelativeDates":"string", "PerformanceCode":"string", "PerformanceCodeSeed":123, "PerformanceDescription":"string", "PerformanceModeOfSaleRelativeDates":"string", "PerformanceStatus":{"Id":123}, "PerformanceTime":"string", "PerformanceType":{"Id":123}, "PriceEventRelativeDates":"string", "PriceTypeRelativeDates":"string", "ProductionSeason":{"Id":123}, "PublishRelativeDates":"string", "ReferenceDay":"2000-01-01T00:00:00.000Z", "ReferencePerformanceId":123, "ReferenceSeasonString":"string", "SetDescription":"string", "SetType":123, "ShortName":"string", "TimeSlot":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BulkCopySetID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="BulkCopySetsUpdate-flat"  data-bs-parent="#BulkCopySetsUpdate-parent">
+```json
+[{"AvailableForSaleIndicator":true,"BulkCopySetID":"string","ControlGroup.Id":123,"CopyCredits":true,"CopyNotes":true,"CopyOffers":true,"CopyPriceEvents":true,"CopyPrices":true,"CreateFriday":true,"CreateFromDateTime":"2000-01-01T00:00:00.000Z","CreateLocation":"string","CreateMode":"string","CreateMonday":true,"CreateSaturday":true,"CreateSunday":true,"CreateThursday":true,"CreateToDateTime":"2000-01-01T00:00:00.000Z","CreateTuesday":true,"CreateWednesday":true,"CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultRelativeDates":"string","Id":123,"Inactive":true,"OverrideOnSale":true,"PackageCode":"string","PackageCodeSeed":123,"PackageModeOfSaleRelativeDates":"string","PerformanceCode":"string","PerformanceCodeSeed":123,"PerformanceDescription":"string","PerformanceModeOfSaleRelativeDates":"string","PerformanceStatus.Id":123,"PerformanceTime":"string","PerformanceType.Id":123,"PriceEventRelativeDates":"string","PriceTypeRelativeDates":"string","ProductionSeason.Id":123,"PublishRelativeDates":"string","ReferenceDay":"2000-01-01T00:00:00.000Z","ReferencePerformanceId":123,"ReferenceSeasonString":"string","SetDescription":"string","SetType":123,"ShortName":"string","TimeSlot.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="BulkCopySetsUpdate-csv" data-bs-parent="#BulkCopySetsUpdate-parent">
+```json
+AvailableForSaleIndicator,BulkCopySetID,ControlGroup.Id,CopyCredits,CopyNotes,CopyOffers,CopyPriceEvents,CopyPrices,CreateFriday,CreateFromDateTime,CreateLocation,CreateMode,CreateMonday,CreateSaturday,CreateSunday,CreateThursday,CreateToDateTime,CreateTuesday,CreateWednesday,CreatedBy,CreatedDateTime,DefaultRelativeDates,Id,Inactive,OverrideOnSale,PackageCode,PackageCodeSeed,PackageModeOfSaleRelativeDates,PerformanceCode,PerformanceCodeSeed,PerformanceDescription,PerformanceModeOfSaleRelativeDates,PerformanceStatus.Id,PerformanceTime,PerformanceType.Id,PriceEventRelativeDates,PriceTypeRelativeDates,ProductionSeason.Id,PublishRelativeDates,ReferenceDay,ReferencePerformanceId,ReferenceSeasonString,SetDescription,SetType,ShortName,TimeSlot.Id,UpdatedBy,UpdatedDateTime
+true,"""string""",123,true,true,true,true,true,true,"""2000-01-01T00:00:00.000Z""","""string""","""string""",true,true,true,true,"""2000-01-01T00:00:00.000Z""",true,true,"""string""","""2000-01-01T00:00:00.000Z""","""string""",123,true,true,"""string""",123,"""string""","""string""",123,"""string""","""string""",123,"""string""",123,"""string""","""string""",123,"""string""","""2000-01-01T00:00:00.000Z""",123,"""string""","""string""",123,"""string""",123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## BulkDailyCopyExclusions [![get](https://img.shields.io/badge/get-blue)](get.md#bulkdailycopyexclusions) [![post](https://img.shields.io/badge/post-blue)](post.md#bulkdailycopyexclusions) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## BulkDailyCopyExclusions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#bulkdailycopyexclusions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#bulkdailycopyexclusions)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Updates an existing bulk daily copy exclusion.  
 ##### Usage:  
 ```shell
 tq put BulkDailyCopyExclusions
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkDailyCopyExclusionsUpdate-default" aria-expanded="true" aria-controls="BulkDailyCopyExclusionsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkDailyCopyExclusionsUpdate-flat" aria-expanded="false" aria-controls="BulkDailyCopyExclusionsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BulkDailyCopyExclusionsUpdate-csv" aria-expanded="false" aria-controls="BulkDailyCopyExclusionsUpdate-csv">
+csv
+</button>
+<div id="BulkDailyCopyExclusionsUpdate-parent">
+<div class="collapse show" id="BulkDailyCopyExclusionsUpdate-default" data-bs-parent="#BulkDailyCopyExclusionsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DoNotCopy":true, "Id":123, "IncludeWithoutCopy":true, "PackageId":123, "PerformanceId":123, "SetId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "BulkDailyCopyExclusionID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="BulkDailyCopyExclusionsUpdate-flat"  data-bs-parent="#BulkDailyCopyExclusionsUpdate-parent">
+```json
+[{"BulkDailyCopyExclusionID":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DoNotCopy":true,"Id":123,"IncludeWithoutCopy":true,"PackageId":123,"PerformanceId":123,"SetId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="BulkDailyCopyExclusionsUpdate-csv" data-bs-parent="#BulkDailyCopyExclusionsUpdate-parent">
+```json
+BulkDailyCopyExclusionID,CreateLocation,CreatedBy,CreatedDateTime,DoNotCopy,Id,IncludeWithoutCopy,PackageId,PerformanceId,SetId,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""",true,123,true,123,123,123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## BusinessUnits [![get](https://img.shields.io/badge/get-blue)](get.md#businessunits) [![post](https://img.shields.io/badge/post-blue)](post.md#businessunits) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## BusinessUnits <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#businessunits)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#businessunits)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing business unit.  
 ##### Usage:  
 ```shell
 tq put BusinessUnits
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BusinessUnitsUpdate-default" aria-expanded="true" aria-controls="BusinessUnitsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BusinessUnitsUpdate-flat" aria-expanded="false" aria-controls="BusinessUnitsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#BusinessUnitsUpdate-csv" aria-expanded="false" aria-controls="BusinessUnitsUpdate-csv">
+csv
+</button>
+<div id="BusinessUnitsUpdate-parent">
+<div class="collapse show" id="BusinessUnitsUpdate-default" data-bs-parent="#BusinessUnitsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="BusinessUnitsUpdate-flat"  data-bs-parent="#BusinessUnitsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="BusinessUnitsUpdate-csv" data-bs-parent="#BusinessUnitsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
+
 
 	
 # C
 
-## CampaignDesignations [![get](https://img.shields.io/badge/get-blue)](get.md#campaigndesignations) [![post](https://img.shields.io/badge/post-blue)](post.md#campaigndesignations) ![put](https://img.shields.io/badge/put-gray)   
+## CampaignDesignations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#campaigndesignations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#campaigndesignations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an association between a Designation and a Campaign.  
 ##### Usage:  
 ```shell
 tq put CampaignDesignations
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CampaignDesignationsUpdate-default" aria-expanded="true" aria-controls="CampaignDesignationsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CampaignDesignationsUpdate-flat" aria-expanded="false" aria-controls="CampaignDesignationsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CampaignDesignationsUpdate-csv" aria-expanded="false" aria-controls="CampaignDesignationsUpdate-csv">
+csv
+</button>
+<div id="CampaignDesignationsUpdate-parent">
+<div class="collapse show" id="CampaignDesignationsUpdate-default" data-bs-parent="#CampaignDesignationsUpdate-parent"> 
 ```json
 {"Campaign":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Designation":{"Id":123}, "EditIndicator":true, "GoalAmount":123.456, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "CampaignDesignationID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CampaignDesignationsUpdate-flat"  data-bs-parent="#CampaignDesignationsUpdate-parent">
+```json
+[{"Campaign.Id":123,"CampaignDesignationID":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultIndicator":true,"Designation.Id":123,"EditIndicator":true,"GoalAmount":123.456,"Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="CampaignDesignationsUpdate-csv" data-bs-parent="#CampaignDesignationsUpdate-parent">
+```json
+Campaign.Id,CampaignDesignationID,CreateLocation,CreatedBy,CreatedDateTime,DefaultIndicator,Designation.Id,EditIndicator,GoalAmount,Id,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""",true,123,true,123.456,123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## CampaignFunds [![get](https://img.shields.io/badge/get-blue)](get.md#campaignfunds) [![post](https://img.shields.io/badge/post-blue)](post.md#campaignfunds) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## CampaignFunds <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#campaignfunds)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#campaignfunds)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update a Fund association to a Campaign.  
 ##### Usage:  
 ```shell
 tq put CampaignFunds
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CampaignFundsUpdate-default" aria-expanded="true" aria-controls="CampaignFundsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CampaignFundsUpdate-flat" aria-expanded="false" aria-controls="CampaignFundsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CampaignFundsUpdate-csv" aria-expanded="false" aria-controls="CampaignFundsUpdate-csv">
+csv
+</button>
+<div id="CampaignFundsUpdate-parent">
+<div class="collapse show" id="CampaignFundsUpdate-default" data-bs-parent="#CampaignFundsUpdate-parent"> 
 ```json
 {"Campaign":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "Fund":{"Id":123}, "GoalAmount":123.456, "Id":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "CampaignFundID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CampaignFundsUpdate-flat"  data-bs-parent="#CampaignFundsUpdate-parent">
+```json
+[{"Campaign.Id":123,"CampaignFundID":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"EndDateTime":"2000-01-01T00:00:00.000Z","Fund.Id":123,"GoalAmount":123.456,"Id":123,"StartDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="CampaignFundsUpdate-csv" data-bs-parent="#CampaignFundsUpdate-parent">
+```json
+Campaign.Id,CampaignFundID,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,EndDateTime,Fund.Id,GoalAmount,Id,StartDateTime,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""",true,"""2000-01-01T00:00:00.000Z""",123,123.456,123,"""2000-01-01T00:00:00.000Z""","""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## CardReaderTypes [![get](https://img.shields.io/badge/get-blue)](get.md#cardreadertypes) [![post](https://img.shields.io/badge/post-blue)](post.md#cardreadertypes) ![put](https://img.shields.io/badge/put-gray)   
+
+## CardReaderTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#cardreadertypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#cardreadertypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Card Reader Type.  
 ##### Usage:  
 ```shell
 tq put CardReaderTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CardReaderTypesUpdate-default" aria-expanded="true" aria-controls="CardReaderTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CardReaderTypesUpdate-flat" aria-expanded="false" aria-controls="CardReaderTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CardReaderTypesUpdate-csv" aria-expanded="false" aria-controls="CardReaderTypesUpdate-csv">
+csv
+</button>
+<div id="CardReaderTypesUpdate-parent">
+<div class="collapse show" id="CardReaderTypesUpdate-default" data-bs-parent="#CardReaderTypesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CardReaderTypesUpdate-flat"  data-bs-parent="#CardReaderTypesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="CardReaderTypesUpdate-csv" data-bs-parent="#CardReaderTypesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Cart [![get](https://img.shields.io/badge/get-blue)](get.md#cart) [![post](https://img.shields.io/badge/post-blue)](post.md#cart) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Cart <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#cart)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#cart)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Applies a discounted price to all sub line items for a line item
 For packages, the discount can only be applied to package line items.
 The status field in the response will return as S if the discount can be used or E with a description of the error if the discount cannot be used.  
@@ -429,606 +1425,2158 @@ The status field in the response will return as S if the discount can be used or
 ```shell
 tq put Cart
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyLineItemDiscount-default" aria-expanded="true" aria-controls="CartApplyLineItemDiscount-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyLineItemDiscount-flat" aria-expanded="false" aria-controls="CartApplyLineItemDiscount-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplyLineItemDiscount-csv" aria-expanded="false" aria-controls="CartApplyLineItemDiscount-csv">
+csv
+</button>
+<div id="CartApplyLineItemDiscount-parent">
+<div class="collapse show" id="CartApplyLineItemDiscount-default" data-bs-parent="#CartApplyLineItemDiscount-parent"> 
 ```json
 {"LineItemID":"string", "DiscountTypeId":123, "SessionKey":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CartApplyLineItemDiscount-flat"  data-bs-parent="#CartApplyLineItemDiscount-parent">
+```json
+[{"DiscountTypeId":123,"LineItemID":"string","SessionKey":"string"}]
+```  
+</div>
+<div class="collapse" id="CartApplyLineItemDiscount-csv" data-bs-parent="#CartApplyLineItemDiscount-parent">
+```json
+DiscountTypeId,LineItemID,SessionKey
+123,"""string""","""string"""
+
+```  
+</div>
+</div>
+
 ### Flags:
  * *--ApplySubLineItemDiscount*  
    Applies a discounted price to a sub line item
 
 The status field in the response will return as S if the discount can be used or E with a description of the error if the discount cannot be used.
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplySubLineItemDiscount-default" aria-expanded="true" aria-controls="CartApplySubLineItemDiscount-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplySubLineItemDiscount-flat" aria-expanded="false" aria-controls="CartApplySubLineItemDiscount-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartApplySubLineItemDiscount-csv" aria-expanded="false" aria-controls="CartApplySubLineItemDiscount-csv">
+csv
+</button>
+<div id="CartApplySubLineItemDiscount-parent">
+<div class="collapse show" id="CartApplySubLineItemDiscount-default" data-bs-parent="#CartApplySubLineItemDiscount-parent"> 
 ```json
 {"DiscountTypeId":123, "SessionKey":"string", "SubLineItemID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CartApplySubLineItemDiscount-flat"  data-bs-parent="#CartApplySubLineItemDiscount-parent">
+```json
+[{"DiscountTypeId":123,"SessionKey":"string","SubLineItemID":"string"}]
+```  
+</div>
+<div class="collapse" id="CartApplySubLineItemDiscount-csv" data-bs-parent="#CartApplySubLineItemDiscount-parent">
+```json
+DiscountTypeId,SessionKey,SubLineItemID
+123,"""string""","""string"""
+
+```  
+</div>
+</div>
+
  * *--CartFlags*  
    Updates flags on the cart
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateCartFlags-default" aria-expanded="true" aria-controls="CartUpdateCartFlags-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateCartFlags-flat" aria-expanded="false" aria-controls="CartUpdateCartFlags-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateCartFlags-csv" aria-expanded="false" aria-controls="CartUpdateCartFlags-csv">
+csv
+</button>
+<div id="CartUpdateCartFlags-parent">
+<div class="collapse show" id="CartUpdateCartFlags-default" data-bs-parent="#CartUpdateCartFlags-parent"> 
 ```json
 {"ShouldCalculateFees":true, "ShouldCalculatePrices":true, "SessionKey":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CartUpdateCartFlags-flat"  data-bs-parent="#CartUpdateCartFlags-parent">
+```json
+[{"SessionKey":"string","ShouldCalculateFees":true,"ShouldCalculatePrices":true}]
+```  
+</div>
+<div class="collapse" id="CartUpdateCartFlags-csv" data-bs-parent="#CartUpdateCartFlags-parent">
+```json
+SessionKey,ShouldCalculateFees,ShouldCalculatePrices
+"""string""",true,true
+
+```  
+</div>
+</div>
+
  * *--CartProperties*  
    Updates cart properties
 See the notes on the request for specific documentation on each item that can be set. <br /> 
 Before making a request to PUT cart properties, you should make a GET request to obtain all current property values. Make updates to any of the properties that need changing, and pass the entire cart properties object back into your put request. This ensures that all property values that are set, but should not change, persist and are not overwritten unintentioanlly.
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateCartProperties-default" aria-expanded="true" aria-controls="CartUpdateCartProperties-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateCartProperties-flat" aria-expanded="false" aria-controls="CartUpdateCartProperties-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateCartProperties-csv" aria-expanded="false" aria-controls="CartUpdateCartProperties-csv">
+csv
+</button>
+<div id="CartUpdateCartProperties-parent">
+<div class="collapse show" id="CartUpdateCartProperties-default" data-bs-parent="#CartUpdateCartProperties-parent"> 
 ```json
 {"AddressId":123, "CategoryId":123, "ChannelId":123, "DeliveryMethodId":123, "ElectronicAddressId":123, "HoldUntilDateTime":"2000-01-01T00:00:00.000Z", "InitiatorId":123, "ModeOfSaleId":123, "Notes":"string", "OrderDateTime":"2000-01-01T00:00:00.000Z", "PhoneId":123, "Solicitor":"string", "SourceId":123, "SessionKey":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CartUpdateCartProperties-flat"  data-bs-parent="#CartUpdateCartProperties-parent">
+```json
+[{"AddressId":123,"CategoryId":123,"ChannelId":123,"DeliveryMethodId":123,"ElectronicAddressId":123,"HoldUntilDateTime":"2000-01-01T00:00:00.000Z","InitiatorId":123,"ModeOfSaleId":123,"Notes":"string","OrderDateTime":"2000-01-01T00:00:00.000Z","PhoneId":123,"SessionKey":"string","Solicitor":"string","SourceId":123}]
+```  
+</div>
+<div class="collapse" id="CartUpdateCartProperties-csv" data-bs-parent="#CartUpdateCartProperties-parent">
+```json
+AddressId,CategoryId,ChannelId,DeliveryMethodId,ElectronicAddressId,HoldUntilDateTime,InitiatorId,ModeOfSaleId,Notes,OrderDateTime,PhoneId,SessionKey,Solicitor,SourceId
+123,123,123,123,123,"""2000-01-01T00:00:00.000Z""",123,123,"""string""","""2000-01-01T00:00:00.000Z""",123,"""string""","""string""",123
+
+```  
+</div>
+</div>
+
  * *--CartPropertiesCustomData*  
    Updates a custom data value in the cart properties
 Note: Only the Index and Value properties in the request should be used.
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateCartPropertiesCustomData-default" aria-expanded="true" aria-controls="CartUpdateCartPropertiesCustomData-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateCartPropertiesCustomData-flat" aria-expanded="false" aria-controls="CartUpdateCartPropertiesCustomData-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateCartPropertiesCustomData-csv" aria-expanded="false" aria-controls="CartUpdateCartPropertiesCustomData-csv">
+csv
+</button>
+<div id="CartUpdateCartPropertiesCustomData-parent">
+<div class="collapse show" id="CartUpdateCartPropertiesCustomData-default" data-bs-parent="#CartUpdateCartPropertiesCustomData-parent"> 
 ```json
 {"DataType":"string", "Description":"string", "EditIndicator":true, "Index":123, "IsDropdown":true, "KeywordId":123, "Name":"string", "Value":"string", "CustomID":"string", "SessionKey":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CartUpdateCartPropertiesCustomData-flat"  data-bs-parent="#CartUpdateCartPropertiesCustomData-parent">
+```json
+[{"CustomID":"string","DataType":"string","Description":"string","EditIndicator":true,"Index":123,"IsDropdown":true,"KeywordId":123,"Name":"string","SessionKey":"string","Value":"string"}]
+```  
+</div>
+<div class="collapse" id="CartUpdateCartPropertiesCustomData-csv" data-bs-parent="#CartUpdateCartPropertiesCustomData-parent">
+```json
+CustomID,DataType,Description,EditIndicator,Index,IsDropdown,KeywordId,Name,SessionKey,Value
+"""string""","""string""","""string""",true,123,true,123,"""string""","""string""","""string"""
+
+```  
+</div>
+</div>
+
  * *--ContributionCustomData*  
    Updates a custom data value for a contribution in the cart
 Note: Only the Index and Value properties in the request object should be used.
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateContributionCustomData-default" aria-expanded="true" aria-controls="CartUpdateContributionCustomData-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateContributionCustomData-flat" aria-expanded="false" aria-controls="CartUpdateContributionCustomData-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateContributionCustomData-csv" aria-expanded="false" aria-controls="CartUpdateContributionCustomData-csv">
+csv
+</button>
+<div id="CartUpdateContributionCustomData-parent">
+<div class="collapse show" id="CartUpdateContributionCustomData-default" data-bs-parent="#CartUpdateContributionCustomData-parent"> 
 ```json
 {"DataType":"string", "Description":"string", "EditIndicator":true, "Index":123, "IsDropdown":true, "KeywordId":123, "Name":"string", "Value":"string", "CustomID":"string", "LineItemID":"string", "SessionKey":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CartUpdateContributionCustomData-flat"  data-bs-parent="#CartUpdateContributionCustomData-parent">
+```json
+[{"CustomID":"string","DataType":"string","Description":"string","EditIndicator":true,"Index":123,"IsDropdown":true,"KeywordId":123,"LineItemID":"string","Name":"string","SessionKey":"string","Value":"string"}]
+```  
+</div>
+<div class="collapse" id="CartUpdateContributionCustomData-csv" data-bs-parent="#CartUpdateContributionCustomData-parent">
+```json
+CustomID,DataType,Description,EditIndicator,Index,IsDropdown,KeywordId,LineItemID,Name,SessionKey,Value
+"""string""","""string""","""string""",true,123,true,123,"""string""","""string""","""string""","""string"""
+
+```  
+</div>
+</div>
+
  * *--LineItemPrice*  
    Updates the price on all sub line items for the line item
 A price can only be edited if the price type has been marked as editable, zones on the price map have been designated as editable, and the seat is in one of the editable zones.
 The status field in the response will return as S if the price can be applied or E with a description of the error if the price cannot be applied.
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateLineItemPrice-default" aria-expanded="true" aria-controls="CartUpdateLineItemPrice-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateLineItemPrice-flat" aria-expanded="false" aria-controls="CartUpdateLineItemPrice-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateLineItemPrice-csv" aria-expanded="false" aria-controls="CartUpdateLineItemPrice-csv">
+csv
+</button>
+<div id="CartUpdateLineItemPrice-parent">
+<div class="collapse show" id="CartUpdateLineItemPrice-default" data-bs-parent="#CartUpdateLineItemPrice-parent"> 
 ```json
 {"LineItemID":"string", "NewPrice":123.456, "SessionKey":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CartUpdateLineItemPrice-flat"  data-bs-parent="#CartUpdateLineItemPrice-parent">
+```json
+[{"LineItemID":"string","NewPrice":123.456,"SessionKey":"string"}]
+```  
+</div>
+<div class="collapse" id="CartUpdateLineItemPrice-csv" data-bs-parent="#CartUpdateLineItemPrice-parent">
+```json
+LineItemID,NewPrice,SessionKey
+"""string""",123.456,"""string"""
+
+```  
+</div>
+</div>
+
  * *--LineItemPriceType*  
    Updates the price type on all sub line items for a given lineitem
 Can be filtered by those have a current price type as specified by OriginalPriceType
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateLineItemPriceType-default" aria-expanded="true" aria-controls="CartUpdateLineItemPriceType-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateLineItemPriceType-flat" aria-expanded="false" aria-controls="CartUpdateLineItemPriceType-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateLineItemPriceType-csv" aria-expanded="false" aria-controls="CartUpdateLineItemPriceType-csv">
+csv
+</button>
+<div id="CartUpdateLineItemPriceType-parent">
+<div class="collapse show" id="CartUpdateLineItemPriceType-default" data-bs-parent="#CartUpdateLineItemPriceType-parent"> 
 ```json
 {"LineItemID":"string", "NewPriceType":123, "NewPriceTypeReason":123, "OriginalPriceType":123, "SessionKey":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CartUpdateLineItemPriceType-flat"  data-bs-parent="#CartUpdateLineItemPriceType-parent">
+```json
+[{"LineItemID":"string","NewPriceType":123,"NewPriceTypeReason":123,"OriginalPriceType":123,"SessionKey":"string"}]
+```  
+</div>
+<div class="collapse" id="CartUpdateLineItemPriceType-csv" data-bs-parent="#CartUpdateLineItemPriceType-parent">
+```json
+LineItemID,NewPriceType,NewPriceTypeReason,OriginalPriceType,SessionKey
+"""string""",123,123,123,"""string"""
+
+```  
+</div>
+</div>
+
  * *--LineItemSource*  
    Updates the source on a line item
 Allows the source of an individual line to be updated.  When a line is created, by reserving a tickets for a performance or package, the line source is copied from the session source. This method allows the line source to be updated.
 Offers and Pricing Rules consider line source, not the session source.
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateLineItemSource-default" aria-expanded="true" aria-controls="CartUpdateLineItemSource-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateLineItemSource-flat" aria-expanded="false" aria-controls="CartUpdateLineItemSource-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateLineItemSource-csv" aria-expanded="false" aria-controls="CartUpdateLineItemSource-csv">
+csv
+</button>
+<div id="CartUpdateLineItemSource-parent">
+<div class="collapse show" id="CartUpdateLineItemSource-default" data-bs-parent="#CartUpdateLineItemSource-parent"> 
 ```json
 {"LineItemID":"string", "SourceId":123, "SessionKey":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CartUpdateLineItemSource-flat"  data-bs-parent="#CartUpdateLineItemSource-parent">
+```json
+[{"LineItemID":"string","SessionKey":"string","SourceId":123}]
+```  
+</div>
+<div class="collapse" id="CartUpdateLineItemSource-csv" data-bs-parent="#CartUpdateLineItemSource-parent">
+```json
+LineItemID,SessionKey,SourceId
+"""string""","""string""",123
+
+```  
+</div>
+</div>
+
  * *--LineItemSpecialRequest*  
    Updates Special Request info on a line item
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateLineItemSpecialRequest-default" aria-expanded="true" aria-controls="CartUpdateLineItemSpecialRequest-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateLineItemSpecialRequest-flat" aria-expanded="false" aria-controls="CartUpdateLineItemSpecialRequest-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateLineItemSpecialRequest-csv" aria-expanded="false" aria-controls="CartUpdateLineItemSpecialRequest-csv">
+csv
+</button>
+<div id="CartUpdateLineItemSpecialRequest-parent">
+<div class="collapse show" id="CartUpdateLineItemSpecialRequest-default" data-bs-parent="#CartUpdateLineItemSpecialRequest-parent"> 
 ```json
 {"LineItemID":"string", "AisleSeat":"string", "Category":{"Id":123}, "ContiguousSeats":123, "EndPrice":123.456, "EndingRow":"string", "EndingSeat":"string", "HoldCode":123, "LeaveSingleSeats":true, "NoStairs":true, "Notes":"string", "StartPrice":123.456, "StartingRow":"string", "StartingSeat":"string", "WheelchairSeats":123, "SessionKey":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CartUpdateLineItemSpecialRequest-flat"  data-bs-parent="#CartUpdateLineItemSpecialRequest-parent">
+```json
+[{"AisleSeat":"string","Category.Id":123,"ContiguousSeats":123,"EndPrice":123.456,"EndingRow":"string","EndingSeat":"string","HoldCode":123,"LeaveSingleSeats":true,"LineItemID":"string","NoStairs":true,"Notes":"string","SessionKey":"string","StartPrice":123.456,"StartingRow":"string","StartingSeat":"string","WheelchairSeats":123}]
+```  
+</div>
+<div class="collapse" id="CartUpdateLineItemSpecialRequest-csv" data-bs-parent="#CartUpdateLineItemSpecialRequest-parent">
+```json
+AisleSeat,Category.Id,ContiguousSeats,EndPrice,EndingRow,EndingSeat,HoldCode,LeaveSingleSeats,LineItemID,NoStairs,Notes,SessionKey,StartPrice,StartingRow,StartingSeat,WheelchairSeats
+"""string""",123,123,123.456,"""string""","""string""",123,true,"""string""",true,"""string""","""string""",123.456,"""string""","""string""",123
+
+```  
+</div>
+</div>
+
  * *--PaymentPlan*  
    Allows the billing and credit card information to be updated on an existing payment plan for the cart.
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdatePaymentPlan-default" aria-expanded="true" aria-controls="CartUpdatePaymentPlan-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdatePaymentPlan-flat" aria-expanded="false" aria-controls="CartUpdatePaymentPlan-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdatePaymentPlan-csv" aria-expanded="false" aria-controls="CartUpdatePaymentPlan-csv">
+csv
+</button>
+<div id="CartUpdatePaymentPlan-parent">
+<div class="collapse show" id="CartUpdatePaymentPlan-default" data-bs-parent="#CartUpdatePaymentPlan-parent"> 
 ```json
 {"AccountId":123, "BillingTypeId":123, "Card":{"ExpiryMonth":123, "ExpiryYear":123, "Name":"string", "Number":"string", "PaymentMethodGroupId":123}, "SessionKey":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CartUpdatePaymentPlan-flat"  data-bs-parent="#CartUpdatePaymentPlan-parent">
+```json
+[{"AccountId":123,"BillingTypeId":123,"Card.ExpiryMonth":123,"Card.ExpiryYear":123,"Card.Name":"string","Card.Number":"string","Card.PaymentMethodGroupId":123,"SessionKey":"string"}]
+```  
+</div>
+<div class="collapse" id="CartUpdatePaymentPlan-csv" data-bs-parent="#CartUpdatePaymentPlan-parent">
+```json
+AccountId,BillingTypeId,Card.ExpiryMonth,Card.ExpiryYear,Card.Name,Card.Number,Card.PaymentMethodGroupId,SessionKey
+123,123,123,123,"""string""","""string""",123,"""string"""
+
+```  
+</div>
+</div>
+
  * *--SubLineItemPrice*  
    Updates the price on a sub line item.
 A price can only be edited if the price type has been marked as editable, zones on the price map have been designated as editable, and the seat is in one of the editable zones.
 The status field in the response will return as S if the price can be applied or E with a description of the error if the price cannot be applied.
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateSubLineItemPrice-default" aria-expanded="true" aria-controls="CartUpdateSubLineItemPrice-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateSubLineItemPrice-flat" aria-expanded="false" aria-controls="CartUpdateSubLineItemPrice-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateSubLineItemPrice-csv" aria-expanded="false" aria-controls="CartUpdateSubLineItemPrice-csv">
+csv
+</button>
+<div id="CartUpdateSubLineItemPrice-parent">
+<div class="collapse show" id="CartUpdateSubLineItemPrice-default" data-bs-parent="#CartUpdateSubLineItemPrice-parent"> 
 ```json
 {"NewPrice":123.456, "SessionKey":"string", "SubLineItemID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CartUpdateSubLineItemPrice-flat"  data-bs-parent="#CartUpdateSubLineItemPrice-parent">
+```json
+[{"NewPrice":123.456,"SessionKey":"string","SubLineItemID":"string"}]
+```  
+</div>
+<div class="collapse" id="CartUpdateSubLineItemPrice-csv" data-bs-parent="#CartUpdateSubLineItemPrice-parent">
+```json
+NewPrice,SessionKey,SubLineItemID
+123.456,"""string""","""string"""
+
+```  
+</div>
+</div>
+
  * *--SubLineItemPriceType*  
    Updates the price type on a sub line item
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateSubLineItemPriceType-default" aria-expanded="true" aria-controls="CartUpdateSubLineItemPriceType-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateSubLineItemPriceType-flat" aria-expanded="false" aria-controls="CartUpdateSubLineItemPriceType-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateSubLineItemPriceType-csv" aria-expanded="false" aria-controls="CartUpdateSubLineItemPriceType-csv">
+csv
+</button>
+<div id="CartUpdateSubLineItemPriceType-parent">
+<div class="collapse show" id="CartUpdateSubLineItemPriceType-default" data-bs-parent="#CartUpdateSubLineItemPriceType-parent"> 
 ```json
 {"NewPriceType":123, "NewPriceTypeReason":123, "OriginalPriceType":123, "SessionKey":"string", "SubLineItemID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CartUpdateSubLineItemPriceType-flat"  data-bs-parent="#CartUpdateSubLineItemPriceType-parent">
+```json
+[{"NewPriceType":123,"NewPriceTypeReason":123,"OriginalPriceType":123,"SessionKey":"string","SubLineItemID":"string"}]
+```  
+</div>
+<div class="collapse" id="CartUpdateSubLineItemPriceType-csv" data-bs-parent="#CartUpdateSubLineItemPriceType-parent">
+```json
+NewPriceType,NewPriceTypeReason,OriginalPriceType,SessionKey,SubLineItemID
+123,123,123,"""string""","""string"""
+
+```  
+</div>
+</div>
+
  * *--SubLineItemRecipient*  
    Updates the recipient on a sub line item
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateSubLineItemRecipient-default" aria-expanded="true" aria-controls="CartUpdateSubLineItemRecipient-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateSubLineItemRecipient-flat" aria-expanded="false" aria-controls="CartUpdateSubLineItemRecipient-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CartUpdateSubLineItemRecipient-csv" aria-expanded="false" aria-controls="CartUpdateSubLineItemRecipient-csv">
+csv
+</button>
+<div id="CartUpdateSubLineItemRecipient-parent">
+<div class="collapse show" id="CartUpdateSubLineItemRecipient-default" data-bs-parent="#CartUpdateSubLineItemRecipient-parent"> 
 ```json
 {"RecipientId":123, "SessionKey":"string", "SubLineItemID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CartUpdateSubLineItemRecipient-flat"  data-bs-parent="#CartUpdateSubLineItemRecipient-parent">
+```json
+[{"RecipientId":123,"SessionKey":"string","SubLineItemID":"string"}]
+```  
+</div>
+<div class="collapse" id="CartUpdateSubLineItemRecipient-csv" data-bs-parent="#CartUpdateSubLineItemRecipient-parent">
+```json
+RecipientId,SessionKey,SubLineItemID
+123,"""string""","""string"""
 
-## Colors [![get](https://img.shields.io/badge/get-blue)](get.md#colors) [![post](https://img.shields.io/badge/post-blue)](post.md#colors) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Colors <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#colors)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#colors)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing color.  
 ##### Usage:  
 ```shell
 tq put Colors
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ColorsUpdate-default" aria-expanded="true" aria-controls="ColorsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ColorsUpdate-flat" aria-expanded="false" aria-controls="ColorsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ColorsUpdate-csv" aria-expanded="false" aria-controls="ColorsUpdate-csv">
+csv
+</button>
+<div id="ColorsUpdate-parent">
+<div class="collapse show" id="ColorsUpdate-default" data-bs-parent="#ColorsUpdate-parent"> 
 ```json
 {"ColorValue":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ColorsUpdate-flat"  data-bs-parent="#ColorsUpdate-parent">
+```json
+[{"ColorValue":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ColorsUpdate-csv" data-bs-parent="#ColorsUpdate-parent">
+```json
+ColorValue,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Composers [![get](https://img.shields.io/badge/get-blue)](get.md#composers) [![post](https://img.shields.io/badge/post-blue)](post.md#composers) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Composers <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#composers)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#composers)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing composer.  
 ##### Usage:  
 ```shell
 tq put Composers
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ComposersUpdate-default" aria-expanded="true" aria-controls="ComposersUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ComposersUpdate-flat" aria-expanded="false" aria-controls="ComposersUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ComposersUpdate-csv" aria-expanded="false" aria-controls="ComposersUpdate-csv">
+csv
+</button>
+<div id="ComposersUpdate-parent">
+<div class="collapse show" id="ComposersUpdate-default" data-bs-parent="#ComposersUpdate-parent"> 
 ```json
 {"Bio":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "FirstName":"string", "Id":123, "Inactive":true, "LastName":"string", "MiddleName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ComposersUpdate-flat"  data-bs-parent="#ComposersUpdate-parent">
+```json
+[{"Bio":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","FirstName":"string","ID":"string","Id":123,"Inactive":true,"LastName":"string","MiddleName":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ComposersUpdate-csv" data-bs-parent="#ComposersUpdate-parent">
+```json
+Bio,CreateLocation,CreatedBy,CreatedDateTime,FirstName,ID,Id,Inactive,LastName,MiddleName,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## Constituencies [![get](https://img.shields.io/badge/get-blue)](get.md#constituencies) [![post](https://img.shields.io/badge/post-blue)](post.md#constituencies) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Constituencies <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituencies)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#constituencies)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update a constituency.  
 ##### Usage:  
 ```shell
 tq put Constituencies
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituenciesUpdate-default" aria-expanded="true" aria-controls="ConstituenciesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituenciesUpdate-flat" aria-expanded="false" aria-controls="ConstituenciesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituenciesUpdate-csv" aria-expanded="false" aria-controls="ConstituenciesUpdate-csv">
+csv
+</button>
+<div id="ConstituenciesUpdate-parent">
+<div class="collapse show" id="ConstituenciesUpdate-default" data-bs-parent="#ConstituenciesUpdate-parent"> 
 ```json
 {"ConstituencyType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "EndDate":"2000-01-01T00:00:00.000Z", "Id":123, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ConstituencyID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ConstituenciesUpdate-flat"  data-bs-parent="#ConstituenciesUpdate-parent">
+```json
+[{"ConstituencyID":"string","ConstituencyType.Id":123,"Constituent.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"EndDate":"2000-01-01T00:00:00.000Z","Id":123,"StartDate":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ConstituenciesUpdate-csv" data-bs-parent="#ConstituenciesUpdate-parent">
+```json
+ConstituencyID,ConstituencyType.Id,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,EndDate,Id,StartDate,UpdatedBy,UpdatedDateTime
+"""string""",123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,"""2000-01-01T00:00:00.000Z""",123,"""2000-01-01T00:00:00.000Z""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## ConstituencyTypes [![get](https://img.shields.io/badge/get-blue)](get.md#constituencytypes) [![post](https://img.shields.io/badge/post-blue)](post.md#constituencytypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ConstituencyTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituencytypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#constituencytypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing constituency type.  
 ##### Usage:  
 ```shell
 tq put ConstituencyTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituencyTypesUpdate-default" aria-expanded="true" aria-controls="ConstituencyTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituencyTypesUpdate-flat" aria-expanded="false" aria-controls="ConstituencyTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituencyTypesUpdate-csv" aria-expanded="false" aria-controls="ConstituencyTypesUpdate-csv">
+csv
+</button>
+<div id="ConstituencyTypesUpdate-parent">
+<div class="collapse show" id="ConstituencyTypesUpdate-default" data-bs-parent="#ConstituencyTypesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ConstituencyTypesUpdate-flat"  data-bs-parent="#ConstituencyTypesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"Rank":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ConstituencyTypesUpdate-csv" data-bs-parent="#ConstituencyTypesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,Rank,ShortDescription,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,123,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## ConstituentDocuments [![get](https://img.shields.io/badge/get-blue)](get.md#constituentdocuments) [![post](https://img.shields.io/badge/post-blue)](post.md#constituentdocuments) ![put](https://img.shields.io/badge/put-gray)   
+
+## ConstituentDocuments <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituentdocuments)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#constituentdocuments)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing document for a constituent.  
 ##### Usage:  
 ```shell
 tq put ConstituentDocuments
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentDocumentsUpdate-default" aria-expanded="true" aria-controls="ConstituentDocumentsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentDocumentsUpdate-flat" aria-expanded="false" aria-controls="ConstituentDocumentsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentDocumentsUpdate-csv" aria-expanded="false" aria-controls="ConstituentDocumentsUpdate-csv">
+csv
+</button>
+<div id="ConstituentDocumentsUpdate-parent">
+<div class="collapse show" id="ConstituentDocumentsUpdate-default" data-bs-parent="#ConstituentDocumentsUpdate-parent"> 
 ```json
 {"Category":{"Id":123}, "ConstituentId":123, "Contents":"AA==", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "FileName":"string", "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "DocumentID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ConstituentDocumentsUpdate-flat"  data-bs-parent="#ConstituentDocumentsUpdate-parent">
+```json
+[{"Category.Id":123,"ConstituentId":123,"Contents":"AA==","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","DocumentID":"string","FileName":"string","Id":123,"Notes":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ConstituentDocumentsUpdate-csv" data-bs-parent="#ConstituentDocumentsUpdate-parent">
+```json
+Category.Id,ConstituentId,Contents,CreateLocation,CreatedBy,CreatedDateTime,Description,DocumentID,FileName,Id,Notes,UpdatedBy,UpdatedDateTime
+123,123,"""AA==""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""","""string""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## ConstituentGroups [![get](https://img.shields.io/badge/get-blue)](get.md#constituentgroups) [![post](https://img.shields.io/badge/post-blue)](post.md#constituentgroups) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ConstituentGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituentgroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#constituentgroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing constituent group.  
 ##### Usage:  
 ```shell
 tq put ConstituentGroups
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentGroupsUpdate-default" aria-expanded="true" aria-controls="ConstituentGroupsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentGroupsUpdate-flat" aria-expanded="false" aria-controls="ConstituentGroupsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentGroupsUpdate-csv" aria-expanded="false" aria-controls="ConstituentGroupsUpdate-csv">
+csv
+</button>
+<div id="ConstituentGroupsUpdate-parent">
+<div class="collapse show" id="ConstituentGroupsUpdate-default" data-bs-parent="#ConstituentGroupsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ConstituentGroupsUpdate-flat"  data-bs-parent="#ConstituentGroupsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ConstituentGroupsUpdate-csv" data-bs-parent="#ConstituentGroupsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ConstituentInactives [![get](https://img.shields.io/badge/get-blue)](get.md#constituentinactives) [![post](https://img.shields.io/badge/post-blue)](post.md#constituentinactives) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ConstituentInactives <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituentinactives)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#constituentinactives)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing constituent inactive.  
 ##### Usage:  
 ```shell
 tq put ConstituentInactives
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentInactivesUpdate-default" aria-expanded="true" aria-controls="ConstituentInactivesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentInactivesUpdate-flat" aria-expanded="false" aria-controls="ConstituentInactivesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentInactivesUpdate-csv" aria-expanded="false" aria-controls="ConstituentInactivesUpdate-csv">
+csv
+</button>
+<div id="ConstituentInactivesUpdate-parent">
+<div class="collapse show" id="ConstituentInactivesUpdate-default" data-bs-parent="#ConstituentInactivesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ConstituentInactivesUpdate-flat"  data-bs-parent="#ConstituentInactivesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ConstituentInactivesUpdate-csv" data-bs-parent="#ConstituentInactivesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ConstituentProtectionTypes [![get](https://img.shields.io/badge/get-blue)](get.md#constituentprotectiontypes) [![post](https://img.shields.io/badge/post-blue)](post.md#constituentprotectiontypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ConstituentProtectionTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituentprotectiontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#constituentprotectiontypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing constituent protection type.  
 ##### Usage:  
 ```shell
 tq put ConstituentProtectionTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentProtectionTypesUpdate-default" aria-expanded="true" aria-controls="ConstituentProtectionTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentProtectionTypesUpdate-flat" aria-expanded="false" aria-controls="ConstituentProtectionTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentProtectionTypesUpdate-csv" aria-expanded="false" aria-controls="ConstituentProtectionTypesUpdate-csv">
+csv
+</button>
+<div id="ConstituentProtectionTypesUpdate-parent">
+<div class="collapse show" id="ConstituentProtectionTypesUpdate-default" data-bs-parent="#ConstituentProtectionTypesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ConstituentProtectionTypesUpdate-flat"  data-bs-parent="#ConstituentProtectionTypesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ConstituentProtectionTypesUpdate-csv" data-bs-parent="#ConstituentProtectionTypesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ConstituentTypeAffiliates [![get](https://img.shields.io/badge/get-blue)](get.md#constituenttypeaffiliates) [![post](https://img.shields.io/badge/post-blue)](post.md#constituenttypeaffiliates) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ConstituentTypeAffiliates <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituenttypeaffiliates)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#constituenttypeaffiliates)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing constituent type affiliate.  
 ##### Usage:  
 ```shell
 tq put ConstituentTypeAffiliates
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentTypeAffiliatesUpdate-default" aria-expanded="true" aria-controls="ConstituentTypeAffiliatesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentTypeAffiliatesUpdate-flat" aria-expanded="false" aria-controls="ConstituentTypeAffiliatesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentTypeAffiliatesUpdate-csv" aria-expanded="false" aria-controls="ConstituentTypeAffiliatesUpdate-csv">
+csv
+</button>
+<div id="ConstituentTypeAffiliatesUpdate-parent">
+<div class="collapse show" id="ConstituentTypeAffiliatesUpdate-default" data-bs-parent="#ConstituentTypeAffiliatesUpdate-parent"> 
 ```json
 {"AffiliationType":{"Id":123}, "ConstituentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HouseholdPrimary":true, "Id":123, "Rank":123, "ShowWithGroup":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ConstituentTypeAffiliatesUpdate-flat"  data-bs-parent="#ConstituentTypeAffiliatesUpdate-parent">
+```json
+[{"AffiliationType.Id":123,"ConstituentType.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","HouseholdPrimary":true,"ID":"string","Id":123,"Rank":123,"ShowWithGroup":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ConstituentTypeAffiliatesUpdate-csv" data-bs-parent="#ConstituentTypeAffiliatesUpdate-parent">
+```json
+AffiliationType.Id,ConstituentType.Id,CreateLocation,CreatedBy,CreatedDateTime,HouseholdPrimary,ID,Id,Rank,ShowWithGroup,UpdatedBy,UpdatedDateTime
+123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,"""string""",123,123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ConstituentTypes [![get](https://img.shields.io/badge/get-blue)](get.md#constituenttypes) [![post](https://img.shields.io/badge/post-blue)](post.md#constituenttypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ConstituentTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituenttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#constituenttypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing constituent type.  
 ##### Usage:  
 ```shell
 tq put ConstituentTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentTypesUpdate-default" aria-expanded="true" aria-controls="ConstituentTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentTypesUpdate-flat" aria-expanded="false" aria-controls="ConstituentTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentTypesUpdate-csv" aria-expanded="false" aria-controls="ConstituentTypesUpdate-csv">
+csv
+</button>
+<div id="ConstituentTypesUpdate-parent">
+<div class="collapse show" id="ConstituentTypesUpdate-default" data-bs-parent="#ConstituentTypesUpdate-parent"> 
 ```json
 {"AddressTypeId":123, "ConstituentGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultAffiliatedConstituentTypeId":123, "DefaultAffiliationTypeId":123, "DefaultIndicator":true, "DefaultSalutationId":123, "Description":"string", "ElectronicAddressTypeId":123, "GiftAidIndicator":true, "Id":123, "Inactive":true, "LoginTypeId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ConstituentTypesUpdate-flat"  data-bs-parent="#ConstituentTypesUpdate-parent">
+```json
+[{"AddressTypeId":123,"ConstituentGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultAffiliatedConstituentTypeId":123,"DefaultAffiliationTypeId":123,"DefaultIndicator":true,"DefaultSalutationId":123,"Description":"string","ElectronicAddressTypeId":123,"GiftAidIndicator":true,"ID":"string","Id":123,"Inactive":true,"LoginTypeId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ConstituentTypesUpdate-csv" data-bs-parent="#ConstituentTypesUpdate-parent">
+```json
+AddressTypeId,ConstituentGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DefaultAffiliatedConstituentTypeId,DefaultAffiliationTypeId,DefaultIndicator,DefaultSalutationId,Description,ElectronicAddressTypeId,GiftAidIndicator,ID,Id,Inactive,LoginTypeId,UpdatedBy,UpdatedDateTime
+123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,123,true,123,"""string""",123,true,"""string""",123,true,123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Constituents [![get](https://img.shields.io/badge/get-blue)](get.md#constituents) [![post](https://img.shields.io/badge/post-blue)](post.md#constituents) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Constituents <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#constituents)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#constituents)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update a constituent. Only the information about constituent can be updated. If addresses, electronicAddresses, salutations or phones data are passed, they will be ignored.  
 ##### Usage:  
 ```shell
 tq put Constituents
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsUpdate-default" aria-expanded="true" aria-controls="ConstituentsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsUpdate-flat" aria-expanded="false" aria-controls="ConstituentsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ConstituentsUpdate-csv" aria-expanded="false" aria-controls="ConstituentsUpdate-csv">
+csv
+</button>
+<div id="ConstituentsUpdate-parent">
+<div class="collapse show" id="ConstituentsUpdate-default" data-bs-parent="#ConstituentsUpdate-parent"> 
 ```json
 {"ConstituentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DisplayName":"string", "EmarketIndicator":{"Id":123}, "FirstName":"string", "Gender":{"Id":123}, "Id":123, "Inactive":{"Id":123}, "InactiveReason":{"Id":123}, "LastActivityDate":"2000-01-01T00:00:00.000Z", "LastGiftDate":"2000-01-01T00:00:00.000Z", "LastName":"string", "LastTicketDate":"2000-01-01T00:00:00.000Z", "MailIndicator":{"Id":123}, "MiddleName":"string", "NameStatus":{"Id":123}, "OriginalSource":{"Id":123}, "PhoneIndicator":{"Id":123}, "Prefix":{"Id":123}, "ProtectionType":{"Id":123}, "SortName":"string", "Suffix":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ConstituentID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ConstituentsUpdate-flat"  data-bs-parent="#ConstituentsUpdate-parent">
+```json
+[{"ConstituentID":"string","ConstituentType.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DisplayName":"string","EmarketIndicator.Id":123,"FirstName":"string","Gender.Id":123,"Id":123,"Inactive.Id":123,"InactiveReason.Id":123,"LastActivityDate":"2000-01-01T00:00:00.000Z","LastGiftDate":"2000-01-01T00:00:00.000Z","LastName":"string","LastTicketDate":"2000-01-01T00:00:00.000Z","MailIndicator.Id":123,"MiddleName":"string","NameStatus.Id":123,"OriginalSource.Id":123,"PhoneIndicator.Id":123,"Prefix.Id":123,"ProtectionType.Id":123,"SortName":"string","Suffix.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ConstituentsUpdate-csv" data-bs-parent="#ConstituentsUpdate-parent">
+```json
+ConstituentID,ConstituentType.Id,CreateLocation,CreatedBy,CreatedDateTime,DisplayName,EmarketIndicator.Id,FirstName,Gender.Id,Id,Inactive.Id,InactiveReason.Id,LastActivityDate,LastGiftDate,LastName,LastTicketDate,MailIndicator.Id,MiddleName,NameStatus.Id,OriginalSource.Id,PhoneIndicator.Id,Prefix.Id,ProtectionType.Id,SortName,Suffix.Id,UpdatedBy,UpdatedDateTime
+"""string""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,"""string""",123,123,123,123,"""2000-01-01T00:00:00.000Z""","""2000-01-01T00:00:00.000Z""","""string""","""2000-01-01T00:00:00.000Z""",123,"""string""",123,123,123,123,123,"""string""",123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ContactPermissionCategories [![get](https://img.shields.io/badge/get-blue)](get.md#contactpermissioncategories) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpermissioncategories) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ContactPermissionCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpermissioncategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contactpermissioncategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing contact permission category.  
 ##### Usage:  
 ```shell
 tq put ContactPermissionCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionCategoriesUpdate-default" aria-expanded="true" aria-controls="ContactPermissionCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionCategoriesUpdate-flat" aria-expanded="false" aria-controls="ContactPermissionCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionCategoriesUpdate-csv" aria-expanded="false" aria-controls="ContactPermissionCategoriesUpdate-csv">
+csv
+</button>
+<div id="ContactPermissionCategoriesUpdate-parent">
+<div class="collapse show" id="ContactPermissionCategoriesUpdate-default" data-bs-parent="#ContactPermissionCategoriesUpdate-parent"> 
 ```json
 {"AskFrequencyMonths":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ContactPermissionCategoriesUpdate-flat"  data-bs-parent="#ContactPermissionCategoriesUpdate-parent">
+```json
+[{"AskFrequencyMonths":123,"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ContactPermissionCategoriesUpdate-csv" data-bs-parent="#ContactPermissionCategoriesUpdate-parent">
+```json
+AskFrequencyMonths,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ContactPermissionTypes [![get](https://img.shields.io/badge/get-blue)](get.md#contactpermissiontypes) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpermissiontypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ContactPermissionTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpermissiontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contactpermissiontypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing contact permission type.  
 ##### Usage:  
 ```shell
 tq put ContactPermissionTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionTypesUpdate-default" aria-expanded="true" aria-controls="ContactPermissionTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionTypesUpdate-flat" aria-expanded="false" aria-controls="ContactPermissionTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionTypesUpdate-csv" aria-expanded="false" aria-controls="ContactPermissionTypesUpdate-csv">
+csv
+</button>
+<div id="ContactPermissionTypesUpdate-parent">
+<div class="collapse show" id="ContactPermissionTypesUpdate-default" data-bs-parent="#ContactPermissionTypesUpdate-parent"> 
 ```json
 {"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultValueForAdd":"string", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Presenter":true, "Rank":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ContactPermissionTypesUpdate-flat"  data-bs-parent="#ContactPermissionTypesUpdate-parent">
+```json
+[{"Category.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultValueForAdd":"string","Description":"string","EditIndicator":true,"ID":"string","Id":123,"Inactive":true,"Presenter":true,"Rank":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ContactPermissionTypesUpdate-csv" data-bs-parent="#ContactPermissionTypesUpdate-parent">
+```json
+Category.Id,CreateLocation,CreatedBy,CreatedDateTime,DefaultValueForAdd,Description,EditIndicator,ID,Id,Inactive,Presenter,Rank,ShortDescription,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",true,"""string""",123,true,true,123,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## ContactPermissions [![get](https://img.shields.io/badge/get-blue)](get.md#contactpermissions) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpermissions) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ContactPermissions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpermissions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contactpermissions)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update a contact permission  
 ##### Usage:  
 ```shell
 tq put ContactPermissions
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionsUpdate-default" aria-expanded="true" aria-controls="ContactPermissionsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionsUpdate-flat" aria-expanded="false" aria-controls="ContactPermissionsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPermissionsUpdate-csv" aria-expanded="false" aria-controls="ContactPermissionsUpdate-csv">
+csv
+</button>
+<div id="ContactPermissionsUpdate-parent">
+<div class="collapse show" id="ContactPermissionsUpdate-default" data-bs-parent="#ContactPermissionsUpdate-parent"> 
 ```json
 {"Answer":"string", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "LastAskedDateTime":"2000-01-01T00:00:00.000Z", "ShouldAsk":true, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ContactPermissionID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ContactPermissionsUpdate-flat"  data-bs-parent="#ContactPermissionsUpdate-parent">
+```json
+[{"Answer":"string","Constituent.Id":123,"ContactPermissionID":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"LastAskedDateTime":"2000-01-01T00:00:00.000Z","ShouldAsk":true,"Type.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ContactPermissionsUpdate-csv" data-bs-parent="#ContactPermissionsUpdate-parent">
+```json
+Answer,Constituent.Id,ContactPermissionID,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,LastAskedDateTime,ShouldAsk,Type.Id,UpdatedBy,UpdatedDateTime
+"""string""",123,"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""",true,123,"""2000-01-01T00:00:00.000Z""",true,123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ContactPointCategories [![get](https://img.shields.io/badge/get-blue)](get.md#contactpointcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointcategories) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ContactPointCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpointcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contactpointcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing contact point category.  
 ##### Usage:  
 ```shell
 tq put ContactPointCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointCategoriesUpdate-default" aria-expanded="true" aria-controls="ContactPointCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointCategoriesUpdate-flat" aria-expanded="false" aria-controls="ContactPointCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointCategoriesUpdate-csv" aria-expanded="false" aria-controls="ContactPointCategoriesUpdate-csv">
+csv
+</button>
+<div id="ContactPointCategoriesUpdate-parent">
+<div class="collapse show" id="ContactPointCategoriesUpdate-default" data-bs-parent="#ContactPointCategoriesUpdate-parent"> 
 ```json
 {"ContactPointKey":"string", "ContactPointTable":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ContactPointCategoriesUpdate-flat"  data-bs-parent="#ContactPointCategoriesUpdate-parent">
+```json
+[{"ContactPointKey":"string","ContactPointTable":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ContactPointCategoriesUpdate-csv" data-bs-parent="#ContactPointCategoriesUpdate-parent">
+```json
+ContactPointKey,ContactPointTable,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ContactPointCategoryPurposes [![get](https://img.shields.io/badge/get-blue)](get.md#contactpointcategorypurposes) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointcategorypurposes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ContactPointCategoryPurposes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpointcategorypurposes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contactpointcategorypurposes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing contact point category purpose.  
 ##### Usage:  
 ```shell
 tq put ContactPointCategoryPurposes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointCategoryPurposesUpdate-default" aria-expanded="true" aria-controls="ContactPointCategoryPurposesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointCategoryPurposesUpdate-flat" aria-expanded="false" aria-controls="ContactPointCategoryPurposesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointCategoryPurposesUpdate-csv" aria-expanded="false" aria-controls="ContactPointCategoryPurposesUpdate-csv">
+csv
+</button>
+<div id="ContactPointCategoryPurposesUpdate-parent">
+<div class="collapse show" id="ContactPointCategoryPurposesUpdate-default" data-bs-parent="#ContactPointCategoryPurposesUpdate-parent"> 
 ```json
 {"ContactPointCategory":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Purpose":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ContactPointCategoryPurposesUpdate-flat"  data-bs-parent="#ContactPointCategoryPurposesUpdate-parent">
+```json
+[{"ContactPointCategory.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string","Id":123,"Purpose.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ContactPointCategoryPurposesUpdate-csv" data-bs-parent="#ContactPointCategoryPurposesUpdate-parent">
+```json
+ContactPointCategory.Id,CreateLocation,CreatedBy,CreatedDateTime,ID,Id,Purpose.Id,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ContactPointPurposeCategories [![get](https://img.shields.io/badge/get-blue)](get.md#contactpointpurposecategories) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointpurposecategories) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ContactPointPurposeCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpointpurposecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contactpointpurposecategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing contact point purpose category.  
 ##### Usage:  
 ```shell
 tq put ContactPointPurposeCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposeCategoriesUpdate-default" aria-expanded="true" aria-controls="ContactPointPurposeCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposeCategoriesUpdate-flat" aria-expanded="false" aria-controls="ContactPointPurposeCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposeCategoriesUpdate-csv" aria-expanded="false" aria-controls="ContactPointPurposeCategoriesUpdate-csv">
+csv
+</button>
+<div id="ContactPointPurposeCategoriesUpdate-parent">
+<div class="collapse show" id="ContactPointPurposeCategoriesUpdate-default" data-bs-parent="#ContactPointPurposeCategoriesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ContactPointPurposeCategoriesUpdate-flat"  data-bs-parent="#ContactPointPurposeCategoriesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ContactPointPurposeCategoriesUpdate-csv" data-bs-parent="#ContactPointPurposeCategoriesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ContactPointPurposeMaps [![get](https://img.shields.io/badge/get-blue)](get.md#contactpointpurposemaps) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointpurposemaps) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ContactPointPurposeMaps <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpointpurposemaps)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contactpointpurposemaps)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update a contact point purpose.  
 ##### Usage:  
 ```shell
 tq put ContactPointPurposeMaps
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposeMapsUpdate-default" aria-expanded="true" aria-controls="ContactPointPurposeMapsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposeMapsUpdate-flat" aria-expanded="false" aria-controls="ContactPointPurposeMapsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposeMapsUpdate-csv" aria-expanded="false" aria-controls="ContactPointPurposeMapsUpdate-csv">
+csv
+</button>
+<div id="ContactPointPurposeMapsUpdate-parent">
+<div class="collapse show" id="ContactPointPurposeMapsUpdate-default" data-bs-parent="#ContactPointPurposeMapsUpdate-parent"> 
 ```json
 {"ContactPoint":{"Id":123}, "ContactPointCategory":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Purpose":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ContactPointPurposeMapID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ContactPointPurposeMapsUpdate-flat"  data-bs-parent="#ContactPointPurposeMapsUpdate-parent">
+```json
+[{"ContactPoint.Id":123,"ContactPointCategory.Id":123,"ContactPointPurposeMapID":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Purpose.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ContactPointPurposeMapsUpdate-csv" data-bs-parent="#ContactPointPurposeMapsUpdate-parent">
+```json
+ContactPoint.Id,ContactPointCategory.Id,ContactPointPurposeMapID,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,Purpose.Id,UpdatedBy,UpdatedDateTime
+123,123,"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""",true,123,123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ContactPointPurposes [![get](https://img.shields.io/badge/get-blue)](get.md#contactpointpurposes) [![post](https://img.shields.io/badge/post-blue)](post.md#contactpointpurposes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ContactPointPurposes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contactpointpurposes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contactpointpurposes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing contact point purpose.  
 ##### Usage:  
 ```shell
 tq put ContactPointPurposes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposesUpdate-default" aria-expanded="true" aria-controls="ContactPointPurposesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposesUpdate-flat" aria-expanded="false" aria-controls="ContactPointPurposesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactPointPurposesUpdate-csv" aria-expanded="false" aria-controls="ContactPointPurposesUpdate-csv">
+csv
+</button>
+<div id="ContactPointPurposesUpdate-parent">
+<div class="collapse show" id="ContactPointPurposesUpdate-default" data-bs-parent="#ContactPointPurposesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PurposeCategory":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ContactPointPurposesUpdate-flat"  data-bs-parent="#ContactPointPurposesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"PurposeCategory.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ContactPointPurposesUpdate-csv" data-bs-parent="#ContactPointPurposesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,PurposeCategory.Id,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,123,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## ContactTypes [![get](https://img.shields.io/badge/get-blue)](get.md#contacttypes) [![post](https://img.shields.io/badge/post-blue)](post.md#contacttypes) ![put](https://img.shields.io/badge/put-gray)   
+
+## ContactTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contacttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contacttypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing contact type.  
 ##### Usage:  
 ```shell
 tq put ContactTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactTypesUpdate-default" aria-expanded="true" aria-controls="ContactTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactTypesUpdate-flat" aria-expanded="false" aria-controls="ContactTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContactTypesUpdate-csv" aria-expanded="false" aria-controls="ContactTypesUpdate-csv">
+csv
+</button>
+<div id="ContactTypesUpdate-parent">
+<div class="collapse show" id="ContactTypesUpdate-default" data-bs-parent="#ContactTypesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ContactTypesUpdate-flat"  data-bs-parent="#ContactTypesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ContactTypesUpdate-csv" data-bs-parent="#ContactTypesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## ContributionDesignations [![get](https://img.shields.io/badge/get-blue)](get.md#contributiondesignations) [![post](https://img.shields.io/badge/post-blue)](post.md#contributiondesignations) ![put](https://img.shields.io/badge/put-gray)   
+
+## ContributionDesignations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contributiondesignations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contributiondesignations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing contribution designation.  
 ##### Usage:  
 ```shell
 tq put ContributionDesignations
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionDesignationsUpdate-default" aria-expanded="true" aria-controls="ContributionDesignationsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionDesignationsUpdate-flat" aria-expanded="false" aria-controls="ContributionDesignationsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionDesignationsUpdate-csv" aria-expanded="false" aria-controls="ContributionDesignationsUpdate-csv">
+csv
+</button>
+<div id="ContributionDesignationsUpdate-parent">
+<div class="collapse show" id="ContributionDesignationsUpdate-default" data-bs-parent="#ContributionDesignationsUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LetterText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ContributionDesignationsUpdate-flat"  data-bs-parent="#ContributionDesignationsUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"LetterText":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ContributionDesignationsUpdate-csv" data-bs-parent="#ContributionDesignationsUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,LetterText,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## ContributionImportSets [![get](https://img.shields.io/badge/get-blue)](get.md#contributionimportsets) [![post](https://img.shields.io/badge/post-blue)](post.md#contributionimportsets) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ContributionImportSets <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#contributionimportsets)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contributionimportsets)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing contributionImportSet.  
 ##### Usage:  
 ```shell
 tq put ContributionImportSets
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionImportSetsUpdate-default" aria-expanded="true" aria-controls="ContributionImportSetsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionImportSetsUpdate-flat" aria-expanded="false" aria-controls="ContributionImportSetsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionImportSetsUpdate-csv" aria-expanded="false" aria-controls="ContributionImportSetsUpdate-csv">
+csv
+</button>
+<div id="ContributionImportSetsUpdate-parent">
+<div class="collapse show" id="ContributionImportSetsUpdate-default" data-bs-parent="#ContributionImportSetsUpdate-parent"> 
 ```json
 {"AccountMatchKeyword":{"Id":123}, "AcknowledgmentLetterMode":123, "BatchType":{"Id":123}, "BillingSchedule":{"Id":123}, "BillingType":{"Id":123}, "Campaign":{"Id":123}, "ContributionDateTime":"2000-01-01T00:00:00.000Z", "ContributionPayMode":123, "CreateLocation":"string", "CreatePotentialDuplicate":true, "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CrediteeMode":123, "CrediteeType":{"Id":123}, "DefaultConstituentType":{"Id":123}, "DefaultCountryCode":"string", "DefaultHouseholdConstituentType":{"Id":123}, "DefaultOriginalSource":{"Id":123}, "Description":"string", "Designation":{"Id":123}, "FilePath":"string", "FormatFile":"string", "Fund":{"Id":123}, "Id":123, "ImportRefNoLocation":123, "Inactive":true, "PaymentMethod":{"Id":123}, "SalesChannel":{"Id":123}, "Source":{"Id":123}, "StripPhoneFormatting":true, "TransactAsHousehold":true, "TransactAsHouseholdCreditee":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Worker":{"Id":123}, "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ContributionImportSetsUpdate-flat"  data-bs-parent="#ContributionImportSetsUpdate-parent">
+```json
+[{"AccountMatchKeyword.Id":123,"AcknowledgmentLetterMode":123,"BatchType.Id":123,"BillingSchedule.Id":123,"BillingType.Id":123,"Campaign.Id":123,"ContributionDateTime":"2000-01-01T00:00:00.000Z","ContributionPayMode":123,"CreateLocation":"string","CreatePotentialDuplicate":true,"CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CrediteeMode":123,"CrediteeType.Id":123,"DefaultConstituentType.Id":123,"DefaultCountryCode":"string","DefaultHouseholdConstituentType.Id":123,"DefaultOriginalSource.Id":123,"Description":"string","Designation.Id":123,"FilePath":"string","FormatFile":"string","Fund.Id":123,"ID":"string","Id":123,"ImportRefNoLocation":123,"Inactive":true,"PaymentMethod.Id":123,"SalesChannel.Id":123,"Source.Id":123,"StripPhoneFormatting":true,"TransactAsHousehold":true,"TransactAsHouseholdCreditee":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Worker.Id":123}]
+```  
+</div>
+<div class="collapse" id="ContributionImportSetsUpdate-csv" data-bs-parent="#ContributionImportSetsUpdate-parent">
+```json
+AccountMatchKeyword.Id,AcknowledgmentLetterMode,BatchType.Id,BillingSchedule.Id,BillingType.Id,Campaign.Id,ContributionDateTime,ContributionPayMode,CreateLocation,CreatePotentialDuplicate,CreatedBy,CreatedDateTime,CrediteeMode,CrediteeType.Id,DefaultConstituentType.Id,DefaultCountryCode,DefaultHouseholdConstituentType.Id,DefaultOriginalSource.Id,Description,Designation.Id,FilePath,FormatFile,Fund.Id,ID,Id,ImportRefNoLocation,Inactive,PaymentMethod.Id,SalesChannel.Id,Source.Id,StripPhoneFormatting,TransactAsHousehold,TransactAsHouseholdCreditee,UpdatedBy,UpdatedDateTime,Worker.Id
+123,123,123,123,123,123,"""2000-01-01T00:00:00.000Z""",123,"""string""",true,"""string""","""2000-01-01T00:00:00.000Z""",123,123,123,"""string""",123,123,"""string""",123,"""string""","""string""",123,"""string""",123,123,true,123,123,123,true,true,true,"""string""","""2000-01-01T00:00:00.000Z""",123
 
-## Contributions [![post](https://img.shields.io/badge/post-blue)](post.md#contributions) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Contributions <button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#contributions)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 This resource is currently strictly for interceptor plugin use. This is called any time an existing contribution is updated from contribution editor in the client application. Only Id (ref_no) is provided in the request content.  
 ##### Usage:  
 ```shell
 tq put Contributions
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionsUpdate-default" aria-expanded="true" aria-controls="ContributionsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionsUpdate-flat" aria-expanded="false" aria-controls="ContributionsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ContributionsUpdate-csv" aria-expanded="false" aria-controls="ContributionsUpdate-csv">
+csv
+</button>
+<div id="ContributionsUpdate-parent">
+<div class="collapse show" id="ContributionsUpdate-default" data-bs-parent="#ContributionsUpdate-parent"> 
 ```json
 {"AccountId":123, "AppealId":123, "BatchId":123, "BillingAccount":"string", "BillingTypeId":123, "BusinessUnitId":123, "Campaign":{"Id":123}, "Cancel":"string", "Channel":{"Id":123}, "Constituent":{"Id":123}, "ContributionAmount":123.456, "ContributionDateTime":"2000-01-01T00:00:00.000Z", "ContributionDesignation":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Custom0":"string", "Custom1":"string", "Custom2":"string", "Custom3":"string", "Custom4":"string", "Custom5":"string", "Custom6":"string", "Custom7":"string", "Custom8":"string", "Custom9":"string", "EditIndicator":true, "Fund":{"Id":123}, "Id":123, "Initiator":{"Id":123}, "KindGiftDescription":"string", "KindGiftTransferDateTime":"2000-01-01T00:00:00.000Z", "MatchIndicator":"string", "MatchingContributionId":123, "MediaType":{"Id":123}, "MirrorLock":123, "Notes":"string", "PaymentEndDateTime":"2000-01-01T00:00:00.000Z", "PaymentStartDateTime":"2000-01-01T00:00:00.000Z", "Plan":{"Id":123}, "PledgeStatusId":123, "ReceivedAmount":123.456, "Solicitor":"string", "SourceId":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ContributionID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ContributionsUpdate-flat"  data-bs-parent="#ContributionsUpdate-parent">
+```json
+[{"AccountId":123,"AppealId":123,"BatchId":123,"BillingAccount":"string","BillingTypeId":123,"BusinessUnitId":123,"Campaign.Id":123,"Cancel":"string","Channel.Id":123,"Constituent.Id":123,"ContributionAmount":123.456,"ContributionDateTime":"2000-01-01T00:00:00.000Z","ContributionDesignation":123,"ContributionID":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Custom0":"string","Custom1":"string","Custom2":"string","Custom3":"string","Custom4":"string","Custom5":"string","Custom6":"string","Custom7":"string","Custom8":"string","Custom9":"string","EditIndicator":true,"Fund.Id":123,"Id":123,"Initiator.Id":123,"KindGiftDescription":"string","KindGiftTransferDateTime":"2000-01-01T00:00:00.000Z","MatchIndicator":"string","MatchingContributionId":123,"MediaType.Id":123,"MirrorLock":123,"Notes":"string","PaymentEndDateTime":"2000-01-01T00:00:00.000Z","PaymentStartDateTime":"2000-01-01T00:00:00.000Z","Plan.Id":123,"PledgeStatusId":123,"ReceivedAmount":123.456,"Solicitor":"string","SourceId":123,"Type":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ContributionsUpdate-csv" data-bs-parent="#ContributionsUpdate-parent">
+```json
+AccountId,AppealId,BatchId,BillingAccount,BillingTypeId,BusinessUnitId,Campaign.Id,Cancel,Channel.Id,Constituent.Id,ContributionAmount,ContributionDateTime,ContributionDesignation,ContributionID,CreateLocation,CreatedBy,CreatedDateTime,Custom0,Custom1,Custom2,Custom3,Custom4,Custom5,Custom6,Custom7,Custom8,Custom9,EditIndicator,Fund.Id,Id,Initiator.Id,KindGiftDescription,KindGiftTransferDateTime,MatchIndicator,MatchingContributionId,MediaType.Id,MirrorLock,Notes,PaymentEndDateTime,PaymentStartDateTime,Plan.Id,PledgeStatusId,ReceivedAmount,Solicitor,SourceId,Type,UpdatedBy,UpdatedDateTime
+123,123,123,"""string""",123,123,123,"""string""",123,123,123.456,"""2000-01-01T00:00:00.000Z""",123,"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""","""string""","""string""","""string""","""string""","""string""","""string""","""string""","""string""",true,123,123,123,"""string""","""2000-01-01T00:00:00.000Z""","""string""",123,123,123,"""string""","""2000-01-01T00:00:00.000Z""","""2000-01-01T00:00:00.000Z""",123,123,123.456,"""string""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## ControlGroupUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#controlgroupusergroups) [![post](https://img.shields.io/badge/post-blue)](post.md#controlgroupusergroups) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ControlGroupUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#controlgroupusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#controlgroupusergroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing control group/user group mapping.  
 ##### Usage:  
 ```shell
 tq put ControlGroupUserGroups
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ControlGroupUserGroupsUpdate-default" aria-expanded="true" aria-controls="ControlGroupUserGroupsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ControlGroupUserGroupsUpdate-flat" aria-expanded="false" aria-controls="ControlGroupUserGroupsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ControlGroupUserGroupsUpdate-csv" aria-expanded="false" aria-controls="ControlGroupUserGroupsUpdate-csv">
+csv
+</button>
+<div id="ControlGroupUserGroupsUpdate-parent">
+<div class="collapse show" id="ControlGroupUserGroupsUpdate-default" data-bs-parent="#ControlGroupUserGroupsUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "EditIndicator":true, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ControlGroupUserGroupsUpdate-flat"  data-bs-parent="#ControlGroupUserGroupsUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultIndicator":true,"EditIndicator":true,"ID":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string"}]
+```  
+</div>
+<div class="collapse" id="ControlGroupUserGroupsUpdate-csv" data-bs-parent="#ControlGroupUserGroupsUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DefaultIndicator,EditIndicator,ID,Id,UpdatedBy,UpdatedDateTime,UserGroupId
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,true,"""string""",123,"""string""","""2000-01-01T00:00:00.000Z""","""string"""
 
-## ControlGroups [![get](https://img.shields.io/badge/get-blue)](get.md#controlgroups) [![post](https://img.shields.io/badge/post-blue)](post.md#controlgroups) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ControlGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#controlgroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#controlgroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing control group.  
 ##### Usage:  
 ```shell
 tq put ControlGroups
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ControlGroupsUpdate-default" aria-expanded="true" aria-controls="ControlGroupsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ControlGroupsUpdate-flat" aria-expanded="false" aria-controls="ControlGroupsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ControlGroupsUpdate-csv" aria-expanded="false" aria-controls="ControlGroupsUpdate-csv">
+csv
+</button>
+<div id="ControlGroupsUpdate-parent">
+<div class="collapse show" id="ControlGroupsUpdate-default" data-bs-parent="#ControlGroupsUpdate-parent"> 
 ```json
 {"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Permission":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ControlGroupsUpdate-flat"  data-bs-parent="#ControlGroupsUpdate-parent">
+```json
+[{"CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"Permission":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ControlGroupsUpdate-csv" data-bs-parent="#ControlGroupsUpdate-parent">
+```json
+CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,Permission,UpdatedBy,UpdatedDateTime
+"""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,123,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## Countries [![get](https://img.shields.io/badge/get-blue)](get.md#countries) [![post](https://img.shields.io/badge/post-blue)](post.md#countries) ![put](https://img.shields.io/badge/put-gray)   
+
+## Countries <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#countries)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#countries)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing country.  
 ##### Usage:  
 ```shell
 tq put Countries
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CountriesUpdate-default" aria-expanded="true" aria-controls="CountriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CountriesUpdate-flat" aria-expanded="false" aria-controls="CountriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CountriesUpdate-csv" aria-expanded="false" aria-controls="CountriesUpdate-csv">
+csv
+</button>
+<div id="CountriesUpdate-parent">
+<div class="collapse show" id="CountriesUpdate-default" data-bs-parent="#CountriesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DecimalSeparator":"string", "Description":"string", "Id":123, "Inactive":true, "IsoAlpha2Code":"string", "IsoAlpha3Code":"string", "PhoneCode":"string", "PhoneEditstring":"string", "PhoneMask":"string", "PhoneValidLengths":"string", "ReqCity":true, "ReqPcode":true, "ShortDesc":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseAvs":"string", "UseStateField":"string", "ZipEditstring":"string", "ZipMask":"string", "ZipValidLengths":"string", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CountriesUpdate-flat"  data-bs-parent="#CountriesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DecimalSeparator":"string","Description":"string","ID":"string","Id":123,"Inactive":true,"IsoAlpha2Code":"string","IsoAlpha3Code":"string","PhoneCode":"string","PhoneEditstring":"string","PhoneMask":"string","PhoneValidLengths":"string","ReqCity":true,"ReqPcode":true,"ShortDesc":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseAvs":"string","UseStateField":"string","ZipEditstring":"string","ZipMask":"string","ZipValidLengths":"string"}]
+```  
+</div>
+<div class="collapse" id="CountriesUpdate-csv" data-bs-parent="#CountriesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,DecimalSeparator,Description,ID,Id,Inactive,IsoAlpha2Code,IsoAlpha3Code,PhoneCode,PhoneEditstring,PhoneMask,PhoneValidLengths,ReqCity,ReqPcode,ShortDesc,UpdatedBy,UpdatedDateTime,UseAvs,UseStateField,ZipEditstring,ZipMask,ZipValidLengths
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""","""string""",123,true,"""string""","""string""","""string""","""string""","""string""","""string""",true,true,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""","""string""","""string""","""string"""
 
-## CrediteeTypes [![get](https://img.shields.io/badge/get-blue)](get.md#crediteetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#crediteetypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## CrediteeTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#crediteetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#crediteetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing crediteeType.  
 ##### Usage:  
 ```shell
 tq put CrediteeTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CrediteeTypesUpdate-default" aria-expanded="true" aria-controls="CrediteeTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CrediteeTypesUpdate-flat" aria-expanded="false" aria-controls="CrediteeTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CrediteeTypesUpdate-csv" aria-expanded="false" aria-controls="CrediteeTypesUpdate-csv">
+csv
+</button>
+<div id="CrediteeTypesUpdate-parent">
+<div class="collapse show" id="CrediteeTypesUpdate-default" data-bs-parent="#CrediteeTypesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CreditMembershipIndicator":true, "Description":"string", "GiftAidIndicator":true, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CrediteeTypesUpdate-flat"  data-bs-parent="#CrediteeTypesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CreditMembershipIndicator":true,"Description":"string","GiftAidIndicator":true,"ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="CrediteeTypesUpdate-csv" data-bs-parent="#CrediteeTypesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,CreditMembershipIndicator,Description,GiftAidIndicator,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,"""string""",true,"""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
 
 
-## CurrencyTypes [![get](https://img.shields.io/badge/get-blue)](get.md#currencytypes) [![post](https://img.shields.io/badge/post-blue)](post.md#currencytypes) ![put](https://img.shields.io/badge/put-gray)   
+
+## CurrencyTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#currencytypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#currencytypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing currency type.  
 ##### Usage:  
 ```shell
 tq put CurrencyTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CurrencyTypesUpdate-default" aria-expanded="true" aria-controls="CurrencyTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CurrencyTypesUpdate-flat" aria-expanded="false" aria-controls="CurrencyTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CurrencyTypesUpdate-csv" aria-expanded="false" aria-controls="CurrencyTypesUpdate-csv">
+csv
+</button>
+<div id="CurrencyTypesUpdate-parent">
+<div class="collapse show" id="CurrencyTypesUpdate-default" data-bs-parent="#CurrencyTypesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rate":123.456, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CurrencyTypesUpdate-flat"  data-bs-parent="#CurrencyTypesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"Rate":123.456,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="CurrencyTypesUpdate-csv" data-bs-parent="#CurrencyTypesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,Rate,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,123.456,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## CustomDefaultCategories [![get](https://img.shields.io/badge/get-blue)](get.md#customdefaultcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#customdefaultcategories) ![put](https://img.shields.io/badge/put-gray)   
+
+## CustomDefaultCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#customdefaultcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#customdefaultcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing custom default category.  
 ##### Usage:  
 ```shell
 tq put CustomDefaultCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomDefaultCategoriesUpdate-default" aria-expanded="true" aria-controls="CustomDefaultCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomDefaultCategoriesUpdate-flat" aria-expanded="false" aria-controls="CustomDefaultCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomDefaultCategoriesUpdate-csv" aria-expanded="false" aria-controls="CustomDefaultCategoriesUpdate-csv">
+csv
+</button>
+<div id="CustomDefaultCategoriesUpdate-parent">
+<div class="collapse show" id="CustomDefaultCategoriesUpdate-default" data-bs-parent="#CustomDefaultCategoriesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CustomDefaultCategoriesUpdate-flat"  data-bs-parent="#CustomDefaultCategoriesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="CustomDefaultCategoriesUpdate-csv" data-bs-parent="#CustomDefaultCategoriesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## CustomDefaults [![get](https://img.shields.io/badge/get-blue)](get.md#customdefaults) [![post](https://img.shields.io/badge/post-blue)](post.md#customdefaults) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## CustomDefaults <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#customdefaults)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#customdefaults)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing custom default.  
 ##### Usage:  
 ```shell
 tq put CustomDefaults
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomDefaultsUpdate-default" aria-expanded="true" aria-controls="CustomDefaultsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomDefaultsUpdate-flat" aria-expanded="false" aria-controls="CustomDefaultsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#CustomDefaultsUpdate-csv" aria-expanded="false" aria-controls="CustomDefaultsUpdate-csv">
+csv
+</button>
+<div id="CustomDefaultsUpdate-parent">
+<div class="collapse show" id="CustomDefaultsUpdate-default" data-bs-parent="#CustomDefaultsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDefaultCategory":{"Id":123}, "DefaultValue":"string", "Description":"string", "FieldName":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="CustomDefaultsUpdate-flat"  data-bs-parent="#CustomDefaultsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CustomDefaultCategory.Id":123,"DefaultValue":"string","Description":"string","FieldName":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="CustomDefaultsUpdate-csv" data-bs-parent="#CustomDefaultsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,CustomDefaultCategory.Id,DefaultValue,Description,FieldName,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,"""string""","""string""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
+
 
 	
 # D
-## DeliveryMethods [![get](https://img.shields.io/badge/get-blue)](get.md#deliverymethods) [![post](https://img.shields.io/badge/post-blue)](post.md#deliverymethods) ![put](https://img.shields.io/badge/put-gray)   
+## DeliveryMethods <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#deliverymethods)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#deliverymethods)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing delivery method.  
 ##### Usage:  
 ```shell
 tq put DeliveryMethods
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DeliveryMethodsUpdate-default" aria-expanded="true" aria-controls="DeliveryMethodsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DeliveryMethodsUpdate-flat" aria-expanded="false" aria-controls="DeliveryMethodsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DeliveryMethodsUpdate-csv" aria-expanded="false" aria-controls="DeliveryMethodsUpdate-csv">
+csv
+</button>
+<div id="DeliveryMethodsUpdate-parent">
+<div class="collapse show" id="DeliveryMethodsUpdate-default" data-bs-parent="#DeliveryMethodsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PrintAtHome":true, "RequireAddress":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="DeliveryMethodsUpdate-flat"  data-bs-parent="#DeliveryMethodsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"PrintAtHome":true,"RequireAddress":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="DeliveryMethodsUpdate-csv" data-bs-parent="#DeliveryMethodsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,PrintAtHome,RequireAddress,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,true,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## DesignationCodes [![get](https://img.shields.io/badge/get-blue)](get.md#designationcodes) [![post](https://img.shields.io/badge/post-blue)](post.md#designationcodes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## DesignationCodes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#designationcodes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#designationcodes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing designation code.  
 ##### Usage:  
 ```shell
 tq put DesignationCodes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DesignationCodesUpdate-default" aria-expanded="true" aria-controls="DesignationCodesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DesignationCodesUpdate-flat" aria-expanded="false" aria-controls="DesignationCodesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DesignationCodesUpdate-csv" aria-expanded="false" aria-controls="DesignationCodesUpdate-csv">
+csv
+</button>
+<div id="DesignationCodesUpdate-parent">
+<div class="collapse show" id="DesignationCodesUpdate-default" data-bs-parent="#DesignationCodesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="DesignationCodesUpdate-flat"  data-bs-parent="#DesignationCodesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="DesignationCodesUpdate-csv" data-bs-parent="#DesignationCodesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## Diagnostics [![get](https://img.shields.io/badge/get-blue)](get.md#diagnostics) [![post](https://img.shields.io/badge/post-blue)](post.md#diagnostics) ![put](https://img.shields.io/badge/put-gray)   
+
+## Diagnostics <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#diagnostics)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#diagnostics)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Dummy end point to check availability of HTTP PUT.  
 ##### Usage:  
 ```shell
 tq put Diagnostics
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DiagnosticsPut-default" aria-expanded="true" aria-controls="DiagnosticsPut-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DiagnosticsPut-flat" aria-expanded="false" aria-controls="DiagnosticsPut-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DiagnosticsPut-csv" aria-expanded="false" aria-controls="DiagnosticsPut-csv">
+csv
+</button>
+<div id="DiagnosticsPut-parent">
+<div class="collapse show" id="DiagnosticsPut-default" data-bs-parent="#DiagnosticsPut-parent"> 
 ```json
 {"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "DiagnosticID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="DiagnosticsPut-flat"  data-bs-parent="#DiagnosticsPut-parent">
+```json
+[{"CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","DiagnosticID":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="DiagnosticsPut-csv" data-bs-parent="#DiagnosticsPut-parent">
+```json
+CreatedBy,CreatedDateTime,Description,DiagnosticID,Id,UpdatedBy,UpdatedDateTime
+"""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## DirectDebitAccountTypes [![get](https://img.shields.io/badge/get-blue)](get.md#directdebitaccounttypes) [![post](https://img.shields.io/badge/post-blue)](post.md#directdebitaccounttypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## DirectDebitAccountTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#directdebitaccounttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#directdebitaccounttypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing direct debit account type.  
 ##### Usage:  
 ```shell
 tq put DirectDebitAccountTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DirectDebitAccountTypesUpdate-default" aria-expanded="true" aria-controls="DirectDebitAccountTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DirectDebitAccountTypesUpdate-flat" aria-expanded="false" aria-controls="DirectDebitAccountTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DirectDebitAccountTypesUpdate-csv" aria-expanded="false" aria-controls="DirectDebitAccountTypesUpdate-csv">
+csv
+</button>
+<div id="DirectDebitAccountTypesUpdate-parent">
+<div class="collapse show" id="DirectDebitAccountTypesUpdate-default" data-bs-parent="#DirectDebitAccountTypesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="DirectDebitAccountTypesUpdate-flat"  data-bs-parent="#DirectDebitAccountTypesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="DirectDebitAccountTypesUpdate-csv" data-bs-parent="#DirectDebitAccountTypesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## DiscountTypes [![get](https://img.shields.io/badge/get-blue)](get.md#discounttypes) [![post](https://img.shields.io/badge/post-blue)](post.md#discounttypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## DiscountTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#discounttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#discounttypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing discount type.  
 ##### Usage:  
 ```shell
 tq put DiscountTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DiscountTypesUpdate-default" aria-expanded="true" aria-controls="DiscountTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DiscountTypesUpdate-flat" aria-expanded="false" aria-controls="DiscountTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DiscountTypesUpdate-csv" aria-expanded="false" aria-controls="DiscountTypesUpdate-csv">
+csv
+</button>
+<div id="DiscountTypesUpdate-parent">
+<div class="collapse show" id="DiscountTypesUpdate-default" data-bs-parent="#DiscountTypesUpdate-parent"> 
 ```json
 {"Amount":123.456, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PercentIndicator":true, "RespectMinimumPrice":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="DiscountTypesUpdate-flat"  data-bs-parent="#DiscountTypesUpdate-parent">
+```json
+[{"Amount":123.456,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"PercentIndicator":true,"RespectMinimumPrice":true,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="DiscountTypesUpdate-csv" data-bs-parent="#DiscountTypesUpdate-parent">
+```json
+Amount,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,PercentIndicator,RespectMinimumPrice,ShortDescription,UpdatedBy,UpdatedDateTime
+123.456,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,true,true,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## DocumentCategories [![get](https://img.shields.io/badge/get-blue)](get.md#documentcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#documentcategories) ![put](https://img.shields.io/badge/put-gray)   
+
+## DocumentCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#documentcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#documentcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing documentCategory.  
 ##### Usage:  
 ```shell
 tq put DocumentCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DocumentCategoriesUpdate-default" aria-expanded="true" aria-controls="DocumentCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DocumentCategoriesUpdate-flat" aria-expanded="false" aria-controls="DocumentCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DocumentCategoriesUpdate-csv" aria-expanded="false" aria-controls="DocumentCategoriesUpdate-csv">
+csv
+</button>
+<div id="DocumentCategoriesUpdate-parent">
+<div class="collapse show" id="DocumentCategoriesUpdate-default" data-bs-parent="#DocumentCategoriesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ParentTableName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="DocumentCategoriesUpdate-flat"  data-bs-parent="#DocumentCategoriesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"ParentTableName":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="DocumentCategoriesUpdate-csv" data-bs-parent="#DocumentCategoriesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,ParentTableName,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## DonationLevels [![get](https://img.shields.io/badge/get-blue)](get.md#donationlevels) [![post](https://img.shields.io/badge/post-blue)](post.md#donationlevels) ![put](https://img.shields.io/badge/put-gray)   
+
+## DonationLevels <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#donationlevels)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#donationlevels)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing donation level.  
 ##### Usage:  
 ```shell
 tq put DonationLevels
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DonationLevelsUpdate-default" aria-expanded="true" aria-controls="DonationLevelsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DonationLevelsUpdate-flat" aria-expanded="false" aria-controls="DonationLevelsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#DonationLevelsUpdate-csv" aria-expanded="false" aria-controls="DonationLevelsUpdate-csv">
+csv
+</button>
+<div id="DonationLevelsUpdate-parent">
+<div class="collapse show" id="DonationLevelsUpdate-default" data-bs-parent="#DonationLevelsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ProgramType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="DonationLevelsUpdate-flat"  data-bs-parent="#DonationLevelsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"ProgramType.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="DonationLevelsUpdate-csv" data-bs-parent="#DonationLevelsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,ProgramType.Id,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,123,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
+
 
 	
 # E
-## EMV [![get](https://img.shields.io/badge/get-blue)](get.md#emv) [![post](https://img.shields.io/badge/post-blue)](post.md#emv) ![put](https://img.shields.io/badge/put-gray)   
+## EMV <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#emv)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#emv)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Set idle message for a specific lane  
 ##### Usage:  
 ```shell
 tq put EMV
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVSetIdleMessage-default" aria-expanded="true" aria-controls="EMVSetIdleMessage-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVSetIdleMessage-flat" aria-expanded="false" aria-controls="EMVSetIdleMessage-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EMVSetIdleMessage-csv" aria-expanded="false" aria-controls="EMVSetIdleMessage-csv">
+csv
+</button>
+<div id="EMVSetIdleMessage-parent">
+<div class="collapse show" id="EMVSetIdleMessage-default" data-bs-parent="#EMVSetIdleMessage-parent"> 
 ```json
 {"Cert":"string", "LaneID":"string", "Merchant":"string", "IdleMessage":"string"}
-```
+```  
+</div>
+<div class="collapse" id="EMVSetIdleMessage-flat"  data-bs-parent="#EMVSetIdleMessage-parent">
+```json
+[{"Cert":"string","IdleMessage":"string","LaneID":"string","Merchant":"string"}]
+```  
+</div>
+<div class="collapse" id="EMVSetIdleMessage-csv" data-bs-parent="#EMVSetIdleMessage-parent">
+```json
+Cert,IdleMessage,LaneID,Merchant
+"""string""","""string""","""string""","""string"""
 
-## ElectronicAddressTypes [![get](https://img.shields.io/badge/get-blue)](get.md#electronicaddresstypes) [![post](https://img.shields.io/badge/post-blue)](post.md#electronicaddresstypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ElectronicAddressTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#electronicaddresstypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#electronicaddresstypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing electronic address type.  
 ##### Usage:  
 ```shell
 tq put ElectronicAddressTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressTypesUpdate-default" aria-expanded="true" aria-controls="ElectronicAddressTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressTypesUpdate-flat" aria-expanded="false" aria-controls="ElectronicAddressTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressTypesUpdate-csv" aria-expanded="false" aria-controls="ElectronicAddressTypesUpdate-csv">
+csv
+</button>
+<div id="ElectronicAddressTypesUpdate-parent">
+<div class="collapse show" id="ElectronicAddressTypesUpdate-default" data-bs-parent="#ElectronicAddressTypesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "IsEmail":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ElectronicAddressTypesUpdate-flat"  data-bs-parent="#ElectronicAddressTypesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"IsEmail":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ElectronicAddressTypesUpdate-csv" data-bs-parent="#ElectronicAddressTypesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,IsEmail,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ElectronicAddresses [![get](https://img.shields.io/badge/get-blue)](get.md#electronicaddresses) [![post](https://img.shields.io/badge/post-blue)](post.md#electronicaddresses) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ElectronicAddresses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#electronicaddresses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#electronicaddresses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an electronic address.  
 ##### Usage:  
 ```shell
 tq put ElectronicAddresses
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressesUpdate-default" aria-expanded="true" aria-controls="ElectronicAddressesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressesUpdate-flat" aria-expanded="false" aria-controls="ElectronicAddressesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ElectronicAddressesUpdate-csv" aria-expanded="false" aria-controls="ElectronicAddressesUpdate-csv">
+csv
+</button>
+<div id="ElectronicAddressesUpdate-parent">
+<div class="collapse show" id="ElectronicAddressesUpdate-default" data-bs-parent="#ElectronicAddressesUpdate-parent"> 
 ```json
 {"Address":"string", "AffiliatedConstituent":{"Id":123}, "AllowHtmlFormat":true, "AllowMarketing":true, "AltSalutationType":{"Id":123}, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "ElectronicAddressType":{"Id":123}, "EndDate":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "IsEmail":true, "IsFromAffiliation":true, "Months":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ElectronicAddressID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ElectronicAddressesUpdate-flat"  data-bs-parent="#ElectronicAddressesUpdate-parent">
+```json
+[{"Address":"string","AffiliatedConstituent.Id":123,"AllowHtmlFormat":true,"AllowMarketing":true,"AltSalutationType.Id":123,"Constituent.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"ElectronicAddressID":"string","ElectronicAddressType.Id":123,"EndDate":"2000-01-01T00:00:00.000Z","Id":123,"Inactive":true,"IsEmail":true,"IsFromAffiliation":true,"Months":"string","PrimaryIndicator":true,"StartDate":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ElectronicAddressesUpdate-csv" data-bs-parent="#ElectronicAddressesUpdate-parent">
+```json
+Address,AffiliatedConstituent.Id,AllowHtmlFormat,AllowMarketing,AltSalutationType.Id,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,ElectronicAddressID,ElectronicAddressType.Id,EndDate,Id,Inactive,IsEmail,IsFromAffiliation,Months,PrimaryIndicator,StartDate,UpdatedBy,UpdatedDateTime
+"""string""",123,true,true,123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,"""string""",123,"""2000-01-01T00:00:00.000Z""",123,true,true,true,"""string""",true,"""2000-01-01T00:00:00.000Z""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## EmailProfiles [![get](https://img.shields.io/badge/get-blue)](get.md#emailprofiles) [![post](https://img.shields.io/badge/post-blue)](post.md#emailprofiles) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## EmailProfiles <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#emailprofiles)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#emailprofiles)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing email profile  
 ##### Usage:  
 ```shell
 tq put EmailProfiles
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailProfilesUpdate-default" aria-expanded="true" aria-controls="EmailProfilesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailProfilesUpdate-flat" aria-expanded="false" aria-controls="EmailProfilesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmailProfilesUpdate-csv" aria-expanded="false" aria-controls="EmailProfilesUpdate-csv">
+csv
+</button>
+<div id="EmailProfilesUpdate-parent">
+<div class="collapse show" id="EmailProfilesUpdate-default" data-bs-parent="#EmailProfilesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EmailBcc":"string", "EmailCc":"string", "EmailDefaultSubject":"string", "EmailFrom":"string", "Id":123, "Inactive":true, "SMTPPassword":"string", "SMTPPort":123, "SMTPServer":"string", "SMTPUserName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseSsl":true, "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="EmailProfilesUpdate-flat"  data-bs-parent="#EmailProfilesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EmailBcc":"string","EmailCc":"string","EmailDefaultSubject":"string","EmailFrom":"string","ID":"string","Id":123,"Inactive":true,"SMTPPassword":"string","SMTPPort":123,"SMTPServer":"string","SMTPUserName":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseSsl":true}]
+```  
+</div>
+<div class="collapse" id="EmailProfilesUpdate-csv" data-bs-parent="#EmailProfilesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EmailBcc,EmailCc,EmailDefaultSubject,EmailFrom,ID,Id,Inactive,SMTPPassword,SMTPPort,SMTPServer,SMTPUserName,UpdatedBy,UpdatedDateTime,UseSsl
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""","""string""","""string""","""string""","""string""",123,true,"""string""",123,"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""",true
+
+```  
+</div>
+</div>
 
 
 
-## EmarketIndicators [![get](https://img.shields.io/badge/get-blue)](get.md#emarketindicators) [![post](https://img.shields.io/badge/post-blue)](post.md#emarketindicators) ![put](https://img.shields.io/badge/put-gray)   
+
+## EmarketIndicators <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#emarketindicators)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#emarketindicators)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing emarket indicator.  
 ##### Usage:  
 ```shell
 tq put EmarketIndicators
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmarketIndicatorsUpdate-default" aria-expanded="true" aria-controls="EmarketIndicatorsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmarketIndicatorsUpdate-flat" aria-expanded="false" aria-controls="EmarketIndicatorsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#EmarketIndicatorsUpdate-csv" aria-expanded="false" aria-controls="EmarketIndicatorsUpdate-csv">
+csv
+</button>
+<div id="EmarketIndicatorsUpdate-parent">
+<div class="collapse show" id="EmarketIndicatorsUpdate-default" data-bs-parent="#EmarketIndicatorsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="EmarketIndicatorsUpdate-flat"  data-bs-parent="#EmarketIndicatorsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="EmarketIndicatorsUpdate-csv" data-bs-parent="#EmarketIndicatorsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Eras [![get](https://img.shields.io/badge/get-blue)](get.md#eras) [![post](https://img.shields.io/badge/post-blue)](post.md#eras) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Eras <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#eras)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#eras)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing era.  
 ##### Usage:  
 ```shell
 tq put Eras
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ErasUpdate-default" aria-expanded="true" aria-controls="ErasUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ErasUpdate-flat" aria-expanded="false" aria-controls="ErasUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ErasUpdate-csv" aria-expanded="false" aria-controls="ErasUpdate-csv">
+csv
+</button>
+<div id="ErasUpdate-parent">
+<div class="collapse show" id="ErasUpdate-default" data-bs-parent="#ErasUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ErasUpdate-flat"  data-bs-parent="#ErasUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ErasUpdate-csv" data-bs-parent="#ErasUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
+
 
 
 	
 # F
-## Facilities [![get](https://img.shields.io/badge/get-blue)](get.md#facilities) [![post](https://img.shields.io/badge/post-blue)](post.md#facilities) ![put](https://img.shields.io/badge/put-gray)   
+## Facilities <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#facilities)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#facilities)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update a Facility.  
 ##### Usage:  
 ```shell
 tq put Facilities
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#FacilitiesUpdate-default" aria-expanded="true" aria-controls="FacilitiesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#FacilitiesUpdate-flat" aria-expanded="false" aria-controls="FacilitiesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#FacilitiesUpdate-csv" aria-expanded="false" aria-controls="FacilitiesUpdate-csv">
+csv
+</button>
+<div id="FacilitiesUpdate-parent">
+<div class="collapse show" id="FacilitiesUpdate-default" data-bs-parent="#FacilitiesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultBestSeatMapId":123, "DefaultZoneMapId":123, "Description":"string", "Id":123, "SeatMap":{"Id":123}, "Theater":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="FacilitiesUpdate-flat"  data-bs-parent="#FacilitiesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultBestSeatMapId":123,"DefaultZoneMapId":123,"Description":"string","ID":"string","Id":123,"SeatMap.Id":123,"Theater.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="FacilitiesUpdate-csv" data-bs-parent="#FacilitiesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DefaultBestSeatMapId,DefaultZoneMapId,Description,ID,Id,SeatMap.Id,Theater.Id,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,123,"""string""","""string""",123,123,123,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
+
 
 
 
@@ -1037,366 +3585,1224 @@ tq put Facilities
 	
 # G
 
-## Genders [![get](https://img.shields.io/badge/get-blue)](get.md#genders) [![post](https://img.shields.io/badge/post-blue)](post.md#genders) ![put](https://img.shields.io/badge/put-gray)   
+## Genders <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#genders)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#genders)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing gender.  
 ##### Usage:  
 ```shell
 tq put Genders
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GendersUpdate-default" aria-expanded="true" aria-controls="GendersUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GendersUpdate-flat" aria-expanded="false" aria-controls="GendersUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GendersUpdate-csv" aria-expanded="false" aria-controls="GendersUpdate-csv">
+csv
+</button>
+<div id="GendersUpdate-parent">
+<div class="collapse show" id="GendersUpdate-default" data-bs-parent="#GendersUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultPrefix":{"Id":123}, "Description":"string", "Id":123, "Inactive":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="GendersUpdate-flat"  data-bs-parent="#GendersUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultPrefix.Id":123,"Description":"string","ID":"string","Id":123,"Inactive":true,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="GendersUpdate-csv" data-bs-parent="#GendersUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,DefaultPrefix.Id,Description,ID,Id,Inactive,ShortDescription,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,"""string""","""string""",123,true,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## GiftAidContactMethods [![get](https://img.shields.io/badge/get-blue)](get.md#giftaidcontactmethods) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidcontactmethods) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## GiftAidContactMethods <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaidcontactmethods)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#giftaidcontactmethods)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing gift aid contact method.  
 ##### Usage:  
 ```shell
 tq put GiftAidContactMethods
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidContactMethodsUpdate-default" aria-expanded="true" aria-controls="GiftAidContactMethodsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidContactMethodsUpdate-flat" aria-expanded="false" aria-controls="GiftAidContactMethodsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidContactMethodsUpdate-csv" aria-expanded="false" aria-controls="GiftAidContactMethodsUpdate-csv">
+csv
+</button>
+<div id="GiftAidContactMethodsUpdate-parent">
+<div class="collapse show" id="GiftAidContactMethodsUpdate-default" data-bs-parent="#GiftAidContactMethodsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="GiftAidContactMethodsUpdate-flat"  data-bs-parent="#GiftAidContactMethodsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="GiftAidContactMethodsUpdate-csv" data-bs-parent="#GiftAidContactMethodsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## GiftAidDeclarations [![get](https://img.shields.io/badge/get-blue)](get.md#giftaiddeclarations) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaiddeclarations) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## GiftAidDeclarations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaiddeclarations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#giftaiddeclarations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update a Gift Aid Declaration.  
 ##### Usage:  
 ```shell
 tq put GiftAidDeclarations
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidDeclarationsUpdate-default" aria-expanded="true" aria-controls="GiftAidDeclarationsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidDeclarationsUpdate-flat" aria-expanded="false" aria-controls="GiftAidDeclarationsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidDeclarationsUpdate-csv" aria-expanded="false" aria-controls="GiftAidDeclarationsUpdate-csv">
+csv
+</button>
+<div id="GiftAidDeclarationsUpdate-parent">
+<div class="collapse show" id="GiftAidDeclarationsUpdate-default" data-bs-parent="#GiftAidDeclarationsUpdate-parent"> 
 ```json
 {"ConfirmDateTime":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "ContactMethod":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DocumentStatus":{"Id":123}, "EligibleIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "GiftAidType":{"Id":123}, "Id":123, "IneligibleReason":{"Id":123}, "Notes":"string", "ReceivedDateTime":"2000-01-01T00:00:00.000Z", "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "GiftAidDeclarationID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="GiftAidDeclarationsUpdate-flat"  data-bs-parent="#GiftAidDeclarationsUpdate-parent">
+```json
+[{"ConfirmDateTime":"2000-01-01T00:00:00.000Z","Constituent.Id":123,"ContactMethod.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DocumentStatus.Id":123,"EligibleIndicator":true,"EndDateTime":"2000-01-01T00:00:00.000Z","GiftAidDeclarationID":"string","GiftAidType.Id":123,"Id":123,"IneligibleReason.Id":123,"Notes":"string","ReceivedDateTime":"2000-01-01T00:00:00.000Z","StartDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="GiftAidDeclarationsUpdate-csv" data-bs-parent="#GiftAidDeclarationsUpdate-parent">
+```json
+ConfirmDateTime,Constituent.Id,ContactMethod.Id,CreateLocation,CreatedBy,CreatedDateTime,DocumentStatus.Id,EligibleIndicator,EndDateTime,GiftAidDeclarationID,GiftAidType.Id,Id,IneligibleReason.Id,Notes,ReceivedDateTime,StartDateTime,UpdatedBy,UpdatedDateTime
+"""2000-01-01T00:00:00.000Z""",123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,true,"""2000-01-01T00:00:00.000Z""","""string""",123,123,123,"""string""","""2000-01-01T00:00:00.000Z""","""2000-01-01T00:00:00.000Z""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## GiftAidDocumentStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#giftaiddocumentstatuses) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaiddocumentstatuses) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## GiftAidDocumentStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaiddocumentstatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#giftaiddocumentstatuses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing gift aid document status.  
 ##### Usage:  
 ```shell
 tq put GiftAidDocumentStatuses
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidDocumentStatusesUpdate-default" aria-expanded="true" aria-controls="GiftAidDocumentStatusesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidDocumentStatusesUpdate-flat" aria-expanded="false" aria-controls="GiftAidDocumentStatusesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidDocumentStatusesUpdate-csv" aria-expanded="false" aria-controls="GiftAidDocumentStatusesUpdate-csv">
+csv
+</button>
+<div id="GiftAidDocumentStatusesUpdate-parent">
+<div class="collapse show" id="GiftAidDocumentStatusesUpdate-default" data-bs-parent="#GiftAidDocumentStatusesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="GiftAidDocumentStatusesUpdate-flat"  data-bs-parent="#GiftAidDocumentStatusesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="GiftAidDocumentStatusesUpdate-csv" data-bs-parent="#GiftAidDocumentStatusesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## GiftAidIneligibleReasons [![get](https://img.shields.io/badge/get-blue)](get.md#giftaidineligiblereasons) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidineligiblereasons) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## GiftAidIneligibleReasons <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaidineligiblereasons)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#giftaidineligiblereasons)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing gift aid ineligible reason.  
 ##### Usage:  
 ```shell
 tq put GiftAidIneligibleReasons
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidIneligibleReasonsUpdate-default" aria-expanded="true" aria-controls="GiftAidIneligibleReasonsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidIneligibleReasonsUpdate-flat" aria-expanded="false" aria-controls="GiftAidIneligibleReasonsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidIneligibleReasonsUpdate-csv" aria-expanded="false" aria-controls="GiftAidIneligibleReasonsUpdate-csv">
+csv
+</button>
+<div id="GiftAidIneligibleReasonsUpdate-parent">
+<div class="collapse show" id="GiftAidIneligibleReasonsUpdate-default" data-bs-parent="#GiftAidIneligibleReasonsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="GiftAidIneligibleReasonsUpdate-flat"  data-bs-parent="#GiftAidIneligibleReasonsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="GiftAidIneligibleReasonsUpdate-csv" data-bs-parent="#GiftAidIneligibleReasonsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## GiftAidRates [![get](https://img.shields.io/badge/get-blue)](get.md#giftaidrates) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidrates) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## GiftAidRates <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaidrates)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#giftaidrates)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing gift aid rate.  
 ##### Usage:  
 ```shell
 tq put GiftAidRates
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidRatesUpdate-default" aria-expanded="true" aria-controls="GiftAidRatesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidRatesUpdate-flat" aria-expanded="false" aria-controls="GiftAidRatesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidRatesUpdate-csv" aria-expanded="false" aria-controls="GiftAidRatesUpdate-csv">
+csv
+</button>
+<div id="GiftAidRatesUpdate-parent">
+<div class="collapse show" id="GiftAidRatesUpdate-default" data-bs-parent="#GiftAidRatesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Rate":123.456, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="GiftAidRatesUpdate-flat"  data-bs-parent="#GiftAidRatesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EndDateTime":"2000-01-01T00:00:00.000Z","ID":"string","Id":123,"Rate":123.456,"StartDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="GiftAidRatesUpdate-csv" data-bs-parent="#GiftAidRatesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,EndDateTime,ID,Id,Rate,StartDateTime,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""2000-01-01T00:00:00.000Z""","""string""",123,123.456,"""2000-01-01T00:00:00.000Z""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## GiftAidStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#giftaidstatuses) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidstatuses) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## GiftAidStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaidstatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#giftaidstatuses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing gift aid status.  
 ##### Usage:  
 ```shell
 tq put GiftAidStatuses
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidStatusesUpdate-default" aria-expanded="true" aria-controls="GiftAidStatusesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidStatusesUpdate-flat" aria-expanded="false" aria-controls="GiftAidStatusesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidStatusesUpdate-csv" aria-expanded="false" aria-controls="GiftAidStatusesUpdate-csv">
+csv
+</button>
+<div id="GiftAidStatusesUpdate-parent">
+<div class="collapse show" id="GiftAidStatusesUpdate-default" data-bs-parent="#GiftAidStatusesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="GiftAidStatusesUpdate-flat"  data-bs-parent="#GiftAidStatusesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="GiftAidStatusesUpdate-csv" data-bs-parent="#GiftAidStatusesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## GiftAidTypes [![get](https://img.shields.io/badge/get-blue)](get.md#giftaidtypes) [![post](https://img.shields.io/badge/post-blue)](post.md#giftaidtypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## GiftAidTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#giftaidtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#giftaidtypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing gift aid type.  
 ##### Usage:  
 ```shell
 tq put GiftAidTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidTypesUpdate-default" aria-expanded="true" aria-controls="GiftAidTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidTypesUpdate-flat" aria-expanded="false" aria-controls="GiftAidTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#GiftAidTypesUpdate-csv" aria-expanded="false" aria-controls="GiftAidTypesUpdate-csv">
+csv
+</button>
+<div id="GiftAidTypesUpdate-parent">
+<div class="collapse show" id="GiftAidTypesUpdate-default" data-bs-parent="#GiftAidTypesUpdate-parent"> 
 ```json
 {"CharityClaimsRef":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="GiftAidTypesUpdate-flat"  data-bs-parent="#GiftAidTypesUpdate-parent">
+```json
+[{"CharityClaimsRef":"string","ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="GiftAidTypesUpdate-csv" data-bs-parent="#GiftAidTypesUpdate-parent">
+```json
+CharityClaimsRef,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
+
 
 
 	
 # H
-## HoldCodeCategories [![get](https://img.shields.io/badge/get-blue)](get.md#holdcodecategories) [![post](https://img.shields.io/badge/post-blue)](post.md#holdcodecategories) ![put](https://img.shields.io/badge/put-gray)   
+## HoldCodeCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#holdcodecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#holdcodecategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Hold Code Category.  
 ##### Usage:  
 ```shell
 tq put HoldCodeCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodeCategoriesUpdate-default" aria-expanded="true" aria-controls="HoldCodeCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodeCategoriesUpdate-flat" aria-expanded="false" aria-controls="HoldCodeCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodeCategoriesUpdate-csv" aria-expanded="false" aria-controls="HoldCodeCategoriesUpdate-csv">
+csv
+</button>
+<div id="HoldCodeCategoriesUpdate-parent">
+<div class="collapse show" id="HoldCodeCategoriesUpdate-default" data-bs-parent="#HoldCodeCategoriesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="HoldCodeCategoriesUpdate-flat"  data-bs-parent="#HoldCodeCategoriesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="HoldCodeCategoriesUpdate-csv" data-bs-parent="#HoldCodeCategoriesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## HoldCodeUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#holdcodeusergroups) [![post](https://img.shields.io/badge/post-blue)](post.md#holdcodeusergroups) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## HoldCodeUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#holdcodeusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#holdcodeusergroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing hold code/user group mapping.  
 ##### Usage:  
 ```shell
 tq put HoldCodeUserGroups
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodeUserGroupsUpdate-default" aria-expanded="true" aria-controls="HoldCodeUserGroupsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodeUserGroupsUpdate-flat" aria-expanded="false" aria-controls="HoldCodeUserGroupsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodeUserGroupsUpdate-csv" aria-expanded="false" aria-controls="HoldCodeUserGroupsUpdate-csv">
+csv
+</button>
+<div id="HoldCodeUserGroupsUpdate-parent">
+<div class="collapse show" id="HoldCodeUserGroupsUpdate-default" data-bs-parent="#HoldCodeUserGroupsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HoldCode":{"Id":123}, "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "HoldCodeUserGroupID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="HoldCodeUserGroupsUpdate-flat"  data-bs-parent="#HoldCodeUserGroupsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","HoldCode.Id":123,"HoldCodeUserGroupID":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string"}]
+```  
+</div>
+<div class="collapse" id="HoldCodeUserGroupsUpdate-csv" data-bs-parent="#HoldCodeUserGroupsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,HoldCode.Id,HoldCodeUserGroupID,Id,UpdatedBy,UpdatedDateTime,UserGroupId
+"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,"""string""",123,"""string""","""2000-01-01T00:00:00.000Z""","""string"""
 
-## HoldCodes [![get](https://img.shields.io/badge/get-blue)](get.md#holdcodes) [![post](https://img.shields.io/badge/post-blue)](post.md#holdcodes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## HoldCodes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#holdcodes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#holdcodes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Hold Code.  
 ##### Usage:  
 ```shell
 tq put HoldCodes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodesUpdate-default" aria-expanded="true" aria-controls="HoldCodesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodesUpdate-flat" aria-expanded="false" aria-controls="HoldCodesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#HoldCodesUpdate-csv" aria-expanded="false" aria-controls="HoldCodesUpdate-csv">
+csv
+</button>
+<div id="HoldCodesUpdate-parent">
+<div class="collapse show" id="HoldCodesUpdate-default" data-bs-parent="#HoldCodesUpdate-parent"> 
 ```json
 {"BlackoutIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Legend":"string", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "HoldCodeID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="HoldCodesUpdate-flat"  data-bs-parent="#HoldCodesUpdate-parent">
+```json
+[{"BlackoutIndicator":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"HoldCodeID":"string","Id":123,"Legend":"string","Type.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="HoldCodesUpdate-csv" data-bs-parent="#HoldCodesUpdate-parent">
+```json
+BlackoutIndicator,CreateLocation,CreatedBy,CreatedDateTime,Description,EditIndicator,HoldCodeID,Id,Legend,Type.Id,UpdatedBy,UpdatedDateTime
+true,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",true,"""string""",123,"""string""",123,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
+
 
 	
 # I
-## InactiveReasons [![get](https://img.shields.io/badge/get-blue)](get.md#inactivereasons) [![post](https://img.shields.io/badge/post-blue)](post.md#inactivereasons) ![put](https://img.shields.io/badge/put-gray)   
+## InactiveReasons <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#inactivereasons)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#inactivereasons)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing inactive reason.  
 ##### Usage:  
 ```shell
 tq put InactiveReasons
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InactiveReasonsUpdate-default" aria-expanded="true" aria-controls="InactiveReasonsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InactiveReasonsUpdate-flat" aria-expanded="false" aria-controls="InactiveReasonsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InactiveReasonsUpdate-csv" aria-expanded="false" aria-controls="InactiveReasonsUpdate-csv">
+csv
+</button>
+<div id="InactiveReasonsUpdate-parent">
+<div class="collapse show" id="InactiveReasonsUpdate-default" data-bs-parent="#InactiveReasonsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="InactiveReasonsUpdate-flat"  data-bs-parent="#InactiveReasonsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="InactiveReasonsUpdate-csv" data-bs-parent="#InactiveReasonsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## IntegrationDefaults [![get](https://img.shields.io/badge/get-blue)](get.md#integrationdefaults) [![post](https://img.shields.io/badge/post-blue)](post.md#integrationdefaults) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## IntegrationDefaults <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#integrationdefaults)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#integrationdefaults)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Integration Default.  
 ##### Usage:  
 ```shell
 tq put IntegrationDefaults
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IntegrationDefaultsUpdate-default" aria-expanded="true" aria-controls="IntegrationDefaultsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IntegrationDefaultsUpdate-flat" aria-expanded="false" aria-controls="IntegrationDefaultsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IntegrationDefaultsUpdate-csv" aria-expanded="false" aria-controls="IntegrationDefaultsUpdate-csv">
+csv
+</button>
+<div id="IntegrationDefaultsUpdate-parent">
+<div class="collapse show" id="IntegrationDefaultsUpdate-default" data-bs-parent="#IntegrationDefaultsUpdate-parent"> 
 ```json
 {"AccessId":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultValue":"string", "Description":"string", "FieldName":"string", "Id":123, "Integration":{"Id":123}, "Organization":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="IntegrationDefaultsUpdate-flat"  data-bs-parent="#IntegrationDefaultsUpdate-parent">
+```json
+[{"AccessId":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultValue":"string","Description":"string","FieldName":"string","ID":"string","Id":123,"Integration.Id":123,"Organization.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="IntegrationDefaultsUpdate-csv" data-bs-parent="#IntegrationDefaultsUpdate-parent">
+```json
+AccessId,CreateLocation,CreatedBy,CreatedDateTime,DefaultValue,Description,FieldName,ID,Id,Integration.Id,Organization.Id,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""","""string""","""string""",123,123,123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Integrations [![get](https://img.shields.io/badge/get-blue)](get.md#integrations) [![post](https://img.shields.io/badge/post-blue)](post.md#integrations) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Integrations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#integrations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#integrations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing action type.  
 ##### Usage:  
 ```shell
 tq put Integrations
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IntegrationsUpdate-default" aria-expanded="true" aria-controls="IntegrationsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IntegrationsUpdate-flat" aria-expanded="false" aria-controls="IntegrationsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IntegrationsUpdate-csv" aria-expanded="false" aria-controls="IntegrationsUpdate-csv">
+csv
+</button>
+<div id="IntegrationsUpdate-parent">
+<div class="collapse show" id="IntegrationsUpdate-default" data-bs-parent="#IntegrationsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="IntegrationsUpdate-flat"  data-bs-parent="#IntegrationsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="IntegrationsUpdate-csv" data-bs-parent="#IntegrationsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## InterestCategories [![get](https://img.shields.io/badge/get-blue)](get.md#interestcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#interestcategories) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## InterestCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#interestcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#interestcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing interest category.  
 ##### Usage:  
 ```shell
 tq put InterestCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestCategoriesUpdate-default" aria-expanded="true" aria-controls="InterestCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestCategoriesUpdate-flat" aria-expanded="false" aria-controls="InterestCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestCategoriesUpdate-csv" aria-expanded="false" aria-controls="InterestCategoriesUpdate-csv">
+csv
+</button>
+<div id="InterestCategoriesUpdate-parent">
+<div class="collapse show" id="InterestCategoriesUpdate-default" data-bs-parent="#InterestCategoriesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="InterestCategoriesUpdate-flat"  data-bs-parent="#InterestCategoriesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="InterestCategoriesUpdate-csv" data-bs-parent="#InterestCategoriesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## InterestTypes [![get](https://img.shields.io/badge/get-blue)](get.md#interesttypes) [![post](https://img.shields.io/badge/post-blue)](post.md#interesttypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## InterestTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#interesttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#interesttypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing interest type.  
 ##### Usage:  
 ```shell
 tq put InterestTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestTypesUpdate-default" aria-expanded="true" aria-controls="InterestTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestTypesUpdate-flat" aria-expanded="false" aria-controls="InterestTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestTypesUpdate-csv" aria-expanded="false" aria-controls="InterestTypesUpdate-csv">
+csv
+</button>
+<div id="InterestTypesUpdate-parent">
+<div class="collapse show" id="InterestTypesUpdate-default" data-bs-parent="#InterestTypesUpdate-parent"> 
 ```json
 {"Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "SearchIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UsedIn":"string", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="InterestTypesUpdate-flat"  data-bs-parent="#InterestTypesUpdate-parent">
+```json
+[{"Category.Id":123,"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"SearchIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UsedIn":"string"}]
+```  
+</div>
+<div class="collapse" id="InterestTypesUpdate-csv" data-bs-parent="#InterestTypesUpdate-parent">
+```json
+Category.Id,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,SearchIndicator,UpdatedBy,UpdatedDateTime,UsedIn
+123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z""","""string"""
 
-## Interests [![get](https://img.shields.io/badge/get-blue)](get.md#interests) [![post](https://img.shields.io/badge/post-blue)](post.md#interests) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Interests <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#interests)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#interests)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an interest. If the interest is not selected and the weight is 0 or null, it will be deleted.
 For bulk interest edits, consider the CRM/Interests/CreateOrUpdate batching resource which allows multiple interests to be created, updated, or removed in a single request.  
 ##### Usage:  
 ```shell
 tq put Interests
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestsUpdate-default" aria-expanded="true" aria-controls="InterestsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestsUpdate-flat" aria-expanded="false" aria-controls="InterestsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InterestsUpdate-csv" aria-expanded="false" aria-controls="InterestsUpdate-csv">
+csv
+</button>
+<div id="InterestsUpdate-parent">
+<div class="collapse show" id="InterestsUpdate-default" data-bs-parent="#InterestsUpdate-parent"> 
 ```json
 {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "InterestType":{"Id":123}, "Selected":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Weight":123, "InterestID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="InterestsUpdate-flat"  data-bs-parent="#InterestsUpdate-parent">
+```json
+[{"Constituent.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"InterestID":"string","InterestType.Id":123,"Selected":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Weight":123}]
+```  
+</div>
+<div class="collapse" id="InterestsUpdate-csv" data-bs-parent="#InterestsUpdate-parent">
+```json
+Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,InterestID,InterestType.Id,Selected,UpdatedBy,UpdatedDateTime,Weight
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,123,"""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z""",123
 
-## Internal [![get](https://img.shields.io/badge/get-blue)](get.md#internal) [![post](https://img.shields.io/badge/post-blue)](post.md#internal) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Internal <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#internal)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#internal)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an address and phones. If the entire information about a phone is added newly then create a new phone. If the phone number of a phone is not given then delete that phone.  
 ##### Usage:  
 ```shell
 tq put Internal
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InternalUpdate-default" aria-expanded="true" aria-controls="InternalUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InternalUpdate-flat" aria-expanded="false" aria-controls="InternalUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InternalUpdate-csv" aria-expanded="false" aria-controls="InternalUpdate-csv">
+csv
+</button>
+<div id="InternalUpdate-parent">
+<div class="collapse show" id="InternalUpdate-default" data-bs-parent="#InternalUpdate-parent"> 
 ```json
 {"AddressType":{"Id":123}, "AffiliatedConstituent":{"Id":123}, "AllowTelemarketing1":true, "AllowTelemarketing2":true, "AllowTelemarketing3":true, "AltSalutationType":{"Id":123}, "City":"string", "Constituent":{"Id":123}, "Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator1":"string", "DayEveningIndicator2":"string", "DayEveningIndicator3":"string", "DeliveryPoint":"string", "EditIndicator":true, "EditIndicator1":true, "EditIndicator2":true, "EditIndicator3":true, "EndDate":"2000-01-01T00:00:00.000Z", "GeoArea":123, "Id":123, "Inactive":true, "Label":true, "Months":"string", "NcoaAction":123, "NcoaSession":123, "PhoneId1":123, "PhoneId2":123, "PhoneId3":123, "PhoneNumber1":"string", "PhoneNumber1Formatted":"string", "PhoneNumber2":"string", "PhoneNumber2Formatted":"string", "PhoneNumber3":"string", "PhoneNumber3Formatted":"string", "PhoneSearch1":"string", "PhoneSearch2":"string", "PhoneSearch3":"string", "PostalCode":"string", "PostalCodeFormatted":"string", "PrimaryIndicator":true, "StartDate":"2000-01-01T00:00:00.000Z", "State":{"Id":123}, "Street1":"string", "Street2":"string", "Street3":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UpdatedDateTime1":"2000-01-01T00:00:00.000Z", "UpdatedDateTime2":"2000-01-01T00:00:00.000Z", "UpdatedDateTime3":"2000-01-01T00:00:00.000Z", "AddressID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="InternalUpdate-flat"  data-bs-parent="#InternalUpdate-parent">
+```json
+[{"AddressID":"string","AddressType.Id":123,"AffiliatedConstituent.Id":123,"AllowTelemarketing1":true,"AllowTelemarketing2":true,"AllowTelemarketing3":true,"AltSalutationType.Id":123,"City":"string","Constituent.Id":123,"Country.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DayEveningIndicator1":"string","DayEveningIndicator2":"string","DayEveningIndicator3":"string","DeliveryPoint":"string","EditIndicator":true,"EditIndicator1":true,"EditIndicator2":true,"EditIndicator3":true,"EndDate":"2000-01-01T00:00:00.000Z","GeoArea":123,"Id":123,"Inactive":true,"Label":true,"Months":"string","NcoaAction":123,"NcoaSession":123,"PhoneId1":123,"PhoneId2":123,"PhoneId3":123,"PhoneNumber1":"string","PhoneNumber1Formatted":"string","PhoneNumber2":"string","PhoneNumber2Formatted":"string","PhoneNumber3":"string","PhoneNumber3Formatted":"string","PhoneSearch1":"string","PhoneSearch2":"string","PhoneSearch3":"string","PostalCode":"string","PostalCodeFormatted":"string","PrimaryIndicator":true,"StartDate":"2000-01-01T00:00:00.000Z","State.Id":123,"Street1":"string","Street2":"string","Street3":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UpdatedDateTime1":"2000-01-01T00:00:00.000Z","UpdatedDateTime2":"2000-01-01T00:00:00.000Z","UpdatedDateTime3":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="InternalUpdate-csv" data-bs-parent="#InternalUpdate-parent">
+```json
+AddressID,AddressType.Id,AffiliatedConstituent.Id,AllowTelemarketing1,AllowTelemarketing2,AllowTelemarketing3,AltSalutationType.Id,City,Constituent.Id,Country.Id,CreateLocation,CreatedBy,CreatedDateTime,DayEveningIndicator1,DayEveningIndicator2,DayEveningIndicator3,DeliveryPoint,EditIndicator,EditIndicator1,EditIndicator2,EditIndicator3,EndDate,GeoArea,Id,Inactive,Label,Months,NcoaAction,NcoaSession,PhoneId1,PhoneId2,PhoneId3,PhoneNumber1,PhoneNumber1Formatted,PhoneNumber2,PhoneNumber2Formatted,PhoneNumber3,PhoneNumber3Formatted,PhoneSearch1,PhoneSearch2,PhoneSearch3,PostalCode,PostalCodeFormatted,PrimaryIndicator,StartDate,State.Id,Street1,Street2,Street3,UpdatedBy,UpdatedDateTime,UpdatedDateTime1,UpdatedDateTime2,UpdatedDateTime3
+"""string""",123,123,true,true,true,123,"""string""",123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""","""string""","""string""",true,true,true,true,"""2000-01-01T00:00:00.000Z""",123,123,true,true,"""string""",123,123,123,123,123,"""string""","""string""","""string""","""string""","""string""","""string""","""string""","""string""","""string""","""string""","""string""",true,"""2000-01-01T00:00:00.000Z""",123,"""string""","""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""2000-01-01T00:00:00.000Z""","""2000-01-01T00:00:00.000Z""","""2000-01-01T00:00:00.000Z"""
 
-## InventoryContactPermissionTypes [![get](https://img.shields.io/badge/get-blue)](get.md#inventorycontactpermissiontypes) [![post](https://img.shields.io/badge/post-blue)](post.md#inventorycontactpermissiontypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## InventoryContactPermissionTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#inventorycontactpermissiontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#inventorycontactpermissiontypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Updated an existing inventoryContactPermissionType.  
 ##### Usage:  
 ```shell
 tq put InventoryContactPermissionTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InventoryContactPermissionTypesUpdate-default" aria-expanded="true" aria-controls="InventoryContactPermissionTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InventoryContactPermissionTypesUpdate-flat" aria-expanded="false" aria-controls="InventoryContactPermissionTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InventoryContactPermissionTypesUpdate-csv" aria-expanded="false" aria-controls="InventoryContactPermissionTypesUpdate-csv">
+csv
+</button>
+<div id="InventoryContactPermissionTypesUpdate-parent">
+<div class="collapse show" id="InventoryContactPermissionTypesUpdate-default" data-bs-parent="#InventoryContactPermissionTypesUpdate-parent"> 
 ```json
 {"ContactPermissionType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ProductionElementId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "InventoryContactPermissionTypeID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="InventoryContactPermissionTypesUpdate-flat"  data-bs-parent="#InventoryContactPermissionTypesUpdate-parent">
+```json
+[{"ContactPermissionType.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"InventoryContactPermissionTypeID":"string","ProductionElementId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="InventoryContactPermissionTypesUpdate-csv" data-bs-parent="#InventoryContactPermissionTypesUpdate-parent">
+```json
+ContactPermissionType.Id,CreateLocation,CreatedBy,CreatedDateTime,Id,InventoryContactPermissionTypeID,ProductionElementId,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,"""string""",123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## InventoryWebContents [![get](https://img.shields.io/badge/get-blue)](get.md#inventorywebcontents) [![post](https://img.shields.io/badge/post-blue)](post.md#inventorywebcontents) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## InventoryWebContents <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#inventorywebcontents)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#inventorywebcontents)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing inventoryWebContent.  
 ##### Usage:  
 ```shell
 tq put InventoryWebContents
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InventoryWebContentsUpdate-default" aria-expanded="true" aria-controls="InventoryWebContentsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InventoryWebContentsUpdate-flat" aria-expanded="false" aria-controls="InventoryWebContentsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#InventoryWebContentsUpdate-csv" aria-expanded="false" aria-controls="InventoryWebContentsUpdate-csv">
+csv
+</button>
+<div id="InventoryWebContentsUpdate-parent">
+<div class="collapse show" id="InventoryWebContentsUpdate-default" data-bs-parent="#InventoryWebContentsUpdate-parent"> 
 ```json
 {"ContentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ProductionElementId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string", "InventoryWebContentID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="InventoryWebContentsUpdate-flat"  data-bs-parent="#InventoryWebContentsUpdate-parent">
+```json
+[{"ContentType.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"InventoryWebContentID":"string","ProductionElementId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Value":"string"}]
+```  
+</div>
+<div class="collapse" id="InventoryWebContentsUpdate-csv" data-bs-parent="#InventoryWebContentsUpdate-parent">
+```json
+ContentType.Id,CreateLocation,CreatedBy,CreatedDateTime,Id,InventoryWebContentID,ProductionElementId,UpdatedBy,UpdatedDateTime,Value
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,"""string""",123,"""string""","""2000-01-01T00:00:00.000Z""","""string"""
+
+```  
+</div>
+</div>
 
 
-## Issues [![get](https://img.shields.io/badge/get-blue)](get.md#issues) [![post](https://img.shields.io/badge/post-blue)](post.md#issues) ![put](https://img.shields.io/badge/put-gray)   
+
+## Issues <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#issues)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#issues)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an issue for a Constituent  
 ##### Usage:  
 ```shell
 tq put Issues
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IssuesUpdate-default" aria-expanded="true" aria-controls="IssuesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IssuesUpdate-flat" aria-expanded="false" aria-controls="IssuesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#IssuesUpdate-csv" aria-expanded="false" aria-controls="IssuesUpdate-csv">
+csv
+</button>
+<div id="IssuesUpdate-parent">
+<div class="collapse show" id="IssuesUpdate-default" data-bs-parent="#IssuesUpdate-parent"> 
 ```json
 {"ActivityType":{"Id":123}, "Constituent":{"Id":123}, "ContactType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "HasReminder":true, "Id":123, "IssueDate":"2000-01-01T00:00:00.000Z", "Notes":"string", "Origin":{"Id":123}, "PackageId":123, "PerformanceId":123, "ResolvedIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UrgentIndicator":true, "IssueID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="IssuesUpdate-flat"  data-bs-parent="#IssuesUpdate-parent">
+```json
+[{"ActivityType.Id":123,"Constituent.Id":123,"ContactType.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"HasReminder":true,"Id":123,"IssueDate":"2000-01-01T00:00:00.000Z","IssueID":"string","Notes":"string","Origin.Id":123,"PackageId":123,"PerformanceId":123,"ResolvedIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UrgentIndicator":true}]
+```  
+</div>
+<div class="collapse" id="IssuesUpdate-csv" data-bs-parent="#IssuesUpdate-parent">
+```json
+ActivityType.Id,Constituent.Id,ContactType.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,HasReminder,Id,IssueDate,IssueID,Notes,Origin.Id,PackageId,PerformanceId,ResolvedIndicator,UpdatedBy,UpdatedDateTime,UrgentIndicator
+123,123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,true,123,"""2000-01-01T00:00:00.000Z""","""string""","""string""",123,123,123,true,"""string""","""2000-01-01T00:00:00.000Z""",true
+
+```  
+</div>
+</div>
+
 
 	
 # K
-## KeywordCategories [![get](https://img.shields.io/badge/get-blue)](get.md#keywordcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#keywordcategories) ![put](https://img.shields.io/badge/put-gray)   
+## KeywordCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#keywordcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#keywordcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing keyword category.  
 ##### Usage:  
 ```shell
 tq put KeywordCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#KeywordCategoriesUpdate-default" aria-expanded="true" aria-controls="KeywordCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#KeywordCategoriesUpdate-flat" aria-expanded="false" aria-controls="KeywordCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#KeywordCategoriesUpdate-csv" aria-expanded="false" aria-controls="KeywordCategoriesUpdate-csv">
+csv
+</button>
+<div id="KeywordCategoriesUpdate-parent">
+<div class="collapse show" id="KeywordCategoriesUpdate-default" data-bs-parent="#KeywordCategoriesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="KeywordCategoriesUpdate-flat"  data-bs-parent="#KeywordCategoriesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="KeywordCategoriesUpdate-csv" data-bs-parent="#KeywordCategoriesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Keywords [![get](https://img.shields.io/badge/get-blue)](get.md#keywords) [![post](https://img.shields.io/badge/post-blue)](post.md#keywords) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Keywords <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#keywords)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#keywords)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing keyword.  
 ##### Usage:  
 ```shell
 tq put Keywords
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#KeywordsUpdate-default" aria-expanded="true" aria-controls="KeywordsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#KeywordsUpdate-flat" aria-expanded="false" aria-controls="KeywordsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#KeywordsUpdate-csv" aria-expanded="false" aria-controls="KeywordsUpdate-csv">
+csv
+</button>
+<div id="KeywordsUpdate-parent">
+<div class="collapse show" id="KeywordsUpdate-default" data-bs-parent="#KeywordsUpdate-parent"> 
 ```json
 {"Category":{"Id":123}, "ConstituentType":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDefaultValue":"string", "CustomId":123, "CustomLimit":123, "CustomRequired":true, "DataType":"string", "Description":"string", "DetailColumn":"string", "DetailTable":"string", "EditIndicator":true, "EditMask":"string", "ExtendedDescription":"string", "FrequentUpdateDate":"2000-01-01T00:00:00.000Z", "HelpText":"string", "Id":123, "KeyColumn":"string", "KeywordUse":"string", "MultipleValue":true, "ParentKeyColumn":"string", "ParentTable":"string", "PrimaryGroupDefault":"string", "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "SortOrder":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseForSearch":true, "ValuesCodedIndicator":true, "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="KeywordsUpdate-flat"  data-bs-parent="#KeywordsUpdate-parent">
+```json
+[{"Category.Id":123,"ConstituentType":123,"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CustomDefaultValue":"string","CustomId":123,"CustomLimit":123,"CustomRequired":true,"DataType":"string","Description":"string","DetailColumn":"string","DetailTable":"string","EditIndicator":true,"EditMask":"string","ExtendedDescription":"string","FrequentUpdateDate":"2000-01-01T00:00:00.000Z","HelpText":"string","ID":"string","Id":123,"KeyColumn":"string","KeywordUse":"string","MultipleValue":true,"ParentKeyColumn":"string","ParentTable":"string","PrimaryGroupDefault":"string","ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","SortOrder":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseForSearch":true,"ValuesCodedIndicator":true}]
+```  
+</div>
+<div class="collapse" id="KeywordsUpdate-csv" data-bs-parent="#KeywordsUpdate-parent">
+```json
+Category.Id,ConstituentType,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,CustomDefaultValue,CustomId,CustomLimit,CustomRequired,DataType,Description,DetailColumn,DetailTable,EditIndicator,EditMask,ExtendedDescription,FrequentUpdateDate,HelpText,ID,Id,KeyColumn,KeywordUse,MultipleValue,ParentKeyColumn,ParentTable,PrimaryGroupDefault,ReferenceDescriptionColumn,ReferenceIdColumn,ReferenceSort,ReferenceTable,ReferenceWhere,SortOrder,UpdatedBy,UpdatedDateTime,UseForSearch,ValuesCodedIndicator
+123,123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,123,true,"""string""","""string""","""string""","""string""",true,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,"""string""","""string""",true,"""string""","""string""","""string""","""string""","""string""","""string""","""string""","""string""",123,"""string""","""2000-01-01T00:00:00.000Z""",true,true
+
+```  
+</div>
+</div>
+
 
 	
 # L
-## Languages [![get](https://img.shields.io/badge/get-blue)](get.md#languages) [![post](https://img.shields.io/badge/post-blue)](post.md#languages) ![put](https://img.shields.io/badge/put-gray)   
+## Languages <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#languages)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#languages)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing language.  
 ##### Usage:  
 ```shell
 tq put Languages
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#LanguagesUpdate-default" aria-expanded="true" aria-controls="LanguagesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#LanguagesUpdate-flat" aria-expanded="false" aria-controls="LanguagesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#LanguagesUpdate-csv" aria-expanded="false" aria-controls="LanguagesUpdate-csv">
+csv
+</button>
+<div id="LanguagesUpdate-parent">
+<div class="collapse show" id="LanguagesUpdate-default" data-bs-parent="#LanguagesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="LanguagesUpdate-flat"  data-bs-parent="#LanguagesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="LanguagesUpdate-csv" data-bs-parent="#LanguagesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ListCategories [![get](https://img.shields.io/badge/get-blue)](get.md#listcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#listcategories) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ListCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#listcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#listcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing list category.  
 ##### Usage:  
 ```shell
 tq put ListCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListCategoriesUpdate-default" aria-expanded="true" aria-controls="ListCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListCategoriesUpdate-flat" aria-expanded="false" aria-controls="ListCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListCategoriesUpdate-csv" aria-expanded="false" aria-controls="ListCategoriesUpdate-csv">
+csv
+</button>
+<div id="ListCategoriesUpdate-parent">
+<div class="collapse show" id="ListCategoriesUpdate-default" data-bs-parent="#ListCategoriesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ListCategoriesUpdate-flat"  data-bs-parent="#ListCategoriesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ListCategoriesUpdate-csv" data-bs-parent="#ListCategoriesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Lists [![get](https://img.shields.io/badge/get-blue)](get.md#lists) [![post](https://img.shields.io/badge/post-blue)](post.md#lists) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Lists <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#lists)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#lists)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing List.  
 ##### Usage:  
 ```shell
 tq put Lists
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsUpdate-default" aria-expanded="true" aria-controls="ListsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsUpdate-flat" aria-expanded="false" aria-controls="ListsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsUpdate-csv" aria-expanded="false" aria-controls="ListsUpdate-csv">
+csv
+</button>
+<div id="ListsUpdate-parent">
+<div class="collapse show" id="ListsUpdate-default" data-bs-parent="#ListsUpdate-parent"> 
 ```json
 {"AffiliatedIndividuals":123, "AnalyticsIndicator":true, "Category":{"Id":123}, "ConstituentCount":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Criteria":[{"Id":123}, ...], "Description":"string", "EditIndicator":true, "EditMode":"string", "Generate":true, "Households":123, "Id":123, "Inactive":true, "Individuals":123, "IsDynamic":true, "LastUsedDateTime":"2000-01-01T00:00:00.000Z", "ListSql":"string", "Organizations":123, "OutputSet":{"Id":123}, "RelationshipOptions":{"AffiliatedGroupInactive":true, "AffiliatedGroupTypes":"string", "AffiliatedGroupUseDates":true, "AffiliatedIndividualInactive":true, "AffiliatedIndividualTypes":"string", "AffiliatedIndividualUseDates":true, "AssociatedInactive":true, "AssociatedTypes":"string", "AssociatedUseDates":true, "CreateLocation":"string", "CreatedBy":"string", "KeepOrReplaceOriginal":"string", "ReplaceIndividuals":"string", "UpdatedBy":"string"}, "TMSIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ListID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ListsUpdate-flat"  data-bs-parent="#ListsUpdate-parent">
+```json
+
+```  
+</div>
+<div class="collapse" id="ListsUpdate-csv" data-bs-parent="#ListsUpdate-parent">
+```json
+
+```  
+</div>
+</div>
+
 ### Flags:
  * *--Contents*  
    Import constituent ids into an existing list.
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsUpdateContents-default" aria-expanded="true" aria-controls="ListsUpdateContents-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsUpdateContents-flat" aria-expanded="false" aria-controls="ListsUpdateContents-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ListsUpdateContents-csv" aria-expanded="false" aria-controls="ListsUpdateContents-csv">
+csv
+</button>
+<div id="ListsUpdateContents-parent">
+<div class="collapse show" id="ListsUpdateContents-default" data-bs-parent="#ListsUpdateContents-parent"> 
 ```json
 {"ListID":"string", "ConstituentIds":[0, ...]}
-```
+```  
+</div>
+<div class="collapse" id="ListsUpdateContents-flat"  data-bs-parent="#ListsUpdateContents-parent">
+```json
 
-## LoginTypes [![get](https://img.shields.io/badge/get-blue)](get.md#logintypes) [![post](https://img.shields.io/badge/post-blue)](post.md#logintypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+<div class="collapse" id="ListsUpdateContents-csv" data-bs-parent="#ListsUpdateContents-parent">
+```json
+
+```  
+</div>
+</div>
+
+
+## LoginTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#logintypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#logintypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing login type.  
 ##### Usage:  
 ```shell
 tq put LoginTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#LoginTypesUpdate-default" aria-expanded="true" aria-controls="LoginTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#LoginTypesUpdate-flat" aria-expanded="false" aria-controls="LoginTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#LoginTypesUpdate-csv" aria-expanded="false" aria-controls="LoginTypesUpdate-csv">
+csv
+</button>
+<div id="LoginTypesUpdate-parent">
+<div class="collapse show" id="LoginTypesUpdate-default" data-bs-parent="#LoginTypesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="LoginTypesUpdate-flat"  data-bs-parent="#LoginTypesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="LoginTypesUpdate-csv" data-bs-parent="#LoginTypesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
+
 
 	
 # M
-## MachineSettings [![get](https://img.shields.io/badge/get-blue)](get.md#machinesettings) [![post](https://img.shields.io/badge/post-blue)](post.md#machinesettings) ![put](https://img.shields.io/badge/put-gray)   
+## MachineSettings <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#machinesettings)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#machinesettings)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Machine Setting.  
 ##### Usage:  
 ```shell
 tq put MachineSettings
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MachineSettingsUpdate-default" aria-expanded="true" aria-controls="MachineSettingsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MachineSettingsUpdate-flat" aria-expanded="false" aria-controls="MachineSettingsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MachineSettingsUpdate-csv" aria-expanded="false" aria-controls="MachineSettingsUpdate-csv">
+csv
+</button>
+<div id="MachineSettingsUpdate-parent">
+<div class="collapse show" id="MachineSettingsUpdate-default" data-bs-parent="#MachineSettingsUpdate-parent"> 
 ```json
 {"CardReaderHost":"string", "CardReaderPort":123, "CardReaderType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "MerchantId":"string", "PXStation":"string", "PXUserKey":"string", "PXUserName":"string", "TessituraPaymentsPosDevice":"string", "TessituraPaymentsPosDeviceModel":"string", "TnspaySoftwareTerminal":true, "TriPOSCloudConfiguration":{"Id":123}, "TriposLane":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkstationName":"string", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="MachineSettingsUpdate-flat"  data-bs-parent="#MachineSettingsUpdate-parent">
+```json
+[{"CardReaderHost":"string","CardReaderPort":123,"CardReaderType.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string","Id":123,"Inactive":true,"MerchantId":"string","PXStation":"string","PXUserKey":"string","PXUserName":"string","TessituraPaymentsPosDevice":"string","TessituraPaymentsPosDeviceModel":"string","TnspaySoftwareTerminal":true,"TriPOSCloudConfiguration.Id":123,"TriposLane":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","WorkstationName":"string"}]
+```  
+</div>
+<div class="collapse" id="MachineSettingsUpdate-csv" data-bs-parent="#MachineSettingsUpdate-parent">
+```json
+CardReaderHost,CardReaderPort,CardReaderType.Id,CreateLocation,CreatedBy,CreatedDateTime,ID,Id,Inactive,MerchantId,PXStation,PXUserKey,PXUserName,TessituraPaymentsPosDevice,TessituraPaymentsPosDeviceModel,TnspaySoftwareTerminal,TriPOSCloudConfiguration.Id,TriposLane,UpdatedBy,UpdatedDateTime,WorkstationName
+"""string""",123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,true,"""string""","""string""","""string""","""string""","""string""","""string""",true,123,123,"""string""","""2000-01-01T00:00:00.000Z""","""string"""
 
-## MailIndicators [![get](https://img.shields.io/badge/get-blue)](get.md#mailindicators) [![post](https://img.shields.io/badge/post-blue)](post.md#mailindicators) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## MailIndicators <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#mailindicators)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#mailindicators)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing mail indicator.  
 ##### Usage:  
 ```shell
 tq put MailIndicators
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MailIndicatorsUpdate-default" aria-expanded="true" aria-controls="MailIndicatorsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MailIndicatorsUpdate-flat" aria-expanded="false" aria-controls="MailIndicatorsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MailIndicatorsUpdate-csv" aria-expanded="false" aria-controls="MailIndicatorsUpdate-csv">
+csv
+</button>
+<div id="MailIndicatorsUpdate-parent">
+<div class="collapse show" id="MailIndicatorsUpdate-default" data-bs-parent="#MailIndicatorsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="MailIndicatorsUpdate-flat"  data-bs-parent="#MailIndicatorsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="MailIndicatorsUpdate-csv" data-bs-parent="#MailIndicatorsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## MediaTypes [![get](https://img.shields.io/badge/get-blue)](get.md#mediatypes) [![post](https://img.shields.io/badge/post-blue)](post.md#mediatypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## MediaTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#mediatypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#mediatypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing media type.  
 ##### Usage:  
 ```shell
 tq put MediaTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MediaTypesUpdate-default" aria-expanded="true" aria-controls="MediaTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MediaTypesUpdate-flat" aria-expanded="false" aria-controls="MediaTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MediaTypesUpdate-csv" aria-expanded="false" aria-controls="MediaTypesUpdate-csv">
+csv
+</button>
+<div id="MediaTypesUpdate-parent">
+<div class="collapse show" id="MediaTypesUpdate-default" data-bs-parent="#MediaTypesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "GenerateCost":123.456, "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="MediaTypesUpdate-flat"  data-bs-parent="#MediaTypesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","GenerateCost":123.456,"ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="MediaTypesUpdate-csv" data-bs-parent="#MediaTypesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,GenerateCost,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123.456,"""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## MembershipLevelCategories [![get](https://img.shields.io/badge/get-blue)](get.md#membershiplevelcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#membershiplevelcategories) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## MembershipLevelCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#membershiplevelcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#membershiplevelcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing membership level category.  
 ##### Usage:  
 ```shell
 tq put MembershipLevelCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MembershipLevelCategoriesUpdate-default" aria-expanded="true" aria-controls="MembershipLevelCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MembershipLevelCategoriesUpdate-flat" aria-expanded="false" aria-controls="MembershipLevelCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#MembershipLevelCategoriesUpdate-csv" aria-expanded="false" aria-controls="MembershipLevelCategoriesUpdate-csv">
+csv
+</button>
+<div id="MembershipLevelCategoriesUpdate-parent">
+<div class="collapse show" id="MembershipLevelCategoriesUpdate-default" data-bs-parent="#MembershipLevelCategoriesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="MembershipLevelCategoriesUpdate-flat"  data-bs-parent="#MembershipLevelCategoriesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="MembershipLevelCategoriesUpdate-csv" data-bs-parent="#MembershipLevelCategoriesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
 
@@ -1404,122 +4810,394 @@ tq put MembershipLevelCategories
 
 
 
-## ModeOfSaleCategories [![get](https://img.shields.io/badge/get-blue)](get.md#modeofsalecategories) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsalecategories) ![put](https://img.shields.io/badge/put-gray)   
+
+## ModeOfSaleCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#modeofsalecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#modeofsalecategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing mode of sale category.  
 ##### Usage:  
 ```shell
 tq put ModeOfSaleCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleCategoriesUpdate-default" aria-expanded="true" aria-controls="ModeOfSaleCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleCategoriesUpdate-flat" aria-expanded="false" aria-controls="ModeOfSaleCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleCategoriesUpdate-csv" aria-expanded="false" aria-controls="ModeOfSaleCategoriesUpdate-csv">
+csv
+</button>
+<div id="ModeOfSaleCategoriesUpdate-parent">
+<div class="collapse show" id="ModeOfSaleCategoriesUpdate-default" data-bs-parent="#ModeOfSaleCategoriesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Sequence":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleCategoryID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ModeOfSaleCategoriesUpdate-flat"  data-bs-parent="#ModeOfSaleCategoriesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","Id":123,"Inactive":true,"ModeOfSaleCategoryID":"string","Sequence":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ModeOfSaleCategoriesUpdate-csv" data-bs-parent="#ModeOfSaleCategoriesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,Id,Inactive,ModeOfSaleCategoryID,Sequence,ShortDescription,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,true,"""string""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## ModeOfSaleOffers [![get](https://img.shields.io/badge/get-blue)](get.md#modeofsaleoffers) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsaleoffers) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ModeOfSaleOffers <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#modeofsaleoffers)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#modeofsaleoffers)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing mode of sale offer.  
 ##### Usage:  
 ```shell
 tq put ModeOfSaleOffers
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleOffersUpdate-default" aria-expanded="true" aria-controls="ModeOfSaleOffersUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleOffersUpdate-flat" aria-expanded="false" aria-controls="ModeOfSaleOffersUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleOffersUpdate-csv" aria-expanded="false" aria-controls="ModeOfSaleOffersUpdate-csv">
+csv
+</button>
+<div id="ModeOfSaleOffersUpdate-parent">
+<div class="collapse show" id="ModeOfSaleOffersUpdate-default" data-bs-parent="#ModeOfSaleOffersUpdate-parent"> 
 ```json
 {"AppealId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "MaxSeats":123, "ModeOfSaleId":123, "OverrideDefaultPriceTypeIndicator":true, "PackageId":123, "PerformanceId":123, "PriceTypeId":123, "Rank":123, "SourceId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "Terms":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleOfferID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ModeOfSaleOffersUpdate-flat"  data-bs-parent="#ModeOfSaleOffersUpdate-parent">
+```json
+[{"AppealId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EndDateTime":"2000-01-01T00:00:00.000Z","Id":123,"MaxSeats":123,"ModeOfSaleId":123,"ModeOfSaleOfferID":"string","OverrideDefaultPriceTypeIndicator":true,"PackageId":123,"PerformanceId":123,"PriceTypeId":123,"Rank":123,"SourceId":123,"StartDateTime":"2000-01-01T00:00:00.000Z","Terms":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ModeOfSaleOffersUpdate-csv" data-bs-parent="#ModeOfSaleOffersUpdate-parent">
+```json
+AppealId,CreateLocation,CreatedBy,CreatedDateTime,EndDateTime,Id,MaxSeats,ModeOfSaleId,ModeOfSaleOfferID,OverrideDefaultPriceTypeIndicator,PackageId,PerformanceId,PriceTypeId,Rank,SourceId,StartDateTime,Terms,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""2000-01-01T00:00:00.000Z""",123,123,123,"""string""",true,123,123,123,123,123,"""2000-01-01T00:00:00.000Z""","""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## ModeOfSalePriceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#modeofsalepricetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsalepricetypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ModeOfSalePriceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#modeofsalepricetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#modeofsalepricetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing mode of sale price type.  
 ##### Usage:  
 ```shell
 tq put ModeOfSalePriceTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSalePriceTypesUpdate-default" aria-expanded="true" aria-controls="ModeOfSalePriceTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSalePriceTypesUpdate-flat" aria-expanded="false" aria-controls="ModeOfSalePriceTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSalePriceTypesUpdate-csv" aria-expanded="false" aria-controls="ModeOfSalePriceTypesUpdate-csv">
+csv
+</button>
+<div id="ModeOfSalePriceTypesUpdate-parent">
+<div class="collapse show" id="ModeOfSalePriceTypesUpdate-default" data-bs-parent="#ModeOfSalePriceTypesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Id":123, "ModeOfSale":{"Id":123}, "PriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSalePriceTypeID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ModeOfSalePriceTypesUpdate-flat"  data-bs-parent="#ModeOfSalePriceTypesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultIndicator":true,"Id":123,"ModeOfSale.Id":123,"ModeOfSalePriceTypeID":"string","PriceType.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ModeOfSalePriceTypesUpdate-csv" data-bs-parent="#ModeOfSalePriceTypesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,DefaultIndicator,Id,ModeOfSale.Id,ModeOfSalePriceTypeID,PriceType.Id,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,123,123,"""string""",123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ModeOfSaleSurveyQuestions [![get](https://img.shields.io/badge/get-blue)](get.md#modeofsalesurveyquestions) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsalesurveyquestions) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ModeOfSaleSurveyQuestions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#modeofsalesurveyquestions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#modeofsalesurveyquestions)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing mode of sale survey question.  
 ##### Usage:  
 ```shell
 tq put ModeOfSaleSurveyQuestions
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleSurveyQuestionsUpdate-default" aria-expanded="true" aria-controls="ModeOfSaleSurveyQuestionsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleSurveyQuestionsUpdate-flat" aria-expanded="false" aria-controls="ModeOfSaleSurveyQuestionsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleSurveyQuestionsUpdate-csv" aria-expanded="false" aria-controls="ModeOfSaleSurveyQuestionsUpdate-csv">
+csv
+</button>
+<div id="ModeOfSaleSurveyQuestionsUpdate-parent">
+<div class="collapse show" id="ModeOfSaleSurveyQuestionsUpdate-default" data-bs-parent="#ModeOfSaleSurveyQuestionsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ModeOfSale":{"Id":123}, "Question":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleSurveyQuestionID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ModeOfSaleSurveyQuestionsUpdate-flat"  data-bs-parent="#ModeOfSaleSurveyQuestionsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"ModeOfSale.Id":123,"ModeOfSaleSurveyQuestionID":"string","Question.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ModeOfSaleSurveyQuestionsUpdate-csv" data-bs-parent="#ModeOfSaleSurveyQuestionsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Id,ModeOfSale.Id,ModeOfSaleSurveyQuestionID,Question.Id,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,123,"""string""",123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ModeOfSaleUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#modeofsaleusergroups) [![post](https://img.shields.io/badge/post-blue)](post.md#modeofsaleusergroups) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ModeOfSaleUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#modeofsaleusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#modeofsaleusergroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing mode of sale/user group mapping.  
 ##### Usage:  
 ```shell
 tq put ModeOfSaleUserGroups
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleUserGroupsUpdate-default" aria-expanded="true" aria-controls="ModeOfSaleUserGroupsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleUserGroupsUpdate-flat" aria-expanded="false" aria-controls="ModeOfSaleUserGroupsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModeOfSaleUserGroupsUpdate-csv" aria-expanded="false" aria-controls="ModeOfSaleUserGroupsUpdate-csv">
+csv
+</button>
+<div id="ModeOfSaleUserGroupsUpdate-parent">
+<div class="collapse show" id="ModeOfSaleUserGroupsUpdate-default" data-bs-parent="#ModeOfSaleUserGroupsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Id":123, "ModeOfSale":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ModeOfSaleUserGroupID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ModeOfSaleUserGroupsUpdate-flat"  data-bs-parent="#ModeOfSaleUserGroupsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultIndicator":true,"Id":123,"ModeOfSale.Id":123,"ModeOfSaleUserGroupID":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string"}]
+```  
+</div>
+<div class="collapse" id="ModeOfSaleUserGroupsUpdate-csv" data-bs-parent="#ModeOfSaleUserGroupsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,DefaultIndicator,Id,ModeOfSale.Id,ModeOfSaleUserGroupID,UpdatedBy,UpdatedDateTime,UserGroupId
+"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string"""
 
-## ModesOfSale [![get](https://img.shields.io/badge/get-blue)](get.md#modesofsale) [![post](https://img.shields.io/badge/post-blue)](post.md#modesofsale) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ModesOfSale <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#modesofsale)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#modesofsale)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing mode of sale.  
 ##### Usage:  
 ```shell
 tq put ModesOfSale
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModesOfSaleUpdate-default" aria-expanded="true" aria-controls="ModesOfSaleUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModesOfSaleUpdate-flat" aria-expanded="false" aria-controls="ModesOfSaleUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ModesOfSaleUpdate-csv" aria-expanded="false" aria-controls="ModesOfSaleUpdate-csv">
+csv
+</button>
+<div id="ModesOfSaleUpdate-parent">
+<div class="collapse show" id="ModesOfSaleUpdate-default" data-bs-parent="#ModesOfSaleUpdate-parent"> 
 ```json
 {"AllowUnseatedPaidInd":true, "Category":{"Id":123}, "CategoryRequired":true, "ClearSourceNoInd":true, "ClearSourceOnReload":true, "ConfirmationMode":true, "ConstLinkRequired":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultAckFormatId":123, "DefaultChannelId":123, "DefaultDeliveryMethodId":123, "DefaultHeaderFormatId":123, "DefaultSalesLayoutId":123, "Description":"string", "EditDate":true, "EditSourceOnReload":true, "GeneralPublicInd":true, "HaboDays":123, "HaboForeign":true, "HoldUntilDate":"2000-01-01T00:00:00.000Z", "HoldUntilDays":123, "HoldUntilMethod":"string", "Id":123, "Inactive":true, "MustBePaidInd":true, "MustBeSeatedInd":true, "MustBeTicketedInd":true, "PricingRuleSetId":123, "SampleForGeneralPublic":123, "SampleForKnownConstituent":123, "SliAutoDeleteInd":true, "StartPkgOrPerf":"string", "SubsSummaryRequired":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ModeOfSaleID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ModesOfSaleUpdate-flat"  data-bs-parent="#ModesOfSaleUpdate-parent">
+```json
+[{"AllowUnseatedPaidInd":true,"Category.Id":123,"CategoryRequired":true,"ClearSourceNoInd":true,"ClearSourceOnReload":true,"ConfirmationMode":true,"ConstLinkRequired":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultAckFormatId":123,"DefaultChannelId":123,"DefaultDeliveryMethodId":123,"DefaultHeaderFormatId":123,"DefaultSalesLayoutId":123,"Description":"string","EditDate":true,"EditSourceOnReload":true,"GeneralPublicInd":true,"HaboDays":123,"HaboForeign":true,"HoldUntilDate":"2000-01-01T00:00:00.000Z","HoldUntilDays":123,"HoldUntilMethod":"string","Id":123,"Inactive":true,"ModeOfSaleID":"string","MustBePaidInd":true,"MustBeSeatedInd":true,"MustBeTicketedInd":true,"PricingRuleSetId":123,"SampleForGeneralPublic":123,"SampleForKnownConstituent":123,"SliAutoDeleteInd":true,"StartPkgOrPerf":"string","SubsSummaryRequired":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ModesOfSaleUpdate-csv" data-bs-parent="#ModesOfSaleUpdate-parent">
+```json
+AllowUnseatedPaidInd,Category.Id,CategoryRequired,ClearSourceNoInd,ClearSourceOnReload,ConfirmationMode,ConstLinkRequired,CreateLocation,CreatedBy,CreatedDateTime,DefaultAckFormatId,DefaultChannelId,DefaultDeliveryMethodId,DefaultHeaderFormatId,DefaultSalesLayoutId,Description,EditDate,EditSourceOnReload,GeneralPublicInd,HaboDays,HaboForeign,HoldUntilDate,HoldUntilDays,HoldUntilMethod,Id,Inactive,ModeOfSaleID,MustBePaidInd,MustBeSeatedInd,MustBeTicketedInd,PricingRuleSetId,SampleForGeneralPublic,SampleForKnownConstituent,SliAutoDeleteInd,StartPkgOrPerf,SubsSummaryRequired,UpdatedBy,UpdatedDateTime
+true,123,true,true,true,true,true,"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,123,123,123,123,"""string""",true,true,true,123,true,"""2000-01-01T00:00:00.000Z""",123,"""string""",123,true,"""string""",true,true,true,123,123,123,true,"""string""",true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
+
 
 	
 # N
-## NScanAccessAreas [![get](https://img.shields.io/badge/get-blue)](get.md#nscanaccessareas) [![post](https://img.shields.io/badge/post-blue)](post.md#nscanaccessareas) ![put](https://img.shields.io/badge/put-gray)   
+## NScanAccessAreas <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#nscanaccessareas)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#nscanaccessareas)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing NScan Access Area.  
 ##### Usage:  
 ```shell
 tq put NScanAccessAreas
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#NScanAccessAreasUpdate-default" aria-expanded="true" aria-controls="NScanAccessAreasUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#NScanAccessAreasUpdate-flat" aria-expanded="false" aria-controls="NScanAccessAreasUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#NScanAccessAreasUpdate-csv" aria-expanded="false" aria-controls="NScanAccessAreasUpdate-csv">
+csv
+</button>
+<div id="NScanAccessAreasUpdate-parent">
+<div class="collapse show" id="NScanAccessAreasUpdate-default" data-bs-parent="#NScanAccessAreasUpdate-parent"> 
 ```json
 {"AreaCode":"string", "ConstituencyIds":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "KeywordId":123, "KeywordValue":"string", "ListId":123, "MaxEntries":123, "MembershipLevelIds":"string", "PerformanceIds":"string", "PriceTypeIds":"string", "PriceZoneIds":"string", "PromptQuantity":true, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="NScanAccessAreasUpdate-flat"  data-bs-parent="#NScanAccessAreasUpdate-parent">
+```json
+[{"AreaCode":"string","ConstituencyIds":"string","ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EndDateTime":"2000-01-01T00:00:00.000Z","ID":"string","Id":123,"Inactive":true,"KeywordId":123,"KeywordValue":"string","ListId":123,"MaxEntries":123,"MembershipLevelIds":"string","PerformanceIds":"string","PriceTypeIds":"string","PriceZoneIds":"string","PromptQuantity":true,"StartDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="NScanAccessAreasUpdate-csv" data-bs-parent="#NScanAccessAreasUpdate-parent">
+```json
+AreaCode,ConstituencyIds,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EndDateTime,ID,Id,Inactive,KeywordId,KeywordValue,ListId,MaxEntries,MembershipLevelIds,PerformanceIds,PriceTypeIds,PriceZoneIds,PromptQuantity,StartDateTime,UpdatedBy,UpdatedDateTime
+"""string""","""string""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,true,123,"""string""",123,123,"""string""","""string""","""string""","""string""",true,"""2000-01-01T00:00:00.000Z""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## NameStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#namestatuses) [![post](https://img.shields.io/badge/post-blue)](post.md#namestatuses) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## NameStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#namestatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#namestatuses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing name status.  
 ##### Usage:  
 ```shell
 tq put NameStatuses
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#NameStatusesUpdate-default" aria-expanded="true" aria-controls="NameStatusesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#NameStatusesUpdate-flat" aria-expanded="false" aria-controls="NameStatusesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#NameStatusesUpdate-csv" aria-expanded="false" aria-controls="NameStatusesUpdate-csv">
+csv
+</button>
+<div id="NameStatusesUpdate-parent">
+<div class="collapse show" id="NameStatusesUpdate-default" data-bs-parent="#NameStatusesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="NameStatusesUpdate-flat"  data-bs-parent="#NameStatusesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="NameStatusesUpdate-csv" data-bs-parent="#NameStatusesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
+
 
 	
 # O
-## ObjectPermissions [![get](https://img.shields.io/badge/get-blue)](get.md#objectpermissions) [![post](https://img.shields.io/badge/post-blue)](post.md#objectpermissions) ![put](https://img.shields.io/badge/put-gray)   
+## ObjectPermissions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#objectpermissions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#objectpermissions)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing object permission.  
 ##### Usage:  
 ```shell
 tq put ObjectPermissions
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ObjectPermissionsUpdate-default" aria-expanded="true" aria-controls="ObjectPermissionsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ObjectPermissionsUpdate-flat" aria-expanded="false" aria-controls="ObjectPermissionsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ObjectPermissionsUpdate-csv" aria-expanded="false" aria-controls="ObjectPermissionsUpdate-csv">
+csv
+</button>
+<div id="ObjectPermissionsUpdate-parent">
+<div class="collapse show" id="ObjectPermissionsUpdate-default" data-bs-parent="#ObjectPermissionsUpdate-parent"> 
 ```json
 {"ApplicationObject":{"Id":123}, "CanCreate":"string", "CanDelete":"string", "CanEdit":"string", "CanView":"string", "Constituency":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroup":{"Id":"string"}, "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ObjectPermissionsUpdate-flat"  data-bs-parent="#ObjectPermissionsUpdate-parent">
+```json
+[{"ApplicationObject.Id":123,"CanCreate":"string","CanDelete":"string","CanEdit":"string","CanView":"string","Constituency.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroup.Id":"string"}]
+```  
+</div>
+<div class="collapse" id="ObjectPermissionsUpdate-csv" data-bs-parent="#ObjectPermissionsUpdate-parent">
+```json
+ApplicationObject.Id,CanCreate,CanDelete,CanEdit,CanView,Constituency.Id,CreateLocation,CreatedBy,CreatedDateTime,ID,Id,UpdatedBy,UpdatedDateTime,UserGroup.Id
+123,"""string""","""string""","""string""","""string""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,"""string""","""2000-01-01T00:00:00.000Z""","""string"""
+
+```  
+</div>
+</div>
 
 
-## OrderCategories [![get](https://img.shields.io/badge/get-blue)](get.md#ordercategories) [![post](https://img.shields.io/badge/post-blue)](post.md#ordercategories) ![put](https://img.shields.io/badge/put-gray)   
+
+## OrderCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#ordercategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#ordercategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing order category.  
 ##### Usage:  
 ```shell
 tq put OrderCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrderCategoriesUpdate-default" aria-expanded="true" aria-controls="OrderCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrderCategoriesUpdate-flat" aria-expanded="false" aria-controls="OrderCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrderCategoriesUpdate-csv" aria-expanded="false" aria-controls="OrderCategoriesUpdate-csv">
+csv
+</button>
+<div id="OrderCategoriesUpdate-parent">
+<div class="collapse show" id="OrderCategoriesUpdate-default" data-bs-parent="#OrderCategoriesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="OrderCategoriesUpdate-flat"  data-bs-parent="#OrderCategoriesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="OrderCategoriesUpdate-csv" data-bs-parent="#OrderCategoriesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Orders [![get](https://img.shields.io/badge/get-blue)](get.md#orders) [![post](https://img.shields.io/badge/post-blue)](post.md#orders) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Orders <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#orders)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#orders)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 This resource is currently strictly for interceptor plugin use. This is called any time an order is saved via the API or from the client application. Only OrderId is provided in the request content.
             
 This resource will be invoked from a cart checkout.  
@@ -1527,1008 +5205,3409 @@ This resource will be invoked from a cart checkout.
 ```shell
 tq put Orders
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersUpdate-default" aria-expanded="true" aria-controls="OrdersUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersUpdate-flat" aria-expanded="false" aria-controls="OrdersUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrdersUpdate-csv" aria-expanded="false" aria-controls="OrdersUpdate-csv">
+csv
+</button>
+<div id="OrdersUpdate-parent">
+<div class="collapse show" id="OrdersUpdate-default" data-bs-parent="#OrdersUpdate-parent"> 
 ```json
 {"AcceptingRollovers":true, "AccountId":123, "AltAddressId":123, "AltElectronicAddressId":123, "AppealId":123, "AppliedMessageRules":"string", "BatchId":123, "BusinessUnitId":123, "CategoryId":123, "ChannelId":123, "ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Custom0":"string", "Custom1":"string", "Custom2":"string", "Custom3":"string", "Custom4":"string", "Custom5":"string", "Custom6":"string", "Custom7":"string", "Custom8":"string", "Custom9":"string", "DeliveryDate":"2000-01-01T00:00:00.000Z", "DeliveryMethodId":123, "HoldUntilDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "InitiatorId":123, "LineItems":[{"Id":123}, ...], "Messages":[{"Id":123}, ...], "MirrorLock":123, "ModeOfSaleId":123, "Notes":"string", "OrderDateTime":"2000-01-01T00:00:00.000Z", "ReloadPricingRules":true, "Solicitor":"string", "SourceId":123, "TotalDue":123.456, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "VirtualConstituencies":"string", "OrderID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="OrdersUpdate-flat"  data-bs-parent="#OrdersUpdate-parent">
+```json
 
-## Organizations [![get](https://img.shields.io/badge/get-blue)](get.md#organizations) [![post](https://img.shields.io/badge/post-blue)](post.md#organizations) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+<div class="collapse" id="OrdersUpdate-csv" data-bs-parent="#OrdersUpdate-parent">
+```json
+
+```  
+</div>
+</div>
+
+
+## Organizations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#organizations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#organizations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing organization.  
 ##### Usage:  
 ```shell
 tq put Organizations
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrganizationsUpdate-default" aria-expanded="true" aria-controls="OrganizationsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrganizationsUpdate-flat" aria-expanded="false" aria-controls="OrganizationsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OrganizationsUpdate-csv" aria-expanded="false" aria-controls="OrganizationsUpdate-csv">
+csv
+</button>
+<div id="OrganizationsUpdate-parent">
+<div class="collapse show" id="OrganizationsUpdate-default" data-bs-parent="#OrganizationsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "LicenseeAccountCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="OrganizationsUpdate-flat"  data-bs-parent="#OrganizationsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"LicenseeAccountCode":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="OrganizationsUpdate-csv" data-bs-parent="#OrganizationsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,LicenseeAccountCode,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## OriginalSources [![get](https://img.shields.io/badge/get-blue)](get.md#originalsources) [![post](https://img.shields.io/badge/post-blue)](post.md#originalsources) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## OriginalSources <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#originalsources)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#originalsources)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing original source.  
 ##### Usage:  
 ```shell
 tq put OriginalSources
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OriginalSourcesUpdate-default" aria-expanded="true" aria-controls="OriginalSourcesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OriginalSourcesUpdate-flat" aria-expanded="false" aria-controls="OriginalSourcesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OriginalSourcesUpdate-csv" aria-expanded="false" aria-controls="OriginalSourcesUpdate-csv">
+csv
+</button>
+<div id="OriginalSourcesUpdate-parent">
+<div class="collapse show" id="OriginalSourcesUpdate-default" data-bs-parent="#OriginalSourcesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="OriginalSourcesUpdate-flat"  data-bs-parent="#OriginalSourcesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="OriginalSourcesUpdate-csv" data-bs-parent="#OriginalSourcesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Origins [![get](https://img.shields.io/badge/get-blue)](get.md#origins) [![post](https://img.shields.io/badge/post-blue)](post.md#origins) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Origins <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#origins)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#origins)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing origin.  
 ##### Usage:  
 ```shell
 tq put Origins
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OriginsUpdate-default" aria-expanded="true" aria-controls="OriginsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OriginsUpdate-flat" aria-expanded="false" aria-controls="OriginsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OriginsUpdate-csv" aria-expanded="false" aria-controls="OriginsUpdate-csv">
+csv
+</button>
+<div id="OriginsUpdate-parent">
+<div class="collapse show" id="OriginsUpdate-default" data-bs-parent="#OriginsUpdate-parent"> 
 ```json
 {"ActivityType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="OriginsUpdate-flat"  data-bs-parent="#OriginsUpdate-parent">
+```json
+[{"ActivityType.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="OriginsUpdate-csv" data-bs-parent="#OriginsUpdate-parent">
+```json
+ActivityType.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## OutputSets [![get](https://img.shields.io/badge/get-blue)](get.md#outputsets) [![post](https://img.shields.io/badge/post-blue)](post.md#outputsets) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## OutputSets <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#outputsets)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#outputsets)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Output Set.  
 ##### Usage:  
 ```shell
 tq put OutputSets
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OutputSetsUpdate-default" aria-expanded="true" aria-controls="OutputSetsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OutputSetsUpdate-flat" aria-expanded="false" aria-controls="OutputSetsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#OutputSetsUpdate-csv" aria-expanded="false" aria-controls="OutputSetsUpdate-csv">
+csv
+</button>
+<div id="OutputSetsUpdate-parent">
+<div class="collapse show" id="OutputSetsUpdate-default" data-bs-parent="#OutputSetsUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "ElementGroups":[{"IncludePrimaryAffiliation":true, "IsSingleRow":true, "KeywordId":123}, ...], "Id":123, "LastUsedDateTime":"2000-01-01T00:00:00.000Z", "TMSIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "OutputSetID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="OutputSetsUpdate-flat"  data-bs-parent="#OutputSetsUpdate-parent">
+```json
+
+```  
+</div>
+<div class="collapse" id="OutputSetsUpdate-csv" data-bs-parent="#OutputSetsUpdate-parent">
+```json
+
+```  
+</div>
+</div>
+
 
 	
 # P
 
-## PackagePriceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#packagepricetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#packagepricetypes) ![put](https://img.shields.io/badge/put-gray)   
+## PackagePriceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#packagepricetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#packagepricetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing package price type.  
 ##### Usage:  
 ```shell
 tq put PackagePriceTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackagePriceTypesUpdate-default" aria-expanded="true" aria-controls="PackagePriceTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackagePriceTypesUpdate-flat" aria-expanded="false" aria-controls="PackagePriceTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackagePriceTypesUpdate-csv" aria-expanded="false" aria-controls="PackagePriceTypesUpdate-csv">
+csv
+</button>
+<div id="PackagePriceTypesUpdate-parent">
+<div class="collapse show" id="PackagePriceTypesUpdate-default" data-bs-parent="#PackagePriceTypesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PackageId":123, "PriceTypeId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PackagePriceTypeID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PackagePriceTypesUpdate-flat"  data-bs-parent="#PackagePriceTypesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"PackageId":123,"PackagePriceTypeID":"string","PriceTypeId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PackagePriceTypesUpdate-csv" data-bs-parent="#PackagePriceTypesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Id,PackageId,PackagePriceTypeID,PriceTypeId,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,123,"""string""",123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## PackageTypes [![get](https://img.shields.io/badge/get-blue)](get.md#packagetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#packagetypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PackageTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#packagetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#packagetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing package type.  
 ##### Usage:  
 ```shell
 tq put PackageTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackageTypesUpdate-default" aria-expanded="true" aria-controls="PackageTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackageTypesUpdate-flat" aria-expanded="false" aria-controls="PackageTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackageTypesUpdate-csv" aria-expanded="false" aria-controls="PackageTypesUpdate-csv">
+csv
+</button>
+<div id="PackageTypesUpdate-parent">
+<div class="collapse show" id="PackageTypesUpdate-default" data-bs-parent="#PackageTypesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PackageTypesUpdate-flat"  data-bs-parent="#PackageTypesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PackageTypesUpdate-csv" data-bs-parent="#PackageTypesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## PackageWebContents [![get](https://img.shields.io/badge/get-blue)](get.md#packagewebcontents) [![post](https://img.shields.io/badge/post-blue)](post.md#packagewebcontents) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PackageWebContents <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#packagewebcontents)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#packagewebcontents)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing packageWebContent.  
 ##### Usage:  
 ```shell
 tq put PackageWebContents
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackageWebContentsUpdate-default" aria-expanded="true" aria-controls="PackageWebContentsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackageWebContentsUpdate-flat" aria-expanded="false" aria-controls="PackageWebContentsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PackageWebContentsUpdate-csv" aria-expanded="false" aria-controls="PackageWebContentsUpdate-csv">
+csv
+</button>
+<div id="PackageWebContentsUpdate-parent">
+<div class="collapse show" id="PackageWebContentsUpdate-default" data-bs-parent="#PackageWebContentsUpdate-parent"> 
 ```json
 {"ContentType":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PackageId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string", "PackageWebContentID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PackageWebContentsUpdate-flat"  data-bs-parent="#PackageWebContentsUpdate-parent">
+```json
+[{"ContentType.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"PackageId":123,"PackageWebContentID":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Value":"string"}]
+```  
+</div>
+<div class="collapse" id="PackageWebContentsUpdate-csv" data-bs-parent="#PackageWebContentsUpdate-parent">
+```json
+ContentType.Id,CreateLocation,CreatedBy,CreatedDateTime,Id,PackageId,PackageWebContentID,UpdatedBy,UpdatedDateTime,Value
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string"""
+
+```  
+</div>
+</div>
 
 
 
 
-## PaymentGatewayActivities [![get](https://img.shields.io/badge/get-blue)](get.md#paymentgatewayactivities) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentgatewayactivities) ![put](https://img.shields.io/badge/put-gray)   
+
+## PaymentGatewayActivities <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentgatewayactivities)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymentgatewayactivities)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Payment Gateway Activity  
 ##### Usage:  
 ```shell
 tq put PaymentGatewayActivities
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayActivitiesUpdate-default" aria-expanded="true" aria-controls="PaymentGatewayActivitiesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayActivitiesUpdate-flat" aria-expanded="false" aria-controls="PaymentGatewayActivitiesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayActivitiesUpdate-csv" aria-expanded="false" aria-controls="PaymentGatewayActivitiesUpdate-csv">
+csv
+</button>
+<div id="PaymentGatewayActivitiesUpdate-parent">
+<div class="collapse show" id="PaymentGatewayActivitiesUpdate-default" data-bs-parent="#PaymentGatewayActivitiesUpdate-parent"> 
 ```json
 {"AccountId":123, "AccountNumber":"string", "ActivityData":"string", "Amount":123.456, "AuthCode":"string", "AvsAddress":"string", "AvsPostalcode":"string", "AvsResultCode":"string", "BalanceAmount":123.456, "BalanceCurrencyCode":"string", "ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CvvResultCode":"string", "EcommerceIndicator":"string", "EmvApplicationIdentifier":"string", "EmvApplicationName":"string", "EmvCryptogram":"string", "EmvHostResponseCode":"string", "EmvHostResponseMessage":"string", "EmvPinVerified":"string", "EntryMethod":"string", "ExpirationDate":"string", "Id":123, "MerchantId":"string", "Name":"string", "NetworkTransactionId":"string", "Origin":"string", "PaymentGatewayTransactionType":{"Id":123}, "PaymentId":123, "PaymentMethodGroupId":123, "PaymentMethodId":123, "ProviderCommunicationDurationMs":123, "ProviderTransactionDateTime":"2000-01-01T00:00:00.000Z", "ReferenceNumber":"string", "ResponseCode":"string", "ResponseMessage":"string", "Success":"string", "TerminalIdentifier":"string", "TotalDurationMs":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserData":"string", "PaymentGatewayActivityID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PaymentGatewayActivitiesUpdate-flat"  data-bs-parent="#PaymentGatewayActivitiesUpdate-parent">
+```json
+[{"AccountId":123,"AccountNumber":"string","ActivityData":"string","Amount":123.456,"AuthCode":"string","AvsAddress":"string","AvsPostalcode":"string","AvsResultCode":"string","BalanceAmount":123.456,"BalanceCurrencyCode":"string","ConstituentId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CvvResultCode":"string","EcommerceIndicator":"string","EmvApplicationIdentifier":"string","EmvApplicationName":"string","EmvCryptogram":"string","EmvHostResponseCode":"string","EmvHostResponseMessage":"string","EmvPinVerified":"string","EntryMethod":"string","ExpirationDate":"string","Id":123,"MerchantId":"string","Name":"string","NetworkTransactionId":"string","Origin":"string","PaymentGatewayActivityID":"string","PaymentGatewayTransactionType.Id":123,"PaymentId":123,"PaymentMethodGroupId":123,"PaymentMethodId":123,"ProviderCommunicationDurationMs":123,"ProviderTransactionDateTime":"2000-01-01T00:00:00.000Z","ReferenceNumber":"string","ResponseCode":"string","ResponseMessage":"string","Success":"string","TerminalIdentifier":"string","TotalDurationMs":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserData":"string"}]
+```  
+</div>
+<div class="collapse" id="PaymentGatewayActivitiesUpdate-csv" data-bs-parent="#PaymentGatewayActivitiesUpdate-parent">
+```json
+AccountId,AccountNumber,ActivityData,Amount,AuthCode,AvsAddress,AvsPostalcode,AvsResultCode,BalanceAmount,BalanceCurrencyCode,ConstituentId,CreateLocation,CreatedBy,CreatedDateTime,CvvResultCode,EcommerceIndicator,EmvApplicationIdentifier,EmvApplicationName,EmvCryptogram,EmvHostResponseCode,EmvHostResponseMessage,EmvPinVerified,EntryMethod,ExpirationDate,Id,MerchantId,Name,NetworkTransactionId,Origin,PaymentGatewayActivityID,PaymentGatewayTransactionType.Id,PaymentId,PaymentMethodGroupId,PaymentMethodId,ProviderCommunicationDurationMs,ProviderTransactionDateTime,ReferenceNumber,ResponseCode,ResponseMessage,Success,TerminalIdentifier,TotalDurationMs,UpdatedBy,UpdatedDateTime,UserData
+123,"""string""","""string""",123.456,"""string""","""string""","""string""","""string""",123.456,"""string""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""","""string""","""string""","""string""","""string""","""string""","""string""","""string""","""string""",123,"""string""","""string""","""string""","""string""","""string""",123,123,123,123,123,"""2000-01-01T00:00:00.000Z""","""string""","""string""","""string""","""string""","""string""",123,"""string""","""2000-01-01T00:00:00.000Z""","""string"""
+
+```  
+</div>
+</div>
 
 
 
-## PaymentGatewayNotifications [![get](https://img.shields.io/badge/get-blue)](get.md#paymentgatewaynotifications) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentgatewaynotifications) ![put](https://img.shields.io/badge/put-gray)   
+
+## PaymentGatewayNotifications <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentgatewaynotifications)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymentgatewaynotifications)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update a notification event.  
 ##### Usage:  
 ```shell
 tq put PaymentGatewayNotifications
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayNotificationsUpdate-default" aria-expanded="true" aria-controls="PaymentGatewayNotificationsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayNotificationsUpdate-flat" aria-expanded="false" aria-controls="PaymentGatewayNotificationsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayNotificationsUpdate-csv" aria-expanded="false" aria-controls="PaymentGatewayNotificationsUpdate-csv">
+csv
+</button>
+<div id="PaymentGatewayNotificationsUpdate-parent">
+<div class="collapse show" id="PaymentGatewayNotificationsUpdate-default" data-bs-parent="#PaymentGatewayNotificationsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EventType":"string", "Id":123, "Payload":"string", "ProcessedDate":"2000-01-01T00:00:00.000Z", "ReceivedDate":"2000-01-01T00:00:00.000Z", "Reference":"string", "Topic":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "NotificationEventID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PaymentGatewayNotificationsUpdate-flat"  data-bs-parent="#PaymentGatewayNotificationsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EventType":"string","Id":123,"NotificationEventID":"string","Payload":"string","ProcessedDate":"2000-01-01T00:00:00.000Z","ReceivedDate":"2000-01-01T00:00:00.000Z","Reference":"string","Topic":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PaymentGatewayNotificationsUpdate-csv" data-bs-parent="#PaymentGatewayNotificationsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,EventType,Id,NotificationEventID,Payload,ProcessedDate,ReceivedDate,Reference,Topic,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""2000-01-01T00:00:00.000Z""","""string""","""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## PaymentGatewayTransactionTypes [![get](https://img.shields.io/badge/get-blue)](get.md#paymentgatewaytransactiontypes) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentgatewaytransactiontypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PaymentGatewayTransactionTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentgatewaytransactiontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymentgatewaytransactiontypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Payment Gateway Transaction Type.  
 ##### Usage:  
 ```shell
 tq put PaymentGatewayTransactionTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayTransactionTypesUpdate-default" aria-expanded="true" aria-controls="PaymentGatewayTransactionTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayTransactionTypesUpdate-flat" aria-expanded="false" aria-controls="PaymentGatewayTransactionTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentGatewayTransactionTypesUpdate-csv" aria-expanded="false" aria-controls="PaymentGatewayTransactionTypesUpdate-csv">
+csv
+</button>
+<div id="PaymentGatewayTransactionTypesUpdate-parent">
+<div class="collapse show" id="PaymentGatewayTransactionTypesUpdate-default" data-bs-parent="#PaymentGatewayTransactionTypesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PaymentGatewayTransactionTypesUpdate-flat"  data-bs-parent="#PaymentGatewayTransactionTypesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PaymentGatewayTransactionTypesUpdate-csv" data-bs-parent="#PaymentGatewayTransactionTypesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## PaymentMethodGroups [![get](https://img.shields.io/badge/get-blue)](get.md#paymentmethodgroups) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentmethodgroups) ![put](https://img.shields.io/badge/put-gray)   
+
+## PaymentMethodGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentmethodgroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymentmethodgroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing payment method group.  
 ##### Usage:  
 ```shell
 tq put PaymentMethodGroups
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodGroupsUpdate-default" aria-expanded="true" aria-controls="PaymentMethodGroupsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodGroupsUpdate-flat" aria-expanded="false" aria-controls="PaymentMethodGroupsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodGroupsUpdate-csv" aria-expanded="false" aria-controls="PaymentMethodGroupsUpdate-csv">
+csv
+</button>
+<div id="PaymentMethodGroupsUpdate-parent">
+<div class="collapse show" id="PaymentMethodGroupsUpdate-default" data-bs-parent="#PaymentMethodGroupsUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "MerchantId":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PaymentMethodGroupsUpdate-flat"  data-bs-parent="#PaymentMethodGroupsUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"MerchantId":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PaymentMethodGroupsUpdate-csv" data-bs-parent="#PaymentMethodGroupsUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,MerchantId,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## PaymentMethodUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#paymentmethodusergroups) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentmethodusergroups) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PaymentMethodUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentmethodusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymentmethodusergroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing payment method/user group mapping.  
 ##### Usage:  
 ```shell
 tq put PaymentMethodUserGroups
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodUserGroupsUpdate-default" aria-expanded="true" aria-controls="PaymentMethodUserGroupsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodUserGroupsUpdate-flat" aria-expanded="false" aria-controls="PaymentMethodUserGroupsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodUserGroupsUpdate-csv" aria-expanded="false" aria-controls="PaymentMethodUserGroupsUpdate-csv">
+csv
+</button>
+<div id="PaymentMethodUserGroupsUpdate-parent">
+<div class="collapse show" id="PaymentMethodUserGroupsUpdate-default" data-bs-parent="#PaymentMethodUserGroupsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "IncomeIndicator":true, "MaxRefund":123.456, "PaymentMethod":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "PaymentMethodUserGroupID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PaymentMethodUserGroupsUpdate-flat"  data-bs-parent="#PaymentMethodUserGroupsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"IncomeIndicator":true,"MaxRefund":123.456,"PaymentMethod.Id":123,"PaymentMethodUserGroupID":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string"}]
+```  
+</div>
+<div class="collapse" id="PaymentMethodUserGroupsUpdate-csv" data-bs-parent="#PaymentMethodUserGroupsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Id,IncomeIndicator,MaxRefund,PaymentMethod.Id,PaymentMethodUserGroupID,UpdatedBy,UpdatedDateTime,UserGroupId
+"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,true,123.456,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string"""
 
-## PaymentMethods [![get](https://img.shields.io/badge/get-blue)](get.md#paymentmethods) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentmethods) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PaymentMethods <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentmethods)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymentmethods)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing payment method.  
 ##### Usage:  
 ```shell
 tq put PaymentMethods
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodsUpdate-default" aria-expanded="true" aria-controls="PaymentMethodsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodsUpdate-flat" aria-expanded="false" aria-controls="PaymentMethodsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentMethodsUpdate-csv" aria-expanded="false" aria-controls="PaymentMethodsUpdate-csv">
+csv
+</button>
+<div id="PaymentMethodsUpdate-parent">
+<div class="collapse show" id="PaymentMethodsUpdate-default" data-bs-parent="#PaymentMethodsUpdate-parent"> 
 ```json
 {"AccountType":{"Id":123}, "AuthIndicator":true, "BusinessUnitId":123, "CanRefund":true, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CurrencyTypeId":123, "DefaultIndicator":true, "Description":"string", "GiftAidIndicator":true, "GlAccountId":"string", "Id":123, "Inactive":true, "Income":true, "MerchantId":"string", "MerchantIdForSwipe":"string", "NoCopiesOnAuth":123, "NoCopiesOnSave":123, "OpenCashDrawer":true, "PaymentMethodGroup":{"Id":123}, "PaymentType":{"Id":123}, "ReceiptFormatId":123, "RequireCheckIndicator":true, "RequireCvv":true, "RequirePostalCode":"string", "ShortDesc":"string", "StoreTenderedAmount":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseWithCardReader":true, "PaymentMethodID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PaymentMethodsUpdate-flat"  data-bs-parent="#PaymentMethodsUpdate-parent">
+```json
+[{"AccountType.Id":123,"AuthIndicator":true,"BusinessUnitId":123,"CanRefund":true,"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","CurrencyTypeId":123,"DefaultIndicator":true,"Description":"string","GiftAidIndicator":true,"GlAccountId":"string","Id":123,"Inactive":true,"Income":true,"MerchantId":"string","MerchantIdForSwipe":"string","NoCopiesOnAuth":123,"NoCopiesOnSave":123,"OpenCashDrawer":true,"PaymentMethodGroup.Id":123,"PaymentMethodID":"string","PaymentType.Id":123,"ReceiptFormatId":123,"RequireCheckIndicator":true,"RequireCvv":true,"RequirePostalCode":"string","ShortDesc":"string","StoreTenderedAmount":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseWithCardReader":true}]
+```  
+</div>
+<div class="collapse" id="PaymentMethodsUpdate-csv" data-bs-parent="#PaymentMethodsUpdate-parent">
+```json
+AccountType.Id,AuthIndicator,BusinessUnitId,CanRefund,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,CurrencyTypeId,DefaultIndicator,Description,GiftAidIndicator,GlAccountId,Id,Inactive,Income,MerchantId,MerchantIdForSwipe,NoCopiesOnAuth,NoCopiesOnSave,OpenCashDrawer,PaymentMethodGroup.Id,PaymentMethodID,PaymentType.Id,ReceiptFormatId,RequireCheckIndicator,RequireCvv,RequirePostalCode,ShortDesc,StoreTenderedAmount,UpdatedBy,UpdatedDateTime,UseWithCardReader
+123,true,123,true,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,true,"""string""",true,"""string""",123,true,true,"""string""","""string""",123,123,true,123,"""string""",123,123,true,true,"""string""","""string""",true,"""string""","""2000-01-01T00:00:00.000Z""",true
 
-## PaymentSignatures [![get](https://img.shields.io/badge/get-blue)](get.md#paymentsignatures) [![post](https://img.shields.io/badge/post-blue)](post.md#paymentsignatures) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PaymentSignatures <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymentsignatures)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymentsignatures)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing payment signature.  
 ##### Usage:  
 ```shell
 tq put PaymentSignatures
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentSignaturesUpdate-default" aria-expanded="true" aria-controls="PaymentSignaturesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentSignaturesUpdate-flat" aria-expanded="false" aria-controls="PaymentSignaturesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentSignaturesUpdate-csv" aria-expanded="false" aria-controls="PaymentSignaturesUpdate-csv">
+csv
+</button>
+<div id="PaymentSignaturesUpdate-parent">
+<div class="collapse show" id="PaymentSignaturesUpdate-default" data-bs-parent="#PaymentSignaturesUpdate-parent"> 
 ```json
 {"Id":123, "PaymentSignatureID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PaymentSignaturesUpdate-flat"  data-bs-parent="#PaymentSignaturesUpdate-parent">
+```json
+[{"Id":123,"PaymentSignatureID":"string"}]
+```  
+</div>
+<div class="collapse" id="PaymentSignaturesUpdate-csv" data-bs-parent="#PaymentSignaturesUpdate-parent">
+```json
+Id,PaymentSignatureID
+123,"""string"""
 
-## PaymentTypes [![get](https://img.shields.io/badge/get-blue)](get.md#paymenttypes) [![post](https://img.shields.io/badge/post-blue)](post.md#paymenttypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PaymentTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#paymenttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#paymenttypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing payment type.  
 ##### Usage:  
 ```shell
 tq put PaymentTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentTypesUpdate-default" aria-expanded="true" aria-controls="PaymentTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentTypesUpdate-flat" aria-expanded="false" aria-controls="PaymentTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PaymentTypesUpdate-csv" aria-expanded="false" aria-controls="PaymentTypesUpdate-csv">
+csv
+</button>
+<div id="PaymentTypesUpdate-parent">
+<div class="collapse show" id="PaymentTypesUpdate-default" data-bs-parent="#PaymentTypesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PaymentTypesUpdate-flat"  data-bs-parent="#PaymentTypesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PaymentTypesUpdate-csv" data-bs-parent="#PaymentTypesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## PerformanceGroups [![get](https://img.shields.io/badge/get-blue)](get.md#performancegroups) [![post](https://img.shields.io/badge/post-blue)](post.md#performancegroups) ![put](https://img.shields.io/badge/put-gray)   
+
+## PerformanceGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performancegroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#performancegroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update a Performance Group.  
 ##### Usage:  
 ```shell
 tq put PerformanceGroups
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceGroupsUpdate-default" aria-expanded="true" aria-controls="PerformanceGroupsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceGroupsUpdate-flat" aria-expanded="false" aria-controls="PerformanceGroupsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceGroupsUpdate-csv" aria-expanded="false" aria-controls="PerformanceGroupsUpdate-csv">
+csv
+</button>
+<div id="PerformanceGroupsUpdate-parent">
+<div class="collapse show" id="PerformanceGroupsUpdate-default" data-bs-parent="#PerformanceGroupsUpdate-parent"> 
 ```json
 {"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DisplayByZone":true, "Facility":{"Id":123}, "FixedSeatIndicator":true, "Id":123, "Season":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneMap":{"Id":123}}
-```
+```  
+</div>
+<div class="collapse" id="PerformanceGroupsUpdate-flat"  data-bs-parent="#PerformanceGroupsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","DisplayByZone":true,"Facility.Id":123,"FixedSeatIndicator":true,"ID":"string","Id":123,"Season.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ZoneMap.Id":123}]
+```  
+</div>
+<div class="collapse" id="PerformanceGroupsUpdate-csv" data-bs-parent="#PerformanceGroupsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,DisplayByZone,Facility.Id,FixedSeatIndicator,ID,Id,Season.Id,UpdatedBy,UpdatedDateTime,ZoneMap.Id
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",true,123,true,"""string""",123,123,"""string""","""2000-01-01T00:00:00.000Z""",123
 
-## PerformancePackageModeOfSales [![get](https://img.shields.io/badge/get-blue)](get.md#performancepackagemodeofsales) [![post](https://img.shields.io/badge/post-blue)](post.md#performancepackagemodeofsales) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PerformancePackageModeOfSales <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performancepackagemodeofsales)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#performancepackagemodeofsales)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing performance package mode of sale.  
 ##### Usage:  
 ```shell
 tq put PerformancePackageModeOfSales
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePackageModeOfSalesUpdate-default" aria-expanded="true" aria-controls="PerformancePackageModeOfSalesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePackageModeOfSalesUpdate-flat" aria-expanded="false" aria-controls="PerformancePackageModeOfSalesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePackageModeOfSalesUpdate-csv" aria-expanded="false" aria-controls="PerformancePackageModeOfSalesUpdate-csv">
+csv
+</button>
+<div id="PerformancePackageModeOfSalesUpdate-parent">
+<div class="collapse show" id="PerformancePackageModeOfSalesUpdate-default" data-bs-parent="#PerformancePackageModeOfSalesUpdate-parent"> 
 ```json
 {"AutoAttend":"string", "ETicketReleaseDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ModeOfSaleId":123, "PackageId":123, "PerformanceId":123, "PrintIndicator":true, "PrintOnAutoAttend":true, "SeatIndicator":true, "StartDateTime":"2000-01-01T00:00:00.000Z", "PerformancePackageModeOfSaleID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PerformancePackageModeOfSalesUpdate-flat"  data-bs-parent="#PerformancePackageModeOfSalesUpdate-parent">
+```json
+[{"AutoAttend":"string","ETicketReleaseDateTime":"2000-01-01T00:00:00.000Z","EndDateTime":"2000-01-01T00:00:00.000Z","Id":123,"ModeOfSaleId":123,"PackageId":123,"PerformanceId":123,"PerformancePackageModeOfSaleID":"string","PrintIndicator":true,"PrintOnAutoAttend":true,"SeatIndicator":true,"StartDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PerformancePackageModeOfSalesUpdate-csv" data-bs-parent="#PerformancePackageModeOfSalesUpdate-parent">
+```json
+AutoAttend,ETicketReleaseDateTime,EndDateTime,Id,ModeOfSaleId,PackageId,PerformanceId,PerformancePackageModeOfSaleID,PrintIndicator,PrintOnAutoAttend,SeatIndicator,StartDateTime
+"""string""","""2000-01-01T00:00:00.000Z""","""2000-01-01T00:00:00.000Z""",123,123,123,123,"""string""",true,true,true,"""2000-01-01T00:00:00.000Z"""
 
-## PerformancePriceLayers [![get](https://img.shields.io/badge/get-blue)](get.md#performancepricelayers) [![post](https://img.shields.io/badge/post-blue)](post.md#performancepricelayers) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PerformancePriceLayers <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performancepricelayers)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#performancepricelayers)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing performance price layer.  
 ##### Usage:  
 ```shell
 tq put PerformancePriceLayers
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersUpdate-default" aria-expanded="true" aria-controls="PerformancePriceLayersUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersUpdate-flat" aria-expanded="false" aria-controls="PerformancePriceLayersUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersUpdate-csv" aria-expanded="false" aria-controls="PerformancePriceLayersUpdate-csv">
+csv
+</button>
+<div id="PerformancePriceLayersUpdate-parent">
+<div class="collapse show" id="PerformancePriceLayersUpdate-default" data-bs-parent="#PerformancePriceLayersUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultDesignationCodeId":123, "DefaultGlAccountId":123, "DefaultResaleAccountId":123, "Description":"string", "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PerformanceId":123, "PerformancePriceTypes":[{"Id":123}, ...], "PriceLayerType":{"Id":123}, "TemplateId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PerformancePriceLayerID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PerformancePriceLayersUpdate-flat"  data-bs-parent="#PerformancePriceLayersUpdate-parent">
+```json
+
+```  
+</div>
+<div class="collapse" id="PerformancePriceLayersUpdate-csv" data-bs-parent="#PerformancePriceLayersUpdate-parent">
+```json
+
+```  
+</div>
+</div>
+
 ### Flags:
  * *--Prices*  
    Update a set of prices across one or more performances.
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersUpdatePrices-default" aria-expanded="true" aria-controls="PerformancePriceLayersUpdatePrices-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersUpdatePrices-flat" aria-expanded="false" aria-controls="PerformancePriceLayersUpdatePrices-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceLayersUpdatePrices-csv" aria-expanded="false" aria-controls="PerformancePriceLayersUpdatePrices-csv">
+csv
+</button>
+<div id="PerformancePriceLayersUpdatePrices-parent">
+<div class="collapse show" id="PerformancePriceLayersUpdatePrices-default" data-bs-parent="#PerformancePriceLayersUpdatePrices-parent"> 
 ```json
 {"PriceUpdateRequests":[{"Editable":true, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Enabled":true, "MinPrice":123.456, "PerformanceIds":"string", "Price":123.456, "PriceLayerTypeId":123, "PriceTypeId":123, "ZoneId":123}, ...]}
-```
+```  
+</div>
+<div class="collapse" id="PerformancePriceLayersUpdatePrices-flat"  data-bs-parent="#PerformancePriceLayersUpdatePrices-parent">
+```json
 
-## PerformancePriceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#performancepricetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#performancepricetypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+<div class="collapse" id="PerformancePriceLayersUpdatePrices-csv" data-bs-parent="#PerformancePriceLayersUpdatePrices-parent">
+```json
+
+```  
+</div>
+</div>
+
+
+## PerformancePriceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performancepricetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#performancepricetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing performance price type.  
 ##### Usage:  
 ```shell
 tq put PerformancePriceTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceTypesUpdate-default" aria-expanded="true" aria-controls="PerformancePriceTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceTypesUpdate-flat" aria-expanded="false" aria-controls="PerformancePriceTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceTypesUpdate-csv" aria-expanded="false" aria-controls="PerformancePriceTypesUpdate-csv">
+csv
+</button>
+<div id="PerformancePriceTypesUpdate-parent">
+<div class="collapse show" id="PerformancePriceTypesUpdate-default" data-bs-parent="#PerformancePriceTypesUpdate-parent"> 
 ```json
 {"BaseIndicator":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DesignationCodeId":123, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "GlAccountId":123, "Id":123, "IsWithinDateRange":true, "PerformanceId":123, "PerformancePriceLayerId":123, "PerformancePrices":[{"Id":123}, ...], "PriceTypeId":123, "ResaleAccountId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "TicketDesignId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PerformancePriceTypeID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PerformancePriceTypesUpdate-flat"  data-bs-parent="#PerformancePriceTypesUpdate-parent">
+```json
+
+```  
+</div>
+<div class="collapse" id="PerformancePriceTypesUpdate-csv" data-bs-parent="#PerformancePriceTypesUpdate-parent">
+```json
+
+```  
+</div>
+</div>
+
 ### Flags:
  * *--Base*  
    Update base indicator on performance price types for a set of performances and price type.
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceTypesUpdateBase-default" aria-expanded="true" aria-controls="PerformancePriceTypesUpdateBase-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceTypesUpdateBase-flat" aria-expanded="false" aria-controls="PerformancePriceTypesUpdateBase-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceTypesUpdateBase-csv" aria-expanded="false" aria-controls="PerformancePriceTypesUpdateBase-csv">
+csv
+</button>
+<div id="PerformancePriceTypesUpdateBase-parent">
+<div class="collapse show" id="PerformancePriceTypesUpdateBase-default" data-bs-parent="#PerformancePriceTypesUpdateBase-parent"> 
 ```json
 {"PerformanceIds":"string", "PriceLayerTypeIds":"string", "PriceTypeID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PerformancePriceTypesUpdateBase-flat"  data-bs-parent="#PerformancePriceTypesUpdateBase-parent">
+```json
+[{"PerformanceIds":"string","PriceLayerTypeIds":"string","PriceTypeID":"string"}]
+```  
+</div>
+<div class="collapse" id="PerformancePriceTypesUpdateBase-csv" data-bs-parent="#PerformancePriceTypesUpdateBase-parent">
+```json
+PerformanceIds,PriceLayerTypeIds,PriceTypeID
+"""string""","""string""","""string"""
+
+```  
+</div>
+</div>
+
  * *--Bulk*  
    Update the performance price types for a set of performances.
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceTypesBulkUpdate-default" aria-expanded="true" aria-controls="PerformancePriceTypesBulkUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceTypesBulkUpdate-flat" aria-expanded="false" aria-controls="PerformancePriceTypesBulkUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePriceTypesBulkUpdate-csv" aria-expanded="false" aria-controls="PerformancePriceTypesBulkUpdate-csv">
+csv
+</button>
+<div id="PerformancePriceTypesBulkUpdate-parent">
+<div class="collapse show" id="PerformancePriceTypesBulkUpdate-default" data-bs-parent="#PerformancePriceTypesBulkUpdate-parent"> 
 ```json
 {"PerformancePriceType":[{"BaseIndicator":true, "DesignationCodeId":123, "EndDateTime":"2000-01-01T00:00:00.000Z", "GlAccountId":123, "PerformanceIds":"string", "PriceLayerTypeIds":"string", "PriceTypeIds":"string", "ResaleAccountId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "TicketDesignId":123}, ...]}
-```
+```  
+</div>
+<div class="collapse" id="PerformancePriceTypesBulkUpdate-flat"  data-bs-parent="#PerformancePriceTypesBulkUpdate-parent">
+```json
 
-## PerformancePrices [![get](https://img.shields.io/badge/get-blue)](get.md#performanceprices) [![post](https://img.shields.io/badge/post-blue)](post.md#performanceprices) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+<div class="collapse" id="PerformancePriceTypesBulkUpdate-csv" data-bs-parent="#PerformancePriceTypesBulkUpdate-parent">
+```json
+
+```  
+</div>
+</div>
+
+
+## PerformancePrices <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performanceprices)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#performanceprices)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing performance price.  
 ##### Usage:  
 ```shell
 tq put PerformancePrices
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePricesUpdate-default" aria-expanded="true" aria-controls="PerformancePricesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePricesUpdate-flat" aria-expanded="false" aria-controls="PerformancePricesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancePricesUpdate-csv" aria-expanded="false" aria-controls="PerformancePricesUpdate-csv">
+csv
+</button>
+<div id="PerformancePricesUpdate-parent">
+<div class="collapse show" id="PerformancePricesUpdate-default" data-bs-parent="#PerformancePricesUpdate-parent"> 
 ```json
 {"EditIndicator":true, "EffectiveDateTime":"2000-01-01T00:00:00.000Z", "Enabled":true, "HasEvents":true, "Id":123, "IsPriceBasedOnCurrentEvent":true, "MinPrice":123.456, "PerformanceId":123, "PerformancePriceTypeId":123, "Price":123.456, "ZoneId":123, "PerformancePriceID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PerformancePricesUpdate-flat"  data-bs-parent="#PerformancePricesUpdate-parent">
+```json
+[{"EditIndicator":true,"EffectiveDateTime":"2000-01-01T00:00:00.000Z","Enabled":true,"HasEvents":true,"Id":123,"IsPriceBasedOnCurrentEvent":true,"MinPrice":123.456,"PerformanceId":123,"PerformancePriceID":"string","PerformancePriceTypeId":123,"Price":123.456,"ZoneId":123}]
+```  
+</div>
+<div class="collapse" id="PerformancePricesUpdate-csv" data-bs-parent="#PerformancePricesUpdate-parent">
+```json
+EditIndicator,EffectiveDateTime,Enabled,HasEvents,Id,IsPriceBasedOnCurrentEvent,MinPrice,PerformanceId,PerformancePriceID,PerformancePriceTypeId,Price,ZoneId
+true,"""2000-01-01T00:00:00.000Z""",true,true,123,true,123.456,123,"""string""",123,123.456,123
 
-## PerformanceStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#performancestatuses) [![post](https://img.shields.io/badge/post-blue)](post.md#performancestatuses) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PerformanceStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performancestatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#performancestatuses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing performance status.  
 ##### Usage:  
 ```shell
 tq put PerformanceStatuses
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceStatusesUpdate-default" aria-expanded="true" aria-controls="PerformanceStatusesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceStatusesUpdate-flat" aria-expanded="false" aria-controls="PerformanceStatusesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceStatusesUpdate-csv" aria-expanded="false" aria-controls="PerformanceStatusesUpdate-csv">
+csv
+</button>
+<div id="PerformanceStatusesUpdate-parent">
+<div class="collapse show" id="PerformanceStatusesUpdate-default" data-bs-parent="#PerformanceStatusesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PerformanceStatusesUpdate-flat"  data-bs-parent="#PerformanceStatusesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PerformanceStatusesUpdate-csv" data-bs-parent="#PerformanceStatusesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## PerformanceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#performancetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#performancetypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PerformanceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performancetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#performancetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing performance type.  
 ##### Usage:  
 ```shell
 tq put PerformanceTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceTypesUpdate-default" aria-expanded="true" aria-controls="PerformanceTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceTypesUpdate-flat" aria-expanded="false" aria-controls="PerformanceTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformanceTypesUpdate-csv" aria-expanded="false" aria-controls="PerformanceTypesUpdate-csv">
+csv
+</button>
+<div id="PerformanceTypesUpdate-parent">
+<div class="collapse show" id="PerformanceTypesUpdate-default" data-bs-parent="#PerformanceTypesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ValidCountryList":"string", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PerformanceTypesUpdate-flat"  data-bs-parent="#PerformanceTypesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ValidCountryList":"string"}]
+```  
+</div>
+<div class="collapse" id="PerformanceTypesUpdate-csv" data-bs-parent="#PerformanceTypesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime,ValidCountryList
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z""","""string"""
 
-## Performances [![get](https://img.shields.io/badge/get-blue)](get.md#performances) [![post](https://img.shields.io/badge/post-blue)](post.md#performances) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Performances <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#performances)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#performances)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Expires seat holds for a performance and hold code  
 ##### Usage:  
 ```shell
 tq put Performances
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesExpireSeatHolds-default" aria-expanded="true" aria-controls="PerformancesExpireSeatHolds-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesExpireSeatHolds-flat" aria-expanded="false" aria-controls="PerformancesExpireSeatHolds-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PerformancesExpireSeatHolds-csv" aria-expanded="false" aria-controls="PerformancesExpireSeatHolds-csv">
+csv
+</button>
+<div id="PerformancesExpireSeatHolds-parent">
+<div class="collapse show" id="PerformancesExpireSeatHolds-default" data-bs-parent="#PerformancesExpireSeatHolds-parent"> 
 ```json
 {"ExpireAsOfDate":"2000-01-01T00:00:00.000Z", "SeatIds":"string", "HoldCodeID":"string", "PerformanceID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PerformancesExpireSeatHolds-flat"  data-bs-parent="#PerformancesExpireSeatHolds-parent">
+```json
+[{"ExpireAsOfDate":"2000-01-01T00:00:00.000Z","HoldCodeID":"string","PerformanceID":"string","SeatIds":"string"}]
+```  
+</div>
+<div class="collapse" id="PerformancesExpireSeatHolds-csv" data-bs-parent="#PerformancesExpireSeatHolds-parent">
+```json
+ExpireAsOfDate,HoldCodeID,PerformanceID,SeatIds
+"""2000-01-01T00:00:00.000Z""","""string""","""string""","""string"""
 
-## Philanthropy [![get](https://img.shields.io/badge/get-blue)](get.md#philanthropy) [![post](https://img.shields.io/badge/post-blue)](post.md#philanthropy) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Philanthropy <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#philanthropy)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#philanthropy)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Updated an existing philanthropyEntry for a constituent.  
 ##### Usage:  
 ```shell
 tq put Philanthropy
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhilanthropyUpdate-default" aria-expanded="true" aria-controls="PhilanthropyUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhilanthropyUpdate-flat" aria-expanded="false" aria-controls="PhilanthropyUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhilanthropyUpdate-csv" aria-expanded="false" aria-controls="PhilanthropyUpdate-csv">
+csv
+</button>
+<div id="PhilanthropyUpdate-parent">
+<div class="collapse show" id="PhilanthropyUpdate-default" data-bs-parent="#PhilanthropyUpdate-parent"> 
 ```json
 {"Activity":"string", "Amount":123.456, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DonatedTo":"string", "DonatedToConstituent":{"Id":123}, "DonationDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PhilanthropyType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PhilanthropyEntryID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PhilanthropyUpdate-flat"  data-bs-parent="#PhilanthropyUpdate-parent">
+```json
+[{"Activity":"string","Amount":123.456,"Constituent.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DonatedTo":"string","DonatedToConstituent.Id":123,"DonationDateTime":"2000-01-01T00:00:00.000Z","Id":123,"PhilanthropyEntryID":"string","PhilanthropyType.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PhilanthropyUpdate-csv" data-bs-parent="#PhilanthropyUpdate-parent">
+```json
+Activity,Amount,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,DonatedTo,DonatedToConstituent.Id,DonationDateTime,Id,PhilanthropyEntryID,PhilanthropyType.Id,UpdatedBy,UpdatedDateTime
+"""string""",123.456,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,"""2000-01-01T00:00:00.000Z""",123,"""string""",123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## PhilanthropyTypes [![get](https://img.shields.io/badge/get-blue)](get.md#philanthropytypes) [![post](https://img.shields.io/badge/post-blue)](post.md#philanthropytypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PhilanthropyTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#philanthropytypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#philanthropytypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing philosophy type.  
 ##### Usage:  
 ```shell
 tq put PhilanthropyTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhilanthropyTypesUpdate-default" aria-expanded="true" aria-controls="PhilanthropyTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhilanthropyTypesUpdate-flat" aria-expanded="false" aria-controls="PhilanthropyTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhilanthropyTypesUpdate-csv" aria-expanded="false" aria-controls="PhilanthropyTypesUpdate-csv">
+csv
+</button>
+<div id="PhilanthropyTypesUpdate-parent">
+<div class="collapse show" id="PhilanthropyTypesUpdate-default" data-bs-parent="#PhilanthropyTypesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PhilanthropyTypesUpdate-flat"  data-bs-parent="#PhilanthropyTypesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PhilanthropyTypesUpdate-csv" data-bs-parent="#PhilanthropyTypesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## PhoneIndicators [![get](https://img.shields.io/badge/get-blue)](get.md#phoneindicators) [![post](https://img.shields.io/badge/post-blue)](post.md#phoneindicators) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PhoneIndicators <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#phoneindicators)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#phoneindicators)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing phone indicator.  
 ##### Usage:  
 ```shell
 tq put PhoneIndicators
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhoneIndicatorsUpdate-default" aria-expanded="true" aria-controls="PhoneIndicatorsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhoneIndicatorsUpdate-flat" aria-expanded="false" aria-controls="PhoneIndicatorsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhoneIndicatorsUpdate-csv" aria-expanded="false" aria-controls="PhoneIndicatorsUpdate-csv">
+csv
+</button>
+<div id="PhoneIndicatorsUpdate-parent">
+<div class="collapse show" id="PhoneIndicatorsUpdate-default" data-bs-parent="#PhoneIndicatorsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PhoneIndicatorsUpdate-flat"  data-bs-parent="#PhoneIndicatorsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PhoneIndicatorsUpdate-csv" data-bs-parent="#PhoneIndicatorsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## PhoneTypes [![get](https://img.shields.io/badge/get-blue)](get.md#phonetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#phonetypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PhoneTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#phonetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#phonetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing phone type.  
 ##### Usage:  
 ```shell
 tq put PhoneTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhoneTypesUpdate-default" aria-expanded="true" aria-controls="PhoneTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhoneTypesUpdate-flat" aria-expanded="false" aria-controls="PhoneTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhoneTypesUpdate-csv" aria-expanded="false" aria-controls="PhoneTypesUpdate-csv">
+csv
+</button>
+<div id="PhoneTypesUpdate-parent">
+<div class="collapse show" id="PhoneTypesUpdate-default" data-bs-parent="#PhoneTypesUpdate-parent"> 
 ```json
 {"AllowMarketing":true, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator":"string", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PhoneTypesUpdate-flat"  data-bs-parent="#PhoneTypesUpdate-parent">
+```json
+[{"AllowMarketing":true,"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DayEveningIndicator":"string","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PhoneTypesUpdate-csv" data-bs-parent="#PhoneTypesUpdate-parent">
+```json
+AllowMarketing,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DayEveningIndicator,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+true,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Phones [![get](https://img.shields.io/badge/get-blue)](get.md#phones) [![post](https://img.shields.io/badge/post-blue)](post.md#phones) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Phones <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#phones)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#phones)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update a phone.  
 ##### Usage:  
 ```shell
 tq put Phones
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhonesUpdate-default" aria-expanded="true" aria-controls="PhonesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhonesUpdate-flat" aria-expanded="false" aria-controls="PhonesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PhonesUpdate-csv" aria-expanded="false" aria-controls="PhonesUpdate-csv">
+csv
+</button>
+<div id="PhonesUpdate-parent">
+<div class="collapse show" id="PhonesUpdate-default" data-bs-parent="#PhonesUpdate-parent"> 
 ```json
 {"Address":{"Id":123}, "AllowTelemarketing":true, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayEveningIndicator":"string", "EditIndicator":true, "Id":123, "Inactive":true, "PhoneFormatted":"string", "PhoneNumber":"string", "PhoneSearch":"string", "PhoneType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PhoneID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PhonesUpdate-flat"  data-bs-parent="#PhonesUpdate-parent">
+```json
+[{"Address.Id":123,"AllowTelemarketing":true,"Constituent.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DayEveningIndicator":"string","EditIndicator":true,"Id":123,"Inactive":true,"PhoneFormatted":"string","PhoneID":"string","PhoneNumber":"string","PhoneSearch":"string","PhoneType.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PhonesUpdate-csv" data-bs-parent="#PhonesUpdate-parent">
+```json
+Address.Id,AllowTelemarketing,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,DayEveningIndicator,EditIndicator,Id,Inactive,PhoneFormatted,PhoneID,PhoneNumber,PhoneSearch,PhoneType.Id,UpdatedBy,UpdatedDateTime
+123,true,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",true,123,true,"""string""","""string""","""string""","""string""",123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## PlanPriorities [![get](https://img.shields.io/badge/get-blue)](get.md#planpriorities) [![post](https://img.shields.io/badge/post-blue)](post.md#planpriorities) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PlanPriorities <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#planpriorities)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#planpriorities)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing plan priority.  
 ##### Usage:  
 ```shell
 tq put PlanPriorities
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanPrioritiesUpdate-default" aria-expanded="true" aria-controls="PlanPrioritiesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanPrioritiesUpdate-flat" aria-expanded="false" aria-controls="PlanPrioritiesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanPrioritiesUpdate-csv" aria-expanded="false" aria-controls="PlanPrioritiesUpdate-csv">
+csv
+</button>
+<div id="PlanPrioritiesUpdate-parent">
+<div class="collapse show" id="PlanPrioritiesUpdate-default" data-bs-parent="#PlanPrioritiesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Ranking":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PlanPrioritiesUpdate-flat"  data-bs-parent="#PlanPrioritiesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"Ranking":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PlanPrioritiesUpdate-csv" data-bs-parent="#PlanPrioritiesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,Ranking,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## PlanSources [![get](https://img.shields.io/badge/get-blue)](get.md#plansources) [![post](https://img.shields.io/badge/post-blue)](post.md#plansources) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PlanSources <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#plansources)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#plansources)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing plan source.  
 ##### Usage:  
 ```shell
 tq put PlanSources
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanSourcesUpdate-default" aria-expanded="true" aria-controls="PlanSourcesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanSourcesUpdate-flat" aria-expanded="false" aria-controls="PlanSourcesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanSourcesUpdate-csv" aria-expanded="false" aria-controls="PlanSourcesUpdate-csv">
+csv
+</button>
+<div id="PlanSourcesUpdate-parent">
+<div class="collapse show" id="PlanSourcesUpdate-default" data-bs-parent="#PlanSourcesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PlanSourcesUpdate-flat"  data-bs-parent="#PlanSourcesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PlanSourcesUpdate-csv" data-bs-parent="#PlanSourcesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## PlanStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#planstatuses) [![post](https://img.shields.io/badge/post-blue)](post.md#planstatuses) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PlanStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#planstatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#planstatuses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing plan status.  
 ##### Usage:  
 ```shell
 tq put PlanStatuses
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanStatusesUpdate-default" aria-expanded="true" aria-controls="PlanStatusesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanStatusesUpdate-flat" aria-expanded="false" aria-controls="PlanStatusesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanStatusesUpdate-csv" aria-expanded="false" aria-controls="PlanStatusesUpdate-csv">
+csv
+</button>
+<div id="PlanStatusesUpdate-parent">
+<div class="collapse show" id="PlanStatusesUpdate-default" data-bs-parent="#PlanStatusesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PlanStatusesUpdate-flat"  data-bs-parent="#PlanStatusesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PlanStatusesUpdate-csv" data-bs-parent="#PlanStatusesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,Rank,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## PlanTypes [![get](https://img.shields.io/badge/get-blue)](get.md#plantypes) [![post](https://img.shields.io/badge/post-blue)](post.md#plantypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PlanTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#plantypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#plantypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing plan type.  
 ##### Usage:  
 ```shell
 tq put PlanTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanTypesUpdate-default" aria-expanded="true" aria-controls="PlanTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanTypesUpdate-flat" aria-expanded="false" aria-controls="PlanTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanTypesUpdate-csv" aria-expanded="false" aria-controls="PlanTypesUpdate-csv">
+csv
+</button>
+<div id="PlanTypesUpdate-parent">
+<div class="collapse show" id="PlanTypesUpdate-default" data-bs-parent="#PlanTypesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PlanTypesUpdate-flat"  data-bs-parent="#PlanTypesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PlanTypesUpdate-csv" data-bs-parent="#PlanTypesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## PlanWorkers [![get](https://img.shields.io/badge/get-blue)](get.md#planworkers) [![post](https://img.shields.io/badge/post-blue)](post.md#planworkers) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PlanWorkers <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#planworkers)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#planworkers)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing plan worker.  
 ##### Usage:  
 ```shell
 tq put PlanWorkers
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanWorkersUpdate-default" aria-expanded="true" aria-controls="PlanWorkersUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanWorkersUpdate-flat" aria-expanded="false" aria-controls="PlanWorkersUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlanWorkersUpdate-csv" aria-expanded="false" aria-controls="PlanWorkersUpdate-csv">
+csv
+</button>
+<div id="PlanWorkersUpdate-parent">
+<div class="collapse show" id="PlanWorkersUpdate-default" data-bs-parent="#PlanWorkersUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Plan":{"Id":123}, "PrimaryIndicator":true, "Role":{"Id":123}, "ShowInPortfolio":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Worker":{"Id":123}, "PlanWorkerID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PlanWorkersUpdate-flat"  data-bs-parent="#PlanWorkersUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Plan.Id":123,"PlanWorkerID":"string","PrimaryIndicator":true,"Role.Id":123,"ShowInPortfolio":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Worker.Id":123}]
+```  
+</div>
+<div class="collapse" id="PlanWorkersUpdate-csv" data-bs-parent="#PlanWorkersUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,Plan.Id,PlanWorkerID,PrimaryIndicator,Role.Id,ShowInPortfolio,UpdatedBy,UpdatedDateTime,Worker.Id
+"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,123,123,"""string""",true,123,true,"""string""","""2000-01-01T00:00:00.000Z""",123
 
-## Plans [![get](https://img.shields.io/badge/get-blue)](get.md#plans) [![post](https://img.shields.io/badge/post-blue)](post.md#plans) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Plans <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#plans)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#plans)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing plan.  
 ##### Usage:  
 ```shell
 tq put Plans
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlansUpdate-default" aria-expanded="true" aria-controls="PlansUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlansUpdate-flat" aria-expanded="false" aria-controls="PlansUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PlansUpdate-csv" aria-expanded="false" aria-controls="PlansUpdate-csv">
+csv
+</button>
+<div id="PlansUpdate-parent">
+<div class="collapse show" id="PlansUpdate-default" data-bs-parent="#PlansUpdate-parent"> 
 ```json
 {"AskAmount":123.456, "Campaign":{"Id":123}, "CompleteByDateTime":"2000-01-01T00:00:00.000Z", "Constituent":{"Id":123}, "ContributionAmount":123.456, "ContributionDesignation":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "CustomDataItems":[{"DataType":"string", "Description":"string", "EditIndicator":true, "Index":123, "IsDropdown":true, "KeywordId":123, "Name":"string", "Value":"string"}, ...], "EditIndicator":true, "Fund":{"Id":123}, "GoalAmount":123.456, "HasOpenSteps":true, "HasSteps":true, "Id":123, "LastStepDate":"2000-01-01T00:00:00.000Z", "LastStepType":{"Id":123}, "LastWorkerDisplayName":"string", "NextStepDate":"2000-01-01T00:00:00.000Z", "NextStepType":{"Id":123}, "Notes":"string", "OriginalSource":{"Id":123}, "PlanAssociates":"string", "PrimaryWorker":{"Id":123}, "Priority":{"Id":123}, "Probability":123.456, "RecordedAmount":123.456, "StartDateTime":"2000-01-01T00:00:00.000Z", "Status":{"Id":123}, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PlanID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PlansUpdate-flat"  data-bs-parent="#PlansUpdate-parent">
+```json
+
+```  
+</div>
+<div class="collapse" id="PlansUpdate-csv" data-bs-parent="#PlansUpdate-parent">
+```json
+
+```  
+</div>
+</div>
 
 
-## PortfolioCustomElements [![get](https://img.shields.io/badge/get-blue)](get.md#portfoliocustomelements) [![post](https://img.shields.io/badge/post-blue)](post.md#portfoliocustomelements) ![put](https://img.shields.io/badge/put-gray)   
+
+## PortfolioCustomElements <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#portfoliocustomelements)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#portfoliocustomelements)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing portfolio custom element.  
 ##### Usage:  
 ```shell
 tq put PortfolioCustomElements
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PortfolioCustomElementsUpdate-default" aria-expanded="true" aria-controls="PortfolioCustomElementsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PortfolioCustomElementsUpdate-flat" aria-expanded="false" aria-controls="PortfolioCustomElementsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PortfolioCustomElementsUpdate-csv" aria-expanded="false" aria-controls="PortfolioCustomElementsUpdate-csv">
+csv
+</button>
+<div id="PortfolioCustomElementsUpdate-parent">
+<div class="collapse show" id="PortfolioCustomElementsUpdate-default" data-bs-parent="#PortfolioCustomElementsUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "Description":"string", "Id":123, "Inactive":true, "SqlQuery":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PortfolioCustomElementsUpdate-flat"  data-bs-parent="#PortfolioCustomElementsUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DataType":123,"Description":"string","ID":"string","Id":123,"Inactive":true,"SqlQuery":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PortfolioCustomElementsUpdate-csv" data-bs-parent="#PortfolioCustomElementsUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DataType,Description,ID,Id,Inactive,SqlQuery,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,"""string""","""string""",123,true,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## Prefixes [![get](https://img.shields.io/badge/get-blue)](get.md#prefixes) [![post](https://img.shields.io/badge/post-blue)](post.md#prefixes) ![put](https://img.shields.io/badge/put-gray)   
+
+## Prefixes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#prefixes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#prefixes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing prefix.  
 ##### Usage:  
 ```shell
 tq put Prefixes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PrefixesUpdate-default" aria-expanded="true" aria-controls="PrefixesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PrefixesUpdate-flat" aria-expanded="false" aria-controls="PrefixesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PrefixesUpdate-csv" aria-expanded="false" aria-controls="PrefixesUpdate-csv">
+csv
+</button>
+<div id="PrefixesUpdate-parent">
+<div class="collapse show" id="PrefixesUpdate-default" data-bs-parent="#PrefixesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PrefixesUpdate-flat"  data-bs-parent="#PrefixesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PrefixesUpdate-csv" data-bs-parent="#PrefixesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Premieres [![get](https://img.shields.io/badge/get-blue)](get.md#premieres) [![post](https://img.shields.io/badge/post-blue)](post.md#premieres) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Premieres <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#premieres)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#premieres)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing premiere.  
 ##### Usage:  
 ```shell
 tq put Premieres
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PremieresUpdate-default" aria-expanded="true" aria-controls="PremieresUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PremieresUpdate-flat" aria-expanded="false" aria-controls="PremieresUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PremieresUpdate-csv" aria-expanded="false" aria-controls="PremieresUpdate-csv">
+csv
+</button>
+<div id="PremieresUpdate-parent">
+<div class="collapse show" id="PremieresUpdate-default" data-bs-parent="#PremieresUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PremieresUpdate-flat"  data-bs-parent="#PremieresUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PremieresUpdate-csv" data-bs-parent="#PremieresUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## PriceCategories [![get](https://img.shields.io/badge/get-blue)](get.md#pricecategories) [![post](https://img.shields.io/badge/post-blue)](post.md#pricecategories) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PriceCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricecategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing price category.  
 ##### Usage:  
 ```shell
 tq put PriceCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceCategoriesUpdate-default" aria-expanded="true" aria-controls="PriceCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceCategoriesUpdate-flat" aria-expanded="false" aria-controls="PriceCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceCategoriesUpdate-csv" aria-expanded="false" aria-controls="PriceCategoriesUpdate-csv">
+csv
+</button>
+<div id="PriceCategoriesUpdate-parent">
+<div class="collapse show" id="PriceCategoriesUpdate-default" data-bs-parent="#PriceCategoriesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PriceCategoriesUpdate-flat"  data-bs-parent="#PriceCategoriesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PriceCategoriesUpdate-csv" data-bs-parent="#PriceCategoriesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,Rank,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## PriceEvents [![get](https://img.shields.io/badge/get-blue)](get.md#priceevents) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PriceEvents <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#priceevents)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Move a set of price events to a new date.  
 ##### Usage:  
 ```shell
 tq put PriceEvents
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceEventsMoveTo-default" aria-expanded="true" aria-controls="PriceEventsMoveTo-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceEventsMoveTo-flat" aria-expanded="false" aria-controls="PriceEventsMoveTo-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceEventsMoveTo-csv" aria-expanded="false" aria-controls="PriceEventsMoveTo-csv">
+csv
+</button>
+<div id="PriceEventsMoveTo-parent">
+<div class="collapse show" id="PriceEventsMoveTo-default" data-bs-parent="#PriceEventsMoveTo-parent"> 
 ```json
 {"EventDateTime":"2000-01-01T00:00:00.000Z", "EventIds":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PriceEventsMoveTo-flat"  data-bs-parent="#PriceEventsMoveTo-parent">
+```json
+[{"EventDateTime":"2000-01-01T00:00:00.000Z","EventIds":"string"}]
+```  
+</div>
+<div class="collapse" id="PriceEventsMoveTo-csv" data-bs-parent="#PriceEventsMoveTo-parent">
+```json
+EventDateTime,EventIds
+"""2000-01-01T00:00:00.000Z""","""string"""
 
-## PriceLayerTypes [![get](https://img.shields.io/badge/get-blue)](get.md#pricelayertypes) [![post](https://img.shields.io/badge/post-blue)](post.md#pricelayertypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PriceLayerTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricelayertypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricelayertypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing price layer type.  
 ##### Usage:  
 ```shell
 tq put PriceLayerTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceLayerTypesUpdate-default" aria-expanded="true" aria-controls="PriceLayerTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceLayerTypesUpdate-flat" aria-expanded="false" aria-controls="PriceLayerTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceLayerTypesUpdate-csv" aria-expanded="false" aria-controls="PriceLayerTypesUpdate-csv">
+csv
+</button>
+<div id="PriceLayerTypesUpdate-parent">
+<div class="collapse show" id="PriceLayerTypesUpdate-default" data-bs-parent="#PriceLayerTypesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "ExcludeFromRules":true, "Id":123, "Inactive":true, "PriceCategory":{"Id":123}, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PriceLayerTypesUpdate-flat"  data-bs-parent="#PriceLayerTypesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ExcludeFromRules":true,"ID":"string","Id":123,"Inactive":true,"PriceCategory.Id":123,"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PriceLayerTypesUpdate-csv" data-bs-parent="#PriceLayerTypesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ExcludeFromRules,ID,Id,Inactive,PriceCategory.Id,Rank,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",true,"""string""",123,true,123,123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## PriceTemplates [![get](https://img.shields.io/badge/get-blue)](get.md#pricetemplates) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetemplates) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PriceTemplates <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricetemplates)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricetemplates)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing price template.  
 ##### Usage:  
 ```shell
 tq put PriceTemplates
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTemplatesUpdate-default" aria-expanded="true" aria-controls="PriceTemplatesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTemplatesUpdate-flat" aria-expanded="false" aria-controls="PriceTemplatesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTemplatesUpdate-csv" aria-expanded="false" aria-controls="PriceTemplatesUpdate-csv">
+csv
+</button>
+<div id="PriceTemplatesUpdate-parent">
+<div class="collapse show" id="PriceTemplatesUpdate-default" data-bs-parent="#PriceTemplatesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultDesignationCode":{"Id":123}, "DefaultGlAccount":{"Id":123}, "DefaultPriceLayerType":{"Id":123}, "DefaultResaleAccount":{"Id":123}, "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Name":"string", "PriceCategory":{"Id":123}, "TemplatePriceTypes":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneMap":{"Id":123}, "PriceTemplateID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PriceTemplatesUpdate-flat"  data-bs-parent="#PriceTemplatesUpdate-parent">
+```json
 
-## PriceTypeCategories [![get](https://img.shields.io/badge/get-blue)](get.md#pricetypecategories) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypecategories) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+<div class="collapse" id="PriceTemplatesUpdate-csv" data-bs-parent="#PriceTemplatesUpdate-parent">
+```json
+
+```  
+</div>
+</div>
+
+
+## PriceTypeCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricetypecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricetypecategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing price type category.  
 ##### Usage:  
 ```shell
 tq put PriceTypeCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeCategoriesUpdate-default" aria-expanded="true" aria-controls="PriceTypeCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeCategoriesUpdate-flat" aria-expanded="false" aria-controls="PriceTypeCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeCategoriesUpdate-csv" aria-expanded="false" aria-controls="PriceTypeCategoriesUpdate-csv">
+csv
+</button>
+<div id="PriceTypeCategoriesUpdate-parent">
+<div class="collapse show" id="PriceTypeCategoriesUpdate-default" data-bs-parent="#PriceTypeCategoriesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PriceTypeCategoriesUpdate-flat"  data-bs-parent="#PriceTypeCategoriesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PriceTypeCategoriesUpdate-csv" data-bs-parent="#PriceTypeCategoriesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,ShortDescription,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## PriceTypeGroups [![get](https://img.shields.io/badge/get-blue)](get.md#pricetypegroups) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypegroups) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PriceTypeGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricetypegroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricetypegroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing price type group.  
 ##### Usage:  
 ```shell
 tq put PriceTypeGroups
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeGroupsUpdate-default" aria-expanded="true" aria-controls="PriceTypeGroupsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeGroupsUpdate-flat" aria-expanded="false" aria-controls="PriceTypeGroupsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeGroupsUpdate-csv" aria-expanded="false" aria-controls="PriceTypeGroupsUpdate-csv">
+csv
+</button>
+<div id="PriceTypeGroupsUpdate-parent">
+<div class="collapse show" id="PriceTypeGroupsUpdate-default" data-bs-parent="#PriceTypeGroupsUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PriceTypeGroupsUpdate-flat"  data-bs-parent="#PriceTypeGroupsUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PriceTypeGroupsUpdate-csv" data-bs-parent="#PriceTypeGroupsUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## PriceTypeReasons [![get](https://img.shields.io/badge/get-blue)](get.md#pricetypereasons) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypereasons) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PriceTypeReasons <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricetypereasons)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricetypereasons)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing price type reason.  
 ##### Usage:  
 ```shell
 tq put PriceTypeReasons
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeReasonsUpdate-default" aria-expanded="true" aria-controls="PriceTypeReasonsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeReasonsUpdate-flat" aria-expanded="false" aria-controls="PriceTypeReasonsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeReasonsUpdate-csv" aria-expanded="false" aria-controls="PriceTypeReasonsUpdate-csv">
+csv
+</button>
+<div id="PriceTypeReasonsUpdate-parent">
+<div class="collapse show" id="PriceTypeReasonsUpdate-default" data-bs-parent="#PriceTypeReasonsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ShortDescription":"string", "TicketText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PriceTypeReasonsUpdate-flat"  data-bs-parent="#PriceTypeReasonsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"ShortDescription":"string","TicketText":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PriceTypeReasonsUpdate-csv" data-bs-parent="#PriceTypeReasonsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,ShortDescription,TicketText,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## PriceTypeUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#pricetypeusergroups) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypeusergroups) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PriceTypeUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricetypeusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricetypeusergroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing price type/user group mapping.  
 ##### Usage:  
 ```shell
 tq put PriceTypeUserGroups
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeUserGroupsUpdate-default" aria-expanded="true" aria-controls="PriceTypeUserGroupsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeUserGroupsUpdate-flat" aria-expanded="false" aria-controls="PriceTypeUserGroupsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypeUserGroupsUpdate-csv" aria-expanded="false" aria-controls="PriceTypeUserGroupsUpdate-csv">
+csv
+</button>
+<div id="PriceTypeUserGroupsUpdate-parent">
+<div class="collapse show" id="PriceTypeUserGroupsUpdate-default" data-bs-parent="#PriceTypeUserGroupsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "PriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "PriceTypeUserGroupID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PriceTypeUserGroupsUpdate-flat"  data-bs-parent="#PriceTypeUserGroupsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"PriceType.Id":123,"PriceTypeUserGroupID":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string"}]
+```  
+</div>
+<div class="collapse" id="PriceTypeUserGroupsUpdate-csv" data-bs-parent="#PriceTypeUserGroupsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Id,PriceType.Id,PriceTypeUserGroupID,UpdatedBy,UpdatedDateTime,UserGroupId
+"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string"""
 
-## PriceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#pricetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#pricetypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PriceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing price type.  
 ##### Usage:  
 ```shell
 tq put PriceTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypesUpdate-default" aria-expanded="true" aria-controls="PriceTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypesUpdate-flat" aria-expanded="false" aria-controls="PriceTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PriceTypesUpdate-csv" aria-expanded="false" aria-controls="PriceTypesUpdate-csv">
+csv
+</button>
+<div id="PriceTypesUpdate-parent">
+<div class="collapse show" id="PriceTypesUpdate-default" data-bs-parent="#PriceTypesUpdate-parent"> 
 ```json
 {"AliasDescription":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultTicketDesign":{"Id":123}, "Description":"string", "EditIndicator":true, "EditableIndicator":true, "Id":123, "Inactive":true, "PriceTypeCategory":{"Id":123}, "PriceTypeGroup":{"Id":123}, "ReasonIndicator":true, "ShortDescription":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PriceTypeID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PriceTypesUpdate-flat"  data-bs-parent="#PriceTypesUpdate-parent">
+```json
+[{"AliasDescription":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultTicketDesign.Id":123,"Description":"string","EditIndicator":true,"EditableIndicator":true,"Id":123,"Inactive":true,"PriceTypeCategory.Id":123,"PriceTypeGroup.Id":123,"PriceTypeID":"string","ReasonIndicator":true,"ShortDescription":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PriceTypesUpdate-csv" data-bs-parent="#PriceTypesUpdate-parent">
+```json
+AliasDescription,CreateLocation,CreatedBy,CreatedDateTime,DefaultTicketDesign.Id,Description,EditIndicator,EditableIndicator,Id,Inactive,PriceTypeCategory.Id,PriceTypeGroup.Id,PriceTypeID,ReasonIndicator,ShortDescription,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""",123,"""string""",true,true,123,true,123,123,"""string""",true,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## PricingRuleCategories [![get](https://img.shields.io/badge/get-blue)](get.md#pricingrulecategories) [![post](https://img.shields.io/badge/post-blue)](post.md#pricingrulecategories) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PricingRuleCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricingrulecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricingrulecategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing pricing rule category.  
 ##### Usage:  
 ```shell
 tq put PricingRuleCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleCategoriesUpdate-default" aria-expanded="true" aria-controls="PricingRuleCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleCategoriesUpdate-flat" aria-expanded="false" aria-controls="PricingRuleCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleCategoriesUpdate-csv" aria-expanded="false" aria-controls="PricingRuleCategoriesUpdate-csv">
+csv
+</button>
+<div id="PricingRuleCategoriesUpdate-parent">
+<div class="collapse show" id="PricingRuleCategoriesUpdate-default" data-bs-parent="#PricingRuleCategoriesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PricingRuleCategoriesUpdate-flat"  data-bs-parent="#PricingRuleCategoriesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PricingRuleCategoriesUpdate-csv" data-bs-parent="#PricingRuleCategoriesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## PricingRuleMessageTypes [![get](https://img.shields.io/badge/get-blue)](get.md#pricingrulemessagetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#pricingrulemessagetypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PricingRuleMessageTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricingrulemessagetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricingrulemessagetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing pricing rule message type.  
 ##### Usage:  
 ```shell
 tq put PricingRuleMessageTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleMessageTypesUpdate-default" aria-expanded="true" aria-controls="PricingRuleMessageTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleMessageTypesUpdate-flat" aria-expanded="false" aria-controls="PricingRuleMessageTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleMessageTypesUpdate-csv" aria-expanded="false" aria-controls="PricingRuleMessageTypesUpdate-csv">
+csv
+</button>
+<div id="PricingRuleMessageTypesUpdate-parent">
+<div class="collapse show" id="PricingRuleMessageTypesUpdate-default" data-bs-parent="#PricingRuleMessageTypesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PricingRuleMessageTypesUpdate-flat"  data-bs-parent="#PricingRuleMessageTypesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PricingRuleMessageTypesUpdate-csv" data-bs-parent="#PricingRuleMessageTypesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## PricingRuleSets [![get](https://img.shields.io/badge/get-blue)](get.md#pricingrulesets) [![post](https://img.shields.io/badge/post-blue)](post.md#pricingrulesets) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## PricingRuleSets <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricingrulesets)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricingrulesets)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing pricing rule set.  
 ##### Usage:  
 ```shell
 tq put PricingRuleSets
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleSetsUpdate-default" aria-expanded="true" aria-controls="PricingRuleSetsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleSetsUpdate-flat" aria-expanded="false" aria-controls="PricingRuleSetsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRuleSetsUpdate-csv" aria-expanded="false" aria-controls="PricingRuleSetsUpdate-csv">
+csv
+</button>
+<div id="PricingRuleSetsUpdate-parent">
+<div class="collapse show" id="PricingRuleSetsUpdate-default" data-bs-parent="#PricingRuleSetsUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Rules":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PricingRuleSetID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PricingRuleSetsUpdate-flat"  data-bs-parent="#PricingRuleSetsUpdate-parent">
+```json
+
+```  
+</div>
+<div class="collapse" id="PricingRuleSetsUpdate-csv" data-bs-parent="#PricingRuleSetsUpdate-parent">
+```json
+
+```  
+</div>
+</div>
 
 
-## PricingRules [![get](https://img.shields.io/badge/get-blue)](get.md#pricingrules) [![post](https://img.shields.io/badge/post-blue)](post.md#pricingrules) ![put](https://img.shields.io/badge/put-gray)   
+
+## PricingRules <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pricingrules)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pricingrules)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing pricing rule.  
 ##### Usage:  
 ```shell
 tq put PricingRules
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRulesUpdate-default" aria-expanded="true" aria-controls="PricingRulesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRulesUpdate-flat" aria-expanded="false" aria-controls="PricingRulesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PricingRulesUpdate-csv" aria-expanded="false" aria-controls="PricingRulesUpdate-csv">
+csv
+</button>
+<div id="PricingRulesUpdate-parent">
+<div class="collapse show" id="PricingRulesUpdate-default" data-bs-parent="#PricingRulesUpdate-parent"> 
 ```json
 {"Appeals":"string", "ApplyOncePerOrder":true, "ApplyToLowestCommonNumberOfSeats":true, "Constituencies":"string", "ConstituentAttribute":123, "ConstituentAttributeOperator":{"Id":123}, "ConstituentAttributeValue1":"string", "ConstituentAttributeValue2":"string", "ConstituentExclusionListId":123, "ConstituentListId":123, "ConstituentRankType":123, "ConstituentRankingOperator":{"Id":123}, "ConstituentRankingValue1":123, "ConstituentRankingValue2":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DiscountAmount":123.456, "DiscountIsPercent":true, "DiscountPercentRound":123, "DiscountPriceTypeId":123, "EditIndicator":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "ExcludeGeneralPublic":true, "Id":123, "Inactive":true, "MaxSeats":123, "Messages":[{"Id":123}, ...], "OverTheLimitDateTime":"2000-01-01T00:00:00.000Z", "PromotedAppeals":"string", "PromotedSources":"string", "QualifyingPackage":"string", "QualifyingPerformance":"string", "QualifyingPriceType1":"string", "QualifyingPriceType2":"string", "QualifyingProductionSeason":"string", "QualifyingSeasonPackageType":"string", "QualifyingSeatCount1Value1":123, "QualifyingSeatCount1Value2":123, "QualifyingSeatCount2Value1":123, "QualifyingSeatCount2Value2":123, "QualifyingZone":"string", "RespectMinimumPrice":true, "ResultMaximumSeats":123, "ResultMaximumSeats2":123, "ResultPackage":"string", "ResultPerformance":"string", "ResultPriceType":"string", "ResultProductionSeason":"string", "ResultSeasonPackageType":"string", "ResultSeatCount":123, "ResultZone":"string", "RuleAction":123, "RuleCategory":{"Id":123}, "RuleType":{"Id":123}, "Sources":"string", "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "PricingRuleID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PricingRulesUpdate-flat"  data-bs-parent="#PricingRulesUpdate-parent">
+```json
 
-## Printers [![get](https://img.shields.io/badge/get-blue)](get.md#printers) [![post](https://img.shields.io/badge/post-blue)](post.md#printers) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+<div class="collapse" id="PricingRulesUpdate-csv" data-bs-parent="#PricingRulesUpdate-parent">
+```json
+
+```  
+</div>
+</div>
+
+
+## Printers <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#printers)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#printers)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing printer.  
 ##### Usage:  
 ```shell
 tq put Printers
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PrintersUpdate-default" aria-expanded="true" aria-controls="PrintersUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PrintersUpdate-flat" aria-expanded="false" aria-controls="PrintersUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PrintersUpdate-csv" aria-expanded="false" aria-controls="PrintersUpdate-csv">
+csv
+</button>
+<div id="PrintersUpdate-parent">
+<div class="collapse show" id="PrintersUpdate-default" data-bs-parent="#PrintersUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "MaxCol":123, "MaxRow":123, "MaxX2val":123, "MaxY2val":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PrintersUpdate-flat"  data-bs-parent="#PrintersUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"MaxCol":123,"MaxRow":123,"MaxX2val":123,"MaxY2val":123,"Type":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PrintersUpdate-csv" data-bs-parent="#PrintersUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,MaxCol,MaxRow,MaxX2val,MaxY2val,Type,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,123,123,123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## ProductionSeasonMembershipOrganizations [![get](https://img.shields.io/badge/get-blue)](get.md#productionseasonmembershiporganizations) [![post](https://img.shields.io/badge/post-blue)](post.md#productionseasonmembershiporganizations) ![put](https://img.shields.io/badge/put-gray)   
+
+## ProductionSeasonMembershipOrganizations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#productionseasonmembershiporganizations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#productionseasonmembershiporganizations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing production season membership organization.  
 ##### Usage:  
 ```shell
 tq put ProductionSeasonMembershipOrganizations
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductionSeasonMembershipOrganizationsUpdate-default" aria-expanded="true" aria-controls="ProductionSeasonMembershipOrganizationsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductionSeasonMembershipOrganizationsUpdate-flat" aria-expanded="false" aria-controls="ProductionSeasonMembershipOrganizationsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProductionSeasonMembershipOrganizationsUpdate-csv" aria-expanded="false" aria-controls="ProductionSeasonMembershipOrganizationsUpdate-csv">
+csv
+</button>
+<div id="ProductionSeasonMembershipOrganizationsUpdate-parent">
+<div class="collapse show" id="ProductionSeasonMembershipOrganizationsUpdate-default" data-bs-parent="#ProductionSeasonMembershipOrganizationsUpdate-parent"> 
 ```json
 {"ID":"string", "AllowMultipleEntry":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "MembershipOrganization":{"Id":123}, "ProductionSeason":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
-```
+```  
+</div>
+<div class="collapse" id="ProductionSeasonMembershipOrganizationsUpdate-flat"  data-bs-parent="#ProductionSeasonMembershipOrganizationsUpdate-parent">
+```json
+[{"AllowMultipleEntry":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string","Id":123,"MembershipOrganization.Id":123,"ProductionSeason.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ProductionSeasonMembershipOrganizationsUpdate-csv" data-bs-parent="#ProductionSeasonMembershipOrganizationsUpdate-parent">
+```json
+AllowMultipleEntry,CreateLocation,CreatedBy,CreatedDateTime,ID,Id,MembershipOrganization.Id,ProductionSeason.Id,UpdatedBy,UpdatedDateTime
+true,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,123,123,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
 
 
-## ProgramListings [![get](https://img.shields.io/badge/get-blue)](get.md#programlistings) [![post](https://img.shields.io/badge/post-blue)](post.md#programlistings) ![put](https://img.shields.io/badge/put-gray)   
+
+## ProgramListings <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#programlistings)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#programlistings)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update a program listing.  
 ##### Usage:  
 ```shell
 tq put ProgramListings
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProgramListingsUpdate-default" aria-expanded="true" aria-controls="ProgramListingsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProgramListingsUpdate-flat" aria-expanded="false" aria-controls="ProgramListingsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProgramListingsUpdate-csv" aria-expanded="false" aria-controls="ProgramListingsUpdate-csv">
+csv
+</button>
+<div id="ProgramListingsUpdate-parent">
+<div class="collapse show" id="ProgramListingsUpdate-default" data-bs-parent="#ProgramListingsUpdate-parent"> 
 ```json
 {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DonationLevel":{"Id":123}, "EditIndicator":true, "Id":123, "ProgramName":"string", "ProgramType":{"Id":123}, "SortName":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ProgramListingID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ProgramListingsUpdate-flat"  data-bs-parent="#ProgramListingsUpdate-parent">
+```json
+[{"Constituent.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DonationLevel.Id":123,"EditIndicator":true,"Id":123,"ProgramListingID":"string","ProgramName":"string","ProgramType.Id":123,"SortName":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ProgramListingsUpdate-csv" data-bs-parent="#ProgramListingsUpdate-parent">
+```json
+Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,DonationLevel.Id,EditIndicator,Id,ProgramListingID,ProgramName,ProgramType.Id,SortName,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,true,123,"""string""","""string""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## Programs [![get](https://img.shields.io/badge/get-blue)](get.md#programs) [![post](https://img.shields.io/badge/post-blue)](post.md#programs) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Programs <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#programs)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#programs)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing program.  
 ##### Usage:  
 ```shell
 tq put Programs
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProgramsUpdate-default" aria-expanded="true" aria-controls="ProgramsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProgramsUpdate-flat" aria-expanded="false" aria-controls="ProgramsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ProgramsUpdate-csv" aria-expanded="false" aria-controls="ProgramsUpdate-csv">
+csv
+</button>
+<div id="ProgramsUpdate-parent">
+<div class="collapse show" id="ProgramsUpdate-default" data-bs-parent="#ProgramsUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ProgramsUpdate-flat"  data-bs-parent="#ProgramsUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ProgramsUpdate-csv" data-bs-parent="#ProgramsUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Pronouns [![get](https://img.shields.io/badge/get-blue)](get.md#pronouns) [![post](https://img.shields.io/badge/post-blue)](post.md#pronouns) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Pronouns <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#pronouns)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#pronouns)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
   
 ##### Usage:  
 ```shell
 tq put Pronouns
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PronounsUpdate-default" aria-expanded="true" aria-controls="PronounsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PronounsUpdate-flat" aria-expanded="false" aria-controls="PronounsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#PronounsUpdate-csv" aria-expanded="false" aria-controls="PronounsUpdate-csv">
+csv
+</button>
+<div id="PronounsUpdate-parent">
+<div class="collapse show" id="PronounsUpdate-default" data-bs-parent="#PronounsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="PronounsUpdate-flat"  data-bs-parent="#PronounsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="PronounsUpdate-csv" data-bs-parent="#PronounsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
+
 
 	
 # Q
-## QualificationCategories [![get](https://img.shields.io/badge/get-blue)](get.md#qualificationcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#qualificationcategories) ![put](https://img.shields.io/badge/put-gray)   
+## QualificationCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#qualificationcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#qualificationcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Qualification Category.  
 ##### Usage:  
 ```shell
 tq put QualificationCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QualificationCategoriesUpdate-default" aria-expanded="true" aria-controls="QualificationCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QualificationCategoriesUpdate-flat" aria-expanded="false" aria-controls="QualificationCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QualificationCategoriesUpdate-csv" aria-expanded="false" aria-controls="QualificationCategoriesUpdate-csv">
+csv
+</button>
+<div id="QualificationCategoriesUpdate-parent">
+<div class="collapse show" id="QualificationCategoriesUpdate-default" data-bs-parent="#QualificationCategoriesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="QualificationCategoriesUpdate-flat"  data-bs-parent="#QualificationCategoriesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="QualificationCategoriesUpdate-csv" data-bs-parent="#QualificationCategoriesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Qualifications [![get](https://img.shields.io/badge/get-blue)](get.md#qualifications) [![post](https://img.shields.io/badge/post-blue)](post.md#qualifications) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Qualifications <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#qualifications)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#qualifications)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Qualification.  
 ##### Usage:  
 ```shell
 tq put Qualifications
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QualificationsUpdate-default" aria-expanded="true" aria-controls="QualificationsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QualificationsUpdate-flat" aria-expanded="false" aria-controls="QualificationsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QualificationsUpdate-csv" aria-expanded="false" aria-controls="QualificationsUpdate-csv">
+csv
+</button>
+<div id="QualificationsUpdate-parent">
+<div class="collapse show" id="QualificationsUpdate-default" data-bs-parent="#QualificationsUpdate-parent"> 
 ```json
 {"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="QualificationsUpdate-flat"  data-bs-parent="#QualificationsUpdate-parent">
+```json
+[{"Category.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="QualificationsUpdate-csv" data-bs-parent="#QualificationsUpdate-parent">
+```json
+Category.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## QueryElementFilters [![get](https://img.shields.io/badge/get-blue)](get.md#queryelementfilters) [![post](https://img.shields.io/badge/post-blue)](post.md#queryelementfilters) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## QueryElementFilters <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#queryelementfilters)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#queryelementfilters)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing query element filter.  
 ##### Usage:  
 ```shell
 tq put QueryElementFilters
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementFiltersUpdate-default" aria-expanded="true" aria-controls="QueryElementFiltersUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementFiltersUpdate-flat" aria-expanded="false" aria-controls="QueryElementFiltersUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementFiltersUpdate-csv" aria-expanded="false" aria-controls="QueryElementFiltersUpdate-csv">
+csv
+</button>
+<div id="QueryElementFiltersUpdate-parent">
+<div class="collapse show" id="QueryElementFiltersUpdate-default" data-bs-parent="#QueryElementFiltersUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "Description":"string", "EndOfDay":true, "FilterElement":"string", "Group":{"Id":123}, "Id":123, "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "QueryElementFilterID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="QueryElementFiltersUpdate-flat"  data-bs-parent="#QueryElementFiltersUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DataType":123,"Description":"string","EndOfDay":true,"FilterElement":"string","Group.Id":123,"Id":123,"QueryElementFilterID":"string","ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="QueryElementFiltersUpdate-csv" data-bs-parent="#QueryElementFiltersUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,DataType,Description,EndOfDay,FilterElement,Group.Id,Id,QueryElementFilterID,ReferenceDescriptionColumn,ReferenceIdColumn,ReferenceSort,ReferenceTable,ReferenceWhere,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,"""string""",true,"""string""",123,123,"""string""","""string""","""string""","""string""","""string""","""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## QueryElementGroups [![get](https://img.shields.io/badge/get-blue)](get.md#queryelementgroups) [![post](https://img.shields.io/badge/post-blue)](post.md#queryelementgroups) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## QueryElementGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#queryelementgroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#queryelementgroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing query element group.  
 ##### Usage:  
 ```shell
 tq put QueryElementGroups
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementGroupsUpdate-default" aria-expanded="true" aria-controls="QueryElementGroupsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementGroupsUpdate-flat" aria-expanded="false" aria-controls="QueryElementGroupsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementGroupsUpdate-csv" aria-expanded="false" aria-controls="QueryElementGroupsUpdate-csv">
+csv
+</button>
+<div id="QueryElementGroupsUpdate-parent">
+<div class="collapse show" id="QueryElementGroupsUpdate-default" data-bs-parent="#QueryElementGroupsUpdate-parent"> 
 ```json
 {"Category":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataFrom":"string", "DataWhere":"string", "Description":"string", "Id":123, "IsVirtual":true, "NumberOfParameters":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "QueryElementGroupID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="QueryElementGroupsUpdate-flat"  data-bs-parent="#QueryElementGroupsUpdate-parent">
+```json
+[{"Category":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DataFrom":"string","DataWhere":"string","Description":"string","Id":123,"IsVirtual":true,"NumberOfParameters":123,"QueryElementGroupID":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="QueryElementGroupsUpdate-csv" data-bs-parent="#QueryElementGroupsUpdate-parent">
+```json
+Category,CreateLocation,CreatedBy,CreatedDateTime,DataFrom,DataWhere,Description,Id,IsVirtual,NumberOfParameters,QueryElementGroupID,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""","""string""",123,true,123,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## QueryElements [![get](https://img.shields.io/badge/get-blue)](get.md#queryelements) [![post](https://img.shields.io/badge/post-blue)](post.md#queryelements) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## QueryElements <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#queryelements)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#queryelements)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing query element.  
 ##### Usage:  
 ```shell
 tq put QueryElements
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementsUpdate-default" aria-expanded="true" aria-controls="QueryElementsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementsUpdate-flat" aria-expanded="false" aria-controls="QueryElementsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#QueryElementsUpdate-csv" aria-expanded="false" aria-controls="QueryElementsUpdate-csv">
+csv
+</button>
+<div id="QueryElementsUpdate-parent">
+<div class="collapse show" id="QueryElementsUpdate-default" data-bs-parent="#QueryElementsUpdate-parent"> 
 ```json
 {"ID":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataSelect":"string", "Description":"string", "Group":{"Id":123}, "Id":123, "Inactive":true, "IsSingleRow":true, "KeywordId":123, "PrimaryGroupDefault":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
-```
+```  
+</div>
+<div class="collapse" id="QueryElementsUpdate-flat"  data-bs-parent="#QueryElementsUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DataSelect":"string","Description":"string","Group.Id":123,"ID":"string","Id":123,"Inactive":true,"IsSingleRow":true,"KeywordId":123,"PrimaryGroupDefault":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="QueryElementsUpdate-csv" data-bs-parent="#QueryElementsUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DataSelect,Description,Group.Id,ID,Id,Inactive,IsSingleRow,KeywordId,PrimaryGroupDefault,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,"""string""",123,true,true,123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
+
 
 	
 # R
-## RankTypes [![get](https://img.shields.io/badge/get-blue)](get.md#ranktypes) [![post](https://img.shields.io/badge/post-blue)](post.md#ranktypes) ![put](https://img.shields.io/badge/put-gray)   
+## RankTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#ranktypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#ranktypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing rank type.  
 ##### Usage:  
 ```shell
 tq put RankTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RankTypesUpdate-default" aria-expanded="true" aria-controls="RankTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RankTypesUpdate-flat" aria-expanded="false" aria-controls="RankTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RankTypesUpdate-csv" aria-expanded="false" aria-controls="RankTypesUpdate-csv">
+csv
+</button>
+<div id="RankTypesUpdate-parent">
+<div class="collapse show" id="RankTypesUpdate-default" data-bs-parent="#RankTypesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="RankTypesUpdate-flat"  data-bs-parent="#RankTypesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="RankTypesUpdate-csv" data-bs-parent="#RankTypesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Rankings [![get](https://img.shields.io/badge/get-blue)](get.md#rankings) [![post](https://img.shields.io/badge/post-blue)](post.md#rankings) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Rankings <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#rankings)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#rankings)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update a ranking.  
 ##### Usage:  
 ```shell
 tq put Rankings
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RankingsUpdate-default" aria-expanded="true" aria-controls="RankingsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RankingsUpdate-flat" aria-expanded="false" aria-controls="RankingsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RankingsUpdate-csv" aria-expanded="false" aria-controls="RankingsUpdate-csv">
+csv
+</button>
+<div id="RankingsUpdate-parent">
+<div class="collapse show" id="RankingsUpdate-default" data-bs-parent="#RankingsUpdate-parent"> 
 ```json
 {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "Rank":123, "RankType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "RankingID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="RankingsUpdate-flat"  data-bs-parent="#RankingsUpdate-parent">
+```json
+[{"Constituent.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"Rank":123,"RankType.Id":123,"RankingID":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="RankingsUpdate-csv" data-bs-parent="#RankingsUpdate-parent">
+```json
+Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,Rank,RankType.Id,RankingID,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,123,123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## ReceiptSettings [![get](https://img.shields.io/badge/get-blue)](get.md#receiptsettings) [![post](https://img.shields.io/badge/post-blue)](post.md#receiptsettings) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ReceiptSettings <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#receiptsettings)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#receiptsettings)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Receipt Setting.  
 ##### Usage:  
 ```shell
 tq put ReceiptSettings
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReceiptSettingsUpdate-default" aria-expanded="true" aria-controls="ReceiptSettingsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReceiptSettingsUpdate-flat" aria-expanded="false" aria-controls="ReceiptSettingsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReceiptSettingsUpdate-csv" aria-expanded="false" aria-controls="ReceiptSettingsUpdate-csv">
+csv
+</button>
+<div id="ReceiptSettingsUpdate-parent">
+<div class="collapse show" id="ReceiptSettingsUpdate-default" data-bs-parent="#ReceiptSettingsUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EmailFooter":"string", "EmailHeader":"string", "EmailSubject":"string", "Id":123, "Inactive":true, "PrintFooter":"string", "PrintHeader":"string", "ReceiptEmailProfile":{"Id":123}, "TicketEmailProfile":{"Id":123}, "TicketEmailSubject":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ReceiptSettingsUpdate-flat"  data-bs-parent="#ReceiptSettingsUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EmailFooter":"string","EmailHeader":"string","EmailSubject":"string","ID":"string","Id":123,"Inactive":true,"PrintFooter":"string","PrintHeader":"string","ReceiptEmailProfile.Id":123,"TicketEmailProfile.Id":123,"TicketEmailSubject":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ReceiptSettingsUpdate-csv" data-bs-parent="#ReceiptSettingsUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EmailFooter,EmailHeader,EmailSubject,ID,Id,Inactive,PrintFooter,PrintHeader,ReceiptEmailProfile.Id,TicketEmailProfile.Id,TicketEmailSubject,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""","""string""","""string""","""string""",123,true,"""string""","""string""",123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
 
-## ReferenceTableUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#referencetableusergroups) [![post](https://img.shields.io/badge/post-blue)](post.md#referencetableusergroups) ![put](https://img.shields.io/badge/put-gray)   
+
+## ReferenceTableUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#referencetableusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#referencetableusergroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing reference table/user group mapping.  
 ##### Usage:  
 ```shell
 tq put ReferenceTableUserGroups
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReferenceTableUserGroupsUpdate-default" aria-expanded="true" aria-controls="ReferenceTableUserGroupsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReferenceTableUserGroupsUpdate-flat" aria-expanded="false" aria-controls="ReferenceTableUserGroupsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReferenceTableUserGroupsUpdate-csv" aria-expanded="false" aria-controls="ReferenceTableUserGroupsUpdate-csv">
+csv
+</button>
+<div id="ReferenceTableUserGroupsUpdate-parent">
+<div class="collapse show" id="ReferenceTableUserGroupsUpdate-default" data-bs-parent="#ReferenceTableUserGroupsUpdate-parent"> 
 ```json
 {"CanEdit":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ReferenceTable":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ReferenceTableUserGroupsUpdate-flat"  data-bs-parent="#ReferenceTableUserGroupsUpdate-parent">
+```json
+[{"CanEdit":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string","Id":123,"ReferenceTable.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string"}]
+```  
+</div>
+<div class="collapse" id="ReferenceTableUserGroupsUpdate-csv" data-bs-parent="#ReferenceTableUserGroupsUpdate-parent">
+```json
+CanEdit,CreateLocation,CreatedBy,CreatedDateTime,ID,Id,ReferenceTable.Id,UpdatedBy,UpdatedDateTime,UserGroupId
+true,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,123,"""string""","""2000-01-01T00:00:00.000Z""","""string"""
+
+```  
+</div>
+</div>
 
 
 
-## RelationshipCategories [![get](https://img.shields.io/badge/get-blue)](get.md#relationshipcategories) [![post](https://img.shields.io/badge/post-blue)](post.md#relationshipcategories) ![put](https://img.shields.io/badge/put-gray)   
+
+## RelationshipCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#relationshipcategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#relationshipcategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing relationship category.  
 ##### Usage:  
 ```shell
 tq put RelationshipCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RelationshipCategoriesUpdate-default" aria-expanded="true" aria-controls="RelationshipCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RelationshipCategoriesUpdate-flat" aria-expanded="false" aria-controls="RelationshipCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#RelationshipCategoriesUpdate-csv" aria-expanded="false" aria-controls="RelationshipCategoriesUpdate-csv">
+csv
+</button>
+<div id="RelationshipCategoriesUpdate-parent">
+<div class="collapse show" id="RelationshipCategoriesUpdate-default" data-bs-parent="#RelationshipCategoriesUpdate-parent"> 
 ```json
 {"CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="RelationshipCategoriesUpdate-flat"  data-bs-parent="#RelationshipCategoriesUpdate-parent">
+```json
+[{"CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="RelationshipCategoriesUpdate-csv" data-bs-parent="#RelationshipCategoriesUpdate-parent">
+```json
+CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## ReportRequests [![get](https://img.shields.io/badge/get-blue)](get.md#reportrequests) [![post](https://img.shields.io/badge/post-blue)](post.md#reportrequests) ![put](https://img.shields.io/badge/put-gray)   
+
+## ReportRequests <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#reportrequests)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#reportrequests)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update the details of a report request.  
 ##### Usage:  
 ```shell
 tq put ReportRequests
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportRequestsUpdate-default" aria-expanded="true" aria-controls="ReportRequestsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportRequestsUpdate-flat" aria-expanded="false" aria-controls="ReportRequestsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportRequestsUpdate-csv" aria-expanded="false" aria-controls="ReportRequestsUpdate-csv">
+csv
+</button>
+<div id="ReportRequestsUpdate-parent">
+<div class="collapse show" id="ReportRequestsUpdate-default" data-bs-parent="#ReportRequestsUpdate-parent"> 
 ```json
 {"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DeletedIndicator":true, "EmailBody":"string", "EmailRecipients":"string", "EmailSubject":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OutputOption":"string", "Parameters":[{"ParameterId":123, "ReportId":"string", "RequestId":123, "Value":"string"}, ...], "PublicIndicator":true, "QueueStatus":"string", "ReportId":"string", "ReportType":123, "RequestDateTime":"2000-01-01T00:00:00.000Z", "ResultCode":"string", "ResultText":"string", "ScheduleId":123, "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "UserId":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ReportRequestsUpdate-flat"  data-bs-parent="#ReportRequestsUpdate-parent">
+```json
+
+```  
+</div>
+<div class="collapse" id="ReportRequestsUpdate-csv" data-bs-parent="#ReportRequestsUpdate-parent">
+```json
+
+```  
+</div>
+</div>
+
 ### Flags:
  * *--FlushIncomplete*  
    Update the status of all the running requests to error.
 
-## ReportSchedules [![get](https://img.shields.io/badge/get-blue)](get.md#reportschedules) [![post](https://img.shields.io/badge/post-blue)](post.md#reportschedules) ![put](https://img.shields.io/badge/put-gray)   
+## ReportSchedules <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#reportschedules)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#reportschedules)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update the details of a report schedule.  
 ##### Usage:  
 ```shell
 tq put ReportSchedules
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportSchedulesUpdate-default" aria-expanded="true" aria-controls="ReportSchedulesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportSchedulesUpdate-flat" aria-expanded="false" aria-controls="ReportSchedulesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportSchedulesUpdate-csv" aria-expanded="false" aria-controls="ReportSchedulesUpdate-csv">
+csv
+</button>
+<div id="ReportSchedulesUpdate-parent">
+<div class="collapse show" id="ReportSchedulesUpdate-default" data-bs-parent="#ReportSchedulesUpdate-parent"> 
 ```json
 {"ID":"string", "AsOfDateTime":"2000-01-01T00:00:00.000Z", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DayOfWeek":123, "DayWeekNumber":123, "EndDate":"2000-01-01T00:00:00.000Z", "EndTime":"2000-01-01T00:00:00.000Z", "HeaderRequest":{"Id":123}, "Id":123, "Inactive":true, "Interval":123, "Name":"string", "StartDate":"2000-01-01T00:00:00.000Z", "StartTime":"2000-01-01T00:00:00.000Z", "Type":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
-```
+```  
+</div>
+<div class="collapse" id="ReportSchedulesUpdate-flat"  data-bs-parent="#ReportSchedulesUpdate-parent">
+```json
+[{"AsOfDateTime":"2000-01-01T00:00:00.000Z","ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DayOfWeek":123,"DayWeekNumber":123,"EndDate":"2000-01-01T00:00:00.000Z","EndTime":"2000-01-01T00:00:00.000Z","HeaderRequest.Id":123,"ID":"string","Id":123,"Inactive":true,"Interval":123,"Name":"string","StartDate":"2000-01-01T00:00:00.000Z","StartTime":"2000-01-01T00:00:00.000Z","Type":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ReportSchedulesUpdate-csv" data-bs-parent="#ReportSchedulesUpdate-parent">
+```json
+AsOfDateTime,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DayOfWeek,DayWeekNumber,EndDate,EndTime,HeaderRequest.Id,ID,Id,Inactive,Interval,Name,StartDate,StartTime,Type,UpdatedBy,UpdatedDateTime
+"""2000-01-01T00:00:00.000Z""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,123,"""2000-01-01T00:00:00.000Z""","""2000-01-01T00:00:00.000Z""",123,"""string""",123,true,123,"""string""","""2000-01-01T00:00:00.000Z""","""2000-01-01T00:00:00.000Z""","""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## ReportUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#reportusergroups) [![post](https://img.shields.io/badge/post-blue)](post.md#reportusergroups) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ReportUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#reportusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#reportusergroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing report/user group mapping.  
 ##### Usage:  
 ```shell
 tq put ReportUserGroups
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportUserGroupsUpdate-default" aria-expanded="true" aria-controls="ReportUserGroupsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportUserGroupsUpdate-flat" aria-expanded="false" aria-controls="ReportUserGroupsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ReportUserGroupsUpdate-csv" aria-expanded="false" aria-controls="ReportUserGroupsUpdate-csv">
+csv
+</button>
+<div id="ReportUserGroupsUpdate-parent">
+<div class="collapse show" id="ReportUserGroupsUpdate-default" data-bs-parent="#ReportUserGroupsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ReportId":"string", "RunRight":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ViewRight":"string", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ReportUserGroupsUpdate-flat"  data-bs-parent="#ReportUserGroupsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string","Id":123,"ReportId":"string","RunRight":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string","ViewRight":"string"}]
+```  
+</div>
+<div class="collapse" id="ReportUserGroupsUpdate-csv" data-bs-parent="#ReportUserGroupsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,ID,Id,ReportId,RunRight,UpdatedBy,UpdatedDateTime,UserGroupId,ViewRight
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string"""
+
+```  
+</div>
+</div>
 
 
-## Research [![get](https://img.shields.io/badge/get-blue)](get.md#research) [![post](https://img.shields.io/badge/post-blue)](post.md#research) ![put](https://img.shields.io/badge/put-gray)   
+
+## Research <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#research)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#research)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Updated an existing research entry for a constituent.  
 ##### Usage:  
 ```shell
 tq put Research
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResearchUpdate-default" aria-expanded="true" aria-controls="ResearchUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResearchUpdate-flat" aria-expanded="false" aria-controls="ResearchUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResearchUpdate-csv" aria-expanded="false" aria-controls="ResearchUpdate-csv">
+csv
+</button>
+<div id="ResearchUpdate-parent">
+<div class="collapse show" id="ResearchUpdate-default" data-bs-parent="#ResearchUpdate-parent"> 
 ```json
 {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "ResearchDate":"2000-01-01T00:00:00.000Z", "ResearchSource":"string", "ResearchType":{"Id":123}, "Researcher":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ResearchEntryID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ResearchUpdate-flat"  data-bs-parent="#ResearchUpdate-parent">
+```json
+[{"Constituent.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"ResearchDate":"2000-01-01T00:00:00.000Z","ResearchEntryID":"string","ResearchSource":"string","ResearchType.Id":123,"Researcher.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ResearchUpdate-csv" data-bs-parent="#ResearchUpdate-parent">
+```json
+Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Id,ResearchDate,ResearchEntryID,ResearchSource,ResearchType.Id,Researcher.Id,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,123,"""2000-01-01T00:00:00.000Z""","""string""","""string""",123,123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ResearchTypes [![get](https://img.shields.io/badge/get-blue)](get.md#researchtypes) [![post](https://img.shields.io/badge/post-blue)](post.md#researchtypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ResearchTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#researchtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#researchtypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing research type.  
 ##### Usage:  
 ```shell
 tq put ResearchTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResearchTypesUpdate-default" aria-expanded="true" aria-controls="ResearchTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResearchTypesUpdate-flat" aria-expanded="false" aria-controls="ResearchTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResearchTypesUpdate-csv" aria-expanded="false" aria-controls="ResearchTypesUpdate-csv">
+csv
+</button>
+<div id="ResearchTypesUpdate-parent">
+<div class="collapse show" id="ResearchTypesUpdate-default" data-bs-parent="#ResearchTypesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ResearchTypesUpdate-flat"  data-bs-parent="#ResearchTypesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ResearchTypesUpdate-csv" data-bs-parent="#ResearchTypesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ResourceCategories [![get](https://img.shields.io/badge/get-blue)](get.md#resourcecategories) [![post](https://img.shields.io/badge/post-blue)](post.md#resourcecategories) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ResourceCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#resourcecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#resourcecategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Resource Category.  
 ##### Usage:  
 ```shell
 tq put ResourceCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceCategoriesUpdate-default" aria-expanded="true" aria-controls="ResourceCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceCategoriesUpdate-flat" aria-expanded="false" aria-controls="ResourceCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceCategoriesUpdate-csv" aria-expanded="false" aria-controls="ResourceCategoriesUpdate-csv">
+csv
+</button>
+<div id="ResourceCategoriesUpdate-parent">
+<div class="collapse show" id="ResourceCategoriesUpdate-default" data-bs-parent="#ResourceCategoriesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ResourceCategoriesUpdate-flat"  data-bs-parent="#ResourceCategoriesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ResourceCategoriesUpdate-csv" data-bs-parent="#ResourceCategoriesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ResourceSchedules [![get](https://img.shields.io/badge/get-blue)](get.md#resourceschedules) [![post](https://img.shields.io/badge/post-blue)](post.md#resourceschedules) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ResourceSchedules <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#resourceschedules)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#resourceschedules)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update a specific resource schedule.  Only Busy or Available types can be updated.  
 ##### Usage:  
 ```shell
 tq put ResourceSchedules
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceSchedulesUpdate-default" aria-expanded="true" aria-controls="ResourceSchedulesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceSchedulesUpdate-flat" aria-expanded="false" aria-controls="ResourceSchedulesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceSchedulesUpdate-csv" aria-expanded="false" aria-controls="ResourceSchedulesUpdate-csv">
+csv
+</button>
+<div id="ResourceSchedulesUpdate-parent">
+<div class="collapse show" id="ResourceSchedulesUpdate-default" data-bs-parent="#ResourceSchedulesUpdate-parent"> 
 ```json
 {"BookingAssignmentId":123, "ConstituentId":123, "Count":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OverrideConflicts":true, "RecurrenceDayOfWeek":"string", "RecurrenceEndDate":"2000-01-01T00:00:00.000Z", "RecurrenceInterval":123, "RecurrenceOrdinal":123, "RecurrencePattern":123, "ResourceId":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ResourceScheduleID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ResourceSchedulesUpdate-flat"  data-bs-parent="#ResourceSchedulesUpdate-parent">
+```json
+[{"BookingAssignmentId":123,"ConstituentId":123,"Count":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EndDateTime":"2000-01-01T00:00:00.000Z","Id":123,"OverrideConflicts":true,"RecurrenceDayOfWeek":"string","RecurrenceEndDate":"2000-01-01T00:00:00.000Z","RecurrenceInterval":123,"RecurrenceOrdinal":123,"RecurrencePattern":123,"ResourceId":123,"ResourceScheduleID":"string","StartDateTime":"2000-01-01T00:00:00.000Z","Type.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ResourceSchedulesUpdate-csv" data-bs-parent="#ResourceSchedulesUpdate-parent">
+```json
+BookingAssignmentId,ConstituentId,Count,CreateLocation,CreatedBy,CreatedDateTime,Description,EndDateTime,Id,OverrideConflicts,RecurrenceDayOfWeek,RecurrenceEndDate,RecurrenceInterval,RecurrenceOrdinal,RecurrencePattern,ResourceId,ResourceScheduleID,StartDateTime,Type.Id,UpdatedBy,UpdatedDateTime
+123,123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""2000-01-01T00:00:00.000Z""",123,true,"""string""","""2000-01-01T00:00:00.000Z""",123,123,123,123,"""string""","""2000-01-01T00:00:00.000Z""",123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ResourceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#resourcetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#resourcetypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ResourceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#resourcetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#resourcetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing resource type.  
 ##### Usage:  
 ```shell
 tq put ResourceTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceTypesUpdate-default" aria-expanded="true" aria-controls="ResourceTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceTypesUpdate-flat" aria-expanded="false" aria-controls="ResourceTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourceTypesUpdate-csv" aria-expanded="false" aria-controls="ResourceTypesUpdate-csv">
+csv
+</button>
+<div id="ResourceTypesUpdate-parent">
+<div class="collapse show" id="ResourceTypesUpdate-default" data-bs-parent="#ResourceTypesUpdate-parent"> 
 ```json
 {"ID":"string", "CanBeShared":true, "Category":{"Id":123}, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "HasCapacity":true, "Id":123, "Inactive":true, "RequireAvailability":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
-```
+```  
+</div>
+<div class="collapse" id="ResourceTypesUpdate-flat"  data-bs-parent="#ResourceTypesUpdate-parent">
+```json
+[{"CanBeShared":true,"Category.Id":123,"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"HasCapacity":true,"ID":"string","Id":123,"Inactive":true,"RequireAvailability":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ResourceTypesUpdate-csv" data-bs-parent="#ResourceTypesUpdate-parent">
+```json
+CanBeShared,Category.Id,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EditIndicator,HasCapacity,ID,Id,Inactive,RequireAvailability,UpdatedBy,UpdatedDateTime
+true,123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",true,true,"""string""",123,true,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Resources [![get](https://img.shields.io/badge/get-blue)](get.md#resources) [![post](https://img.shields.io/badge/post-blue)](post.md#resources) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Resources <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#resources)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#resources)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Resource.  
 ##### Usage:  
 ```shell
 tq put Resources
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesUpdate-default" aria-expanded="true" aria-controls="ResourcesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesUpdate-flat" aria-expanded="false" aria-controls="ResourcesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ResourcesUpdate-csv" aria-expanded="false" aria-controls="ResourcesUpdate-csv">
+csv
+</button>
+<div id="ResourcesUpdate-parent">
+<div class="collapse show" id="ResourcesUpdate-default" data-bs-parent="#ResourcesUpdate-parent"> 
 ```json
 {"ID":"string", "Capacity":123, "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultConfirmationText":"string", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Notes":"string", "ResourceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
-```
+```  
+</div>
+<div class="collapse" id="ResourcesUpdate-flat"  data-bs-parent="#ResourcesUpdate-parent">
+```json
+[{"Capacity":123,"Constituent.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultConfirmationText":"string","Description":"string","EditIndicator":true,"ID":"string","Id":123,"Inactive":true,"Notes":"string","ResourceType.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ResourcesUpdate-csv" data-bs-parent="#ResourcesUpdate-parent">
+```json
+Capacity,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,DefaultConfirmationText,Description,EditIndicator,ID,Id,Inactive,Notes,ResourceType.Id,UpdatedBy,UpdatedDateTime
+123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",true,"""string""",123,true,"""string""",123,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
+
 
 	
 # S
-## SalesChannels [![get](https://img.shields.io/badge/get-blue)](get.md#saleschannels) [![post](https://img.shields.io/badge/post-blue)](post.md#saleschannels) ![put](https://img.shields.io/badge/put-gray)   
+## SalesChannels <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#saleschannels)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#saleschannels)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing sales channel.  
 ##### Usage:  
 ```shell
 tq put SalesChannels
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesChannelsUpdate-default" aria-expanded="true" aria-controls="SalesChannelsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesChannelsUpdate-flat" aria-expanded="false" aria-controls="SalesChannelsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesChannelsUpdate-csv" aria-expanded="false" aria-controls="SalesChannelsUpdate-csv">
+csv
+</button>
+<div id="SalesChannelsUpdate-parent">
+<div class="collapse show" id="SalesChannelsUpdate-default" data-bs-parent="#SalesChannelsUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SalesChannelsUpdate-flat"  data-bs-parent="#SalesChannelsUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="SalesChannelsUpdate-csv" data-bs-parent="#SalesChannelsUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## SalesLayoutButtonTypes [![get](https://img.shields.io/badge/get-blue)](get.md#saleslayoutbuttontypes) [![post](https://img.shields.io/badge/post-blue)](post.md#saleslayoutbuttontypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## SalesLayoutButtonTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#saleslayoutbuttontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#saleslayoutbuttontypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing sales layout button type.  
 ##### Usage:  
 ```shell
 tq put SalesLayoutButtonTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesLayoutButtonTypesUpdate-default" aria-expanded="true" aria-controls="SalesLayoutButtonTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesLayoutButtonTypesUpdate-flat" aria-expanded="false" aria-controls="SalesLayoutButtonTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesLayoutButtonTypesUpdate-csv" aria-expanded="false" aria-controls="SalesLayoutButtonTypesUpdate-csv">
+csv
+</button>
+<div id="SalesLayoutButtonTypesUpdate-parent">
+<div class="collapse show" id="SalesLayoutButtonTypesUpdate-default" data-bs-parent="#SalesLayoutButtonTypesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SalesLayoutButtonTypesUpdate-flat"  data-bs-parent="#SalesLayoutButtonTypesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="SalesLayoutButtonTypesUpdate-csv" data-bs-parent="#SalesLayoutButtonTypesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## SalesLayouts [![get](https://img.shields.io/badge/get-blue)](get.md#saleslayouts) [![post](https://img.shields.io/badge/post-blue)](post.md#saleslayouts) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## SalesLayouts <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#saleslayouts)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#saleslayouts)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing sales layout setup.  
 ##### Usage:  
 ```shell
 tq put SalesLayouts
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesLayoutsUpdate-default" aria-expanded="true" aria-controls="SalesLayoutsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesLayoutsUpdate-flat" aria-expanded="false" aria-controls="SalesLayoutsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalesLayoutsUpdate-csv" aria-expanded="false" aria-controls="SalesLayoutsUpdate-csv">
+csv
+</button>
+<div id="SalesLayoutsUpdate-parent">
+<div class="collapse show" id="SalesLayoutsUpdate-default" data-bs-parent="#SalesLayoutsUpdate-parent"> 
 ```json
 {"Columns":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "PaymentMethods":[{"Id":123}, ...], "PriceTypes":[{"Id":123}, ...], "PrimaryIndicator":true, "Rows":123, "SalesLayoutButtons":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "SalesLayoutID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SalesLayoutsUpdate-flat"  data-bs-parent="#SalesLayoutsUpdate-parent">
+```json
 
-## SalutationTypes [![get](https://img.shields.io/badge/get-blue)](get.md#salutationtypes) [![post](https://img.shields.io/badge/post-blue)](post.md#salutationtypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+<div class="collapse" id="SalesLayoutsUpdate-csv" data-bs-parent="#SalesLayoutsUpdate-parent">
+```json
+
+```  
+</div>
+</div>
+
+
+## SalutationTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#salutationtypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#salutationtypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing salutation type.  
 ##### Usage:  
 ```shell
 tq put SalutationTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalutationTypesUpdate-default" aria-expanded="true" aria-controls="SalutationTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalutationTypesUpdate-flat" aria-expanded="false" aria-controls="SalutationTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalutationTypesUpdate-csv" aria-expanded="false" aria-controls="SalutationTypesUpdate-csv">
+csv
+</button>
+<div id="SalutationTypesUpdate-parent">
+<div class="collapse show" id="SalutationTypesUpdate-default" data-bs-parent="#SalutationTypesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SalutationTypesUpdate-flat"  data-bs-parent="#SalutationTypesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="SalutationTypesUpdate-csv" data-bs-parent="#SalutationTypesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Salutations [![get](https://img.shields.io/badge/get-blue)](get.md#salutations) [![post](https://img.shields.io/badge/post-blue)](post.md#salutations) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Salutations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#salutations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#salutations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update a salutation.  
 ##### Usage:  
 ```shell
 tq put Salutations
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalutationsUpdate-default" aria-expanded="true" aria-controls="SalutationsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalutationsUpdate-flat" aria-expanded="false" aria-controls="SalutationsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SalutationsUpdate-csv" aria-expanded="false" aria-controls="SalutationsUpdate-csv">
+csv
+</button>
+<div id="SalutationsUpdate-parent">
+<div class="collapse show" id="SalutationsUpdate-default" data-bs-parent="#SalutationsUpdate-parent"> 
 ```json
 {"BusinessTitle":"string", "Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "EditIndicator":true, "EnvelopeSalutation1":"string", "EnvelopeSalutation2":"string", "Id":123, "IsFromAffiliation":true, "Label":true, "LetterSalutation":"string", "SalutationType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "SalutationID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SalutationsUpdate-flat"  data-bs-parent="#SalutationsUpdate-parent">
+```json
+[{"BusinessTitle":"string","Constituent.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultIndicator":true,"EditIndicator":true,"EnvelopeSalutation1":"string","EnvelopeSalutation2":"string","Id":123,"IsFromAffiliation":true,"Label":true,"LetterSalutation":"string","SalutationID":"string","SalutationType.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="SalutationsUpdate-csv" data-bs-parent="#SalutationsUpdate-parent">
+```json
+BusinessTitle,Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,DefaultIndicator,EditIndicator,EnvelopeSalutation1,EnvelopeSalutation2,Id,IsFromAffiliation,Label,LetterSalutation,SalutationID,SalutationType.Id,UpdatedBy,UpdatedDateTime
+"""string""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,true,"""string""","""string""",123,true,true,"""string""","""string""",123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## SchedulePatternTypes [![get](https://img.shields.io/badge/get-blue)](get.md#schedulepatterntypes) [![post](https://img.shields.io/badge/post-blue)](post.md#schedulepatterntypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## SchedulePatternTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#schedulepatterntypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#schedulepatterntypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Schedule Pattern.  
 ##### Usage:  
 ```shell
 tq put SchedulePatternTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SchedulePatternTypesUpdate-default" aria-expanded="true" aria-controls="SchedulePatternTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SchedulePatternTypesUpdate-flat" aria-expanded="false" aria-controls="SchedulePatternTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SchedulePatternTypesUpdate-csv" aria-expanded="false" aria-controls="SchedulePatternTypesUpdate-csv">
+csv
+</button>
+<div id="SchedulePatternTypesUpdate-parent">
+<div class="collapse show" id="SchedulePatternTypesUpdate-default" data-bs-parent="#SchedulePatternTypesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SchedulePatternTypesUpdate-flat"  data-bs-parent="#SchedulePatternTypesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="SchedulePatternTypesUpdate-csv" data-bs-parent="#SchedulePatternTypesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ScheduleTypes [![get](https://img.shields.io/badge/get-blue)](get.md#scheduletypes) [![post](https://img.shields.io/badge/post-blue)](post.md#scheduletypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ScheduleTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#scheduletypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#scheduletypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Schedule Type.  
 ##### Usage:  
 ```shell
 tq put ScheduleTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ScheduleTypesUpdate-default" aria-expanded="true" aria-controls="ScheduleTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ScheduleTypesUpdate-flat" aria-expanded="false" aria-controls="ScheduleTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ScheduleTypesUpdate-csv" aria-expanded="false" aria-controls="ScheduleTypesUpdate-csv">
+csv
+</button>
+<div id="ScheduleTypesUpdate-parent">
+<div class="collapse show" id="ScheduleTypesUpdate-default" data-bs-parent="#ScheduleTypesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ScheduleTypesUpdate-flat"  data-bs-parent="#ScheduleTypesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ScheduleTypesUpdate-csv" data-bs-parent="#ScheduleTypesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## SeasonTypes [![get](https://img.shields.io/badge/get-blue)](get.md#seasontypes) [![post](https://img.shields.io/badge/post-blue)](post.md#seasontypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## SeasonTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#seasontypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#seasontypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing season type.  
 ##### Usage:  
 ```shell
 tq put SeasonTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeasonTypesUpdate-default" aria-expanded="true" aria-controls="SeasonTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeasonTypesUpdate-flat" aria-expanded="false" aria-controls="SeasonTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeasonTypesUpdate-csv" aria-expanded="false" aria-controls="SeasonTypesUpdate-csv">
+csv
+</button>
+<div id="SeasonTypesUpdate-parent">
+<div class="collapse show" id="SeasonTypesUpdate-default" data-bs-parent="#SeasonTypesUpdate-parent"> 
 ```json
 {"BusinessUnit":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SeasonTypesUpdate-flat"  data-bs-parent="#SeasonTypesUpdate-parent">
+```json
+[{"BusinessUnit.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="SeasonTypesUpdate-csv" data-bs-parent="#SeasonTypesUpdate-parent">
+```json
+BusinessUnit.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Seasons [![get](https://img.shields.io/badge/get-blue)](get.md#seasons) [![post](https://img.shields.io/badge/post-blue)](post.md#seasons) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Seasons <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#seasons)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#seasons)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing season.  
 ##### Usage:  
 ```shell
 tq put Seasons
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeasonsUpdate-default" aria-expanded="true" aria-controls="SeasonsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeasonsUpdate-flat" aria-expanded="false" aria-controls="SeasonsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeasonsUpdate-csv" aria-expanded="false" aria-controls="SeasonsUpdate-csv">
+csv
+</button>
+<div id="SeasonsUpdate-parent">
+<div class="collapse show" id="SeasonsUpdate-default" data-bs-parent="#SeasonsUpdate-parent"> 
 ```json
 {"ConfirmationNoticeFormat":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DefaultIndicator":true, "Description":"string", "DisplayInSeasonOverview":true, "EndDateTime":"2000-01-01T00:00:00.000Z", "FYear":123, "Id":123, "Inactive":true, "RenewalNoticeFormat":123, "StartDateTime":"2000-01-01T00:00:00.000Z", "SubscriptionFund1":123, "SubscriptionFund2":123, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "YearlySeason":123, "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SeasonsUpdate-flat"  data-bs-parent="#SeasonsUpdate-parent">
+```json
+[{"ConfirmationNoticeFormat":123,"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DefaultIndicator":true,"Description":"string","DisplayInSeasonOverview":true,"EndDateTime":"2000-01-01T00:00:00.000Z","FYear":123,"ID":"string","Id":123,"Inactive":true,"RenewalNoticeFormat":123,"StartDateTime":"2000-01-01T00:00:00.000Z","SubscriptionFund1":123,"SubscriptionFund2":123,"Type.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","YearlySeason":123}]
+```  
+</div>
+<div class="collapse" id="SeasonsUpdate-csv" data-bs-parent="#SeasonsUpdate-parent">
+```json
+ConfirmationNoticeFormat,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DefaultIndicator,Description,DisplayInSeasonOverview,EndDateTime,FYear,ID,Id,Inactive,RenewalNoticeFormat,StartDateTime,SubscriptionFund1,SubscriptionFund2,Type.Id,UpdatedBy,UpdatedDateTime,YearlySeason
+123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,"""string""",true,"""2000-01-01T00:00:00.000Z""",123,"""string""",123,true,123,"""2000-01-01T00:00:00.000Z""",123,123,123,"""string""","""2000-01-01T00:00:00.000Z""",123
 
-## SeatCodes [![get](https://img.shields.io/badge/get-blue)](get.md#seatcodes) [![post](https://img.shields.io/badge/post-blue)](post.md#seatcodes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## SeatCodes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#seatcodes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#seatcodes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing seat code.  
 ##### Usage:  
 ```shell
 tq put SeatCodes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeatCodesUpdate-default" aria-expanded="true" aria-controls="SeatCodesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeatCodesUpdate-flat" aria-expanded="false" aria-controls="SeatCodesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeatCodesUpdate-csv" aria-expanded="false" aria-controls="SeatCodesUpdate-csv">
+csv
+</button>
+<div id="SeatCodesUpdate-parent">
+<div class="collapse show" id="SeatCodesUpdate-default" data-bs-parent="#SeatCodesUpdate-parent"> 
 ```json
 {"BackColor":123, "Context":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DisplayLetter":"string", "ForeColor":123, "Id":123, "Inactive":true, "IsSeat":123, "TicketText":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SeatCodesUpdate-flat"  data-bs-parent="#SeatCodesUpdate-parent">
+```json
+[{"BackColor":123,"Context":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","DisplayLetter":"string","ForeColor":123,"ID":"string","Id":123,"Inactive":true,"IsSeat":123,"TicketText":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="SeatCodesUpdate-csv" data-bs-parent="#SeatCodesUpdate-parent">
+```json
+BackColor,Context,CreateLocation,CreatedBy,CreatedDateTime,Description,DisplayLetter,ForeColor,ID,Id,Inactive,IsSeat,TicketText,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,"""string""",123,true,123,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## SeatStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#seatstatuses) [![post](https://img.shields.io/badge/post-blue)](post.md#seatstatuses) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## SeatStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#seatstatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#seatstatuses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing seat status.  
 ##### Usage:  
 ```shell
 tq put SeatStatuses
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeatStatusesUpdate-default" aria-expanded="true" aria-controls="SeatStatusesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeatStatusesUpdate-flat" aria-expanded="false" aria-controls="SeatStatusesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SeatStatusesUpdate-csv" aria-expanded="false" aria-controls="SeatStatusesUpdate-csv">
+csv
+</button>
+<div id="SeatStatusesUpdate-parent">
+<div class="collapse show" id="SeatStatusesUpdate-default" data-bs-parent="#SeatStatusesUpdate-parent"> 
 ```json
 {"BackColor":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "ForeColor":123, "Id":123, "Inactive":true, "StatusCode":"string", "StatusLegend":"string", "StatusPriority":123, "Tck":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SeatStatusesUpdate-flat"  data-bs-parent="#SeatStatusesUpdate-parent">
+```json
+[{"BackColor":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ForeColor":123,"ID":"string","Id":123,"Inactive":true,"StatusCode":"string","StatusLegend":"string","StatusPriority":123,"Tck":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="SeatStatusesUpdate-csv" data-bs-parent="#SeatStatusesUpdate-parent">
+```json
+BackColor,CreateLocation,CreatedBy,CreatedDateTime,Description,ForeColor,ID,Id,Inactive,StatusCode,StatusLegend,StatusPriority,Tck,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,"""string""",123,true,"""string""","""string""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## Sections [![get](https://img.shields.io/badge/get-blue)](get.md#sections) [![post](https://img.shields.io/badge/post-blue)](post.md#sections) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Sections <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#sections)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#sections)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing section.  
 ##### Usage:  
 ```shell
 tq put Sections
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SectionsUpdate-default" aria-expanded="true" aria-controls="SectionsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SectionsUpdate-flat" aria-expanded="false" aria-controls="SectionsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SectionsUpdate-csv" aria-expanded="false" aria-controls="SectionsUpdate-csv">
+csv
+</button>
+<div id="SectionsUpdate-parent">
+<div class="collapse show" id="SectionsUpdate-default" data-bs-parent="#SectionsUpdate-parent"> 
 ```json
 {"AdditionalText":"string", "AdditionalText2":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "PrintDesc":"string", "PrintSequence":123, "SectionLegend":"string", "ShortDesc":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SectionsUpdate-flat"  data-bs-parent="#SectionsUpdate-parent">
+```json
+[{"AdditionalText":"string","AdditionalText2":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"PrintDesc":"string","PrintSequence":123,"SectionLegend":"string","ShortDesc":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="SectionsUpdate-csv" data-bs-parent="#SectionsUpdate-parent">
+```json
+AdditionalText,AdditionalText2,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,PrintDesc,PrintSequence,SectionLegend,ShortDesc,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,"""string""",123,"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
 
@@ -2541,19 +8620,48 @@ tq put Sections
 
 
 
-## ServiceResourceUserGroups [![get](https://img.shields.io/badge/get-blue)](get.md#serviceresourceusergroups) [![post](https://img.shields.io/badge/post-blue)](post.md#serviceresourceusergroups) ![put](https://img.shields.io/badge/put-gray)   
+
+## ServiceResourceUserGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#serviceresourceusergroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#serviceresourceusergroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing service resource/user group mapping.  
 ##### Usage:  
 ```shell
 tq put ServiceResourceUserGroups
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ServiceResourceUserGroupsUpdate-default" aria-expanded="true" aria-controls="ServiceResourceUserGroupsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ServiceResourceUserGroupsUpdate-flat" aria-expanded="false" aria-controls="ServiceResourceUserGroupsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ServiceResourceUserGroupsUpdate-csv" aria-expanded="false" aria-controls="ServiceResourceUserGroupsUpdate-csv">
+csv
+</button>
+<div id="ServiceResourceUserGroupsUpdate-parent">
+<div class="collapse show" id="ServiceResourceUserGroupsUpdate-default" data-bs-parent="#ServiceResourceUserGroupsUpdate-parent"> 
 ```json
 {"CanCreate":true, "CanDelete":true, "CanRead":true, "CanUpdate":true, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "ServiceResource":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UserGroupId":"string", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ServiceResourceUserGroupsUpdate-flat"  data-bs-parent="#ServiceResourceUserGroupsUpdate-parent">
+```json
+[{"CanCreate":true,"CanDelete":true,"CanRead":true,"CanUpdate":true,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string","Id":123,"ServiceResource.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UserGroupId":"string"}]
+```  
+</div>
+<div class="collapse" id="ServiceResourceUserGroupsUpdate-csv" data-bs-parent="#ServiceResourceUserGroupsUpdate-parent">
+```json
+CanCreate,CanDelete,CanRead,CanUpdate,CreateLocation,CreatedBy,CreatedDateTime,ID,Id,ServiceResource.Id,UpdatedBy,UpdatedDateTime,UserGroupId
+true,true,true,true,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,123,"""string""","""2000-01-01T00:00:00.000Z""","""string"""
+
+```  
+</div>
+</div>
 
 
-## Session [![get](https://img.shields.io/badge/get-blue)](get.md#session) [![post](https://img.shields.io/badge/post-blue)](post.md#session) ![put](https://img.shields.io/badge/put-gray)   
+
+## Session <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#session)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#session)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Sets the current constituent on the cart for a business facing session
 If the Constituent is a primary affiliate of a household, the method obeys the "TRANSACT_AS_HOUSEHOLD_ORDER" entry in T_DEFAULTS to determine if the household constituent should be set. 
 If the default is set to "Prompt", both the household and individual are returned, to allow the user to be queried. To set the constituent to the users choice pass in the selected constituent id and set OverridePrompt to true.  
@@ -2561,284 +8669,979 @@ If the default is set to "Prompt", both the household and individual are returne
 ```shell
 tq put Session
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionSetConstituent-default" aria-expanded="true" aria-controls="SessionSetConstituent-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionSetConstituent-flat" aria-expanded="false" aria-controls="SessionSetConstituent-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionSetConstituent-csv" aria-expanded="false" aria-controls="SessionSetConstituent-csv">
+csv
+</button>
+<div id="SessionSetConstituent-parent">
+<div class="collapse show" id="SessionSetConstituent-default" data-bs-parent="#SessionSetConstituent-parent"> 
 ```json
 {"ConstituentId":123, "OverridePrompt":true, "SessionKey":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SessionSetConstituent-flat"  data-bs-parent="#SessionSetConstituent-parent">
+```json
+[{"ConstituentId":123,"OverridePrompt":true,"SessionKey":"string"}]
+```  
+</div>
+<div class="collapse" id="SessionSetConstituent-csv" data-bs-parent="#SessionSetConstituent-parent">
+```json
+ConstituentId,OverridePrompt,SessionKey
+123,true,"""string"""
+
+```  
+</div>
+</div>
+
 ### Flags:
  * *--SetExpiration*  
    Changes the deadline after which a session's reserved seats are released
 All times are relative to the machine on which the Tessitura Seat Server runs, including the time zone. The method either takes an absolute deadline time or an offset in seconds which is used to shorten or lengthen the time until expiration. The deadline is not the exact moment at which the seats are released, but rather when they are marked as expired. The Tessitura Seat Server will terminate the session when the next cleanup cycle is run (every 60 seconds or so). The method will return the new expiration date/time of the session.  The expiration date/time takes precendence over the offset if both are provided in the request.
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionSetExpiration-default" aria-expanded="true" aria-controls="SessionSetExpiration-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionSetExpiration-flat" aria-expanded="false" aria-controls="SessionSetExpiration-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionSetExpiration-csv" aria-expanded="false" aria-controls="SessionSetExpiration-csv">
+csv
+</button>
+<div id="SessionSetExpiration-parent">
+<div class="collapse show" id="SessionSetExpiration-default" data-bs-parent="#SessionSetExpiration-parent"> 
 ```json
 {"Expiration":"2000-01-01T00:00:00.000Z", "TimeOffset":123, "SessionKey":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SessionSetExpiration-flat"  data-bs-parent="#SessionSetExpiration-parent">
+```json
+[{"Expiration":"2000-01-01T00:00:00.000Z","SessionKey":"string","TimeOffset":123}]
+```  
+</div>
+<div class="collapse" id="SessionSetExpiration-csv" data-bs-parent="#SessionSetExpiration-parent">
+```json
+Expiration,SessionKey,TimeOffset
+"""2000-01-01T00:00:00.000Z""","""string""",123
+
+```  
+</div>
+</div>
+
  * *--Variable*  
    Update the value of an existing session variable.
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionUpdateVariable-default" aria-expanded="true" aria-controls="SessionUpdateVariable-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionUpdateVariable-flat" aria-expanded="false" aria-controls="SessionUpdateVariable-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionUpdateVariable-csv" aria-expanded="false" aria-controls="SessionUpdateVariable-csv">
+csv
+</button>
+<div id="SessionUpdateVariable-parent">
+<div class="collapse show" id="SessionUpdateVariable-default" data-bs-parent="#SessionUpdateVariable-parent"> 
 ```json
 {"SessionKey":"string", "Name":"string", "Value":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SessionUpdateVariable-flat"  data-bs-parent="#SessionUpdateVariable-parent">
+```json
+[{"Name":"string","SessionKey":"string","Value":"string"}]
+```  
+</div>
+<div class="collapse" id="SessionUpdateVariable-csv" data-bs-parent="#SessionUpdateVariable-parent">
+```json
+Name,SessionKey,Value
+"""string""","""string""","""string"""
+
+```  
+</div>
+</div>
+
  * *--WebLogin*  
    Updates the login information for a user and logs back into the session using new credentials.
 
 Current and new values must be submitted for login username, password, and email.  To retain any of the current values pass the same value for both the current and the new parameter.  After successfully updating the user account, the user is automatically logged in with the new login information.
 
 When updating a login where the password has been forgotten, submit the request with a null password.
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionUpdateWebLogin-default" aria-expanded="true" aria-controls="SessionUpdateWebLogin-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionUpdateWebLogin-flat" aria-expanded="false" aria-controls="SessionUpdateWebLogin-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SessionUpdateWebLogin-csv" aria-expanded="false" aria-controls="SessionUpdateWebLogin-csv">
+csv
+</button>
+<div id="SessionUpdateWebLogin-parent">
+<div class="collapse show" id="SessionUpdateWebLogin-default" data-bs-parent="#SessionUpdateWebLogin-parent"> 
 ```json
 {"EmailAddress":"string", "LoginName":"string", "LoginTypeId":123, "NewEmailAddress":"string", "NewLoginName":"string", "NewPassword":"string", "Password":"string", "PromotionCode":123, "SessionKey":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SessionUpdateWebLogin-flat"  data-bs-parent="#SessionUpdateWebLogin-parent">
+```json
+[{"EmailAddress":"string","LoginName":"string","LoginTypeId":123,"NewEmailAddress":"string","NewLoginName":"string","NewPassword":"string","Password":"string","PromotionCode":123,"SessionKey":"string"}]
+```  
+</div>
+<div class="collapse" id="SessionUpdateWebLogin-csv" data-bs-parent="#SessionUpdateWebLogin-parent">
+```json
+EmailAddress,LoginName,LoginTypeId,NewEmailAddress,NewLoginName,NewPassword,Password,PromotionCode,SessionKey
+"""string""","""string""",123,"""string""","""string""","""string""","""string""",123,"""string"""
 
-## SourceGroups [![get](https://img.shields.io/badge/get-blue)](get.md#sourcegroups) [![post](https://img.shields.io/badge/post-blue)](post.md#sourcegroups) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## SourceGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#sourcegroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#sourcegroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing source group.  
 ##### Usage:  
 ```shell
 tq put SourceGroups
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SourceGroupsUpdate-default" aria-expanded="true" aria-controls="SourceGroupsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SourceGroupsUpdate-flat" aria-expanded="false" aria-controls="SourceGroupsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SourceGroupsUpdate-csv" aria-expanded="false" aria-controls="SourceGroupsUpdate-csv">
+csv
+</button>
+<div id="SourceGroupsUpdate-parent">
+<div class="collapse show" id="SourceGroupsUpdate-default" data-bs-parent="#SourceGroupsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SourceGroupsUpdate-flat"  data-bs-parent="#SourceGroupsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="SourceGroupsUpdate-csv" data-bs-parent="#SourceGroupsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## SpecialActivities [![get](https://img.shields.io/badge/get-blue)](get.md#specialactivities) [![post](https://img.shields.io/badge/post-blue)](post.md#specialactivities) ![put](https://img.shields.io/badge/put-gray)   
+
+## SpecialActivities <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#specialactivities)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#specialactivities)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an activity record.  
 ##### Usage:  
 ```shell
 tq put SpecialActivities
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivitiesUpdate-default" aria-expanded="true" aria-controls="SpecialActivitiesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivitiesUpdate-flat" aria-expanded="false" aria-controls="SpecialActivitiesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivitiesUpdate-csv" aria-expanded="false" aria-controls="SpecialActivitiesUpdate-csv">
+csv
+</button>
+<div id="SpecialActivitiesUpdate-parent">
+<div class="collapse show" id="SpecialActivitiesUpdate-default" data-bs-parent="#SpecialActivitiesUpdate-parent"> 
 ```json
 {"ConstituentId":123, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Notes":"string", "NumberOfAttendees":123, "Performance":"string", "SpecialActivityDateTime":"2000-01-01T00:00:00.000Z", "Status":{"Id":123}, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerConstituentId":123, "SpecialActivityID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SpecialActivitiesUpdate-flat"  data-bs-parent="#SpecialActivitiesUpdate-parent">
+```json
+[{"ConstituentId":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Notes":"string","NumberOfAttendees":123,"Performance":"string","SpecialActivityDateTime":"2000-01-01T00:00:00.000Z","SpecialActivityID":"string","Status.Id":123,"Type.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","WorkerConstituentId":123}]
+```  
+</div>
+<div class="collapse" id="SpecialActivitiesUpdate-csv" data-bs-parent="#SpecialActivitiesUpdate-parent">
+```json
+ConstituentId,CreateLocation,CreatedBy,CreatedDateTime,Id,Notes,NumberOfAttendees,Performance,SpecialActivityDateTime,SpecialActivityID,Status.Id,Type.Id,UpdatedBy,UpdatedDateTime,WorkerConstituentId
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,"""string""",123,"""string""","""2000-01-01T00:00:00.000Z""","""string""",123,123,"""string""","""2000-01-01T00:00:00.000Z""",123
 
-## SpecialActivityStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#specialactivitystatuses) [![post](https://img.shields.io/badge/post-blue)](post.md#specialactivitystatuses) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## SpecialActivityStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#specialactivitystatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#specialactivitystatuses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an Special Activity Status.  
 ##### Usage:  
 ```shell
 tq put SpecialActivityStatuses
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivityStatusesUpdate-default" aria-expanded="true" aria-controls="SpecialActivityStatusesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivityStatusesUpdate-flat" aria-expanded="false" aria-controls="SpecialActivityStatusesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivityStatusesUpdate-csv" aria-expanded="false" aria-controls="SpecialActivityStatusesUpdate-csv">
+csv
+</button>
+<div id="SpecialActivityStatusesUpdate-parent">
+<div class="collapse show" id="SpecialActivityStatusesUpdate-default" data-bs-parent="#SpecialActivityStatusesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SpecialActivityStatusesUpdate-flat"  data-bs-parent="#SpecialActivityStatusesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="SpecialActivityStatusesUpdate-csv" data-bs-parent="#SpecialActivityStatusesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## SpecialActivityTypes [![get](https://img.shields.io/badge/get-blue)](get.md#specialactivitytypes) [![post](https://img.shields.io/badge/post-blue)](post.md#specialactivitytypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## SpecialActivityTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#specialactivitytypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#specialactivitytypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Special Activity Type.  
 ##### Usage:  
 ```shell
 tq put SpecialActivityTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivityTypesUpdate-default" aria-expanded="true" aria-controls="SpecialActivityTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivityTypesUpdate-flat" aria-expanded="false" aria-controls="SpecialActivityTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SpecialActivityTypesUpdate-csv" aria-expanded="false" aria-controls="SpecialActivityTypesUpdate-csv">
+csv
+</button>
+<div id="SpecialActivityTypesUpdate-parent">
+<div class="collapse show" id="SpecialActivityTypesUpdate-default" data-bs-parent="#SpecialActivityTypesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SpecialActivityTypesUpdate-flat"  data-bs-parent="#SpecialActivityTypesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="SpecialActivityTypesUpdate-csv" data-bs-parent="#SpecialActivityTypesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## States [![get](https://img.shields.io/badge/get-blue)](get.md#states) [![post](https://img.shields.io/badge/post-blue)](post.md#states) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## States <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#states)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#states)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing state.  
 ##### Usage:  
 ```shell
 tq put States
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StatesUpdate-default" aria-expanded="true" aria-controls="StatesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StatesUpdate-flat" aria-expanded="false" aria-controls="StatesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StatesUpdate-csv" aria-expanded="false" aria-controls="StatesUpdate-csv">
+csv
+</button>
+<div id="StatesUpdate-parent">
+<div class="collapse show" id="StatesUpdate-default" data-bs-parent="#StatesUpdate-parent"> 
 ```json
 {"Country":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "StateCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="StatesUpdate-flat"  data-bs-parent="#StatesUpdate-parent">
+```json
+[{"Country.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"StateCode":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="StatesUpdate-csv" data-bs-parent="#StatesUpdate-parent">
+```json
+Country.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,StateCode,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## StepTypes [![get](https://img.shields.io/badge/get-blue)](get.md#steptypes) [![post](https://img.shields.io/badge/post-blue)](post.md#steptypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## StepTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#steptypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#steptypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing step type.  
 ##### Usage:  
 ```shell
 tq put StepTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepTypesUpdate-default" aria-expanded="true" aria-controls="StepTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepTypesUpdate-flat" aria-expanded="false" aria-controls="StepTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepTypesUpdate-csv" aria-expanded="false" aria-controls="StepTypesUpdate-csv">
+csv
+</button>
+<div id="StepTypesUpdate-parent">
+<div class="collapse show" id="StepTypesUpdate-default" data-bs-parent="#StepTypesUpdate-parent"> 
 ```json
 {"AllowAttachments":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseAssociate":"string", "UseCompletedOnDateTime":"string", "UseDueDateTime":"string", "UseNote":"string", "UseWarningDays":"string", "UseWorker":"string", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="StepTypesUpdate-flat"  data-bs-parent="#StepTypesUpdate-parent">
+```json
+[{"AllowAttachments":"string","ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseAssociate":"string","UseCompletedOnDateTime":"string","UseDueDateTime":"string","UseNote":"string","UseWarningDays":"string","UseWorker":"string"}]
+```  
+</div>
+<div class="collapse" id="StepTypesUpdate-csv" data-bs-parent="#StepTypesUpdate-parent">
+```json
+AllowAttachments,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime,UseAssociate,UseCompletedOnDateTime,UseDueDateTime,UseNote,UseWarningDays,UseWorker
+"""string""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""","""string""","""string""","""string""","""string"""
 
-## Steps [![get](https://img.shields.io/badge/get-blue)](get.md#steps) [![post](https://img.shields.io/badge/post-blue)](post.md#steps) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Steps <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#steps)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#steps)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing step.  
 ##### Usage:  
 ```shell
 tq put Steps
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepsUpdate-default" aria-expanded="true" aria-controls="StepsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepsUpdate-flat" aria-expanded="false" aria-controls="StepsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepsUpdate-csv" aria-expanded="false" aria-controls="StepsUpdate-csv">
+csv
+</button>
+<div id="StepsUpdate-parent">
+<div class="collapse show" id="StepsUpdate-default" data-bs-parent="#StepsUpdate-parent"> 
 ```json
 {"Associate":{"Id":123}, "CompletedOnDateTime":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "DueDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Id":123, "NewValue":"string", "Notes":"string", "OldValue":"string", "Plan":{"Id":123}, "Priority":123, "StepDateTime":"2000-01-01T00:00:00.000Z", "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WarningDays":123, "Worker":{"Id":123}, "StepID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="StepsUpdate-flat"  data-bs-parent="#StepsUpdate-parent">
+```json
+[{"Associate.Id":123,"CompletedOnDateTime":"2000-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","DueDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Id":123,"NewValue":"string","Notes":"string","OldValue":"string","Plan.Id":123,"Priority":123,"StepDateTime":"2000-01-01T00:00:00.000Z","StepID":"string","Type.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","WarningDays":123,"Worker.Id":123}]
+```  
+</div>
+<div class="collapse" id="StepsUpdate-csv" data-bs-parent="#StepsUpdate-parent">
+```json
+Associate.Id,CompletedOnDateTime,CreateLocation,CreatedBy,CreatedDateTime,Description,DueDateTime,EditIndicator,Id,NewValue,Notes,OldValue,Plan.Id,Priority,StepDateTime,StepID,Type.Id,UpdatedBy,UpdatedDateTime,WarningDays,Worker.Id
+123,"""2000-01-01T00:00:00.000Z""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""2000-01-01T00:00:00.000Z""",true,123,"""string""","""string""","""string""",123,123,"""2000-01-01T00:00:00.000Z""","""string""",123,"""string""","""2000-01-01T00:00:00.000Z""",123,123
+
+```  
+</div>
+</div>
+
 ### Flags:
  * *--Document*  
    Update a document attached to a step.
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepsUpdateDocument-default" aria-expanded="true" aria-controls="StepsUpdateDocument-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepsUpdateDocument-flat" aria-expanded="false" aria-controls="StepsUpdateDocument-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#StepsUpdateDocument-csv" aria-expanded="false" aria-controls="StepsUpdateDocument-csv">
+csv
+</button>
+<div id="StepsUpdateDocument-parent">
+<div class="collapse show" id="StepsUpdateDocument-default" data-bs-parent="#StepsUpdateDocument-parent"> 
 ```json
 {"Category":{"Id":123}, "ConstituentId":123, "Contents":"AA==", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "FileName":"string", "Id":123, "Notes":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "DocumentID":"string", "StepID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="StepsUpdateDocument-flat"  data-bs-parent="#StepsUpdateDocument-parent">
+```json
+[{"Category.Id":123,"ConstituentId":123,"Contents":"AA==","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","DocumentID":"string","FileName":"string","Id":123,"Notes":"string","StepID":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="StepsUpdateDocument-csv" data-bs-parent="#StepsUpdateDocument-parent">
+```json
+Category.Id,ConstituentId,Contents,CreateLocation,CreatedBy,CreatedDateTime,Description,DocumentID,FileName,Id,Notes,StepID,UpdatedBy,UpdatedDateTime
+123,123,"""AA==""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""","""string""",123,"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## SubLineItemStatuses [![get](https://img.shields.io/badge/get-blue)](get.md#sublineitemstatuses) [![post](https://img.shields.io/badge/post-blue)](post.md#sublineitemstatuses) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## SubLineItemStatuses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#sublineitemstatuses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#sublineitemstatuses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing sub line item status.  
 ##### Usage:  
 ```shell
 tq put SubLineItemStatuses
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SubLineItemStatusesUpdate-default" aria-expanded="true" aria-controls="SubLineItemStatusesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SubLineItemStatusesUpdate-flat" aria-expanded="false" aria-controls="SubLineItemStatusesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SubLineItemStatusesUpdate-csv" aria-expanded="false" aria-controls="SubLineItemStatusesUpdate-csv">
+csv
+</button>
+<div id="SubLineItemStatusesUpdate-parent">
+<div class="collapse show" id="SubLineItemStatusesUpdate-default" data-bs-parent="#SubLineItemStatusesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Priority":123, "StatusCode":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SubLineItemStatusesUpdate-flat"  data-bs-parent="#SubLineItemStatusesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"Priority":123,"StatusCode":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="SubLineItemStatusesUpdate-csv" data-bs-parent="#SubLineItemStatusesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,Priority,StatusCode,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,123,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## Suffixes [![get](https://img.shields.io/badge/get-blue)](get.md#suffixes) [![post](https://img.shields.io/badge/post-blue)](post.md#suffixes) ![put](https://img.shields.io/badge/put-gray)   
+
+## Suffixes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#suffixes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#suffixes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing suffix.  
 ##### Usage:  
 ```shell
 tq put Suffixes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SuffixesUpdate-default" aria-expanded="true" aria-controls="SuffixesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SuffixesUpdate-flat" aria-expanded="false" aria-controls="SuffixesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SuffixesUpdate-csv" aria-expanded="false" aria-controls="SuffixesUpdate-csv">
+csv
+</button>
+<div id="SuffixesUpdate-parent">
+<div class="collapse show" id="SuffixesUpdate-default" data-bs-parent="#SuffixesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SuffixesUpdate-flat"  data-bs-parent="#SuffixesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="SuffixesUpdate-csv" data-bs-parent="#SuffixesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## SurveyQuestions [![get](https://img.shields.io/badge/get-blue)](get.md#surveyquestions) [![post](https://img.shields.io/badge/post-blue)](post.md#surveyquestions) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## SurveyQuestions <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#surveyquestions)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#surveyquestions)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing survey question.  
 ##### Usage:  
 ```shell
 tq put SurveyQuestions
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SurveyQuestionsUpdate-default" aria-expanded="true" aria-controls="SurveyQuestionsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SurveyQuestionsUpdate-flat" aria-expanded="false" aria-controls="SurveyQuestionsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SurveyQuestionsUpdate-csv" aria-expanded="false" aria-controls="SurveyQuestionsUpdate-csv">
+csv
+</button>
+<div id="SurveyQuestionsUpdate-parent">
+<div class="collapse show" id="SurveyQuestionsUpdate-default" data-bs-parent="#SurveyQuestionsUpdate-parent"> 
 ```json
 {"AskType":123, "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataType":123, "DefaultValue":"string", "Id":123, "Inactive":true, "Question":"string", "ReferenceTable":"string", "ReferenceTableDescriptionColumn":"string", "ReferenceTableIdColumn":"string", "ReferenceTableSort":"string", "ReferenceTableWhereClause":"string", "Required":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SurveyQuestionsUpdate-flat"  data-bs-parent="#SurveyQuestionsUpdate-parent">
+```json
+[{"AskType":123,"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DataType":123,"DefaultValue":"string","ID":"string","Id":123,"Inactive":true,"Question":"string","ReferenceTable":"string","ReferenceTableDescriptionColumn":"string","ReferenceTableIdColumn":"string","ReferenceTableSort":"string","ReferenceTableWhereClause":"string","Required":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="SurveyQuestionsUpdate-csv" data-bs-parent="#SurveyQuestionsUpdate-parent">
+```json
+AskType,ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,DataType,DefaultValue,ID,Id,Inactive,Question,ReferenceTable,ReferenceTableDescriptionColumn,ReferenceTableIdColumn,ReferenceTableSort,ReferenceTableWhereClause,Required,UpdatedBy,UpdatedDateTime
+123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,"""string""","""string""",123,true,"""string""","""string""","""string""","""string""","""string""","""string""",true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## SurveyResponses [![get](https://img.shields.io/badge/get-blue)](get.md#surveyresponses) [![post](https://img.shields.io/badge/post-blue)](post.md#surveyresponses) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## SurveyResponses <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#surveyresponses)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#surveyresponses)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing survey response.  
 ##### Usage:  
 ```shell
 tq put SurveyResponses
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SurveyResponsesUpdate-default" aria-expanded="true" aria-controls="SurveyResponsesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SurveyResponsesUpdate-flat" aria-expanded="false" aria-controls="SurveyResponsesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#SurveyResponsesUpdate-csv" aria-expanded="false" aria-controls="SurveyResponsesUpdate-csv">
+csv
+</button>
+<div id="SurveyResponsesUpdate-parent">
+<div class="collapse show" id="SurveyResponsesUpdate-default" data-bs-parent="#SurveyResponsesUpdate-parent"> 
 ```json
 {"Answer":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "OrderId":123, "QuestionId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "SurveyResponseID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="SurveyResponsesUpdate-flat"  data-bs-parent="#SurveyResponsesUpdate-parent">
+```json
+[{"Answer":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Id":123,"OrderId":123,"QuestionId":123,"SurveyResponseID":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="SurveyResponsesUpdate-csv" data-bs-parent="#SurveyResponsesUpdate-parent">
+```json
+Answer,CreateLocation,CreatedBy,CreatedDateTime,Id,OrderId,QuestionId,SurveyResponseID,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""",123,123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
+
 
 
 	
 # T
-## TemplateCategories [![get](https://img.shields.io/badge/get-blue)](get.md#templatecategories) [![post](https://img.shields.io/badge/post-blue)](post.md#templatecategories) ![put](https://img.shields.io/badge/put-gray)   
+## TemplateCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#templatecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#templatecategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing template category  
 ##### Usage:  
 ```shell
 tq put TemplateCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplateCategoriesUpdate-default" aria-expanded="true" aria-controls="TemplateCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplateCategoriesUpdate-flat" aria-expanded="false" aria-controls="TemplateCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplateCategoriesUpdate-csv" aria-expanded="false" aria-controls="TemplateCategoriesUpdate-csv">
+csv
+</button>
+<div id="TemplateCategoriesUpdate-parent">
+<div class="collapse show" id="TemplateCategoriesUpdate-default" data-bs-parent="#TemplateCategoriesUpdate-parent"> 
 ```json
 {"ID":"string", "ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "Type":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
-```
+```  
+</div>
+<div class="collapse" id="TemplateCategoriesUpdate-flat"  data-bs-parent="#TemplateCategoriesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"ID":"string","Id":123,"Inactive":true,"Type.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="TemplateCategoriesUpdate-csv" data-bs-parent="#TemplateCategoriesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EditIndicator,ID,Id,Inactive,Type.Id,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",true,"""string""",123,true,123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## TemplatePriceTypes [![get](https://img.shields.io/badge/get-blue)](get.md#templatepricetypes) [![post](https://img.shields.io/badge/post-blue)](post.md#templatepricetypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## TemplatePriceTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#templatepricetypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#templatepricetypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing template price type.  
 ##### Usage:  
 ```shell
 tq put TemplatePriceTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePriceTypesUpdate-default" aria-expanded="true" aria-controls="TemplatePriceTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePriceTypesUpdate-flat" aria-expanded="false" aria-controls="TemplatePriceTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePriceTypesUpdate-csv" aria-expanded="false" aria-controls="TemplatePriceTypesUpdate-csv">
+csv
+</button>
+<div id="TemplatePriceTypesUpdate-parent">
+<div class="collapse show" id="TemplatePriceTypesUpdate-default" data-bs-parent="#TemplatePriceTypesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DesignationCode":{"Id":123}, "GlAccount":{"Id":123}, "Id":123, "PriceTemplate":{"Id":123}, "PriceType":{"Id":123}, "ResaleAccount":{"Id":123}, "TemplatePrices":[{"Id":123}, ...], "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "TemplatePriceTypeID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="TemplatePriceTypesUpdate-flat"  data-bs-parent="#TemplatePriceTypesUpdate-parent">
+```json
 
-## TemplatePrices [![get](https://img.shields.io/badge/get-blue)](get.md#templateprices) [![post](https://img.shields.io/badge/post-blue)](post.md#templateprices) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+<div class="collapse" id="TemplatePriceTypesUpdate-csv" data-bs-parent="#TemplatePriceTypesUpdate-parent">
+```json
+
+```  
+</div>
+</div>
+
+
+## TemplatePrices <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#templateprices)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#templateprices)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing template price.  
 ##### Usage:  
 ```shell
 tq put TemplatePrices
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePricesUpdate-default" aria-expanded="true" aria-controls="TemplatePricesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePricesUpdate-flat" aria-expanded="false" aria-controls="TemplatePricesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatePricesUpdate-csv" aria-expanded="false" aria-controls="TemplatePricesUpdate-csv">
+csv
+</button>
+<div id="TemplatePricesUpdate-parent">
+<div class="collapse show" id="TemplatePricesUpdate-default" data-bs-parent="#TemplatePricesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Enabled":true, "Id":123, "MinPrice":123.456, "Price":123.456, "TemplatePriceType":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Zone":{"Id":123}, "TemplatePriceID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="TemplatePricesUpdate-flat"  data-bs-parent="#TemplatePricesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Enabled":true,"Id":123,"MinPrice":123.456,"Price":123.456,"TemplatePriceID":"string","TemplatePriceType.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Zone.Id":123}]
+```  
+</div>
+<div class="collapse" id="TemplatePricesUpdate-csv" data-bs-parent="#TemplatePricesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Enabled,Id,MinPrice,Price,TemplatePriceID,TemplatePriceType.Id,UpdatedBy,UpdatedDateTime,Zone.Id
+"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,true,123,123.456,123.456,"""string""",123,"""string""","""2000-01-01T00:00:00.000Z""",123
+
+```  
+</div>
+</div>
 
 
-## Templates [![get](https://img.shields.io/badge/get-blue)](get.md#templates) [![post](https://img.shields.io/badge/post-blue)](post.md#templates) ![put](https://img.shields.io/badge/put-gray)   
+
+## Templates <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#templates)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#templates)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing template  
 ##### Usage:  
 ```shell
 tq put Templates
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesUpdate-default" aria-expanded="true" aria-controls="TemplatesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesUpdate-flat" aria-expanded="false" aria-controls="TemplatesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TemplatesUpdate-csv" aria-expanded="false" aria-controls="TemplatesUpdate-csv">
+csv
+</button>
+<div id="TemplatesUpdate-parent">
+<div class="collapse show" id="TemplatesUpdate-default" data-bs-parent="#TemplatesUpdate-parent"> 
 ```json
 {"Category":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditIndicator":true, "Id":123, "Inactive":true, "IsHtmlBody":true, "TemplateBody":"string", "TemplateSubject":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "TemplateID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="TemplatesUpdate-flat"  data-bs-parent="#TemplatesUpdate-parent">
+```json
+[{"Category.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditIndicator":true,"Id":123,"Inactive":true,"IsHtmlBody":true,"TemplateBody":"string","TemplateID":"string","TemplateSubject":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="TemplatesUpdate-csv" data-bs-parent="#TemplatesUpdate-parent">
+```json
+Category.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EditIndicator,Id,Inactive,IsHtmlBody,TemplateBody,TemplateID,TemplateSubject,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",true,123,true,true,"""string""","""string""","""string""","""string""","""2000-01-01T00:00:00.000Z"""
 
-## Theaters [![get](https://img.shields.io/badge/get-blue)](get.md#theaters) [![post](https://img.shields.io/badge/post-blue)](post.md#theaters) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Theaters <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#theaters)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#theaters)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing theater.  
 ##### Usage:  
 ```shell
 tq put Theaters
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TheatersUpdate-default" aria-expanded="true" aria-controls="TheatersUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TheatersUpdate-flat" aria-expanded="false" aria-controls="TheatersUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TheatersUpdate-csv" aria-expanded="false" aria-controls="TheatersUpdate-csv">
+csv
+</button>
+<div id="TheatersUpdate-parent">
+<div class="collapse show" id="TheatersUpdate-default" data-bs-parent="#TheatersUpdate-parent"> 
 ```json
 {"City":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "DataWindowDefinition":"string", "Description":"string", "DrivingDirections":"string", "Id":123, "Inactive":true, "MaximumNumberOfSeats":123, "Phone":"string", "PostalCode":"string", "State":"string", "Street":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="TheatersUpdate-flat"  data-bs-parent="#TheatersUpdate-parent">
+```json
+[{"City":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","DataWindowDefinition":"string","Description":"string","DrivingDirections":"string","ID":"string","Id":123,"Inactive":true,"MaximumNumberOfSeats":123,"Phone":"string","PostalCode":"string","State":"string","Street":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="TheatersUpdate-csv" data-bs-parent="#TheatersUpdate-parent">
+```json
+City,CreateLocation,CreatedBy,CreatedDateTime,DataWindowDefinition,Description,DrivingDirections,ID,Id,Inactive,MaximumNumberOfSeats,Phone,PostalCode,State,Street,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""","""string""","""string""",123,true,123,"""string""","""string""","""string""","""string""","""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
-## TimeSlots [![get](https://img.shields.io/badge/get-blue)](get.md#timeslots) [![post](https://img.shields.io/badge/post-blue)](post.md#timeslots) ![put](https://img.shields.io/badge/put-gray)   
+
+## TimeSlots <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#timeslots)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#timeslots)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing time slot.  
 ##### Usage:  
 ```shell
 tq put TimeSlots
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TimeSlotsUpdate-default" aria-expanded="true" aria-controls="TimeSlotsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TimeSlotsUpdate-flat" aria-expanded="false" aria-controls="TimeSlotsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TimeSlotsUpdate-csv" aria-expanded="false" aria-controls="TimeSlotsUpdate-csv">
+csv
+</button>
+<div id="TimeSlotsUpdate-parent">
+<div class="collapse show" id="TimeSlotsUpdate-default" data-bs-parent="#TimeSlotsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndTime":"2000-01-01T00:00:00.000Z", "Id":123, "Inactive":true, "StartTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="TimeSlotsUpdate-flat"  data-bs-parent="#TimeSlotsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EndTime":"2000-01-01T00:00:00.000Z","ID":"string","Id":123,"Inactive":true,"StartTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="TimeSlotsUpdate-csv" data-bs-parent="#TimeSlotsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,EndTime,ID,Id,Inactive,StartTime,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,true,"""2000-01-01T00:00:00.000Z""","""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
 
 
 
-## TriPOSCloudConfigurations [![get](https://img.shields.io/badge/get-blue)](get.md#triposcloudconfigurations) [![post](https://img.shields.io/badge/post-blue)](post.md#triposcloudconfigurations) ![put](https://img.shields.io/badge/put-gray)   
+
+## TriPOSCloudConfigurations <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#triposcloudconfigurations)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#triposcloudconfigurations)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing TriPOS Cloud configuration.  
 ##### Usage:  
 ```shell
 tq put TriPOSCloudConfigurations
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TriPOSCloudConfigurationsUpdate-default" aria-expanded="true" aria-controls="TriPOSCloudConfigurationsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TriPOSCloudConfigurationsUpdate-flat" aria-expanded="false" aria-controls="TriPOSCloudConfigurationsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#TriPOSCloudConfigurationsUpdate-csv" aria-expanded="false" aria-controls="TriPOSCloudConfigurationsUpdate-csv">
+csv
+</button>
+<div id="TriPOSCloudConfigurationsUpdate-parent">
+<div class="collapse show" id="TriPOSCloudConfigurationsUpdate-default" data-bs-parent="#TriPOSCloudConfigurationsUpdate-parent"> 
 ```json
 {"ConfigSetting":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="TriPOSCloudConfigurationsUpdate-flat"  data-bs-parent="#TriPOSCloudConfigurationsUpdate-parent">
+```json
+[{"ConfigSetting":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="TriPOSCloudConfigurationsUpdate-csv" data-bs-parent="#TriPOSCloudConfigurationsUpdate-parent">
+```json
+ConfigSetting,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
+
+```  
+</div>
+</div>
+
 
 	
 # U
-## UpgradeCategories [![get](https://img.shields.io/badge/get-blue)](get.md#upgradecategories) [![post](https://img.shields.io/badge/post-blue)](post.md#upgradecategories) ![put](https://img.shields.io/badge/put-gray)   
+## UpgradeCategories <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#upgradecategories)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#upgradecategories)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Upgrade Category.  
 ##### Usage:  
 ```shell
 tq put UpgradeCategories
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UpgradeCategoriesUpdate-default" aria-expanded="true" aria-controls="UpgradeCategoriesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UpgradeCategoriesUpdate-flat" aria-expanded="false" aria-controls="UpgradeCategoriesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UpgradeCategoriesUpdate-csv" aria-expanded="false" aria-controls="UpgradeCategoriesUpdate-csv">
+csv
+</button>
+<div id="UpgradeCategoriesUpdate-parent">
+<div class="collapse show" id="UpgradeCategoriesUpdate-default" data-bs-parent="#UpgradeCategoriesUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="UpgradeCategoriesUpdate-flat"  data-bs-parent="#UpgradeCategoriesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="UpgradeCategoriesUpdate-csv" data-bs-parent="#UpgradeCategoriesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## UpgradeLogs [![get](https://img.shields.io/badge/get-blue)](get.md#upgradelogs) [![post](https://img.shields.io/badge/post-blue)](post.md#upgradelogs) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## UpgradeLogs <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#upgradelogs)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#upgradelogs)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Updates the given upgradeLog.  
 ##### Usage:  
 ```shell
 tq put UpgradeLogs
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UpgradeLogsUpdate-default" aria-expanded="true" aria-controls="UpgradeLogsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UpgradeLogsUpdate-flat" aria-expanded="false" aria-controls="UpgradeLogsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UpgradeLogsUpdate-csv" aria-expanded="false" aria-controls="UpgradeLogsUpdate-csv">
+csv
+</button>
+<div id="UpgradeLogsUpdate-parent">
+<div class="collapse show" id="UpgradeLogsUpdate-default" data-bs-parent="#UpgradeLogsUpdate-parent"> 
 ```json
 {"CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "HotFixNumber":123, "Id":123, "ReleaseDescription":"string", "ScriptId":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UpgradeCategorySummary":{"Id":123}, "Version":"string", "UpgradeLogID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="UpgradeLogsUpdate-flat"  data-bs-parent="#UpgradeLogsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","HotFixNumber":123,"Id":123,"ReleaseDescription":"string","ScriptId":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UpgradeCategorySummary.Id":123,"UpgradeLogID":"string","Version":"string"}]
+```  
+</div>
+<div class="collapse" id="UpgradeLogsUpdate-csv" data-bs-parent="#UpgradeLogsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,HotFixNumber,Id,ReleaseDescription,ScriptId,UpdatedBy,UpdatedDateTime,UpgradeCategorySummary.Id,UpgradeLogID,Version
+"""string""","""string""","""2000-01-01T00:00:00.000Z""",123,123,"""string""",123,"""string""","""2000-01-01T00:00:00.000Z""",123,"""string""","""string"""
+
+```  
+</div>
+</div>
 
 
-## UserPreferences [![get](https://img.shields.io/badge/get-blue)](get.md#userpreferences) [![post](https://img.shields.io/badge/post-blue)](post.md#userpreferences) ![put](https://img.shields.io/badge/put-gray)   
+
+## UserPreferences <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#userpreferences)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#userpreferences)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update a user preference by id.  
 ##### Usage:  
 ```shell
 tq put UserPreferences
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UserPreferencesUpdate-default" aria-expanded="true" aria-controls="UserPreferencesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UserPreferencesUpdate-flat" aria-expanded="false" aria-controls="UserPreferencesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#UserPreferencesUpdate-csv" aria-expanded="false" aria-controls="UserPreferencesUpdate-csv">
+csv
+</button>
+<div id="UserPreferencesUpdate-parent">
+<div class="collapse show" id="UserPreferencesUpdate-default" data-bs-parent="#UserPreferencesUpdate-parent"> 
 ```json
 {"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Key":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "Value":"string"}
-```
+```  
+</div>
+<div class="collapse" id="UserPreferencesUpdate-flat"  data-bs-parent="#UserPreferencesUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","ID":"string","Id":123,"Key":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","Value":"string"}]
+```  
+</div>
+<div class="collapse" id="UserPreferencesUpdate-csv" data-bs-parent="#UserPreferencesUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,ID,Id,Key,UpdatedBy,UpdatedDateTime,Value
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""",123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string"""
+
+```  
+</div>
+</div>
+
 
 
 	
@@ -2846,107 +9649,350 @@ tq put UserPreferences
 
 	
 # W
-## WebContentTypes [![get](https://img.shields.io/badge/get-blue)](get.md#webcontenttypes) [![post](https://img.shields.io/badge/post-blue)](post.md#webcontenttypes) ![put](https://img.shields.io/badge/put-gray)   
+## WebContentTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#webcontenttypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#webcontenttypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing Web Content Type.  
 ##### Usage:  
 ```shell
 tq put WebContentTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WebContentTypesUpdate-default" aria-expanded="true" aria-controls="WebContentTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WebContentTypesUpdate-flat" aria-expanded="false" aria-controls="WebContentTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WebContentTypesUpdate-csv" aria-expanded="false" aria-controls="WebContentTypesUpdate-csv">
+csv
+</button>
+<div id="WebContentTypesUpdate-parent">
+<div class="collapse show" id="WebContentTypesUpdate-default" data-bs-parent="#WebContentTypesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EditMask":"string", "FullTextSearchIndicator":true, "Id":123, "Inactive":true, "LastContentUseUpdateDateTime":"2000-01-01T00:00:00.000Z", "Limit":123, "ReferenceDescriptionColumn":"string", "ReferenceIdColumn":"string", "ReferenceSort":"string", "ReferenceTable":"string", "ReferenceWhere":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "UseWebApi":true, "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="WebContentTypesUpdate-flat"  data-bs-parent="#WebContentTypesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EditMask":"string","FullTextSearchIndicator":true,"ID":"string","Id":123,"Inactive":true,"LastContentUseUpdateDateTime":"2000-01-01T00:00:00.000Z","Limit":123,"ReferenceDescriptionColumn":"string","ReferenceIdColumn":"string","ReferenceSort":"string","ReferenceTable":"string","ReferenceWhere":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","UseWebApi":true}]
+```  
+</div>
+<div class="collapse" id="WebContentTypesUpdate-csv" data-bs-parent="#WebContentTypesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,EditMask,FullTextSearchIndicator,ID,Id,Inactive,LastContentUseUpdateDateTime,Limit,ReferenceDescriptionColumn,ReferenceIdColumn,ReferenceSort,ReferenceTable,ReferenceWhere,UpdatedBy,UpdatedDateTime,UseWebApi
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",true,"""string""",123,true,"""2000-01-01T00:00:00.000Z""",123,"""string""","""string""","""string""","""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""",true
+
+```  
+</div>
+</div>
 
 
-## WebLogins [![get](https://img.shields.io/badge/get-blue)](get.md#weblogins) [![post](https://img.shields.io/badge/post-blue)](post.md#weblogins) ![put](https://img.shields.io/badge/put-gray)   
+
+## WebLogins <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#weblogins)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#weblogins)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update a weblogin.  
 ##### Usage:  
 ```shell
 tq put WebLogins
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WebLoginsUpdate-default" aria-expanded="true" aria-controls="WebLoginsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WebLoginsUpdate-flat" aria-expanded="false" aria-controls="WebLoginsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WebLoginsUpdate-csv" aria-expanded="false" aria-controls="WebLoginsUpdate-csv">
+csv
+</button>
+<div id="WebLoginsUpdate-parent">
+<div class="collapse show" id="WebLoginsUpdate-default" data-bs-parent="#WebLoginsUpdate-parent"> 
 ```json
 {"Constituent":{"Id":123}, "ConstituentUpdateDate":"2000-01-01T00:00:00.000Z", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "Email":{"Id":123}, "FailedAttempts":123, "Id":123, "Inactive":true, "LastLoginDate":"2000-01-01T00:00:00.000Z", "LockedDate":"2000-01-01T00:00:00.000Z", "Login":"string", "LoginType":{"Id":123}, "PrimaryIndicator":true, "TemporaryIndicator":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "LoginID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="WebLoginsUpdate-flat"  data-bs-parent="#WebLoginsUpdate-parent">
+```json
+[{"Constituent.Id":123,"ConstituentUpdateDate":"2000-01-01T00:00:00.000Z","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"Email.Id":123,"FailedAttempts":123,"Id":123,"Inactive":true,"LastLoginDate":"2000-01-01T00:00:00.000Z","LockedDate":"2000-01-01T00:00:00.000Z","Login":"string","LoginID":"string","LoginType.Id":123,"PrimaryIndicator":true,"TemporaryIndicator":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="WebLoginsUpdate-csv" data-bs-parent="#WebLoginsUpdate-parent">
+```json
+Constituent.Id,ConstituentUpdateDate,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,Email.Id,FailedAttempts,Id,Inactive,LastLoginDate,LockedDate,Login,LoginID,LoginType.Id,PrimaryIndicator,TemporaryIndicator,UpdatedBy,UpdatedDateTime
+123,"""2000-01-01T00:00:00.000Z""","""string""","""string""","""2000-01-01T00:00:00.000Z""",true,123,123,123,true,"""2000-01-01T00:00:00.000Z""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## WorkerQualifications [![get](https://img.shields.io/badge/get-blue)](get.md#workerqualifications) [![post](https://img.shields.io/badge/post-blue)](post.md#workerqualifications) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## WorkerQualifications <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#workerqualifications)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#workerqualifications)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing WorkerQualification.  
 ##### Usage:  
 ```shell
 tq put WorkerQualifications
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerQualificationsUpdate-default" aria-expanded="true" aria-controls="WorkerQualificationsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerQualificationsUpdate-flat" aria-expanded="false" aria-controls="WorkerQualificationsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerQualificationsUpdate-csv" aria-expanded="false" aria-controls="WorkerQualificationsUpdate-csv">
+csv
+</button>
+<div id="WorkerQualificationsUpdate-parent">
+<div class="collapse show" id="WorkerQualificationsUpdate-default" data-bs-parent="#WorkerQualificationsUpdate-parent"> 
 ```json
 {"Constituent":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EndDateTime":"2000-01-01T00:00:00.000Z", "Id":123, "Qualification":{"Id":123}, "StartDateTime":"2000-01-01T00:00:00.000Z", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerQualificationID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="WorkerQualificationsUpdate-flat"  data-bs-parent="#WorkerQualificationsUpdate-parent">
+```json
+[{"Constituent.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EndDateTime":"2000-01-01T00:00:00.000Z","Id":123,"Qualification.Id":123,"StartDateTime":"2000-01-01T00:00:00.000Z","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","WorkerQualificationID":"string"}]
+```  
+</div>
+<div class="collapse" id="WorkerQualificationsUpdate-csv" data-bs-parent="#WorkerQualificationsUpdate-parent">
+```json
+Constituent.Id,CreateLocation,CreatedBy,CreatedDateTime,EndDateTime,Id,Qualification.Id,StartDateTime,UpdatedBy,UpdatedDateTime,WorkerQualificationID
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""2000-01-01T00:00:00.000Z""",123,123,"""2000-01-01T00:00:00.000Z""","""string""","""2000-01-01T00:00:00.000Z""","""string"""
 
-## WorkerRoles [![get](https://img.shields.io/badge/get-blue)](get.md#workerroles) [![post](https://img.shields.io/badge/post-blue)](post.md#workerroles) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## WorkerRoles <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#workerroles)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#workerroles)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing worker role.  
 ##### Usage:  
 ```shell
 tq put WorkerRoles
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerRolesUpdate-default" aria-expanded="true" aria-controls="WorkerRolesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerRolesUpdate-flat" aria-expanded="false" aria-controls="WorkerRolesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerRolesUpdate-csv" aria-expanded="false" aria-controls="WorkerRolesUpdate-csv">
+csv
+</button>
+<div id="WorkerRolesUpdate-parent">
+<div class="collapse show" id="WorkerRolesUpdate-default" data-bs-parent="#WorkerRolesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "ShowInPortfolioDefault":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="WorkerRolesUpdate-flat"  data-bs-parent="#WorkerRolesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"ShowInPortfolioDefault":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="WorkerRolesUpdate-csv" data-bs-parent="#WorkerRolesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,ShowInPortfolioDefault,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## WorkerTypes [![get](https://img.shields.io/badge/get-blue)](get.md#workertypes) [![post](https://img.shields.io/badge/post-blue)](post.md#workertypes) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## WorkerTypes <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#workertypes)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#workertypes)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing worker type.  
 ##### Usage:  
 ```shell
 tq put WorkerTypes
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerTypesUpdate-default" aria-expanded="true" aria-controls="WorkerTypesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerTypesUpdate-flat" aria-expanded="false" aria-controls="WorkerTypesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkerTypesUpdate-csv" aria-expanded="false" aria-controls="WorkerTypesUpdate-csv">
+csv
+</button>
+<div id="WorkerTypesUpdate-parent">
+<div class="collapse show" id="WorkerTypesUpdate-default" data-bs-parent="#WorkerTypesUpdate-parent"> 
 ```json
 {"ControlGroup":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="WorkerTypesUpdate-flat"  data-bs-parent="#WorkerTypesUpdate-parent">
+```json
+[{"ControlGroup.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="WorkerTypesUpdate-csv" data-bs-parent="#WorkerTypesUpdate-parent">
+```json
+ControlGroup.Id,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,UpdatedBy,UpdatedDateTime
+123,"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Workers [![get](https://img.shields.io/badge/get-blue)](get.md#workers) [![post](https://img.shields.io/badge/post-blue)](post.md#workers) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Workers <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#workers)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#workers)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing worker.  
 ##### Usage:  
 ```shell
 tq put Workers
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkersUpdate-default" aria-expanded="true" aria-controls="WorkersUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkersUpdate-flat" aria-expanded="false" aria-controls="WorkersUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#WorkersUpdate-csv" aria-expanded="false" aria-controls="WorkersUpdate-csv">
+csv
+</button>
+<div id="WorkersUpdate-parent">
+<div class="collapse show" id="WorkersUpdate-default" data-bs-parent="#WorkersUpdate-parent"> 
 ```json
 {"ConstituentId":123, "ConstituentInactive":{"Id":123}, "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "EditIndicator":true, "FirstName":"string", "Id":123, "Inactive":true, "LastName":"string", "Prefix":{"Id":123}, "ShortDisplayName":"string", "SortName":"string", "Suffix":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "WorkerType":{"Id":123}, "WorkerID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="WorkersUpdate-flat"  data-bs-parent="#WorkersUpdate-parent">
+```json
+[{"ConstituentId":123,"ConstituentInactive.Id":123,"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","EditIndicator":true,"FirstName":"string","Id":123,"Inactive":true,"LastName":"string","Prefix.Id":123,"ShortDisplayName":"string","SortName":"string","Suffix.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","WorkerID":"string","WorkerType.Id":123}]
+```  
+</div>
+<div class="collapse" id="WorkersUpdate-csv" data-bs-parent="#WorkersUpdate-parent">
+```json
+ConstituentId,ConstituentInactive.Id,CreateLocation,CreatedBy,CreatedDateTime,EditIndicator,FirstName,Id,Inactive,LastName,Prefix.Id,ShortDisplayName,SortName,Suffix.Id,UpdatedBy,UpdatedDateTime,WorkerID,WorkerType.Id
+123,123,"""string""","""string""","""2000-01-01T00:00:00.000Z""",true,"""string""",123,true,"""string""",123,"""string""","""string""",123,"""string""","""2000-01-01T00:00:00.000Z""","""string""",123
+
+```  
+</div>
+</div>
+
 
 	
 # Z
-## ZoneGroups [![get](https://img.shields.io/badge/get-blue)](get.md#zonegroups) [![post](https://img.shields.io/badge/post-blue)](post.md#zonegroups) ![put](https://img.shields.io/badge/put-gray)   
+## ZoneGroups <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#zonegroups)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#zonegroups)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing zone group.  
 ##### Usage:  
 ```shell
 tq put ZoneGroups
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZoneGroupsUpdate-default" aria-expanded="true" aria-controls="ZoneGroupsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZoneGroupsUpdate-flat" aria-expanded="false" aria-controls="ZoneGroupsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZoneGroupsUpdate-csv" aria-expanded="false" aria-controls="ZoneGroupsUpdate-csv">
+csv
+</button>
+<div id="ZoneGroupsUpdate-parent">
+<div class="collapse show" id="ZoneGroupsUpdate-default" data-bs-parent="#ZoneGroupsUpdate-parent"> 
 ```json
 {"AliasDescription":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "Rank":123, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ZoneGroupsUpdate-flat"  data-bs-parent="#ZoneGroupsUpdate-parent">
+```json
+[{"AliasDescription":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"Rank":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ZoneGroupsUpdate-csv" data-bs-parent="#ZoneGroupsUpdate-parent">
+```json
+AliasDescription,CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,Rank,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## ZoneMaps [![get](https://img.shields.io/badge/get-blue)](get.md#zonemaps) [![post](https://img.shields.io/badge/post-blue)](post.md#zonemaps) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## ZoneMaps <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#zonemaps)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#zonemaps)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing zone map.  
 ##### Usage:  
 ```shell
 tq put ZoneMaps
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZoneMapsUpdate-default" aria-expanded="true" aria-controls="ZoneMapsUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZoneMapsUpdate-flat" aria-expanded="false" aria-controls="ZoneMapsUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZoneMapsUpdate-csv" aria-expanded="false" aria-controls="ZoneMapsUpdate-csv">
+csv
+</button>
+<div id="ZoneMapsUpdate-parent">
+<div class="collapse show" id="ZoneMapsUpdate-default" data-bs-parent="#ZoneMapsUpdate-parent"> 
 ```json
 {"ID":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "Id":123, "Inactive":true, "SeatMap":{"Id":123}, "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z"}
-```
+```  
+</div>
+<div class="collapse" id="ZoneMapsUpdate-flat"  data-bs-parent="#ZoneMapsUpdate-parent">
+```json
+[{"CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","ID":"string","Id":123,"Inactive":true,"SeatMap.Id":123,"UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z"}]
+```  
+</div>
+<div class="collapse" id="ZoneMapsUpdate-csv" data-bs-parent="#ZoneMapsUpdate-parent">
+```json
+CreateLocation,CreatedBy,CreatedDateTime,Description,ID,Id,Inactive,SeatMap.Id,UpdatedBy,UpdatedDateTime
+"""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,true,123,"""string""","""2000-01-01T00:00:00.000Z"""
 
-## Zones [![get](https://img.shields.io/badge/get-blue)](get.md#zones) [![post](https://img.shields.io/badge/post-blue)](post.md#zones) ![put](https://img.shields.io/badge/put-gray)   
+```  
+</div>
+</div>
+
+
+## Zones <button type="button" class="btn btn-verb btn-primary btn-sm">[get](get.md#zones)</button><button type="button" class="btn btn-verb btn-primary btn-sm">[post](post.md#zones)</button><button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>put</button>  
+		
 Update an existing zone.  
 ##### Usage:  
 ```shell
 tq put Zones
 ``` 
-##### Query:  
+<h5 class="h5-code">Query:</h5>  
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZonesUpdate-default" aria-expanded="true" aria-controls="ZonesUpdate-default">
+default
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZonesUpdate-flat" aria-expanded="false" aria-controls="ZonesUpdate-flat">
+flat
+</button>
+<button class="btn btn-code btn-outline-info btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ZonesUpdate-csv" aria-expanded="false" aria-controls="ZonesUpdate-csv">
+csv
+</button>
+<div id="ZonesUpdate-parent">
+<div class="collapse show" id="ZonesUpdate-default" data-bs-parent="#ZonesUpdate-parent"> 
 ```json
 {"Abbreviation":"string", "CreateLocation":"string", "CreatedBy":"string", "CreatedDateTime":"2000-01-01T00:00:00.000Z", "Description":"string", "EndTime":"string", "Id":123, "Rank":123, "ShortDescription":"string", "StartTime":"string", "UpdatedBy":"string", "UpdatedDateTime":"2000-01-01T00:00:00.000Z", "ZoneGroup":{"Id":123}, "ZoneLegend":"string", "ZoneMapId":123, "ZoneTime":"string", "ZoneID":"string", "ZoneMapID":"string"}
-```
+```  
+</div>
+<div class="collapse" id="ZonesUpdate-flat"  data-bs-parent="#ZonesUpdate-parent">
+```json
+[{"Abbreviation":"string","CreateLocation":"string","CreatedBy":"string","CreatedDateTime":"2000-01-01T00:00:00.000Z","Description":"string","EndTime":"string","Id":123,"Rank":123,"ShortDescription":"string","StartTime":"string","UpdatedBy":"string","UpdatedDateTime":"2000-01-01T00:00:00.000Z","ZoneGroup.Id":123,"ZoneID":"string","ZoneLegend":"string","ZoneMapID":"string","ZoneMapId":123,"ZoneTime":"string"}]
+```  
+</div>
+<div class="collapse" id="ZonesUpdate-csv" data-bs-parent="#ZonesUpdate-parent">
+```json
+Abbreviation,CreateLocation,CreatedBy,CreatedDateTime,Description,EndTime,Id,Rank,ShortDescription,StartTime,UpdatedBy,UpdatedDateTime,ZoneGroup.Id,ZoneID,ZoneLegend,ZoneMapID,ZoneMapId,ZoneTime
+"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""","""string""","""string""",123,123,"""string""","""string""","""string""","""2000-01-01T00:00:00.000Z""",123,"""string""","""string""","""string""",123,"""string"""
+
+```  
+</div>
+</div>
+
  
 
 <link rel="stylesheet" type="text/css" href="../css/toc.css"/>

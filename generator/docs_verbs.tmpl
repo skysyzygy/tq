@@ -2,6 +2,8 @@
 
 {{ $docOp := .op }}
 {{ $oldLetter := "" }}
+{{/* $name := "Constituents" */}}
+{{/* $ops := index .commands "Constituents" */}}
 
 {{- range $name, $ops := .commands }}
 	{{- $letter := left $name }}
@@ -14,23 +16,22 @@
 ## {{ print $name " " }}
 		{{- range $op, $_ := $ops }}
 			{{- if and (ne $op "Delete") (ne $op "Head") }}
-			{{- if eq $op $docOp }}
-{{- printf "![%[1]s](https://img.shields.io/badge/%[1]s-gray) " (toLower $op) }}
-			{{- else }}
-{{- printf "[![%[1]s](https://img.shields.io/badge/%[1]s-blue)](%[1]s.md#%[2]s) " (toLower $op) (toLower $name) }}
+			{{- if eq $op $docOp -}}
+<button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>{{- (toLower $op) }}</button>
+			{{- else -}}
+<button type="button" class="btn btn-verb btn-primary btn-sm">{{ printf "[%[1]s](%[1]s.md#%[2]s)" (toLower $op) (toLower $name) }}</button>
 			{{- end }}
 			{{- end }}
 		{{- end }}
 		{{- with index $commands 0 }}  
+		
 {{ .Long }}  
 ##### Usage:  
 ```shell
 tq {{ toLower $docOp }} {{ $name }}
 ``` 
-##### Query:  
-```json
-{{ .Usage }}
-```  
+<h5 class="h5-code">Query:</h5>  
+{{ template "docs_code.tmpl" . }}
 		{{- end }}
 		{{- if gt (len $commands) 1 }}
 ### Flags:  
@@ -38,10 +39,8 @@ tq {{ toLower $docOp }} {{ $name }}
  * *--{{ .Variant }}*  
    {{ .Long }}  
 				{{- if .Usage }}
-##### Query:  
-```json
-{{ .Usage }}
-```  
+<h5 class="h5-code">Query:</h5>  
+{{ template "docs_code.tmpl" . }}
 				{{- end }}
 			{{- end }}
 		{{- end }}

@@ -1,0 +1,14 @@
+p:has(.btn-code) {
+    margin-bottom: 0!important;
+    text-align: right;
+}
+.btn-code {
+    border-radius: 0;
+    border-bottom: none;
+}
+.btn-verb {
+    margin-left: 0.25em;
+}
+.h5-code {
+    height: 0;
+}
