@@ -1,0 +1,19 @@
+{{ $name := index . 0 }}
+{{ $docOp := index . 1 }}
+{{ $ops := index . 2 }}
+
+<div class="group-name">
+    <h2 id="{{ $name }}">{{ $name }}
+        <div class="btn-group" role="group" aria-label="Verb buttons">
+        {{- range $op, $_ := $ops}}
+            {{- if and (ne $op "Delete") (ne $op "Head") }}
+                {{- if eq $op $docOp }}
+                <button type="button" class="btn btn-verb btn-secondary btn-sm" disabled>{{- (toLower $op) }}</button>
+                {{- else -}}
+                <a class="btn btn-verb btn-primary btn-sm" href="{{ printf "../%s/#%s" (toLower $op) $name }}">{{ toLower $op }}</a>
+                {{- end }}
+            {{- end }}
+        {{- end }}
+        </div>
+    </h2>
+</div>
