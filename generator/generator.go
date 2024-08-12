@@ -100,8 +100,14 @@ func generate(templateFile string, outFile string, data map[string]any) {
 			return string(o)
 
 		},
+		"dict": func(e ...any) []any {
+			return e
+		},
 	}
-	templ, err := template.New("commands").Funcs(funcs).ParseFiles(templateFile, "docs_code.tmpl")
+	templ, err := template.New("commands").Funcs(funcs).ParseFiles(templateFile,
+		"docs_code.tmpl",
+		"docs_name.tmpl",
+	)
 	if err != nil {
 		panic(err)
 	}

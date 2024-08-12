@@ -9,12 +9,7 @@
 # {{ $letter }}
 	{{- end }}
 	{{- /* check to see if the operator exists */}}
-## {{ print $name " " }}
-    {{- range $op, $commands := $ops }}
-        {{- if and (ne $op "Delete") (ne $op "Head") -}}
-<button type="button" class="btn btn-verb btn-primary btn-sm">{{ printf "[%[1]s](%[1]s.md#%[2]s)" (toLower $op) (toLower $name) }}</button>
-        {{- end }}
-    {{- end }}
+	{{- template "docs_name.tmpl" dict $name "" $ops }}
 {{- end }}    
 
 
