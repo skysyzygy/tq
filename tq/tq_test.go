@@ -404,6 +404,7 @@ func Test_Do(t *testing.T) {
 	assert.ErrorContains(t, err, "cannot unmarshal array")
 }
 
+// Test that tqConfig flags can be used to convert input formats to the canonical one
 func Test_tqInput(t *testing.T) {
 	tq := TqConfig{}
 	j := []byte(`[{"a":"apple","b":[{"badger":"mammal"},{"banana":"fruit"},"bagel"],"c":{"cucumber":"vegetable or fruit?"},"d":null,"e":1,"f":false}]`)
@@ -433,6 +434,7 @@ func Test_tqInput(t *testing.T) {
 	assert.NoError(t, err)
 }
 
+// Test that tqConfig flags can be used to convert the canonical output format to others
 func Test_tqOutput(t *testing.T) {
 	tq := TqConfig{}
 	j := []byte(`[{"a":"apple","b":[{"badger":"mammal"},{"banana":"fruit"},"bagel"],"c":{"cucumber":"vegetable or fruit?"},"d":null,"e":1,"f":false}]`)

@@ -17,6 +17,7 @@ func jsonMapToStringMap(in jsonMap) (out map[string]string) {
 	return
 }
 
+// Test that flattenJSONMap flattens nested json to a map
 func Test_flattenJSONMap(t *testing.T) {
 	j := jsonMap{
 		"a": []byte(`"apple"`),
@@ -45,7 +46,7 @@ func Test_flattenJSONMap(t *testing.T) {
 	assert.Equal(t, json.RawMessage(`false`), flattened["f"])
 }
 
-// Returns errors from each level
+// Test that flattenJSONMap returns errors from each level
 func Test_flattenJSONMapError(t *testing.T) {
 	j := jsonMap{
 		"a": []byte(`"apple"`),
@@ -73,7 +74,7 @@ func Test_flattenJSONMapError(t *testing.T) {
 
 }
 
-// flattenJSONMap works when there is whitespace in the JSON
+// Test that flattenJSONMap works when there is whitespace in the JSON
 func Test_flattenJSONMapWhitespace(t *testing.T) {
 	j := jsonMap{
 		"a": []byte(` "apple" `),
@@ -101,6 +102,7 @@ func Test_flattenJSONMapWhitespace(t *testing.T) {
 
 }
 
+// Test that unflattenJSONMap takes a map and converts it to nested JSON
 func Test_unflattenJSONMap(t *testing.T) {
 	j := jsonMap{
 		"a": []byte(`"apple"`),
@@ -128,6 +130,7 @@ func Test_unflattenJSONMap(t *testing.T) {
 	assert.Equal(t, string(jMarshaled), string(unflattened))
 }
 
+// Test that unflattenJSONMap returns errors from each level
 func Test_unflattenJSONMapError(t *testing.T) {
 	f := jsonMap{
 		"a":           []byte(`"apple"`),
@@ -155,6 +158,7 @@ func Test_unflattenJSONMapError(t *testing.T) {
 
 }
 
+// Test that updateJSONMap updates/merges maps
 func Test_updateJSONMap(t *testing.T) {
 	a := jsonMap{
 		"one":   []byte("two"),
@@ -172,6 +176,7 @@ func Test_updateJSONMap(t *testing.T) {
 	assert.Equal(t, "four", string(b["three"]))
 }
 
+// Test that jsonMaps to CSV converts json maps to csv records
 func Test_jsonMapsToCsv(t *testing.T) {
 	a := []jsonMap{{
 		`"one key with spaces"`:            []byte(`"one"`),
@@ -189,6 +194,7 @@ func Test_jsonMapsToCsv(t *testing.T) {
 	assert.Equal(t, []string{"\"one\"", "2", "null", "false"}, csv[1])
 }
 
+// Test that jsonMapsFromCsv converts csv records to a json map
 func Test_jsonMapsFromCsv(t *testing.T) {
 	a := records{{
 		"one key with spaces",
