@@ -90,7 +90,8 @@ func Test_tqInit_Errors(t *testing.T) {
 
 }
 
-// Test that execute returns errors and output and handles
+// Test that execute returns errors and output and handles compact flag
+// but not when tq.OutFmt == "csv" (issue #25)
 func Test_Execute(t *testing.T) {
 	rootCmd.SetArgs(nil)
 	stdout, _ := tq.CaptureOutput(Execute)
@@ -110,8 +111,16 @@ func Test_Execute(t *testing.T) {
 	stdout, _ = tq.CaptureOutput(Execute)
 	assert.Contains(t, ansi.Strip(string(stdout)), `{"test":"json"}`)
 
+	_tq.OutFmt = "csv"
+	defer func() { _tq.OutFmt = "json" }()
+	compact = false
+	_tq.SetOutput([]byte(`{"test":"json","test2":"csv"}`))
+	stdout, _ = tq.CaptureOutput(Execute)
+	assert.Contains(t, ansi.Strip(string(stdout)), "test,test2\n\"\"\"json\"\"\",\"\"\"csv\"\"\"")
+
 }
 
+// Test that help matches snapshots (regression testing)
 func Test_Help(t *testing.T) {
 	update := false
 

@@ -322,7 +322,7 @@ func unmarshallNestedStructWithRemainder(query []byte, params any, except []stri
 			if field.Type().Elem().Kind() == reflect.Struct &&
 				field.Type().Elem() != reflect.TypeOf(strfmt.DateTime{}) {
 				// recurse if there's a struct field
-				res, err = unmarshallNestedStructWithRemainder(query, field.Interface(), except)
+				res, err = unmarshallStructWithRemainder(query, field.Interface())
 				// Update the query with only unmatched fields
 				query, _ = json.Marshal(res)
 			}

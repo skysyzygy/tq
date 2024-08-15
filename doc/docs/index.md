@@ -1,4 +1,4 @@
-# 🚀 **tq** is a command-line interface for Tessitura. </span>
+# 🚀 **tq** is a command-line interface for Tessitura</span>
 
 **tq** is a wrapper around the Tessitura API that reads JSON-formatted data and executes a series of API calls to Tessitura. It internally handles authentication and batch/concurrent processing so that humans like you (or bots or scripts) can focus on the data and not the intricacies of the Tessitura API.                                                      
                      
@@ -79,7 +79,7 @@ A yaml configuration file `.tq` placed in your home directory can be used to set
 *  **completion** :   Generate the autocompletion script for the specified shell
 *  **help** :         Help about any command
 
-# ❓ queries:
+# ❓ queries
 Queries are simply JSON objects and can be batched by combining multiple query objects into a single JSON array, e.g. 
 
 ```json
