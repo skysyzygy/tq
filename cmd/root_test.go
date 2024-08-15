@@ -112,6 +112,7 @@ func Test_Execute(t *testing.T) {
 	assert.Contains(t, ansi.Strip(string(stdout)), `{"test":"json"}`)
 
 	_tq.OutFmt = "csv"
+	defer func() { _tq.OutFmt = "json" }()
 	compact = false
 	_tq.SetOutput([]byte(`{"test":"json","test2":"csv"}`))
 	stdout, _ = tq.CaptureOutput(Execute)

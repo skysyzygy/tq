@@ -70,7 +70,7 @@ func Execute() {
 	var out []byte
 	if _tq != nil {
 		out, err = _tq.GetOutput()
-		if !compact && _tq.OutFmt == "json" {
+		if !compact && _tq.OutFmt != "csv" {
 			out = prettify.Pretty(out)
 		}
 		fmt.Println(jsonStyle(string(out), false))
