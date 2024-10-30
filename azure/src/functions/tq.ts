@@ -12,16 +12,21 @@ export async function tq(request: HttpRequest, context: InvocationContext): Prom
     var tq = spawnSync('bin/tq', ["-c", "--no-highlight", verb, object, flag], 
       {
         encoding: 'utf8', 
-        input: JSON.stringify(query)
+        input: JSON.stringify(query),
+        timeout: 30000
       });
-    
-    console.log(tq.stderr)
 
-    if (tq.error) {
-        console.error(tq.error.message);
+    if (tq.status != 0) {
+      return {
+        status: 400,
+        jsonBody: {
+          status: tq.status,
+          message: tq.stderr
+      }}
     } else {
-        return {jsonBody: JSON.parse(tq.stdout)};
+      return {jsonBody: JSON.parse(tq.stdout)};
     }
+
 };
 
 app.http('tq', {
