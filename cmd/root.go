@@ -60,20 +60,21 @@ var rootCmd = &cobra.Command{
 		"closure, and batch/concurrent processing so that humans like " +
 		"you can focus on the data and not the intricacies of the API.\n\n" +
 		"tq is basically a high-level API for common tasks in Tessi. "),
-	Version: version,
+	Version:      version,
+	SilenceUsage: true,
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	err := rootCmd.Execute()
-	var out []byte
 	if _tq != nil {
-		out, err = _tq.GetOutput()
+		out, _err := _tq.GetOutput()
+		err = errors.Join(err, _err)
 		if !compact && _tq.OutFmt != "csv" {
 			out = prettify.Pretty(out)
 		}
-		fmt.Println(jsonStyle(string(out), false))
+		fmt.Print(jsonStyle(string(out), false))
 	}
 	if err != nil {
 		if _tq != nil && _tq.Log != nil {
