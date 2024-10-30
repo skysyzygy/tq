@@ -165,27 +165,30 @@ func initConfig() {
 	} else {
 		// Find home directory.
 		home, err := os.UserHomeDir()
-		cobra.CheckErr(err)
 
-		// Search config in home directory with name ".tq" (without extension).
-		viper.AddConfigPath(home)
-		viper.SetConfigType("yaml")
-		viper.SetConfigName(".tq")
-		cfgFile = home + string(os.PathSeparator) + ".tq"
+		if err == nil {
+			// Search config in home directory with name ".tq" (without extension).
+			viper.AddConfigPath(home)
+			viper.SetConfigType("yaml")
+			viper.SetConfigName(".tq")
+			cfgFile = home + string(os.PathSeparator) + ".tq"
+
+			// If a config file is found, read it in.
+			if err := viper.ReadInConfig(); err == nil {
+				fmt.Fprintln(os.Stderr, "Using config file:", viper.ConfigFileUsed())
+			} else {
+				cfg, err := os.OpenFile(cfgFile, os.O_CREATE|os.O_WRONLY, 0644)
+				cfg.Close()
+				if err != nil {
+					fmt.Fprintln(os.Stderr, "Warning: couldn't access config file")
+				}
+			}
+
+		}
 	}
 
 	viper.AutomaticEnv() // read in environment variables that match
-
-	// If a config file is found, read it in.
-	if err := viper.ReadInConfig(); err == nil {
-		fmt.Fprintln(os.Stderr, "Using config file:", viper.ConfigFileUsed())
-	} else {
-		cfg, err := os.OpenFile(cfgFile, os.O_CREATE|os.O_WRONLY, 0644)
-		cfg.Close()
-		if err != nil {
-			fmt.Fprintln(os.Stderr, "Warning: couldn't access config file")
-		}
-	}
+	viper.SetEnvPrefix("TQ")
 
 	initLog()
 }
@@ -219,6 +222,8 @@ func initTq(cmd *cobra.Command, args []string) (err error) {
 	} else {
 		input = cmd.InOrStdin()
 	}
+
+	viper.SetDefault("login", "localhost|user|group|location")
 
 	a, _err := auth.FromString(viper.GetString("Login"))
 	if _err != nil {
