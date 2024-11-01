@@ -84,7 +84,8 @@ var authenticateListCmd = &cobra.Command{
 		}
 		auths, _ := auth.List(keys)
 		for _, auth := range auths {
-			fmt.Printf("%s", auth)
+			str, _ := auth.String()
+			fmt.Println(str)
 		}
 	},
 }
