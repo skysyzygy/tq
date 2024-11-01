@@ -152,10 +152,7 @@ func init() {
 			"exampleWrapped":    exampleWrapped,
 		})
 
-	if os.Getenv("AZURE_CLIENT_ID") != "" &&
-		os.Getenv("AZURE_TENANT_ID") != "" &&
-		os.Getenv("AZURE_CLIENT_SECRET") != "" &&
-		os.Getenv("KEY_VAULT_NAME") != "" {
+	if os.Getenv("KEY_VAULT_NAME") != "" {
 		var keys_azure auth.Keyring_Azure
 		keys_azure.Connect(os.Getenv("KEY_VAULT_NAME"))
 		keys = keys_azure
