@@ -152,9 +152,9 @@ func init() {
 			"exampleWrapped":    exampleWrapped,
 		})
 
-	if os.Getenv("KEY_VAULT_NAME") != "" {
+	if os.Getenv("AZURE_KEY_VAULT") != "" {
 		var keys_azure auth.Keyring_Azure
-		keys_azure.Connect(os.Getenv("KEY_VAULT_NAME"))
+		keys_azure.Connect(os.Getenv("AZURE_KEY_VAULT"))
 		keys = keys_azure
 	} else {
 		keys, _ = keyring.Open(keyring.Config{
