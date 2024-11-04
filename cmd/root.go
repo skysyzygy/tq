@@ -166,13 +166,9 @@ func init() {
 
 // initConfig reads in config file and ENV variables if set.
 func initConfig() {
-	if cfgFile != "" {
-		// Use config file from the flag.
-		viper.SetConfigFile(cfgFile)
-	} else {
+	if cfgFile == "" {
 		// Find home directory.
 		home, err := os.UserHomeDir()
-
 		if err == nil {
 			// Search config in home directory with name ".tq" (without extension).
 			viper.AddConfigPath(home)
@@ -180,17 +176,20 @@ func initConfig() {
 			viper.SetConfigName(".tq")
 			cfgFile = home + string(os.PathSeparator) + ".tq"
 
-			// If a config file is found, read it in.
-			if err := viper.ReadInConfig(); err == nil {
-				fmt.Fprintln(os.Stderr, "Using config file:", viper.ConfigFileUsed())
-			} else {
-				cfg, err := os.OpenFile(cfgFile, os.O_CREATE|os.O_WRONLY, 0644)
-				cfg.Close()
-				if err != nil {
-					fmt.Fprintln(os.Stderr, "Warning: couldn't access config file")
-				}
+			cfg, err := os.OpenFile(cfgFile, os.O_CREATE|os.O_WRONLY, 0644)
+			cfg.Close()
+			if err != nil {
+				fmt.Fprintln(os.Stderr, "Warning: couldn't access config file")
 			}
+		}
+	}
 
+	if cfgFile != "" {
+		// Use config file from the flag.
+		viper.SetConfigFile(cfgFile)
+		// If a config file is found, read it in.
+		if err := viper.ReadInConfig(); err == nil {
+			fmt.Fprintln(os.Stderr, "Using config file:", viper.ConfigFileUsed())
 		}
 	}
 
