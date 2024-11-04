@@ -63,5 +63,4 @@ Global Flags:
       --outflat       use output flattened by JSONPath dot notation
   -v, --verbose       turns on additional diagnostic output
 
-
 ---
