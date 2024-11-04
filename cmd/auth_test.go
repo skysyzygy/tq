@@ -4,6 +4,7 @@ import (
 	"os"
 	"testing"
 
+	"github.com/99designs/keyring"
 	"github.com/skysyzygy/tq/tq"
 	"github.com/stretchr/testify/assert"
 )
@@ -50,7 +51,7 @@ func Test_authenticateListCmd(t *testing.T) {
 		authenticateListCmd.Run(authenticateListCmd, nil)
 	})
 
-	assert.Contains(t, string(stdout), "{tessitura.api/basePath user group location }")
+	assert.Contains(t, string(stdout), "tessitura.api/basePath|user|group|location\n")
 	assert.Contains(t, string(stderr), "Warning: parameters ignored")
 }
 
@@ -91,6 +92,8 @@ func Test_authenticateSelectCmd_ExistingFile(t *testing.T) {
 	*username = "user"
 	*usergroup = "group"
 	*location = "location"
+
+	keys.Set(keyring.Item{Key: "tessitura.api/basePath|user|group|location"})
 
 	authenticateSelectCmd.RunE(authenticateSelectCmd, nil)
 	configFile, _ := os.ReadFile("tq.yaml")
