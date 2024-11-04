@@ -159,12 +159,32 @@ go build -o bin/tq .
 </code></pre>
 <p>The build command will create an executable file <code>tq</code> or <code>tq.exe</code> in the <code>bin</code> project directory.</p>
 <h1 id="authentication">🪪 authentication</h1>
-<p>To authenticate with the API server you need to add and select at least one authentication method. </p>
+<p>To authenticate with the API server you need to add one or more authentication methods. The authentication secret will be saved in one of these supported managers:
+- macOS
+  - Keychain
+- Windows 
+  - Credential Manager
+- Unix 
+  - Pass
+- Azure 
+  - Key Vault: enabled as the key manager whenever the environment variable <code>AZURE_KEY_VAULT</code> is present and set to the name of the key vault</p>
 <pre><code class="language-shell">tq auth add --host hostname --user username --group usergroup --location location
 # Password: ******
-
-tq auth sel --host hostname --user username --group usergroup --location location
 </code></pre>
+<p>The <strong>default authentication</strong> can then be selected by: 
+* using the command line
+  <code>shell
+  tq auth sel --host hostname --user username --group usergroup --location location</code>
+* adding a line to the <code>~/.tq</code> config file (which is just what the above command does!):
+  <code>shell
+  login: hostname|username|usergroup|location</code>
+* using an environment variable:
+  <code>export TQ_LOGIN="hostname|username|usergroup|location" 
+  tq get constituents &lt;&lt;&lt; '{"constituentid":"1"}'</code>
+* using an environment variable and Azure Key Vault:
+  <code>export AZURE_KEY_VAULT=my-key-vault
+  export TQ_LOGIN="hostname|username|usergroup|location" 
+  tq get constituents &lt;&lt;&lt; '{"constituentid":"1"}'</code></p>
 <h1 id="recipes">🍳 recipes</h1>
 <p><strong>get constituent info</strong></p>
 <pre><code class="language-shell">tq get constituents &lt;&lt;&lt; '{&quot;constituentid&quot;: &quot;12345&quot;}'
@@ -340,6 +360,6 @@ EOF
 </html>
 
 <!--
-MkDocs version : 1.6.0
-Build Date UTC : 2024-08-15 00:26:22.730136+00:00
+MkDocs version : 1.6.1
+Build Date UTC : 2024-11-04 22:37:16.004799+00:00
 -->
