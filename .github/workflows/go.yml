@@ -14,6 +14,11 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    env: 
+      AZURE_KEY_VAULT: ${{ secrets.AZURE_KEY_VAULT }}
+      AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
 
     steps:
     - uses: actions/checkout@v3

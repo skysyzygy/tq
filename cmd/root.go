@@ -60,20 +60,21 @@ var rootCmd = &cobra.Command{
 		"closure, and batch/concurrent processing so that humans like " +
 		"you can focus on the data and not the intricacies of the API.\n\n" +
 		"tq is basically a high-level API for common tasks in Tessi. "),
-	Version: version,
+	Version:      version,
+	SilenceUsage: true,
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	err := rootCmd.Execute()
-	var out []byte
 	if _tq != nil {
-		out, err = _tq.GetOutput()
+		out, _err := _tq.GetOutput()
+		err = errors.Join(err, _err)
 		if !compact && _tq.OutFmt != "csv" {
 			out = prettify.Pretty(out)
 		}
-		fmt.Println(jsonStyle(string(out), false))
+		fmt.Print(jsonStyle(string(out), false))
 	}
 	if err != nil {
 		if _tq != nil && _tq.Log != nil {
@@ -151,41 +152,49 @@ func init() {
 			"exampleWrapped":    exampleWrapped,
 		})
 
-	keys, _ = keyring.Open(keyring.Config{
-		ServiceName: "tq",
-	})
+	if os.Getenv("AZURE_KEY_VAULT") != "" {
+		var keys_azure auth.Keyring_Azure
+		keys_azure.Connect(os.Getenv("AZURE_KEY_VAULT"))
+		keys = keys_azure
+	} else {
+		keys, _ = keyring.Open(keyring.Config{
+			ServiceName: "tq",
+		})
+	}
 
 }
 
 // initConfig reads in config file and ENV variables if set.
 func initConfig() {
+	if cfgFile == "" {
+		// Find home directory.
+		home, err := os.UserHomeDir()
+		if err == nil {
+			// Search config in home directory with name ".tq" (without extension).
+			viper.AddConfigPath(home)
+			viper.SetConfigType("yaml")
+			viper.SetConfigName(".tq")
+			cfgFile = home + string(os.PathSeparator) + ".tq"
+
+			cfg, err := os.OpenFile(cfgFile, os.O_CREATE|os.O_WRONLY, 0644)
+			cfg.Close()
+			if err != nil {
+				fmt.Fprintln(os.Stderr, "Warning: couldn't access config file")
+			}
+		}
+	}
+
 	if cfgFile != "" {
 		// Use config file from the flag.
 		viper.SetConfigFile(cfgFile)
-	} else {
-		// Find home directory.
-		home, err := os.UserHomeDir()
-		cobra.CheckErr(err)
-
-		// Search config in home directory with name ".tq" (without extension).
-		viper.AddConfigPath(home)
-		viper.SetConfigType("yaml")
-		viper.SetConfigName(".tq")
-		cfgFile = home + string(os.PathSeparator) + ".tq"
+		// If a config file is found, read it in.
+		if err := viper.ReadInConfig(); err == nil {
+			fmt.Fprintln(os.Stderr, "Using config file:", viper.ConfigFileUsed())
+		}
 	}
 
 	viper.AutomaticEnv() // read in environment variables that match
-
-	// If a config file is found, read it in.
-	if err := viper.ReadInConfig(); err == nil {
-		fmt.Fprintln(os.Stderr, "Using config file:", viper.ConfigFileUsed())
-	} else {
-		cfg, err := os.OpenFile(cfgFile, os.O_CREATE|os.O_WRONLY, 0644)
-		cfg.Close()
-		if err != nil {
-			fmt.Fprintln(os.Stderr, "Warning: couldn't access config file")
-		}
-	}
+	viper.SetEnvPrefix("TQ")
 
 	initLog()
 }
@@ -219,6 +228,8 @@ func initTq(cmd *cobra.Command, args []string) (err error) {
 	} else {
 		input = cmd.InOrStdin()
 	}
+
+	viper.SetDefault("login", "localhost|user|group|location")
 
 	a, _err := auth.FromString(viper.GetString("Login"))
 	if _err != nil {

@@ -22,13 +22,41 @@ The build command will create an executable file `tq` or `tq.exe` in the `bin` p
 
 # 🪪 authentication
 
-To authenticate with the API server you need to add and select at least one authentication method. 
+To authenticate with the API server you need to add one or more authentication methods. The authentication secret will be saved in one of these supported managers:
+- macOS
+  - Keychain
+- Windows 
+  - Credential Manager
+- Unix 
+  - Pass
+- Azure 
+  - Key Vault: enabled as the key manager whenever the environment variable `AZURE_KEY_VAULT` is present and set to the name of the key vault
+
 ```shell
 tq auth add --host hostname --user username --group usergroup --location location
 # Password: ******
-
-tq auth sel --host hostname --user username --group usergroup --location location
 ```
+
+The **default authentication** can then be selected by: 
+* using the command line
+  ```shell
+  tq auth sel --host hostname --user username --group usergroup --location location
+  ```
+* adding a line to the `~/.tq` config file (which is just what the above command does!):
+  ```shell
+  login: hostname|username|usergroup|location
+  ```
+* using an environment variable:
+  ```
+  export TQ_LOGIN="hostname|username|usergroup|location" 
+  tq get constituents <<< '{"constituentid":"1"}'
+  ```
+* using an environment variable and Azure Key Vault:
+  ```
+  export AZURE_KEY_VAULT=my-key-vault
+  export TQ_LOGIN="hostname|username|usergroup|location" 
+  tq get constituents <<< '{"constituentid":"1"}'
+  ```
 
 # 🍳 recipes
 
