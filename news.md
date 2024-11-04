@@ -1,3 +1,15 @@
+# v0.3
+
+* Azure Key Vault integration for authentication
+* Environment variable can be used to set credentials
+* Improved error handling and printing
+
+# v0.2.1
+
+* Bux fix for potential ambiguity in some json inputs
+* Bug fix for errors in printing csv
+* Documentation site and updates to generator code
+
 # v0.2
 
 * Flattened JSON inputs / outputs via --inflat and --outflat
