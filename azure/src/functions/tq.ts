@@ -1,21 +1,23 @@
 import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
-import { spawnSync } from 'node:child_process';
+import { spawnSync } from 'child_process';
 import _ from 'lodash';
 
 export async function tq(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
     context.log(`tq processing ${request.method} request for url "${request.url}"`);
     const {object, variant, ...query} = request.params;
     const verb = request.method;
-    var flag = "";
+    let flag = "";
     if (variant != null) {
         flag = "--"+variant;
     }
-     
+
     var tq = spawnSync('bin/tq', ["-c", "--no-highlight", verb, object, flag], 
       {
         encoding: 'utf8', 
         input: JSON.stringify(query),
-        env: _.extend(process.env,{"TQ_LOGIN": request.headers.get("TQ_LOGIN")}),
+        env: _.extend(
+          {"TQ_LOGIN": request.headers.get("TQ_LOGIN")},
+          process.env),
         timeout: 30000
       });
 
