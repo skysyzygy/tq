@@ -1,18 +1,21 @@
 import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
 import { spawnSync } from 'node:child_process';
+import _ from 'lodash';
 
 export async function tq(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
-    context.log(`Http function tq processed request for url "${request.url}"`);
-    const {verb, object, variant, ...query} = request.params;
+    context.log(`tq processing ${request.method} request for url "${request.url}"`);
+    const {object, variant, ...query} = request.params;
+    const verb = request.method;
     var flag = "";
     if (variant != null) {
         flag = "--"+variant;
-    } 
-
+    }
+     
     var tq = spawnSync('bin/tq', ["-c", "--no-highlight", verb, object, flag], 
       {
         encoding: 'utf8', 
         input: JSON.stringify(query),
+        env: _.extend(process.env,{"TQ_LOGIN": request.headers.get("TQ_LOGIN")}),
         timeout: 30000
       });
 
@@ -30,8 +33,8 @@ export async function tq(request: HttpRequest, context: InvocationContext): Prom
 };
 
 app.http('tq', {
-    methods: ['GET', 'POST'],
+    methods: ['GET', 'PUT', 'POST'],
     authLevel: 'anonymous',
-    route: 'tq/{verb:alpha}/{object:alpha}/{variant:alpha?}',
+    route: 'tq/{object:alpha}/{variant:alpha?}',
     handler: tq
 });
