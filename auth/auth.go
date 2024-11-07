@@ -66,7 +66,12 @@ func FromString(str string) (Auth, error) {
 func New(hostname string, username string, usergroup string, location string, password []byte) Auth {
 	// strip protocol from hostname if it exists
 	hostname = regexp.MustCompile("^.+//").ReplaceAllString(hostname, "")
-
+	// sanitize
+	regex := regexp.MustCompile(`\W`)
+	hostname = regex.ReplaceAllString(hostname, "")
+	username = regex.ReplaceAllString(username, "")
+	usergroup = regex.ReplaceAllString(usergroup, "")
+	location = regex.ReplaceAllString(location, "")
 	return Auth{hostname, username, usergroup, location, password}
 }
 

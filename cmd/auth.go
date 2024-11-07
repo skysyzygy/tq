@@ -50,6 +50,18 @@ func (pr stdinPasswordReader) ReadPassword() ([]byte, error) {
 	return io.ReadAll(os.Stdin)
 }
 
+func authFromInput() (a auth.Auth) {
+	if *hostname != "" ||
+		*username != "" ||
+		*usergroup != "" ||
+		*location != "" {
+		a = auth.New(*hostname, *username, *usergroup, *location, nil)
+	} else {
+		a, _ = auth.FromString(viper.GetString("login"))
+	}
+	return
+}
+
 var authenticateAddCmd = &cobra.Command{
 	Use:     "add",
 	Aliases: []string{"a", "add"},
@@ -95,7 +107,7 @@ var authenticateDeleteCmd = &cobra.Command{
 	Aliases: []string{"d", "del", "rm"},
 	Short:   `Delete a Tessitura API authentication method`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		a := auth.New(*hostname, *username, *usergroup, *location, nil)
+		a := authFromInput()
 		return a.Delete(keys)
 	},
 }
@@ -105,7 +117,7 @@ var authenticateSelectCmd = &cobra.Command{
 	Aliases: []string{"s", "sel"},
 	Short:   `Select a Tessitura API authentication method`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		a := auth.New(*hostname, *username, *usergroup, *location, nil)
+		a := authFromInput()
 		err := a.Load(keys)
 		if err != nil {
 			return err
@@ -122,7 +134,7 @@ var authenticateValidateCmd = &cobra.Command{
 	Aliases: []string{"v", "val"},
 	Short:   `Validate a Tessitura API authentication method with the server`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		a := auth.New(*hostname, *username, *usergroup, *location, nil)
+		a := authFromInput()
 		err := a.Load(keys)
 		if err != nil {
 			return err
