@@ -1,5 +1,5 @@
 {
-    "go.testEnvFile": "${workspaceFolder}/secrets.env",
+    "go.testEnvFile": "${workspaceFolder}/.vscode/secrets.env",
     "azureFunctions.deploySubpath": "azure",
     "azureFunctions.postDeployTask": "npm install (functions)",
     "azureFunctions.projectLanguage": "TypeScript",
