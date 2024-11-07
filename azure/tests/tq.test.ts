@@ -1,5 +1,5 @@
 import { HttpRequest, InvocationContext } from "@azure/functions";
-import { tq } from "../src/functions/tq";
+import { tq_verb, tq_auth } from "../src/functions/tq";
 import {test, jest, expect} from '@jest/globals';
 import { spawnSync, SpawnSyncReturns } from 'child_process';
 
@@ -16,7 +16,7 @@ spawnSyncMocked.mockReturnValue(<SpawnSyncReturns<string>>{
 
 
 test('tq gets verb, object and optional variant from the route', () => {
-    tq(new HttpRequest({
+    tq_verb(new HttpRequest({
         url: "https://some.url",
         method: "get",
         params: {
@@ -28,7 +28,7 @@ test('tq gets verb, object and optional variant from the route', () => {
     expect(spawnSyncMocked.mock.calls[0][1]).toContain("GET");
     expect(spawnSyncMocked.mock.calls[0][1]).toContain("object");
 
-    tq(new HttpRequest({
+    tq_verb(new HttpRequest({
         url: "https://some.url",
         method: "post",
         params: {
@@ -48,7 +48,7 @@ test("tq gets TQ_LOGIN env from headers with fallback to the process environment
     spawnSyncMocked.mockClear()    
     process.env.TQ_LOGIN = "process_env";
 
-    tq(new HttpRequest({
+    tq_verb(new HttpRequest({
         url: "https://some.url",
         method: "get",
         params: {
@@ -59,7 +59,7 @@ test("tq gets TQ_LOGIN env from headers with fallback to the process environment
     expect(spawnSyncMocked.mock.calls).toHaveLength(1);
     expect(spawnSyncMocked.mock.calls[0][2]["env"]["TQ_LOGIN"]).toBe("process_env")
 
-    tq(new HttpRequest({
+    tq_verb(new HttpRequest({
         url: "https://some.url",
         method: "get",
         params: {
@@ -83,7 +83,7 @@ test("tq returns output or errors as JSON", async () => {
         signal: null
     });
 
-    var response = await tq(new HttpRequest({
+    var response = await tq_verb(new HttpRequest({
         url: "https://some.url",
         method: "get",
         params: {
@@ -103,7 +103,7 @@ test("tq returns output or errors as JSON", async () => {
         signal: null
     });
 
-    var response = await tq(new HttpRequest({
+    var response = await tq_verb(new HttpRequest({
         url: "https://some.url",
         method: "get",
         params: {
@@ -117,4 +117,18 @@ test("tq returns output or errors as JSON", async () => {
         "status":-1
     });
     expect(response.status).toBe(400);
+})
+
+test("tq_auth does auth validate", () => {
+    spawnSyncMocked.mockClear()
+    tq_auth(new HttpRequest({
+        url: "https://some.url",
+        method: "get",
+        headers: {"TQ_LOGIN": "login_to_validate"}
+    }), new InvocationContext())
+    expect(spawnSyncMocked.mock.calls).toHaveLength(1);
+    expect(spawnSyncMocked.mock.calls[0][1]).toContain("auth");
+    expect(spawnSyncMocked.mock.calls[0][1]).toContain("validate");
+    expect(spawnSyncMocked.mock.calls[0][2]["env"]["TQ_LOGIN"]).toBe("login_to_validate")
+
 })

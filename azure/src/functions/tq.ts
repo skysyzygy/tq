@@ -2,21 +2,18 @@ import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/fu
 import { spawnSync } from 'child_process';
 import _ from 'lodash';
 
-export async function tq(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
-    context.log(`tq processing ${request.method} request for url "${request.url}"`);
-    const {object, variant, ...query} = request.params;
-    const verb = request.method;
-    let flag = "";
-    if (variant != null) {
-        flag = "--"+variant;
-    }
+function log_request(request: HttpRequest, context: InvocationContext) {
+  context.log(`tq processing ${request.method} request for url "${request.url}"`);
+}
 
-    var tq = spawnSync('bin/tq', ["-c", "--no-highlight", verb, object, flag], 
+function tq(args: string[], login?: string, stdin?: string): HttpResponseInit {
+ 
+    var tq = spawnSync('bin/tq', ["-c", "--no-highlight"].concat(args), 
       {
         encoding: 'utf8', 
-        input: JSON.stringify(query),
-        env: _.extend(process.env,
-          {"TQ_LOGIN": request.headers.get("TQ_LOGIN") || process.env.TQ_LOGIN}),
+        input: stdin,
+        env: _.extend(process.env, 
+          {"TQ_LOGIN": login || process.env.TQ_LOGIN}),
         timeout: 30000
       });
 
@@ -33,9 +30,24 @@ export async function tq(request: HttpRequest, context: InvocationContext): Prom
 
 };
 
-app.http('tq', {
-    methods: ['GET', 'PUT', 'POST'],
-    authLevel: 'anonymous',
-    route: 'tq/{object:alpha}/{variant:alpha?}',
-    handler: tq
-});
+
+export async function tq_verb(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
+  log_request(request, context)
+  const {object, variant, ...query} = request.params;
+  const verb = request.method;
+  let flag = "";
+  if (variant != null) {
+      flag = "--"+variant;
+  }
+
+  return tq([verb, object, flag], 
+    request.headers.get("TQ_LOGIN"),
+    JSON.stringify(query)
+  )
+};
+
+export async function tq_auth(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
+  log_request(request, context)
+  return tq(["auth", "validate"], 
+    request.headers.get("TQ_LOGIN"))
+};
