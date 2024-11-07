@@ -15,9 +15,8 @@ export async function tq(request: HttpRequest, context: InvocationContext): Prom
       {
         encoding: 'utf8', 
         input: JSON.stringify(query),
-        env: _.extend(
-          {"TQ_LOGIN": request.headers.get("TQ_LOGIN")},
-          process.env),
+        env: _.extend(process.env,
+          {"TQ_LOGIN": request.headers.get("TQ_LOGIN") || process.env.TQ_LOGIN}),
         timeout: 30000
       });
 
